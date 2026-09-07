@@ -1,0 +1,317 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniIpPolicyAgent": {
+    "name": "juniIpPolicyAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-05 14:58",
+        "description": "Added support for IP route maps configuration."
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-05-01 20:13",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniIpPolicyAgentV1": {
+    "name": "juniIpPolicyAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.22.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the IP Policy component of the JUNOSe SNMP agent.  This\n        version of the IP Policy component was supported in JUNOSe 1.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IP-POLICY-MIB",
+        "includes": [
+          "juniIpAccessListGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpPolicyAgentV2": {
+    "name": "juniIpPolicyAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.22.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the IP Policy component of the JUNOSe SNMP agent.  This\n        version of the IP Policy component was supported in JUNOSe 2.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IP-POLICY-MIB",
+        "includes": [
+          "juniIpAccessListGroup",
+          "juniIpNamedAccessListGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpPolicyAgentV3": {
+    "name": "juniIpPolicyAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.22.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the IP Policy component of the JUNOSe SNMP agent.  This\n        version of the IP Policy component was supported in JUNOSe 3.0 thru 5.0\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IP-POLICY-MIB",
+        "includes": [
+          "juniIpAccessListGroup",
+          "juniIpNamedAccessListGroup",
+          "juniIpAspAccessListGroup",
+          "juniIpPrefixListGroup",
+          "juniIpPrefixTreeGroup",
+          "juniIpCommunityListGroup",
+          "juniIpExtCommunityListGroup",
+          "juniIpRedistributeGroup",
+          "juniIpRouteMapGroup"
+        ],
+        "variations": [
+          {
+            "object": "juniIpAspAccessPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpAspAccessExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpAspAccessRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListGeValue",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListLeValue",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreePolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListExtended",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpDynRedistributeState",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpDynRedistributeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeState",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeRouteMapName",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIpPolicyAgentV4": {
+    "name": "juniIpPolicyAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.22.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the IP Policy component of the JUNOSe SNMP agent.  This\n        version of the IP Policy component is supported in JUNOSe 5.1 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IP-POLICY-MIB",
+        "includes": [
+          "juniIpAccessListGroup",
+          "juniIpNamedAccessListGroup",
+          "juniIpAspAccessListGroup",
+          "juniIpPrefixListGroup",
+          "juniIpPrefixTreeGroup",
+          "juniIpCommunityListGroup",
+          "juniIpExtCommunityListGroup",
+          "juniIpRedistributeGroup",
+          "juniIpRouteMapGroup2"
+        ],
+        "variations": [
+          {
+            "object": "juniIpAspAccessPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpAspAccessExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpAspAccessRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListGeValue",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListLeValue",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreePolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpPrefixTreeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListExtended",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpCommunityListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListPolicy",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListExpression",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpExtCommunityListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpDynRedistributeState",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpDynRedistributeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeState",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeRouteMapName",
+            "access": "read-only"
+          },
+          {
+            "object": "juniIpRedistributeRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-IP-Policy-CONF",
+      "Source digest sha256:9ffd573ee9a6ba8862ef023f7b779257b3660161e0255bfa1211376d304a5e26",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-IP-Policy-CONF"
+  }
+}

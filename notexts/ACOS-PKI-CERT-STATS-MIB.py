@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module ACOS-PKI-CERT-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ACOS-PKI-CERT-STATS-MIB
+# Source digest sha256:eae8f88db02195ccbb2018f26bac66e32cb924463ca622e0e77d8bc6ee376f25
+# Produced by pysmi-2.3.0
+#
+acosSchema, = mibBuilder.importSymbols("A10-AX-MIB", "acosSchema")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, PhysAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "PhysAddress", "TextualConvention")
+pkiCertStatsModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273))
+if mibBuilder.loadTexts: pkiCertStatsModule.setLastUpdated('2007-05-07 13:27')
+if mibBuilder.loadTexts: pkiCertStatsModule.setOrganization('A10 Networks, Inc.')
+certStats = MibIdentifier((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1))
+certStatsOperTable = MibTable((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: certStatsOperTable.setStatus('current')
+certStatsOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ACOS-PKI-CERT-STATS-MIB", "certStatsOperSlotId"))
+if mibBuilder.loadTexts: certStatsOperEntry.setStatus('current')
+certStatsOperSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certStatsOperSlotId.setStatus('current')
+certStatsOperCertCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certStatsOperCertCount.setStatus('current')
+certStatsOperKeyCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certStatsOperKeyCount.setStatus('current')
+certStatsOperCaCertCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certStatsOperCaCertCount.setStatus('current')
+certStatsOperPartition = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 273, 1, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certStatsOperPartition.setStatus('current')
+mibBuilder.exportSymbols("ACOS-PKI-CERT-STATS-MIB", PYSNMP_MODULE_ID=pkiCertStatsModule, certStats=certStats, certStatsOperCaCertCount=certStatsOperCaCertCount, certStatsOperCertCount=certStatsOperCertCount, certStatsOperEntry=certStatsOperEntry, certStatsOperKeyCount=certStatsOperKeyCount, certStatsOperPartition=certStatsOperPartition, certStatsOperSlotId=certStatsOperSlotId, certStatsOperTable=certStatsOperTable, pkiCertStatsModule=pkiCertStatsModule)

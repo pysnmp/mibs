@@ -1,0 +1,3209 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "patton": {
+    "name": "patton",
+    "oid": "1.3.6.1.4.1.1768",
+    "class": "objectidentity"
+  },
+  "smartnode": {
+    "name": "smartnode",
+    "oid": "1.3.6.1.4.1.1768.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1908-12-15 00:00",
+        "description": "Patton Electronics Co. : MIB for SmartNode Products"
+      }
+    ]
+  },
+  "sysinfo": {
+    "name": "sysinfo",
+    "oid": "1.3.6.1.4.1.1768.100.1",
+    "class": "objectidentity"
+  },
+  "admin": {
+    "name": "admin",
+    "oid": "1.3.6.1.4.1.1768.100.2",
+    "class": "objectidentity"
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.1768.100.3",
+    "class": "objectidentity"
+  },
+  "firmware": {
+    "name": "firmware",
+    "oid": "1.3.6.1.4.1.1768.100.5",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.1768.100.4",
+    "class": "objectidentity"
+  },
+  "performance": {
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.1768.100.70",
+    "class": "objectidentity"
+  },
+  "startupConfigUpload": {
+    "name": "startupConfigUpload",
+    "oid": "1.3.6.1.4.1.1768.100.3.1",
+    "class": "objectidentity"
+  },
+  "startupConfigDownload": {
+    "name": "startupConfigDownload",
+    "oid": "1.3.6.1.4.1.1768.100.3.2",
+    "class": "objectidentity"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.1768.100.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRelease": {
+    "name": "hwRelease",
+    "oid": "1.3.6.1.4.1.1768.100.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVersion": {
+    "name": "hwVersion",
+    "oid": "1.3.6.1.4.1.1768.100.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersion": {
+    "name": "swVersion",
+    "oid": "1.3.6.1.4.1.1768.100.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.1768.100.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslSwVersion": {
+    "name": "dslSwVersion",
+    "oid": "1.3.6.1.4.1.1768.100.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uploadExecute": {
+    "name": "uploadExecute",
+    "oid": "1.3.6.1.4.1.1768.100.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 0,
+          "uploadConfiguration": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uploadTftpServerAddress": {
+    "name": "uploadTftpServerAddress",
+    "oid": "1.3.6.1.4.1.1768.100.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uploadTftpServerPort": {
+    "name": "uploadTftpServerPort",
+    "oid": "1.3.6.1.4.1.1768.100.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 69,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uploadTftpServerPath": {
+    "name": "uploadTftpServerPath",
+    "oid": "1.3.6.1.4.1.1768.100.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "uploadStatus": {
+    "name": "uploadStatus",
+    "oid": "1.3.6.1.4.1.1768.100.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "success": 1,
+          "inProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "downloadExecute": {
+    "name": "downloadExecute",
+    "oid": "1.3.6.1.4.1.1768.100.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 0,
+          "downloadConfiguration": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "downloadTftpServerAddress": {
+    "name": "downloadTftpServerAddress",
+    "oid": "1.3.6.1.4.1.1768.100.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "downloadTftpServerPort": {
+    "name": "downloadTftpServerPort",
+    "oid": "1.3.6.1.4.1.1768.100.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 69,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "downloadTftpServerPath": {
+    "name": "downloadTftpServerPath",
+    "oid": "1.3.6.1.4.1.1768.100.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "downloadStatus": {
+    "name": "downloadStatus",
+    "oid": "1.3.6.1.4.1.1768.100.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "success": 1,
+          "inProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "firmwareLoadExecute": {
+    "name": "firmwareLoadExecute",
+    "oid": "1.3.6.1.4.1.1768.100.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 0,
+          "loadFirmware": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "firmwareTftpServerAddress": {
+    "name": "firmwareTftpServerAddress",
+    "oid": "1.3.6.1.4.1.1768.100.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "firmwareTftpServerPort": {
+    "name": "firmwareTftpServerPort",
+    "oid": "1.3.6.1.4.1.1768.100.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 69,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "firmwareTftpServerPath": {
+    "name": "firmwareTftpServerPath",
+    "oid": "1.3.6.1.4.1.1768.100.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "firmwareLoadStatus": {
+    "name": "firmwareLoadStatus",
+    "oid": "1.3.6.1.4.1.1768.100.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "success": 1,
+          "inProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "deviceReload": {
+    "name": "deviceReload",
+    "oid": "1.3.6.1.4.1.1768.100.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 0,
+          "reload": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "saveRunningConfig": {
+    "name": "saveRunningConfig",
+    "oid": "1.3.6.1.4.1.1768.100.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 0,
+          "saveConfiguration": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sn1200": {
+    "name": "sn1200",
+    "oid": "1.3.6.1.4.1.1768.100.4.1",
+    "class": "objectidentity"
+  },
+  "sn1400": {
+    "name": "sn1400",
+    "oid": "1.3.6.1.4.1.1768.100.4.2",
+    "class": "objectidentity"
+  },
+  "sn2300": {
+    "name": "sn2300",
+    "oid": "1.3.6.1.4.1.1768.100.4.3",
+    "class": "objectidentity"
+  },
+  "sn2400": {
+    "name": "sn2400",
+    "oid": "1.3.6.1.4.1.1768.100.4.4",
+    "class": "objectidentity"
+  },
+  "sn4xxx": {
+    "name": "sn4xxx",
+    "oid": "1.3.6.1.4.1.1768.100.4.5",
+    "class": "objectidentity"
+  },
+  "sn4524_sn4834_JS": {
+    "name": "sn4524_sn4834_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.1",
+    "class": "objectidentity"
+  },
+  "sn4522_sn4832_JS": {
+    "name": "sn4522_sn4832_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.2",
+    "class": "objectidentity"
+  },
+  "sn4526_sn4836_JS": {
+    "name": "sn4526_sn4836_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.3",
+    "class": "objectidentity"
+  },
+  "sn4528_sn4838_JS": {
+    "name": "sn4528_sn4838_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.4",
+    "class": "objectidentity"
+  },
+  "sn4112_JS": {
+    "name": "sn4112_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.5",
+    "class": "objectidentity"
+  },
+  "sn4114_JS": {
+    "name": "sn4114_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.6",
+    "class": "objectidentity"
+  },
+  "sn4116_JS": {
+    "name": "sn4116_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.7",
+    "class": "objectidentity"
+  },
+  "sn4118_JS": {
+    "name": "sn4118_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.8",
+    "class": "objectidentity"
+  },
+  "sn4524_sn4834_2JS2JO": {
+    "name": "sn4524_sn4834_2JS2JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.9",
+    "class": "objectidentity"
+  },
+  "sn4526_sn4836_4JS2JO": {
+    "name": "sn4526_sn4836_4JS2JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.10",
+    "class": "objectidentity"
+  },
+  "sn4528_sn4838_4JS4JO": {
+    "name": "sn4528_sn4838_4JS4JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.11",
+    "class": "objectidentity"
+  },
+  "sn4114_2JS2JO": {
+    "name": "sn4114_2JS2JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.12",
+    "class": "objectidentity"
+  },
+  "sn4116_4JS2JO": {
+    "name": "sn4116_4JS2JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.13",
+    "class": "objectidentity"
+  },
+  "sn4118_4JS4JO": {
+    "name": "sn4118_4JS4JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.14",
+    "class": "objectidentity"
+  },
+  "sn4522_sn4832_JO": {
+    "name": "sn4522_sn4832_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.15",
+    "class": "objectidentity"
+  },
+  "sn4524_sn4834_JO": {
+    "name": "sn4524_sn4834_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.16",
+    "class": "objectidentity"
+  },
+  "sn4526_JO": {
+    "name": "sn4526_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.17",
+    "class": "objectidentity"
+  },
+  "sn4528_JO": {
+    "name": "sn4528_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.18",
+    "class": "objectidentity"
+  },
+  "sn4112_JO": {
+    "name": "sn4112_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.19",
+    "class": "objectidentity"
+  },
+  "sn4114_JO": {
+    "name": "sn4114_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.20",
+    "class": "objectidentity"
+  },
+  "sn4116_JO": {
+    "name": "sn4116_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.21",
+    "class": "objectidentity"
+  },
+  "sn4118_JO": {
+    "name": "sn4118_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.22",
+    "class": "objectidentity"
+  },
+  "sn4834_JSA": {
+    "name": "sn4834_JSA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.23",
+    "class": "objectidentity"
+  },
+  "sn4838_JSA": {
+    "name": "sn4838_JSA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.24",
+    "class": "objectidentity"
+  },
+  "sn4838_4JS4JOA": {
+    "name": "sn4838_4JS4JOA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.25",
+    "class": "objectidentity"
+  },
+  "sn4112S_JS": {
+    "name": "sn4112S_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.26",
+    "class": "objectidentity"
+  },
+  "sn4832_JSA": {
+    "name": "sn4832_JSA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.27",
+    "class": "objectidentity"
+  },
+  "sn4834_2JS2JOA": {
+    "name": "sn4834_2JS2JOA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.28",
+    "class": "objectidentity"
+  },
+  "sn4836_JSA": {
+    "name": "sn4836_JSA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.29",
+    "class": "objectidentity"
+  },
+  "sn4836_4JS2JOA": {
+    "name": "sn4836_4JS2JOA",
+    "oid": "1.3.6.1.4.1.1768.100.4.5.30",
+    "class": "objectidentity"
+  },
+  "sn455x": {
+    "name": "sn455x",
+    "oid": "1.3.6.1.4.1.1768.100.4.6",
+    "class": "objectidentity"
+  },
+  "sn4552": {
+    "name": "sn4552",
+    "oid": "1.3.6.1.4.1.1768.100.4.6.1",
+    "class": "objectidentity"
+  },
+  "sn4562": {
+    "name": "sn4562",
+    "oid": "1.3.6.1.4.1.1768.100.4.6.2",
+    "class": "objectidentity"
+  },
+  "sdta": {
+    "name": "sdta",
+    "oid": "1.3.6.1.4.1.1768.100.4.6.3",
+    "class": "objectidentity"
+  },
+  "sn4554": {
+    "name": "sn4554",
+    "oid": "1.3.6.1.4.1.1768.100.4.6.4",
+    "class": "objectidentity"
+  },
+  "sn4564": {
+    "name": "sn4564",
+    "oid": "1.3.6.1.4.1.1768.100.4.6.5",
+    "class": "objectidentity"
+  },
+  "sn49xx_JS": {
+    "name": "sn49xx_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.7",
+    "class": "objectidentity"
+  },
+  "sn4912_JS": {
+    "name": "sn4912_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.7.2",
+    "class": "objectidentity"
+  },
+  "sn4916_JS": {
+    "name": "sn4916_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.7.3",
+    "class": "objectidentity"
+  },
+  "sn4924_JS": {
+    "name": "sn4924_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.7.4",
+    "class": "objectidentity"
+  },
+  "sn4932_JS": {
+    "name": "sn4932_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.7.5",
+    "class": "objectidentity"
+  },
+  "sn28xx": {
+    "name": "sn28xx",
+    "oid": "1.3.6.1.4.1.1768.100.4.8",
+    "class": "objectidentity"
+  },
+  "sn2802": {
+    "name": "sn2802",
+    "oid": "1.3.6.1.4.1.1768.100.4.8.1",
+    "class": "objectidentity"
+  },
+  "sn2805": {
+    "name": "sn2805",
+    "oid": "1.3.6.1.4.1.1768.100.4.8.2",
+    "class": "objectidentity"
+  },
+  "sn2821": {
+    "name": "sn2821",
+    "oid": "1.3.6.1.4.1.1768.100.4.8.3",
+    "class": "objectidentity"
+  },
+  "sn2835": {
+    "name": "sn2835",
+    "oid": "1.3.6.1.4.1.1768.100.4.8.4",
+    "class": "objectidentity"
+  },
+  "sn46xx": {
+    "name": "sn46xx",
+    "oid": "1.3.6.1.4.1.1768.100.4.9",
+    "class": "objectidentity"
+  },
+  "sn4634": {
+    "name": "sn4634",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.1",
+    "class": "objectidentity"
+  },
+  "sn4638": {
+    "name": "sn4638",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.2",
+    "class": "objectidentity"
+  },
+  "sn4654_C": {
+    "name": "sn4654_C",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.3",
+    "class": "objectidentity"
+  },
+  "sn4658_C": {
+    "name": "sn4658_C",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.4",
+    "class": "objectidentity"
+  },
+  "sn4654_D": {
+    "name": "sn4654_D",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.5",
+    "class": "objectidentity"
+  },
+  "sn4658_D": {
+    "name": "sn4658_D",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.6",
+    "class": "objectidentity"
+  },
+  "sn4654_T": {
+    "name": "sn4654_T",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.7",
+    "class": "objectidentity"
+  },
+  "sn4658_T": {
+    "name": "sn4658_T",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.8",
+    "class": "objectidentity"
+  },
+  "sn4654_K": {
+    "name": "sn4654_K",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.9",
+    "class": "objectidentity"
+  },
+  "sn4658_K": {
+    "name": "sn4658_K",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.10",
+    "class": "objectidentity"
+  },
+  "sn4654_AA": {
+    "name": "sn4654_AA",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.11",
+    "class": "objectidentity"
+  },
+  "sn4658_AA": {
+    "name": "sn4658_AA",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.12",
+    "class": "objectidentity"
+  },
+  "sn4654_AB": {
+    "name": "sn4654_AB",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.13",
+    "class": "objectidentity"
+  },
+  "sn4658_AB": {
+    "name": "sn4658_AB",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.14",
+    "class": "objectidentity"
+  },
+  "sn4654_G": {
+    "name": "sn4654_G",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.15",
+    "class": "objectidentity"
+  },
+  "sn4658_G": {
+    "name": "sn4658_G",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.16",
+    "class": "objectidentity"
+  },
+  "sn4654_2GS": {
+    "name": "sn4654_2GS",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.19",
+    "class": "objectidentity"
+  },
+  "sn4658_2GS": {
+    "name": "sn4658_2GS",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.20",
+    "class": "objectidentity"
+  },
+  "sn4654_A": {
+    "name": "sn4654_A",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.21",
+    "class": "objectidentity"
+  },
+  "sn4658_A": {
+    "name": "sn4658_A",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.22",
+    "class": "objectidentity"
+  },
+  "sn4635": {
+    "name": "sn4635",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.101",
+    "class": "objectidentity"
+  },
+  "sn4639": {
+    "name": "sn4639",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.102",
+    "class": "objectidentity"
+  },
+  "sn4655_AA": {
+    "name": "sn4655_AA",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.111",
+    "class": "objectidentity"
+  },
+  "sn4659_AA": {
+    "name": "sn4659_AA",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.112",
+    "class": "objectidentity"
+  },
+  "sn4655_AB": {
+    "name": "sn4655_AB",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.113",
+    "class": "objectidentity"
+  },
+  "sn4659_AB": {
+    "name": "sn4659_AB",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.114",
+    "class": "objectidentity"
+  },
+  "sn4655_G": {
+    "name": "sn4655_G",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.115",
+    "class": "objectidentity"
+  },
+  "sn4659_G": {
+    "name": "sn4659_G",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.116",
+    "class": "objectidentity"
+  },
+  "sn4655_2GS": {
+    "name": "sn4655_2GS",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.119",
+    "class": "objectidentity"
+  },
+  "sn4659_2GS": {
+    "name": "sn4659_2GS",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.120",
+    "class": "objectidentity"
+  },
+  "sn4655_A": {
+    "name": "sn4655_A",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.121",
+    "class": "objectidentity"
+  },
+  "sn4659_A": {
+    "name": "sn4659_A",
+    "oid": "1.3.6.1.4.1.1768.100.4.9.122",
+    "class": "objectidentity"
+  },
+  "sn496x": {
+    "name": "sn496x",
+    "oid": "1.3.6.1.4.1.1768.100.4.10",
+    "class": "objectidentity"
+  },
+  "sn4960_1e15v": {
+    "name": "sn4960_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.1",
+    "class": "objectidentity"
+  },
+  "sn4960_1e24v": {
+    "name": "sn4960_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.2",
+    "class": "objectidentity"
+  },
+  "sn4960_1e30v": {
+    "name": "sn4960_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.3",
+    "class": "objectidentity"
+  },
+  "sn4960_4e15v": {
+    "name": "sn4960_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.4",
+    "class": "objectidentity"
+  },
+  "sn4960_4e24v": {
+    "name": "sn4960_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.5",
+    "class": "objectidentity"
+  },
+  "sn4960_4e30v": {
+    "name": "sn4960_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.6",
+    "class": "objectidentity"
+  },
+  "sn4960_4e48v": {
+    "name": "sn4960_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.7",
+    "class": "objectidentity"
+  },
+  "sn4960_4e60v": {
+    "name": "sn4960_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.8",
+    "class": "objectidentity"
+  },
+  "sn4960_4e96v": {
+    "name": "sn4960_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.9",
+    "class": "objectidentity"
+  },
+  "sn4960_4e120v": {
+    "name": "sn4960_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.10",
+    "class": "objectidentity"
+  },
+  "sn4961_1e15v": {
+    "name": "sn4961_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.11",
+    "class": "objectidentity"
+  },
+  "sn4961_1e24v": {
+    "name": "sn4961_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.12",
+    "class": "objectidentity"
+  },
+  "sn4961_1e30v": {
+    "name": "sn4961_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.13",
+    "class": "objectidentity"
+  },
+  "sn4961_4e15v": {
+    "name": "sn4961_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.14",
+    "class": "objectidentity"
+  },
+  "sn4961_4e24v": {
+    "name": "sn4961_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.15",
+    "class": "objectidentity"
+  },
+  "sn4961_4e30v": {
+    "name": "sn4961_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.16",
+    "class": "objectidentity"
+  },
+  "sn4961_4e48v": {
+    "name": "sn4961_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.17",
+    "class": "objectidentity"
+  },
+  "sn4961_4e60v": {
+    "name": "sn4961_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.18",
+    "class": "objectidentity"
+  },
+  "sn4961_4e96v": {
+    "name": "sn4961_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.19",
+    "class": "objectidentity"
+  },
+  "sn4961_4e120v": {
+    "name": "sn4961_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.20",
+    "class": "objectidentity"
+  },
+  "sn4960_4e30v120": {
+    "name": "sn4960_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.10.21",
+    "class": "objectidentity"
+  },
+  "sn49xx_JO": {
+    "name": "sn49xx_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.11",
+    "class": "objectidentity"
+  },
+  "sn4912_JO": {
+    "name": "sn4912_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.11.2",
+    "class": "objectidentity"
+  },
+  "sn4916_JO": {
+    "name": "sn4916_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.11.3",
+    "class": "objectidentity"
+  },
+  "sn4924_JO": {
+    "name": "sn4924_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.11.4",
+    "class": "objectidentity"
+  },
+  "sn4932_JO": {
+    "name": "sn4932_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.11.5",
+    "class": "objectidentity"
+  },
+  "sn44xx_JS": {
+    "name": "sn44xx_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.12",
+    "class": "objectidentity"
+  },
+  "sn4412_JS": {
+    "name": "sn4412_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.12.2",
+    "class": "objectidentity"
+  },
+  "sn4416_JS": {
+    "name": "sn4416_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.12.3",
+    "class": "objectidentity"
+  },
+  "sn4424_JS": {
+    "name": "sn4424_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.12.4",
+    "class": "objectidentity"
+  },
+  "sn4432_JS": {
+    "name": "sn4432_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.12.5",
+    "class": "objectidentity"
+  },
+  "sn5x00": {
+    "name": "sn5x00",
+    "oid": "1.3.6.1.4.1.1768.100.4.13",
+    "class": "objectidentity"
+  },
+  "sn5200_32b": {
+    "name": "sn5200_32b",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.1",
+    "class": "objectidentity"
+  },
+  "sn5400_16p": {
+    "name": "sn5400_16p",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.2",
+    "class": "objectidentity"
+  },
+  "sn5400_32p": {
+    "name": "sn5400_32p",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.3",
+    "class": "objectidentity"
+  },
+  "sn5400_64p": {
+    "name": "sn5400_64p",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.4",
+    "class": "objectidentity"
+  },
+  "sn5400_128p": {
+    "name": "sn5400_128p",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.5",
+    "class": "objectidentity"
+  },
+  "sn5200_4b": {
+    "name": "sn5200_4b",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.6",
+    "class": "objectidentity"
+  },
+  "sn5221_4bd": {
+    "name": "sn5221_4bd",
+    "oid": "1.3.6.1.4.1.1768.100.4.13.7",
+    "class": "objectidentity"
+  },
+  "sn43xx_JS": {
+    "name": "sn43xx_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.14",
+    "class": "objectidentity"
+  },
+  "sn4312_JS": {
+    "name": "sn4312_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.14.2",
+    "class": "objectidentity"
+  },
+  "sn4316_JS": {
+    "name": "sn4316_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.14.3",
+    "class": "objectidentity"
+  },
+  "sn4324_JS": {
+    "name": "sn4324_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.14.4",
+    "class": "objectidentity"
+  },
+  "sn4332_JS": {
+    "name": "sn4332_JS",
+    "oid": "1.3.6.1.4.1.1768.100.4.14.5",
+    "class": "objectidentity"
+  },
+  "sn495x": {
+    "name": "sn495x",
+    "oid": "1.3.6.1.4.1.1768.100.4.15",
+    "class": "objectidentity"
+  },
+  "sn4950_1e15v": {
+    "name": "sn4950_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.1",
+    "class": "objectidentity"
+  },
+  "sn4950_1e24v": {
+    "name": "sn4950_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.2",
+    "class": "objectidentity"
+  },
+  "sn4950_1e30v": {
+    "name": "sn4950_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.3",
+    "class": "objectidentity"
+  },
+  "sn4950_4e15v": {
+    "name": "sn4950_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.4",
+    "class": "objectidentity"
+  },
+  "sn4950_4e24v": {
+    "name": "sn4950_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.5",
+    "class": "objectidentity"
+  },
+  "sn4950_4e30v": {
+    "name": "sn4950_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.6",
+    "class": "objectidentity"
+  },
+  "sn4950_4e48v": {
+    "name": "sn4950_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.7",
+    "class": "objectidentity"
+  },
+  "sn4950_4e60v": {
+    "name": "sn4950_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.8",
+    "class": "objectidentity"
+  },
+  "sn4950_4e96v": {
+    "name": "sn4950_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.9",
+    "class": "objectidentity"
+  },
+  "sn4950_4e120v": {
+    "name": "sn4950_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.10",
+    "class": "objectidentity"
+  },
+  "sn4951_1e15v": {
+    "name": "sn4951_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.11",
+    "class": "objectidentity"
+  },
+  "sn4951_1e24v": {
+    "name": "sn4951_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.12",
+    "class": "objectidentity"
+  },
+  "sn4951_1e30v": {
+    "name": "sn4951_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.13",
+    "class": "objectidentity"
+  },
+  "sn4951_4e15v": {
+    "name": "sn4951_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.14",
+    "class": "objectidentity"
+  },
+  "sn4951_4e24v": {
+    "name": "sn4951_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.15",
+    "class": "objectidentity"
+  },
+  "sn4951_4e30v": {
+    "name": "sn4951_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.16",
+    "class": "objectidentity"
+  },
+  "sn4951_4e48v": {
+    "name": "sn4951_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.17",
+    "class": "objectidentity"
+  },
+  "sn4951_4e60v": {
+    "name": "sn4951_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.18",
+    "class": "objectidentity"
+  },
+  "sn4951_4e96v": {
+    "name": "sn4951_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.19",
+    "class": "objectidentity"
+  },
+  "sn4951_4e120v": {
+    "name": "sn4951_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.20",
+    "class": "objectidentity"
+  },
+  "sn4950_4e30v120": {
+    "name": "sn4950_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.15.21",
+    "class": "objectidentity"
+  },
+  "sn494x": {
+    "name": "sn494x",
+    "oid": "1.3.6.1.4.1.1768.100.4.16",
+    "class": "objectidentity"
+  },
+  "sn4940_1e15v": {
+    "name": "sn4940_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.1",
+    "class": "objectidentity"
+  },
+  "sn4940_1e24v": {
+    "name": "sn4940_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.2",
+    "class": "objectidentity"
+  },
+  "sn4940_1e30v": {
+    "name": "sn4940_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.3",
+    "class": "objectidentity"
+  },
+  "sn4940_4e15v": {
+    "name": "sn4940_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.4",
+    "class": "objectidentity"
+  },
+  "sn4940_4e24v": {
+    "name": "sn4940_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.5",
+    "class": "objectidentity"
+  },
+  "sn4940_4e30v": {
+    "name": "sn4940_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.6",
+    "class": "objectidentity"
+  },
+  "sn4940_4e48v": {
+    "name": "sn4940_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.7",
+    "class": "objectidentity"
+  },
+  "sn4940_4e60v": {
+    "name": "sn4940_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.8",
+    "class": "objectidentity"
+  },
+  "sn4940_4e96v": {
+    "name": "sn4940_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.9",
+    "class": "objectidentity"
+  },
+  "sn4940_4e120v": {
+    "name": "sn4940_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.10",
+    "class": "objectidentity"
+  },
+  "sn4941_1e15v": {
+    "name": "sn4941_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.11",
+    "class": "objectidentity"
+  },
+  "sn4941_1e24v": {
+    "name": "sn4941_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.12",
+    "class": "objectidentity"
+  },
+  "sn4941_1e30v": {
+    "name": "sn4941_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.13",
+    "class": "objectidentity"
+  },
+  "sn4941_4e15v": {
+    "name": "sn4941_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.14",
+    "class": "objectidentity"
+  },
+  "sn4941_4e24v": {
+    "name": "sn4941_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.15",
+    "class": "objectidentity"
+  },
+  "sn4941_4e30v": {
+    "name": "sn4941_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.16",
+    "class": "objectidentity"
+  },
+  "sn4941_4e48v": {
+    "name": "sn4941_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.17",
+    "class": "objectidentity"
+  },
+  "sn4941_4e60v": {
+    "name": "sn4941_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.18",
+    "class": "objectidentity"
+  },
+  "sn4941_4e96v": {
+    "name": "sn4941_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.19",
+    "class": "objectidentity"
+  },
+  "sn4941_4e120v": {
+    "name": "sn4941_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.20",
+    "class": "objectidentity"
+  },
+  "sn4940_4e30v120": {
+    "name": "sn4940_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.16.21",
+    "class": "objectidentity"
+  },
+  "sn466x": {
+    "name": "sn466x",
+    "oid": "1.3.6.1.4.1.1768.100.4.17",
+    "class": "objectidentity"
+  },
+  "sn4661_2bis4js8v": {
+    "name": "sn4661_2bis4js8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.1",
+    "class": "objectidentity"
+  },
+  "sn4661_2bis2js2jo8v": {
+    "name": "sn4661_2bis2js2jo8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.2",
+    "class": "objectidentity"
+  },
+  "sn4661_4bis4js4jo12v": {
+    "name": "sn4661_4bis4js4jo12v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.3",
+    "class": "objectidentity"
+  },
+  "sn4661_8bis8V": {
+    "name": "sn4661_8bis8V",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.4",
+    "class": "objectidentity"
+  },
+  "sn4660_8bis16V": {
+    "name": "sn4660_8bis16V",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.5",
+    "class": "objectidentity"
+  },
+  "sn4661_4bis4js12v": {
+    "name": "sn4661_4bis4js12v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.6",
+    "class": "objectidentity"
+  },
+  "sn4661_8bis16v": {
+    "name": "sn4661_8bis16v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.7",
+    "class": "objectidentity"
+  },
+  "sn4661_8bis4js24v": {
+    "name": "sn4661_8bis4js24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.8",
+    "class": "objectidentity"
+  },
+  "sn4660_4bis8v": {
+    "name": "sn4660_4bis8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.9",
+    "class": "objectidentity"
+  },
+  "sn4660_4bis2js8v": {
+    "name": "sn4660_4bis2js8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.10",
+    "class": "objectidentity"
+  },
+  "sn4660_4bis8js16v": {
+    "name": "sn4660_4bis8js16v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.11",
+    "class": "objectidentity"
+  },
+  "sn4660_8bis4js16v": {
+    "name": "sn4660_8bis4js16v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.12",
+    "class": "objectidentity"
+  },
+  "sn4660_8bis2js16v": {
+    "name": "sn4660_8bis2js16v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.13",
+    "class": "objectidentity"
+  },
+  "sn4660_4bis4v": {
+    "name": "sn4660_4bis4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.14",
+    "class": "objectidentity"
+  },
+  "sn4661_4bis4v": {
+    "name": "sn4661_4bis4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.15",
+    "class": "objectidentity"
+  },
+  "sn4661_4bis8v": {
+    "name": "sn4661_4bis8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.16",
+    "class": "objectidentity"
+  },
+  "sn4660_8js8v": {
+    "name": "sn4660_8js8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.17",
+    "class": "objectidentity"
+  },
+  "sn4660_4js4v": {
+    "name": "sn4660_4js4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.18",
+    "class": "objectidentity"
+  },
+  "sn4660_4jo4v": {
+    "name": "sn4660_4jo4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.19",
+    "class": "objectidentity"
+  },
+  "sn4660_4js4jo8v": {
+    "name": "sn4660_4js4jo8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.17.20",
+    "class": "objectidentity"
+  },
+  "sn467x": {
+    "name": "sn467x",
+    "oid": "1.3.6.1.4.1.1768.100.4.18",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis4js8v2gs": {
+    "name": "sn4671_2bis4js8v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.1",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js4jo12v2gs": {
+    "name": "sn4671_4bis4js4jo12v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.2",
+    "class": "objectidentity"
+  },
+  "sn4671_8bis16v2gs": {
+    "name": "sn4671_8bis16v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.3",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8js16v2gs": {
+    "name": "sn4671_4bis8js16v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.4",
+    "class": "objectidentity"
+  },
+  "sn4670_2bis4v2gs": {
+    "name": "sn4670_2bis4v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.5",
+    "class": "objectidentity"
+  },
+  "sn4670_2bis2js4v2gs": {
+    "name": "sn4670_2bis2js4v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.6",
+    "class": "objectidentity"
+  },
+  "sn4670_4bis2js8v2gs": {
+    "name": "sn4670_4bis2js8v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.7",
+    "class": "objectidentity"
+  },
+  "sn4670_4bis8v2gs": {
+    "name": "sn4670_4bis8v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.8",
+    "class": "objectidentity"
+  },
+  "sn4670_8bis2js16v2gs": {
+    "name": "sn4670_8bis2js16v2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.9",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js4jo12va": {
+    "name": "sn4671_4bis4js4jo12va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.10",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis2js2jo8Va": {
+    "name": "sn4671_2bis2js2jo8Va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.11",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js12Va": {
+    "name": "sn4671_4bis4js12Va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.12",
+    "class": "objectidentity"
+  },
+  "sn4671_4js4jo8Va": {
+    "name": "sn4671_4js4jo8Va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.13",
+    "class": "objectidentity"
+  },
+  "sn4671_8js8Va": {
+    "name": "sn4671_8js8Va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.14",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8va": {
+    "name": "sn4671_4bis8va",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.15",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis2js2jo8vf": {
+    "name": "sn4671_2bis2js2jo8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.16",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis4js8vf": {
+    "name": "sn4671_2bis4js8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.17",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js12vf": {
+    "name": "sn4671_4bis4js12vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.18",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js4jo12vf": {
+    "name": "sn4671_4bis4js4jo12vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.19",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8js16vf": {
+    "name": "sn4671_4bis8js16vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.20",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8vf": {
+    "name": "sn4671_4bis8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.21",
+    "class": "objectidentity"
+  },
+  "sn4671_8bis16vf": {
+    "name": "sn4671_8bis16vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.22",
+    "class": "objectidentity"
+  },
+  "sn4671_4js4jo8vf": {
+    "name": "sn4671_4js4jo8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.23",
+    "class": "objectidentity"
+  },
+  "sn4671_8js8vf": {
+    "name": "sn4671_8js8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.24",
+    "class": "objectidentity"
+  },
+  "sn4670_8js8vf": {
+    "name": "sn4670_8js8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.25",
+    "class": "objectidentity"
+  },
+  "sn4670_4js4jo8vf": {
+    "name": "sn4670_4js4jo8vf",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.26",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis2js2jo8v2g": {
+    "name": "sn4671_2bis2js2jo8v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.27",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis4js8v2g": {
+    "name": "sn4671_2bis4js8v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.28",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js12v2g": {
+    "name": "sn4671_4bis4js12v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.29",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js4jo12v2g": {
+    "name": "sn4671_4bis4js4jo12v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.30",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8js16v2g": {
+    "name": "sn4671_4bis8js16v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.31",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8v2g": {
+    "name": "sn4671_4bis8v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.32",
+    "class": "objectidentity"
+  },
+  "sn4671_8bis16v2g": {
+    "name": "sn4671_8bis16v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.33",
+    "class": "objectidentity"
+  },
+  "sn4670_4js4jo8v2g": {
+    "name": "sn4670_4js4jo8v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.34",
+    "class": "objectidentity"
+  },
+  "sn4670_8js8v2g": {
+    "name": "sn4670_8js8v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.35",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis2js2jo8v4g": {
+    "name": "sn4671_2bis2js2jo8v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.36",
+    "class": "objectidentity"
+  },
+  "sn4671_2bis4js8v4g": {
+    "name": "sn4671_2bis4js8v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.37",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js12v4g": {
+    "name": "sn4671_4bis4js12v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.38",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis4js4jo12v4g": {
+    "name": "sn4671_4bis4js4jo12v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.39",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8js16v4g": {
+    "name": "sn4671_4bis8js16v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.40",
+    "class": "objectidentity"
+  },
+  "sn4671_4bis8v4g": {
+    "name": "sn4671_4bis8v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.41",
+    "class": "objectidentity"
+  },
+  "sn4671_8bis16v4g": {
+    "name": "sn4671_8bis16v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.42",
+    "class": "objectidentity"
+  },
+  "sn4670_4js4jo8v4g": {
+    "name": "sn4670_4js4jo8v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.43",
+    "class": "objectidentity"
+  },
+  "sn4670_8js8v4g": {
+    "name": "sn4670_8js8v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.18.44",
+    "class": "objectidentity"
+  },
+  "sn_dta": {
+    "name": "sn_dta",
+    "oid": "1.3.6.1.4.1.1768.100.4.19",
+    "class": "objectidentity"
+  },
+  "sn_dta_1bis2v": {
+    "name": "sn_dta_1bis2v",
+    "oid": "1.3.6.1.4.1.1768.100.4.19.1",
+    "class": "objectidentity"
+  },
+  "sn_dta_2bis2v": {
+    "name": "sn_dta_2bis2v",
+    "oid": "1.3.6.1.4.1.1768.100.4.19.2",
+    "class": "objectidentity"
+  },
+  "sn_dta_2bis4v": {
+    "name": "sn_dta_2bis4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.19.3",
+    "class": "objectidentity"
+  },
+  "sn_dta_2bis4vhp": {
+    "name": "sn_dta_2bis4vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.19.4",
+    "class": "objectidentity"
+  },
+  "sn4120": {
+    "name": "sn4120",
+    "oid": "1.3.6.1.4.1.1768.100.4.20",
+    "class": "objectidentity"
+  },
+  "sn4120_1bis2v": {
+    "name": "sn4120_1bis2v",
+    "oid": "1.3.6.1.4.1.1768.100.4.20.1",
+    "class": "objectidentity"
+  },
+  "sn4120_2bis4v": {
+    "name": "sn4120_2bis4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.20.2",
+    "class": "objectidentity"
+  },
+  "sn499x": {
+    "name": "sn499x",
+    "oid": "1.3.6.1.4.1.1768.100.4.21",
+    "class": "objectidentity"
+  },
+  "sn4990_1e15v": {
+    "name": "sn4990_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.1",
+    "class": "objectidentity"
+  },
+  "sn4990_1e24v": {
+    "name": "sn4990_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.2",
+    "class": "objectidentity"
+  },
+  "sn4990_1e30v": {
+    "name": "sn4990_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.3",
+    "class": "objectidentity"
+  },
+  "sn4990_4e15v": {
+    "name": "sn4990_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.4",
+    "class": "objectidentity"
+  },
+  "sn4990_4e24v": {
+    "name": "sn4990_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.5",
+    "class": "objectidentity"
+  },
+  "sn4990_4e30v": {
+    "name": "sn4990_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.6",
+    "class": "objectidentity"
+  },
+  "sn4990_4e48v": {
+    "name": "sn4990_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.7",
+    "class": "objectidentity"
+  },
+  "sn4990_4e60v": {
+    "name": "sn4990_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.8",
+    "class": "objectidentity"
+  },
+  "sn4990_4e96v": {
+    "name": "sn4990_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.9",
+    "class": "objectidentity"
+  },
+  "sn4990_4e120v": {
+    "name": "sn4990_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.10",
+    "class": "objectidentity"
+  },
+  "sn4991_1e15v": {
+    "name": "sn4991_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.11",
+    "class": "objectidentity"
+  },
+  "sn4991_1e24v": {
+    "name": "sn4991_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.12",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30v": {
+    "name": "sn4991_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.13",
+    "class": "objectidentity"
+  },
+  "sn4991_4e15v": {
+    "name": "sn4991_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.14",
+    "class": "objectidentity"
+  },
+  "sn4991_4e24v": {
+    "name": "sn4991_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.15",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v": {
+    "name": "sn4991_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.16",
+    "class": "objectidentity"
+  },
+  "sn4991_4e48v": {
+    "name": "sn4991_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.17",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60v": {
+    "name": "sn4991_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.18",
+    "class": "objectidentity"
+  },
+  "sn4991_4e96v": {
+    "name": "sn4991_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.19",
+    "class": "objectidentity"
+  },
+  "sn4991_4e120v": {
+    "name": "sn4991_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.20",
+    "class": "objectidentity"
+  },
+  "sn4990_4e30v120": {
+    "name": "sn4990_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.21",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v120": {
+    "name": "sn4991_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.22",
+    "class": "objectidentity"
+  },
+  "sn4991_1e15vrf": {
+    "name": "sn4991_1e15vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.23",
+    "class": "objectidentity"
+  },
+  "sn4991_1e24vrf": {
+    "name": "sn4991_1e24vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.24",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30vrf": {
+    "name": "sn4991_1e30vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.25",
+    "class": "objectidentity"
+  },
+  "sn4991_4e15vrf": {
+    "name": "sn4991_4e15vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.26",
+    "class": "objectidentity"
+  },
+  "sn4991_4e24vrf": {
+    "name": "sn4991_4e24vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.27",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vrf": {
+    "name": "sn4991_4e30vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.28",
+    "class": "objectidentity"
+  },
+  "sn4991_4e48vrf": {
+    "name": "sn4991_4e48vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.29",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vrf": {
+    "name": "sn4991_4e60vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.30",
+    "class": "objectidentity"
+  },
+  "sn4991_4e96vrf": {
+    "name": "sn4991_4e96vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.31",
+    "class": "objectidentity"
+  },
+  "sn4991_4e120vrf": {
+    "name": "sn4991_4e120vrf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.32",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v120rf": {
+    "name": "sn4991_4e30v120rf",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.33",
+    "class": "objectidentity"
+  },
+  "sn4991_1e15va": {
+    "name": "sn4991_1e15va",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.34",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30va": {
+    "name": "sn4991_1e30va",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.35",
+    "class": "objectidentity"
+  },
+  "sn4991_4e15vra": {
+    "name": "sn4991_4e15vra",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.36",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vra": {
+    "name": "sn4991_4e30vra",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.37",
+    "class": "objectidentity"
+  },
+  "sn4991_1e15v2g": {
+    "name": "sn4991_1e15v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.38",
+    "class": "objectidentity"
+  },
+  "sn4991_1e24v2g": {
+    "name": "sn4991_1e24v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.39",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30v2g": {
+    "name": "sn4991_1e30v2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.40",
+    "class": "objectidentity"
+  },
+  "sn4991_4e15vr2g": {
+    "name": "sn4991_4e15vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.41",
+    "class": "objectidentity"
+  },
+  "sn4991_4e24vr2g": {
+    "name": "sn4991_4e24vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.42",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vr2g": {
+    "name": "sn4991_4e30vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.43",
+    "class": "objectidentity"
+  },
+  "sn4991_4e48vr2g": {
+    "name": "sn4991_4e48vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.44",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vr2g": {
+    "name": "sn4991_4e60vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.45",
+    "class": "objectidentity"
+  },
+  "sn4991_4e96vr2g": {
+    "name": "sn4991_4e96vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.46",
+    "class": "objectidentity"
+  },
+  "sn4991_4e120vr2g": {
+    "name": "sn4991_4e120vr2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.47",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v120r2g": {
+    "name": "sn4991_4e30v120r2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.48",
+    "class": "objectidentity"
+  },
+  "sn4991_1e15v4g": {
+    "name": "sn4991_1e15v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.49",
+    "class": "objectidentity"
+  },
+  "sn4991_1e24v4g": {
+    "name": "sn4991_1e24v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.50",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30v4g": {
+    "name": "sn4991_1e30v4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.51",
+    "class": "objectidentity"
+  },
+  "sn4991_4e15vr4g": {
+    "name": "sn4991_4e15vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.52",
+    "class": "objectidentity"
+  },
+  "sn4991_4e24vr4g": {
+    "name": "sn4991_4e24vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.53",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vr4g": {
+    "name": "sn4991_4e30vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.54",
+    "class": "objectidentity"
+  },
+  "sn4991_4e48vr4g": {
+    "name": "sn4991_4e48vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.55",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vr4g": {
+    "name": "sn4991_4e60vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.56",
+    "class": "objectidentity"
+  },
+  "sn4991_4e96vr4g": {
+    "name": "sn4991_4e96vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.57",
+    "class": "objectidentity"
+  },
+  "sn4991_4e120vr4g": {
+    "name": "sn4991_4e120vr4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.58",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v120r4g": {
+    "name": "sn4991_4e30v120r4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.59",
+    "class": "objectidentity"
+  },
+  "sn4991_1e24vi": {
+    "name": "sn4991_1e24vi",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.60",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30vi": {
+    "name": "sn4991_1e30vi",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.61",
+    "class": "objectidentity"
+  },
+  "sn4991_4e24vri": {
+    "name": "sn4991_4e24vri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.62",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vri": {
+    "name": "sn4991_4e30vri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.63",
+    "class": "objectidentity"
+  },
+  "sn4991_4e48vri": {
+    "name": "sn4991_4e48vri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.64",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vri": {
+    "name": "sn4991_4e60vri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.65",
+    "class": "objectidentity"
+  },
+  "sn4991_4e96vri": {
+    "name": "sn4991_4e96vri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.66",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30v120ri": {
+    "name": "sn4991_4e30v120ri",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.67",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30vava": {
+    "name": "sn4991_1e30vava",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.68",
+    "class": "objectidentity"
+  },
+  "sn4991_1e30vavb": {
+    "name": "sn4991_1e30vavb",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.69",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vrava": {
+    "name": "sn4991_4e30vrava",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.70",
+    "class": "objectidentity"
+  },
+  "sn4991_4e30vravb": {
+    "name": "sn4991_4e30vravb",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.71",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vrava": {
+    "name": "sn4991_4e60vrava",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.72",
+    "class": "objectidentity"
+  },
+  "sn4991_4e60vravb": {
+    "name": "sn4991_4e60vravb",
+    "oid": "1.3.6.1.4.1.1768.100.4.21.73",
+    "class": "objectidentity"
+  },
+  "sn498x": {
+    "name": "sn498x",
+    "oid": "1.3.6.1.4.1.1768.100.4.22",
+    "class": "objectidentity"
+  },
+  "sn4980_1e15v": {
+    "name": "sn4980_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.1",
+    "class": "objectidentity"
+  },
+  "sn4980_1e24v": {
+    "name": "sn4980_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.2",
+    "class": "objectidentity"
+  },
+  "sn4980_1e30v": {
+    "name": "sn4980_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.3",
+    "class": "objectidentity"
+  },
+  "sn4980_4e15v": {
+    "name": "sn4980_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.4",
+    "class": "objectidentity"
+  },
+  "sn4980_4e24v": {
+    "name": "sn4980_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.5",
+    "class": "objectidentity"
+  },
+  "sn4980_4e30v": {
+    "name": "sn4980_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.6",
+    "class": "objectidentity"
+  },
+  "sn4980_4e48v": {
+    "name": "sn4980_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.7",
+    "class": "objectidentity"
+  },
+  "sn4980_4e60v": {
+    "name": "sn4980_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.8",
+    "class": "objectidentity"
+  },
+  "sn4980_4e96v": {
+    "name": "sn4980_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.9",
+    "class": "objectidentity"
+  },
+  "sn4980_4e120v": {
+    "name": "sn4980_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.10",
+    "class": "objectidentity"
+  },
+  "sn4981_1e15v": {
+    "name": "sn4981_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.11",
+    "class": "objectidentity"
+  },
+  "sn4981_1e24v": {
+    "name": "sn4981_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.12",
+    "class": "objectidentity"
+  },
+  "sn4981_1e30v": {
+    "name": "sn4981_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.13",
+    "class": "objectidentity"
+  },
+  "sn4981_4e15v": {
+    "name": "sn4981_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.14",
+    "class": "objectidentity"
+  },
+  "sn4981_4e24v": {
+    "name": "sn4981_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.15",
+    "class": "objectidentity"
+  },
+  "sn4981_4e30v": {
+    "name": "sn4981_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.16",
+    "class": "objectidentity"
+  },
+  "sn4981_4e48v": {
+    "name": "sn4981_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.17",
+    "class": "objectidentity"
+  },
+  "sn4981_4e60v": {
+    "name": "sn4981_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.18",
+    "class": "objectidentity"
+  },
+  "sn4981_4e96v": {
+    "name": "sn4981_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.19",
+    "class": "objectidentity"
+  },
+  "sn4981_4e120v": {
+    "name": "sn4981_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.20",
+    "class": "objectidentity"
+  },
+  "sn4980_4e30v120": {
+    "name": "sn4980_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.21",
+    "class": "objectidentity"
+  },
+  "sn4981_4e30v120": {
+    "name": "sn4981_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.22.22",
+    "class": "objectidentity"
+  },
+  "sn497x": {
+    "name": "sn497x",
+    "oid": "1.3.6.1.4.1.1768.100.4.23",
+    "class": "objectidentity"
+  },
+  "sn4970_1e15v": {
+    "name": "sn4970_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.1",
+    "class": "objectidentity"
+  },
+  "sn4970_1e24v": {
+    "name": "sn4970_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.2",
+    "class": "objectidentity"
+  },
+  "sn4970_1e30v": {
+    "name": "sn4970_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.3",
+    "class": "objectidentity"
+  },
+  "sn4970_4e15v": {
+    "name": "sn4970_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.4",
+    "class": "objectidentity"
+  },
+  "sn4970_4e24v": {
+    "name": "sn4970_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.5",
+    "class": "objectidentity"
+  },
+  "sn4970_4e30v": {
+    "name": "sn4970_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.6",
+    "class": "objectidentity"
+  },
+  "sn4970_4e48v": {
+    "name": "sn4970_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.7",
+    "class": "objectidentity"
+  },
+  "sn4970_4e60v": {
+    "name": "sn4970_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.8",
+    "class": "objectidentity"
+  },
+  "sn4970_4e96v": {
+    "name": "sn4970_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.9",
+    "class": "objectidentity"
+  },
+  "sn4970_4e120v": {
+    "name": "sn4970_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.10",
+    "class": "objectidentity"
+  },
+  "sn4971_1e15v": {
+    "name": "sn4971_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.11",
+    "class": "objectidentity"
+  },
+  "sn4971_1e24v": {
+    "name": "sn4971_1e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.12",
+    "class": "objectidentity"
+  },
+  "sn4971_1e30v": {
+    "name": "sn4971_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.13",
+    "class": "objectidentity"
+  },
+  "sn4971_4e15v": {
+    "name": "sn4971_4e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.14",
+    "class": "objectidentity"
+  },
+  "sn4971_4e24v": {
+    "name": "sn4971_4e24v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.15",
+    "class": "objectidentity"
+  },
+  "sn4971_4e30v": {
+    "name": "sn4971_4e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.16",
+    "class": "objectidentity"
+  },
+  "sn4971_4e48v": {
+    "name": "sn4971_4e48v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.17",
+    "class": "objectidentity"
+  },
+  "sn4971_4e60v": {
+    "name": "sn4971_4e60v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.18",
+    "class": "objectidentity"
+  },
+  "sn4971_4e96v": {
+    "name": "sn4971_4e96v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.19",
+    "class": "objectidentity"
+  },
+  "sn4971_4e120v": {
+    "name": "sn4971_4e120v",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.20",
+    "class": "objectidentity"
+  },
+  "sn4970_4e30v120": {
+    "name": "sn4970_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.21",
+    "class": "objectidentity"
+  },
+  "sn4971_4e30v120": {
+    "name": "sn4971_4e30v120",
+    "oid": "1.3.6.1.4.1.1768.100.4.23.22",
+    "class": "objectidentity"
+  },
+  "sn54xx": {
+    "name": "sn54xx",
+    "oid": "1.3.6.1.4.1.1768.100.4.24",
+    "class": "objectidentity"
+  },
+  "sn5480_32p": {
+    "name": "sn5480_32p",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.1",
+    "class": "objectidentity"
+  },
+  "sn5480_64p": {
+    "name": "sn5480_64p",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.2",
+    "class": "objectidentity"
+  },
+  "sn5490_32p2gs": {
+    "name": "sn5490_32p2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.3",
+    "class": "objectidentity"
+  },
+  "sn5490_64p2gs": {
+    "name": "sn5490_64p2gs",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.4",
+    "class": "objectidentity"
+  },
+  "sn5490_32pf": {
+    "name": "sn5490_32pf",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.5",
+    "class": "objectidentity"
+  },
+  "sn5490_64pf": {
+    "name": "sn5490_64pf",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.6",
+    "class": "objectidentity"
+  },
+  "sn5480_0p": {
+    "name": "sn5480_0p",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.7",
+    "class": "objectidentity"
+  },
+  "sn5480_16p": {
+    "name": "sn5480_16p",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.8",
+    "class": "objectidentity"
+  },
+  "sn5490_32pd": {
+    "name": "sn5490_32pd",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.9",
+    "class": "objectidentity"
+  },
+  "sn5490_32p2g": {
+    "name": "sn5490_32p2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.10",
+    "class": "objectidentity"
+  },
+  "sn5490_64p2g": {
+    "name": "sn5490_64p2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.11",
+    "class": "objectidentity"
+  },
+  "sn5490_32p4g": {
+    "name": "sn5490_32p4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.12",
+    "class": "objectidentity"
+  },
+  "sn5490_64p4g": {
+    "name": "sn5490_64p4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.24.13",
+    "class": "objectidentity"
+  },
+  "sn43xx_JO": {
+    "name": "sn43xx_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.25",
+    "class": "objectidentity"
+  },
+  "sn4312_JO": {
+    "name": "sn4312_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.25.2",
+    "class": "objectidentity"
+  },
+  "sn4316_JO": {
+    "name": "sn4316_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.25.3",
+    "class": "objectidentity"
+  },
+  "sn4324_JO": {
+    "name": "sn4324_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.25.4",
+    "class": "objectidentity"
+  },
+  "sn4332_JO": {
+    "name": "sn4332_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.25.5",
+    "class": "objectidentity"
+  },
+  "sn44xx_JO": {
+    "name": "sn44xx_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.26",
+    "class": "objectidentity"
+  },
+  "sn4412_JO": {
+    "name": "sn4412_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.26.2",
+    "class": "objectidentity"
+  },
+  "sn4416_JO": {
+    "name": "sn4416_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.26.3",
+    "class": "objectidentity"
+  },
+  "sn4424_JO": {
+    "name": "sn4424_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.26.4",
+    "class": "objectidentity"
+  },
+  "sn4432_JO": {
+    "name": "sn4432_JO",
+    "oid": "1.3.6.1.4.1.1768.100.4.26.5",
+    "class": "objectidentity"
+  },
+  "sn5300": {
+    "name": "sn5300",
+    "oid": "1.3.6.1.4.1.1768.100.4.27",
+    "class": "objectidentity"
+  },
+  "sn5300_4b": {
+    "name": "sn5300_4b",
+    "oid": "1.3.6.1.4.1.1768.100.4.27.1",
+    "class": "objectidentity"
+  },
+  "sn5300_4b1g": {
+    "name": "sn5300_4b1g",
+    "oid": "1.3.6.1.4.1.1768.100.4.27.2",
+    "class": "objectidentity"
+  },
+  "sn5300_4b2g": {
+    "name": "sn5300_4b2g",
+    "oid": "1.3.6.1.4.1.1768.100.4.27.3",
+    "class": "objectidentity"
+  },
+  "sn5300_4b4g": {
+    "name": "sn5300_4b4g",
+    "oid": "1.3.6.1.4.1.1768.100.4.27.4",
+    "class": "objectidentity"
+  },
+  "hydraDevelopmentBoard": {
+    "name": "hydraDevelopmentBoard",
+    "oid": "1.3.6.1.4.1.1768.100.4.28",
+    "class": "objectidentity"
+  },
+  "hydra_breadboard": {
+    "name": "hydra_breadboard",
+    "oid": "1.3.6.1.4.1.1768.100.4.28.1",
+    "class": "objectidentity"
+  },
+  "hydra_brassboard_bri": {
+    "name": "hydra_brassboard_bri",
+    "oid": "1.3.6.1.4.1.1768.100.4.28.2",
+    "class": "objectidentity"
+  },
+  "hydra_brassboard_pri": {
+    "name": "hydra_brassboard_pri",
+    "oid": "1.3.6.1.4.1.1768.100.4.28.3",
+    "class": "objectidentity"
+  },
+  "hydra_breadboard_fxs": {
+    "name": "hydra_breadboard_fxs",
+    "oid": "1.3.6.1.4.1.1768.100.4.28.4",
+    "class": "objectidentity"
+  },
+  "sn4130": {
+    "name": "sn4130",
+    "oid": "1.3.6.1.4.1.1768.100.4.29",
+    "class": "objectidentity"
+  },
+  "sn4130_2bis4v": {
+    "name": "sn4130_2bis4v",
+    "oid": "1.3.6.1.4.1.1768.100.4.29.1",
+    "class": "objectidentity"
+  },
+  "sn4130_2bis4vhpc": {
+    "name": "sn4130_2bis4vhpc",
+    "oid": "1.3.6.1.4.1.1768.100.4.29.2",
+    "class": "objectidentity"
+  },
+  "sn4130_4bis8v": {
+    "name": "sn4130_4bis8v",
+    "oid": "1.3.6.1.4.1.1768.100.4.29.3",
+    "class": "objectidentity"
+  },
+  "sn4130_4bis8vhpc": {
+    "name": "sn4130_4bis8vhpc",
+    "oid": "1.3.6.1.4.1.1768.100.4.29.4",
+    "class": "objectidentity"
+  },
+  "sn5530": {
+    "name": "sn5530",
+    "oid": "1.3.6.1.4.1.1768.100.4.30",
+    "class": "objectidentity"
+  },
+  "sn5530_2bis4vrhpc": {
+    "name": "sn5530_2bis4vrhpc",
+    "oid": "1.3.6.1.4.1.1768.100.4.30.1",
+    "class": "objectidentity"
+  },
+  "sn5530_4bis8vr": {
+    "name": "sn5530_4bis8vr",
+    "oid": "1.3.6.1.4.1.1768.100.4.30.2",
+    "class": "objectidentity"
+  },
+  "sn5530_4bis8vrhpc": {
+    "name": "sn5530_4bis8vrhpc",
+    "oid": "1.3.6.1.4.1.1768.100.4.30.3",
+    "class": "objectidentity"
+  },
+  "sn4170": {
+    "name": "sn4170",
+    "oid": "1.3.6.1.4.1.1768.100.4.31",
+    "class": "objectidentity"
+  },
+  "sn4170_1e15v": {
+    "name": "sn4170_1e15v",
+    "oid": "1.3.6.1.4.1.1768.100.4.31.1",
+    "class": "objectidentity"
+  },
+  "sn4170_1e15vhp": {
+    "name": "sn4170_1e15vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.31.2",
+    "class": "objectidentity"
+  },
+  "sn4170_1e30v": {
+    "name": "sn4170_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.31.3",
+    "class": "objectidentity"
+  },
+  "sn4170_1e30vhp": {
+    "name": "sn4170_1e30vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.31.4",
+    "class": "objectidentity"
+  },
+  "sn5570": {
+    "name": "sn5570",
+    "oid": "1.3.6.1.4.1.1768.100.4.32",
+    "class": "objectidentity"
+  },
+  "sn5570_1e30v": {
+    "name": "sn5570_1e30v",
+    "oid": "1.3.6.1.4.1.1768.100.4.32.1",
+    "class": "objectidentity"
+  },
+  "sn5570_1e30vhp": {
+    "name": "sn5570_1e30vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.32.2",
+    "class": "objectidentity"
+  },
+  "sn5570_2e30vr": {
+    "name": "sn5570_2e30vr",
+    "oid": "1.3.6.1.4.1.1768.100.4.32.3",
+    "class": "objectidentity"
+  },
+  "sn5570_2e30vrhp": {
+    "name": "sn5570_2e30vrhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.32.4",
+    "class": "objectidentity"
+  },
+  "sn5570_1e15vhp": {
+    "name": "sn5570_1e15vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.32.5",
+    "class": "objectidentity"
+  },
+  "sn4140": {
+    "name": "sn4140",
+    "oid": "1.3.6.1.4.1.1768.100.4.33",
+    "class": "objectidentity"
+  },
+  "sn4140_2js": {
+    "name": "sn4140_2js",
+    "oid": "1.3.6.1.4.1.1768.100.4.33.1",
+    "class": "objectidentity"
+  },
+  "sn4140_4js": {
+    "name": "sn4140_4js",
+    "oid": "1.3.6.1.4.1.1768.100.4.33.2",
+    "class": "objectidentity"
+  },
+  "sn4140_8js": {
+    "name": "sn4140_8js",
+    "oid": "1.3.6.1.4.1.1768.100.4.33.3",
+    "class": "objectidentity"
+  },
+  "sn5540": {
+    "name": "sn5540",
+    "oid": "1.3.6.1.4.1.1768.100.4.34",
+    "class": "objectidentity"
+  },
+  "sn5540_2js": {
+    "name": "sn5540_2js",
+    "oid": "1.3.6.1.4.1.1768.100.4.34.1",
+    "class": "objectidentity"
+  },
+  "sn5540_4js": {
+    "name": "sn5540_4js",
+    "oid": "1.3.6.1.4.1.1768.100.4.34.2",
+    "class": "objectidentity"
+  },
+  "sn5540_8js": {
+    "name": "sn5540_8js",
+    "oid": "1.3.6.1.4.1.1768.100.4.34.3",
+    "class": "objectidentity"
+  },
+  "sn415x": {
+    "name": "sn415x",
+    "oid": "1.3.6.1.4.1.1768.100.4.35",
+    "class": "objectidentity"
+  },
+  "sn4151_2bis2js4vhp": {
+    "name": "sn4151_2bis2js4vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.35.1",
+    "class": "objectidentity"
+  },
+  "sn4151_4bis4js8vhp": {
+    "name": "sn4151_4bis4js8vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.35.2",
+    "class": "objectidentity"
+  },
+  "sn555x": {
+    "name": "sn555x",
+    "oid": "1.3.6.1.4.1.1768.100.4.36",
+    "class": "objectidentity"
+  },
+  "sn5551_2bis2js4vhp": {
+    "name": "sn5551_2bis2js4vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.1",
+    "class": "objectidentity"
+  },
+  "sn5551_4bis4js8vhp": {
+    "name": "sn5551_4bis4js8vhp",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.2",
+    "class": "objectidentity"
+  },
+  "sn5551_2bis2js4vhpava": {
+    "name": "sn5551_2bis2js4vhpava",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.3",
+    "class": "objectidentity"
+  },
+  "sn5551_2bis2js4vhpavb": {
+    "name": "sn5551_2bis2js4vhpavb",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.4",
+    "class": "objectidentity"
+  },
+  "sn5551_4bis4js8vhpava": {
+    "name": "sn5551_4bis4js8vhpava",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.5",
+    "class": "objectidentity"
+  },
+  "sn5551_4bis4js8vhpavb": {
+    "name": "sn5551_4bis4js8vhpavb",
+    "oid": "1.3.6.1.4.1.1768.100.4.36.6",
+    "class": "objectidentity"
+  },
+  "sn4141": {
+    "name": "sn4141",
+    "oid": "1.3.6.1.4.1.1768.100.4.37",
+    "class": "objectidentity"
+  },
+  "sn4141_2js": {
+    "name": "sn4141_2js",
+    "oid": "1.3.6.1.4.1.1768.100.4.37.1",
+    "class": "objectidentity"
+  },
+  "sn4141_4js": {
+    "name": "sn4141_4js",
+    "oid": "1.3.6.1.4.1.1768.100.4.37.2",
+    "class": "objectidentity"
+  },
+  "sn4141_8js": {
+    "name": "sn4141_8js",
+    "oid": "1.3.6.1.4.1.1768.100.4.37.3",
+    "class": "objectidentity"
+  },
+  "sn5541": {
+    "name": "sn5541",
+    "oid": "1.3.6.1.4.1.1768.100.4.38",
+    "class": "objectidentity"
+  },
+  "sn5541_2js": {
+    "name": "sn5541_2js",
+    "oid": "1.3.6.1.4.1.1768.100.4.38.1",
+    "class": "objectidentity"
+  },
+  "sn5541_4js": {
+    "name": "sn5541_4js",
+    "oid": "1.3.6.1.4.1.1768.100.4.38.2",
+    "class": "objectidentity"
+  },
+  "sn5541_8js": {
+    "name": "sn5541_8js",
+    "oid": "1.3.6.1.4.1.1768.100.4.38.3",
+    "class": "objectidentity"
+  },
+  "vSN": {
+    "name": "vSN",
+    "oid": "1.3.6.1.4.1.1768.100.4.39",
+    "class": "objectidentity"
+  },
+  "vSBC": {
+    "name": "vSBC",
+    "oid": "1.3.6.1.4.1.1768.100.4.39.1",
+    "class": "objectidentity"
+  },
+  "cpu": {
+    "name": "cpu",
+    "oid": "1.3.6.1.4.1.1768.100.70.10",
+    "class": "objectidentity"
+  },
+  "memory": {
+    "name": "memory",
+    "oid": "1.3.6.1.4.1.1768.100.70.20",
+    "class": "objectidentity"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.1768.100.70.30",
+    "class": "objectidentity"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.1768.100.70.40",
+    "class": "objectidentity"
+  },
+  "isdn": {
+    "name": "isdn",
+    "oid": "1.3.6.1.4.1.1768.100.70.50",
+    "class": "objectidentity"
+  },
+  "cpuNumber": {
+    "name": "cpuNumber",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuTable": {
+    "name": "cpuTable",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpuEntry": {
+    "name": "cpuEntry",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMARTNODE-MIB",
+        "object": "cpuDescr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpuDescr": {
+    "name": "cpuDescr",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuWorkloadCurrent": {
+    "name": "cpuWorkloadCurrent",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuWorkload1MinuteAverage": {
+    "name": "cpuWorkload1MinuteAverage",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpuWorkload5MinuteAverage": {
+    "name": "cpuWorkload5MinuteAverage",
+    "oid": "1.3.6.1.4.1.1768.100.70.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memoryPoolNumber": {
+    "name": "memoryPoolNumber",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memoryPoolTable": {
+    "name": "memoryPoolTable",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "memoryPoolEntry": {
+    "name": "memoryPoolEntry",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMARTNODE-MIB",
+        "object": "memDescr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "memDescr": {
+    "name": "memDescr",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memTotalBytes": {
+    "name": "memTotalBytes",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "memAllocatedBytes": {
+    "name": "memAllocatedBytes",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memFreeBytes": {
+    "name": "memFreeBytes",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memLargestFreeBlock": {
+    "name": "memLargestFreeBlock",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memAllocatedBlocks": {
+    "name": "memAllocatedBlocks",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "memFreeBlocks": {
+    "name": "memFreeBlocks",
+    "oid": "1.3.6.1.4.1.1768.100.70.20.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempProbeNumber": {
+    "name": "tempProbeNumber",
+    "oid": "1.3.6.1.4.1.1768.100.70.30.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempProbeTable": {
+    "name": "tempProbeTable",
+    "oid": "1.3.6.1.4.1.1768.100.70.30.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tempProbeEntry": {
+    "name": "tempProbeEntry",
+    "oid": "1.3.6.1.4.1.1768.100.70.30.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMARTNODE-MIB",
+        "object": "tempProbeDescr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tempProbeDescr": {
+    "name": "tempProbeDescr",
+    "oid": "1.3.6.1.4.1.1768.100.70.30.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "currentDegreesCelsius": {
+    "name": "currentDegreesCelsius",
+    "oid": "1.3.6.1.4.1.1768.100.70.30.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gwNumber": {
+    "name": "gwNumber",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gwTable": {
+    "name": "gwTable",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "gwEntry": {
+    "name": "gwEntry",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMARTNODE-MIB",
+        "object": "gwDescr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "gwDescr": {
+    "name": "gwDescr",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gwCurrentConnectedCalls": {
+    "name": "gwCurrentConnectedCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gwCurrentOngoingCalls": {
+    "name": "gwCurrentOngoingCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gwTotalAccumulatedCalls": {
+    "name": "gwTotalAccumulatedCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.40.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "isdnPortNumber": {
+    "name": "isdnPortNumber",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "isdnPortTable": {
+    "name": "isdnPortTable",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "isdnPortEntry": {
+    "name": "isdnPortEntry",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SMARTNODE-MIB",
+        "object": "isdnPortDescr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "isdnPortDescr": {
+    "name": "isdnPortDescr",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "isdnPortCurrentConnectedCalls": {
+    "name": "isdnPortCurrentConnectedCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "isdnPortCurrentOngoingCalls": {
+    "name": "isdnPortCurrentOngoingCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "isdnPortTotalAccumulatedCalls": {
+    "name": "isdnPortTotalAccumulatedCalls",
+    "oid": "1.3.6.1.4.1.1768.100.70.50.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SMARTNODE-MIB",
+      "Source digest sha256:46a600525468d487bcbeea13dd0776f7fb55ab0c76f553f2d5bfa8d7a859e453",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SMARTNODE-MIB"
+  }
+}

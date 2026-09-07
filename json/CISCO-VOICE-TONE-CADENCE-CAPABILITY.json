@@ -1,0 +1,124 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceToneCadenceCapability": {
+    "name": "ciscoVoiceToneCadenceCapability",
+    "oid": "1.3.6.1.4.1.9.7.387",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cVoiceToneCadenceCapV5R00": {
+    "name": "cVoiceToneCadenceCapV5R00",
+    "oid": "1.3.6.1.4.1.9.7.387.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "includes": [
+          "cvtcToneConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvtcTonePlanVersion",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 9
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvtcProgrammableToneDuration",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 655350
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvtcProgrammableToneStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3,
+                  "permanent": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cvtcToneId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10074
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvtcProgrammableToneRowStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-TONE-CADENCE-CAPABILITY",
+      "Source digest sha256:475a14285f457a73b7e4c08eb73fe79bb0065147cbd94464b710f59ebb215148",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-TONE-CADENCE-CAPABILITY"
+  }
+}

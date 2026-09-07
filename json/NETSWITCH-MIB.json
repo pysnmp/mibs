@@ -1,0 +1,601 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpOpSystem": {
+    "name": "hpOpSystem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1",
+    "class": "objectidentity"
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "hpBuf": {
+    "name": "hpBuf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpMsgBuf": {
+    "name": "hpMsgBuf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpPktBuf": {
+    "name": "hpPktBuf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpMsgBufTable": {
+    "name": "hpMsgBufTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpMsgBufEntry": {
+    "name": "hpMsgBufEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-MIB",
+        "object": "hpMsgBufSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpMsgBufSlotIndex": {
+    "name": "hpMsgBufSlotIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufCorrupted": {
+    "name": "hpMsgBufCorrupted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufFree": {
+    "name": "hpMsgBufFree",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufInit": {
+    "name": "hpMsgBufInit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufMin": {
+    "name": "hpMsgBufMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufMiss": {
+    "name": "hpMsgBufMiss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMsgBufSize": {
+    "name": "hpMsgBufSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufTable": {
+    "name": "hpPktBufTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpPktBufEntry": {
+    "name": "hpPktBufEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-MIB",
+        "object": "hpPktBufSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpPktBufSlotIndex": {
+    "name": "hpPktBufSlotIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufCorrupted": {
+    "name": "hpPktBufCorrupted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufFree": {
+    "name": "hpPktBufFree",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufInit": {
+    "name": "hpPktBufInit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufMin": {
+    "name": "hpPktBufMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufMiss": {
+    "name": "hpPktBufMiss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPktBufSize": {
+    "name": "hpPktBufSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpMem": {
+    "name": "hpMem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpLocalMem": {
+    "name": "hpLocalMem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpGlobalMem": {
+    "name": "hpGlobalMem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "hpLocalMemTable": {
+    "name": "hpLocalMemTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpLocalMemEntry": {
+    "name": "hpLocalMemEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-MIB",
+        "object": "hpLocalMemSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpLocalMemSlotIndex": {
+    "name": "hpLocalMemSlotIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemSlabCnt": {
+    "name": "hpLocalMemSlabCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemFreeSegCnt": {
+    "name": "hpLocalMemFreeSegCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemAllocSegCnt": {
+    "name": "hpLocalMemAllocSegCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemTotalBytes": {
+    "name": "hpLocalMemTotalBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemFreeBytes": {
+    "name": "hpLocalMemFreeBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLocalMemAllocBytes": {
+    "name": "hpLocalMemAllocBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemTable": {
+    "name": "hpGlobalMemTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpGlobalMemEntry": {
+    "name": "hpGlobalMemEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-MIB",
+        "object": "hpGlobalMemSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpGlobalMemSlotIndex": {
+    "name": "hpGlobalMemSlotIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemSlabCnt": {
+    "name": "hpGlobalMemSlabCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemFreeSegCnt": {
+    "name": "hpGlobalMemFreeSegCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemAllocSegCnt": {
+    "name": "hpGlobalMemAllocSegCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemTotalBytes": {
+    "name": "hpGlobalMemTotalBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemFreeBytes": {
+    "name": "hpGlobalMemFreeBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGlobalMemAllocBytes": {
+    "name": "hpGlobalMemAllocBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchOsVersion": {
+    "name": "hpSwitchOsVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchRomVersion": {
+    "name": "hpSwitchRomVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchSmartCardType": {
+    "name": "hpSwitchSmartCardType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "fddi": 2,
+          "atm": 3,
+          "fddiAndATM": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchBaseMACAddress": {
+    "name": "hpSwitchBaseMACAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NETSWITCH-MIB",
+      "Source digest sha256:d3182ef544796d30881d42e6ec3279940680cec9b9313d1d562fe774193db439",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NETSWITCH-MIB"
+  }
+}

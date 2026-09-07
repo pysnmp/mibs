@@ -1,0 +1,1250 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-COMMON-MIB": [
+      "a10Mgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAutonomousSystemNumber",
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axBgpMIB": {
+    "name": "axBgpMIB",
+    "oid": "1.3.6.1.4.1.22610.2.5",
+    "class": "moduleidentity"
+  },
+  "axBgpVersion": {
+    "name": "axBgpVersion",
+    "oid": "1.3.6.1.4.1.22610.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpLocalAs": {
+    "name": "axBgpLocalAs",
+    "oid": "1.3.6.1.4.1.22610.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpIdentifier": {
+    "name": "axBgpIdentifier",
+    "oid": "1.3.6.1.4.1.22610.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerTable": {
+    "name": "axBgpPeerTable",
+    "oid": "1.3.6.1.4.1.22610.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axBgpPeerEntry": {
+    "name": "axBgpPeerEntry",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerType",
+        "implied": 0
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpPeerType": {
+    "name": "axBgpPeerType",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axBgpPeerIdentifier": {
+    "name": "axBgpPeerIdentifier",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerState": {
+    "name": "axBgpPeerState",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerAdminStatus": {
+    "name": "axBgpPeerAdminStatus",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerNegotiatedVersion": {
+    "name": "axBgpPeerNegotiatedVersion",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerLocalAddr": {
+    "name": "axBgpPeerLocalAddr",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerLocalPort": {
+    "name": "axBgpPeerLocalPort",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerRemoteAddr": {
+    "name": "axBgpPeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerRemotePort": {
+    "name": "axBgpPeerRemotePort",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerRemoteAs": {
+    "name": "axBgpPeerRemoteAs",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerInUpdates": {
+    "name": "axBgpPeerInUpdates",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerOutUpdates": {
+    "name": "axBgpPeerOutUpdates",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerInTotalMessages": {
+    "name": "axBgpPeerInTotalMessages",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerOutTotalMessages": {
+    "name": "axBgpPeerOutTotalMessages",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerLastError": {
+    "name": "axBgpPeerLastError",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerFsmEstablishedTransitions": {
+    "name": "axBgpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerFsmEstablishedTime": {
+    "name": "axBgpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerConnectRetryInterval": {
+    "name": "axBgpPeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerHoldTime": {
+    "name": "axBgpPeerHoldTime",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerKeepAlive": {
+    "name": "axBgpPeerKeepAlive",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerHoldTimeConfigured": {
+    "name": "axBgpPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerKeepAliveConfigured": {
+    "name": "axBgpPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerMinASOriginationInterval": {
+    "name": "axBgpPeerMinASOriginationInterval",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerMinRouteAdvertisementInterval": {
+    "name": "axBgpPeerMinRouteAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerInUpdateElapsedTime": {
+    "name": "axBgpPeerInUpdateElapsedTime",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerMaxPrefixLimit": {
+    "name": "axBgpPeerMaxPrefixLimit",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPeerThreshold": {
+    "name": "axBgpPeerThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.5.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrTable": {
+    "name": "axBgpPathAttrTable",
+    "oid": "1.3.6.1.4.1.22610.2.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axBgpPathAttrEntry": {
+    "name": "axBgpPathAttrEntry",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrPeerType",
+        "implied": 0
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrPeer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpPathAttrIpAddrType": {
+    "name": "axBgpPathAttrIpAddrType",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axBgpPathAttrPeerType": {
+    "name": "axBgpPathAttrPeerType",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axBgpPathAttrPeer": {
+    "name": "axBgpPathAttrPeer",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrIpAddrPrefixLen": {
+    "name": "axBgpPathAttrIpAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrIpAddrPrefix": {
+    "name": "axBgpPathAttrIpAddrPrefix",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrOrigin": {
+    "name": "axBgpPathAttrOrigin",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrASPathSegment": {
+    "name": "axBgpPathAttrASPathSegment",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrNextHopType": {
+    "name": "axBgpPathAttrNextHopType",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrNextHop": {
+    "name": "axBgpPathAttrNextHop",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrMultiExitDisc": {
+    "name": "axBgpPathAttrMultiExitDisc",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrLocalPref": {
+    "name": "axBgpPathAttrLocalPref",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrAtomicAggregate": {
+    "name": "axBgpPathAttrAtomicAggregate",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessSpecificRouteNotSelected": 1,
+          "lessSpecificRouteSelected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrAggregatorAS": {
+    "name": "axBgpPathAttrAggregatorAS",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrAggregatorAddr": {
+    "name": "axBgpPathAttrAggregatorAddr",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrCalcLocalPref": {
+    "name": "axBgpPathAttrCalcLocalPref",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrBest": {
+    "name": "axBgpPathAttrBest",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpPathAttrUnknown": {
+    "name": "axBgpPathAttrUnknown",
+    "oid": "1.3.6.1.4.1.22610.2.5.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axBgpNotification": {
+    "name": "axBgpNotification",
+    "oid": "1.3.6.1.4.1.22610.2.5.0",
+    "class": "objectidentity"
+  },
+  "axBgpEstablishedNotification": {
+    "name": "axBgpEstablishedNotification",
+    "oid": "1.3.6.1.4.1.22610.2.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerLastError"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpBackwardTransNotification": {
+    "name": "axBgpBackwardTransNotification",
+    "oid": "1.3.6.1.4.1.22610.2.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerLastError"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpPrefixThresholdExceededNotification": {
+    "name": "axBgpPrefixThresholdExceededNotification",
+    "oid": "1.3.6.1.4.1.22610.2.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerMaxPrefixLimit"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpPrefixThresholdClearNotification": {
+    "name": "axBgpPrefixThresholdClearNotification",
+    "oid": "1.3.6.1.4.1.22610.2.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerMaxPrefixLimit"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpMIBConformance": {
+    "name": "axBgpMIBConformance",
+    "oid": "1.3.6.1.4.1.22610.2.5.8",
+    "class": "objectidentity"
+  },
+  "axBgpMIBCompliances": {
+    "name": "axBgpMIBCompliances",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.1",
+    "class": "objectidentity"
+  },
+  "axBgpMIBGroups": {
+    "name": "axBgpMIBGroups",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.2",
+    "class": "objectidentity"
+  },
+  "axBgpMIBCompliance": {
+    "name": "axBgpMIBCompliance",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "axBgpMIBGlobalsGroup",
+        "module": "AX-BGP-MIB"
+      },
+      {
+        "object": "axBgpMIBPeerGroup",
+        "module": "AX-BGP-MIB"
+      },
+      {
+        "object": "axBgpMIBPathAttrGroup",
+        "module": "AX-BGP-MIB"
+      },
+      {
+        "object": "axBgpMIBNotificationGroup",
+        "module": "AX-BGP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpMIBGlobalsGroup": {
+    "name": "axBgpMIBGlobalsGroup",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpVersion"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpLocalAs"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpMIBPeerGroup": {
+    "name": "axBgpMIBPeerGroup",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerType"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerIdentifier"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerState"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerAdminStatus"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerNegotiatedVersion"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerLocalAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerLocalPort"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemotePort"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerRemoteAs"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerInUpdates"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerOutUpdates"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerInTotalMessages"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerOutTotalMessages"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerLastError"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerConnectRetryInterval"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerHoldTime"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerKeepAlive"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerMinASOriginationInterval"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerMinRouteAdvertisementInterval"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerInUpdateElapsedTime"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerMaxPrefixLimit"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPeerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpMIBPathAttrGroup": {
+    "name": "axBgpMIBPathAttrGroup",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrType"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrPeerType"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrPeer"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrPrefixLen"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrIpAddrPrefix"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrOrigin"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrASPathSegment"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrNextHopType"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrNextHop"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrMultiExitDisc"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrLocalPref"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrAtomicAggregate"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrAggregatorAS"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrAggregatorAddr"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrCalcLocalPref"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrBest"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPathAttrUnknown"
+      }
+    ],
+    "status": "current"
+  },
+  "axBgpMIBNotificationGroup": {
+    "name": "axBgpMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.22610.2.5.8.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpEstablishedNotification"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpBackwardTransNotification"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPrefixThresholdExceededNotification"
+      },
+      {
+        "module": "AX-BGP-MIB",
+        "object": "axBgpPrefixThresholdClearNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AX-BGP-MIB",
+      "Source digest sha256:d38460b81962fad0ef4d91c8d1fe6ab97fc2a34df1f53451b9ae1dee5b4653d7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AX-BGP-MIB"
+  }
+}

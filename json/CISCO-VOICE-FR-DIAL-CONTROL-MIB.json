@@ -1,0 +1,192 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DIAL-CONTROL-MIB": [
+      "cCallHistoryIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "CISCO-VOICE-DIAL-CONTROL-MIB": [
+      "CvcGUid"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceFrDialControlMIB": {
+    "name": "ciscoVoiceFrDialControlMIB",
+    "oid": "1.3.6.1.4.1.9.10.36",
+    "class": "moduleidentity"
+  },
+  "cvfrdcMIBObjects": {
+    "name": "cvfrdcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.36.1",
+    "class": "objectidentity"
+  },
+  "cvFrCallHistory": {
+    "name": "cvFrCallHistory",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1",
+    "class": "objectidentity"
+  },
+  "cvFrCallHistoryTable": {
+    "name": "cvFrCallHistoryTable",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvFrCallHistoryEntry": {
+    "name": "cvFrCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvFrCallHistoryConnectionId": {
+    "name": "cvFrCallHistoryConnectionId",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvFrCallHistoryDlci": {
+    "name": "cvFrCallHistoryDlci",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvFrCallHistoryLowerIfName": {
+    "name": "cvFrCallHistoryLowerIfName",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvFrCallHistorySessionTarget": {
+    "name": "cvFrCallHistorySessionTarget",
+    "oid": "1.3.6.1.4.1.9.10.36.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvfrdcMIBConformance": {
+    "name": "cvfrdcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.36.3",
+    "class": "objectidentity"
+  },
+  "cvfrdcMIBCompliances": {
+    "name": "cvfrdcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.36.3.1",
+    "class": "objectidentity"
+  },
+  "cvfrdcMIBGroups": {
+    "name": "cvfrdcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.36.3.2",
+    "class": "objectidentity"
+  },
+  "cvfrdcMIBCompliance": {
+    "name": "cvfrdcMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.36.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvFrCallHistoryGroup",
+        "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvFrCallHistoryGroup": {
+    "name": "cvFrCallHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.10.36.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB",
+        "object": "cvFrCallHistoryConnectionId"
+      },
+      {
+        "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB",
+        "object": "cvFrCallHistoryDlci"
+      },
+      {
+        "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB",
+        "object": "cvFrCallHistoryLowerIfName"
+      },
+      {
+        "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB",
+        "object": "cvFrCallHistorySessionTarget"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-FR-DIAL-CONTROL-MIB",
+      "Source digest sha256:bc61a56d5b0395db85b8240a2f8fe91d0a8d1dffb00bde7350c2ee7d55aa2c57",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-FR-DIAL-CONTROL-MIB"
+  }
+}

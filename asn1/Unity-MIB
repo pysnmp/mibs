@@ -1,0 +1,153 @@
+Unity-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, OBJECT-IDENTITY,
+    enterprises
+        FROM SNMPv2-SMI
+
+    DisplayString, TimeStamp
+        FROM SNMPv2-TC;
+
+-- Definition of EMC MIB OID Tree
+
+-- Unity MIB Module Identity: unity
+
+unity MODULE-IDENTITY
+    LAST-UPDATED "201608260000Z"           -- 26 Aug 2016, midnight
+    ORGANIZATION "EMC Corporation"
+    CONTACT-INFO
+       "EMC Corporation
+        176 South St.
+        Hopkinton, MA 01748
+        USA
+        Tel:   +1.508.435.1000"
+    DESCRIPTION
+        "MIB Definition used in the Unity Product Line:
+         iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).
+         emc(1139).unity(103)"
+    REVISION "201608260000Z"
+    DESCRIPTION
+        "Original release"
+    ::= { emc 103 }
+
+emc OBJECT IDENTIFIER ::= { enterprises 1139  }
+
+-- unity MIB Objects: unityObjects
+
+unityObjects                OBJECT IDENTIFIER ::= { unity 1 }
+
+-- Traps Group
+unityTrap                    OBJECT IDENTIFIER ::= { unityObjects 18 }
+
+
+-- Trap variables
+
+unityTrapVariable OBJECT IDENTIFIER
+    ::= { unityTrap 1 }
+
+unityTrapNode OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+        "This is node/IP address of the system that causes the trap."
+    ::= { unityTrapVariable 1 }
+
+unityTrapComponent OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+        "This is the component that causes the trap."
+    ::= { unityTrapVariable 2 }
+
+unityTrapSymptomID OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+        "This is the symptom ID that causes the trap."
+    ::= { unityTrapVariable 3 }
+
+unityTrapSymptomText OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+        "This is the symptom description for SymptomID."
+    ::= { unityTrapVariable 4 }
+
+unityTrapTimeStamp OBJECT-TYPE
+    SYNTAX TimeStamp
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+        "This is the timestamp of the trap."
+    ::= { unityTrapVariable 5 }
+
+
+-- trap types
+
+unityGenericTrap OBJECT-IDENTITY
+    STATUS current
+    DESCRIPTION
+        "This is the subtree for generic trap from Unity storage system"
+    ::= { unityTrap 2 }
+
+unityGenericTrapEmergency NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when the system is unusable."
+    ::= { unityGenericTrap 0 }
+
+unityGenericTrapAlert NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when action needs to be taken immediately."
+    ::= { unityGenericTrap 1 }
+
+unityGenericTrapCritical NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when the system is in critical condition."
+    ::= { unityGenericTrap 2 }
+
+unityGenericTrapError NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when there is an error in the system."
+    ::= { unityGenericTrap 3 }
+
+unityGenericTrapWarning NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when there is a warning condition in the system."
+    ::= { unityGenericTrap 4 }
+
+unityGenericTrapNotice NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when there is a normal but significant condition in the system."
+    ::= { unityGenericTrap 5 }
+
+unityGenericTrapInformational NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when there is an informational message."
+    ::= { unityGenericTrap 6 }
+
+unityGenericTrapDebug NOTIFICATION-TYPE
+    OBJECTS { unityTrapNode, unityTrapComponent, unityTrapSymptomID, unityTrapSymptomText, unityTrapTimeStamp }
+    STATUS current
+    DESCRIPTION
+        "This trap is generated when there is a debug-level message."
+    ::= { unityGenericTrap 7 }
+
+END

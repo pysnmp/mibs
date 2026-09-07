@@ -1,0 +1,57 @@
+JDSU-SMI-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	enterprises,
+	MODULE-IDENTITY
+		FROM SNMPv2-SMI;
+
+jdsuRoot MODULE-IDENTITY
+	LAST-UPDATED "201006080953Z"
+	ORGANIZATION "JDSU"
+	CONTACT-INFO
+		"For product's contacts please see specific product's MIBs
+		JDS Uniphase Corporation
+		430 N. McCarthy Blvd.
+		Milpitas, CA
+		95035
+		USA"
+	DESCRIPTION
+		"Corporate SMI root MIB"
+	REVISION "201006080953Z"
+	DESCRIPTION
+		"Initial version."
+	REVISION "201401220851Z"
+	DESCRIPTION
+		"Add jdsuOtu."
+	::= { enterprises 35873 }
+
+
+jdsuAccessNetworkTest OBJECT IDENTIFIER 	::= { jdsuRoot 1 }
+
+jdsuCableNetworkTest OBJECT IDENTIFIER 	::= { jdsuRoot 2 }
+
+jdsuDataIPTest OBJECT IDENTIFIER 	::= { jdsuRoot 3 }
+
+jdsuDigitalVideoTest OBJECT IDENTIFIER 	::= { jdsuRoot 4 }
+
+jdsuFiberFieldTestSystems OBJECT IDENTIFIER 	::= { jdsuRoot 5 }
+
+jdsuRemoteFiberTest OBJECT IDENTIFIER 	::= { jdsuFiberFieldTestSystems 1 }
+
+jdsuOnmsi OBJECT IDENTIFIER 	::= { jdsuRemoteFiberTest 1 }
+
+jdsuOtu OBJECT IDENTIFIER 	::= { jdsuRemoteFiberTest 2 }
+
+jdsuLabManufacturingTest OBJECT IDENTIFIER 	::= { jdsuRoot 6 }
+
+jdsuMetroNetworkTest OBJECT IDENTIFIER 	::= { jdsuRoot 7 }
+
+jdsuNetworkEnterpriseTest OBJECT IDENTIFIER 	::= { jdsuRoot 8 }
+
+jdsuServiceAssurance OBJECT IDENTIFIER 	::= { jdsuRoot 9 }
+
+jdsuStorageProtocolTest OBJECT IDENTIFIER 	::= { jdsuRoot 10 }
+
+jdsuWirelessTest OBJECT IDENTIFIER 	::= { jdsuRoot 11 }
+
+END

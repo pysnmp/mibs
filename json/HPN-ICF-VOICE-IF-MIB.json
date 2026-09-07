@@ -1,0 +1,293 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfVoice"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfVoiceInterface": {
+    "name": "hpnicfVoiceInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-10 17:00",
+        "description": "The initial version of this MIB file."
+      }
+    ]
+  },
+  "hpnicfVoiceIfObjects": {
+    "name": "hpnicfVoiceIfObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1",
+    "class": "objectidentity"
+  },
+  "hpnicfVoiceIfConfigTable": {
+    "name": "hpnicfVoiceIfConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVoiceIfConfigEntry": {
+    "name": "hpnicfVoiceIfConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgCngOn": {
+    "name": "hpnicfVoiceIfCfgCngOn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgNonLinearSwitch": {
+    "name": "hpnicfVoiceIfCfgNonLinearSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgInputGain": {
+    "name": "hpnicfVoiceIfCfgInputGain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -140,
+            "max": 139
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgOutputGain": {
+    "name": "hpnicfVoiceIfCfgOutputGain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -140,
+            "max": 139
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgEchoCancelSwitch": {
+    "name": "hpnicfVoiceIfCfgEchoCancelSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgEchoCancelDelay": {
+    "name": "hpnicfVoiceIfCfgEchoCancelDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgTimerDialInterval": {
+    "name": "hpnicfVoiceIfCfgTimerDialInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgTimerFirstDial": {
+    "name": "hpnicfVoiceIfCfgTimerFirstDial",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgPrivateline": {
+    "name": "hpnicfVoiceIfCfgPrivateline",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceIfCfgRegTone": {
+    "name": "hpnicfVoiceIfCfgRegTone",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.39.13.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-VOICE-IF-MIB",
+      "Source digest sha256:43dfd2b13e22937bb5ec5111c3d2084e469c0abbba9344d4aa27687f76f636c1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-VOICE-IF-MIB"
+  }
+}

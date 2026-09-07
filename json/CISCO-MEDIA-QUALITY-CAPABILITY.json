@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMediaQualityCapability": {
+    "name": "ciscoMediaQualityCapability",
+    "oid": "1.3.6.1.4.1.9.7.604",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-09-23 00:00",
+        "description": "Added agent capabilities 'ciscoMediaQualityCapabilityV152R02' for IOS 15.2(2)T."
+      },
+      {
+        "revision": "2011-04-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMediaQualityCapabilityV152R01": {
+    "name": "ciscoMediaQualityCapabilityV152R01",
+    "oid": "1.3.6.1.4.1.9.7.604.1",
+    "class": "agentcapabilities",
+    "productrelease": "OS=IOS\n                     OSVERSION=15.2(1)T\n                     PLATFORM=c29xx,c3925,c3945,c3925E,c3945E\n                     INTERFACE=None",
+    "capabilities": [
+      {
+        "module": "CISCO-MEDIA-QUALITY-MIB",
+        "includes": [
+          "cmqVideoCallActiveGroup",
+          "cmqVideoCallHistoryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMediaQualityCapabilityV152R02": {
+    "name": "ciscoMediaQualityCapabilityV152R02",
+    "oid": "1.3.6.1.4.1.9.7.604.2",
+    "class": "agentcapabilities",
+    "productrelease": "OS=IOS\n                     OSVERSION=15.2(2)T\n                     PLATFORM=c28xx,c3825,c3845,c29xx,c3925,c3945,c3925E,c3945E\n                     INTERFACE=None",
+    "capabilities": [
+      {
+        "module": "CISCO-MEDIA-QUALITY-MIB",
+        "includes": [
+          "cmqVoiceCallActiveGroup",
+          "cmqVoiceCallHistoryGroup",
+          "cmqVideoCallActiveGroup",
+          "cmqVideoCallHistoryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MEDIA-QUALITY-CAPABILITY",
+      "Source digest sha256:440d25ca5bd4db6e1175c4ef4a0c588de9004291e29bb5949bdc5b3a210f65ff",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MEDIA-QUALITY-CAPABILITY"
+  }
+}

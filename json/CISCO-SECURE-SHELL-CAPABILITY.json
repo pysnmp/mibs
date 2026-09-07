@@ -1,0 +1,94 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSecureShellCapability": {
+    "name": "ciscoSecureShellCapability",
+    "oid": "1.3.6.1.4.1.9.7.999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-04-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cSecureShellCapCatOSV08R0401k9": {
+    "name": "cSecureShellCapCatOSV08R0401k9",
+    "oid": "1.3.6.1.4.1.9.7.999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) cryptographic\n                         software with Secure Shell support.",
+    "capabilities": [
+      {
+        "module": "CISCO-SECURE-SHELL-MIB",
+        "includes": [
+          "cssConfigurationGroupRev1",
+          "cssServiceModeCfgGroup",
+          "cssSessionInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "cssServiceActivation",
+            "access": "read-only"
+          },
+          {
+            "object": "cssKeyIndex",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "rsa": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cssKeyRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SECURE-SHELL-CAPABILITY",
+      "Source digest sha256:1a01018218b57a37210af73b2904ff2f89df6886a136c7ffeb814ebdf7223a2d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SECURE-SHELL-CAPABILITY"
+  }
+}

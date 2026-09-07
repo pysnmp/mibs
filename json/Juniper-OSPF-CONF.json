@@ -1,0 +1,172 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniOspfAgent": {
+    "name": "juniOspfAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-12-06 15:12",
+        "description": "New objects were added to the Juniper-OSPF-MIB juniOspfBasicGroup2."
+      },
+      {
+        "revision": "2001-03-29 13:34",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniOspfAgentV1": {
+    "name": "juniOspfAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.28.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the OSPF component of the JUNOSe SNMP agent.  This version\n        of the OSPF component was supported in JUNOSe 2.x and 3.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "OSPF-MIB",
+        "includes": [
+          "ospfBasicGroup",
+          "ospfAreaGroup",
+          "ospfStubAreaGroup",
+          "ospfLsdbGroup",
+          "ospfHostGroup",
+          "ospfIfGroup",
+          "ospfIfMetricGroup",
+          "ospfVirtIfGroup",
+          "ospfNbrGroup",
+          "ospfVirtNbrGroup",
+          "ospfExtLsdbGroup",
+          "ospfAreaAggregateGroup"
+        ]
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "includes": [
+          "ospfTrapControlGroup"
+        ],
+        "variations": [
+          {
+            "object": "ospfConfigErrorType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ospfPacketType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ospfPacketSrc",
+            "access": "accessible-for-notify"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-OSPF-MIB",
+        "includes": [
+          "juniOspfBasicGroup",
+          "juniOspfAreaGroup",
+          "juniOspfIfGroup",
+          "juniOspfVirtIfGroup",
+          "juniOspfNbrGroup",
+          "juniOspfSummImportGroup",
+          "juniOspfMd5IntfGroup",
+          "juniOspfMd5VirtIntfGroup",
+          "juniOspfNetRangeGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniOspfAgentV2": {
+    "name": "juniOspfAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.28.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the OSPF component of the JUNOSe SNMP agent.  This version\n        of the OSPF component is supported in JUNOSe 4.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "OSPF-MIB",
+        "includes": [
+          "ospfBasicGroup",
+          "ospfAreaGroup",
+          "ospfStubAreaGroup",
+          "ospfLsdbGroup",
+          "ospfHostGroup",
+          "ospfIfGroup",
+          "ospfIfMetricGroup",
+          "ospfVirtIfGroup",
+          "ospfNbrGroup",
+          "ospfVirtNbrGroup",
+          "ospfExtLsdbGroup",
+          "ospfAreaAggregateGroup"
+        ]
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "includes": [
+          "ospfTrapControlGroup"
+        ],
+        "variations": [
+          {
+            "object": "ospfConfigErrorType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ospfPacketType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ospfPacketSrc",
+            "access": "accessible-for-notify"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-OSPF-MIB",
+        "includes": [
+          "juniOspfBasicGroup2",
+          "juniOspfAreaGroup",
+          "juniOspfIfGroup",
+          "juniOspfVirtIfGroup",
+          "juniOspfNbrGroup",
+          "juniOspfSummImportGroup",
+          "juniOspfMd5IntfGroup",
+          "juniOspfMd5VirtIntfGroup",
+          "juniOspfNetRangeGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-OSPF-CONF",
+      "Source digest sha256:f6553d85df4e904ebc3881ebc4c469147ec9794f2310a447c587d9cd52ee1d85",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-OSPF-CONF"
+  }
+}

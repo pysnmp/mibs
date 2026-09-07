@@ -1,0 +1,1937 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpXuaCapability": {
+    "name": "ciscoItpXuaCapability",
+    "oid": "1.3.6.1.4.1.9.7.268",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0415SW, ciscoItpXuaCapabilityV12R0218IXE, ciscoItpXuaCapabilityV12R0233IRA capability statements."
+      },
+      {
+        "revision": "2007-09-26 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0411SW capability statement. Corrected several problems with various capability statements as follows. Modified ciscoItpXuaCapabilityV12R0225SW Modified ciscoItpXuaCapabilityV12R0219SW as follows. removed cItpXuaInstOffload removed cItpXuaInstOffloadSlot added cItpXuaSgmRemoteIpType added cItpXuaSgmRemoteIpAddr added cItpXuaSgmRemoteIpRowStatus Update ciscoItpXuaCapabilityV12R0218IXA based on changes to prior capability statements. "
+      },
+      {
+        "revision": "2006-10-05 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0218IXA capability statement."
+      },
+      {
+        "revision": "2004-11-03 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0225SW agent capability statement to support the following changes. Added the following tables. cItpXuaASRouteTable cItpXuaASRouteAsTable Added the following objects. cItpXuaAspAsWeight to cItpXuaAspAsTable cItpXuaAsNetworkAppear to cItpXuaAsTable cItpXuaAsCongLevel to cItpXuaAsTable "
+      },
+      {
+        "revision": "2003-10-15 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0223SW01 agent capability statement to support the following changes. Deprecated the following object. cItpXuaAspAssocId Added the following objects. cItpXuaAsNetworkName cItpXuaAspAssocIdU32"
+      },
+      {
+        "revision": "2003-08-15 00:00",
+        "description": "Added ciscoItpXuaCapabilityV12R0219SW agent capability statement to support the following changes. Added following objects and tables. cItpXuaSgmRemoteIpTable cItpXuaSgmCongLevel cItpXuaAspCongLevel Added following notifications. ciscoItpXuaAspCongChange ciscoItpXuaSgmCongChange"
+      },
+      {
+        "revision": "2002-05-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpXuaCapabilityV12R0204MB5": {
+    "name": "ciscoItpXuaCapabilityV12R0204MB5",
+    "oid": "1.3.6.1.4.1.9.7.268.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB5",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroup",
+          "ciscoItpXuaAspGroup",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspStatsGroup",
+          "ciscoItpXuaAsGroup",
+          "ciscoItpXuaAspAsGroup",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0219SW": {
+    "name": "ciscoItpXuaCapabilityV12R0219SW",
+    "oid": "1.3.6.1.4.1.9.7.268.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(19)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroup",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0223SW01": {
+    "name": "ciscoItpXuaCapabilityV12R0223SW01",
+    "oid": "1.3.6.1.4.1.9.7.268.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(23)SW01",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroup",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0225SW": {
+    "name": "ciscoItpXuaCapabilityV12R0225SW",
+    "oid": "1.3.6.1.4.1.9.7.268.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(25)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0218IXA": {
+    "name": "ciscoItpXuaCapabilityV12R0218IXA",
+    "oid": "1.3.6.1.4.1.9.7.268.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)IXA",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0411SW": {
+    "name": "ciscoItpXuaCapabilityV12R0411SW",
+    "oid": "1.3.6.1.4.1.9.7.268.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(11)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0415SW": {
+    "name": "ciscoItpXuaCapabilityV12R0415SW",
+    "oid": "1.3.6.1.4.1.9.7.268.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(15)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup",
+          "ciscoItpXuaSgmGroupSup1Group",
+          "ciscoItpXuaSgmRemoteIpSup1Group",
+          "ciscoItpXuaAspSup1Group",
+          "ciscoItpXuaAspRemoteIpSup1Group",
+          "ciscoItpXuaNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0218IXE": {
+    "name": "ciscoItpXuaCapabilityV12R0218IXE",
+    "oid": "1.3.6.1.4.1.9.7.268.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)IXE",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup",
+          "ciscoItpXuaSgmGroupSup1Group",
+          "ciscoItpXuaSgmRemoteIpSup1Group",
+          "ciscoItpXuaAspSup1Group",
+          "ciscoItpXuaAspRemoteIpSup1Group",
+          "ciscoItpXuaNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaCapabilityV12R0233IRA": {
+    "name": "ciscoItpXuaCapabilityV12R0233IRA",
+    "oid": "1.3.6.1.4.1.9.7.268.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)IRA",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "includes": [
+          "ciscoItpXuaScalarsGroup",
+          "ciscoItpXuaInstLocalIpGroup",
+          "ciscoItpXuaSgmGroupRev1",
+          "ciscoItpXuaAspRemoteIpGroup",
+          "ciscoItpXuaAspAsGroupRev3",
+          "ciscoItpXuaNotifObjectsGroup",
+          "ciscoItpXuaNotifGroupRev1",
+          "ciscoItpXuaSgmRemoteIpGroup",
+          "ciscoItpXuaInstGroupRev2",
+          "ciscoItpXuaAspGroupRev2",
+          "ciscoItpXuaAsGroupRev3",
+          "ciscoItpXuaAsrGroup",
+          "ciscoItpXuaAsrAsGroup",
+          "ciscoItpXuaSgmGroupSup1Group",
+          "ciscoItpXuaSgmRemoteIpSup1Group",
+          "ciscoItpXuaAspSup1Group",
+          "ciscoItpXuaAspRemoteIpSup1Group",
+          "ciscoItpXuaNotifGroup",
+          "ciscoItpXuaInstGroupSup1Group"
+        ],
+        "variations": [
+          {
+            "object": "cItpXuaInstProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaInstLocalIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmPassive",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspLocalPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemotePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspBlocked",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsQosClass",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsTrafMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkOpcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSi",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkSsn",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkGtt",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMin",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRkCicMax",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsNetworkAppear",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAspAsWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpType",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaSgmRemoteIpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrDpc",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrShut",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cItpXuaAsrAsRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-XUA-CAPABILITY",
+      "Source digest sha256:0671b544ae9082247a91fa920cc2305425e6882aa0de2bca8b53d7ca14b02b0d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-XUA-CAPABILITY"
+  }
+}

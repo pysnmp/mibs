@@ -1,0 +1,1276 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfObjectModules",
+      "hpicfRateLimitTrapsPrefix"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfRateLimitMIB": {
+    "name": "hpicfRateLimitMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-29 11:20",
+        "description": "Deprecated all bps objects for hpEgressRateLimitPortConfigTable and hpIngressRateLimitPortConfigTable, and updated compliance information (including correcting ICMP group to be hpICMPRateLimitPortConfigGroup2)."
+      },
+      {
+        "revision": "2007-07-27 19:20",
+        "description": "Modified enumerated type names for hpICMPRateLimitPortControlMode object."
+      },
+      {
+        "revision": "2007-06-01 11:46",
+        "description": "Deprecated hpICMPRateLimitPortState in favor of new hpICMPRateLimitPortControlMode object."
+      },
+      {
+        "revision": "2007-05-30 16:10",
+        "description": "Added Kbps configuration for ICMP, port-egress, and port-ingress rate-limiting definitions."
+      },
+      {
+        "revision": "2006-07-07 18:33",
+        "description": "Added new egress rate limiting bps objects, and ingress rate-limiting definitions."
+      },
+      {
+        "revision": "2005-04-20 11:30",
+        "description": "Added minimum bandwidth and egress rate limiting definitions."
+      },
+      {
+        "revision": "2004-08-22 10:30",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfRateLimitObjects": {
+    "name": "hpicfRateLimitObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1",
+    "class": "objectidentity"
+  },
+  "hpicfICMPRateLimitObjects": {
+    "name": "hpicfICMPRateLimitObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1",
+    "class": "objectidentity"
+  },
+  "hpICMPRateLimitConfig": {
+    "name": "hpICMPRateLimitConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpICMPRateLimitPortConfigTable": {
+    "name": "hpICMPRateLimitPortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortConfigEntry": {
+    "name": "hpICMPRateLimitPortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpICMPRateLimitPortConfigIndex": {
+    "name": "hpICMPRateLimitPortConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortState": {
+    "name": "hpICMPRateLimitPortState",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpICMPRateLimitPortPrct": {
+    "name": "hpICMPRateLimitPortPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortAlarmFlag": {
+    "name": "hpICMPRateLimitPortAlarmFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "set": 2
+        }
+      }
+    },
+    "default": {
+      "value": "clear",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortKbps": {
+    "name": "hpICMPRateLimitPortKbps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortControlMode": {
+    "name": "hpICMPRateLimitPortControlMode",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "portPrct": 2,
+          "portKbps": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpICMPRateLimitPortNotification": {
+    "name": "hpICMPRateLimitPortNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.12.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitNotifyPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpICMPRateLimitNotifyPortIndex": {
+    "name": "hpICMPRateLimitNotifyPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfBWMinEgressObjects": {
+    "name": "hpicfBWMinEgressObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2",
+    "class": "objectidentity"
+  },
+  "hpBWMinEgressPortConfig": {
+    "name": "hpBWMinEgressPortConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpBWMinEgressPortNumQueues": {
+    "name": "hpBWMinEgressPortNumQueues",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpBWMinEgressPortPrctTable": {
+    "name": "hpBWMinEgressPortPrctTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpBWMinEgressPortPrctEntry": {
+    "name": "hpBWMinEgressPortPrctEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinEgressPortPrctQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpBWMinEgressPortPrctQueue": {
+    "name": "hpBWMinEgressPortPrctQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpBWMinEgressPortPrct": {
+    "name": "hpBWMinEgressPortPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBWMinIngressObjects": {
+    "name": "hpicfBWMinIngressObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3",
+    "class": "objectidentity"
+  },
+  "hpBWMinIngressPortConfig": {
+    "name": "hpBWMinIngressPortConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1",
+    "class": "objectidentity"
+  },
+  "hpBWMinIngressPortNumQueues": {
+    "name": "hpBWMinIngressPortNumQueues",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpBWMinIngressPortPrctTable": {
+    "name": "hpBWMinIngressPortPrctTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpBWMinIngressPortPrctEntry": {
+    "name": "hpBWMinIngressPortPrctEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinIngressPortPrctQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpBWMinIngressPortPrctQueue": {
+    "name": "hpBWMinIngressPortPrctQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpBWMinIngressPortPrct": {
+    "name": "hpBWMinIngressPortPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRateLimitPortObjects": {
+    "name": "hpicfRateLimitPortObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4",
+    "class": "objectidentity"
+  },
+  "hpRateLimitPortConfig": {
+    "name": "hpRateLimitPortConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1",
+    "class": "objectidentity"
+  },
+  "hpEgressRateLimitPortNumQueues": {
+    "name": "hpEgressRateLimitPortNumQueues",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortConfigTable": {
+    "name": "hpEgressRateLimitPortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortConfigEntry": {
+    "name": "hpEgressRateLimitPortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpEgressRateLimitPortIndex": {
+    "name": "hpEgressRateLimitPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortControlMode": {
+    "name": "hpEgressRateLimitPortControlMode",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "egressRateLimitPerPortOnly": 2,
+          "egressRateLimitPerQueue": 3,
+          "egressRateLimitPerPortOnlyBpsMode": 4,
+          "egressRateLimitPerQueueBpsMode": 5,
+          "egressRateLimitPerPortOnlyKbpsMode": 6
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortSingleControlPrct": {
+    "name": "hpEgressRateLimitPortSingleControlPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortSingleControlBps": {
+    "name": "hpEgressRateLimitPortSingleControlBps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpEgressRateLimitPortSingleControlKbps": {
+    "name": "hpEgressRateLimitPortSingleControlKbps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortPrctTable": {
+    "name": "hpEgressRateLimitPortPrctTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortPrctEntry": {
+    "name": "hpEgressRateLimitPortPrctEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortPrctQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpEgressRateLimitPortPrctQueue": {
+    "name": "hpEgressRateLimitPortPrctQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortPrct": {
+    "name": "hpEgressRateLimitPortPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpEgressRateLimitPortBpsTable": {
+    "name": "hpEgressRateLimitPortBpsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpEgressRateLimitPortBpsEntry": {
+    "name": "hpEgressRateLimitPortBpsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortBpsQueue",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpEgressRateLimitPortBpsQueue": {
+    "name": "hpEgressRateLimitPortBpsQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpEgressRateLimitPortBps": {
+    "name": "hpEgressRateLimitPortBps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpicfIngressRateLimitPortObjects": {
+    "name": "hpicfIngressRateLimitPortObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5",
+    "class": "objectidentity"
+  },
+  "hpRateLimitIngressPortConfig": {
+    "name": "hpRateLimitIngressPortConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1",
+    "class": "objectidentity"
+  },
+  "hpIngressRateLimitPortNumQueues": {
+    "name": "hpIngressRateLimitPortNumQueues",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortConfigTable": {
+    "name": "hpIngressRateLimitPortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortConfigEntry": {
+    "name": "hpIngressRateLimitPortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpIngressRateLimitPortIndex": {
+    "name": "hpIngressRateLimitPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortControlMode": {
+    "name": "hpIngressRateLimitPortControlMode",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "ingressRateLimitPerPortOnly": 2,
+          "ingressRateLimitPerQueue": 3,
+          "ingressRateLimitPerPortOnlyBpsMode": 4,
+          "ingressRateLimitPerQueueBpsMode": 5,
+          "ingressRateLimitPerPortOnlyKbpsMode": 6
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortSingleControlPrct": {
+    "name": "hpIngressRateLimitPortSingleControlPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortSingleControlBps": {
+    "name": "hpIngressRateLimitPortSingleControlBps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpIngressRateLimitPortSingleControlKbps": {
+    "name": "hpIngressRateLimitPortSingleControlKbps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortPrctTable": {
+    "name": "hpIngressRateLimitPortPrctTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortPrctEntry": {
+    "name": "hpIngressRateLimitPortPrctEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortPrctQueue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpIngressRateLimitPortPrctQueue": {
+    "name": "hpIngressRateLimitPortPrctQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortPrct": {
+    "name": "hpIngressRateLimitPortPrct",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpIngressRateLimitPortBpsTable": {
+    "name": "hpIngressRateLimitPortBpsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpIngressRateLimitPortBpsEntry": {
+    "name": "hpIngressRateLimitPortBpsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortBpsQueue",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpIngressRateLimitPortBpsQueue": {
+    "name": "hpIngressRateLimitPortBpsQueue",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpIngressRateLimitPortBps": {
+    "name": "hpIngressRateLimitPortBps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.1.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpicfRateLimitConformance": {
+    "name": "hpicfRateLimitConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2",
+    "class": "objectidentity"
+  },
+  "hpicfRateLimitGroups": {
+    "name": "hpicfRateLimitGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfRateLimitCompliances": {
+    "name": "hpicfRateLimitCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.2",
+    "class": "objectidentity"
+  },
+  "hpICMPRateLimitPortConfigGroup": {
+    "name": "hpICMPRateLimitPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortState"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortAlarmFlag"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitNotifyPortIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpICMPRateLimitPortNotifyGroup": {
+    "name": "hpICMPRateLimitPortNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hpBWMinIngressPortConfigGroup": {
+    "name": "hpBWMinIngressPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinIngressPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinIngressPortPrct"
+      }
+    ],
+    "status": "current"
+  },
+  "hpBWMinEgressPortConfigGroup": {
+    "name": "hpBWMinEgressPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinEgressPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpBWMinEgressPortPrct"
+      }
+    ],
+    "status": "current"
+  },
+  "hpEgressRateLimitPortConfigGroup": {
+    "name": "hpEgressRateLimitPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortControlMode"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortSingleControlPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortSingleControlBps"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortBps"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortSingleControlKbps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpIngressRateLimitPortConfigGroup": {
+    "name": "hpIngressRateLimitPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortControlMode"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortSingleControlPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortSingleControlBps"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortBps"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortSingleControlKbps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpICMPRateLimitPortConfigGroup2": {
+    "name": "hpICMPRateLimitPortConfigGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortAlarmFlag"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitNotifyPortIndex"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortKbps"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpICMPRateLimitPortControlMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpEgressRateLimitPortConfigGroup2": {
+    "name": "hpEgressRateLimitPortConfigGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortControlMode"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortSingleControlPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpEgressRateLimitPortSingleControlKbps"
+      }
+    ],
+    "status": "current"
+  },
+  "hpIngressRateLimitPortConfigGroup2": {
+    "name": "hpIngressRateLimitPortConfigGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortNumQueues"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortControlMode"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortSingleControlPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortPrct"
+      },
+      {
+        "module": "HP-ICF-RATE-LIMIT-MIB",
+        "object": "hpIngressRateLimitPortSingleControlKbps"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRateLimitCompliance": {
+    "name": "hpicfRateLimitCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpICMPRateLimitPortConfigGroup",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      },
+      {
+        "object": "hpICMPRateLimitPortNotifyGroup",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfRateLimitCompliance1": {
+    "name": "hpicfRateLimitCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.14.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpICMPRateLimitPortConfigGroup2",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      },
+      {
+        "object": "hpICMPRateLimitPortNotifyGroup",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      },
+      {
+        "object": "hpBWMinIngressPortConfigGroup",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      },
+      {
+        "object": "hpEgressRateLimitPortConfigGroup2",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      },
+      {
+        "object": "hpIngressRateLimitPortConfigGroup2",
+        "module": "HP-ICF-RATE-LIMIT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-RATE-LIMIT-MIB",
+      "Source digest sha256:7df76cbc26a3693ca5ac1eca1fc3ce3a1d568bbcbc5aaf9937da4d4b6b84aad4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-RATE-LIMIT-MIB"
+  }
+}

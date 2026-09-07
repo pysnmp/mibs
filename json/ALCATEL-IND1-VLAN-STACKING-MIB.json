@@ -1,0 +1,481 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1VlanStackingMgt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1VLANStackingMIB": {
+    "name": "alcatelIND1VLANStackingMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1VLANStackingMIBObjects": {
+    "name": "alcatelIND1VLANStackingMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANStackingMIBConformance": {
+    "name": "alcatelIND1VLANStackingMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANStackingMIBGroups": {
+    "name": "alcatelIND1VLANStackingMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VLANStackingMIBCompliances": {
+    "name": "alcatelIND1VLANStackingMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaVlanStackingPort": {
+    "name": "alaVlanStackingPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaVstkPortTable": {
+    "name": "alaVstkPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVstkPortEntry": {
+    "name": "alaVstkPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVstkPortNumber": {
+    "name": "alaVstkPortNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVstkPortType": {
+    "name": "alaVstkPortType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userCustomer": 1,
+          "userProvider": 2,
+          "network": 3
+        }
+      }
+    },
+    "default": {
+      "value": "userCustomer",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortVendorTpid": {
+    "name": "alaVstkPortVendorTpid",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 34984,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortBpduTreatment": {
+    "name": "alaVstkPortBpduTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flooded": 1,
+          "dropped": 2
+        }
+      }
+    },
+    "default": {
+      "value": "flooded",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortAcceptFrameType": {
+    "name": "alaVstkPortAcceptFrameType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2,
+          "all": 3
+        }
+      }
+    },
+    "default": {
+      "value": "all",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortLookupMiss": {
+    "name": "alaVstkPortLookupMiss",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "default": 2
+        }
+      }
+    },
+    "default": {
+      "value": "default",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortDefaultSvlan": {
+    "name": "alaVstkPortDefaultSvlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortRowStatus": {
+    "name": "alaVstkPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkPortLegacyStpBpdu": {
+    "name": "alaVstkPortLegacyStpBpdu",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVlanStackingSvlanPort": {
+    "name": "alaVlanStackingSvlanPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaVstkSvlanPortTable": {
+    "name": "alaVstkSvlanPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVstkSvlanPortEntry": {
+    "name": "alaVstkSvlanPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortSvlanNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortCvlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVstkSvlanPortSvlanNumber": {
+    "name": "alaVstkSvlanPortSvlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVstkSvlanPortPortNumber": {
+    "name": "alaVstkSvlanPortPortNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVstkSvlanPortCvlanNumber": {
+    "name": "alaVstkSvlanPortCvlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVstkSvlanPortMode": {
+    "name": "alaVstkSvlanPortMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doubleTag": 1,
+          "translate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVstkSvlanPortRowStatus": {
+    "name": "alaVstkSvlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1VLANStackingMIBCompliance": {
+    "name": "alcatelIND1VLANStackingMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vlanStackingPortGroup",
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB"
+      },
+      {
+        "object": "vlanStackingSvlanPortGroup",
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanStackingPortGroup": {
+    "name": "vlanStackingPortGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortType"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortVendorTpid"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortBpduTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortAcceptFrameType"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortLookupMiss"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortDefaultSvlan"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkPortLegacyStpBpdu"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanStackingSvlanPortGroup": {
+    "name": "vlanStackingSvlanPortGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortSvlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortPortNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortCvlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortMode"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STACKING-MIB",
+        "object": "alaVstkSvlanPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-VLAN-STACKING-MIB",
+      "Source digest sha256:15f3e070319ccd2d16f808609d2f6271458bcfb6dbb5d64c895817108c01b711",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-VLAN-STACKING-MIB"
+  }
+}

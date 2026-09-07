@@ -1,0 +1,142 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "local"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TCP-MIB": [
+      "tcpConnLocalAddress",
+      "tcpConnLocalPort",
+      "tcpConnRemAddress",
+      "tcpConnRemPort"
+    ]
+  },
+  "ltcp": {
+    "name": "ltcp",
+    "oid": "1.3.6.1.4.1.9.2.6",
+    "class": "objectidentity"
+  },
+  "ltcpConnTable": {
+    "name": "ltcpConnTable",
+    "oid": "1.3.6.1.4.1.9.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ltcpConnEntry": {
+    "name": "ltcpConnEntry",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TCP-MIB",
+        "object": "tcpConnLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "TCP-MIB",
+        "object": "tcpConnLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "TCP-MIB",
+        "object": "tcpConnRemAddress",
+        "implied": 0
+      },
+      {
+        "module": "TCP-MIB",
+        "object": "tcpConnRemPort",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "loctcpConnInBytes": {
+    "name": "loctcpConnInBytes",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "loctcpConnOutBytes": {
+    "name": "loctcpConnOutBytes",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "loctcpConnInPkts": {
+    "name": "loctcpConnInPkts",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "loctcpConnOutPkts": {
+    "name": "loctcpConnOutPkts",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "loctcpConnElapsed": {
+    "name": "loctcpConnElapsed",
+    "oid": "1.3.6.1.4.1.9.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source OLD-CISCO-TCP-MIB",
+      "Source digest sha256:6bb6df22608e7eedb6376671a1487542d90709e9e07e2b8245cbb18245a1cc70",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "OLD-CISCO-TCP-MIB"
+  }
+}

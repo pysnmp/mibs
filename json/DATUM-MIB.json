@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "datum": {
+    "name": "datum",
+    "oid": "1.3.6.1.4.1.601",
+    "class": "objectidentity"
+  },
+  "bancomm": {
+    "name": "bancomm",
+    "oid": "1.3.6.1.4.1.601.1",
+    "class": "objectidentity"
+  },
+  "timing": {
+    "name": "timing",
+    "oid": "1.3.6.1.4.1.601.2",
+    "class": "objectidentity"
+  },
+  "austron": {
+    "name": "austron",
+    "oid": "1.3.6.1.4.1.601.3",
+    "class": "objectidentity"
+  },
+  "fts": {
+    "name": "fts",
+    "oid": "1.3.6.1.4.1.601.4",
+    "class": "objectidentity"
+  },
+  "efratom": {
+    "name": "efratom",
+    "oid": "1.3.6.1.4.1.601.5",
+    "class": "objectidentity"
+  },
+  "experiment": {
+    "name": "experiment",
+    "oid": "1.3.6.1.4.1.601.99",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.601.3.1",
+    "class": "objectidentity"
+  },
+  "ssu2000": {
+    "name": "ssu2000",
+    "oid": "1.3.6.1.4.1.601.3.1.1",
+    "class": "objectidentity"
+  },
+  "ot21": {
+    "name": "ot21",
+    "oid": "1.3.6.1.4.1.601.3.1.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DATUM-MIB",
+      "Source digest sha256:6e489c7e3f16066c4e4bcf1517bf583435855e9824443c3044e29ea4958da045",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DATUM-MIB"
+  }
+}

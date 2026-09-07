@@ -1,0 +1,513 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "dasanMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "BITS",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeStamp"
+    ]
+  },
+  "dasanAccessMib": {
+    "name": "dasanAccessMib",
+    "oid": "1.3.6.1.4.1.6296.9.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-11 21:00",
+        "description": "Initial Version by Jeon."
+      }
+    ]
+  },
+  "dasanAccGatewayMIBObjects": {
+    "name": "dasanAccGatewayMIBObjects",
+    "oid": "1.3.6.1.4.1.6296.9.100.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwySip": {
+    "name": "dsAccGwySip",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4",
+    "class": "objectidentity"
+  },
+  "dsAccGwySipConfiguration": {
+    "name": "dsAccGwySipConfiguration",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwySipMonitor": {
+    "name": "dsAccGwySipMonitor",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigSipSlot": {
+    "name": "dsAccGwyConfigSipSlot",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigSipPort": {
+    "name": "dsAccGwyConfigSipPort",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyMonitorSipPort": {
+    "name": "dsAccGwyMonitorSipPort",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigSipSlotTable": {
+    "name": "dsAccGwyConfigSipSlotTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyConfigSipSlotEntry": {
+    "name": "dsAccGwyConfigSipSlotEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-SIP-MIB",
+        "object": "dsSipSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsSipSlotIndex": {
+    "name": "dsSipSlotIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsSipSlotDomain": {
+    "name": "dsSipSlotDomain",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotSockMode": {
+    "name": "dsSipSlotSockMode",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotSipPort": {
+    "name": "dsSipSlotSipPort",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyAddr1": {
+    "name": "dsSipSlotProxyAddr1",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyPort1": {
+    "name": "dsSipSlotProxyPort1",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyAddr2": {
+    "name": "dsSipSlotProxyAddr2",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyPort2": {
+    "name": "dsSipSlotProxyPort2",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyAddr3": {
+    "name": "dsSipSlotProxyAddr3",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotProxyPort3": {
+    "name": "dsSipSlotProxyPort3",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotHuntMapItem": {
+    "name": "dsSipSlotHuntMapItem",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotDigitMapItem": {
+    "name": "dsSipSlotDigitMapItem",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotSigProvisionTO": {
+    "name": "dsSipSlotSigProvisionTO",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotSigAleringTO": {
+    "name": "dsSipSlotSigAleringTO",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotSigConnectTO": {
+    "name": "dsSipSlotSigConnectTO",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotHookOffTO": {
+    "name": "dsSipSlotHookOffTO",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipSlotHookOnTO": {
+    "name": "dsSipSlotHookOnTO",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsAccGwyConfigSipPortTable": {
+    "name": "dsAccGwyConfigSipPortTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyConfigSipPortEntry": {
+    "name": "dsAccGwyConfigSipPortEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-SIP-MIB",
+        "object": "dsSipPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsSipPortIndex": {
+    "name": "dsSipPortIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsSipPortMyTel": {
+    "name": "dsSipPortMyTel",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortURI": {
+    "name": "dsSipPortURI",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortContactURI": {
+    "name": "dsSipPortContactURI",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortDisplayName": {
+    "name": "dsSipPortDisplayName",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortUserName": {
+    "name": "dsSipPortUserName",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortUserID": {
+    "name": "dsSipPortUserID",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortUserPW": {
+    "name": "dsSipPortUserPW",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortRealM": {
+    "name": "dsSipPortRealM",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsSipPortExpiry": {
+    "name": "dsSipPortExpiry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsAccGwyMonitorSipPortTable": {
+    "name": "dsAccGwyMonitorSipPortTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyMonitorSipPortEntry": {
+    "name": "dsAccGwyMonitorSipPortEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-SIP-MIB",
+        "object": "dsMonitorSipPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsMonitorSipPortIndex": {
+    "name": "dsMonitorSipPortIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsSipPortProxyStatus": {
+    "name": "dsSipPortProxyStatus",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.4.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DASAN-ACCESS-SLOT-SIP-MIB",
+      "Source digest sha256:6057e118831d54198e97de031ef25368001e247ed3ff4dfea623a7f192bec37b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DASAN-ACCESS-SLOT-SIP-MIB"
+  }
+}

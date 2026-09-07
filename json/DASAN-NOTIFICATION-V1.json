@@ -1,0 +1,4565 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-GEPON-MIB": [
+      "dsPonCount",
+      "dsPonDirection",
+      "dsPonOltIndex",
+      "dsPonOnuIndex",
+      "dsPonOnuMacAddress",
+      "dsPonPortIndex",
+      "dsPonQueueIndex",
+      "dsPonState",
+      "dsPonTaggedLabel"
+    ],
+    "DASAN-SMI": [
+      "dasanEvents"
+    ],
+    "DASAN-SWITCH-MIB": [
+      "dsFanIndex",
+      "dsFanstatus",
+      "dsFreeMem",
+      "dsPortInstallStatus",
+      "dsPortModuleIndex",
+      "dsPortPortIndex",
+      "dsPowerIndex",
+      "dsPowerstatus",
+      "dsSubnetConfName",
+      "dsSwitchAtMacAddress",
+      "dsSwitchAtNetAddress",
+      "dsSwitchAtVID",
+      "dsSystemUpgradePath",
+      "dsSystemUpgradeStorage",
+      "dsTemperatureStatus",
+      "dsUserMacAddress1",
+      "dsUserMacAddress2",
+      "dsUserMacAddress3",
+      "dsUserMacAddress4"
+    ],
+    "DASAN-USER-MANAGEMENT-MIB": [
+      "dsUserLoginIpAddress",
+      "dsUserLoginName"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr",
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "portInstalledTrap": {
+    "name": "portInstalledTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortInstallStatus"
+      }
+    ]
+  },
+  "portRemovedTrap": {
+    "name": "portRemovedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortInstallStatus"
+      }
+    ]
+  },
+  "powerOkTrap": {
+    "name": "powerOkTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerstatus"
+      }
+    ]
+  },
+  "powerFailTrap": {
+    "name": "powerFailTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerstatus"
+      }
+    ]
+  },
+  "fanOkTrap": {
+    "name": "fanOkTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanstatus"
+      }
+    ]
+  },
+  "fanFailTrap": {
+    "name": "fanFailTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanstatus"
+      }
+    ]
+  },
+  "powerInstalledTrap": {
+    "name": "powerInstalledTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerIndex"
+      }
+    ]
+  },
+  "powerRemovedTrap": {
+    "name": "powerRemovedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPowerIndex"
+      }
+    ]
+  },
+  "fanInstalledTrap": {
+    "name": "fanInstalledTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanIndex"
+      }
+    ]
+  },
+  "fanRemovedTrap": {
+    "name": "fanRemovedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanIndex"
+      }
+    ]
+  },
+  "bcastOverTrap": {
+    "name": "bcastOverTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadOverThresholdTrap": {
+    "name": "cpuLoadOverThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadFallThresholdTrap": {
+    "name": "cpuLoadFallThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "dhcpLeaseShortageTrap": {
+    "name": "dhcpLeaseShortageTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSubnetConfName"
+      }
+    ]
+  },
+  "portOverThresholdTrap": {
+    "name": "portOverThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portFallThresholdTrap": {
+    "name": "portFallThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "temperatureOverThresholdTrap": {
+    "name": "temperatureOverThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsTemperatureStatus"
+      }
+    ]
+  },
+  "systemRestartTrap": {
+    "name": "systemRestartTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "mfgdBlockedTrap": {
+    "name": "mfgdBlockedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtMacAddress"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtNetAddress"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtVID"
+      }
+    ]
+  },
+  "mfgdReleasedTrap": {
+    "name": "mfgdReleasedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtMacAddress"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtNetAddress"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtVID"
+      }
+    ]
+  },
+  "ipConflictTrap": {
+    "name": "ipConflictTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtNetAddress"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSwitchAtMacAddress"
+      }
+    ]
+  },
+  "dhcpIllegalEntryTrap": {
+    "name": "dhcpIllegalEntryTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "optionModuleInstalledTrap": {
+    "name": "optionModuleInstalledTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "optionModuleRemovedTrap": {
+    "name": "optionModuleRemovedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "memoryOverThresholdTrap": {
+    "name": "memoryOverThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "memoryFallThresholdTrap": {
+    "name": "memoryFallThresholdTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "slotInstalledTrap": {
+    "name": "slotInstalledTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "slotRemovedTrap": {
+    "name": "slotRemovedTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "slotStateChangeTrap": {
+    "name": "slotStateChangeTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portCRCOverThreshold": {
+    "name": "portCRCOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portCRCFallThreshold": {
+    "name": "portCRCFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "temperatureHighOverThreshold": {
+    "name": "temperatureHighOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsTemperatureStatus"
+      }
+    ]
+  },
+  "temperatureHighFallThreshold": {
+    "name": "temperatureHighFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsTemperatureStatus"
+      }
+    ]
+  },
+  "temperatureLowOverThreshold": {
+    "name": "temperatureLowOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsTemperatureStatus"
+      }
+    ]
+  },
+  "temperatureLowFallThreshold": {
+    "name": "temperatureLowFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsTemperatureStatus"
+      }
+    ]
+  },
+  "userLogIn": {
+    "name": "userLogIn",
+    "oid": "1.3.6.1.4.1.6296.0.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginName"
+      },
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginIpAddress"
+      }
+    ]
+  },
+  "userLogOut": {
+    "name": "userLogOut",
+    "oid": "1.3.6.1.4.1.6296.0.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginName"
+      },
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginIpAddress"
+      }
+    ]
+  },
+  "restoreFactory": {
+    "name": "restoreFactory",
+    "oid": "1.3.6.1.4.1.6296.0.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadHighOverThreshold": {
+    "name": "cpuLoadHighOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadHighFallThreshold": {
+    "name": "cpuLoadHighFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadLowOverThreshold": {
+    "name": "cpuLoadLowOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "cpuLoadLowFallThreshold": {
+    "name": "cpuLoadLowFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "igmpSnoopingChanged": {
+    "name": "igmpSnoopingChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "dsIgmpSnoopingChanged"
+      }
+    ]
+  },
+  "dsSystemUpgradeChanged": {
+    "name": "dsSystemUpgradeChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "adslAtucPerfLofsThreshTrap": {
+    "name": "adslAtucPerfLofsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAtucPerfLossThreshTrap": {
+    "name": "adslAtucPerfLossThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAtucPerfLprsThreshTrap": {
+    "name": "adslAtucPerfLprsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAtucPerfESsThreshTrap": {
+    "name": "adslAtucPerfESsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAtucRateChangeTrap": {
+    "name": "adslAtucRateChangeTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAtucPerfLolsThreshTrap": {
+    "name": "adslAtucPerfLolsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAturPerfLofsThreshTrap": {
+    "name": "adslAturPerfLofsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAturPerfLossThreshTrap": {
+    "name": "adslAturPerfLossThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAturPerfLprsThreshTrap": {
+    "name": "adslAturPerfLprsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "adslAturPerfESsThreshTrap": {
+    "name": "adslAturPerfESsThreshTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ]
+  },
+  "vdslCPEChangeInfoTrap": {
+    "name": "vdslCPEChangeInfoTrap",
+    "oid": "1.3.6.1.4.1.6296.0.0.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "dsVdslPortIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "vdslPhysInvSerialNumber"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsUserMacAddress1"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsUserMacAddress2"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsUserMacAddress3"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsUserMacAddress4"
+      }
+    ]
+  },
+  "cfgdBlocked": {
+    "name": "cfgdBlocked",
+    "oid": "1.3.6.1.4.1.6296.0.0.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "cfgdReleased": {
+    "name": "cfgdReleased",
+    "oid": "1.3.6.1.4.1.6296.0.0.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "cfgdOverThreshold": {
+    "name": "cfgdOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "cfgdUnderThreshold": {
+    "name": "cfgdUnderThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "sfgdBlocked": {
+    "name": "sfgdBlocked",
+    "oid": "1.3.6.1.4.1.6296.0.0.75",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "sfgdReleased": {
+    "name": "sfgdReleased",
+    "oid": "1.3.6.1.4.1.6296.0.0.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "sfgdOverThreshold": {
+    "name": "sfgdOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.77",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "sfgdUnderThreshold": {
+    "name": "sfgdUnderThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.78",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "ppsControlBlocked": {
+    "name": "ppsControlBlocked",
+    "oid": "1.3.6.1.4.1.6296.0.0.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "ppsControlReleased": {
+    "name": "ppsControlReleased",
+    "oid": "1.3.6.1.4.1.6296.0.0.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "ppsControlOverThreshold": {
+    "name": "ppsControlOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.81",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "ppsontrolUnderThreshold": {
+    "name": "ppsontrolUnderThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.82",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "nosRemoteUpgradeRequest": {
+    "name": "nosRemoteUpgradeRequest",
+    "oid": "1.3.6.1.4.1.6296.0.0.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeSuccess": {
+    "name": "nosRemoteUpgradeSuccess",
+    "oid": "1.3.6.1.4.1.6296.0.0.84",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeFailAbort": {
+    "name": "nosRemoteUpgradeFailAbort",
+    "oid": "1.3.6.1.4.1.6296.0.0.85",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeFailHeaderError": {
+    "name": "nosRemoteUpgradeFailHeaderError",
+    "oid": "1.3.6.1.4.1.6296.0.0.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeFailDownloadError": {
+    "name": "nosRemoteUpgradeFailDownloadError",
+    "oid": "1.3.6.1.4.1.6296.0.0.87",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeFailFlashError": {
+    "name": "nosRemoteUpgradeFailFlashError",
+    "oid": "1.3.6.1.4.1.6296.0.0.88",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "nosRemoteUpgradeStart": {
+    "name": "nosRemoteUpgradeStart",
+    "oid": "1.3.6.1.4.1.6296.0.0.89",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradePath"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsSystemUpgradeStorage"
+      }
+    ]
+  },
+  "systemDyingGasp": {
+    "name": "systemDyingGasp",
+    "oid": "1.3.6.1.4.1.6296.0.0.90",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "attackGuardBlock": {
+    "name": "attackGuardBlock",
+    "oid": "1.3.6.1.4.1.6296.0.0.91",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex"
+      }
+    ]
+  },
+  "attackGuardUnBlock": {
+    "name": "attackGuardUnBlock",
+    "oid": "1.3.6.1.4.1.6296.0.0.92",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex"
+      }
+    ]
+  },
+  "fanPeriodicFault": {
+    "name": "fanPeriodicFault",
+    "oid": "1.3.6.1.4.1.6296.0.0.93",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanIndex"
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsFanstatus"
+      }
+    ]
+  },
+  "remoteOamDyingGasp": {
+    "name": "remoteOamDyingGasp",
+    "oid": "1.3.6.1.4.1.6296.0.0.94",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifindex"
+      }
+    ]
+  },
+  "remoteOamDyingGaspRestoration": {
+    "name": "remoteOamDyingGaspRestoration",
+    "oid": "1.3.6.1.4.1.6296.0.0.95",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifindex"
+      }
+    ]
+  },
+  "arpInspectInvalid": {
+    "name": "arpInspectInvalid",
+    "oid": "1.3.6.1.4.1.6296.0.0.96",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogReason"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogSamePktCnt"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogOpcode"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogPortNumber"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogVlanId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogSrcMacAddr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogSrcIpAddr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogDstMacAddr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogDstIpAddr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleArpInspectInvalidLogLastRecvTime"
+      }
+    ]
+  },
+  "systemSwitchover": {
+    "name": "systemSwitchover",
+    "oid": "1.3.6.1.4.1.6296.0.0.97",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ]
+  },
+  "boardChangeState": {
+    "name": "boardChangeState",
+    "oid": "1.3.6.1.4.1.6296.0.0.98",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleRedActiveBoard"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleRedActivePrevState"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleRedActiveCurrState"
+      }
+    ]
+  },
+  "clockModuleInstalled": {
+    "name": "clockModuleInstalled",
+    "oid": "1.3.6.1.4.1.6296.0.0.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleBoardId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleInstallStatus"
+      }
+    ]
+  },
+  "clockModuleRemoved": {
+    "name": "clockModuleRemoved",
+    "oid": "1.3.6.1.4.1.6296.0.0.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleBoardId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleInstallStatus"
+      }
+    ]
+  },
+  "clockModuleInitOk": {
+    "name": "clockModuleInitOk",
+    "oid": "1.3.6.1.4.1.6296.0.0.107",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleBoardId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleInitStatus"
+      }
+    ]
+  },
+  "clockModuleInitFail": {
+    "name": "clockModuleInitFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.108",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleBoardId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleInitStatus"
+      }
+    ]
+  },
+  "interfaceAdminUp": {
+    "name": "interfaceAdminUp",
+    "oid": "1.3.6.1.4.1.6296.0.0.109",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifDescr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifAdminStatus"
+      }
+    ]
+  },
+  "interfaceAdminDown": {
+    "name": "interfaceAdminDown",
+    "oid": "1.3.6.1.4.1.6296.0.0.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifDescr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "ifAdminStatus"
+      }
+    ]
+  },
+  "powerMonEventDetected": {
+    "name": "powerMonEventDetected",
+    "oid": "1.3.6.1.4.1.6296.0.0.111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotPowerMonIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotPowerMonStatus"
+      }
+    ]
+  },
+  "ntpConnectionFail": {
+    "name": "ntpConnectionFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.112",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleNTPServerName"
+      }
+    ]
+  },
+  "fanSpeedFallUnderThreshold": {
+    "name": "fanSpeedFallUnderThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.113",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleFanUnitIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleFanUnitSpeed"
+      }
+    ]
+  },
+  "fanSpeedRisingOverThreshold": {
+    "name": "fanSpeedRisingOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.114",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleFanUnitIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleFanUnitSpeed"
+      }
+    ]
+  },
+  "userLoginFail": {
+    "name": "userLoginFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.115",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginName"
+      },
+      {
+        "module": "DASAN-USER-MANAGEMENT-MIB",
+        "object": "dsUserLoginIpAddress"
+      }
+    ]
+  },
+  "bfdSessionStateChanged": {
+    "name": "bfdSessionStateChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.116",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleBFDSessionNeighAddrType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleBFDSessionNeighAddrValue"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleBFDSessionStatus"
+      }
+    ]
+  },
+  "clockModuleOPModeChanged": {
+    "name": "clockModuleOPModeChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.117",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleOPMode"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotSystemIndex"
+      }
+    ]
+  },
+  "clockModuleRefrencesChanged": {
+    "name": "clockModuleRefrencesChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.118",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotSystemIndex"
+      }
+    ]
+  },
+  "portRxOverThreshold": {
+    "name": "portRxOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portRxFallThreshold": {
+    "name": "portRxFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portTxOverThreshold": {
+    "name": "portTxOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "portTxFallThreshold": {
+    "name": "portTxFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "clockModuleInSrcStatusChanged": {
+    "name": "clockModuleInSrcStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoSrcStatus"
+      }
+    ]
+  },
+  "clockModuleInSrcAISStatusChanged": {
+    "name": "clockModuleInSrcAISStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.126",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcAISStatus"
+      }
+    ]
+  },
+  "clockModuleInSrcLoSStatusChanged": {
+    "name": "clockModuleInSrcLoSStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcLoSStatus"
+      }
+    ]
+  },
+  "clockModuleInSrcLDSCStatus": {
+    "name": "clockModuleInSrcLDSCStatus",
+    "oid": "1.3.6.1.4.1.6296.0.0.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcLoSStatus"
+      }
+    ]
+  },
+  "clockModuleInSrcNtrClockchanged": {
+    "name": "clockModuleInSrcNtrClockchanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockModuleIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleClockInfoInSrcNtrClockType"
+      }
+    ]
+  },
+  "ponLinkFault": {
+    "name": "ponLinkFault",
+    "oid": "1.3.6.1.4.1.6296.0.0.151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponLos": {
+    "name": "ponLos",
+    "oid": "1.3.6.1.4.1.6296.0.0.152",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponTransmitFail": {
+    "name": "ponTransmitFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponTransmitDegrade": {
+    "name": "ponTransmitDegrade",
+    "oid": "1.3.6.1.4.1.6296.0.0.154",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponQueueOverflow": {
+    "name": "ponQueueOverflow",
+    "oid": "1.3.6.1.4.1.6296.0.0.155",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponMacLearningTableOverflow": {
+    "name": "ponMacLearningTableOverflow",
+    "oid": "1.3.6.1.4.1.6296.0.0.156",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponDuplicateMacRegistration": {
+    "name": "ponDuplicateMacRegistration",
+    "oid": "1.3.6.1.4.1.6296.0.0.157",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponReportTimeout": {
+    "name": "ponReportTimeout",
+    "oid": "1.3.6.1.4.1.6296.0.0.158",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponGateTimeout": {
+    "name": "ponGateTimeout",
+    "oid": "1.3.6.1.4.1.6296.0.0.159",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOAMKeepaliveTimeout": {
+    "name": "ponOAMKeepaliveTimeout",
+    "oid": "1.3.6.1.4.1.6296.0.0.160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponKeyExchangeFailure": {
+    "name": "ponKeyExchangeFailure",
+    "oid": "1.3.6.1.4.1.6296.0.0.161",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponAutoNegotiation": {
+    "name": "ponAutoNegotiation",
+    "oid": "1.3.6.1.4.1.6296.0.0.162",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponLinkLoopback": {
+    "name": "ponLinkLoopback",
+    "oid": "1.3.6.1.4.1.6296.0.0.163",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponStandardDyingGasp": {
+    "name": "ponStandardDyingGasp",
+    "oid": "1.3.6.1.4.1.6296.0.0.164",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponPowerFail": {
+    "name": "ponPowerFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.165",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponTemperature": {
+    "name": "ponTemperature",
+    "oid": "1.3.6.1.4.1.6296.0.0.166",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponAuthenticationInformationUnavailable": {
+    "name": "ponAuthenticationInformationUnavailable",
+    "oid": "1.3.6.1.4.1.6296.0.0.167",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOctetsTransferred": {
+    "name": "ponOctetsTransferred",
+    "oid": "1.3.6.1.4.1.6296.0.0.171",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponTotalFramesTransferred": {
+    "name": "ponTotalFramesTransferred",
+    "oid": "1.3.6.1.4.1.6296.0.0.172",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponUnicastFramesTransferred": {
+    "name": "ponUnicastFramesTransferred",
+    "oid": "1.3.6.1.4.1.6296.0.0.173",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponBroadcastFramesTransferred": {
+    "name": "ponBroadcastFramesTransferred",
+    "oid": "1.3.6.1.4.1.6296.0.0.174",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponMulticastFramesTransferred": {
+    "name": "ponMulticastFramesTransferred",
+    "oid": "1.3.6.1.4.1.6296.0.0.175",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponCRC32Errors": {
+    "name": "ponCRC32Errors",
+    "oid": "1.3.6.1.4.1.6296.0.0.176",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponUndersizeFrames": {
+    "name": "ponUndersizeFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.177",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOversizeFrames": {
+    "name": "ponOversizeFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.178",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponCollisions": {
+    "name": "ponCollisions",
+    "oid": "1.3.6.1.4.1.6296.0.0.179",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon64OctetFrames": {
+    "name": "pon64OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.180",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon127OctetFrames": {
+    "name": "pon127OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.181",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon255OctetFrames": {
+    "name": "pon255OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.182",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon511OctetFrames": {
+    "name": "pon511OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.183",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon1023OctetFrames": {
+    "name": "pon1023OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.184",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon1518OctetFrames": {
+    "name": "pon1518OctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.185",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "pon1519OverOctetFrames": {
+    "name": "pon1519OverOctetFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.186",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponFramesDropped": {
+    "name": "ponFramesDropped",
+    "oid": "1.3.6.1.4.1.6296.0.0.187",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOctetsDropped": {
+    "name": "ponOctetsDropped",
+    "oid": "1.3.6.1.4.1.6296.0.0.188",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOctetsDelayed": {
+    "name": "ponOctetsDelayed",
+    "oid": "1.3.6.1.4.1.6296.0.0.189",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOctetsGranted": {
+    "name": "ponOctetsGranted",
+    "oid": "1.3.6.1.4.1.6296.0.0.190",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponOctetsGrantedButUnused": {
+    "name": "ponOctetsGrantedButUnused",
+    "oid": "1.3.6.1.4.1.6296.0.0.191",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponMaximumDelay": {
+    "name": "ponMaximumDelay",
+    "oid": "1.3.6.1.4.1.6296.0.0.192",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponCRC8Errors": {
+    "name": "ponCRC8Errors",
+    "oid": "1.3.6.1.4.1.6296.0.0.193",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponLineCodeErrors": {
+    "name": "ponLineCodeErrors",
+    "oid": "1.3.6.1.4.1.6296.0.0.194",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponPauseFrames": {
+    "name": "ponPauseFrames",
+    "oid": "1.3.6.1.4.1.6296.0.0.195",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponErroredFrameSeconds": {
+    "name": "ponErroredFrameSeconds",
+    "oid": "1.3.6.1.4.1.6296.0.0.196",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponErroredFramePeriod": {
+    "name": "ponErroredFramePeriod",
+    "oid": "1.3.6.1.4.1.6296.0.0.197",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "ponErroredFrameSecondsSummary": {
+    "name": "ponErroredFrameSecondsSummary",
+    "oid": "1.3.6.1.4.1.6296.0.0.198",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOltIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonOnuMacAddress"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonTaggedLabel"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonPortIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonQueueIndex"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonDirection"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonState"
+      },
+      {
+        "module": "DASAN-GEPON-MIB",
+        "object": "dsPonCount"
+      }
+    ]
+  },
+  "gponOnuRegistered": {
+    "name": "gponOnuRegistered",
+    "oid": "1.3.6.1.4.1.6296.0.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleAgentAddress"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuIsFirst"
+      }
+    ]
+  },
+  "gponOnuDeregistered": {
+    "name": "gponOnuDeregistered",
+    "oid": "1.3.6.1.4.1.6296.0.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleAgentAddress"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "swWatchdogDetectError": {
+    "name": "swWatchdogDetectError",
+    "oid": "1.3.6.1.4.1.6296.0.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSwWatchdogType"
+      }
+    ]
+  },
+  "swWatchdogClearError": {
+    "name": "swWatchdogClearError",
+    "oid": "1.3.6.1.4.1.6296.0.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSwWatchdogType"
+      }
+    ]
+  },
+  "swWatchdogNormalState": {
+    "name": "swWatchdogNormalState",
+    "oid": "1.3.6.1.4.1.6296.0.0.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSwWatchdogType"
+      }
+    ]
+  },
+  "swWatchdogAbnormalState": {
+    "name": "swWatchdogAbnormalState",
+    "oid": "1.3.6.1.4.1.6296.0.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSwWatchdogType"
+      }
+    ]
+  },
+  "gponOnuUpgradeCompleted": {
+    "name": "gponOnuUpgradeCompleted",
+    "oid": "1.3.6.1.4.1.6296.0.0.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "gponOltCableDown": {
+    "name": "gponOltCableDown",
+    "oid": "1.3.6.1.4.1.6296.0.0.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      }
+    ]
+  },
+  "gponOnuAutoToManual": {
+    "name": "gponOnuAutoToManual",
+    "oid": "1.3.6.1.4.1.6296.0.0.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "slotActionEvent": {
+    "name": "slotActionEvent",
+    "oid": "1.3.6.1.4.1.6296.0.0.209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotSystemIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotStatusCurrentInstallCardType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotStatusActionEvent"
+      }
+    ]
+  },
+  "slotStateChanged": {
+    "name": "slotStateChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotSystemIndex"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotStatusCurrentInstallCardType"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotStatusState"
+      }
+    ]
+  },
+  "gponNoAuthONU": {
+    "name": "gponNoAuthONU",
+    "oid": "1.3.6.1.4.1.6296.0.0.211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuAthenticationStatus"
+      }
+    ]
+  },
+  "gponDuplicateONU": {
+    "name": "gponDuplicateONU",
+    "oid": "1.3.6.1.4.1.6296.0.0.212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "gponDyingGasp": {
+    "name": "gponDyingGasp",
+    "oid": "1.3.6.1.4.1.6296.0.0.213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "gponRogueOnu": {
+    "name": "gponRogueOnu",
+    "oid": "1.3.6.1.4.1.6296.0.0.214",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "gponOnuBatteryEvent": {
+    "name": "gponOnuBatteryEvent",
+    "oid": "1.3.6.1.4.1.6296.0.0.215",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuBatteryStatus"
+      }
+    ]
+  },
+  "gponOnuBatteryEventCleared": {
+    "name": "gponOnuBatteryEventCleared",
+    "oid": "1.3.6.1.4.1.6296.0.0.216",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuBatteryStatus"
+      }
+    ]
+  },
+  "gponOnuPortOperStatus": {
+    "name": "gponOnuPortOperStatus",
+    "oid": "1.3.6.1.4.1.6296.0.0.217",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuPortId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuPortOperStatus"
+      }
+    ]
+  },
+  "gponTransceiverChanged": {
+    "name": "gponTransceiverChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.218",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltTransceiverPort"
+      }
+    ]
+  },
+  "gponOltLosOn": {
+    "name": "gponOltLosOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.219",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      }
+    ]
+  },
+  "gponOltLosOff": {
+    "name": "gponOltLosOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.220",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      }
+    ]
+  },
+  "gponOltLosiOn": {
+    "name": "gponOltLosiOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.221",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLosiOff": {
+    "name": "gponOltLosiOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.222",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponDyingGaspOn": {
+    "name": "gponDyingGaspOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.223",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "gponDyingGaspOff": {
+    "name": "gponDyingGaspOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.224",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuSerial"
+      }
+    ]
+  },
+  "slotErrorLEDChanged": {
+    "name": "slotErrorLEDChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.225",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSlotSystemIndex"
+      }
+    ]
+  },
+  "nmsConnectionTypeChanged": {
+    "name": "nmsConnectionTypeChanged",
+    "oid": "1.3.6.1.4.1.6296.0.0.226",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleSnmpConnectionType"
+      }
+    ]
+  },
+  "gponOntOSUpgradeStatus": {
+    "name": "gponOntOSUpgradeStatus",
+    "oid": "1.3.6.1.4.1.6296.0.0.227",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOntId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOntOsStatus"
+      }
+    ]
+  },
+  "gponOntBLUpgradeStatus": {
+    "name": "gponOntBLUpgradeStatus",
+    "oid": "1.3.6.1.4.1.6296.0.0.228",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOntId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOntFirmwareOntOsStatus"
+      }
+    ]
+  },
+  "gponOntRxPowerLoss": {
+    "name": "gponOntRxPowerLoss",
+    "oid": "1.3.6.1.4.1.6296.0.0.229",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      }
+    ]
+  },
+  "gponOntRxPowerDetected": {
+    "name": "gponOntRxPowerDetected",
+    "oid": "1.3.6.1.4.1.6296.0.0.230",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      }
+    ]
+  },
+  "gponOnuTemperatureHighOverThreshold": {
+    "name": "gponOnuTemperatureHighOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.231",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuTemperatureHighFallThreshold": {
+    "name": "gponOnuTemperatureHighFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.232",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuTemperatureLowOverThreshold": {
+    "name": "gponOnuTemperatureLowOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.233",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuTemperatureLowFallThreshold": {
+    "name": "gponOnuTemperatureLowFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.234",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuCpuOverThreshold": {
+    "name": "gponOnuCpuOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.235",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuCpuFallThreshold": {
+    "name": "gponOnuCpuFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.236",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuMemoryOverThreshold": {
+    "name": "gponOnuMemoryOverThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.237",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuMemoryFallThreshold": {
+    "name": "gponOnuMemoryFallThreshold",
+    "oid": "1.3.6.1.4.1.6296.0.0.238",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuI2cFail": {
+    "name": "gponOnuI2cFail",
+    "oid": "1.3.6.1.4.1.6296.0.0.239",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuRxOpticPowerLowThreshAlarmOn": {
+    "name": "gponOnuRxOpticPowerLowThreshAlarmOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.240",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuRxOpticPowerLowThreshAlarmOff": {
+    "name": "gponOnuRxOpticPowerLowThreshAlarmOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.241",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuRxOpticPowerHighThreshAlarmOn": {
+    "name": "gponOnuRxOpticPowerHighThreshAlarmOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.242",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOnuRxOpticPowerHighThreshAlarmOff": {
+    "name": "gponOnuRxOpticPowerHighThreshAlarmOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.243",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOFIOn": {
+    "name": "gponOltLOFIOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.244",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOFIOff": {
+    "name": "gponOltLOFIOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.245",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltDOWOn": {
+    "name": "gponOltDOWOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.246",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltDOWOff": {
+    "name": "gponOltDOWOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.247",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSFOn": {
+    "name": "gponOltSFOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.248",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSFOff": {
+    "name": "gponOltSFOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.249",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSDOn": {
+    "name": "gponOltSDOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.250",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSDOff": {
+    "name": "gponOltSDOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.251",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLCDGIOn": {
+    "name": "gponOltLCDGIOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.252",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLCDGIOff": {
+    "name": "gponOltLCDGIOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.253",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltRDOn": {
+    "name": "gponOltRDOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.254",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltRDOff": {
+    "name": "gponOltRDOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.255",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSUFOn": {
+    "name": "gponOltSUFOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.256",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltSUFOff": {
+    "name": "gponOltSUFOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.257",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOAOn": {
+    "name": "gponOltLOAOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.258",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOAOff": {
+    "name": "gponOltLOAOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.259",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOAMIOn": {
+    "name": "gponOltLOAMIOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.260",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltLOAMIOff": {
+    "name": "gponOltLOAMIOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.261",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltMEMOn": {
+    "name": "gponOltMEMOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.262",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltMEMOff": {
+    "name": "gponOltMEMOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.263",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltPEEOn": {
+    "name": "gponOltPEEOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.264",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltPEEOff": {
+    "name": "gponOltPEEOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.265",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltPSTOn": {
+    "name": "gponOltPSTOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.266",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltPSTOff": {
+    "name": "gponOltPSTOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.267",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltERROn": {
+    "name": "gponOltERROn",
+    "oid": "1.3.6.1.4.1.6296.0.0.268",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltERROff": {
+    "name": "gponOltERROff",
+    "oid": "1.3.6.1.4.1.6296.0.0.269",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltREIOn": {
+    "name": "gponOltREIOn",
+    "oid": "1.3.6.1.4.1.6296.0.0.270",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "gponOltREIOff": {
+    "name": "gponOltREIOff",
+    "oid": "1.3.6.1.4.1.6296.0.0.271",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOltId"
+      },
+      {
+        "module": "DASAN-NOTIFICATION-V1",
+        "object": "sleGponOnuId"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DASAN-NOTIFICATION-V1",
+      "Source digest sha256:83da928f5a2bffce12d09d0e512a63f6fccf4f3e75665dc8b4042cd0f0d6985f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DASAN-NOTIFICATION-V1"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "webCategoryModule": {
+    "name": "webCategoryModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274",
+    "class": "moduleidentity"
+  },
+  "webCategory": {
+    "name": "webCategory",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1",
+    "class": "objectidentity"
+  },
+  "webCategoryOperTable": {
+    "name": "webCategoryOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCategoryOperEntry": {
+    "name": "webCategoryOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-WEB-CATEGORY-MIB",
+        "object": "webCategoryOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "webCategoryOperSlotId": {
+    "name": "webCategoryOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatVersion": {
+    "name": "webCategoryOperWebCatVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatDatabaseName": {
+    "name": "webCategoryOperWebCatDatabaseName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatDatabaseStatus": {
+    "name": "webCategoryOperWebCatDatabaseStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatDatabaseSize": {
+    "name": "webCategoryOperWebCatDatabaseSize",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatDatabaseVersion": {
+    "name": "webCategoryOperWebCatDatabaseVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatLastUpdateTime": {
+    "name": "webCategoryOperWebCatLastUpdateTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatNextUpdateTime": {
+    "name": "webCategoryOperWebCatNextUpdateTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatConnectionStatus": {
+    "name": "webCategoryOperWebCatConnectionStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatFailureReason": {
+    "name": "webCategoryOperWebCatFailureReason",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCategoryOperWebCatLastSuccessfulConnection": {
+    "name": "webCategoryOperWebCatLastSuccessfulConnection",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.274.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-WEB-CATEGORY-MIB",
+      "Source digest sha256:59a455f929d1441f3c6b87c42caacf2cabee5b0a070eeb7f86ec33231ad43659",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-WEB-CATEGORY-MIB"
+  }
+}

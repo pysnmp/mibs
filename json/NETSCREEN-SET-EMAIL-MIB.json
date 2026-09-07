@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenSetting",
+      "netscreenSettingMibModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenSetEmailMibModule": {
+    "name": "netscreenSetEmailMibModule",
+    "oid": "1.3.6.1.4.1.3224.7.0.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Correct wrong title"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "No Comment"
+      },
+      {
+        "revision": "2001-05-27 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsSetEmail": {
+    "name": "nsSetEmail",
+    "oid": "1.3.6.1.4.1.3224.7.7",
+    "class": "objectidentity"
+  },
+  "nsSetEmailEnable": {
+    "name": "nsSetEmailEnable",
+    "oid": "1.3.6.1.4.1.3224.7.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetEmailSMTP": {
+    "name": "nsSetEmailSMTP",
+    "oid": "1.3.6.1.4.1.3224.7.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetEmailLog": {
+    "name": "nsSetEmailLog",
+    "oid": "1.3.6.1.4.1.3224.7.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetEmailAddr1": {
+    "name": "nsSetEmailAddr1",
+    "oid": "1.3.6.1.4.1.3224.7.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetEmailAddr2": {
+    "name": "nsSetEmailAddr2",
+    "oid": "1.3.6.1.4.1.3224.7.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NETSCREEN-SET-EMAIL-MIB",
+      "Source digest sha256:b84784e613154c7b91b77f9e247077c3bd1f7eda7dfde34abb0b36ec012ebba2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NETSCREEN-SET-EMAIL-MIB"
+  }
+}

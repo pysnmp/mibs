@@ -1,0 +1,329 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDiameterBasePCapability": {
+    "name": "ciscoDiameterBasePCapability",
+    "oid": "1.3.6.1.4.1.9.7.517",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-06 11:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiameterBasePCapabilityV12R0409XG": {
+    "name": "ciscoDiameterBasePCapabilityV12R0409XG",
+    "oid": "1.3.6.1.4.1.9.7.517.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(9)XG.",
+    "capabilities": [
+      {
+        "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB",
+        "includes": [
+          "ciscoDiameterBasePMIBLocalCfgGroup",
+          "ciscoDiameterBasePMIBPeerCfgGroup",
+          "ciscoDiameterBasePMIBPeerStatsGroup",
+          "ciscoDiameterBasePMIBNotificationsGroup",
+          "ciscoDiameterBasePMIBTrapCfgGroup",
+          "ciscoDiameterBasePMIBLocalCfgSkippedGroup",
+          "ciscoDiameterBasePMIBLocalStatsSkippedGroup",
+          "ciscoDiameterBasePMIBPeerCfgSkippedGroup",
+          "ciscoDiameterBasePMIBPeerStatsSkippedGroup",
+          "ciscoDiameterBasePMIBRealmCfgSkippedGroup",
+          "ciscoDiameterBasePMIBRealmStatsSkippedGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdbpLocalId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalIpAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalOriginHost",
+            "access": "read-only"
+          },
+          {
+            "object": "cdbpLocalApplStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalApplRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalVendorStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cdbpLocalVendorRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            },
+            "access": "read-create"
+          },
+          {
+            "object": "cdbpAppAdvToPeerVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpAppAdvToPeerServices",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpAppAdvToPeerStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpAppAdvToPeerRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalStatsTotalPacketsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalStatsTotalPacketsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalStatsTotalUpTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpLocalConfigReset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cdbpPeerRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            },
+            "access": "read-create"
+          },
+          {
+            "object": "cdbpAppAdvFromPeerType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerVendorStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cdbpPeerVendorRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cdbpPeerStatsTimeoutConnAtmpts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsRedirectEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsAccDupRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsAccsNotRecorded",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsAccRetrans",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsTotalRetrans",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsAccPendReqstsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsAccReqstsDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsHByHDropMessages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsEToEDupMessages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpPeerStatsUnknownTypes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmKnownPeers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmKnownPeersChosen",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteRealm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteApp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteACRsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteACRsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteACAsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteACAsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteRARsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteRARsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteRAAsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteRAAsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteSTRsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteSTRsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteSTAsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteSTAsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteASRsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteASRsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteASAsIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteASAsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteAccRetrans",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteAccDupReqsts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRoutePendReqstsOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdbpRealmMessageRouteReqstsDrop",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DIAMETER-BASE-PROTOCOL-CAPABILITY",
+      "Source digest sha256:a524dbe68127aa8743737322b4d6024164a5a9434726badbf44eb44e6efc5805",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DIAMETER-BASE-PROTOCOL-CAPABILITY"
+  }
+}

@@ -1,0 +1,952 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fwLoggingModule": {
+    "name": "fwLoggingModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480",
+    "class": "moduleidentity"
+  },
+  "logging": {
+    "name": "logging",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1",
+    "class": "objectidentity"
+  },
+  "loggingStatsTable": {
+    "name": "loggingStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "loggingStatsEntry": {
+    "name": "loggingStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-LOGGING-MIB",
+        "object": "loggingStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "loggingStatsSlotId": {
+    "name": "loggingStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogMessageSent": {
+    "name": "loggingStatsLogMessageSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogTypeReset": {
+    "name": "loggingStatsLogTypeReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogTypeDeny": {
+    "name": "loggingStatsLogTypeDeny",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogTypeSessionClosed": {
+    "name": "loggingStatsLogTypeSessionClosed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogTypeSessionOpened": {
+    "name": "loggingStatsLogTypeSessionOpened",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsRuleNotLogged": {
+    "name": "loggingStatsRuleNotLogged",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogDropped": {
+    "name": "loggingStatsLogDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpSessionCreated": {
+    "name": "loggingStatsTcpSessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpSessionDeleted": {
+    "name": "loggingStatsTcpSessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsUdpSessionCreated": {
+    "name": "loggingStatsUdpSessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsUdpSessionDeleted": {
+    "name": "loggingStatsUdpSessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIcmpSessionDeleted": {
+    "name": "loggingStatsIcmpSessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIcmpSessionCreated": {
+    "name": "loggingStatsIcmpSessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIcmpv6SessionDeleted": {
+    "name": "loggingStatsIcmpv6SessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIcmpv6SessionCreated": {
+    "name": "loggingStatsIcmpv6SessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsOtherSessionDeleted": {
+    "name": "loggingStatsOtherSessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsOtherSessionCreated": {
+    "name": "loggingStatsOtherSessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsHttpRequestLogged": {
+    "name": "loggingStatsHttpRequestLogged",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsHttpLoggingInvalidFormat": {
+    "name": "loggingStatsHttpLoggingInvalidFormat",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsDcmsgPermit": {
+    "name": "loggingStatsDcmsgPermit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsAlgOverridePermit": {
+    "name": "loggingStatsAlgOverridePermit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTemplateError": {
+    "name": "loggingStatsTemplateError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIpv4FragApplied": {
+    "name": "loggingStatsIpv4FragApplied",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIpv4FragFailed": {
+    "name": "loggingStatsIpv4FragFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIpv6FragApplied": {
+    "name": "loggingStatsIpv6FragApplied",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIpv6FragFailed": {
+    "name": "loggingStatsIpv6FragFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsOutOfBuffers": {
+    "name": "loggingStatsOutOfBuffers",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsAddMsgFailed": {
+    "name": "loggingStatsAddMsgFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingConnEstablished": {
+    "name": "loggingStatsTcpLoggingConnEstablished",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingConnCreateFailed": {
+    "name": "loggingStatsTcpLoggingConnCreateFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingConnDropped": {
+    "name": "loggingStatsTcpLoggingConnDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogMessageTooLong": {
+    "name": "loggingStatsLogMessageTooLong",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsHttpOutOfOrderDropped": {
+    "name": "loggingStatsHttpOutOfOrderDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsHttpAllocFailed": {
+    "name": "loggingStatsHttpAllocFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsSctpSessionCreated": {
+    "name": "loggingStatsSctpSessionCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsSctpSessionDeleted": {
+    "name": "loggingStatsSctpSessionDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsLogTypeSctpInnerProtoFilter": {
+    "name": "loggingStatsLogTypeSctpInnerProtoFilter",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingPortAllocated": {
+    "name": "loggingStatsTcpLoggingPortAllocated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingPortFreed": {
+    "name": "loggingStatsTcpLoggingPortFreed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsTcpLoggingPortAllocationFailed": {
+    "name": "loggingStatsTcpLoggingPortAllocationFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIddosBlackholeEntryCreate": {
+    "name": "loggingStatsIddosBlackholeEntryCreate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsIddosBlackholeEntryDelete": {
+    "name": "loggingStatsIddosBlackholeEntryDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingStatsSessionLimitExceeded": {
+    "name": "loggingStatsSessionLimitExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtp": {
+    "name": "gtp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2",
+    "class": "objectidentity"
+  },
+  "gtpStatsTable": {
+    "name": "gtpStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtpStatsEntry": {
+    "name": "gtpStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-LOGGING-MIB",
+        "object": "gtpStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtpStatsSlotId": {
+    "name": "gtpStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpInvalidTeid": {
+    "name": "gtpStatsLogTypeGtpInvalidTeid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogGtpTypeReservedIePresent": {
+    "name": "gtpStatsLogGtpTypeReservedIePresent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpMandatoryIeMissing": {
+    "name": "gtpStatsLogTypeGtpMandatoryIeMissing",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpMandatoryIeInsideGroupedIeMissing": {
+    "name": "gtpStatsLogTypeGtpMandatoryIeInsideGroupedIeMissing",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpMsisdnFiltering": {
+    "name": "gtpStatsLogTypeGtpMsisdnFiltering",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpOutOfOrderIe": {
+    "name": "gtpStatsLogTypeGtpOutOfOrderIe",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpOutOfStateIe": {
+    "name": "gtpStatsLogTypeGtpOutOfStateIe",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeEnduserIpSpoofed": {
+    "name": "gtpStatsLogTypeEnduserIpSpoofed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeCrosslayerCorrelation": {
+    "name": "gtpStatsLogTypeCrosslayerCorrelation",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeMessageNotSupported": {
+    "name": "gtpStatsLogTypeMessageNotSupported",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeOutOfState": {
+    "name": "gtpStatsLogTypeOutOfState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeMaxMsgLength": {
+    "name": "gtpStatsLogTypeMaxMsgLength",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpMessageFiltering": {
+    "name": "gtpStatsLogTypeGtpMessageFiltering",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpApnFiltering": {
+    "name": "gtpStatsLogTypeGtpApnFiltering",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpRatTypeFiltering": {
+    "name": "gtpStatsLogTypeGtpRatTypeFiltering",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeCountryCodeMismatch": {
+    "name": "gtpStatsLogTypeCountryCodeMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpInGtpFiltering": {
+    "name": "gtpStatsLogTypeGtpInGtpFiltering",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpNodeRestart": {
+    "name": "gtpStatsLogTypeGtpNodeRestart",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpSeqNumMismatch": {
+    "name": "gtpStatsLogTypeGtpSeqNumMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpRateLimitPeriodic": {
+    "name": "gtpStatsLogTypeGtpRateLimitPeriodic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpInvalidMessageLength": {
+    "name": "gtpStatsLogTypeGtpInvalidMessageLength",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpHdrInvalidProtocolFlag": {
+    "name": "gtpStatsLogTypeGtpHdrInvalidProtocolFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpHdrInvalidSpareBits": {
+    "name": "gtpStatsLogTypeGtpHdrInvalidSpareBits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpHdrInvalidPiggyFlag": {
+    "name": "gtpStatsLogTypeGtpHdrInvalidPiggyFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpInvalidVersion": {
+    "name": "gtpStatsLogTypeGtpInvalidVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtpStatsLogTypeGtpInvalidPorts": {
+    "name": "gtpStatsLogTypeGtpInvalidPorts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.480.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-FW-LOGGING-MIB",
+      "Source digest sha256:172e5901233e4e4b396b38e20f3584267c86e2d62a0797e928803036b0d6d29b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-FW-LOGGING-MIB"
+  }
+}

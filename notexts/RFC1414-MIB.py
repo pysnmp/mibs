@@ -1,0 +1,30 @@
+#
+# PySNMP MIB module RFC1414-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source RFC1414-MIB
+# Source digest sha256:701c958d8a562a2f20676fe1d6021216a79f0c70e634fdb68d706ca343e0b7cc
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "mib-2")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tcpConnLocalAddress, tcpConnLocalPort, tcpConnRemAddress, tcpConnRemPort = mibBuilder.importSymbols("TCP-MIB", "tcpConnLocalAddress", "tcpConnLocalPort", "tcpConnRemAddress", "tcpConnRemPort")
+ident = MibIdentifier((1, 3, 6, 1, 2, 1, 24))
+identInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 24, 1))
+identTable = MibTable((1, 3, 6, 1, 2, 1, 24, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: identTable.setStatus('mandatory')
+identEntry = MibTableRow((1, 3, 6, 1, 2, 1, 24, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "TCP-MIB", "tcpConnLocalAddress"), (0, "TCP-MIB", "tcpConnLocalPort"), (0, "TCP-MIB", "tcpConnRemAddress"), (0, "TCP-MIB", "tcpConnRemPort"))
+if mibBuilder.loadTexts: identEntry.setStatus('mandatory')
+identStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 24, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noError", 1), ("unknownError", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: identStatus.setStatus('mandatory')
+identOpSys = MibTableColumn((1, 3, 6, 1, 2, 1, 24, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: identOpSys.setStatus('mandatory')
+identCharset = MibTableColumn((1, 3, 6, 1, 2, 1, 24, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: identCharset.setStatus('mandatory')
+identUserid = MibTableColumn((1, 3, 6, 1, 2, 1, 24, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: identUserid.setStatus('mandatory')
+identMisc = MibTableColumn((1, 3, 6, 1, 2, 1, 24, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: identMisc.setStatus('mandatory')
+mibBuilder.exportSymbols("RFC1414-MIB", ident=ident, identCharset=identCharset, identEntry=identEntry, identInfo=identInfo, identMisc=identMisc, identOpSys=identOpSys, identStatus=identStatus, identTable=identTable, identUserid=identUserid)

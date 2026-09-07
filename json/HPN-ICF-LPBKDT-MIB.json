@@ -1,0 +1,153 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLpbkdt": {
+    "name": "hpnicfLpbkdt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-30 17:41",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2008-09-27 15:04",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfLpbkdtNotifications": {
+    "name": "hpnicfLpbkdtNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLpbkdtObjects": {
+    "name": "hpnicfLpbkdtObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLpbkdtTrapPrefix": {
+    "name": "hpnicfLpbkdtTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1.0",
+    "class": "objectidentity"
+  },
+  "hpnicfLpbkdtTrapLoopbacked": {
+    "name": "hpnicfLpbkdtTrapLoopbacked",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLpbkdtTrapRecovered": {
+    "name": "hpnicfLpbkdtTrapRecovered",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLpbkdtTrapPerVlanLoopbacked": {
+    "name": "hpnicfLpbkdtTrapPerVlanLoopbacked",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HPN-ICF-LPBKDT-MIB",
+        "object": "hpnicfLpbkdtVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLpbkdtTrapPerVlanRecovered": {
+    "name": "hpnicfLpbkdtTrapPerVlanRecovered",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HPN-ICF-LPBKDT-MIB",
+        "object": "hpnicfLpbkdtVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLpbkdtVlanID": {
+    "name": "hpnicfLpbkdtVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.95.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-LPBKDT-MIB",
+      "Source digest sha256:60b4ea3ea05ca509bd67fe240f5ec17fa33b416c0bd3836c2cd31d8050fe19fa",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-LPBKDT-MIB"
+  }
+}

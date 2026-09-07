@@ -1,0 +1,384 @@
+{
+  "imports": {
+    "class": "imports",
+    "AUDIOCODES-TYPES-MIB": [
+      "acBoardMibs",
+      "acGeneric",
+      "acPerformance",
+      "acProducts",
+      "acRegistrations",
+      "audioCodes"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "acPMAnalog": {
+    "name": "acPMAnalog",
+    "oid": "1.3.6.1.4.1.5003.10.9",
+    "class": "moduleidentity"
+  },
+  "acPMAnalogConfiguration": {
+    "name": "acPMAnalogConfiguration",
+    "oid": "1.3.6.1.4.1.5003.10.9.1",
+    "class": "objectidentity"
+  },
+  "acPMAnalogConfigurationPeriodLength": {
+    "name": "acPMAnalogConfigurationPeriodLength",
+    "oid": "1.3.6.1.4.1.5003.10.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 894780
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMAnalogConfigurationResetTotalCounters": {
+    "name": "acPMAnalogConfigurationResetTotalCounters",
+    "oid": "1.3.6.1.4.1.5003.10.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetCountersDone": 1,
+          "resetTotalCounters": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMAnalogUtilsAttributes": {
+    "name": "acPMAnalogUtilsAttributes",
+    "oid": "1.3.6.1.4.1.5003.10.9.1.31",
+    "class": "objectidentity"
+  },
+  "acPMAnalogUtilsAttributesOffHookChannelsHighThreshold": {
+    "name": "acPMAnalogUtilsAttributesOffHookChannelsHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.9.1.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMAnalogUtilsAttributesOffHookChannelsLowThreshold": {
+    "name": "acPMAnalogUtilsAttributesOffHookChannelsLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.9.1.31.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acPMAnalogData": {
+    "name": "acPMAnalogData",
+    "oid": "1.3.6.1.4.1.5003.10.9.2",
+    "class": "objectidentity"
+  },
+  "acPMAnalogDataAcPMAnalogTimeFromStartOfInterval": {
+    "name": "acPMAnalogDataAcPMAnalogTimeFromStartOfInterval",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMAnalogUtils": {
+    "name": "acPMAnalogUtils",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31",
+    "class": "objectidentity"
+  },
+  "acPMOffHookChannelsTable": {
+    "name": "acPMOffHookChannelsTable",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMOffHookChannelsEntry": {
+    "name": "acPMOffHookChannelsEntry",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-PM-Analog-MIB",
+        "object": "acPMOffHookChannelsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acPMOffHookChannelsInterval": {
+    "name": "acPMOffHookChannelsInterval",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acPMOffHookChannelsVal": {
+    "name": "acPMOffHookChannelsVal",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsAverage": {
+    "name": "acPMOffHookChannelsAverage",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsMax": {
+    "name": "acPMOffHookChannelsMax",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsMin": {
+    "name": "acPMOffHookChannelsMin",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsVolume": {
+    "name": "acPMOffHookChannelsVolume",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsTimeBelowLowThreshold": {
+    "name": "acPMOffHookChannelsTimeBelowLowThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsTimeBetweenThresholds": {
+    "name": "acPMOffHookChannelsTimeBetweenThresholds",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsTimeAboveHighThreshold": {
+    "name": "acPMOffHookChannelsTimeAboveHighThreshold",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acPMOffHookChannelsFullDayAverage": {
+    "name": "acPMOffHookChannelsFullDayAverage",
+    "oid": "1.3.6.1.4.1.5003.10.9.2.31.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AC-PM-Analog-MIB",
+      "Source digest sha256:b295a4ee3e7b36b4edb9f18f45776fbdd0465e8be999ac9e48753c0e1f5480d9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AC-PM-Analog-MIB"
+  }
+}

@@ -1,0 +1,1994 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoIgmpSnoopingCapability": {
+    "name": "ciscoIgmpSnoopingCapability",
+    "oid": "1.3.6.1.4.1.9.7.320",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-12 00:00",
+        "description": "Added the following capability statements: - cisCapV15R0101SYPCat6kPfc3 - cisCapV15R0101SYPCat6kPfc4 Updated the following capability statements: - cisCapV12R0233SXIPCat6K - cisCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2010-11-16 00:00",
+        "description": "Added capability statement cisCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2008-10-31 00:00",
+        "description": "Added capability statement cisCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2004-03-10 00:00",
+        "description": "Added the following capability statements: - cisCapCatOSV08R0301Cat6kPfc2 - cisCapCatOSV08R0301Cat6kPfc3."
+      },
+      {
+        "revision": "2003-08-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cisCapCatOSV08R0101Cat6kPfc": {
+    "name": "cisCapCatOSV08R0101Cat6kPfc",
+    "oid": "1.3.6.1.4.1.9.7.320.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisSystemGroup",
+          "cisSystemV2Group",
+          "cisStatsGroup",
+          "cisBaseConfigGroup",
+          "cisExtConfig1Group",
+          "cisIgmpQuerierConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapCatOSV08R0101Cat6kPfc2": {
+    "name": "cisCapCatOSV08R0101Cat6kPfc2",
+    "oid": "1.3.6.1.4.1.9.7.320.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500 and\n                         Cisco 7600 series devices with PFC2 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisSystemGroup",
+          "cisSystemV2Group",
+          "cisSystemV3Group",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisExtConfig1Group",
+          "cisRateLimitGroup",
+          "cisIgmpQuerierConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapCatOSV08R0101Cat6kPfc3": {
+    "name": "cisCapCatOSV08R0101Cat6kPfc3",
+    "oid": "1.3.6.1.4.1.9.7.320.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500 and\n                         Cisco 7600 series devices with PFC3 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisSystemGroup",
+          "cisSystemV2Group",
+          "cisStatsGroup",
+          "cisBaseConfigGroup",
+          "cisExtConfig1Group",
+          "cisRateLimitGroup",
+          "cisIgmpQuerierConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cisGeneralQueryRateLimit",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapCatOSV08R0301Cat6kPfc2": {
+    "name": "cisCapCatOSV08R0301Cat6kPfc2",
+    "oid": "1.3.6.1.4.1.9.7.320.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500 and\n                         Cisco 7600 series devices with PFC2 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisSystemGroup",
+          "cisSystemV2Group",
+          "cisSystemV3Group",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisExtConfig1Group",
+          "cisIgmpQuerierConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapCatOSV08R0301Cat6kPfc3": {
+    "name": "cisCapCatOSV08R0301Cat6kPfc3",
+    "oid": "1.3.6.1.4.1.9.7.320.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500 and\n                         Cisco 7600 series devices with PFC3 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisSystemGroup",
+          "cisSystemV2Group",
+          "cisSystemV3Group",
+          "cisV3StatsGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisStatsGroup",
+          "cisBaseConfigGroup",
+          "cisExtConfig1Group",
+          "cisIgmpQuerierConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapV12R0233SXIPCat6K": {
+    "name": "cisCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.320.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisExtConfig1Group",
+          "cisExtConfig2Group",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisVlanConfigGroup",
+          "cisIgmpQuerierConfigGroup",
+          "cisIgmpQuerierInfoGroup",
+          "cisL2EntryLimitGroup",
+          "cisTrackingLimitGroup",
+          "cisSourceOnlyLimitGroup",
+          "cisRateLimitGroup2",
+          "cisVlanConfigGroup2",
+          "cisSourceOnlyAgeTimerInSecGroup"
+        ],
+        "variations": [
+          {
+            "object": "cisV3ProcessEnabledAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cisFastBlockEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFastLeaveEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisAdminMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "auto": 1,
+                  "igmpOnly": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cisLeaveQueryType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisAddressAliasingMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFallbackTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisReportSuppressionEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisRxMACGeneralQueries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRateLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 6000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanIgmpSnoopingLearningMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisL2EntryLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 100000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisEntryTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyPercentageScanLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 100
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyLearningLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyLearningEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyEntryAgingTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 86400
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanLeaveQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 25500
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapV12R0250SYPCat6K": {
+    "name": "cisCapV12R0250SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.320.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisGlobalIgmpV3InfoGroup",
+          "cisExtConfig1Group",
+          "cisExtConfig2Group",
+          "cisGlobalTcnGroup",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisVlanConfigGroup",
+          "cisL2EntryLimitGroup",
+          "cisTrackingLimitGroup",
+          "cisSourceOnlyLimitGroup",
+          "cisIgmpQuerierConfigGroup",
+          "cisIgmpQuerierInfoGroup",
+          "cisRateLimitGroup2",
+          "cisVlanConfigGroup2",
+          "cisSourceOnlyAgeTimerInSecGroup",
+          "cisMulticastGroupInfoGroup",
+          "cisMulticastGroupPortInfoGroup",
+          "cisMulticastGroupConfigGroup",
+          "cisMulticastRouterConfigGroup",
+          "cisLeaveQueryConfigGroup",
+          "cisQuerierGlobalConfigGroup",
+          "cisIgmpQuerierConfigExtGroup",
+          "cisRobustnessConfigGroup",
+          "cisTimeToLiveConfigGroup",
+          "cisRouterAlertConfigGroup",
+          "cisVlanExplicitTrackingCfgGroup",
+          "cisIfLimitGroup",
+          "cisIfLimitTotalGroup",
+          "cisIfAccessGroupGroup",
+          "cisVlanFilterConfigGroup",
+          "cisFilterStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cisV3ProcessEnabledAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cisFastBlockEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFastLeaveEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisAdminMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cisLeaveQueryType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisAddressAliasingMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFallbackTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRxMACGeneralQueries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRateLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisSourceOnlyEntryAgingTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cisTopoChangeFloodQueryCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisSourceOnlyLearningEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisL2EntryLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisEntryTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyPercentageScanLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisSourceOnlyLearningLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisLastMemberQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 32767
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisLastMemberQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 7
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanIgmpSnoopingLearningMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisVlanLeaveQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 32767
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanLastMemberQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 7
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanRobustnessVariable",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 3
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisMcastRouterConfigStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisMcastRouterConfigRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfCeVlanIndex",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisMulticastGroupConfRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisQuerierTcnQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierTimerExpiry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 60,
+                    "max": 300
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierMaxResponseTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 18000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "version1": 1,
+                  "version2": 2,
+                  "version3": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTcnQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 10
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTcnQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTimerExpiry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 60,
+                    "max": 300
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierMaxResponseTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 18000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierAdminAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitExcludeAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfLimitTotalLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalExcludeAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfAccessGroupsChannelsAllowed",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfAccessGroupStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisVlanFilterAccessGroup",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterLimitExclAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterMinVersionAllowed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "version1": 1,
+                  "version2": 2,
+                  "version3": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cisVlanExplicitTrackingEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisVlanExplicitTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisV3SnoopingSupport",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfLimitRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfAccessGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisRobustnessVariable",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 3
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapV15R0101SYPCat6kPfc3": {
+    "name": "cisCapV15R0101SYPCat6kPfc3",
+    "oid": "1.3.6.1.4.1.9.7.320.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with PFC3 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisExtConfig1Group",
+          "cisExtConfig2Group",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisVlanConfigGroup",
+          "cisIgmpQuerierConfigGroup",
+          "cisIgmpQuerierInfoGroup",
+          "cisL2EntryLimitGroup",
+          "cisTrackingLimitGroup",
+          "cisSourceOnlyLimitGroup",
+          "cisRateLimitGroup2",
+          "cisVlanConfigGroup2",
+          "cisSourceOnlyAgeTimerInSecGroup"
+        ],
+        "variations": [
+          {
+            "object": "cisV3ProcessEnabledAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cisFastBlockEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFastLeaveEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisAdminMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "auto": 1,
+                  "igmpOnly": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cisLeaveQueryType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisAddressAliasingMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFallbackTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisReportSuppressionEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisRxMACGeneralQueries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRateLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 6000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanIgmpSnoopingLearningMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisL2EntryLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 100000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisEntryTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyPercentageScanLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 100
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyLearningLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyLearningEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyEntryAgingTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 86400
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanLeaveQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 25500
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cisCapV15R0101SYPCat6kPfc4": {
+    "name": "cisCapV15R0101SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.320.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with PFC4 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "includes": [
+          "cisBaseConfigGroup",
+          "cisGlobalIgmpV3ConfigGroup",
+          "cisGlobalIgmpV3InfoGroup",
+          "cisExtConfig1Group",
+          "cisExtConfig2Group",
+          "cisGlobalTcnGroup",
+          "cisStatsGroup",
+          "cisV3StatsGroup",
+          "cisVlanConfigGroup",
+          "cisL2EntryLimitGroup",
+          "cisTrackingLimitGroup",
+          "cisSourceOnlyLimitGroup",
+          "cisIgmpQuerierConfigGroup",
+          "cisIgmpQuerierInfoGroup",
+          "cisRateLimitGroup2",
+          "cisVlanConfigGroup2",
+          "cisSourceOnlyAgeTimerInSecGroup",
+          "cisMulticastGroupInfoGroup",
+          "cisMulticastGroupPortInfoGroup",
+          "cisMulticastGroupConfigGroup",
+          "cisMulticastRouterConfigGroup",
+          "cisLeaveQueryConfigGroup",
+          "cisQuerierGlobalConfigGroup",
+          "cisIgmpQuerierConfigExtGroup",
+          "cisRobustnessConfigGroup",
+          "cisTimeToLiveConfigGroup",
+          "cisRouterAlertConfigGroup",
+          "cisVlanExplicitTrackingCfgGroup",
+          "cisIfLimitGroup",
+          "cisIfLimitTotalGroup",
+          "cisIfAccessGroupGroup",
+          "cisVlanFilterConfigGroup",
+          "cisFilterStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cisV3ProcessEnabledAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cisFastBlockEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFastLeaveEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisAdminMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cisLeaveQueryType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisAddressAliasingMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisFallbackTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRxMACGeneralQueries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisRateLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisSourceOnlyEntryAgingTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cisTopoChangeFloodQueryCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisSourceOnlyLearningEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisL2EntryLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisEntryTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisSourceOnlyPercentageScanLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisSourceOnlyLearningLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "cisLastMemberQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 32767
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisLastMemberQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 7
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanIgmpSnoopingLearningMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cisVlanLeaveQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 32767
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanLastMemberQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 7
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanRobustnessVariable",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 3
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisMcastRouterConfigStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisMcastRouterConfigRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfCeVlanIndex",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisMulticastGroupConfStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisMulticastGroupConfRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisQuerierTcnQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierTimerExpiry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 60,
+                    "max": 300
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierMaxResponseTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 18000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "version1": 1,
+                  "version2": 2,
+                  "version3": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTcnQueryCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 10
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTcnQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierTimerExpiry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 60,
+                    "max": 300
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierMaxResponseTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierQueryInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 18000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIgmpQuerierAdminAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitExcludeAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfLimitTotalLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalExcludeAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfAccessGroupsChannelsAllowed",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisIfAccessGroupStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cisVlanFilterAccessGroup",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterLimitMax",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterLimitExclAccessGrp",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisVlanFilterMinVersionAllowed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "version1": 1,
+                  "version2": 2,
+                  "version3": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cisVlanExplicitTrackingEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cisVlanExplicitTrackingLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 128000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisV3SnoopingSupport",
+            "access": "read-only"
+          },
+          {
+            "object": "cisIfLimitRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfLimitTotalRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisIfAccessGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cisRobustnessVariable",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 3
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cisQuerierAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IGMP-SNOOPING-CAPABILITY",
+      "Source digest sha256:56d4601cd4b59677968dc1534499590899021d59591964770f4ce4f24ad94a56",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IGMP-SNOOPING-CAPABILITY"
+  }
+}

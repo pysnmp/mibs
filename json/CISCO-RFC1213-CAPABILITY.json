@@ -1,0 +1,439 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRFC1213Capability": {
+    "name": "ciscoRFC1213Capability",
+    "oid": "1.3.6.1.4.1.9.7.101",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-27 16:00",
+        "description": "Added ciscoRFC1213CapCatOSV08R0101."
+      },
+      {
+        "revision": "2001-09-08 16:00",
+        "description": "Zero length for sysName disallowed."
+      },
+      {
+        "revision": "1994-08-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRFC1213CapabilityV10R02": {
+    "name": "ciscoRFC1213CapabilityV10R02",
+    "oid": "1.3.6.1.4.1.9.7.101.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "RFC1213-MIB",
+        "includes": [
+          "systemGroup",
+          "interfacesGroup",
+          "atGroup",
+          "ipGroup",
+          "icmpGroup",
+          "tcpGroup",
+          "udpGroup",
+          "egpGroup",
+          "snmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "atIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atPhysAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "atNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "egpNeighEventTrigger",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1213CapabilityV12R02": {
+    "name": "ciscoRFC1213CapabilityV12R02",
+    "oid": "1.3.6.1.4.1.9.7.101.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "RFC1213-MIB",
+        "includes": [
+          "systemGroup",
+          "interfacesGroup",
+          "atGroup",
+          "ipGroup",
+          "icmpGroup",
+          "tcpGroup",
+          "udpGroup",
+          "egpGroup",
+          "snmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "atIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atPhysAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "atNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "read-write"
+          },
+          {
+            "object": "egpNeighEventTrigger",
+            "access": "read-only"
+          },
+          {
+            "object": "sysName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1213CapabilityV12R00S": {
+    "name": "ciscoRFC1213CapabilityV12R00S",
+    "oid": "1.3.6.1.4.1.9.7.101.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0S",
+    "capabilities": [
+      {
+        "module": "RFC1213-MIB",
+        "includes": [
+          "systemGroup",
+          "interfacesGroup",
+          "atGroup",
+          "ipGroup",
+          "icmpGroup",
+          "tcpGroup",
+          "udpGroup",
+          "egpGroup",
+          "snmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "atIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atPhysAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "atNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "read-write"
+          },
+          {
+            "object": "egpNeighEventTrigger",
+            "access": "read-only"
+          },
+          {
+            "object": "sysName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1213CapabilityV12R01": {
+    "name": "ciscoRFC1213CapabilityV12R01",
+    "oid": "1.3.6.1.4.1.9.7.101.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1",
+    "capabilities": [
+      {
+        "module": "RFC1213-MIB",
+        "includes": [
+          "systemGroup",
+          "interfacesGroup",
+          "atGroup",
+          "ipGroup",
+          "icmpGroup",
+          "tcpGroup",
+          "udpGroup",
+          "egpGroup",
+          "snmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "atIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atPhysAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "atNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "read-write"
+          },
+          {
+            "object": "egpNeighEventTrigger",
+            "access": "read-only"
+          },
+          {
+            "object": "sysName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1213CapCatOSV08R0101": {
+    "name": "ciscoRFC1213CapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.101.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "RFC1213-MIB",
+        "includes": [
+          "systemGroup",
+          "interfacesGroup",
+          "atGroup",
+          "ipGroup",
+          "icmpGroup",
+          "tcpGroup",
+          "udpGroup",
+          "snmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipRouteProto",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "local": 2,
+                  "netmgmt": 3,
+                  "icmp": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "tcpRtoAlgorithm",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "vanj": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "tcpConnState",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RFC1213-CAPABILITY",
+      "Source digest sha256:9ce82d261a7b315b00c8287f1d213b336645cfacf0f10002df0004fefa995614",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RFC1213-CAPABILITY"
+  }
+}

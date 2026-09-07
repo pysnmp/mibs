@@ -1,0 +1,1193 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfObjectModules",
+      "hpicfVg",
+      "hpicfVgRptrTrapsPrefix"
+    ],
+    "ICF-VG-RPTR": [
+      "icfVgPortStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfVgRptrMib": {
+    "name": "hpicfVgRptrMib",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-03 22:25",
+        "description": "Updated division name."
+      },
+      {
+        "revision": "1997-03-06 03:45",
+        "description": "Added NOTIFICATION-GROUP information."
+      },
+      {
+        "revision": "1996-09-10 02:36",
+        "description": "Updated division name and STATUS clauses."
+      },
+      {
+        "revision": "1996-02-14 22:53",
+        "description": "Split this MIB module from the former monolithic hp-icf MIB. Added redundant uplink support and additional global counters for standard-compliant hardware support."
+      },
+      {
+        "revision": "1995-01-18 00:00",
+        "description": "Initial version of this MIB module. Released with the HPJ2414A agent card for the HPJ2410A 100VG repeater."
+      }
+    ]
+  },
+  "hpVgBasic": {
+    "name": "hpVgBasic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1",
+    "class": "objectidentity"
+  },
+  "hpVgBasicGlobal": {
+    "name": "hpVgBasicGlobal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1",
+    "class": "objectidentity"
+  },
+  "hpVgEntityName": {
+    "name": "hpVgEntityName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgRedundantUpLinksFlag": {
+    "name": "hpVgRedundantUpLinksFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpVgXcvrTable": {
+    "name": "hpVgXcvrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgXcvrEntry": {
+    "name": "hpVgXcvrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpVgXcvrGroupIndex": {
+    "name": "hpVgXcvrGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgXcvrIndex": {
+    "name": "hpVgXcvrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgXcvrType": {
+    "name": "hpVgXcvrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "pmdMissing": 3,
+          "utp4": 4,
+          "stp2": 5,
+          "fibre": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgXcvrAssociatedPort": {
+    "name": "hpVgXcvrAssociatedPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpVgXcvrState": {
+    "name": "hpVgXcvrState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inUse": 2,
+          "standby": 3,
+          "silent": 4,
+          "linkFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgXcvrAbandonments": {
+    "name": "hpVgXcvrAbandonments",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgXcvrIsMovable": {
+    "name": "hpVgXcvrIsMovable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgNullAddrTraining": {
+    "name": "hpVgNullAddrTraining",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preventNullAddr": 1,
+          "allowNullAddr": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpVgBasicGroup": {
+    "name": "hpVgBasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2",
+    "class": "objectidentity"
+  },
+  "hpVgBasicGroupTable": {
+    "name": "hpVgBasicGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgBasicGroupEntry": {
+    "name": "hpVgBasicGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpVgGrpGroupIndex": {
+    "name": "hpVgGrpGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgGrpPortsAdminStatus": {
+    "name": "hpVgGrpPortsAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgGrpPortsTrained": {
+    "name": "hpVgGrpPortsTrained",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgGrpPortsInTraining": {
+    "name": "hpVgGrpPortsInTraining",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgGrpPortsCascaded": {
+    "name": "hpVgGrpPortsCascaded",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgGrpPortsPromiscuous": {
+    "name": "hpVgGrpPortsPromiscuous",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgBasicPort": {
+    "name": "hpVgBasicPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3",
+    "class": "objectidentity"
+  },
+  "hpVgBasicPortTable": {
+    "name": "hpVgBasicPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgBasicPortEntry": {
+    "name": "hpVgBasicPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpVgPortGroupIndex": {
+    "name": "hpVgPortGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgPortIndex": {
+    "name": "hpVgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpVgPortPolarityReversed": {
+    "name": "hpVgPortPolarityReversed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgPortWireSkewError": {
+    "name": "hpVgPortWireSkewError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgPortAssociatedXcvrIndex": {
+    "name": "hpVgPortAssociatedXcvrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpVgPortNumAssociatedXcvrs": {
+    "name": "hpVgPortNumAssociatedXcvrs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonitor": {
+    "name": "hpVgMonitor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2",
+    "class": "objectidentity"
+  },
+  "hpVgMonitorGlobal": {
+    "name": "hpVgMonitorGlobal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1",
+    "class": "objectidentity"
+  },
+  "hpVgMonCounters": {
+    "name": "hpVgMonCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "hpVgMonGlbReadableFrames": {
+    "name": "hpVgMonGlbReadableFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbReadableOctets": {
+    "name": "hpVgMonGlbReadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbUnreadableOctets": {
+    "name": "hpVgMonGlbUnreadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHighPriorityFrames": {
+    "name": "hpVgMonGlbHighPriorityFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHighPriorityOctets": {
+    "name": "hpVgMonGlbHighPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbBroadcastFrames": {
+    "name": "hpVgMonGlbBroadcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbMulticastFrames": {
+    "name": "hpVgMonGlbMulticastFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbIPMFrames": {
+    "name": "hpVgMonGlbIPMFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbDataErrorFrames": {
+    "name": "hpVgMonGlbDataErrorFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbPriorityPromotions": {
+    "name": "hpVgMonGlbPriorityPromotions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHCReadableOctets": {
+    "name": "hpVgMonGlbHCReadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHCUnreadableOctets": {
+    "name": "hpVgMonGlbHCUnreadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHCHighPriorityOctets": {
+    "name": "hpVgMonGlbHCHighPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbHCNormPriorityOctets": {
+    "name": "hpVgMonGlbHCNormPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbNormPriorityFrames": {
+    "name": "hpVgMonGlbNormPriorityFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbNormPriorityOctets": {
+    "name": "hpVgMonGlbNormPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbNullAddressedFrames": {
+    "name": "hpVgMonGlbNullAddressedFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbOversizeFrames": {
+    "name": "hpVgMonGlbOversizeFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonGlbTransitionToTrainings": {
+    "name": "hpVgMonGlbTransitionToTrainings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpVgMonitorGroup": {
+    "name": "hpVgMonitorGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.2",
+    "class": "objectidentity"
+  },
+  "hpVgMonitorPort": {
+    "name": "hpVgMonitorPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.3.2.3",
+    "class": "objectidentity"
+  },
+  "hpVgRedundantUplinkTrap": {
+    "name": "hpVgRedundantUplinkTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.12.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpVgLossOfActiveTrap": {
+    "name": "hpVgLossOfActiveTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.12.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrConformance": {
+    "name": "hpicfVgRptrConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1",
+    "class": "objectidentity"
+  },
+  "hpicfVgRptrCompliances": {
+    "name": "hpicfVgRptrCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfVgRptrGroups": {
+    "name": "hpicfVgRptrGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfVgRptrPreDot12Compliance": {
+    "name": "hpicfVgRptrPreDot12Compliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfVgRptrPreDot12BasicGroup",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrPreDot12MonitorGroup",
+        "module": "HP-ICF-VG-RPTR"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hpicfVgRptrCompliance": {
+    "name": "hpicfVgRptrCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfVgRptrBasicGroup",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrMonitorGroup",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrXcvrGroup",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrBasicTraps",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrRedundantUplinkGroup",
+        "module": "HP-ICF-VG-RPTR"
+      },
+      {
+        "object": "hpicfVgRptrRedundantUplinkTraps",
+        "module": "HP-ICF-VG-RPTR"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrPreDot12BasicGroup": {
+    "name": "hpicfVgRptrPreDot12BasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgEntityName"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsAdminStatus"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsTrained"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsInTraining"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsCascaded"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsPromiscuous"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortPolarityReversed"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortWireSkewError"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hpicfVgRptrBasicGroup": {
+    "name": "hpicfVgRptrBasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgEntityName"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgNullAddrTraining"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsAdminStatus"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsTrained"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsInTraining"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsCascaded"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgGrpPortsPromiscuous"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortPolarityReversed"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortWireSkewError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrPreDot12MonitorGroup": {
+    "name": "hpicfVgRptrPreDot12MonitorGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbReadableFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbReadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbUnreadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHighPriorityFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHighPriorityOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbBroadcastFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbMulticastFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbIPMFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbDataErrorFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbPriorityPromotions"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCReadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCUnreadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCHighPriorityOctets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hpicfVgRptrMonitorGroup": {
+    "name": "hpicfVgRptrMonitorGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbReadableFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbReadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbUnreadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHighPriorityFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHighPriorityOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbBroadcastFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbMulticastFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbIPMFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbDataErrorFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbPriorityPromotions"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCReadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCUnreadableOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCHighPriorityOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbHCNormPriorityOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbNormPriorityFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbNormPriorityOctets"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbNullAddressedFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbOversizeFrames"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgMonGlbTransitionToTrainings"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrXcvrGroup": {
+    "name": "hpicfVgRptrXcvrGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrType"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrAssociatedPort"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrState"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrAbandonments"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgXcvrIsMovable"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortAssociatedXcvrIndex"
+      },
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgPortNumAssociatedXcvrs"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrRedundantUplinkGroup": {
+    "name": "hpicfVgRptrRedundantUplinkGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgRedundantUpLinksFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrBasicTraps": {
+    "name": "hpicfVgRptrBasicTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgLossOfActiveTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVgRptrRedundantUplinkTraps": {
+    "name": "hpicfVgRptrRedundantUplinkTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.11.1.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VG-RPTR",
+        "object": "hpVgRedundantUplinkTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-VG-RPTR",
+      "Source digest sha256:63bd6017ef2f2b3a64a35aa8fc69f11332030f868dc24bca797e29bb76ed29e1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-VG-RPTR"
+  }
+}

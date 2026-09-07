@@ -1,0 +1,468 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcAclId"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpSp2MIB": {
+    "name": "ciscoItpSp2MIB",
+    "oid": "1.3.6.1.4.1.9.9.248",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-16 00:00",
+        "description": "The ability to allow multiple instances of Signalling Points to run in the same device has introduce a new index structure. All objects in this MIB will be deprecated and replaced by objects in the CISCO-ITP-GSP2-MIB.my MIB."
+      },
+      {
+        "revision": "2002-02-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpSp2MIBNotifications": {
+    "name": "ciscoItpSp2MIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.248.0",
+    "class": "objectidentity"
+  },
+  "ciscoItpSp2MIBObjects": {
+    "name": "ciscoItpSp2MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.248.1",
+    "class": "objectidentity"
+  },
+  "cisEvents": {
+    "name": "cisEvents",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1",
+    "class": "objectidentity"
+  },
+  "cisQos": {
+    "name": "cisQos",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2",
+    "class": "objectidentity"
+  },
+  "CisTcQosClass": {
+    "name": "CisTcQosClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "cisEventSummryLoggedEvents": {
+    "name": "cisEventSummryLoggedEvents",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cisEventSummryDroppedEvents": {
+    "name": "cisEventSummryDroppedEvents",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cisEventHistoryMaxEntries": {
+    "name": "cisEventHistoryMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cisEventHistoryTableEntAllowed": {
+    "name": "cisEventHistoryTableEntAllowed",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cisEventHistoryTable": {
+    "name": "cisEventHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cisEventHistoryTableEntry": {
+    "name": "cisEventHistoryTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cisEventHistoryIndex": {
+    "name": "cisEventHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cisEventHistoryDescr": {
+    "name": "cisEventHistoryDescr",
+    "oid": "1.3.6.1.4.1.9.9.248.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cisQosTable": {
+    "name": "cisQosTable",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cisQosTableEntry": {
+    "name": "cisQosTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosClass",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cisQosClass": {
+    "name": "cisQosClass",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CisTcQosClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cisQosType": {
+    "name": "cisQosType",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipPrecedence": 1,
+          "ipDscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cisQosPrecedenceValue": {
+    "name": "cisQosPrecedenceValue",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cisQosIpDscp": {
+    "name": "cisQosIpDscp",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cisQosAclId": {
+    "name": "cisQosAclId",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cisQosRowStatus": {
+    "name": "cisQosRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.248.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ciscoItpSp2MIBConformance": {
+    "name": "ciscoItpSp2MIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.248.2",
+    "class": "objectidentity"
+  },
+  "ciscoItpSp2MIBCompliances": {
+    "name": "ciscoItpSp2MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.248.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoItpSp2MIBGroups": {
+    "name": "ciscoItpSp2MIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.248.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoItpSp2MIBCompliance": {
+    "name": "ciscoItpSp2MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.248.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpSp2EventsGroup",
+        "module": "CISCO-ITP-SP2-MIB"
+      },
+      {
+        "object": "ciscoItpSp2QosGroup",
+        "module": "CISCO-ITP-SP2-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventHistoryMaxEntries",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosPrecedenceValue",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosIpDscp",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosAclId",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpSp2EventsGroup": {
+    "name": "ciscoItpSp2EventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.248.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventSummryLoggedEvents"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventSummryDroppedEvents"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventHistoryMaxEntries"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventHistoryTableEntAllowed"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisEventHistoryDescr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpSp2QosGroup": {
+    "name": "ciscoItpSp2QosGroup",
+    "oid": "1.3.6.1.4.1.9.9.248.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosType"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosPrecedenceValue"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosIpDscp"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosAclId"
+      },
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "object": "cisQosRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-SP2-MIB",
+      "Source digest sha256:08d9478096859bc895d01dc6df437635d897a93df5e3ec9cb9b36a6c9d4b8b44",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-SP2-MIB"
+  }
+}

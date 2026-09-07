@@ -1,0 +1,345 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSipUaCapability": {
+    "name": "ciscoSipUaCapability",
+    "oid": "1.3.6.1.4.1.9.7.172",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-06-22 00:00",
+        "description": "Adding AGENT-CAPABILITIES clause for IOS 12.4(2)T."
+      },
+      {
+        "revision": "2003-07-30 00:00",
+        "description": "Adding AGENT-CAPABILITIES clauses for IOS 12.3(2)."
+      },
+      {
+        "revision": "2003-03-21 00:00",
+        "description": "Adding AGENT-CAPABILITIES clauses for IOS 12.2(8), 12.2(11) & 12.2(15)."
+      },
+      {
+        "revision": "2001-09-26 00:00",
+        "description": "Adding AGENT-CAPABILITIES clause for IOS 12.2(2)."
+      },
+      {
+        "revision": "2001-06-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSipUaCapabilityV12R0202": {
+    "name": "ciscoSipUaCapabilityV12R0202",
+    "oid": "1.3.6.1.4.1.9.7.172.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(2).",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroup",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroup",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroup",
+          "ciscoSipTimerConfigGroup",
+          "ciscoSipRetryConfigGroup",
+          "ciscoSipRetryStatsGroup",
+          "ciscoSipStatsRedirStatusCodesGroup",
+          "ciscoSipStatsClientStatusCodesGroup",
+          "ciscoSipStatsServerStatusCodesGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0208": {
+    "name": "ciscoSipUaCapabilityV12R0208",
+    "oid": "1.3.6.1.4.1.9.7.172.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8).",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroupRev1",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroup",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroupRev1",
+          "ciscoSipTimerConfigGroupRev1",
+          "ciscoSipRetryConfigGroupRev1",
+          "ciscoSipRetryStatsGroupRev1",
+          "ciscoSipStatsRedirStatusCodesGroup",
+          "ciscoSipStatsClientStatusCodesGroupRev1",
+          "ciscoSipStatsServerStatusCodesGroupRev1",
+          "ciscoSipCfgPeerGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0211": {
+    "name": "ciscoSipUaCapabilityV12R0211",
+    "oid": "1.3.6.1.4.1.9.7.172.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(11).",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroupRev2",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroupRev1",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroupRev2",
+          "ciscoSipTimerConfigGroupRev2",
+          "ciscoSipRetryConfigGroupRev2",
+          "ciscoSipRetryStatsGroupRev2",
+          "ciscoSipStatsRedirStatusCodesGroupRev1",
+          "ciscoSipStatsClientStatusCodesGroupRev2",
+          "ciscoSipStatsServerStatusCodesGroupRev1",
+          "ciscoSipCfgPeerGroup",
+          "ciscoSipStatusCauseMapGroup",
+          "ciscoSipCfgAaaGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgStatusCauseStoreStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgCauseStatusStoreStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0215": {
+    "name": "ciscoSipUaCapabilityV12R0215",
+    "oid": "1.3.6.1.4.1.9.7.172.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(15).",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroupRev2",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroupRev1",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroupRev2",
+          "ciscoSipTimerConfigGroupRev3",
+          "ciscoSipRetryConfigGroupRev3",
+          "ciscoSipRetryStatsGroupRev3",
+          "ciscoSipStatsRedirStatusCodesGroupRev1",
+          "ciscoSipStatsClientStatusCodesGroupRev2",
+          "ciscoSipStatsServerStatusCodesGroupRev1",
+          "ciscoSipCfgPeerGroup",
+          "ciscoSipStatusCauseMapGroup",
+          "ciscoSipCfgAaaGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgStatusCauseStoreStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgCauseStatusStoreStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0302": {
+    "name": "ciscoSipUaCapabilityV12R0302",
+    "oid": "1.3.6.1.4.1.9.7.172.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3(2).",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroupRev3",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroupRev2",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroupRev2",
+          "ciscoSipTimerConfigGroupRev3",
+          "ciscoSipRetryConfigGroupRev3",
+          "ciscoSipRetryStatsGroupRev3",
+          "ciscoSipStatsRedirStatusCodesGroupRev1",
+          "ciscoSipStatsClientStatusCodesGroupRev3",
+          "ciscoSipStatsServerStatusCodesGroupRev1",
+          "ciscoSipCfgPeerGroup",
+          "ciscoSipStatusCauseMapGroup",
+          "ciscoSipCfgAaaGroup",
+          "ciscoSipStatsMiscGroup",
+          "ciscoSipBaseIOSConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgStatusCauseStoreStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgCauseStatusStoreStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0402T": {
+    "name": "ciscoSipUaCapabilityV12R0402T",
+    "oid": "1.3.6.1.4.1.9.7.172.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(2)T.",
+    "capabilities": [
+      {
+        "module": "CISCO-SIP-UA-MIB",
+        "includes": [
+          "ciscoSipBaseConfigGroupRev3",
+          "ciscoSipStatsInfoStatusCodesGroup",
+          "ciscoSipStatsSuccessStatusCodesGroupRev2",
+          "ciscoSipStatsGlobalStatusCodesGroup",
+          "ciscoSipTrafficStatsGroupRev3",
+          "ciscoSipTimerConfigGroupRev4",
+          "ciscoSipRetryConfigGroupRev4",
+          "ciscoSipRetryStatsGroupRev4",
+          "ciscoSipStatsRedirStatusCodesGroupRev2",
+          "ciscoSipStatsClientStatusCodesGroupRev4",
+          "ciscoSipStatsServerStatusCodesGroupRev1",
+          "ciscoSipCfgPeerGroupRev1",
+          "ciscoSipStatusCauseMapGroup",
+          "ciscoSipCfgAaaGroup",
+          "ciscoSipStatsMiscGroup",
+          "ciscoSipBaseIOSConfigGroupRev1",
+          "ciscoSipCfgVoiceServiceVoipGroup",
+          "ciscoSipStatsConnectionGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSipCfgRetryRegister",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterIns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipStatsTrafficRegisterOuts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgStatusCauseStoreStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSipCfgCauseStatusStoreStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SIP-UA-CAPABILITY",
+      "Source digest sha256:e8979c5ac9cbd1c8ae827fe7c547e98c3d8bbd64997e5fdc2f839754b9f043cf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SIP-UA-CAPABILITY"
+  }
+}

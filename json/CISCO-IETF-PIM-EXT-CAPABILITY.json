@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfPimExtCapability": {
+    "name": "ciscoIetfPimExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.443",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIetfPimExtCapV320CRS1": {
+    "name": "cIetfPimExtCapV320CRS1",
+    "oid": "1.3.6.1.4.1.9.7.443.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-PIM-EXT-MIB",
+        "includes": [
+          "ciscoIetfPimExtGeneralGroup",
+          "ciscoIetfPimExtNbrGroup",
+          "ciscoIetfPimExtBidirGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpimExtIfGraftRetryInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtIfMaxGraftRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtIfSRTTLThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtIfBSRBorder",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtNbrTBit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtMRouteSourceTimer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtMRouteOriginatorSRTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtCRPTable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtSourceLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtStateRefreshInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtStateRefreshLimitInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpimExtStateRefreshTimeToLive",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-PIM-EXT-CAPABILITY",
+      "Source digest sha256:c01c02def2bdfdab533f44a3564f2f940bcabcf906bce97be86df7d7e46ac041",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-PIM-EXT-CAPABILITY"
+  }
+}

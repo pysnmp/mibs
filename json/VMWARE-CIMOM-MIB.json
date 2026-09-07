@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ENV-MIB": [
+      "vmwEnvIndicationTime"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwProductSpecific"
+    ]
+  },
+  "vmwCIMOMMIB": {
+    "name": "vmwCIMOMMIB",
+    "oid": "1.3.6.1.4.1.6876.4.90.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-20 00:00",
+        "description": "Information on a CIM object manager subsystem."
+      }
+    ]
+  },
+  "vmwCimOm": {
+    "name": "vmwCimOm",
+    "oid": "1.3.6.1.4.1.6876.4.90",
+    "class": "objectidentity"
+  },
+  "vmwCimOmNotifications": {
+    "name": "vmwCimOmNotifications",
+    "oid": "1.3.6.1.4.1.6876.4.90.0",
+    "class": "objectidentity"
+  },
+  "vmwCimOmHeartbeat": {
+    "name": "vmwCimOmHeartbeat",
+    "oid": "1.3.6.1.4.1.6876.4.90.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-ENV-MIB",
+        "object": "vmwEnvIndicationTime"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwCimOmMIBConformance": {
+    "name": "vmwCimOmMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.4.90.2",
+    "class": "objectidentity"
+  },
+  "vmwCimOmMIBCompliances": {
+    "name": "vmwCimOmMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.4.90.2.1",
+    "class": "objectidentity"
+  },
+  "vmwCimOmMIBGroups": {
+    "name": "vmwCimOmMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.4.90.2.2",
+    "class": "objectidentity"
+  },
+  "vmwCimOmMIBBasicCompliance": {
+    "name": "vmwCimOmMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.6876.4.90.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwCimOmNotificationGroup",
+        "module": "VMWARE-CIMOM-MIB"
+      },
+      {
+        "object": "vmwCimOmNotificationGroup",
+        "module": "VMWARE-CIMOM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwCimOmNotificationGroup": {
+    "name": "vmwCimOmNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.4.90.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "object": "vmwCimOmHeartbeat"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VMWARE-CIMOM-MIB",
+      "Source digest sha256:092ce210c39f6116fc6613b91659fba4605327c4b65aea35cc6d3c78ca070920",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VMWARE-CIMOM-MIB"
+  }
+}

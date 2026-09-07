@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "accedianMIB": {
+    "name": "accedianMIB",
+    "oid": "1.3.6.1.4.1.22420",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-06 01:00",
+        "description": "Initial version of MIB module ACCEDIAN-SMI."
+      }
+    ]
+  },
+  "acdProducts": {
+    "name": "acdProducts",
+    "oid": "1.3.6.1.4.1.22420.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acdMibs": {
+    "name": "acdMibs",
+    "oid": "1.3.6.1.4.1.22420.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acdTraps": {
+    "name": "acdTraps",
+    "oid": "1.3.6.1.4.1.22420.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acdExperiment": {
+    "name": "acdExperiment",
+    "oid": "1.3.6.1.4.1.22420.4",
+    "class": "objectidentity"
+  },
+  "acdServices": {
+    "name": "acdServices",
+    "oid": "1.3.6.1.4.1.22420.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACCEDIAN-SMI",
+      "Source digest sha256:bb22d0ac555b77e1e4598c7e6b50f0027b7253c5298ee699b6adebb23d925867",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACCEDIAN-SMI"
+  }
+}

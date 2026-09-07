@@ -1,0 +1,85 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfPwEnetCapability": {
+    "name": "ciscoIetfPwEnetCapability",
+    "oid": "1.3.6.1.4.1.9.7.428",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-29 12:00",
+        "description": "Initial version: ciscoIetfPwEnetCapabilityV12R00 "
+      }
+    ]
+  },
+  "ciscoIetfPwEnetCapabilityV12R00": {
+    "name": "ciscoIetfPwEnetCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.428.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(28)S, Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-PW-ENET-MIB",
+        "includes": [
+          "cpwVcEnetGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpwVcEnetVlanMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcEnetPortVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcEnetVcIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcEnetPortIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcEnetRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcEnetStorageType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-PW-ENET-CAPABILITY",
+      "Source digest sha256:1ce588f63cb6c2c7b1525dfd088ccf5938e972d1f6c1d2e4c7e9e792c23f07b3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-PW-ENET-CAPABILITY"
+  }
+}

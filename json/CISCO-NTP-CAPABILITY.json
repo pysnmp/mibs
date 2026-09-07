@@ -1,0 +1,227 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNtpCapability": {
+    "name": "ciscoNtpCapability",
+    "oid": "1.3.6.1.4.1.9.7.99999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-05 00:00",
+        "description": "Added ciscoNtpCapabilityIOS124"
+      },
+      {
+        "revision": "2005-06-22 00:00",
+        "description": "Capability for MDS platform."
+      },
+      {
+        "revision": "2003-04-08 00:00",
+        "description": "Initial version of the MIB Module."
+      }
+    ]
+  },
+  "ciscoNtpCapabilityV3R00": {
+    "name": "ciscoNtpCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.99999.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.00,BPX SES Release ",
+    "capabilities": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "includes": [
+          "ciscoNtpPeersGroup"
+        ],
+        "variations": [
+          {
+            "object": "cntpPeersConfigured",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersPeerAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersPeerPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersHostAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersHostPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersLeap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersPeerPoll",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersHostPoll",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersPrecision",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersRootDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersRootDispersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersRefId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersRefTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersOrgTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersReceiveTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersTransmitTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersUpdateTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersReach",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersTimer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersOffset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersDispersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersFilterValidEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersEntryStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpCapabilitySANOSV3R0001": {
+    "name": "ciscoNtpCapabilitySANOSV3R0001",
+    "oid": "1.3.6.1.4.1.9.7.99999.2",
+    "class": "agentcapabilities",
+    "productrelease": "SAN-OS 3.0(1) ",
+    "capabilities": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "includes": [
+          "ciscoNtpPeersGroupRev2",
+          "ciscoNtpPeerExtGroup",
+          "ciscoNtpSysGroup"
+        ],
+        "variations": [
+          {
+            "object": "cntpSysLeap",
+            "access": "read-only"
+          },
+          {
+            "object": "cntpSysStratum",
+            "access": "read-only"
+          },
+          {
+            "object": "cntpPeersHostAddress",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpCapabilityIOS124": {
+    "name": "ciscoNtpCapabilityIOS124",
+    "oid": "1.3.6.1.4.1.9.7.99999.3",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.4",
+    "capabilities": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "includes": [
+          "ciscoNtpPeersGroupRev2",
+          "ciscoNtpPeerExtGroup",
+          "ciscoNtpSysGroup"
+        ],
+        "variations": [
+          {
+            "object": "cntpPeersPeerName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cntpPeersPeerType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-NTP-CAPABILITY",
+      "Source digest sha256:e8c306a37b35cc90bf494c55b97a01d44f499e185875a59375f786aaa8fc96c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-NTP-CAPABILITY"
+  }
+}

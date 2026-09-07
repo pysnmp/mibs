@@ -1,0 +1,96 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atQosv2": {
+    "name": "atQosv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-08-31 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "atQosv2Notification": {
+    "name": "atQosv2Notification",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503.0",
+    "class": "objectidentity"
+  },
+  "atQosv2StormDetectionTrap": {
+    "name": "atQosv2StormDetectionTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-QOSv2-MIB",
+        "object": "atQosv2IfIndex"
+      },
+      {
+        "module": "AT-QOSv2-MIB",
+        "object": "atQosv2VlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "atQosv2NotificationVariables": {
+    "name": "atQosv2NotificationVariables",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503.1",
+    "class": "objectidentity"
+  },
+  "atQosv2IfIndex": {
+    "name": "atQosv2IfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atQosv2VlanId": {
+    "name": "atQosv2VlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.503.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AT-QOSv2-MIB",
+      "Source digest sha256:98d55e467069e52636a61d57384d7e004f40c15744b5fed3fc4a25558e8b1dc1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AT-QOSv2-MIB"
+  }
+}

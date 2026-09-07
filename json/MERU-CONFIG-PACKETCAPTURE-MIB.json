@@ -1,0 +1,344 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "MERU-SMI": [
+      "mwConfiguration"
+    ],
+    "MERU-TC": [
+      "MwlEnableDisableOption",
+      "MwlEncapsulationType",
+      "MwlOnOffSwitch",
+      "MwlPacketCaptureMode",
+      "MwlRateLimitMode",
+      "MwlRxTxOption"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "mwConfigPacketCapture": {
+    "name": "mwConfigPacketCapture",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17",
+    "class": "moduleidentity"
+  },
+  "mwPacketCaptureProfileTable": {
+    "name": "mwPacketCaptureProfileTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileEntry": {
+    "name": "mwPacketCaptureProfileEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-PACKETCAPTURE-MIB",
+        "object": "mwPacketCaptureProfileTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwPacketCaptureProfileTableIndex": {
+    "name": "mwPacketCaptureProfileTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileName": {
+    "name": "mwPacketCaptureProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileStatus": {
+    "name": "mwPacketCaptureProfileStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileConnectivityMode": {
+    "name": "mwPacketCaptureProfileConnectivityMode",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlPacketCaptureMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileDestinationIp": {
+    "name": "mwPacketCaptureProfileDestinationIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileUDPPort": {
+    "name": "mwPacketCaptureProfileUDPPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileDestinationMac": {
+    "name": "mwPacketCaptureProfileDestinationMac",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileRxTx": {
+    "name": "mwPacketCaptureProfileRxTx",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRxTxOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileRateLimitMode": {
+    "name": "mwPacketCaptureProfileRateLimitMode",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRateLimitMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileTokenBucketRate": {
+    "name": "mwPacketCaptureProfileTokenBucketRate",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileTokenBucketSize": {
+    "name": "mwPacketCaptureProfileTokenBucketSize",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileApList": {
+    "name": "mwPacketCaptureProfileApList",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileFilter": {
+    "name": "mwPacketCaptureProfileFilter",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileInterfaceList": {
+    "name": "mwPacketCaptureProfileInterfaceList",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfilePacketTruncationLength": {
+    "name": "mwPacketCaptureProfilePacketTruncationLength",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileRateLimiting": {
+    "name": "mwPacketCaptureProfileRateLimiting",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileCaptureSiblingFrames": {
+    "name": "mwPacketCaptureProfileCaptureSiblingFrames",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileEncapsulation": {
+    "name": "mwPacketCaptureProfileEncapsulation",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEncapsulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwPacketCaptureProfileRowStatus": {
+    "name": "mwPacketCaptureProfileRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.17.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MERU-CONFIG-PACKETCAPTURE-MIB",
+      "Source digest sha256:a09eb94aeca3957cc0838d8bd9818d5876077ca88e15f4acb97ab0cb4a8417f0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MERU-CONFIG-PACKETCAPTURE-MIB"
+  }
+}

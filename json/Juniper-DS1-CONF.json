@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniDs1Agent": {
+    "name": "juniDs1Agent",
+    "oid": "1.3.6.1.4.1.4874.5.2.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-25 15:23",
+        "description": "DS1-MIB: Replaced SMIv1 'groups' (RFC1406-MIB) with SMIv2 conformance groups (DS1-MIB)."
+      },
+      {
+        "revision": "2003-01-31 17:15",
+        "description": "Juniper-DS1-MIB: Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2003-01-31 16:37",
+        "description": "Juniper-DS1-MIB: Added support for FDL transmit mode, remote FDL strings and far end FDL carrier."
+      },
+      {
+        "revision": "2002-05-13 16:34",
+        "description": "DS1-MIB: Added far end statistics support. Juniper-DS1-MIB: Added far end statistics support. Added FDL support."
+      },
+      {
+        "revision": "2001-03-29 20:36",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDs1AgentV1": {
+    "name": "juniDs1AgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.10.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DS1 component of the JUNOSe SNMP agent.  This version\n        of the DS1 component was supported in JUNOSe 1.0 system releases.",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1DeprecatedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DS1-MIB",
+        "includes": [
+          "juniDs1Group"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs1AgentV2": {
+    "name": "juniDs1AgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.10.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the DS1 component of the JUNOSe SNMP agent.  This version\n        of the DS1 component was supported in JUNOSe 1.1 thru JUNOSe 2.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1DeprecatedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DS1-MIB",
+        "includes": [
+          "juniDs1Group2"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs1AgentV3": {
+    "name": "juniDs1AgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.10.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the DS1 component of the JUNOSe SNMP agent.  This version\n        of the DS1 component was supported in JUNOSe 3.x system releases.",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1DeprecatedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DS1-MIB",
+        "includes": [
+          "juniDs1Group3"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs1AgentV4": {
+    "name": "juniDs1AgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.10.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the DS1 component of the JUNOSe SNMP agent.  This version\n        of the DS1 component was supported in JUNOSe 4.0 system releases.",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1DeprecatedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndInvalidIntervals",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DS1-MIB",
+        "includes": [
+          "juniDs1Group4"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs1AgentV5": {
+    "name": "juniDs1AgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.10.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the DS1 component of the JUNOSe SNMP agent.  This version\n        of the DS1 component is supported in JUNOSe 4.1 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1DeprecatedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndInvalidIntervals",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DS1-MIB",
+        "includes": [
+          "juniDs1Group5"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-DS1-CONF",
+      "Source digest sha256:d1b35da086502f8adf730db1a84258e8e7cb0081e3f4e83ae49a8d3e14b11536",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-DS1-CONF"
+  }
+}

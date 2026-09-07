@@ -1,0 +1,4028 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "alaDhcpClientTraps",
+      "routingIND1UdpRelay"
+    ],
+    "ALCATEL-IND1-VLAN-STP-MIB": [
+      "VlanBitmap"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1UDPRelayMIB": {
+    "name": "alcatelIND1UDPRelayMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1UDPRelayMIBObjects": {
+    "name": "alcatelIND1UDPRelayMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDPRelayMIBConformance": {
+    "name": "alcatelIND1UDPRelayMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDPRelayMIBGroups": {
+    "name": "alcatelIND1UDPRelayMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDPRelayMIBCompliances": {
+    "name": "alcatelIND1UDPRelayMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "iphelperMIB": {
+    "name": "iphelperMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1",
+    "class": "objectidentity"
+  },
+  "IphelperServIndex": {
+    "name": "IphelperServIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iphelperBootp": 1,
+          "iphelperNbnsNbdd": 2,
+          "iphelperNbdd": 3,
+          "iphelperDns": 4,
+          "iphelperTacacs": 5,
+          "iphelperTftp": 6,
+          "iphelperNtp": 7,
+          "iphelperOther1": 8,
+          "iphelperOther2": 9,
+          "iphelperOther3": 10,
+          "iphelperOther4": 11,
+          "iphelperOther5": 12,
+          "iphelperOther6": 13,
+          "iphelperOther7": 14,
+          "iphelperOther8": 15,
+          "iphelperOther9": 16,
+          "iphelperOther10": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IphelpereOption82ASCIIFieldType": {
+    "name": "IphelpereOption82ASCIIFieldType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "macAddress": 1,
+          "systemName": 2,
+          "userString": 3,
+          "interfaceAlias": 4,
+          "vlan": 5,
+          "interface": 6,
+          "cvlan": 7,
+          "portAlias": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IphelperOption82CircuitOrRemoteId": {
+    "name": "IphelperOption82CircuitOrRemoteId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "circuitid": 1,
+          "remoteid": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "iphelperTable": {
+    "name": "iphelperTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperEntry": {
+    "name": "iphelperEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperService",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperForwAddr",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperService": {
+    "name": "iphelperService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperServIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperForwAddr": {
+    "name": "iphelperForwAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperVlan": {
+    "name": "iphelperVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperStatus": {
+    "name": "iphelperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperStatTable": {
+    "name": "iphelperStatTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperStatEntry": {
+    "name": "iphelperStatEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperServerAddress": {
+    "name": "iphelperServerAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperRxFromClient": {
+    "name": "iphelperRxFromClient",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperTxToServer": {
+    "name": "iphelperTxToServer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperMaxHopsViolation": {
+    "name": "iphelperMaxHopsViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperForwDelayViolation": {
+    "name": "iphelperForwDelayViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperResetAll": {
+    "name": "iphelperResetAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperAgentInfoViolation": {
+    "name": "iphelperAgentInfoViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperInvalidGatewayIP": {
+    "name": "iphelperInvalidGatewayIP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperInvalidAgentInfoOptFrmSrver": {
+    "name": "iphelperInvalidAgentInfoOptFrmSrver",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperForwDelay": {
+    "name": "iphelperForwDelay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperMaxHops": {
+    "name": "iphelperMaxHops",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperForwardOption": {
+    "name": "iphelperForwardOption",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "avlanOnly": 2,
+          "perVlanOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperBootupOption": {
+    "name": "iphelperBootupOption",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperBootupPacketOption": {
+    "name": "iphelperBootupPacketOption",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootp": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationTable": {
+    "name": "iphelperxServicePortAssociationTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationEntry": {
+    "name": "iphelperxServicePortAssociationEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxServicePortAssociationService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationService": {
+    "name": "iphelperxServicePortAssociationService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperServIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationPort": {
+    "name": "iphelperxServicePortAssociationPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationName": {
+    "name": "iphelperxServicePortAssociationName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxServicePortAssociationStatus": {
+    "name": "iphelperxServicePortAssociationStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationTable": {
+    "name": "iphelperxPortServiceAssociationTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationEntry": {
+    "name": "iphelperxPortServiceAssociationEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPortServiceAssociationPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationService": {
+    "name": "iphelperxPortServiceAssociationService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperServIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationPort": {
+    "name": "iphelperxPortServiceAssociationPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationName": {
+    "name": "iphelperxPortServiceAssociationName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperxPortServiceAssociationStatus": {
+    "name": "iphelperxPortServiceAssociationStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperxPropertiesTable": {
+    "name": "iphelperxPropertiesTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperxPropertiesEntry": {
+    "name": "iphelperxPropertiesEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPropertiesService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperxPropertiesService": {
+    "name": "iphelperxPropertiesService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperServIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxPropertiesPort": {
+    "name": "iphelperxPropertiesPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxPropertiesName": {
+    "name": "iphelperxPropertiesName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxStatTable": {
+    "name": "iphelperxStatTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperxStatEntry": {
+    "name": "iphelperxStatEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatService",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperxStatService": {
+    "name": "iphelperxStatService",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperServIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxStatServerAddress": {
+    "name": "iphelperxStatServerAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperxStatVlan": {
+    "name": "iphelperxStatVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxStatRxFromClient": {
+    "name": "iphelperxStatRxFromClient",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxStatTxToServer": {
+    "name": "iphelperxStatTxToServer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperxStatReset": {
+    "name": "iphelperxStatReset",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperAgentInformation": {
+    "name": "iphelperAgentInformation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperAgentInformationPolicy": {
+    "name": "iphelperAgentInformationPolicy",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "keep": 2,
+          "replace": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanTable": {
+    "name": "iphelperDhcpSnoopingVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanEntry": {
+    "name": "iphelperDhcpSnoopingVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanNumber": {
+    "name": "iphelperDhcpSnoopingVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanOpt82DataInsertionStatus": {
+    "name": "iphelperDhcpSnoopingVlanOpt82DataInsertionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanMacAddrVerificationStatus": {
+    "name": "iphelperDhcpSnoopingVlanMacAddrVerificationStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanTrafficSuppressionStatus": {
+    "name": "iphelperDhcpSnoopingVlanTrafficSuppressionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingVlanStatus": {
+    "name": "iphelperDhcpSnoopingVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortTable": {
+    "name": "iphelperDhcpSnoopingPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortEntry": {
+    "name": "iphelperDhcpSnoopingPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortIfIndex": {
+    "name": "iphelperDhcpSnoopingPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortTrustMode": {
+    "name": "iphelperDhcpSnoopingPortTrustMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "clientOnly": 2,
+          "trusted": 3
+        }
+      }
+    },
+    "default": {
+      "value": "clientOnly",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortTrafficSuppression": {
+    "name": "iphelperDhcpSnoopingPortTrafficSuppression",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortMacAddrViolation": {
+    "name": "iphelperDhcpSnoopingPortMacAddrViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortDhcpServerViolation": {
+    "name": "iphelperDhcpSnoopingPortDhcpServerViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortOption82Violation": {
+    "name": "iphelperDhcpSnoopingPortOption82Violation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortRelayAgentViolation": {
+    "name": "iphelperDhcpSnoopingPortRelayAgentViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortBindingViolation": {
+    "name": "iphelperDhcpSnoopingPortBindingViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingPortIpSourceFiltering": {
+    "name": "iphelperDhcpSnoopingPortIpSourceFiltering",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingTable": {
+    "name": "iphelperDhcpSnoopingBindingTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingEntry": {
+    "name": "iphelperDhcpSnoopingBindingEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingMacAddress": {
+    "name": "iphelperDhcpSnoopingBindingMacAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingIfIndex": {
+    "name": "iphelperDhcpSnoopingBindingIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingIpAddress": {
+    "name": "iphelperDhcpSnoopingBindingIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingVlan": {
+    "name": "iphelperDhcpSnoopingBindingVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingLeaseTime": {
+    "name": "iphelperDhcpSnoopingBindingLeaseTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingType": {
+    "name": "iphelperDhcpSnoopingBindingType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "default": {
+      "value": "dynamic",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingRowStatus": {
+    "name": "iphelperDhcpSnoopingBindingRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingRemoteFlag": {
+    "name": "iphelperDhcpSnoopingBindingRemoteFlag",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remote": 1,
+          "local": 2
+        }
+      }
+    },
+    "default": {
+      "value": "local",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnooping": {
+    "name": "iphelperDhcpSnooping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchLevel": 1,
+          "disabled": 2,
+          "vlanLevel": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOpt82DataInsertionStatus": {
+    "name": "iphelperDhcpSnoopingOpt82DataInsertionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingMacAddrVerificationStatus": {
+    "name": "iphelperDhcpSnoopingMacAddrVerificationStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingTrafficSuppressionStatus": {
+    "name": "iphelperDhcpSnoopingTrafficSuppressionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingStatus": {
+    "name": "iphelperDhcpSnoopingBindingStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingDatabaseSyncTimeout": {
+    "name": "iphelperDhcpSnoopingBindingDatabaseSyncTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 180,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingDatabaseLastSyncTime": {
+    "name": "iphelperDhcpSnoopingBindingDatabaseLastSyncTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingDatabaseAction": {
+    "name": "iphelperDhcpSnoopingBindingDatabaseAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 0,
+          "purge": 1,
+          "renew": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperTrafficSuppressionStatus": {
+    "name": "iphelperTrafficSuppressionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBypassOpt82CheckStatus": {
+    "name": "iphelperDhcpSnoopingBypassOpt82CheckStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpOption82FormatType": {
+    "name": "iphelperDhcpOption82FormatType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAddress": 1,
+          "systemName": 2,
+          "userString": 3,
+          "interfaceAlias": 4,
+          "autoInterfaceAlias": 5,
+          "ascii": 6,
+          "portAlias": 7
+        }
+      }
+    },
+    "default": {
+      "value": "macAddress",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpOption82StringValue": {
+    "name": "iphelperDhcpOption82StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperPXESupport": {
+    "name": "iphelperPXESupport",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingBindingPersistencyStatus": {
+    "name": "iphelperDhcpSnoopingBindingPersistencyStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField1": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField1StringValue": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField1StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField2": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField2StringValue": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField2StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField3": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField3StringValue": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField3StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField4": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField4StringValue": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField4StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField5": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField5",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIField5StringValue": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIField5StringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIDelimiter": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIDelimiter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "iphelperDhcpSourceFilterVlanTable": {
+    "name": "iphelperDhcpSourceFilterVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.42",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperOption82Policy": {
+    "name": "iphelperOption82Policy",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "keep": 2,
+          "replace": 3
+        }
+      }
+    },
+    "default": {
+      "value": "replace",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableTable": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterVlanEntry": {
+    "name": "iphelperDhcpSourceFilterVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.42.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSourceFilterVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterVlanNumber": {
+    "name": "iphelperDhcpSourceFilterVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.42.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterVlanFilteringStatus": {
+    "name": "iphelperDhcpSourceFilterVlanFilteringStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.42.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableEntry": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableIndex": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelperOption82CircuitOrRemoteId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1StrVal": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1StrVal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " - ",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2StrVal": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2StrVal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " - ",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3StrVal": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3StrVal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " - ",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4StrVal": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4StrVal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " - ",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IphelpereOption82ASCIIFieldType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5StrVal": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5StrVal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " - ",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableDelimiter": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableDelimiter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingOption82FormatASCIIConfigurableStatus": {
+    "name": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.44.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterAllowSubnetTable": {
+    "name": "iphelperDhcpSourceFilterAllowSubnetTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterAllowIpEntry": {
+    "name": "iphelperDhcpSourceFilterAllowIpEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSourceFilterExpIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSourceFilterExpIpMask",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSourceFilterVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterExpIpAddress": {
+    "name": "iphelperDhcpSourceFilterExpIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterExpIpMask": {
+    "name": "iphelperDhcpSourceFilterExpIpMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterVlan": {
+    "name": "iphelperDhcpSourceFilterVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSourceFilterExpIpStatus": {
+    "name": "iphelperDhcpSourceFilterExpIpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.48.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingTrapStatus": {
+    "name": "iphelperDhcpSnoopingTrapStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reverse-enable": 1,
+          "hardware": 2,
+          "software": 3
+        }
+      }
+    },
+    "default": {
+      "value": "default",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMdnsGreTunnelName": {
+    "name": "alaMdnsGreTunnelName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMdnsAdminStatus": {
+    "name": "alaMdnsAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMdnsFloodVlans": {
+    "name": "alaMdnsFloodVlans",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iphelperDhcpSnoopingArpAllowStatus": {
+    "name": "iphelperDhcpSnoopingArpAllowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperMIB": {
+    "name": "ipv6helperMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2",
+    "class": "objectidentity"
+  },
+  "ipv6helperTable": {
+    "name": "ipv6helperTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperEntry": {
+    "name": "ipv6helperEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperForwAddr",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperForwAddr": {
+    "name": "ipv6helperForwAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperVlan": {
+    "name": "ipv6helperVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperStatus": {
+    "name": "ipv6helperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperForwardOption": {
+    "name": "ipv6helperForwardOption",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "perVlanOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperMaxHops": {
+    "name": "ipv6helperMaxHops",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 32,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnooping": {
+    "name": "ipv6helperDhcpSnooping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchLevel": 1,
+          "disabled": 2,
+          "vlanLevel": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingVlanTable": {
+    "name": "ipv6helperDhcpSnoopingVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingVlanEntry": {
+    "name": "ipv6helperDhcpSnoopingVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingVlanNumber": {
+    "name": "ipv6helperDhcpSnoopingVlanNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingVlanStatus": {
+    "name": "ipv6helperDhcpSnoopingVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingPortTable": {
+    "name": "ipv6helperDhcpSnoopingPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingPortEntry": {
+    "name": "ipv6helperDhcpSnoopingPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingPortIfIndex": {
+    "name": "ipv6helperDhcpSnoopingPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingPortTrustMode": {
+    "name": "ipv6helperDhcpSnoopingPortTrustMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "clientOnlyUntrusted": 2,
+          "clientOnlyTrusted": 3,
+          "trusted": 4
+        }
+      }
+    },
+    "default": {
+      "value": "clientOnlyUntrusted",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperSnoopingClientViolation": {
+    "name": "ipv6helperSnoopingClientViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperSnoopingServerViolation": {
+    "name": "ipv6helperSnoopingServerViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperSnoopingBindingViolation": {
+    "name": "ipv6helperSnoopingBindingViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperSnoopingInterfaceidViolation": {
+    "name": "ipv6helperSnoopingInterfaceidViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperSnoopingPortSourceFilterStatus": {
+    "name": "ipv6helperSnoopingPortSourceFilterStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingStatus": {
+    "name": "ipv6helperDhcpSnoopingBindingStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingTable": {
+    "name": "ipv6helperDhcpSnoopingBindingTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingEntry": {
+    "name": "ipv6helperDhcpSnoopingBindingEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingLinkLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperBindingLinkLocalAddress": {
+    "name": "ipv6helperBindingLinkLocalAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperBindingVlan": {
+    "name": "ipv6helperBindingVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperBindingIfIndex": {
+    "name": "ipv6helperBindingIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperBindingGlobalIpv6Address": {
+    "name": "ipv6helperBindingGlobalIpv6Address",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperBindingLeaseTime": {
+    "name": "ipv6helperBindingLeaseTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperBindingRowStatus": {
+    "name": "ipv6helperBindingRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingDatabaseSyncTimeout": {
+    "name": "ipv6helperDhcpSnoopingBindingDatabaseSyncTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 180,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingDatabaseLastSyncTime": {
+    "name": "ipv6helperDhcpSnoopingBindingDatabaseLastSyncTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingDatabaseAction": {
+    "name": "ipv6helperDhcpSnoopingBindingDatabaseAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 0,
+          "purge": 1,
+          "renew": 2
+        }
+      }
+    },
+    "default": {
+      "value": "noaction",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperDhcpSnoopingBindingPersistencyStatus": {
+    "name": "ipv6helperDhcpSnoopingBindingPersistencyStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperStatTable": {
+    "name": "ipv6helperStatTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperStatEntry": {
+    "name": "ipv6helperStatEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatsServerAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatsVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperStatsServerAddress": {
+    "name": "ipv6helperStatsServerAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperStatsVlan": {
+    "name": "ipv6helperStatsVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperTxToServer": {
+    "name": "ipv6helperTxToServer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperInterfaceIdPrefixValue": {
+    "name": "ipv6helperInterfaceIdPrefixValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 246
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperRemoteIdEnterpriseNumber": {
+    "name": "ipv6helperRemoteIdEnterpriseNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperRemoteIdUserStringValue": {
+    "name": "ipv6helperRemoteIdUserStringValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperRemoteIdFormatType": {
+    "name": "ipv6helperRemoteIdFormatType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "baseMacAddress": 2,
+          "systemName": 3,
+          "vlan": 4,
+          "userString": 5,
+          "interfaceAlias": 6,
+          "autoInterfaceAlias": 7
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperRxFromClient": {
+    "name": "ipv6helperRxFromClient",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperMaxHopsViolation": {
+    "name": "ipv6helperMaxHopsViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipv6helperResetAll": {
+    "name": "ipv6helperResetAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperSourceFilterVlanTable": {
+    "name": "ipv6helperSourceFilterVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipv6helperSourceFilterVlanEntry": {
+    "name": "ipv6helperSourceFilterVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSourceFilterVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperSourceFilterVlan": {
+    "name": "ipv6helperSourceFilterVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipv6helperSourceFilterVlanStatus": {
+    "name": "ipv6helperSourceFilterVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDhcpClientTrapsDesc": {
+    "name": "alaDhcpClientTrapsDesc",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1",
+    "class": "objectidentity"
+  },
+  "alaDhcpClientTrapsObj": {
+    "name": "alaDhcpClientTrapsObj",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2",
+    "class": "objectidentity"
+  },
+  "alaDhcpClientAddressAddTrap": {
+    "name": "alaDhcpClientAddressAddTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpClientAddressExpiryTrap": {
+    "name": "alaDhcpClientAddressExpiryTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpClientAddressModifyTrap": {
+    "name": "alaDhcpClientAddressModifyTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientNewAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpBindingDuplicateEntry": {
+    "name": "alaDhcpBindingDuplicateEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingMacAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpBindingTcamFail": {
+    "name": "alaDhcpBindingTcamFail",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpTcamFailMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpIsfDrop": {
+    "name": "alaDhcpIsfDrop",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropIntervalStartTimeStamp"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropIntervalStopTimeStamp"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpClientAddress": {
+    "name": "alaDhcpClientAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDhcpClientNewAddress": {
+    "name": "alaDhcpClientNewAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDhcpIsfDropIntervalStartTimeStamp": {
+    "name": "alaDhcpIsfDropIntervalStartTimeStamp",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDhcpIsfDropIntervalStopTimeStamp": {
+    "name": "alaDhcpIsfDropIntervalStopTimeStamp",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDhcpIsfDropCount": {
+    "name": "alaDhcpIsfDropCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDhcpTcamFailMsg": {
+    "name": "alaDhcpTcamFailMsg",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.23.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alcatelIND1UDPRelayMIBCompliance": {
+    "name": "alcatelIND1UDPRelayMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "iphelperGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "iphelperStatGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "iphelperMiscGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "alaDhcpClientTrapsGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "iphelperSourceGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "iphelperOption82FormatASCIIConfigurableGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "alaDhcpClientTrapObjectsGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      },
+      {
+        "object": "iphelperxGroup",
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperGroup": {
+    "name": "iphelperGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperForwAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperAgentInformation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperAgentInformationPolicy"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpOption82FormatType"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpOption82StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperOption82Policy"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperPXESupport"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperService"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperTrafficSuppressionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingTrapStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperStatGroup": {
+    "name": "iphelperStatGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperServerAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperRxFromClient"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperTxToServer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperMaxHopsViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperForwDelayViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperResetAll"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperAgentInfoViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperInvalidGatewayIP"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperInvalidAgentInfoOptFrmSrver"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperMiscGroup": {
+    "name": "iphelperMiscGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperForwDelay"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperMaxHops"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperForwardOption"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperBootupOption"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperBootupPacketOption"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField1"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField1StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField2"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField2StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField3"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField3StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField4"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField4StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField5"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIField5StringValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIDelimiter"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnooping"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOpt82DataInsertionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingMacAddrVerificationStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingTrafficSuppressionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingDatabaseSyncTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingDatabaseLastSyncTime"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingDatabaseAction"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBypassOpt82CheckStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingBindingPersistencyStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaMdnsGreTunnelName"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaMdnsAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaMdnsFloodVlans"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingArpAllowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpClientTrapsGroup": {
+    "name": "alaDhcpClientTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddressAddTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddressExpiryTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddressModifyTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpBindingDuplicateEntry"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpBindingTcamFail"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDrop"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperSourceGroup": {
+    "name": "iphelperSourceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSourceFilterVlanFilteringStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperOption82FormatASCIIConfigurableGroup": {
+    "name": "iphelperOption82FormatASCIIConfigurableGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField1StrVal"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField2StrVal"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField3StrVal"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField4StrVal"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableField5StrVal"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableDelimiter"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperDhcpSnoopingOption82FormatASCIIConfigurableStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDhcpClientTrapObjectsGroup": {
+    "name": "alaDhcpClientTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpClientNewAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropIntervalStartTimeStamp"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropIntervalStopTimeStamp"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpIsfDropCount"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "alaDhcpTcamFailMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "iphelperxGroup": {
+    "name": "iphelperxGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPortServiceAssociationName"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPortServiceAssociationPort"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPortServiceAssociationService"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPortServiceAssociationStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxServicePortAssociationName"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxServicePortAssociationPort"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxServicePortAssociationService"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxServicePortAssociationStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatReset"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatRxFromClient"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatServerAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatService"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatTxToServer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxStatVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPropertiesName"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPropertiesPort"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "iphelperxPropertiesService"
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperGroup": {
+    "name": "ipv6helperGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperForwAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperMiscGroup": {
+    "name": "ipv6helperMiscGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperMaxHops"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperForwardOption"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnooping"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingBindingStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingBindingDatabaseSyncTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingBindingDatabaseLastSyncTime"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingBindingDatabaseAction"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingBindingPersistencyStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingVlanNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingVlanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingPortIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperDhcpSnoopingPortTrustMode"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSnoopingClientViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSnoopingServerViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSnoopingBindingViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSnoopingInterfaceidViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSnoopingPortSourceFilterStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingLinkLocalAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingGlobalIpv6Address"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingLeaseTime"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperBindingRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatsServerAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperStatsVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperRxFromClient"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperTxToServer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperMaxHopsViolation"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperResetAll"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperInterfaceIdPrefixValue"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperRemoteIdFormatType"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperRemoteIdEnterpriseNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperRemoteIdUserStringValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6helperSourceFilterGroup": {
+    "name": "ipv6helperSourceFilterGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.9.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDP-RELAY-MIB",
+        "object": "ipv6helperSourceFilterVlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-UDP-RELAY-MIB",
+      "Source digest sha256:bd0e42f0157cbbe9779bea01eafe498da32788b822fb6e83def13e7a73f9a8de",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-UDP-RELAY-MIB"
+  }
+}

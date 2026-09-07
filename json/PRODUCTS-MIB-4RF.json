@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "MIB-4RF": [
+      "fourRFExperimental",
+      "fourRFModules",
+      "fourRFProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fourRFProductsModule": {
+    "name": "fourRFProductsModule",
+    "oid": "1.3.6.1.4.1.14817.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-30 00:00",
+        "description": "Second draft"
+      },
+      {
+        "revision": "2004-02-13 00:00",
+        "description": "First draft"
+      }
+    ]
+  },
+  "fourRFCommon": {
+    "name": "fourRFCommon",
+    "oid": "1.3.6.1.4.1.14817.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFAprisa": {
+    "name": "fourRFAprisa",
+    "oid": "1.3.6.1.4.1.14817.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFAprisaXE": {
+    "name": "fourRFAprisaXE",
+    "oid": "1.3.6.1.4.1.14817.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PRODUCTS-MIB-4RF",
+      "Source digest sha256:973b3645a2f008e63231f7e86742c92827ba444354c97de94a734eafc97e6ff9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PRODUCTS-MIB-4RF"
+  }
+}

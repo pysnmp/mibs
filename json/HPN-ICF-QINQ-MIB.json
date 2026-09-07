@@ -1,0 +1,734 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfQINQ": {
+    "name": "hpnicfQINQ",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-10 00:00",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "HpnicfQinQSwitchState": {
+    "name": "HpnicfQinQSwitchState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfQinQMibObject": {
+    "name": "hpnicfQinQMibObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1",
+    "class": "objectidentity"
+  },
+  "hpnicfQinQGlobalConfigGroup": {
+    "name": "hpnicfQinQGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfQinQBpduTunnelSwitch": {
+    "name": "hpnicfQinQBpduTunnelSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfQinQEthernetTypeValue": {
+    "name": "hpnicfQinQEthernetTypeValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 33024,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfQinQServiceTPIDValue": {
+    "name": "hpnicfQinQServiceTPIDValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfQinQCustomerTPIDValue": {
+    "name": "hpnicfQinQCustomerTPIDValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfQinQBpduTunnelTable": {
+    "name": "hpnicfQinQBpduTunnelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQBpduTunnelEntry": {
+    "name": "hpnicfQinQBpduTunnelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQProtocolIndex": {
+    "name": "hpnicfQinQProtocolIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpdu": 1,
+          "stp": 2,
+          "gmosaic": 3,
+          "igmp": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQBpduRowStatus": {
+    "name": "hpnicfQinQBpduRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQPriorityRemarkTable": {
+    "name": "hpnicfQinQPriorityRemarkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQPriorityRemarkEntry": {
+    "name": "hpnicfQinQPriorityRemarkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQPriorityValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQPriorityValue": {
+    "name": "hpnicfQinQPriorityValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQPriorityRemarkValue": {
+    "name": "hpnicfQinQPriorityRemarkValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQPriorityRowStatus": {
+    "name": "hpnicfQinQPriorityRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQVidTable": {
+    "name": "hpnicfQinQVidTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQVidEntry": {
+    "name": "hpnicfQinQVidEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQVlanID": {
+    "name": "hpnicfQinQVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQInboundVidListLow": {
+    "name": "hpnicfQinQInboundVidListLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQInboundVidListHigh": {
+    "name": "hpnicfQinQInboundVidListHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQVidEthernetType": {
+    "name": "hpnicfQinQVidEthernetType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 33024,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQVidRowStatus": {
+    "name": "hpnicfQinQVidRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQVidSwapTable": {
+    "name": "hpnicfQinQVidSwapTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQVidSwapEntry": {
+    "name": "hpnicfQinQVidSwapEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQVlanID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQVidSwapOld",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQVidSwapOld": {
+    "name": "hpnicfQinQVidSwapOld",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQVidSwapNew": {
+    "name": "hpnicfQinQVidSwapNew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQVidSwapRowStatus": {
+    "name": "hpnicfQinQVidSwapRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQPrioritySwapTable": {
+    "name": "hpnicfQinQPrioritySwapTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQPrioritySwapEntry": {
+    "name": "hpnicfQinQPrioritySwapEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQVlanID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-QINQ-MIB",
+        "object": "hpnicfQinQPrioritySwapOld",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQPrioritySwapOld": {
+    "name": "hpnicfQinQPrioritySwapOld",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQPrioritySwapNew": {
+    "name": "hpnicfQinQPrioritySwapNew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQPrioritySwapRowStatus": {
+    "name": "hpnicfQinQPrioritySwapRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfConfigTable": {
+    "name": "hpnicfQinQIfConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfQinQIfConfigEntry": {
+    "name": "hpnicfQinQIfConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfQinQIfEthernetType": {
+    "name": "hpnicfQinQIfEthernetType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 33024,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfSwitch": {
+    "name": "hpnicfQinQIfSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfRowStatus": {
+    "name": "hpnicfQinQIfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfServiceTPIDValue": {
+    "name": "hpnicfQinQIfServiceTPIDValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfCustomerTPIDValue": {
+    "name": "hpnicfQinQIfCustomerTPIDValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfUplinkSwitch": {
+    "name": "hpnicfQinQIfUplinkSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfQinQIfDownlinkSwitch": {
+    "name": "hpnicfQinQIfDownlinkSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.69.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfQinQSwitchState",
+      "class": "type"
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-QINQ-MIB",
+      "Source digest sha256:9f4c25f5629f33393c556c1c9112aafb9f2553a99142be0badec47b76b23bcea",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-QINQ-MIB"
+  }
+}

@@ -1,0 +1,108 @@
+#
+# PySNMP MIB module CISCO-ATM-IF-PHYS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-ATM-IF-PHYS-MIB
+# Source digest sha256:250dd91960d5c454a05f71fcf4596ccaad043543a033e27577811dbc86289895
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoAtmIfPhysMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 45))
+ciscoAtmIfPhysMIB.setRevisions(('1996-09-19 00:00', '1996-08-08 00:00', '1995-12-02 00:00',))
+if mibBuilder.loadTexts: ciscoAtmIfPhysMIB.setLastUpdated('1996-09-19 00:00')
+if mibBuilder.loadTexts: ciscoAtmIfPhysMIB.setOrganization('Cisco Systems, Inc.')
+ciscoAtmIfPhysMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 45, 1))
+ciscoAtmIfPhysTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ciscoAtmIfPhysTable.setStatus('current')
+ciscoAtmIfPhysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ciscoAtmIfPhysEntry.setStatus('current')
+ciscoAtmIfPhysStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("normal", 1), ("los", 2), ("lof", 3), ("loc", 4), ("ais", 5), ("yellowLine", 6), ("yellowPath", 7), ("lop", 8), ("idle", 9), ("yellowAlarm", 10), ("plcpLOF", 11), ("plcpYellow", 12), ("maFERF", 13), ("pathAis", 14), ("ocd", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysStatus.setStatus('current')
+ciscoAtmIfPhysSectionParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysSectionParityErrors.setStatus('current')
+ciscoAtmIfPhysLineParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLineParityErrors.setStatus('current')
+ciscoAtmIfPhysPathParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysPathParityErrors.setStatus('current')
+ciscoAtmIfPhysLcvErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLcvErrors.setStatus('current')
+ciscoAtmIfPhysCBitParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysCBitParityErrors.setStatus('current')
+ciscoAtmIfPhysPBitParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysPBitParityErrors.setStatus('current')
+ciscoAtmIfPhysPlcpBipViolations = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysPlcpBipViolations.setStatus('current')
+ciscoAtmIfPhysLineFebeErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLineFebeErrors.setStatus('current')
+ciscoAtmIfPhysPathFebeErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysPathFebeErrors.setStatus('current')
+ciscoAtmIfPhysCellPayloadScrambling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysCellPayloadScrambling.setStatus('current')
+ciscoAtmIfPhysStsStreamScrambling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysStsStreamScrambling.setStatus('current')
+ciscoAtmIfPhysFramingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17))).clone(namedValues=NamedValues(("sonet", 1), ("sdh", 2), ("ds3m23adm", 3), ("ds3m23plcp", 4), ("ds3cbitadm", 5), ("ds3cbitplcp", 6), ("e3g832adm", 7), ("e3g751adm", 8), ("e3g751plcp", 9), ("ds1sfadm", 10), ("ds1esfadm", 11), ("ds1sfplcp", 12), ("ds1esfplcp", 13), ("e1adm", 14), ("e1plcp", 15), ("e1crcadm", 16), ("e1crcplcp", 17)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysFramingMode.setStatus('current')
+ciscoAtmIfPhysLoopbackConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noLoop", 1), ("diagnosticLoop", 2), ("lineLoop", 3), ("otherLoop", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLoopbackConfig.setStatus('current')
+ciscoAtmIfPhysLineBuildOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("e3AllCables", 1), ("ds3CablesUnder225", 2), ("ds3CablesOver225", 3), ("ds1Cables0To110", 4), ("ds1Cables110To220", 5), ("ds1Cables220To330", 6), ("ds1Cables330To440", 7), ("ds1Cables440To550", 8), ("ds1Cables550To660", 9), ("ds1CablesOver600", 10), ("e1AllCables", 11)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLineBuildOut.setStatus('current')
+ciscoAtmIfPhysTransmitClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("loopTiming", 1), ("freeRunning", 2), ("networkDerived", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysTransmitClockSource.setStatus('current')
+ciscoAtmIfPhysClockSourcePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notConfigured", 1), ("priority1", 2), ("priority2", 3), ("priority3", 4), ("priority4", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysClockSourcePriority.setStatus('current')
+ciscoAtmIfPhysClockSourceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notSelected", 1), ("selected", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysClockSourceStatus.setStatus('current')
+ciscoAtmIfPhysDS1BitErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysDS1BitErrors.setStatus('current')
+ciscoAtmIfPhysE1CrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoAtmIfPhysE1CrcErrors.setStatus('current')
+ciscoAtmIfPhysLineCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 45, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ami", 1), ("b8zs", 2), ("hdb3", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfPhysLineCode.setStatus('current')
+ciscoAtmIfPhysMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 45, 3))
+ciscoAtmIfPhysMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 1))
+ciscoAtmIfPhysMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2))
+ciscoAtmIfPhysMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 1, 1)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBCommonGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBCompliance = ciscoAtmIfPhysMIBCompliance.setStatus('obsolete')
+ciscoAtmIfPhysMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 1, 2)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBCommonGroup"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBCommonGroup2"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBSonetGroup"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBSonetGroup2"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs3E3Group"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs3Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBCompliance2 = ciscoAtmIfPhysMIBCompliance2.setStatus('obsolete')
+ciscoAtmIfPhysMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 1, 3)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBCommonGroup"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBCommonGroup2"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBSonetGroup"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBSonetGroup2"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs3E3Group"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs3Group"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs1E1Group"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBDs1Group"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysMIBE1Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBCompliance3 = ciscoAtmIfPhysMIBCompliance3.setStatus('current')
+ciscoAtmIfPhysMIBCommonGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 1)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBCommonGroup = ciscoAtmIfPhysMIBCommonGroup.setStatus('current')
+ciscoAtmIfPhysMIBSonetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 2)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysSectionParityErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLineParityErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysPathParityErrors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBSonetGroup = ciscoAtmIfPhysMIBSonetGroup.setStatus('current')
+ciscoAtmIfPhysMIBDs3E3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 3)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLcvErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysCBitParityErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysPBitParityErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysPlcpBipViolations"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBDs3E3Group = ciscoAtmIfPhysMIBDs3E3Group.setStatus('current')
+ciscoAtmIfPhysMIBCommonGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 4)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysCellPayloadScrambling"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysFramingMode"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLoopbackConfig"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysTransmitClockSource"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysClockSourcePriority"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysClockSourceStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBCommonGroup2 = ciscoAtmIfPhysMIBCommonGroup2.setStatus('current')
+ciscoAtmIfPhysMIBSonetGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 5)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLineFebeErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysPathFebeErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysStsStreamScrambling"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBSonetGroup2 = ciscoAtmIfPhysMIBSonetGroup2.setStatus('current')
+ciscoAtmIfPhysMIBDs3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 6)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLineBuildOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBDs3Group = ciscoAtmIfPhysMIBDs3Group.setStatus('current')
+ciscoAtmIfPhysMIBDs1E1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 7)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLcvErrors"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysPlcpBipViolations"), ("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysLineCode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBDs1E1Group = ciscoAtmIfPhysMIBDs1E1Group.setStatus('current')
+ciscoAtmIfPhysMIBDs1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 8)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysDS1BitErrors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBDs1Group = ciscoAtmIfPhysMIBDs1Group.setStatus('current')
+ciscoAtmIfPhysMIBE1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 45, 3, 2, 9)).setObjects(("CISCO-ATM-IF-PHYS-MIB", "ciscoAtmIfPhysE1CrcErrors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfPhysMIBE1Group = ciscoAtmIfPhysMIBE1Group.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ATM-IF-PHYS-MIB", PYSNMP_MODULE_ID=ciscoAtmIfPhysMIB, ciscoAtmIfPhysCBitParityErrors=ciscoAtmIfPhysCBitParityErrors, ciscoAtmIfPhysCellPayloadScrambling=ciscoAtmIfPhysCellPayloadScrambling, ciscoAtmIfPhysClockSourcePriority=ciscoAtmIfPhysClockSourcePriority, ciscoAtmIfPhysClockSourceStatus=ciscoAtmIfPhysClockSourceStatus, ciscoAtmIfPhysDS1BitErrors=ciscoAtmIfPhysDS1BitErrors, ciscoAtmIfPhysE1CrcErrors=ciscoAtmIfPhysE1CrcErrors, ciscoAtmIfPhysEntry=ciscoAtmIfPhysEntry, ciscoAtmIfPhysFramingMode=ciscoAtmIfPhysFramingMode, ciscoAtmIfPhysLcvErrors=ciscoAtmIfPhysLcvErrors, ciscoAtmIfPhysLineBuildOut=ciscoAtmIfPhysLineBuildOut, ciscoAtmIfPhysLineCode=ciscoAtmIfPhysLineCode, ciscoAtmIfPhysLineFebeErrors=ciscoAtmIfPhysLineFebeErrors, ciscoAtmIfPhysLineParityErrors=ciscoAtmIfPhysLineParityErrors, ciscoAtmIfPhysLoopbackConfig=ciscoAtmIfPhysLoopbackConfig, ciscoAtmIfPhysMIB=ciscoAtmIfPhysMIB, ciscoAtmIfPhysMIBCommonGroup2=ciscoAtmIfPhysMIBCommonGroup2, ciscoAtmIfPhysMIBCommonGroup=ciscoAtmIfPhysMIBCommonGroup, ciscoAtmIfPhysMIBCompliance2=ciscoAtmIfPhysMIBCompliance2, ciscoAtmIfPhysMIBCompliance3=ciscoAtmIfPhysMIBCompliance3, ciscoAtmIfPhysMIBCompliance=ciscoAtmIfPhysMIBCompliance, ciscoAtmIfPhysMIBCompliances=ciscoAtmIfPhysMIBCompliances, ciscoAtmIfPhysMIBConformance=ciscoAtmIfPhysMIBConformance, ciscoAtmIfPhysMIBDs1E1Group=ciscoAtmIfPhysMIBDs1E1Group, ciscoAtmIfPhysMIBDs1Group=ciscoAtmIfPhysMIBDs1Group, ciscoAtmIfPhysMIBDs3E3Group=ciscoAtmIfPhysMIBDs3E3Group, ciscoAtmIfPhysMIBDs3Group=ciscoAtmIfPhysMIBDs3Group, ciscoAtmIfPhysMIBE1Group=ciscoAtmIfPhysMIBE1Group, ciscoAtmIfPhysMIBGroups=ciscoAtmIfPhysMIBGroups, ciscoAtmIfPhysMIBObjects=ciscoAtmIfPhysMIBObjects, ciscoAtmIfPhysMIBSonetGroup2=ciscoAtmIfPhysMIBSonetGroup2, ciscoAtmIfPhysMIBSonetGroup=ciscoAtmIfPhysMIBSonetGroup, ciscoAtmIfPhysPBitParityErrors=ciscoAtmIfPhysPBitParityErrors, ciscoAtmIfPhysPathFebeErrors=ciscoAtmIfPhysPathFebeErrors, ciscoAtmIfPhysPathParityErrors=ciscoAtmIfPhysPathParityErrors, ciscoAtmIfPhysPlcpBipViolations=ciscoAtmIfPhysPlcpBipViolations, ciscoAtmIfPhysSectionParityErrors=ciscoAtmIfPhysSectionParityErrors, ciscoAtmIfPhysStatus=ciscoAtmIfPhysStatus, ciscoAtmIfPhysStsStreamScrambling=ciscoAtmIfPhysStsStreamScrambling, ciscoAtmIfPhysTable=ciscoAtmIfPhysTable, ciscoAtmIfPhysTransmitClockSource=ciscoAtmIfPhysTransmitClockSource)

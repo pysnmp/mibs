@@ -1,0 +1,244 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "systemCpuDataCpuModule": {
+    "name": "systemCpuDataCpuModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111",
+    "class": "moduleidentity"
+  },
+  "dataCpu": {
+    "name": "dataCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1",
+    "class": "objectidentity"
+  },
+  "dataCpuOperTable": {
+    "name": "dataCpuOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataCpuOperEntry": {
+    "name": "dataCpuOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SYSTEMCPU-DATA-CPU-MIB",
+        "object": "dataCpuOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataCpuOperSlotId": {
+    "name": "dataCpuOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperNumberOfCpu": {
+    "name": "dataCpuOperNumberOfCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperNumberOfDataCpu": {
+    "name": "dataCpuOperNumberOfDataCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageTable": {
+    "name": "dataCpuOperCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageEntry": {
+    "name": "dataCpuOperCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SYSTEMCPU-DATA-CPU-MIB",
+        "object": "dataCpuOperCpuUsageSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SYSTEMCPU-DATA-CPU-MIB",
+        "object": "dataCpuOperCpuUsageCpuUsageListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageSlotId": {
+    "name": "dataCpuOperCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageCpuUsageListId": {
+    "name": "dataCpuOperCpuUsageCpuUsageListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageCpuId": {
+    "name": "dataCpuOperCpuUsageCpuId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsage1Sec": {
+    "name": "dataCpuOperCpuUsage1Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsage5Sec": {
+    "name": "dataCpuOperCpuUsage5Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsage10Sec": {
+    "name": "dataCpuOperCpuUsage10Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsage30Sec": {
+    "name": "dataCpuOperCpuUsage30Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsage60Sec": {
+    "name": "dataCpuOperCpuUsage60Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCpuOperCpuUsageDcpuStr": {
+    "name": "dataCpuOperCpuUsageDcpuStr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.111.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SYSTEMCPU-DATA-CPU-MIB",
+      "Source digest sha256:281241d287ce2497ce86651c891c93de434cb6c0bfc06f5044c986cd28012806",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SYSTEMCPU-DATA-CPU-MIB"
+  }
+}

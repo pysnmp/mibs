@@ -1,0 +1,653 @@
+ACOS-SCTP-GLOBAL-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		sctpGlobalModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "sctpGlobalModule OID for ACOS"
+				::=  {  acosSchema 495 }
+
+global		 OBJECT IDENTIFIER ::= { sctpGlobalModule 1}
+
+globalStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF GlobalStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "SCTP Statistics from object 'sctp.global'"
+	::= {global 1}
+
+globalStatsEntry OBJECT-TYPE
+	SYNTAX GlobalStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The globalStats stats entry"
+	INDEX {
+		globalStatsSlotId
+	}
+	::= { globalStatsTable 1 }
+
+GlobalStatsEntry ::=
+	SEQUENCE {
+		globalStatsSlotId Integer32,
+		globalStatsSctpStaticNatSessionCreated	 CounterBasedGauge64,
+		globalStatsSctpStaticNatSessionDeleted	 CounterBasedGauge64,
+		globalStatsSctpFwSessionCreated	 CounterBasedGauge64,
+		globalStatsSctpFwSessionDeleted	 CounterBasedGauge64,
+		globalStatsPktErrDrop	 CounterBasedGauge64,
+		globalStatsBadCsum	 CounterBasedGauge64,
+		globalStatsBadPayloadDrop	 CounterBasedGauge64,
+		globalStatsBadAlignmentDrop	 CounterBasedGauge64,
+		globalStatsOosPktDrop	 CounterBasedGauge64,
+		globalStatsMaxMultiHomeDrop	 CounterBasedGauge64,
+		globalStatsMultiHomeRemoveIpSkip	 CounterBasedGauge64,
+		globalStatsMultiHomeAddrNotFoundDrop	 CounterBasedGauge64,
+		globalStatsStaticNatCfgNotFound	 CounterBasedGauge64,
+		globalStatsCfgErrDrop	 CounterBasedGauge64,
+		globalStatsVrrpStandbyDrop	 CounterBasedGauge64,
+		globalStatsInvalidFragChunkDrop	 CounterBasedGauge64,
+		globalStatsDisallowedChunkFiltered	 CounterBasedGauge64,
+		globalStatsDisallowedPktDrop	 CounterBasedGauge64,
+		globalStatsRateLimitDrop	 CounterBasedGauge64,
+		globalStatsSbySessionCreated	 CounterBasedGauge64,
+		globalStatsSbySessionCreateFail	 CounterBasedGauge64,
+		globalStatsSbySessionUpdated	 CounterBasedGauge64,
+		globalStatsSbySessionUpdateFail	 CounterBasedGauge64,
+		globalStatsSbyStaticNatCfgNotFound	 CounterBasedGauge64,
+		globalStatsSctpOutOfSystemMemory	 CounterBasedGauge64,
+		globalStatsConnExtSizeMax	 CounterBasedGauge64,
+		globalStatsBadCsumShadow	 CounterBasedGauge64,
+		globalStatsBadPayloadDropShadow	 CounterBasedGauge64,
+		globalStatsBadAlignmentDropShadow	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeInit	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeInitAck	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeCookieEcho	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeCookieAck	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeSack	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeAsconf	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeAsconfAck	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeData	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeAbort	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeShutdown	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeShutdownAck	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeShutdownComplete	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeErrorOp	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeHeartbeat	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeHeartbeatAck	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeOther	 CounterBasedGauge64,
+		globalStatsSctpHeartbeatNoTuple	 CounterBasedGauge64,
+		globalStatsSctpDataNoTuple	 CounterBasedGauge64,
+		globalStatsSctpDataNoExtMatch	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeInitDrop	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeInitAckDrop	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeShutdownCompleteDrop	 CounterBasedGauge64,
+		globalStatsSctpChunkTypeAbortDataDrop	 CounterBasedGauge64,
+		globalStatsSctpChunkHeartBeatClubbed	 CounterBasedGauge64,
+		globalStatsSctpRetxInitAckDrop	 CounterBasedGauge64,
+		globalStatsSctpRouteErrHeartbeatDrop	 CounterBasedGauge64,
+		globalStatsSctpRerouteFailover	 CounterBasedGauge64,
+		globalStatsSctpRouteErrDrop	 CounterBasedGauge64,
+		globalStatsSctpNoExtMatch	 CounterBasedGauge64,
+		globalStatsSctpRetxInitAck	 CounterBasedGauge64,
+		globalStatsSctpRetxInitDrop	 CounterBasedGauge64,
+		globalStatsSctpRetxInit	 CounterBasedGauge64,
+		globalStatsSctpAsconfProcessDrop	 CounterBasedGauge64,
+		globalStatsSctpInitVtagZeroDrop	 CounterBasedGauge64,
+		globalStatsPktLenErrDrop	 CounterBasedGauge64,
+		globalStatsPktChunkLenErrDrop	 CounterBasedGauge64,
+		globalStatsPktAsconfParamLenErrDrop	 CounterBasedGauge64
+	}
+
+globalStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { globalStatsEntry 1 }
+
+globalStatsSctpStaticNatSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-static-nat-session-created"
+	::= { globalStatsEntry 2 }
+
+globalStatsSctpStaticNatSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-static-nat-session-deleted"
+	::= { globalStatsEntry 3 }
+
+globalStatsSctpFwSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-fw-session-created"
+	::= { globalStatsEntry 4 }
+
+globalStatsSctpFwSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-fw-session-deleted"
+	::= { globalStatsEntry 5 }
+
+globalStatsPktErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkt-err-drop"
+	::= { globalStatsEntry 6 }
+
+globalStatsBadCsum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-csum"
+	::= { globalStatsEntry 7 }
+
+globalStatsBadPayloadDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-payload-drop"
+	::= { globalStatsEntry 8 }
+
+globalStatsBadAlignmentDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-alignment-drop"
+	::= { globalStatsEntry 9 }
+
+globalStatsOosPktDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "oos-pkt-drop"
+	::= { globalStatsEntry 10 }
+
+globalStatsMaxMultiHomeDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "max-multi-home-drop"
+	::= { globalStatsEntry 11 }
+
+globalStatsMultiHomeRemoveIpSkip OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multi-home-remove-ip-skip"
+	::= { globalStatsEntry 12 }
+
+globalStatsMultiHomeAddrNotFoundDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multi-home-addr-not-found-drop"
+	::= { globalStatsEntry 13 }
+
+globalStatsStaticNatCfgNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat-cfg-not-found"
+	::= { globalStatsEntry 14 }
+
+globalStatsCfgErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cfg-err-drop"
+	::= { globalStatsEntry 15 }
+
+globalStatsVrrpStandbyDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vrrp-standby-drop"
+	::= { globalStatsEntry 16 }
+
+globalStatsInvalidFragChunkDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid-frag-chunk-drop"
+	::= { globalStatsEntry 17 }
+
+globalStatsDisallowedChunkFiltered OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disallowed-chunk-filtered"
+	::= { globalStatsEntry 18 }
+
+globalStatsDisallowedPktDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disallowed-pkt-drop"
+	::= { globalStatsEntry 19 }
+
+globalStatsRateLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate-limit-drop"
+	::= { globalStatsEntry 20 }
+
+globalStatsSbySessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sby-session-created"
+	::= { globalStatsEntry 21 }
+
+globalStatsSbySessionCreateFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sby-session-create-fail"
+	::= { globalStatsEntry 22 }
+
+globalStatsSbySessionUpdated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sby-session-updated"
+	::= { globalStatsEntry 23 }
+
+globalStatsSbySessionUpdateFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sby-session-update-fail"
+	::= { globalStatsEntry 24 }
+
+globalStatsSbyStaticNatCfgNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sby-static-nat-cfg-not-found"
+	::= { globalStatsEntry 25 }
+
+globalStatsSctpOutOfSystemMemory OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-out-of-system-memory"
+	::= { globalStatsEntry 26 }
+
+globalStatsConnExtSizeMax OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_ext_size_max"
+	::= { globalStatsEntry 27 }
+
+globalStatsBadCsumShadow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-csum-shadow"
+	::= { globalStatsEntry 28 }
+
+globalStatsBadPayloadDropShadow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-payload-drop-shadow"
+	::= { globalStatsEntry 29 }
+
+globalStatsBadAlignmentDropShadow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-alignment-drop-shadow"
+	::= { globalStatsEntry 30 }
+
+globalStatsSctpChunkTypeInit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-init"
+	::= { globalStatsEntry 31 }
+
+globalStatsSctpChunkTypeInitAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-init-ack"
+	::= { globalStatsEntry 32 }
+
+globalStatsSctpChunkTypeCookieEcho OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-cookie-echo"
+	::= { globalStatsEntry 33 }
+
+globalStatsSctpChunkTypeCookieAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-cookie-ack"
+	::= { globalStatsEntry 34 }
+
+globalStatsSctpChunkTypeSack OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-sack"
+	::= { globalStatsEntry 35 }
+
+globalStatsSctpChunkTypeAsconf OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-asconf"
+	::= { globalStatsEntry 36 }
+
+globalStatsSctpChunkTypeAsconfAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-asconf-ack"
+	::= { globalStatsEntry 37 }
+
+globalStatsSctpChunkTypeData OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-data"
+	::= { globalStatsEntry 38 }
+
+globalStatsSctpChunkTypeAbort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-abort"
+	::= { globalStatsEntry 39 }
+
+globalStatsSctpChunkTypeShutdown OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-shutdown"
+	::= { globalStatsEntry 40 }
+
+globalStatsSctpChunkTypeShutdownAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-shutdown-ack"
+	::= { globalStatsEntry 41 }
+
+globalStatsSctpChunkTypeShutdownComplete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-shutdown-complete"
+	::= { globalStatsEntry 42 }
+
+globalStatsSctpChunkTypeErrorOp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-error-op"
+	::= { globalStatsEntry 43 }
+
+globalStatsSctpChunkTypeHeartbeat OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-heartbeat"
+	::= { globalStatsEntry 44 }
+
+globalStatsSctpChunkTypeHeartbeatAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-heartbeat-ack"
+	::= { globalStatsEntry 45 }
+
+globalStatsSctpChunkTypeOther OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-other"
+	::= { globalStatsEntry 46 }
+
+globalStatsSctpHeartbeatNoTuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-heartbeat-no-tuple"
+	::= { globalStatsEntry 47 }
+
+globalStatsSctpDataNoTuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-data-no-tuple"
+	::= { globalStatsEntry 48 }
+
+globalStatsSctpDataNoExtMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-data-no-ext-match"
+	::= { globalStatsEntry 49 }
+
+globalStatsSctpChunkTypeInitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-init-drop"
+	::= { globalStatsEntry 50 }
+
+globalStatsSctpChunkTypeInitAckDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-init-ack-drop"
+	::= { globalStatsEntry 51 }
+
+globalStatsSctpChunkTypeShutdownCompleteDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-shutdown-complete-drop"
+	::= { globalStatsEntry 52 }
+
+globalStatsSctpChunkTypeAbortDataDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-type-abort-data-drop"
+	::= { globalStatsEntry 53 }
+
+globalStatsSctpChunkHeartBeatClubbed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-chunk-heart-beat-clubbed"
+	::= { globalStatsEntry 54 }
+
+globalStatsSctpRetxInitAckDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-retx-init-ack-drop"
+	::= { globalStatsEntry 55 }
+
+globalStatsSctpRouteErrHeartbeatDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-route-err-heartbeat-drop"
+	::= { globalStatsEntry 56 }
+
+globalStatsSctpRerouteFailover OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-reroute-failover"
+	::= { globalStatsEntry 57 }
+
+globalStatsSctpRouteErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-route-err-drop"
+	::= { globalStatsEntry 58 }
+
+globalStatsSctpNoExtMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-no-ext-match"
+	::= { globalStatsEntry 59 }
+
+globalStatsSctpRetxInitAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-retx-init-ack"
+	::= { globalStatsEntry 60 }
+
+globalStatsSctpRetxInitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-retx-init-drop"
+	::= { globalStatsEntry 61 }
+
+globalStatsSctpRetxInit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-retx-init"
+	::= { globalStatsEntry 62 }
+
+globalStatsSctpAsconfProcessDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-asconf-process-drop"
+	::= { globalStatsEntry 63 }
+
+globalStatsSctpInitVtagZeroDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-init-vtag-zero-drop"
+	::= { globalStatsEntry 64 }
+
+globalStatsPktLenErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkt-len-err-drop"
+	::= { globalStatsEntry 65 }
+
+globalStatsPktChunkLenErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkt-chunk-len-err-drop"
+	::= { globalStatsEntry 66 }
+
+globalStatsPktAsconfParamLenErrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkt-asconf-param-len-err-drop"
+	::= { globalStatsEntry 67 }
+
+END
+

@@ -1,0 +1,904 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRttMonCapability": {
+    "name": "ciscoRttMonCapability",
+    "oid": "1.3.6.1.4.1.9.7.62",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-02 00:00",
+        "description": "Added capability definition ciscoRttMonCapV12R0201SRB for 12.2(01)SRB"
+      },
+      {
+        "revision": "2005-12-14 00:00",
+        "description": "Agent capabilities for CISCO-RTTMON-MIB on CRS-1 IOS-XR Release 3.3"
+      },
+      {
+        "revision": "2005-06-09 00:00",
+        "description": "Added capability definition ciscoRttMonCapV12R0403rdT for 12.4(3rd)T"
+      },
+      {
+        "revision": "2005-05-01 00:00",
+        "description": "Added capability definition ciscoRttMonCapV12R0402ndT for 12.4(2nd)T and ciscoRttMonCapV12R0206thSX for 12.2(6th)SX"
+      },
+      {
+        "revision": "2004-05-31 00:00",
+        "description": "Initial Creation"
+      }
+    ]
+  },
+  "ciscoRttMonCapabilityRev1": {
+    "name": "ciscoRttMonCapabilityRev1",
+    "oid": "1.3.6.1.4.1.9.7.62.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3(6th)T",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoCtrlGroupRev3",
+          "ciscoStatsGroup",
+          "ciscoHistoryGroup",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoLatestOperGroupRev1",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev4",
+          "ciscoStatsGroupRev5",
+          "ciscoApplGroupRev2",
+          "ciscoApplGroupRev3",
+          "ciscoCtrlGroupRev4",
+          "ciscoCtrlGroupRev5",
+          "ciscoCtrlGroupRev6",
+          "ciscoCtrlGroupRev7",
+          "ciscoCtrlGroupRev8",
+          "ciscoCtrlGroupRev9",
+          "ciscoNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "rttMonEchoAdminLSPFECType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPSelector",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPReplyMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPExp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonCapV12R0402ndT": {
+    "name": "ciscoRttMonCapV12R0402ndT",
+    "oid": "1.3.6.1.4.1.9.7.62.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(2nd)T",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoStatsGroup",
+          "ciscoHistoryGroup",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoLatestOperGroupRev1",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev4",
+          "ciscoStatsGroupRev5",
+          "ciscoApplGroupRev2",
+          "ciscoApplGroupRev3",
+          "ciscoCtrlGroupRev4",
+          "ciscoCtrlGroupRev6",
+          "ciscoCtrlGroupRev7",
+          "ciscoCtrlGroupRev9",
+          "ciscoCtrlGroupRev10",
+          "ciscoCtrlGroupRev11",
+          "ciscoNotificationGroupRev1",
+          "ciscoStatsGroupRev6",
+          "ciscoCtrlGroupRev12"
+        ],
+        "variations": [
+          {
+            "object": "rttMonEchoAdminLSPFECType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPSelector",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPReplyMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPExp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPReplyDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminLSPNullShim",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonCapV12R0206thSX": {
+    "name": "ciscoRttMonCapV12R0206thSX",
+    "oid": "1.3.6.1.4.1.9.7.62.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(6th)SX",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoStatsGroup",
+          "ciscoHistoryGroup",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoLatestOperGroupRev1",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev4",
+          "ciscoApplGroupRev2",
+          "ciscoApplGroupRev3",
+          "ciscoCtrlGroupRev4",
+          "ciscoCtrlGroupRev6",
+          "ciscoCtrlGroupRev7",
+          "ciscoCtrlGroupRev8",
+          "ciscoCtrlGroupRev9",
+          "ciscoCtrlGroupRev10",
+          "ciscoCtrlGroupRev11",
+          "ciscoNotificationGroupRev1",
+          "ciscoStatsGroupRev7",
+          "ciscoCtrlGroupRev13",
+          "ciscoNotificationGroupRev2",
+          "ciscoApplGroupRev4",
+          "ciscoStatsGroupRev7"
+        ],
+        "variations": [
+          {
+            "object": "rttMonEchoAdminPrecision",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminProbePakPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminOWNTPSyncTolAbs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminOWNTPSyncTolPct",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminOWNTPSyncTolType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminCalledNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminDetectPoint",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminGKRegistration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminSourceVoicePort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminCallDuration",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonCapV12R0403rdT": {
+    "name": "ciscoRttMonCapV12R0403rdT",
+    "oid": "1.3.6.1.4.1.9.7.62.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(3rd)T",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoStatsGroup",
+          "ciscoHistoryGroup",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoLatestOperGroupRev1",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev4",
+          "ciscoStatsGroupRev5",
+          "ciscoApplGroupRev2",
+          "ciscoApplGroupRev3",
+          "ciscoCtrlGroupRev4",
+          "ciscoCtrlGroupRev6",
+          "ciscoCtrlGroupRev7",
+          "ciscoCtrlGroupRev9",
+          "ciscoCtrlGroupRev10",
+          "ciscoCtrlGroupRev11",
+          "ciscoNotificationGroupRev1",
+          "ciscoStatsGroupRev6",
+          "ciscoCtrlGroupRev12",
+          "ciscoCtrlGroupRev8",
+          "ciscoStatsGroupRev7",
+          "ciscoCtrlGroupRev13",
+          "ciscoNotificationGroupRev2",
+          "ciscoApplGroupRev4",
+          "ciscoStatsGroupRev8",
+          "ciscoStatsGroupRev9",
+          "ciscoCtrlGroupRev13"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonCapCRS1V3R3": {
+    "name": "ciscoRttMonCapCRS1V3R3",
+    "oid": "1.3.6.1.4.1.9.7.62.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR release 3.3 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoStatsGroup",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev5",
+          "ciscoHistoryGroup",
+          "ciscoApplGroupRev3",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoCtrlGroupRev7",
+          "ciscoCtrlGroupRev10",
+          "ciscoCtrlGroupRev11",
+          "ciscoNotificationGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "rttMonStatsCollectNumDisconnects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectTimeouts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectBusies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectNoConnections",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectDrops",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectSequenceErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectVerifyErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsCollectAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsTotalsElapsedTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonStatsTotalsInitiations",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHistoryCollectionApplSpecificSense",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHistoryCollectionSenseDescription",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlAdminOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlAdminRttType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "echo": 1,
+                  "pathEcho": 2,
+                  "udpEcho": 5,
+                  "jitter": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "rttMonCtrlAdminThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlAdminFrequency",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 604800
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonCtrlAdminTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 604800000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonCtrlAdminNvgen",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonScheduleAdminRttLife",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2147483647
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonEchoAdminProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "notApplicable": 1,
+                  "ipIcmpEcho": 2,
+                  "ipUdpEchoAppl": 3,
+                  "jitterAppl": 27
+                }
+              }
+            }
+          },
+          {
+            "object": "rttMonEchoAdminPktDataResponseSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminTargetPort",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonEchoAdminSourcePort",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonCtrlOperDiagText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlOperResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlOperOctetsInUse",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlOperVerifyErrorOccurred",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonCtrlOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pending": 4,
+                  "inactive": 5,
+                  "active": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "rttMonLatestRttOperCompletionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestRttOperSense",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestRttOperApplSpecificSense",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestRttOperSenseDescription",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestRttOperTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestRttOperAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonReactTriggerAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonReactTriggerOperState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminTargetAddressString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminNameServer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminOperation",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminHTTPVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminURL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminCache",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminInterval",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "rttMonEchoAdminProxy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminString1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminString2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminString3",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminString4",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminString5",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonEchoAdminMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsCompletions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsOverThresholds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsRTTSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsRTTSum2Low",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsRTTSum2High",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsRTTMin",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsRTTMax",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsDNSRTTSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsTCPConnectRTTSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsTransactionRTTSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsMessageBodyOctetsSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsDNSServerTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsTCPConnectTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsTransactionTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsDNSQueryError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsHTTPError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonHTTPStatsBusies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWSumSD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWSum2SD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWMinSD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWMaxSD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWSumDS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWSum2DS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWMinDS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWMaxDS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperNumOfOW",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplMaxPacketDataSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplTimeOfLastSet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplSupportedRttTypesValid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplSupportedProtocolsValid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplReset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplProbeCapacity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonApplLatestSetError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminProbes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminPeriod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminFrequency",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminLife",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminAgeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonJitterStatsAvgJitter",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonJitterStatsAvgJitterSD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonJitterStatsAvgJitterDS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonJitterStatsUnSyncRTs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperIAJIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperIAJOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperAvgJitter",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperAvgSDJ",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperAvgDSJ",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWAvgSD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperOWAvgDS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperNTPState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonLatestJitterOperUnSyncRTs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonReactVar",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "rtt": 1,
+                  "jitterSDAvg": 2,
+                  "jitterDSAvg": 3,
+                  "packetLossSD": 4,
+                  "packetLossDS": 5,
+                  "timeout": 7,
+                  "connectionLoss": 8,
+                  "verifyError": 9,
+                  "jitterAvg": 10
+                }
+              }
+            }
+          },
+          {
+            "object": "rttMonGrpScheduleAdminFreqMax",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rttMonGrpScheduleAdminFreqMin",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonCapV12R0201SRB": {
+    "name": "ciscoRttMonCapV12R0201SRB",
+    "oid": "1.3.6.1.4.1.9.7.62.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(01)SRB",
+    "capabilities": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "includes": [
+          "ciscoStatsGroup",
+          "ciscoHistoryGroup",
+          "ciscoCtrlGroupRev1",
+          "ciscoCtrlGroupRev2",
+          "ciscoLatestOperGroupRev1",
+          "ciscoStatsGroupRev1",
+          "ciscoStatsGroupRev3",
+          "ciscoStatsGroupRev4",
+          "ciscoStatsGroupRev5",
+          "ciscoApplGroupRev2",
+          "ciscoApplGroupRev3",
+          "ciscoApplGroupRev4",
+          "ciscoNotificationGroupRev1",
+          "ciscoNotificationGroupRev2",
+          "ciscoCtrlGroupRev4",
+          "ciscoCtrlGroupRev6",
+          "ciscoCtrlGroupRev7",
+          "ciscoStatsGroupRev7",
+          "ciscoCtrlGroupRev8",
+          "ciscoCtrlGroupRev9",
+          "ciscoCtrlGroupRev10",
+          "ciscoCtrlGroupRev11",
+          "ciscoCtrlGroupRev13",
+          "ciscoCtrlGroupRev15"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RTTMON-CAPABILITY",
+      "Source digest sha256:9fdedd82430601d3297ac583b0f3ae7dfe520345bf0f505187b4b062e03d5e0b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RTTMON-CAPABILITY"
+  }
+}

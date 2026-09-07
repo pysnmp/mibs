@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPsmMibCapability": {
+    "name": "ciscoPsmMibCapability",
+    "oid": "1.3.6.1.4.1.9.7.999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-08-05 00:00",
+        "description": "The capabilities description of Cisco Port Security MIB for MDS 1.2(1)."
+      }
+    ]
+  },
+  "ciscoPsmMibCapabilityMDS12R0": {
+    "name": "ciscoPsmMibCapabilityMDS12R0",
+    "oid": "1.3.6.1.4.1.9.7.999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 1.2(1)",
+    "capabilities": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "includes": [
+          "ciscoPsmPortBindConfigGroup",
+          "ciscoPsmPortBindEnforcedGroup",
+          "ciscoPsmPortBindStatsGroup",
+          "ciscoPsmPortBindNotifyGroup",
+          "ciscoPsmPortBindAutoLearnGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PSM-MIB-CAPABILITY",
+      "Source digest sha256:717a8376eee9a8583572fd168488b78c17bec724620a2755c161b5b3d797d659",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PSM-MIB-CAPABILITY"
+  }
+}

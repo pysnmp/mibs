@@ -1,0 +1,670 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSlbCapability": {
+    "name": "ciscoSlbCapability",
+    "oid": "1.3.6.1.4.1.9.7.181",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-24 00:00",
+        "description": "Added ciscoSlbCapc4710aceVA3R100 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2008-02-07 00:00",
+        "description": "Added ciscoSlbCapc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-12-09 00:00",
+        "description": "- Added ciscoSlbCapabilityACSWV300RA12 agent capabilities for Application Control Engine (ACE). - Following change is done for ciscoSlbCapabilityV12R01: * STATUS changed to obsolete. * Commented out the VARIATION and other clauses for non-existent objects. - Added ciscoSlbCapabilityNewV12R01 which is same as ciscoSlbCapabilityV12R01 except it is not referencing the non-existent objects/groups."
+      },
+      {
+        "revision": "2006-03-21 00:00",
+        "description": "Added ciscoIfCapabilityACSWV03R000 agent capabilities for Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2001-03-09 00:00",
+        "description": "Extended MIB support for ciscoSlbEntriesGroup, and serveral new objects in the ciscoSlbVirtualServersGroup."
+      },
+      {
+        "revision": "2000-10-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSlbCapabilityV12R01": {
+    "name": "ciscoSlbCapabilityV12R01",
+    "oid": "1.3.6.1.4.1.9.7.181.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(10)W05(17.29) and 12.1(01.06)E01",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbDfpPasswordGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbRealServersGroup",
+          "ciscoSlbVirtualServersGroup",
+          "ciscoSlbConnectionsGroup",
+          "ciscoSlbVirtualClientsGroup",
+          "ciscoSlbStickyObjectsGroup",
+          "ciscoSlbDfpAgentGroup",
+          "ciscoSlbDfpRealGroup",
+          "ciscoSlbNotifEnabledGroup"
+        ],
+        "variations": [
+          {
+            "object": "slbServerFarmNat",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmNumberOfRealServers",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealState",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealMaxConnections",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealReassign",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealRetryInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealFailedConnections",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealFailedClients",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualServerState",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualPort",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualService",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualAdvertise",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualFarmName",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualDelayTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualIdleTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualStickyTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualStickyGroup",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualSynguardCount",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualSynguardPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualClientExclude",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualClientRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbStickyObjectRealIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "slbStickyObjectRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordPending",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentRetryCount",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpRealWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpRealRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualMask",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoIfCapabilityACSWV03R000": {
+    "name": "ciscoIfCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.181.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbVServerInfoGroup",
+          "ciscoSlbVServerNotifEnabledGroup",
+          "ciscoSlbVServerNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "slbStatsUnassistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsUnassistedSwitchingHCPks",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingHCPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmNat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSlbVServerStateChangeNotifEnabled",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbExtCapabilityACSWV300RA12": {
+    "name": "ciscoSlbExtCapabilityACSWV300RA12",
+    "oid": "1.3.6.1.4.1.9.7.181.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software)\n                version 3.0(0)A1(2).",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbVServerInfoGroup",
+          "ciscoSlbVServerNotifEnabledGroup",
+          "ciscoSlbVServerNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "slbStatsUnassistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsUnassistedSwitchingHCPks",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingHCPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsHCZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmNat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSlbVServerStateChangeNotifEnabled",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbCapabilityNewV12R01": {
+    "name": "ciscoSlbCapabilityNewV12R01",
+    "oid": "1.3.6.1.4.1.9.7.181.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(10)W05(17.29) and 12.1(01.06)E01",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbDfpPasswordGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbRealServersGroup",
+          "ciscoSlbVirtualServersGroup",
+          "ciscoSlbConnectionsGroup",
+          "ciscoSlbVirtualClientsGroup",
+          "ciscoSlbStickyObjectsGroup",
+          "ciscoSlbDfpAgentGroup",
+          "ciscoSlbDfpRealGroup",
+          "ciscoSlbNotifEnabledGroup"
+        ],
+        "variations": [
+          {
+            "object": "slbServerFarmNat",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmNumberOfRealServers",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "read-only"
+          },
+          {
+            "object": "slbServerFarmRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealState",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealMaxConnections",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealReassign",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealRetryInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealFailedConnections",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealFailedClients",
+            "access": "read-only"
+          },
+          {
+            "object": "slbRealRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualServerState",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualPort",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualService",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualAdvertise",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualFarmName",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualDelayTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualIdleTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualStickyTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualStickyGroup",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualSynguardCount",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualSynguardPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualClientExclude",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualClientRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbStickyObjectRealIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "slbStickyObjectRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordPending",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpPasswordRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentRetryCount",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpAgentRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpRealWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "slbDfpRealRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVirtualMask",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbCapc4710aceVA1R700": {
+    "name": "ciscoSlbCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.181.5",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                    for ACE 4710 Application Control Engine \n                    appliance.",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbVServerInfoGroup",
+          "ciscoSlbVServerNotifEnabledGroup",
+          "ciscoSlbVServerNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "slbStatsUnassistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsUnassistedSwitchingHCPks",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingHCPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsHCZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmNat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSlbVServerStateChangeNotifEnabled",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbCapc4710aceVA3R100": {
+    "name": "ciscoSlbCapc4710aceVA3R100",
+    "oid": "1.3.6.1.4.1.9.7.181.6",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A3(1) for\n                     ACE 4710 Application Control Engine Appliance.",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "includes": [
+          "ciscoSlbStatsGroup",
+          "ciscoSlbServerFarmsGroup",
+          "ciscoSlbVServerNotifEnabledGroup",
+          "ciscoSlbVServerNotifGroup",
+          "ciscoSlbVServerInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "slbStatsUnassistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsUnassistedSwitchingHCPks",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsAssistedSwitchingHCPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbStatsHCZombies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmNat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbServerFarmBindId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSlbVServerStateChangeNotifEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "slbVServerL4Decisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbVServerL7Decisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "slbVServerEstablishedConnections",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SLB-CAPABILITY",
+      "Source digest sha256:86f2da8a270560183fecce65c65b0bf24b59c8c18e32ee67ef0cc4125da4a056",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SLB-CAPABILITY"
+  }
+}

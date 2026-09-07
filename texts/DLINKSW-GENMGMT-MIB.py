@@ -1,0 +1,32 @@
+#
+# PySNMP MIB module DLINKSW-GENMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source DLINKSW-GENMGMT-MIB
+# Source digest sha256:b89e7683010e06f57374b3f1ffdcc69344ecb6686427cd7dfca741c564349a79
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+dlinkIndustrialCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkIndustrialCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlinkSwGenMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 14, 165))
+if mibBuilder.loadTexts: dlinkSwGenMgmtMIB.setLastUpdated('2013-09-13 00:00')
+if mibBuilder.loadTexts: dlinkSwGenMgmtMIB.setOrganization('D-Link Corp.')
+if mibBuilder.loadTexts: dlinkSwGenMgmtMIB.setContactInfo('        D-Link Corporation\n\n             Postal: No. 289, Sinhu 3rd Rd., Neihu District,\n                     Taipei City 114, Taiwan, R.O.C\n             Tel:     +886-2-66000123\n             E-mail: tsd@dlink.com.tw\n            ')
+if mibBuilder.loadTexts: dlinkSwGenMgmtMIB.setDescription('This is the first version of the MIB file.')
+dGenMgmtMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 165, 0))
+dGenMgmtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 165, 1))
+dGenMgmtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 165, 2))
+dGenMgmtLoginFail = NotificationType((1, 3, 6, 1, 4, 1, 171, 14, 165, 0, 1)).setObjects(("DLINKSW-GENMGMT-MIB", "dGenMgmtNotifyInfoLoginType"), ("DLINKSW-GENMGMT-MIB", "dGenMgmtNotifyInfoUserName"))
+if mibBuilder.loadTexts: dGenMgmtLoginFail.setStatus('current')
+if mibBuilder.loadTexts: dGenMgmtLoginFail.setDescription('Generated when the user login failed to the switch.')
+dGenMgmtNotifyInfos = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 165, 1, 1))
+dGenMgmtNotifyInfoLoginType = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 165, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("console", 1), ("telnet", 2), ("ssh", 3), ("web", 4)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: dGenMgmtNotifyInfoLoginType.setStatus('current')
+if mibBuilder.loadTexts: dGenMgmtNotifyInfoLoginType.setDescription('The type is the user login method type.')
+dGenMgmtNotifyInfoUserName = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 165, 1, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: dGenMgmtNotifyInfoUserName.setStatus('current')
+if mibBuilder.loadTexts: dGenMgmtNotifyInfoUserName.setDescription('This object is the name of the user that login to the switch.')
+mibBuilder.exportSymbols("DLINKSW-GENMGMT-MIB", PYSNMP_MODULE_ID=dlinkSwGenMgmtMIB, dGenMgmtLoginFail=dGenMgmtLoginFail, dGenMgmtMIBConformance=dGenMgmtMIBConformance, dGenMgmtMIBNotifications=dGenMgmtMIBNotifications, dGenMgmtMIBObjects=dGenMgmtMIBObjects, dGenMgmtNotifyInfoLoginType=dGenMgmtNotifyInfoLoginType, dGenMgmtNotifyInfoUserName=dGenMgmtNotifyInfoUserName, dGenMgmtNotifyInfos=dGenMgmtNotifyInfos, dlinkSwGenMgmtMIB=dlinkSwGenMgmtMIB)

@@ -1,0 +1,52 @@
+#
+# PySNMP MIB module ARUBAWIRED-FANTRAY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ARUBAWIRED-FANTRAY-MIB
+# Source digest sha256:86124960b05fe916ae8196a387a600b1d3923d62d003250a688024336ec64881
+# Produced by pysmi-2.3.0
+#
+arubaWiredChassisMIB, = mibBuilder.importSymbols("ARUBAWIRED-CHASSIS-MIB", "arubaWiredChassisMIB")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+arubaWiredFanTray = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4))
+arubaWiredFanTray.setRevisions(('2020-02-13 00:00',))
+if mibBuilder.loadTexts: arubaWiredFanTray.setLastUpdated('2020-02-13 00:00')
+if mibBuilder.loadTexts: arubaWiredFanTray.setOrganization('HPE/Aruba Networking Division')
+arubaWiredFanTrayNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 0))
+arubaWiredFanTrayStateNotification = NotificationType((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 0, 1)).setObjects(("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayName"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayState"))
+if mibBuilder.loadTexts: arubaWiredFanTrayStateNotification.setStatus('current')
+arubaWiredFanTrayTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arubaWiredFanTrayTable.setStatus('current')
+arubaWiredFanTrayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayGroupIndex"), (0, "ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTraySlotIndex"))
+if mibBuilder.loadTexts: arubaWiredFanTrayEntry.setStatus('current')
+arubaWiredFanTrayGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arubaWiredFanTrayGroupIndex.setStatus('current')
+arubaWiredFanTraySlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arubaWiredFanTraySlotIndex.setStatus('current')
+arubaWiredFanTrayName = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredFanTrayName.setStatus('current')
+arubaWiredFanTrayState = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredFanTrayState.setStatus('current')
+arubaWiredFanTrayProductName = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredFanTrayProductName.setStatus('current')
+arubaWiredFanTraySerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredFanTraySerialNumber.setStatus('current')
+arubaWiredFanTrayNumberFans = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 1, 1, 7), Integer32().clone(0)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredFanTrayNumberFans.setStatus('current')
+arubaWiredFanTrayConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99))
+arubaWiredFanTrayCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 1))
+arubaWiredFanTrayGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 2))
+arubaWiredFanTrayCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 1, 1)).setObjects(("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayTable"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayNotificationsGroup"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredFanTrayCompliance = arubaWiredFanTrayCompliance.setStatus('current')
+arubaWiredFanTrayTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 2, 1)).setObjects(("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayName"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayState"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayProductName"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTraySerialNumber"), ("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayNumberFans"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredFanTrayTableGroup = arubaWiredFanTrayTableGroup.setStatus('current')
+arubaWiredFanTrayNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 2, 2)).setObjects(("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayStateNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredFanTrayNotificationsGroup = arubaWiredFanTrayNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("ARUBAWIRED-FANTRAY-MIB", PYSNMP_MODULE_ID=arubaWiredFanTray, arubaWiredFanTray=arubaWiredFanTray, arubaWiredFanTrayCompliance=arubaWiredFanTrayCompliance, arubaWiredFanTrayCompliances=arubaWiredFanTrayCompliances, arubaWiredFanTrayConformance=arubaWiredFanTrayConformance, arubaWiredFanTrayEntry=arubaWiredFanTrayEntry, arubaWiredFanTrayGroupIndex=arubaWiredFanTrayGroupIndex, arubaWiredFanTrayGroups=arubaWiredFanTrayGroups, arubaWiredFanTrayName=arubaWiredFanTrayName, arubaWiredFanTrayNotifications=arubaWiredFanTrayNotifications, arubaWiredFanTrayNotificationsGroup=arubaWiredFanTrayNotificationsGroup, arubaWiredFanTrayNumberFans=arubaWiredFanTrayNumberFans, arubaWiredFanTrayProductName=arubaWiredFanTrayProductName, arubaWiredFanTraySerialNumber=arubaWiredFanTraySerialNumber, arubaWiredFanTraySlotIndex=arubaWiredFanTraySlotIndex, arubaWiredFanTrayState=arubaWiredFanTrayState, arubaWiredFanTrayStateNotification=arubaWiredFanTrayStateNotification, arubaWiredFanTrayTable=arubaWiredFanTrayTable, arubaWiredFanTrayTableGroup=arubaWiredFanTrayTableGroup)

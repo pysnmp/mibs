@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sonicwall": {
+    "name": "sonicwall",
+    "oid": "1.3.6.1.4.1.8741",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-06 00:00",
+        "description": "Updated company copyright and organization."
+      },
+      {
+        "revision": "2007-01-06 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "sonicwallFw": {
+    "name": "sonicwallFw",
+    "oid": "1.3.6.1.4.1.8741.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallCommon": {
+    "name": "sonicwallCommon",
+    "oid": "1.3.6.1.4.1.8741.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallGMS": {
+    "name": "sonicwallGMS",
+    "oid": "1.3.6.1.4.1.8741.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallEmailSec": {
+    "name": "sonicwallEmailSec",
+    "oid": "1.3.6.1.4.1.8741.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallDataCenter": {
+    "name": "sonicwallDataCenter",
+    "oid": "1.3.6.1.4.1.8741.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallSSLVPN": {
+    "name": "sonicwallSSLVPN",
+    "oid": "1.3.6.1.4.1.8741.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sonicwallCDP": {
+    "name": "sonicwallCDP",
+    "oid": "1.3.6.1.4.1.8741.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SONICWALL-SMI",
+      "Source digest sha256:e3180086416a2cb88c8d134b691fc1c4b425fbf8a675ad4a3e8020ff6818f4e6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SONICWALL-SMI"
+  }
+}

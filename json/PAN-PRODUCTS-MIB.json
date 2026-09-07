@@ -1,0 +1,335 @@
+{
+  "imports": {
+    "class": "imports",
+    "PAN-GLOBAL-REG": [
+      "panModules",
+      "panProductsMibs"
+    ],
+    "PAN-GLOBAL-TC": [
+      "TcChassisType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "panProductsMibsModule": {
+    "name": "panProductsMibsModule",
+    "oid": "1.3.6.1.4.1.25461.1.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-15 16:50",
+        "description": " Rev 2.0 Updated with PA-7000, GP-100 and WF-500 products."
+      },
+      {
+        "revision": "2011-02-09 16:10",
+        "description": " Rev 1.0 Initial version of MIB module PAN-PRODUCTS-MIB."
+      }
+    ]
+  },
+  "panPA_4050": {
+    "name": "panPA_4050",
+    "oid": "1.3.6.1.4.1.25461.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_4020": {
+    "name": "panPA_4020",
+    "oid": "1.3.6.1.4.1.25461.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_2050": {
+    "name": "panPA_2050",
+    "oid": "1.3.6.1.4.1.25461.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_2020": {
+    "name": "panPA_2020",
+    "oid": "1.3.6.1.4.1.25461.2.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_4060": {
+    "name": "panPA_4060",
+    "oid": "1.3.6.1.4.1.25461.2.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_500": {
+    "name": "panPA_500",
+    "oid": "1.3.6.1.4.1.25461.2.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPanorama": {
+    "name": "panPanorama",
+    "oid": "1.3.6.1.4.1.25461.2.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5060": {
+    "name": "panPA_5060",
+    "oid": "1.3.6.1.4.1.25461.2.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5050": {
+    "name": "panPA_5050",
+    "oid": "1.3.6.1.4.1.25461.2.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5020": {
+    "name": "panPA_5020",
+    "oid": "1.3.6.1.4.1.25461.2.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_200": {
+    "name": "panPA_200",
+    "oid": "1.3.6.1.4.1.25461.2.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3050": {
+    "name": "panPA_3050",
+    "oid": "1.3.6.1.4.1.25461.2.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3020": {
+    "name": "panPA_3020",
+    "oid": "1.3.6.1.4.1.25461.2.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3060": {
+    "name": "panPA_3060",
+    "oid": "1.3.6.1.4.1.25461.2.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3200": {
+    "name": "panPA_3200",
+    "oid": "1.3.6.1.4.1.25461.2.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3250": {
+    "name": "panPA_3250",
+    "oid": "1.3.6.1.4.1.25461.2.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5260": {
+    "name": "panPA_5260",
+    "oid": "1.3.6.1.4.1.25461.2.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5250": {
+    "name": "panPA_5250",
+    "oid": "1.3.6.1.4.1.25461.2.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5220": {
+    "name": "panPA_5220",
+    "oid": "1.3.6.1.4.1.25461.2.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_VM": {
+    "name": "panPA_VM",
+    "oid": "1.3.6.1.4.1.25461.2.3.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panM_100": {
+    "name": "panM_100",
+    "oid": "1.3.6.1.4.1.25461.2.3.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7050": {
+    "name": "panPA_7050",
+    "oid": "1.3.6.1.4.1.25461.2.3.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGP_100": {
+    "name": "panGP_100",
+    "oid": "1.3.6.1.4.1.25461.2.3.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panWF_500": {
+    "name": "panWF_500",
+    "oid": "1.3.6.1.4.1.25461.2.3.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7080": {
+    "name": "panPA_7080",
+    "oid": "1.3.6.1.4.1.25461.2.3.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panM_500": {
+    "name": "panM_500",
+    "oid": "1.3.6.1.4.1.25461.2.3.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_820": {
+    "name": "panPA_820",
+    "oid": "1.3.6.1.4.1.25461.2.3.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_850": {
+    "name": "panPA_850",
+    "oid": "1.3.6.1.4.1.25461.2.3.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_220": {
+    "name": "panPA_220",
+    "oid": "1.3.6.1.4.1.25461.2.3.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panM_600": {
+    "name": "panM_600",
+    "oid": "1.3.6.1.4.1.25461.2.3.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panM_200": {
+    "name": "panM_200",
+    "oid": "1.3.6.1.4.1.25461.2.3.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_220R": {
+    "name": "panPA_220R",
+    "oid": "1.3.6.1.4.1.25461.2.3.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_5280": {
+    "name": "panPA_5280",
+    "oid": "1.3.6.1.4.1.25461.2.3.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3220": {
+    "name": "panPA_3220",
+    "oid": "1.3.6.1.4.1.25461.2.3.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_3260": {
+    "name": "panPA_3260",
+    "oid": "1.3.6.1.4.1.25461.2.3.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panWF_600": {
+    "name": "panWF_600",
+    "oid": "1.3.6.1.4.1.25461.2.3.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panProcessingCards": {
+    "name": "panProcessingCards",
+    "oid": "1.3.6.1.4.1.25461.2.3.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panFans": {
+    "name": "panFans",
+    "oid": "1.3.6.1.4.1.25461.2.3.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPowerSupplies": {
+    "name": "panPowerSupplies",
+    "oid": "1.3.6.1.4.1.25461.2.3.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7000_SMC": {
+    "name": "panPA_7000_SMC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7000_LPC": {
+    "name": "panPA_7000_LPC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7000_20G_NPC": {
+    "name": "panPA_7000_20G_NPC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7080_SMC": {
+    "name": "panPA_7080_SMC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7050_SMC_B": {
+    "name": "panPA_7050_SMC_B",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7000_LFC": {
+    "name": "panPA_7000_LFC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7000_100G_NPC": {
+    "name": "panPA_7000_100G_NPC",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panPA_7080_SMC_B": {
+    "name": "panPA_7080_SMC_B",
+    "oid": "1.3.6.1.4.1.25461.2.3.100.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PAN-PRODUCTS-MIB",
+      "Source digest sha256:04a38ddbf03ea370020ebf681b83c95930e7af3e43083d82bb980be235895d9f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PAN-PRODUCTS-MIB"
+  }
+}

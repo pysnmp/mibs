@@ -1,0 +1,277 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "BulkConfigResult",
+      "ConfigIterator"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RMON-MIB": [
+      "OwnerString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIfCallServiceMIB": {
+    "name": "ciscoIfCallServiceMIB",
+    "oid": "1.3.6.1.4.1.9.9.9968",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-25 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoIfCallServiceMIBNotifs": {
+    "name": "ciscoIfCallServiceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.9968.0",
+    "class": "objectidentity"
+  },
+  "ciscoIfCallServiceMIBObjects": {
+    "name": "ciscoIfCallServiceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.9968.1",
+    "class": "objectidentity"
+  },
+  "ciscoIfCallServiceMIBConformance": {
+    "name": "ciscoIfCallServiceMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.9968.2",
+    "class": "objectidentity"
+  },
+  "cicServiceConfig": {
+    "name": "cicServiceConfig",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1",
+    "class": "objectidentity"
+  },
+  "CIfCallServiceOperState": {
+    "name": "CIfCallServiceOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2,
+          "oosPending": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIfCallServiceAdminState": {
+    "name": "CIfCallServiceAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "forcedOutOfService": 2,
+          "gracefulOutOfService": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cicServiceTable": {
+    "name": "cicServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cicServiceEntry": {
+    "name": "cicServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cicServiceOperState": {
+    "name": "cicServiceOperState",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIfCallServiceOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cicServiceAdminState": {
+    "name": "cicServiceAdminState",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIfCallServiceAdminState",
+      "class": "type"
+    },
+    "default": {
+      "value": "inService",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicServiceGraceTime": {
+    "name": "cicServiceGraceTime",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicServiceRepetition": {
+    "name": "cicServiceRepetition",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigIterator",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicServiceRepeatOwner": {
+    "name": "cicServiceRepeatOwner",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cicServiceRepeatResult": {
+    "name": "cicServiceRepeatResult",
+    "oid": "1.3.6.1.4.1.9.9.9968.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BulkConfigResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cicServiceCompliances": {
+    "name": "cicServiceCompliances",
+    "oid": "1.3.6.1.4.1.9.9.9968.2.1",
+    "class": "objectidentity"
+  },
+  "cicServiceGroups": {
+    "name": "cicServiceGroups",
+    "oid": "1.3.6.1.4.1.9.9.9968.2.2",
+    "class": "objectidentity"
+  },
+  "cicServiceCompliance": {
+    "name": "cicServiceCompliance",
+    "oid": "1.3.6.1.4.1.9.9.9968.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cicServiceGroup",
+        "module": "CISCO-IF-CALL-SERVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cicServiceGroup": {
+    "name": "cicServiceGroup",
+    "oid": "1.3.6.1.4.1.9.9.9968.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceOperState"
+      },
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceAdminState"
+      },
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceGraceTime"
+      },
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceRepetition"
+      },
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceRepeatOwner"
+      },
+      {
+        "module": "CISCO-IF-CALL-SERVICE-MIB",
+        "object": "cicServiceRepeatResult"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IF-CALL-SERVICE-MIB",
+      "Source digest sha256:6ff3f469047e45c795f9a9771f2b3b0e9ea67572c229b2129b3a7f372c98b254",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IF-CALL-SERVICE-MIB"
+  }
+}

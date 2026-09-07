@@ -1,0 +1,65 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "calixNetworks": {
+    "name": "calixNetworks",
+    "oid": "1.3.6.1.4.1.6321",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-08-31 00:26",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "calixRegistrations": {
+    "name": "calixRegistrations",
+    "oid": "1.3.6.1.4.1.6321.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "calixModules": {
+    "name": "calixModules",
+    "oid": "1.3.6.1.4.1.6321.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "calixProducts": {
+    "name": "calixProducts",
+    "oid": "1.3.6.1.4.1.6321.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "calixManagement": {
+    "name": "calixManagement",
+    "oid": "1.3.6.1.4.1.6321.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CALIX-SMI",
+      "Source digest sha256:11c2f02180e72f026a4cbb1ccd1d8e67bafd9c0c11deeaa70afab5bce52879ec",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CALIX-SMI"
+  }
+}

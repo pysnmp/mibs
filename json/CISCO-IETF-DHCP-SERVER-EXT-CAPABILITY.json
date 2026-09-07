@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfDhcpSrvExtCapability": {
+    "name": "ciscoIetfDhcpSrvExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.438",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-14 12:00",
+        "description": "Added capability definition ciscoIetfDhcpServerExtCapabilityV12R02SRC for 12.2SRC."
+      },
+      {
+        "revision": "2005-05-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIetfDhcpServerExtCapabilityV62R00": {
+    "name": "ciscoIetfDhcpServerExtCapabilityV62R00",
+    "oid": "1.3.6.1.4.1.9.7.438.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CNS Network Registrar 6.2",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-EXT-MIB",
+        "includes": [
+          "cDhcpv4SrvExtSystemObjects",
+          "cDhcpv4ExtCountersGroup",
+          "cDhcpv4CountersIntervalGroup",
+          "cDhcpv4FOCountersGroup",
+          "cDhcpv4FOCountersIntervalGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfDhcpServerExtCapabilityV12R02SRC": {
+    "name": "ciscoIetfDhcpServerExtCapabilityV12R02SRC",
+    "oid": "1.3.6.1.4.1.9.7.438.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2SRC",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-EXT-MIB",
+        "includes": [
+          "cDhcpv4CfgObjectsGroup",
+          "cDhcpv4SrvExtNotifyGroup"
+        ],
+        "variations": [
+          {
+            "object": "cDhcpv4ConfigIntervalSample",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerDefaultRouterAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cDhcpv4ServerIfLeaseLimitEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerSubnetFreeAddressLowEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerSubnetFreeAddressHighEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerIfLeaseLimitDefault",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerIfLeaseLimit",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-DHCP-SERVER-EXT-CAPABILITY",
+      "Source digest sha256:8a908ca871145f7c63d8414d122c609466ae401f1da68b48aa43aaed73cf5412",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-DHCP-SERVER-EXT-CAPABILITY"
+  }
+}

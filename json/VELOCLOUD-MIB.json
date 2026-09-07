@@ -1,0 +1,58 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "velocloud": {
+    "name": "velocloud",
+    "oid": "1.3.6.1.4.1.45346",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-05-11 00:00",
+        "description": "Update of VMware nomenclature"
+      },
+      {
+        "revision": "2019-08-02 00:00",
+        "description": "Implementation of VMware SD-WAN Edge MIB Objects"
+      },
+      {
+        "revision": "2017-01-18 00:00",
+        "description": "Implementation of VCO MIB Objects"
+      },
+      {
+        "revision": "2017-01-13 00:00",
+        "description": "Inital definition of VMware SD-WAN MIB Objects"
+      }
+    ]
+  },
+  "modules": {
+    "name": "modules",
+    "oid": "1.3.6.1.4.1.45346.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VELOCLOUD-MIB",
+      "Source digest sha256:b2dad8f67221a979cf82a6237d5c9f4c623f2d0456e16a7f693936bc7e0dc5df",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VELOCLOUD-MIB"
+  }
+}

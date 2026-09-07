@@ -1,0 +1,440 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WATCHGUARD-SMI": [
+      "watchguard"
+    ]
+  },
+  "wgInfoModule": {
+    "name": "wgInfoModule",
+    "oid": "1.3.6.1.4.1.3097.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-25 12:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "wgClientMIB": {
+    "name": "wgClientMIB",
+    "oid": "1.3.6.1.4.1.3097.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgClientDHCPServer": {
+    "name": "wgClientDHCPServer",
+    "oid": "1.3.6.1.4.1.3097.6.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgClientDHCPClient": {
+    "name": "wgClientDHCPClient",
+    "oid": "1.3.6.1.4.1.3097.6.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgClientPPPoEClient": {
+    "name": "wgClientPPPoEClient",
+    "oid": "1.3.6.1.4.1.3097.6.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgClientDHCPServerEnable": {
+    "name": "wgClientDHCPServerEnable",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "relay": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerStartIpAddress": {
+    "name": "wgClientDHCPServerStartIpAddress",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerEndIpAddress": {
+    "name": "wgClientDHCPServerEndIpAddress",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerLeaseTime": {
+    "name": "wgClientDHCPServerLeaseTime",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerNum": {
+    "name": "wgClientDHCPServerNum",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnTable": {
+    "name": "wgClientDHCPServerConnTable",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wgClientDHCPServerRelayServer": {
+    "name": "wgClientDHCPServerRelayServer",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnEntry": {
+    "name": "wgClientDHCPServerConnEntry",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WATCHGUARD-CLIENT-MIB",
+        "object": "wgClientDHCPServerConnIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wgClientDHCPServerConnClientHostName": {
+    "name": "wgClientDHCPServerConnClientHostName",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnIPAddr": {
+    "name": "wgClientDHCPServerConnIPAddr",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnMACAddr": {
+    "name": "wgClientDHCPServerConnMACAddr",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnLeaseTimeStart": {
+    "name": "wgClientDHCPServerConnLeaseTimeStart",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPServerConnLeaseTimeEnd": {
+    "name": "wgClientDHCPServerConnLeaseTimeEnd",
+    "oid": "1.3.6.1.4.1.3097.6.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPClientEnable": {
+    "name": "wgClientDHCPClientEnable",
+    "oid": "1.3.6.1.4.1.3097.6.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPClientDomainName": {
+    "name": "wgClientDHCPClientDomainName",
+    "oid": "1.3.6.1.4.1.3097.6.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPClientDefaultGateway": {
+    "name": "wgClientDHCPClientDefaultGateway",
+    "oid": "1.3.6.1.4.1.3097.6.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPClientDNSOne": {
+    "name": "wgClientDHCPClientDNSOne",
+    "oid": "1.3.6.1.4.1.3097.6.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientDHCPClientDNSTwo": {
+    "name": "wgClientDHCPClientDNSTwo",
+    "oid": "1.3.6.1.4.1.3097.6.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientEnable": {
+    "name": "wgClientPPPoEClientEnable",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientADSLStatus": {
+    "name": "wgClientPPPoEClientADSLStatus",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnect": 0,
+          "initialize": 1,
+          "establish": 2,
+          "authenticate": 3,
+          "network": 4,
+          "running": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientLocalIPAddr": {
+    "name": "wgClientPPPoEClientLocalIPAddr",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientRemoteIPAddr": {
+    "name": "wgClientPPPoEClientRemoteIPAddr",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientNetMask": {
+    "name": "wgClientPPPoEClientNetMask",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientDNSOne": {
+    "name": "wgClientPPPoEClientDNSOne",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientDNSTwo": {
+    "name": "wgClientPPPoEClientDNSTwo",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEADSLPeerMACAddr": {
+    "name": "wgClientPPPoEADSLPeerMACAddr",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgClientPPPoEClientConnTime": {
+    "name": "wgClientPPPoEClientConnTime",
+    "oid": "1.3.6.1.4.1.3097.6.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WATCHGUARD-CLIENT-MIB",
+      "Source digest sha256:4172cc52f76574e0f9e1990eb0f619087e4e1d03a2d724247d960871e5296665",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WATCHGUARD-CLIENT-MIB"
+  }
+}

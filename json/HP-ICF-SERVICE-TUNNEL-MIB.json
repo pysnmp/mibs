@@ -1,0 +1,733 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifAlias",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "TUNNEL-MIB": [
+      "tunnelIfEntry",
+      "tunnelInetConfigEntry"
+    ]
+  },
+  "hpicfServiceTunnel": {
+    "name": "hpicfServiceTunnel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-17 00:00",
+        "description": "Added support for Tap Tunnels"
+      },
+      {
+        "revision": "2013-06-13 00:00",
+        "description": "Initial Revision."
+      }
+    ]
+  },
+  "hpicfServiceTunnelNotifications": {
+    "name": "hpicfServiceTunnelNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.0",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelConfigurationObjects": {
+    "name": "hpicfServiceTunnelConfigurationObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelStatisticsObjects": {
+    "name": "hpicfServiceTunnelStatisticsObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelConformance": {
+    "name": "hpicfServiceTunnelConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelScalars": {
+    "name": "hpicfServiceTunnelScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelScalarStats": {
+    "name": "hpicfServiceTunnelScalarStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfMaxIPv4ServiceTunnels": {
+    "name": "hpicfMaxIPv4ServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTotalIPv4ServiceTunnels": {
+    "name": "hpicfTotalIPv4ServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMaxInterceptServiceTunnels": {
+    "name": "hpicfMaxInterceptServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTotalIPv4InterceptServiceTunnels": {
+    "name": "hpicfTotalIPv4InterceptServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMaxIPv4TapServiceTunnels": {
+    "name": "hpicfMaxIPv4TapServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTotalIPv4TapServiceTunnels": {
+    "name": "hpicfTotalIPv4TapServiceTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelTable": {
+    "name": "hpicfServiceTunnelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfServiceTunnelEntry": {
+    "name": "hpicfServiceTunnelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfServiceTunnelEntry",
+      "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+      "object": "tunnelInetConfigEntry"
+    },
+    "status": "current"
+  },
+  "hpicfServiceTunnelType": {
+    "name": "hpicfServiceTunnelType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "intercept": 1,
+          "tap": 2
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfServiceTunnelName": {
+    "name": "hpicfServiceTunnelName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfServiceTunnelIfTable": {
+    "name": "hpicfServiceTunnelIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfServiceTunnelIfEntry": {
+    "name": "hpicfServiceTunnelIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfServiceTunnelIfEntry",
+      "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+      "object": "tunnelIfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfServiceTunnelIfMTU": {
+    "name": "hpicfServiceTunnelIfMTU",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfServiceTunnelInterfaceStatus": {
+    "name": "hpicfServiceTunnelInterfaceStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelInterfaceDownReason": {
+    "name": "hpicfServiceTunnelInterfaceDownReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "resourceUnavailable": 1,
+          "noRouteToDestination": 2,
+          "ifAdminDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelInterfaceTruncate": {
+    "name": "hpicfServiceTunnelInterfaceTruncate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsRxInvalidKey": {
+    "name": "hpicfServiceTunnelStatsRxInvalidKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsRxFragmentDrops": {
+    "name": "hpicfServiceTunnelStatsRxFragmentDrops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsTxMTUViolationDrop": {
+    "name": "hpicfServiceTunnelStatsTxMTUViolationDrop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsUnknownSrcMac": {
+    "name": "hpicfServiceTunnelStatsUnknownSrcMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsScalarClear": {
+    "name": "hpicfServiceTunnelStatsScalarClear",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsIfTable": {
+    "name": "hpicfServiceTunnelStatsIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsIfEntry": {
+    "name": "hpicfServiceTunnelStatsIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfServiceTunnelStatsIfEntry",
+      "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+      "object": "tunnelIfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsRxPackets": {
+    "name": "hpicfServiceTunnelStatsRxPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsTxPackets": {
+    "name": "hpicfServiceTunnelStatsTxPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsRxHeartbeat": {
+    "name": "hpicfServiceTunnelStatsRxHeartbeat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsTxHeartbeat": {
+    "name": "hpicfServiceTunnelStatsTxHeartbeat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelLastHeartbeatPacketTimestamp": {
+    "name": "hpicfServiceTunnelLastHeartbeatPacketTimestamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsClear": {
+    "name": "hpicfServiceTunnelStatsClear",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfServiceTunnelIfUp": {
+    "name": "hpicfServiceTunnelIfUp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelIfDown": {
+    "name": "hpicfServiceTunnelIfDown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelCompliances": {
+    "name": "hpicfServiceTunnelCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelGroups": {
+    "name": "hpicfServiceTunnelGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfServiceTunnelCompliance": {
+    "name": "hpicfServiceTunnelCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfServiceScalarsGroup",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceScalarsStatsGroup",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceTunnelGroup",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceTunnelStatsGroup",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceTunnelNotificationGroup",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceScalarsGroup1",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpicfServiceTunnelGroup1",
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceScalarsGroup": {
+    "name": "hpicfServiceScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfMaxIPv4ServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfTotalIPv4ServiceTunnels"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceScalarsGroup1": {
+    "name": "hpicfServiceScalarsGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfMaxIPv4ServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfTotalIPv4ServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfMaxInterceptServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfTotalIPv4InterceptServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfMaxIPv4TapServiceTunnels"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfTotalIPv4TapServiceTunnels"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceScalarsStatsGroup": {
+    "name": "hpicfServiceScalarsStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsRxInvalidKey"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsRxFragmentDrops"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsTxMTUViolationDrop"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsUnknownSrcMac"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsScalarClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelGroup": {
+    "name": "hpicfServiceTunnelGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelType"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelName"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelIfMTU"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceStatus"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelGroup1": {
+    "name": "hpicfServiceTunnelGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelType"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelName"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelIfMTU"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceStatus"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceDownReason"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelInterfaceTruncate"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelStatsGroup": {
+    "name": "hpicfServiceTunnelStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsRxPackets"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsTxPackets"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsRxHeartbeat"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsTxHeartbeat"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelLastHeartbeatPacketTimestamp"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfServiceTunnelNotificationGroup": {
+    "name": "hpicfServiceTunnelNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.100.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelIfUp"
+      },
+      {
+        "module": "HP-ICF-SERVICE-TUNNEL-MIB",
+        "object": "hpicfServiceTunnelIfDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SERVICE-TUNNEL-MIB",
+      "Source digest sha256:7c1f5e3ab2679f987712a2db7949f1798490d2ffc51a8fe4db791496d833d06f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SERVICE-TUNNEL-MIB"
+  }
+}

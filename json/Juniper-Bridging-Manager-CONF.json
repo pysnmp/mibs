@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniBridgingMgrAgent": {
+    "name": "juniBridgingMgrAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.61",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-26 20:47",
+        "description": "Fixed the Juniper-Bridging-Manager-MIB name."
+      },
+      {
+        "revision": "2002-10-02 15:26",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniBridgingMgrAgentV1": {
+    "name": "juniBridgingMgrAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.61.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Bridging Manager component of the JUNOSe SNMP agent.\n        This version of the Bridging Manager component is supported in JUNOSe\n        5.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-Bridging-Manager-MIB",
+        "includes": [
+          "juniBridgingMgrConfGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Bridging-Manager-CONF",
+      "Source digest sha256:6bc27f3e38416de3c4abc0815ceda37b358c8e77478b33b934bbe141cc1d45bd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Bridging-Manager-CONF"
+  }
+}

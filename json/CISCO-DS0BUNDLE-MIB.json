@@ -1,0 +1,169 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
+    ]
+  },
+  "ds0Bundle": {
+    "name": "ds0Bundle",
+    "oid": "1.3.6.1.4.1.9.10.32",
+    "class": "moduleidentity"
+  },
+  "dsx0BundleNextIndex": {
+    "name": "dsx0BundleNextIndex",
+    "oid": "1.3.6.1.4.1.9.10.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0BundleTable": {
+    "name": "dsx0BundleTable",
+    "oid": "1.3.6.1.4.1.9.10.32.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx0BundleEntry": {
+    "name": "dsx0BundleEntry",
+    "oid": "1.3.6.1.4.1.9.10.32.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DS0BUNDLE-MIB",
+        "object": "dsx0BundleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx0BundleIndex": {
+    "name": "dsx0BundleIndex",
+    "oid": "1.3.6.1.4.1.9.10.32.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx0BundleIfIndex": {
+    "name": "dsx0BundleIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.32.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx0BundleRowStatus": {
+    "name": "dsx0BundleRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.32.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ds0BundleConformance": {
+    "name": "ds0BundleConformance",
+    "oid": "1.3.6.1.4.1.9.10.32.4",
+    "class": "objectidentity"
+  },
+  "ds0BundleGroups": {
+    "name": "ds0BundleGroups",
+    "oid": "1.3.6.1.4.1.9.10.32.4.1",
+    "class": "objectidentity"
+  },
+  "ds0BundleCompliances": {
+    "name": "ds0BundleCompliances",
+    "oid": "1.3.6.1.4.1.9.10.32.4.2",
+    "class": "objectidentity"
+  },
+  "ds0BundleCompliance": {
+    "name": "ds0BundleCompliance",
+    "oid": "1.3.6.1.4.1.9.10.32.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ds0BundleConfigGroup",
+        "module": "CISCO-DS0BUNDLE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ds0BundleConfigGroup": {
+    "name": "ds0BundleConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.32.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS0BUNDLE-MIB",
+        "object": "dsx0BundleNextIndex"
+      },
+      {
+        "module": "CISCO-DS0BUNDLE-MIB",
+        "object": "dsx0BundleIfIndex"
+      },
+      {
+        "module": "CISCO-DS0BUNDLE-MIB",
+        "object": "dsx0BundleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DS0BUNDLE-MIB",
+      "Source digest sha256:64f33f8adc03e9b9a4d1a631e09c06ba45a2fdcf4d46b671baa8cd92bdc54990",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DS0BUNDLE-MIB"
+  }
+}

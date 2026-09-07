@@ -1,0 +1,228 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-OPTICAL-MONITOR-MIB": [
+      "OpticalAlarmSeverityOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoOpticalMonitorCapability": {
+    "name": "ciscoOpticalMonitorCapability",
+    "oid": "1.3.6.1.4.1.9.7.528",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoOpticalMonCapCatOSV08R0601": {
+    "name": "ciscoOpticalMonCapCatOSV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.528.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-OPTICAL-MONITOR-MIB",
+        "includes": [
+          "cOpticalMIBMonGroup",
+          "cOpticalMIBThresholdGroup",
+          "cOpticalMIBSeverityGroup",
+          "cOpticalMIBNotifyEnableGroup",
+          "cOpticalMIBNotifGroup",
+          "cOpticalMIBEnableConfigGroup",
+          "cOpticalMIBIntervalConfigGroup",
+          "cOpticalMonThreshSourceGroup",
+          "cOpticalMonIfTimeGroup"
+        ],
+        "variations": [
+          {
+            "object": "cOpticalMonEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "all": 0
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamHighAlarmSev",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "critical": 1,
+                  "major": 2,
+                  "minor": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamHighWarningSev",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "minor": 3,
+                  "notAlarmed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamLowAlarmSev",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "critical": 1,
+                  "major": 2,
+                  "minor": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamLowWarningSev",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "minor": 3,
+                  "notAlarmed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamHighAlarmThresh",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -500,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamHighWarningThresh",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -500,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamLowAlarmThresh",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -500,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cOpticalParamLowWarningThresh",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -500,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cOpticalMonPollInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 15
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cOpticalNotifyEnable",
+            "syntax": {
+              "type": "OpticalAlarmSeverityOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-OPTICAL-MONITOR-CAPABILITY",
+      "Source digest sha256:33305376e77b2b7a98e8afff64194e93993018601cc398da4ff029ec10d14b0d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-OPTICAL-MONITOR-CAPABILITY"
+  }
+}

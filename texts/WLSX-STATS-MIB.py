@@ -1,0 +1,42 @@
+#
+# PySNMP MIB module WLSX-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source WLSX-STATS-MIB
+# Source digest sha256:bb879faaec6910737e6036fb7a1b2a384b9039253e23332d65e1485837efdcd3
+# Produced by pysmi-2.3.0
+#
+wlsxEnterpriseMibModules, = mibBuilder.importSymbols("ARUBA-MIB", "wlsxEnterpriseMibModules")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, snmpModules = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "snmpModules")
+DisplayString, MacAddress, PhysAddress, RowStatus, StorageType, TAddress, TDomain, TextualConvention, TestAndIncr, TimeInterval, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "PhysAddress", "RowStatus", "StorageType", "TAddress", "TDomain", "TextualConvention", "TestAndIncr", "TimeInterval", "TruthValue")
+wlsxStatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15))
+wlsxStatsMIB.setRevisions(('2020-08-14 17:45',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: wlsxStatsMIB.setRevisionsDescriptions(('The initial revision.',))
+if mibBuilder.loadTexts: wlsxStatsMIB.setLastUpdated('2020-08-14 17:45')
+if mibBuilder.loadTexts: wlsxStatsMIB.setOrganization('Aruba, a Hewlett Packard Enterprise company')
+if mibBuilder.loadTexts: wlsxStatsMIB.setContactInfo('Postal:    3333 Scott Blvd,\n                        Santa Clara, CA 95054\n            E-mail:     aruba-ext-eng-reg@hpe.com\n            Phone:      408 227 4500\n            Fax:        408 752 0626')
+if mibBuilder.loadTexts: wlsxStatsMIB.setDescription('This MIB module defines MIB objects which provide\n            information about the Statistics in the \n\t\t\tAruba controller.')
+wlsxStatsOpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1))
+wlsxStatsRequestTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: wlsxStatsRequestTable.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsRequestTable.setDescription('\n\t\t')
+wlsxStatsRequestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "WLSX-STATS-MIB", "wlsxStatsIndex"))
+if mibBuilder.loadTexts: wlsxStatsRequestEntry.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsRequestEntry.setDescription('')
+wlsxStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 1), Integer32()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: wlsxStatsIndex.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsIndex.setDescription('\n\t\t\t\tStats Index\n\t\t\t')
+wlsxStatsReqType = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsReqType.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsReqType.setDescription('\n\t\t\t\tRequest Type\n\t\t\t')
+wlsxStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsInterval.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsInterval.setDescription('\n\t\t\t\tStats Interval\n\t\t\t')
+wlsxStatsCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsCookie.setStatus('current')
+if mibBuilder.loadTexts: wlsxStatsCookie.setDescription('\n\t\t\t\tCookie for the config sync operation\n\t\t\t')
+mibBuilder.exportSymbols("WLSX-STATS-MIB", PYSNMP_MODULE_ID=wlsxStatsMIB, wlsxStatsCookie=wlsxStatsCookie, wlsxStatsIndex=wlsxStatsIndex, wlsxStatsInterval=wlsxStatsInterval, wlsxStatsMIB=wlsxStatsMIB, wlsxStatsOpGroup=wlsxStatsOpGroup, wlsxStatsReqType=wlsxStatsReqType, wlsxStatsRequestEntry=wlsxStatsRequestEntry, wlsxStatsRequestTable=wlsxStatsRequestTable)

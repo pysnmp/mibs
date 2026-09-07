@@ -1,0 +1,204 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfIpv6RAGuard": {
+    "name": "hpicfIpv6RAGuard",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-16 05:24",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfIpv6RAGuardObjects": {
+    "name": "hpicfIpv6RAGuardObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1",
+    "class": "objectidentity"
+  },
+  "hpicfIpv6RAGuardConfig": {
+    "name": "hpicfIpv6RAGuardConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfRAGuardPortTable": {
+    "name": "hpicfRAGuardPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRAGuardPortEntry": {
+    "name": "hpicfRAGuardPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRAGuardPortBlocked": {
+    "name": "hpicfRAGuardPortBlocked",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRAGuardPortBlockedRAs": {
+    "name": "hpicfRAGuardPortBlockedRAs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRAGuardPortBlockedRedirs": {
+    "name": "hpicfRAGuardPortBlockedRedirs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRAGuardPortLog": {
+    "name": "hpicfRAGuardPortLog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRAGuardLastErrorCode": {
+    "name": "hpicfRAGuardLastErrorCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "insufficientHardwareResources": 2,
+          "genericError": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpv6RAGuardConformance": {
+    "name": "hpicfIpv6RAGuardConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.2",
+    "class": "objectidentity"
+  },
+  "hpicfIpv6RAGuardCompliances": {
+    "name": "hpicfIpv6RAGuardCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfIpv6RAGuardGroups": {
+    "name": "hpicfIpv6RAGuardGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfIpv6RAGuardGroup": {
+    "name": "hpicfIpv6RAGuardGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB",
+        "object": "hpicfRAGuardPortBlocked"
+      },
+      {
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB",
+        "object": "hpicfRAGuardPortBlockedRAs"
+      },
+      {
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB",
+        "object": "hpicfRAGuardPortBlockedRedirs"
+      },
+      {
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB",
+        "object": "hpicfRAGuardPortLog"
+      },
+      {
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB",
+        "object": "hpicfRAGuardLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RAGuardCompliance": {
+    "name": "hpicfIpv6RAGuardCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.87.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RAGuardGroup",
+        "module": "HP-ICF-IPV6-RA-GUARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-IPV6-RA-GUARD-MIB",
+      "Source digest sha256:9630aad6736fa78bac6534932177dc70ec12fd79f6209f10323f76a327434323",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-IPV6-RA-GUARD-MIB"
+  }
+}

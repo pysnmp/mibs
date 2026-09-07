@@ -1,0 +1,255 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "f3TimeZoneMIB": {
+    "name": "f3TimeZoneMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.32",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-05 00:00",
+        "description": " Notes from release 201406050000Z, (1) MIB version ready for release FSP150CC 6.5.CC."
+      }
+    ]
+  },
+  "f3TimeZoneConfigObjects": {
+    "name": "f3TimeZoneConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1",
+    "class": "objectidentity"
+  },
+  "f3TimeZoneConformance": {
+    "name": "f3TimeZoneConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.2",
+    "class": "objectidentity"
+  },
+  "MonthOfYear": {
+    "name": "MonthOfYear",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 1,
+          "february": 2,
+          "march": 3,
+          "april": 4,
+          "may": 5,
+          "june": 6,
+          "july": 7,
+          "august": 8,
+          "september": 9,
+          "october": 10,
+          "november": 11,
+          "december": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3TimeZoneUtcOffset": {
+    "name": "f3TimeZoneUtcOffset",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstControlEnabled": {
+    "name": "f3TimeZoneDstControlEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstUtcOffset": {
+    "name": "f3TimeZoneDstUtcOffset",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstStartMonth": {
+    "name": "f3TimeZoneDstStartMonth",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MonthOfYear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstStartDay": {
+    "name": "f3TimeZoneDstStartDay",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstStartTime": {
+    "name": "f3TimeZoneDstStartTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstEndMonth": {
+    "name": "f3TimeZoneDstEndMonth",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MonthOfYear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstEndDay": {
+    "name": "f3TimeZoneDstEndDay",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneDstEndTime": {
+    "name": "f3TimeZoneDstEndTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TimeZoneCompliances": {
+    "name": "f3TimeZoneCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.2.1",
+    "class": "objectidentity"
+  },
+  "f3TimeZoneGroups": {
+    "name": "f3TimeZoneGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.2.2",
+    "class": "objectidentity"
+  },
+  "f3TimeZoneCompliance": {
+    "name": "f3TimeZoneCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3TimeZoneConfigGroup",
+        "module": "F3-TIMEZONE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3TimeZoneConfigGroup": {
+    "name": "f3TimeZoneConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.32.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneUtcOffset"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstControlEnabled"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstUtcOffset"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstStartMonth"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstStartDay"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstStartTime"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstEndMonth"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstEndDay"
+      },
+      {
+        "module": "F3-TIMEZONE-MIB",
+        "object": "f3TimeZoneDstEndTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source F3-TIMEZONE-MIB",
+      "Source digest sha256:4e3044676e4da42befa243a29082c929c9d3e8f3a86b61584b1ec1aa6fb8020b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "F3-TIMEZONE-MIB"
+  }
+}

@@ -1,0 +1,553 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTrustSecPolicyCapability": {
+    "name": "ciscoTrustSecPolicyCapability",
+    "oid": "1.3.6.1.4.1.9.7.601",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-01 00:00",
+        "description": "Added the following VARIATION clauses in capability statement ciscoTrustSecPolicyCapV15R0101SYPCat6kSup720: - ctspPeerPolicyUpdatedNotifEnable - ctspOldPeerSgt - ctspPeerPolicyUpdatedNotif"
+      },
+      {
+        "revision": "2013-01-09 00:00",
+        "description": "Added capability statement ciscoTrustSecPolicyCapV15R0101SYPCat6kSup2T and ciscoTrustSecPolicyCapV15R0101SYPCat6kSup720."
+      },
+      {
+        "revision": "2010-11-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecPolicyCapV12R0250SYPCat6k": {
+    "name": "ciscoTrustSecPolicyCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.601.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "includes": [
+          "ctspGlobalSgaclEnforcementGroup",
+          "ctspVlanConfigGroup",
+          "ctspConfigSgaclMappingGroup",
+          "ctspOperSgaclMappingGroup",
+          "ctspIpSwStatisticsGroup",
+          "ctspIpHwStatisticsGroup",
+          "ctspDefSwStatisticsGroup",
+          "ctspDefHwStatisticsGroup",
+          "ctspSgaclIpv4DropNetflowMonitorGroup",
+          "ctspSgaclIpv6DropNetflowMonitorGroup",
+          "ctspPeerPolicyGroup",
+          "ctspDownloadedSgaclMappingGroup",
+          "ctspLayer3TransportGroup",
+          "ctspIpSgtMappingGroup",
+          "ctspIfL3PolicyConfigGroup",
+          "ctspSgtPolicyGroup",
+          "ctspPeerPolicyActionGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctspVlanConfigSgaclEnforcement",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigVrfName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingSgaclName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclIpv4DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclIpv6DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv4Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv6Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtSource",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspLayer3PolicyDownloaded",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctspIpSgtAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecPolicyCapV15R0101SYPCat6kSup2T": {
+    "name": "ciscoTrustSecPolicyCapV15R0101SYPCat6kSup2T",
+    "oid": "1.3.6.1.4.1.9.7.601.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with Supervisor 2T present.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "includes": [
+          "ctspGlobalSgaclEnforcementGroup",
+          "ctspVlanConfigGroup",
+          "ctspConfigSgaclMappingGroup",
+          "ctspOperSgaclMappingGroup",
+          "ctspIpSwStatisticsGroup",
+          "ctspIpHwStatisticsGroup",
+          "ctspDefSwStatisticsGroup",
+          "ctspDefHwStatisticsGroup",
+          "ctspSgaclIpv4DropNetflowMonitorGroup",
+          "ctspSgaclIpv6DropNetflowMonitorGroup",
+          "ctspPeerPolicyGroup",
+          "ctspDownloadedSgaclMappingGroup",
+          "ctspLayer3TransportGroup",
+          "ctspIpSgtMappingGroup",
+          "ctspIfL3PolicyConfigGroup",
+          "ctspSgtPolicyGroup",
+          "ctspPeerPolicyActionGroup",
+          "ctspIfSgtMappingGroup",
+          "ctspVlanSgtMappingGroup",
+          "ctspSgtCachingGroup",
+          "ctspSgaclMonitorGroup",
+          "ctspSgaclMonitorStatisticGroup",
+          "ctspNotifCtrlGroup",
+          "ctspNotifGroup",
+          "ctspNotifInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctspVlanConfigSgaclEnforcement",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigVrfName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanConfigRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingSgaclName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclIpv4DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclIpv6DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv4Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv6Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtSource",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspLayer3PolicyDownloaded",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctspIpSgtAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctspIfSgtValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtMapValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgtCachingMode",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgtCachingVlansFirst2K",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgtCachingVlansSecond2K",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv4SgaclsMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv6SgaclsMonitor",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecPolicyCapV15R0101SYPCat6kSup720": {
+    "name": "ciscoTrustSecPolicyCapV15R0101SYPCat6kSup720",
+    "oid": "1.3.6.1.4.1.9.7.601.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with Supervisor 720 present.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "includes": [
+          "ctspConfigSgaclMappingGroup",
+          "ctspGlobalSgaclEnforcementGroup",
+          "ctspSgaclIpv4DropNetflowMonitorGroup",
+          "ctspSgaclIpv6DropNetflowMonitorGroup",
+          "ctspPeerPolicyGroup",
+          "ctspLayer3TransportGroup",
+          "ctspIpSgtMappingGroup",
+          "ctspIfL3PolicyConfigGroup",
+          "ctspSgtPolicyGroup",
+          "ctspPeerPolicyActionGroup",
+          "ctspIfSgtMappingGroup",
+          "ctspVlanSgtMappingGroup",
+          "ctspSgaclMonitorGroup",
+          "ctspNotifCtrlGroup",
+          "ctspNotifGroup",
+          "ctspNotifInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctspSgaclEnforcementEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMappingSgaclName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspConfigSgaclMappingStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspConfigSgaclMappingRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspSgaclIpv4DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclIpv6DropNetflowMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv4Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv6Sgacls",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtSource",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIpSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspLayer3PolicyDownloaded",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctspIpSgtAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctspIfSgtValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgName",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspIfSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtMapValue",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspVlanSgtRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspSgaclMonitorEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspConfigSgaclMonitor",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspDefConfigIpv4SgaclsMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDefConfigIpv6SgaclsMonitor",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspDownloadedSgaclMonitor",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspDefDownloadedSgaclMonitor",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspOperSgaclMonitor",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspDefOperSgaclMonitor",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspPeerPolicyUpdatedNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspAuthorizationSgaclFailNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ctspOldPeerSgt",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspAuthorizationSgaclFailReason",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspAuthorizationSgaclFailInfo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspPeerPolicyUpdatedNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctspAuthorizationSgaclFailNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TRUSTSEC-POLICY-CAPABILITY",
+      "Source digest sha256:bcc61c501c8c593854fb13640c1d1474ee29bb9534a76c80f921b52c0d6b7b11",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TRUSTSEC-POLICY-CAPABILITY"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpSccpCapability": {
+    "name": "ciscoItpSccpCapability",
+    "oid": "1.3.6.1.4.1.9.7.221",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-04 00:00",
+        "description": "Changes required for the following modifications to the CISCO-ITP-SCCP-MIB. Added the following objects: CItpSccpGttPrefName cItpSccpPrefConfigLastChanged cItpSccpGttPrePrefConv cItpSccpGttPostPrefConv cItpSccpGttGtaAddrDispZB cItpSccpGttGtaAddrLenZB cItpSccpGttGtaAsName Added the following Tables: cItpSccpGttAppGrTable cItpSccpGttPrefTable Updated the following Textual Conventions: CItpSccpGttAppType CItpSccpGttGtaResType Deprecated the following objects: CItpSccpGttGtaAddrLen cItpSccpGttGtaAddrDisp cItpSccpGttGtaAddrLen Deprecated the following Tables: cItpSccpGttAppTable"
+      },
+      {
+        "revision": "2001-10-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpSccpCapabilityV12R024MB1": {
+    "name": "ciscoItpSccpCapabilityV12R024MB1",
+    "oid": "1.3.6.1.4.1.9.7.221.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-SCCP-MIB",
+        "includes": [
+          "cItpSccpScalarsGroup",
+          "cItpSccpGttConPcGroup",
+          "cItpSccpGttMapGroup",
+          "cItpSccpGttSelGroup",
+          "cItpSccpGttGtaGroup",
+          "cItpSccpNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpSccpTotalMsgs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLocalMsgs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpXUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLUDTSMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpCrToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpCrefToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpRsrToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpErrToMtp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpSccpCapabilityV12R0204MB4": {
+    "name": "ciscoItpSccpCapabilityV12R0204MB4",
+    "oid": "1.3.6.1.4.1.9.7.221.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB4",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-SCCP-MIB",
+        "includes": [
+          "cItpSccpScalarsGroup",
+          "cItpSccpGttConPcGroup",
+          "cItpSccpGttMapGroup",
+          "cItpSccpNotificationsGroup",
+          "cItpSccpConfigStatusGroup",
+          "cItpSccpGttSelGroupRev1",
+          "cItpSccpGttGtaGroupRev1",
+          "cItpSccpGttAppGrGroup",
+          "cItpSccpGttPrefGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpSccpTotalMsgs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLocalMsgs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpXUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLUDTMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpLUDTSMsgsSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpCrToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpCrefToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpRsrToMtp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSccpErrToMtp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-SCCP-CAPABILITY",
+      "Source digest sha256:9c1196e929d337d66251b7274a09a9b10b441a5966fdd5dc0174076b784e200a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-SCCP-CAPABILITY"
+  }
+}

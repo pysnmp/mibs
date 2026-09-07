@@ -1,0 +1,78 @@
+{
+  "imports": {
+    "class": "imports",
+    "PAN-GLOBAL-REG": [
+      "panModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "panGlobalTcModule": {
+    "name": "panGlobalTcModule",
+    "oid": "1.3.6.1.4.1.25461.1.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-09 16:10",
+        "description": " Rev 1.0 Initial version of MIB module PAN-GLOBAL-TC."
+      }
+    ]
+  },
+  "TcAppaname": {
+    "name": "TcAppaname",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "TcChassisType": {
+    "name": "TcChassisType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PAN-GLOBAL-TC",
+      "Source digest sha256:dd4e3ba40bbecc1c41602a6a53505be5f2e302695b27f1125a35db3a92c42e26",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PAN-GLOBAL-TC"
+  }
+}

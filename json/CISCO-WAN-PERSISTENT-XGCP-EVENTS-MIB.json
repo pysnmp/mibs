@@ -1,0 +1,177 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanPersistentXgcpEventsMIB": {
+    "name": "ciscoWanPersistentXgcpEventsMIB",
+    "oid": "1.3.6.1.4.1.351.150.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-20 00:00",
+        "description": "Update descriptions in the MIB. "
+      }
+    ]
+  },
+  "ciscoWanPersistentXgcpEventsMIBObjects": {
+    "name": "ciscoWanPersistentXgcpEventsMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.18.1",
+    "class": "objectidentity"
+  },
+  "persistentXgcpEvents": {
+    "name": "persistentXgcpEvents",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1",
+    "class": "objectidentity"
+  },
+  "persistentXgcpEventsTable": {
+    "name": "persistentXgcpEventsTable",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "persistentXgcpEventsEntry": {
+    "name": "persistentXgcpEventsEntry",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+        "object": "persistentXgcpEventNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "persistentXgcpEventNum": {
+    "name": "persistentXgcpEventNum",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "persistentXgcpEventName": {
+    "name": "persistentXgcpEventName",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "persistentXgcpEventRowStatus": {
+    "name": "persistentXgcpEventRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.18.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "persistentXgcpEventsMIBConformance": {
+    "name": "persistentXgcpEventsMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.18.2",
+    "class": "objectidentity"
+  },
+  "persistentXgcpEventsMIBCompliances": {
+    "name": "persistentXgcpEventsMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.18.2.1",
+    "class": "objectidentity"
+  },
+  "persistentXgcpEventsMIBGroups": {
+    "name": "persistentXgcpEventsMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.18.2.2",
+    "class": "objectidentity"
+  },
+  "persistentXgcpEventsMIBCompliance": {
+    "name": "persistentXgcpEventsMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.18.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "persistentXgcpEventsMIBGroup",
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "persistentXgcpEventsMIBGroup": {
+    "name": "persistentXgcpEventsMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.18.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+        "object": "persistentXgcpEventName"
+      },
+      {
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+        "object": "persistentXgcpEventRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+      "Source digest sha256:1e9437b07bbab7d1d03d26462936170d84ddc05dd83c4c149dc9629647f52ef8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB"
+  }
+}

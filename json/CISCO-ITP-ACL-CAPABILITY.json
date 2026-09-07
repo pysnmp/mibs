@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpAclCapability": {
+    "name": "ciscoItpAclCapability",
+    "oid": "1.3.6.1.4.1.9.7.214",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-10-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpAclCapabilityV12R024MB1": {
+    "name": "ciscoItpAclCapabilityV12R024MB1",
+    "oid": "1.3.6.1.4.1.9.7.214.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "includes": [
+          "cItpAclScalarGroup",
+          "cItpAclAccessListGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-ACL-CAPABILITY",
+      "Source digest sha256:2ce012eddc950ddea952c263ad4fa4572b2975b9cc71b3f1e25f259178071457",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-ACL-CAPABILITY"
+  }
+}

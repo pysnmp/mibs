@@ -1,0 +1,542 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnDevice"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "bcm5600": {
+    "name": "bcm5600",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1901-05-03 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "oemArchIface": {
+    "name": "oemArchIface",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1",
+    "class": "objectidentity"
+  },
+  "oemChip": {
+    "name": "oemChip",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.2",
+    "class": "objectidentity"
+  },
+  "oemProdConformance": {
+    "name": "oemProdConformance",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3",
+    "class": "objectidentity"
+  },
+  "oemProdGroups": {
+    "name": "oemProdGroups",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "oemProdCompliances": {
+    "name": "oemProdCompliances",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3.2",
+    "class": "objectidentity"
+  },
+  "oemArchIfaceTable": {
+    "name": "oemArchIfaceTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oemArchIfaceEntry": {
+    "name": "oemArchIfaceEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceUnit",
+        "implied": 0
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfacePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oemArchIfaceUnit": {
+    "name": "oemArchIfaceUnit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfacePort": {
+    "name": "oemArchIfacePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceLLWHPort": {
+    "name": "oemArchIfaceLLWHPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8193,
+            "max": 8296
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceIfIndex": {
+    "name": "oemArchIfaceIfIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceName": {
+    "name": "oemArchIfaceName",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceEnable": {
+    "name": "oemArchIfaceEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceSTPEnable": {
+    "name": "oemArchIfaceSTPEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceLink": {
+    "name": "oemArchIfaceLink",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceDuplexSpeedSet": {
+    "name": "oemArchIfaceDuplexSpeedSet",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autonegotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-1000": 6,
+          "full-1000": 7,
+          "auto-10": 8,
+          "auto-100": 9,
+          "auto-1000": 10,
+          "full-10000": 11,
+          "illegal": 99,
+          "full-2500": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceDuplexSpeedGet": {
+    "name": "oemArchIfaceDuplexSpeedGet",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-1000": 6,
+          "full-1000": 7,
+          "auto10": 8,
+          "auto100": 9,
+          "auto1000": 10,
+          "full-10000": 11,
+          "illegal": 99,
+          "full-2500": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfacePortLoop": {
+    "name": "oemArchIfacePortLoop",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internalEnable": 1,
+          "externalEnable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceFlowControl": {
+    "name": "oemArchIfaceFlowControl",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceTxVlanTagPkts": {
+    "name": "oemArchIfaceTxVlanTagPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceTxL3Pkts": {
+    "name": "oemArchIfaceTxL3Pkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceTxL3AbortedPkts": {
+    "name": "oemArchIfaceTxL3AbortedPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceRxIpInHdrErrors": {
+    "name": "oemArchIfaceRxIpInHdrErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceL2Tunneling": {
+    "name": "oemArchIfaceL2Tunneling",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceLinkUpTime": {
+    "name": "oemArchIfaceLinkUpTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oemArchIfaceMasterMode": {
+    "name": "oemArchIfaceMasterMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 0,
+          "master": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemChipStub": {
+    "name": "oemChipStub",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "chip-value2": 2,
+          "chip-value3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oemArchIfaceGroup": {
+    "name": "oemArchIfaceGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceLLWHPort"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceIfIndex"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceName"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceEnable"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceSTPEnable"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceLink"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceDuplexSpeedSet"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceDuplexSpeedGet"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfacePortLoop"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceFlowControl"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceTxVlanTagPkts"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceTxL3Pkts"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceTxL3AbortedPkts"
+      },
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemArchIfaceRxIpInHdrErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "oemChipGroup": {
+    "name": "oemChipGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBNDeviceOEM-MIB",
+        "object": "oemChipStub"
+      }
+    ],
+    "status": "current"
+  },
+  "oemProdCompliance": {
+    "name": "oemProdCompliance",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.3.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "oemArchIfaceGroup",
+        "module": "GBNDeviceOEM-MIB"
+      },
+      {
+        "object": "oemChipGroup",
+        "module": "GBNDeviceOEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNDeviceOEM-MIB",
+      "Source digest sha256:9cb0afa5bf85257ebd346a3043f1fdf43322a8a12de96cb5530f471d6f26b8ad",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNDeviceOEM-MIB"
+  }
+}

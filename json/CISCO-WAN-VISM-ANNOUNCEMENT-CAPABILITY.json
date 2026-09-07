@@ -1,0 +1,138 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWanAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cwAnnouncementCapability": {
+    "name": "cwAnnouncementCapability",
+    "oid": "1.3.6.1.4.1.351.160.354",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-10-11 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "cwAnnouncementCapabilityV3R00": {
+    "name": "cwAnnouncementCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.351.160.354.1",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "includes": [
+          "cwAnnounceControlGroup",
+          "cwAnnounceTableGroup"
+        ],
+        "variations": [
+          {
+            "object": "cwAnnFileServerName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cwAnnAgeTime",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cwAnnPrefixPath",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cwAnnReqTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 15
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cwAnnFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-VISM-ANNOUNCEMENT-CAPABILITY",
+      "Source digest sha256:8cac8f2d924dc29d443c7aa9642147ba3a8161524e37248eeec13eb727312caf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-VISM-ANNOUNCEMENT-CAPABILITY"
+  }
+}

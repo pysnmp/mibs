@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ianaPwe3MIB": {
+    "name": "ianaPwe3MIB",
+    "oid": "1.3.6.1.2.1.174",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-11 00:00",
+        "description": "Original version, published as part of RFC 5601."
+      }
+    ]
+  },
+  "IANAPwTypeTC": {
+    "name": "IANAPwTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "frameRelayDlciMartiniMode": 1,
+          "atmAal5SduVcc": 2,
+          "atmTransparent": 3,
+          "ethernetTagged": 4,
+          "ethernet": 5,
+          "hdlc": 6,
+          "ppp": 7,
+          "cem": 8,
+          "atmCellNto1Vcc": 9,
+          "atmCellNto1Vpc": 10,
+          "ipLayer2Transport": 11,
+          "atmCell1to1Vcc": 12,
+          "atmCell1to1Vpc": 13,
+          "atmAal5PduVcc": 14,
+          "frameRelayPortMode": 15,
+          "cep": 16,
+          "e1Satop": 17,
+          "t1Satop": 18,
+          "e3Satop": 19,
+          "t3Satop": 20,
+          "basicCesPsn": 21,
+          "basicTdmIp": 22,
+          "tdmCasCesPsn": 23,
+          "tdmCasTdmIp": 24,
+          "frDlci": 25,
+          "wildcard": 32767
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAPwPsnTypeTC": {
+    "name": "IANAPwPsnTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpls": 1,
+          "l2tp": 2,
+          "udpOverIp": 3,
+          "mplsOverIp": 4,
+          "mplsOverGre": 5,
+          "other": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAPwCapabilities": {
+    "name": "IANAPwCapabilities",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pwStatusIndication": 0,
+        "pwVCCV": 1
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IANA-PWE3-MIB",
+      "Source digest sha256:2222958b2f3debe3bde9a7325ec11c22729e7afef769ee1a33e7b104ac9f99f4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IANA-PWE3-MIB"
+  }
+}

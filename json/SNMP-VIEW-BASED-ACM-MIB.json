@@ -1,0 +1,746 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString",
+      "SnmpSecurityLevel",
+      "SnmpSecurityModel"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
+    ]
+  },
+  "snmpVacmMIB": {
+    "name": "snmpVacmMIB",
+    "oid": "1.3.6.1.6.3.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-16 00:00",
+        "description": "Clarifications, published as RFC3415"
+      },
+      {
+        "revision": "1999-01-20 00:00",
+        "description": "Clarifications, published as RFC2575"
+      },
+      {
+        "revision": "1997-11-20 00:00",
+        "description": "Initial version, published as RFC2275"
+      }
+    ]
+  },
+  "vacmMIBObjects": {
+    "name": "vacmMIBObjects",
+    "oid": "1.3.6.1.6.3.16.1",
+    "class": "objectidentity"
+  },
+  "vacmMIBConformance": {
+    "name": "vacmMIBConformance",
+    "oid": "1.3.6.1.6.3.16.2",
+    "class": "objectidentity"
+  },
+  "vacmContextTable": {
+    "name": "vacmContextTable",
+    "oid": "1.3.6.1.6.3.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmContextEntry": {
+    "name": "vacmContextEntry",
+    "oid": "1.3.6.1.6.3.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmContextName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vacmContextName": {
+    "name": "vacmContextName",
+    "oid": "1.3.6.1.6.3.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vacmSecurityToGroupTable": {
+    "name": "vacmSecurityToGroupTable",
+    "oid": "1.3.6.1.6.3.16.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmSecurityToGroupEntry": {
+    "name": "vacmSecurityToGroupEntry",
+    "oid": "1.3.6.1.6.3.16.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmSecurityModel",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmSecurityName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vacmSecurityModel": {
+    "name": "vacmSecurityModel",
+    "oid": "1.3.6.1.6.3.16.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityModel",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmSecurityName": {
+    "name": "vacmSecurityName",
+    "oid": "1.3.6.1.6.3.16.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmGroupName": {
+    "name": "vacmGroupName",
+    "oid": "1.3.6.1.6.3.16.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmSecurityToGroupStorageType": {
+    "name": "vacmSecurityToGroupStorageType",
+    "oid": "1.3.6.1.6.3.16.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmSecurityToGroupStatus": {
+    "name": "vacmSecurityToGroupStatus",
+    "oid": "1.3.6.1.6.3.16.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessTable": {
+    "name": "vacmAccessTable",
+    "oid": "1.3.6.1.6.3.16.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmAccessEntry": {
+    "name": "vacmAccessEntry",
+    "oid": "1.3.6.1.6.3.16.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmGroupName",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessContextPrefix",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessSecurityModel",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessSecurityLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vacmAccessContextPrefix": {
+    "name": "vacmAccessContextPrefix",
+    "oid": "1.3.6.1.6.3.16.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmAccessSecurityModel": {
+    "name": "vacmAccessSecurityModel",
+    "oid": "1.3.6.1.6.3.16.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityModel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmAccessSecurityLevel": {
+    "name": "vacmAccessSecurityLevel",
+    "oid": "1.3.6.1.6.3.16.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmAccessContextMatch": {
+    "name": "vacmAccessContextMatch",
+    "oid": "1.3.6.1.6.3.16.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exact": 1,
+          "prefix": 2
+        }
+      }
+    },
+    "default": {
+      "value": "exact",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessReadViewName": {
+    "name": "vacmAccessReadViewName",
+    "oid": "1.3.6.1.6.3.16.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessWriteViewName": {
+    "name": "vacmAccessWriteViewName",
+    "oid": "1.3.6.1.6.3.16.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessNotifyViewName": {
+    "name": "vacmAccessNotifyViewName",
+    "oid": "1.3.6.1.6.3.16.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessStorageType": {
+    "name": "vacmAccessStorageType",
+    "oid": "1.3.6.1.6.3.16.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmAccessStatus": {
+    "name": "vacmAccessStatus",
+    "oid": "1.3.6.1.6.3.16.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmMIBViews": {
+    "name": "vacmMIBViews",
+    "oid": "1.3.6.1.6.3.16.1.5",
+    "class": "objectidentity"
+  },
+  "vacmViewSpinLock": {
+    "name": "vacmViewSpinLock",
+    "oid": "1.3.6.1.6.3.16.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyTable": {
+    "name": "vacmViewTreeFamilyTable",
+    "oid": "1.3.6.1.6.3.16.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyEntry": {
+    "name": "vacmViewTreeFamilyEntry",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyViewName",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilySubtree",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vacmViewTreeFamilyViewName": {
+    "name": "vacmViewTreeFamilyViewName",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmViewTreeFamilySubtree": {
+    "name": "vacmViewTreeFamilySubtree",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyMask": {
+    "name": "vacmViewTreeFamilyMask",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyType": {
+    "name": "vacmViewTreeFamilyType",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "included": 1,
+          "excluded": 2
+        }
+      }
+    },
+    "default": {
+      "value": "included",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyStorageType": {
+    "name": "vacmViewTreeFamilyStorageType",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmViewTreeFamilyStatus": {
+    "name": "vacmViewTreeFamilyStatus",
+    "oid": "1.3.6.1.6.3.16.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vacmMIBCompliances": {
+    "name": "vacmMIBCompliances",
+    "oid": "1.3.6.1.6.3.16.2.1",
+    "class": "objectidentity"
+  },
+  "vacmMIBGroups": {
+    "name": "vacmMIBGroups",
+    "oid": "1.3.6.1.6.3.16.2.2",
+    "class": "objectidentity"
+  },
+  "vacmMIBCompliance": {
+    "name": "vacmMIBCompliance",
+    "oid": "1.3.6.1.6.3.16.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vacmBasicGroup",
+        "module": "SNMP-VIEW-BASED-ACM-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessContextMatch",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessReadViewName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessWriteViewName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessNotifyViewName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessStorageType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyMask",
+        "kind": "object",
+        "writesyntax": {
+          "type": "OCTET STRING",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyStorageType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "vacmBasicGroup": {
+    "name": "vacmBasicGroup",
+    "oid": "1.3.6.1.6.3.16.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmContextName"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmGroupName"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmSecurityToGroupStorageType"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmSecurityToGroupStatus"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessContextMatch"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessReadViewName"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessWriteViewName"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessNotifyViewName"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessStorageType"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessStatus"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewSpinLock"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyMask"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyType"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyStorageType"
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmViewTreeFamilyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SNMP-VIEW-BASED-ACM-MIB",
+      "Source digest sha256:5b2a1d85a8d6484d55a3a1856512ef8ee50acf381e5404a323858c5ee878e1e3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SNMP-VIEW-BASED-ACM-MIB"
+  }
+}

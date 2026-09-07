@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappTsmCapability": {
+    "name": "ciscoLwappTsmCapability",
+    "oid": "1.3.6.1.4.1.9.7.506",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-15 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappTsmCapabilityCUWNSV4R0": {
+    "name": "ciscoLwappTsmCapabilityCUWNSV4R0",
+    "oid": "1.3.6.1.4.1.9.7.506.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 4.0 for Cisco WLAN Controllers",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-TSM-MIB",
+        "includes": [
+          "ciscoLwappTsmDot11ConfigGroup",
+          "ciscoLwappTsmDot11StatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cLTsmDot11MaxClientsPerDot11Intf",
+            "access": "read-only"
+          },
+          {
+            "object": "cLTsmDot11MaxTsmStatsEntries",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-TSM-CAPABILITY",
+      "Source digest sha256:07bdb03fdef5b09c05fe8ad4c891b4fd2522b0b0ee97429905b74ec6bbed5a60",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-TSM-CAPABILITY"
+  }
+}

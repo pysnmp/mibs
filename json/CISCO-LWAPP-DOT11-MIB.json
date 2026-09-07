@@ -1,0 +1,1940 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApDot11IfSlotId",
+      "cLApSysMacAddress"
+    ],
+    "CISCO-LWAPP-TC-MIB": [
+      "CLDot11Band",
+      "CLDot11ChannelBandwidth"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappDot11MIB": {
+    "name": "ciscoLwappDot11MIB",
+    "oid": "1.3.6.1.4.1.9.9.612",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-10-06 00:00",
+        "description": "Added cld11axObssPdConfigTable to cldConfig."
+      },
+      {
+        "revision": "2020-05-25 00:00",
+        "description": "Added following in cldConfig: cld11axBssColorConfigTable, cld11axBssColorRadioTable, cldConfiguredCountryTable"
+      },
+      {
+        "revision": "2019-07-28 00:00",
+        "description": "Added following tables OID. cld11axTargetWakeupTimeTable, cld11axTargetWakeupTimeBroadcastTable"
+      },
+      {
+        "revision": "2019-05-02 00:00",
+        "description": "Alined the following tables OID with AireOS MIB. cld11axConfigTable, cld11axMcsTable, cldDot11axHeCapTable, cld11axMbssidTable, cldDot11RxsopThreshold And asign OID 14 to table cldDot11RxsopThreshold."
+      },
+      {
+        "revision": "2019-04-09 00:00",
+        "description": "Added the following tables in cldConfig. cld11axConfigTable, cld11axMcsTable, cldDot11axHeCapTable, cld11axMbssidTable Added new group ciscoLwappDot11MIBHeStatusGroup."
+      },
+      {
+        "revision": "2019-02-13 00:00",
+        "description": "Added following in cldConfig: cldLoadBalancingDot11aWindowSize cldLoadBalancingDot11aDenialCount cldLoadBalancingDot11bWindowSize cldLoadBalancingDot11bDenialCount"
+      },
+      {
+        "revision": "2018-03-28 00:00",
+        "description": "Added the following tables in cldConfig. cld11axConfigTable, cld11axMcsTable, cldDot11axHeCapTable, cld11axMbssidTable Added new group ciscoLwappDot11MIBHeStatusGroup."
+      },
+      {
+        "revision": "2017-05-22 00:00",
+        "description": "Added cldVhtDot11acEnable in cld11acConfig. Added cldLoadBalancingTrafficThreshold in cldLoadBalancing. Added following in cld11acMcs table: cld11acMcsSpatialStreamIndex, cld11acMcsDataRateIndex, cld11acMcsSupportEnable"
+      },
+      {
+        "revision": "2010-05-06 00:00",
+        "description": "Added cldHtDot11nEnable in CldHtMacOperationsEntry Added ciscoLwappDot11CountryChangeNotif in ciscoLwappDot11MIBNotifs Added following in cldConfig: cldMultipleCountryCode cldRegulatoryDomain cldCountryChangeNotifEnable cldLoadBalancing cldLoadBalancingEnable cldLoadBalancingWindowSize cldLoadBalancingDenialCount cldBandSelect cldBandSelectEnable cldBandSelectCycleCount cldBandSelectCycleThreshold cldBandSelectAgeOutSuppression cldBandSelectAgeOutDualBand cldBandSelectClientRssi cldBandSelectClientMidRssi cldDot11RxsopThreshold cldDot11bRxSopThresholdCustom cldDot11aRxSopThresholdCustom Added following table: cld11nMcsTable cldCountryTable Added the following OBJECT-GROUPs: ciscoLwappDot11MIBConfigGroup ciscoLwappDot11MIBNotifsGroup ciscoLwappDot11MIBStatusGroup Added ciscoLwappDot11MIBComplianceRev1 in OBJECT-COMPLIANCE."
+      },
+      {
+        "revision": "2007-01-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappDot11MIBNotifs": {
+    "name": "ciscoLwappDot11MIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.612.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11MIBObjects": {
+    "name": "ciscoLwappDot11MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.612.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11MIBConform": {
+    "name": "ciscoLwappDot11MIBConform",
+    "oid": "1.3.6.1.4.1.9.9.612.2",
+    "class": "objectidentity"
+  },
+  "cldConfig": {
+    "name": "cldConfig",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1",
+    "class": "objectidentity"
+  },
+  "cldStatus": {
+    "name": "cldStatus",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2",
+    "class": "objectidentity"
+  },
+  "cldHtMacOperationsTable": {
+    "name": "cldHtMacOperationsTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldHtMacOperationsEntry": {
+    "name": "cldHtMacOperationsEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldHtDot11nBand": {
+    "name": "cldHtDot11nBand",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11Band",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldHtDot11nChannelBandwidth": {
+    "name": "cldHtDot11nChannelBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11ChannelBandwidth",
+      "class": "type"
+    },
+    "default": {
+      "value": "twenty",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldHtDot11nRifsEnable": {
+    "name": "cldHtDot11nRifsEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldHtDot11nAmsduEnable": {
+    "name": "cldHtDot11nAmsduEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldHtDot11nAmpduEnable": {
+    "name": "cldHtDot11nAmpduEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldHtDot11nGuardIntervalEnable": {
+    "name": "cldHtDot11nGuardIntervalEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldHtDot11nEnable": {
+    "name": "cldHtDot11nEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldMultipleCountryCode": {
+    "name": "cldMultipleCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldRegulatoryDomain": {
+    "name": "cldRegulatoryDomain",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11nMcsTable": {
+    "name": "cld11nMcsTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11nMcsEntry": {
+    "name": "cld11nMcsEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsBand",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsDataRateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11nMcsBand": {
+    "name": "cld11nMcsBand",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11Band",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11nMcsDataRateIndex": {
+    "name": "cld11nMcsDataRateIndex",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11nMcsDataRate": {
+    "name": "cld11nMcsDataRate",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11nMcsSupportEnable": {
+    "name": "cld11nMcsSupportEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11nMcsChannelWidth": {
+    "name": "cld11nMcsChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11nMcsGuardInterval": {
+    "name": "cld11nMcsGuardInterval",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11nMcsModulation": {
+    "name": "cld11nMcsModulation",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11acConfig": {
+    "name": "cld11acConfig",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.5",
+    "class": "objectidentity"
+  },
+  "cldVhtDot11acEnable": {
+    "name": "cldVhtDot11acEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11acMcsTable": {
+    "name": "cld11acMcsTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11acMcsEntry": {
+    "name": "cld11acMcsEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11acMcsSpatialStreamIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11acMcsDataRateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11acMcsSpatialStreamIndex": {
+    "name": "cld11acMcsSpatialStreamIndex",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11acMcsDataRateIndex": {
+    "name": "cld11acMcsDataRateIndex",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11acMcsSupportEnable": {
+    "name": "cld11acMcsSupportEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancing": {
+    "name": "cldLoadBalancing",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8",
+    "class": "objectidentity"
+  },
+  "cldLoadBalancingEnable": {
+    "name": "cldLoadBalancingEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldLoadBalancingWindowSize": {
+    "name": "cldLoadBalancingWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingDenialCount": {
+    "name": "cldLoadBalancingDenialCount",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingTrafficThreshold": {
+    "name": "cldLoadBalancingTrafficThreshold",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 50,
+      "format": "decimal"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingDot11aWindowSize": {
+    "name": "cldLoadBalancingDot11aWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingDot11aDenialCount": {
+    "name": "cldLoadBalancingDot11aDenialCount",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingDot11bWindowSize": {
+    "name": "cldLoadBalancingDot11bWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldLoadBalancingDot11bDenialCount": {
+    "name": "cldLoadBalancingDot11bDenialCount",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelect": {
+    "name": "cldBandSelect",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9",
+    "class": "objectidentity"
+  },
+  "cldBandSelectEnable": {
+    "name": "cldBandSelectEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldBandSelectCycleCount": {
+    "name": "cldBandSelectCycleCount",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelectCycleThreshold": {
+    "name": "cldBandSelectCycleThreshold",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 200,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelectAgeOutSuppression": {
+    "name": "cldBandSelectAgeOutSuppression",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelectAgeOutDualBand": {
+    "name": "cldBandSelectAgeOutDualBand",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelectClientRssi": {
+    "name": "cldBandSelectClientRssi",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldBandSelectClientMidRssi": {
+    "name": "cldBandSelectClientMidRssi",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axConfigTable": {
+    "name": "cld11axConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axConfigEntry": {
+    "name": "cld11axConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldDot11axBandId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldDot11axBandId": {
+    "name": "cldDot11axBandId",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11Band",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldDot11axEnable": {
+    "name": "cldDot11axEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axMcsTable": {
+    "name": "cld11axMcsTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMcsEntry": {
+    "name": "cld11axMcsEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldDot11axBand",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axMcsSpatialStreamIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axMcsDataRateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldDot11axBand": {
+    "name": "cldDot11axBand",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11Band",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMcsSpatialStreamIndex": {
+    "name": "cld11axMcsSpatialStreamIndex",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMcsDataRateIndex": {
+    "name": "cld11axMcsDataRateIndex",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMcsSupportEnable": {
+    "name": "cld11axMcsSupportEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldDot11axHeCapTable": {
+    "name": "cldDot11axHeCapTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldDot11axHeCapEntry": {
+    "name": "cldDot11axHeCapEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldDot11IsHeCapable": {
+    "name": "cldDot11IsHeCapable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11IsHeEnable": {
+    "name": "cldDot11IsHeEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11HeSuBF": {
+    "name": "cldDot11HeSuBF",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11HeMuBF": {
+    "name": "cldDot11HeMuBF",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11HeStbcMode": {
+    "name": "cldDot11HeStbcMode",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11HeAmpduTidBmap": {
+    "name": "cldDot11HeAmpduTidBmap",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldDot11HeCapTxRxMcsNss": {
+    "name": "cldDot11HeCapTxRxMcsNss",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11axMbssidTable": {
+    "name": "cld11axMbssidTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMbssidEntry": {
+    "name": "cld11axMbssidEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldBand": {
+    "name": "cldBand",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLDot11Band",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axMbssidCap": {
+    "name": "cld11axMbssidCap",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeTable": {
+    "name": "cld11axTargetWakeupTimeTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeEntry": {
+    "name": "cld11axTargetWakeupTimeEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeEnable": {
+    "name": "cld11axTargetWakeupTimeEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeBroadcastTable": {
+    "name": "cld11axTargetWakeupTimeBroadcastTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeBroadcastEntry": {
+    "name": "cld11axTargetWakeupTimeBroadcastEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11axTargetWakeupTimeBroadcastEnable": {
+    "name": "cld11axTargetWakeupTimeBroadcastEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axBssColorConfigTable": {
+    "name": "cld11axBssColorConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axBssColorConfigEntry": {
+    "name": "cld11axBssColorConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11axBssColorState": {
+    "name": "cld11axBssColorState",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axBssColorRadioTable": {
+    "name": "cld11axBssColorRadioTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axBssColorRadioEntry": {
+    "name": "cld11axBssColorRadioEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11axIsBssColorCapable": {
+    "name": "cld11axIsBssColorCapable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cld11axBssColor": {
+    "name": "cld11axBssColor",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axBssColorConfigType": {
+    "name": "cld11axBssColorConfigType",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "customized": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axObssPdConfigTable": {
+    "name": "cld11axObssPdConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cld11axObssPdConfigEntry": {
+    "name": "cld11axObssPdConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cld11axObssPdEnable": {
+    "name": "cld11axObssPdEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cld11axNonSrgObssPdMax": {
+    "name": "cld11axNonSrgObssPdMax",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -82,
+            "max": -62
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -62,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldDot11RxsopThreshold": {
+    "name": "cldDot11RxsopThreshold",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.14",
+    "class": "objectidentity"
+  },
+  "cldDot11bRxSopThresholdCustom": {
+    "name": "cldDot11bRxSopThresholdCustom",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -85,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -85,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldDot11aRxSopThresholdCustom": {
+    "name": "cldDot11aRxSopThresholdCustom",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -85,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -85,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldCountryTable": {
+    "name": "cldCountryTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldCountryEntry": {
+    "name": "cldCountryEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldCountryCode": {
+    "name": "cldCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldCountryName": {
+    "name": "cldCountryName",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldCountryDot11aChannels": {
+    "name": "cldCountryDot11aChannels",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldCountryDot11bChannels": {
+    "name": "cldCountryDot11bChannels",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldCountryDot11aDcaChannels": {
+    "name": "cldCountryDot11aDcaChannels",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldCountryDot11bDcaChannels": {
+    "name": "cldCountryDot11bDcaChannels",
+    "oid": "1.3.6.1.4.1.9.9.612.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldConfiguredCountryTable": {
+    "name": "cldConfiguredCountryTable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldConfiguredCountryEntry": {
+    "name": "cldConfiguredCountryEntry",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldConfiguredCountryCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldConfiguredCountryCode": {
+    "name": "cldConfiguredCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldConfiguredCountryRowStatus": {
+    "name": "cldConfiguredCountryRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldCountryChangeNotifEnable": {
+    "name": "cldCountryChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.612.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappDot11CountryChangeNotif": {
+    "name": "ciscoLwappDot11CountryChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.612.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldMultipleCountryCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBCompliances": {
+    "name": "ciscoLwappDot11MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.612.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11MIBGroups": {
+    "name": "ciscoLwappDot11MIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11MIBCompliance": {
+    "name": "ciscoLwappDot11MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.612.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11MIBMacOperGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappDot11MIBComplianceRev1": {
+    "name": "ciscoLwappDot11MIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.612.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11MIBMacOperGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBNotifsGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBStatusGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappDot11MIBComplianceRev2": {
+    "name": "ciscoLwappDot11MIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.612.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11MIBMacOperGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBNotifsGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBStatusGroup",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11MIBConfigGroupSup1",
+        "module": "CISCO-LWAPP-DOT11-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBMacOperGroup": {
+    "name": "ciscoLwappDot11MIBMacOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nChannelBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nRifsEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nAmsduEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nAmpduEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nGuardIntervalEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBConfigGroup": {
+    "name": "ciscoLwappDot11MIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldHtDot11nEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldMultipleCountryCode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldRegulatoryDomain"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsDataRate"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsSupportEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldLoadBalancingEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldLoadBalancingWindowSize"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldLoadBalancingDenialCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectCycleCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectCycleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectAgeOutSuppression"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectAgeOutDualBand"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldBandSelectClientRssi"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsChannelWidth"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsGuardInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11nMcsModulation"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldVhtDot11acEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11acMcsSupportEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldLoadBalancingTrafficThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldDot11axEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axMcsSupportEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axMbssidCap"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axBssColorState"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldConfiguredCountryCode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldConfiguredCountryRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axObssPdEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axNonSrgObssPdMax"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBNotifsGroup": {
+    "name": "ciscoLwappDot11MIBNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "ciscoLwappDot11CountryChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBStatusGroup": {
+    "name": "ciscoLwappDot11MIBStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryDot11aChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryDot11bChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryDot11aDcaChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cldCountryDot11bDcaChannels"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11MIBConfigGroupSup1": {
+    "name": "ciscoLwappDot11MIBConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.612.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axTargetWakeupTimeEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-MIB",
+        "object": "cld11axTargetWakeupTimeBroadcastEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-DOT11-MIB",
+      "Source digest sha256:df21673e9bb890df4b012d92158f60023682392cc35899b93c1e078606ae70cd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-DOT11-MIB"
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "UnitType": {
+    "name": "UnitType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "celsius": 1,
+          "fahrenheit": 2,
+          "kelvin": 3,
+          "percent": 4
+        }
+      }
+    }
+  },
+  "OnOff": {
+    "name": "OnOff",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    }
+  },
+  "InputAlarmState": {
+    "name": "InputAlarmState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "alarm": 1
+        }
+      }
+    }
+  },
+  "IOName": {
+    "name": "IOName",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "SensorState": {
+    "name": "SensorState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "normal": 1,
+          "outofrangelo": 2,
+          "outofrangehi": 3,
+          "alarmlo": 4,
+          "alarmhi": 5
+        }
+      }
+    }
+  },
+  "SensorSN": {
+    "name": "SensorSN",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "SensorName": {
+    "name": "SensorName",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "SensorValue": {
+    "name": "SensorValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "SensorID": {
+    "name": "SensorID",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "SensorString": {
+    "name": "SensorString",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    }
+  },
+  "hwgroup": {
+    "name": "hwgroup",
+    "oid": "1.3.6.1.4.1.21796",
+    "class": "objectidentity"
+  },
+  "x390": {
+    "name": "x390",
+    "oid": "1.3.6.1.4.1.21796.4",
+    "class": "objectidentity"
+  },
+  "ste": {
+    "name": "ste",
+    "oid": "1.3.6.1.4.1.21796.4.1",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.21796.4.1.70",
+    "class": "objectidentity"
+  },
+  "infoAddressMAC": {
+    "name": "infoAddressMAC",
+    "oid": "1.3.6.1.4.1.21796.4.1.70.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inpTable": {
+    "name": "inpTable",
+    "oid": "1.3.6.1.4.1.21796.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inpEntry": {
+    "name": "inpEntry",
+    "oid": "1.3.6.1.4.1.21796.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STE-MIB",
+        "object": "inpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inpIndex": {
+    "name": "inpIndex",
+    "oid": "1.3.6.1.4.1.21796.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inpValue": {
+    "name": "inpValue",
+    "oid": "1.3.6.1.4.1.21796.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inpName": {
+    "name": "inpName",
+    "oid": "1.3.6.1.4.1.21796.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IOName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inpAlarmState": {
+    "name": "inpAlarmState",
+    "oid": "1.3.6.1.4.1.21796.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensTable": {
+    "name": "sensTable",
+    "oid": "1.3.6.1.4.1.21796.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sensEntry": {
+    "name": "sensEntry",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STE-MIB",
+        "object": "sensIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sensIndex": {
+    "name": "sensIndex",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sensName": {
+    "name": "sensName",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensState": {
+    "name": "sensState",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensString": {
+    "name": "sensString",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensValue": {
+    "name": "sensValue",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensSN": {
+    "name": "sensSN",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorSN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensUnit": {
+    "name": "sensUnit",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensID": {
+    "name": "sensID",
+    "oid": "1.3.6.1.4.1.21796.4.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source STE-MIB",
+      "Source digest sha256:1907b309ca10a63051cc15ac044444c267a4142e487fb592e73ac4d9f9305665",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "STE-MIB"
+  }
+}

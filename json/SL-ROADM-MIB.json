@@ -1,0 +1,375 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SL-NE-MIB": [
+      "slService"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "slROADM": {
+    "name": "slROADM",
+    "oid": "1.3.6.1.4.1.4515.1.1.16",
+    "class": "moduleidentity"
+  },
+  "slROADMConfig": {
+    "name": "slROADMConfig",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1",
+    "class": "objectidentity"
+  },
+  "slROADMPm": {
+    "name": "slROADMPm",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.2",
+    "class": "objectidentity"
+  },
+  "slROADMTraps": {
+    "name": "slROADMTraps",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.3",
+    "class": "objectidentity"
+  },
+  "ROCHProvisioningType": {
+    "name": "ROCHProvisioningType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "exp": 2,
+          "add": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "slWSSConfigTable": {
+    "name": "slWSSConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slWSSConfigEntry": {
+    "name": "slWSSConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ROADM-MIB",
+        "object": "slWSSConfigLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slWSSConfigLineIndex": {
+    "name": "slWSSConfigLineIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigOperStatus": {
+    "name": "slWSSConfigOperStatus",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigSwitchTemp": {
+    "name": "slWSSConfigSwitchTemp",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigBoardTemp": {
+    "name": "slWSSConfigBoardTemp",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigCaseTemp": {
+    "name": "slWSSConfigCaseTemp",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigUptime": {
+    "name": "slWSSConfigUptime",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigComFirstWl": {
+    "name": "slWSSConfigComFirstWl",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slWSSConfigComChCount": {
+    "name": "slWSSConfigComChCount",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slWSSConfigPowerLevel": {
+    "name": "slWSSConfigPowerLevel",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slWSSConfigAttenLevel": {
+    "name": "slWSSConfigAttenLevel",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slROCHConfigTable": {
+    "name": "slROCHConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slROCHConfigEntry": {
+    "name": "slROCHConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ROADM-MIB",
+        "object": "slROCHConfigLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slROCHConfigLineIndex": {
+    "name": "slROCHConfigLineIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slROCHConfigProvisioning": {
+    "name": "slROCHConfigProvisioning",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ROCHProvisioningType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigInPowerLevel": {
+    "name": "slROCHConfigInPowerLevel",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slROCHConfigOutPowerLevel": {
+    "name": "slROCHConfigOutPowerLevel",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slROCHConfigChannelDetect": {
+    "name": "slROCHConfigChannelDetect",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slROCHConfigChPowerFailHighThresh": {
+    "name": "slROCHConfigChPowerFailHighThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigChPowerFailLowThresh": {
+    "name": "slROCHConfigChPowerFailLowThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigChPowerDegHighThresh": {
+    "name": "slROCHConfigChPowerDegHighThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigChPowerDegLowThresh": {
+    "name": "slROCHConfigChPowerDegLowThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigChPowerHystHighThresh": {
+    "name": "slROCHConfigChPowerHystHighThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slROCHConfigChPowerHystLowThresh": {
+    "name": "slROCHConfigChPowerHystLowThresh",
+    "oid": "1.3.6.1.4.1.4515.1.1.16.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-ROADM-MIB",
+      "Source digest sha256:9210ca39830c78a7d2c83742576ffc5b03a5a101d07e1c445d8f489545c60b37",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-ROADM-MIB"
+  }
+}

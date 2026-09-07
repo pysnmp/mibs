@@ -1,0 +1,47 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mcafee": {
+    "name": "mcafee",
+    "oid": "1.3.6.1.4.1.1230",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-19 00:00",
+        "description": "Initial Definition"
+      }
+    ]
+  },
+  "mcafeeGATEWAY": {
+    "name": "mcafeeGATEWAY",
+    "oid": "1.3.6.1.4.1.1230.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MCAFEE-SMI",
+      "Source digest sha256:14b2d84d716092f80203a276e42082b41bd2b7b1df8ac2193e30612c69ed5602",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MCAFEE-SMI"
+  }
+}

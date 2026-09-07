@@ -1,0 +1,331 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "purestorage": {
+    "name": "purestorage",
+    "oid": "1.3.6.1.4.1.40482",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-20 00:00",
+        "description": "Pure Storage Flash Array MIB"
+      }
+    ]
+  },
+  "pureSystem": {
+    "name": "pureSystem",
+    "oid": "1.3.6.1.4.1.40482.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pureNotifications": {
+    "name": "pureNotifications",
+    "oid": "1.3.6.1.4.1.40482.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pureObjects": {
+    "name": "pureObjects",
+    "oid": "1.3.6.1.4.1.40482.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "purePerformance": {
+    "name": "purePerformance",
+    "oid": "1.3.6.1.4.1.40482.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pureExperimental": {
+    "name": "pureExperimental",
+    "oid": "1.3.6.1.4.1.40482.700",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pureProductName": {
+    "name": "pureProductName",
+    "oid": "1.3.6.1.4.1.40482.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureProductVersion": {
+    "name": "pureProductVersion",
+    "oid": "1.3.6.1.4.1.40482.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureHost": {
+    "name": "pureHost",
+    "oid": "1.3.6.1.4.1.40482.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureAlertCode": {
+    "name": "pureAlertCode",
+    "oid": "1.3.6.1.4.1.40482.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureAlertSubject": {
+    "name": "pureAlertSubject",
+    "oid": "1.3.6.1.4.1.40482.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureAlertBody": {
+    "name": "pureAlertBody",
+    "oid": "1.3.6.1.4.1.40482.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureAlertReminder": {
+    "name": "pureAlertReminder",
+    "oid": "1.3.6.1.4.1.40482.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pureArrayReadBandwidth": {
+    "name": "pureArrayReadBandwidth",
+    "oid": "1.3.6.1.4.1.40482.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "B/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureArrayWriteBandwidth": {
+    "name": "pureArrayWriteBandwidth",
+    "oid": "1.3.6.1.4.1.40482.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "B/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureArrayReadIOPS": {
+    "name": "pureArrayReadIOPS",
+    "oid": "1.3.6.1.4.1.40482.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "op/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureArrayWriteIOPS": {
+    "name": "pureArrayWriteIOPS",
+    "oid": "1.3.6.1.4.1.40482.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "op/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureArrayReadLatency": {
+    "name": "pureArrayReadLatency",
+    "oid": "1.3.6.1.4.1.40482.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "us/op",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureArrayWriteLatency": {
+    "name": "pureArrayWriteLatency",
+    "oid": "1.3.6.1.4.1.40482.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "us/op",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pureInfoTrap": {
+    "name": "pureInfoTrap",
+    "oid": "1.3.6.1.4.1.40482.2.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductName"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductVersion"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureHost"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertCode"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertSubject"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertBody"
+      }
+    ],
+    "status": "current"
+  },
+  "pureWarningTrap": {
+    "name": "pureWarningTrap",
+    "oid": "1.3.6.1.4.1.40482.2.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductName"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductVersion"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureHost"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertCode"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertSubject"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertBody"
+      }
+    ],
+    "status": "current"
+  },
+  "pureCriticalTrap": {
+    "name": "pureCriticalTrap",
+    "oid": "1.3.6.1.4.1.40482.2.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductName"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureProductVersion"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureHost"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertCode"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertSubject"
+      },
+      {
+        "module": "PURESTORAGE-MIB",
+        "object": "pureAlertBody"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PURESTORAGE-MIB",
+      "Source digest sha256:46f5cbd4b63db3e560819c78c2f76cceaeb7063a3a06d92d8c99efb4d4f8186d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PURESTORAGE-MIB"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "imports": {
+    "class": "imports",
+    "HILLSTONE-SMI": [
+      "hillstoneProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hillstoneSA5020": {
+    "name": "hillstoneSA5020",
+    "oid": "1.3.6.1.4.1.28557.1.1",
+    "class": "objectidentity"
+  },
+  "hillstoneSA5040": {
+    "name": "hillstoneSA5040",
+    "oid": "1.3.6.1.4.1.28557.1.2",
+    "class": "objectidentity"
+  },
+  "hillstoneSA5050": {
+    "name": "hillstoneSA5050",
+    "oid": "1.3.6.1.4.1.28557.1.3",
+    "class": "objectidentity"
+  },
+  "hillstoneSA2005": {
+    "name": "hillstoneSA2005",
+    "oid": "1.3.6.1.4.1.28557.1.4",
+    "class": "objectidentity"
+  },
+  "hillstoneSA2010": {
+    "name": "hillstoneSA2010",
+    "oid": "1.3.6.1.4.1.28557.1.5",
+    "class": "objectidentity"
+  },
+  "hillstoneSR550": {
+    "name": "hillstoneSR550",
+    "oid": "1.3.6.1.4.1.28557.1.6",
+    "class": "objectidentity"
+  },
+  "hillstoneSR530": {
+    "name": "hillstoneSR530",
+    "oid": "1.3.6.1.4.1.28557.1.7",
+    "class": "objectidentity"
+  },
+  "hillstoneSR330": {
+    "name": "hillstoneSR330",
+    "oid": "1.3.6.1.4.1.28557.1.8",
+    "class": "objectidentity"
+  },
+  "hillstoneSA2003": {
+    "name": "hillstoneSA2003",
+    "oid": "1.3.6.1.4.1.28557.1.9",
+    "class": "objectidentity"
+  },
+  "hillstoneSA2001": {
+    "name": "hillstoneSA2001",
+    "oid": "1.3.6.1.4.1.28557.1.10",
+    "class": "objectidentity"
+  },
+  "hillstoneSR320": {
+    "name": "hillstoneSR320",
+    "oid": "1.3.6.1.4.1.28557.1.11",
+    "class": "objectidentity"
+  },
+  "hillstoneMS10": {
+    "name": "hillstoneMS10",
+    "oid": "1.3.6.1.4.1.28557.1.12",
+    "class": "objectidentity"
+  },
+  "hillstoneSR520": {
+    "name": "hillstoneSR520",
+    "oid": "1.3.6.1.4.1.28557.1.13",
+    "class": "objectidentity"
+  },
+  "hillstoneSA5180": {
+    "name": "hillstoneSA5180",
+    "oid": "1.3.6.1.4.1.28557.1.17",
+    "class": "objectidentity"
+  },
+  "hillstoneSA5160": {
+    "name": "hillstoneSA5160",
+    "oid": "1.3.6.1.4.1.28557.1.18",
+    "class": "objectidentity"
+  },
+  "SG_6000_X5100": {
+    "name": "SG_6000_X5100",
+    "oid": "1.3.6.1.4.1.28557.1.21",
+    "class": "objectidentity"
+  },
+  "SG_6000_G6100": {
+    "name": "SG_6000_G6100",
+    "oid": "1.3.6.1.4.1.28557.1.22",
+    "class": "objectidentity"
+  },
+  "SG_6000_G3100": {
+    "name": "SG_6000_G3100",
+    "oid": "1.3.6.1.4.1.28557.1.23",
+    "class": "objectidentity"
+  },
+  "SG_6000_M3100": {
+    "name": "SG_6000_M3100",
+    "oid": "1.3.6.1.4.1.28557.1.24",
+    "class": "objectidentity"
+  },
+  "SG_6000_M2100": {
+    "name": "SG_6000_M2100",
+    "oid": "1.3.6.1.4.1.28557.1.25",
+    "class": "objectidentity"
+  },
+  "SG_6000_G5150": {
+    "name": "SG_6000_G5150",
+    "oid": "1.3.6.1.4.1.28557.1.28",
+    "class": "objectidentity"
+  },
+  "SG_6000_G3150": {
+    "name": "SG_6000_G3150",
+    "oid": "1.3.6.1.4.1.28557.1.29",
+    "class": "objectidentity"
+  },
+  "SG_6000_G2120": {
+    "name": "SG_6000_G2120",
+    "oid": "1.3.6.1.4.1.28557.1.31",
+    "class": "objectidentity"
+  },
+  "VR5600T": {
+    "name": "VR5600T",
+    "oid": "1.3.6.1.4.1.28557.1.32",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV10": {
+    "name": "SG_6000_NAV10",
+    "oid": "1.3.6.1.4.1.28557.1.33",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV20": {
+    "name": "SG_6000_NAV20",
+    "oid": "1.3.6.1.4.1.28557.1.34",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV30": {
+    "name": "SG_6000_NAV30",
+    "oid": "1.3.6.1.4.1.28557.1.35",
+    "class": "objectidentity"
+  },
+  "SG_6000_G2110": {
+    "name": "SG_6000_G2110",
+    "oid": "1.3.6.1.4.1.28557.1.36",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV50": {
+    "name": "SG_6000_NAV50",
+    "oid": "1.3.6.1.4.1.28557.1.37",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV200": {
+    "name": "SG_6000_NAV200",
+    "oid": "1.3.6.1.4.1.28557.1.38",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV300": {
+    "name": "SG_6000_NAV300",
+    "oid": "1.3.6.1.4.1.28557.1.39",
+    "class": "objectidentity"
+  },
+  "SG_6000_NAV500": {
+    "name": "SG_6000_NAV500",
+    "oid": "1.3.6.1.4.1.28557.1.40",
+    "class": "objectidentity"
+  },
+  "SG_6000_X6150": {
+    "name": "SG_6000_X6150",
+    "oid": "1.3.6.1.4.1.28557.1.43",
+    "class": "objectidentity"
+  },
+  "SG_6000_M2105": {
+    "name": "SG_6000_M2105",
+    "oid": "1.3.6.1.4.1.28557.1.45",
+    "class": "objectidentity"
+  },
+  "SR_320": {
+    "name": "SR_320",
+    "oid": "1.3.6.1.4.1.28557.1.47",
+    "class": "objectidentity"
+  },
+  "SR_520": {
+    "name": "SR_520",
+    "oid": "1.3.6.1.4.1.28557.1.48",
+    "class": "objectidentity"
+  },
+  "SG_6000_M6110": {
+    "name": "SG_6000_M6110",
+    "oid": "1.3.6.1.4.1.28557.1.49",
+    "class": "objectidentity"
+  },
+  "SG_6000_M6115": {
+    "name": "SG_6000_M6115",
+    "oid": "1.3.6.1.4.1.28557.1.50",
+    "class": "objectidentity"
+  },
+  "SG_6000_M3105": {
+    "name": "SG_6000_M3105",
+    "oid": "1.3.6.1.4.1.28557.1.51",
+    "class": "objectidentity"
+  },
+  "SC_1000_M3108": {
+    "name": "SC_1000_M3108",
+    "oid": "1.3.6.1.4.1.28557.1.52",
+    "class": "objectidentity"
+  },
+  "SG_6000_BANFF": {
+    "name": "SG_6000_BANFF",
+    "oid": "1.3.6.1.4.1.28557.1.54",
+    "class": "objectidentity"
+  },
+  "SG_6000_BANFF_DEMO": {
+    "name": "SG_6000_BANFF_DEMO",
+    "oid": "1.3.6.1.4.1.28557.1.55",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HILLSTONE-PRODUCTS-MIB",
+      "Source digest sha256:ebe643eccdabfdf8b1c603ea7fe8fe8db2338d1703afeae828eb775fcb3053d0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HILLSTONE-PRODUCTS-MIB"
+  }
+}

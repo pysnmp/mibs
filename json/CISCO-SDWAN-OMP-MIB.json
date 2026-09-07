@@ -1,0 +1,395 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSdwanOmpMIB": {
+    "name": "ciscoSdwanOmpMIB",
+    "oid": "1.3.6.1.4.1.9.9.1003",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-03-03 00:00",
+        "description": "Cisco SDWAN OMP Revision 0"
+      }
+    ]
+  },
+  "NotificationSeverity": {
+    "name": "NotificationSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OperState": {
+    "name": "OperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "down": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PeerState": {
+    "name": "PeerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "init": 1,
+          "handshake": 2,
+          "up": 3,
+          "down": 4,
+          "init-in-gr": 5,
+          "down-in-gr": 6,
+          "handshake-in-gr": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OmpPolicyState": {
+    "name": "OmpPolicyState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "delete": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InetAddressIP": {
+    "name": "InetAddressIP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSdwanOmpMIBNotifs": {
+    "name": "ciscoSdwanOmpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.1003.0",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanOmpMIBObjects": {
+    "name": "ciscoSdwanOmpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1003.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanOmpMIBNotifObjects": {
+    "name": "ciscoSdwanOmpMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.1003.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanOmpMIBConform": {
+    "name": "ciscoSdwanOmpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1003.3",
+    "class": "objectidentity"
+  },
+  "netconfNotificationSeverity": {
+    "name": "netconfNotificationSeverity",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpNumberOfVsmarts": {
+    "name": "ciscoSdwanOmpNumberOfVsmarts",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpNewState": {
+    "name": "ciscoSdwanOmpNewState",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpPeer": {
+    "name": "ciscoSdwanOmpPeer",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpPeerNewState": {
+    "name": "ciscoSdwanOmpPeerNewState",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpPolicy": {
+    "name": "ciscoSdwanOmpPolicy",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OmpPolicyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpVsmartPeer": {
+    "name": "ciscoSdwanOmpVsmartPeer",
+    "oid": "1.3.6.1.4.1.9.9.1003.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanOmpOmpNumberOfVsmartsChange": {
+    "name": "ciscoSdwanOmpOmpNumberOfVsmartsChange",
+    "oid": "1.3.6.1.4.1.9.9.1003.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpNumberOfVsmarts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanOmpOmpStateChange": {
+    "name": "ciscoSdwanOmpOmpStateChange",
+    "oid": "1.3.6.1.4.1.9.9.1003.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpNewState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanOmpOmpPeerStateChange": {
+    "name": "ciscoSdwanOmpOmpPeerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.1003.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPeer"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPeerNewState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanOmpOmpPolicy": {
+    "name": "ciscoSdwanOmpOmpPolicy",
+    "oid": "1.3.6.1.4.1.9.9.1003.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPolicy"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpVsmartPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanOmpMIBCompliances": {
+    "name": "ciscoSdwanOmpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1003.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanOmpMIBGroups": {
+    "name": "ciscoSdwanOmpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1003.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanOmpMIBCompliance": {
+    "name": "ciscoSdwanOmpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1003.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdwanOmpNotifObjsGroup",
+        "module": "CISCO-SDWAN-OMP-MIB"
+      },
+      {
+        "object": "cSdwanOmpNotifsGroup",
+        "module": "CISCO-SDWAN-OMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanOmpNotifObjsGroup": {
+    "name": "cSdwanOmpNotifObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1003.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpNumberOfVsmarts"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpNewState"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPeer"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPeerNewState"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpPolicy"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpVsmartPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanOmpNotifsGroup": {
+    "name": "cSdwanOmpNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1003.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpOmpNumberOfVsmartsChange"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpOmpStateChange"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpOmpPeerStateChange"
+      },
+      {
+        "module": "CISCO-SDWAN-OMP-MIB",
+        "object": "ciscoSdwanOmpOmpPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SDWAN-OMP-MIB",
+      "Source digest sha256:51c368b28922d8059a1d93071abc2ea87e0f244cf21d229a17f9aa2b244f3881",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SDWAN-OMP-MIB"
+  }
+}

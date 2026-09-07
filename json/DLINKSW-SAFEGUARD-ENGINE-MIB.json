@@ -1,0 +1,275 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINKSW-CPU-PROTECT-MIB": [
+      "dCpuProtectMIBObjects"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwSafeguardEngineMIB": {
+    "name": "dlinkSwSafeguardEngineMIB",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dSafeguardEngineMIBNotif": {
+    "name": "dSafeguardEngineMIBNotif",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.0",
+    "class": "objectidentity"
+  },
+  "dSafeguardEngineMIBObjects": {
+    "name": "dSafeguardEngineMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1",
+    "class": "objectidentity"
+  },
+  "dSafeguardEngineMIBConformance": {
+    "name": "dSafeguardEngineMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2",
+    "class": "objectidentity"
+  },
+  "dSafeguardEngineState": {
+    "name": "dSafeguardEngineState",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSafeguardEngineRiseThresh": {
+    "name": "dSafeguardEngineRiseThresh",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 50,
+      "format": "decimal"
+    },
+    "units": "%",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSafeguardEngineFallThresh": {
+    "name": "dSafeguardEngineFallThresh",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "units": "%",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSafeguardEngineCurrentMode": {
+    "name": "dSafeguardEngineCurrentMode",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "exhausted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dSafeguardEngineNotifEnable": {
+    "name": "dSafeguardEngineNotifEnable",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSafeguardChgToExhausted": {
+    "name": "dSafeguardChgToExhausted",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineCurrentMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dSafeguardChgToNormal": {
+    "name": "dSafeguardChgToNormal",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineCurrentMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dSafeguardEngineCompliances": {
+    "name": "dSafeguardEngineCompliances",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "dSafeguardEngineCompliance": {
+    "name": "dSafeguardEngineCompliance",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dSafeguardEngineGroup",
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB"
+      },
+      {
+        "object": "dSafeguardEngNotifEnableGroup",
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB"
+      },
+      {
+        "object": "dSafeguardEngineNotifGroup",
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dSafeguardEngineGroups": {
+    "name": "dSafeguardEngineGroups",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "dSafeguardEngineGroup": {
+    "name": "dSafeguardEngineGroup",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineState"
+      },
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineRiseThresh"
+      },
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineFallThresh"
+      },
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineCurrentMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dSafeguardEngNotifEnableGroup": {
+    "name": "dSafeguardEngNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardEngineNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "dSafeguardEngineNotifGroup": {
+    "name": "dSafeguardEngineNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.19.1.1.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardChgToExhausted"
+      },
+      {
+        "module": "DLINKSW-SAFEGUARD-ENGINE-MIB",
+        "object": "dSafeguardChgToNormal"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-SAFEGUARD-ENGINE-MIB",
+      "Source digest sha256:360bbe479a6459e67dea6d1d3d3a9b0084d2f5f2340e9ca0f50afe37478239bb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-SAFEGUARD-ENGINE-MIB"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfPsMIB": {
+    "name": "hpicfPsMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-27 10:00",
+        "description": "Initial Version of Power Supply MIB, Version 1"
+      }
+    ]
+  },
+  "hpicfEntityPs": {
+    "name": "hpicfEntityPs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1",
+    "class": "objectidentity"
+  },
+  "HpicfDcPsIndex": {
+    "name": "HpicfDcPsIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "HpicfDcPsState": {
+    "name": "HpicfDcPsState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psNotPresent": 1,
+          "psNotPlugged": 2,
+          "psPowered": 3,
+          "psFailed": 4,
+          "psPermFailure": 5,
+          "psMax": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfPsTable": {
+    "name": "hpicfPsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPsEntry": {
+    "name": "hpicfPsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsBayNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPsBayNum": {
+    "name": "hpicfPsBayNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcPsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPsState": {
+    "name": "hpicfPsState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcPsState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsFailures": {
+    "name": "hpicfPsFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsTemp": {
+    "name": "hpicfPsTemp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsVoltageInfo": {
+    "name": "hpicfPsVoltageInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsWattageCur": {
+    "name": "hpicfPsWattageCur",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsWattageMax": {
+    "name": "hpicfPsWattageMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsLastCall": {
+    "name": "hpicfPsLastCall",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPsConformance": {
+    "name": "hpicfPsConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.2",
+    "class": "objectidentity"
+  },
+  "hpicfPsCompliance": {
+    "name": "hpicfPsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfPsGroups": {
+    "name": "hpicfPsGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfDcPsCompliance": {
+    "name": "hpicfDcPsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPsGroup",
+        "module": "POWERSUPPLY-MIB"
+      },
+      {
+        "object": "hpicfPsGroup",
+        "module": "POWERSUPPLY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPsGroup": {
+    "name": "hpicfPsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.55.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsState"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsFailures"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsTemp"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsVoltageInfo"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsWattageCur"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsWattageMax"
+      },
+      {
+        "module": "POWERSUPPLY-MIB",
+        "object": "hpicfPsLastCall"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source POWERSUPPLY-MIB",
+      "Source digest sha256:a448bc8b6f014444e693928495eab2ffb233a7778cdc506998e27ffd5c81d0ba",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "POWERSUPPLY-MIB"
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoThreatMitigationServiceCapability": {
+    "name": "ciscoThreatMitigationServiceCapability",
+    "oid": "1.3.6.1.4.1.9.7.532",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-17 00:00",
+        "description": "Added the agent capabilities statement for ciscoTmsCapIOSV12R05T."
+      },
+      {
+        "revision": "2007-01-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTmsCapIOSV12R02S": {
+    "name": "ciscoTmsCapIOSV12R02S",
+    "oid": "1.3.6.1.4.1.9.7.532.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2S ",
+    "capabilities": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "includes": [
+          "ciscoTmsConsumerGroup",
+          "ciscoTmsThreatGroup",
+          "ciscoTmsThreatActionGroup",
+          "ciscoTmsThreatInterfaceGroup",
+          "ciscoTmsNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciTmsActiveThreats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsInActiveThreats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsConsumerDeviceId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupsMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatsMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActionMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsInterfaceMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsConsumerState",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsGroupConsumerRegStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupNotifEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatVer",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatStatus",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatClass",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActiveTimeDuration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatPriority",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatTcdf",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActionParamType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionParamLength",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionParamValue",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionFailReason",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciThreatInterfaceMitigationApplied",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTmsCapIOSV12R05T": {
+    "name": "ciscoTmsCapIOSV12R05T",
+    "oid": "1.3.6.1.4.1.9.7.532.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T",
+    "capabilities": [
+      {
+        "module": "CISCO-THREAT-MITIGATION-SERVICE-MIB",
+        "includes": [
+          "ciscoTmsConsumerGroup",
+          "ciscoTmsThreatGroup",
+          "ciscoTmsThreatActionGroup",
+          "ciscoTmsThreatInterfaceGroup",
+          "ciscoTmsNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciTmsActiveThreats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsInActiveThreats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsConsumerDeviceId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupsMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatsMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActionMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsInterfaceMaxEntries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsConsumerState",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsGroupConsumerRegStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupNotifEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsGroupRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatVer",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatStatus",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatClass",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActiveTimeDuration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatPriority",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatTcdf",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciTmsThreatActionParamType",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionParamLength",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionParamValue",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciTmsThreatActionFailReason",
+            "access": "accessible-for-notify"
+          },
+          {
+            "object": "ciThreatInterfaceMitigationApplied",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-THREAT-MITIGATION-SERVICE-CAPABILITY",
+      "Source digest sha256:71b4af96b457a3d227fbfad6e2d7197cb70e79b5660130e23f3c366e30f3346c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-THREAT-MITIGATION-SERVICE-CAPABILITY"
+  }
+}

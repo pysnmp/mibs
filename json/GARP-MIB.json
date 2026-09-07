@@ -1,0 +1,3115 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TruthValue"
+    ]
+  },
+  "garpMib": {
+    "name": "garpMib",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-07-06 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "garpMIBObjects": {
+    "name": "garpMIBObjects",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1",
+    "class": "objectidentity"
+  },
+  "EnabledStatus": {
+    "name": "EnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeFilter": {
+    "name": "TimeFilter",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanIndex": {
+    "name": "VlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanId": {
+    "name": "VlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "gDot1qBase": {
+    "name": "gDot1qBase",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1",
+    "class": "objectidentity"
+  },
+  "gDot1qTp": {
+    "name": "gDot1qTp",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2",
+    "class": "objectidentity"
+  },
+  "gDot1qStatic": {
+    "name": "gDot1qStatic",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3",
+    "class": "objectidentity"
+  },
+  "gDot1qVlan": {
+    "name": "gDot1qVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4",
+    "class": "objectidentity"
+  },
+  "gDot1dGarp": {
+    "name": "gDot1dGarp",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5",
+    "class": "objectidentity"
+  },
+  "gDot1dGmrp": {
+    "name": "gDot1dGmrp",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6",
+    "class": "objectidentity"
+  },
+  "gDot1dExtBase": {
+    "name": "gDot1dExtBase",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.7",
+    "class": "objectidentity"
+  },
+  "gDot1qExtend": {
+    "name": "gDot1qExtend",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8",
+    "class": "objectidentity"
+  },
+  "gDot1qVlanVersionNumber": {
+    "name": "gDot1qVlanVersionNumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qMaxVlanId": {
+    "name": "gDot1qMaxVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qMaxSupportedVlans": {
+    "name": "gDot1qMaxSupportedVlans",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qNumVlans": {
+    "name": "gDot1qNumVlans",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qGvrpStatus": {
+    "name": "gDot1qGvrpStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanIndexMappingTable": {
+    "name": "gDot1qVlanIndexMappingTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanIndexMappingEntry": {
+    "name": "gDot1qVlanIndexMappingEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanSlotIndex": {
+    "name": "gDot1qVlanSlotIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanSlotActualIndex": {
+    "name": "gDot1qVlanSlotActualIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qFdbTable": {
+    "name": "gDot1qFdbTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qFdbEntry": {
+    "name": "gDot1qFdbEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qFdbId": {
+    "name": "gDot1qFdbId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qFdbDynamicCount": {
+    "name": "gDot1qFdbDynamicCount",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qTpFdbTable": {
+    "name": "gDot1qTpFdbTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTpFdbEntry": {
+    "name": "gDot1qTpFdbEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qFdbId",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qTpFdbAddress": {
+    "name": "gDot1qTpFdbAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTpFdbPort": {
+    "name": "gDot1qTpFdbPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qTpFdbStatus": {
+    "name": "gDot1qTpFdbStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qTpGroupTable": {
+    "name": "gDot1qTpGroupTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTpGroupEntry": {
+    "name": "gDot1qTpGroupEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qTpGroupAddress": {
+    "name": "gDot1qTpGroupAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTpGroupEgressPorts": {
+    "name": "gDot1qTpGroupEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qTpGroupLearnt": {
+    "name": "gDot1qTpGroupLearnt",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qForwardAllTable": {
+    "name": "gDot1qForwardAllTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qForwardAllEntry": {
+    "name": "gDot1qForwardAllEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qForwardAllPorts": {
+    "name": "gDot1qForwardAllPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qForwardAllVlanIndex": {
+    "name": "gDot1qForwardAllVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qForwardAllStaticPorts": {
+    "name": "gDot1qForwardAllStaticPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qForwardAllForbiddenPorts": {
+    "name": "gDot1qForwardAllForbiddenPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredTable": {
+    "name": "gDot1qForwardUnregisteredTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredEntry": {
+    "name": "gDot1qForwardUnregisteredEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredPorts": {
+    "name": "gDot1qForwardUnregisteredPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredVlanIndex": {
+    "name": "gDot1qForwardUnregisteredVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredStaticPorts": {
+    "name": "gDot1qForwardUnregisteredStaticPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qForwardUnregisteredForbiddenPorts": {
+    "name": "gDot1qForwardUnregisteredForbiddenPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStaticUnicastTable": {
+    "name": "gDot1qStaticUnicastTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qStaticUnicastEntry": {
+    "name": "gDot1qStaticUnicastEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qFdbId",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticUnicastAddress",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticUnicastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qStaticUnicastAddress": {
+    "name": "gDot1qStaticUnicastAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qStaticUnicastReceivePort": {
+    "name": "gDot1qStaticUnicastReceivePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qStaticUnicastAllowedToGoTo": {
+    "name": "gDot1qStaticUnicastAllowedToGoTo",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStaticUnicastStatus": {
+    "name": "gDot1qStaticUnicastStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permanent": 3,
+          "deleteOnReset": 4,
+          "deleteOnTimeout": 5
+        }
+      }
+    },
+    "default": {
+      "value": "permanent",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastTable": {
+    "name": "gDot1qStaticMulticastTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastEntry": {
+    "name": "gDot1qStaticMulticastEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticMulticastAddress",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticMulticastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qStaticMulticastVlanIndex": {
+    "name": "gDot1qStaticMulticastVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastAddress": {
+    "name": "gDot1qStaticMulticastAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastReceivePort": {
+    "name": "gDot1qStaticMulticastReceivePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastStaticEgressPorts": {
+    "name": "gDot1qStaticMulticastStaticEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastForbiddenEgressPorts": {
+    "name": "gDot1qStaticMulticastForbiddenEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStaticMulticastStatus": {
+    "name": "gDot1qStaticMulticastStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permanent": 3,
+          "deleteOnReset": 4,
+          "deleteOnTimeout": 5
+        }
+      }
+    },
+    "default": {
+      "value": "permanent",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qGmrpLearningPermit": {
+    "name": "gDot1qGmrpLearningPermit",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gmrpLearningEnable": 1,
+          "gmrpLearningDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanNumDeletes": {
+    "name": "gDot1qVlanNumDeletes",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanCurrentTable": {
+    "name": "gDot1qVlanCurrentTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanCurrentEntry": {
+    "name": "gDot1qVlanCurrentEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanTimeMark": {
+    "name": "gDot1qVlanTimeMark",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanIndex": {
+    "name": "gDot1qVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanFdbId": {
+    "name": "gDot1qVlanFdbId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanCurrentEgressPorts": {
+    "name": "gDot1qVlanCurrentEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanCurrentUntaggedPorts": {
+    "name": "gDot1qVlanCurrentUntaggedPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanStatus": {
+    "name": "gDot1qVlanStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "permanent": 2,
+          "dynamicGvrp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanCreationTime": {
+    "name": "gDot1qVlanCreationTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanStaticTable": {
+    "name": "gDot1qVlanStaticTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanStaticEntry": {
+    "name": "gDot1qVlanStaticEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanStaticName": {
+    "name": "gDot1qVlanStaticName",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qVlanStaticEgressPorts": {
+    "name": "gDot1qVlanStaticEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qVlanForbiddenEgressPorts": {
+    "name": "gDot1qVlanForbiddenEgressPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qVlanStaticUntaggedPorts": {
+    "name": "gDot1qVlanStaticUntaggedPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qVlanStaticRowStatus": {
+    "name": "gDot1qVlanStaticRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qGvrpLearningPermit": {
+    "name": "gDot1qGvrpLearningPermit",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gvrpLearningEnable": 1,
+          "gvrpLearningDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSpanningTreeGroup": {
+    "name": "gDot1qVlanSpanningTreeGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qNextFreeLocalVlanIndex": {
+    "name": "gDot1qNextFreeLocalVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4096,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qPortVlanTable": {
+    "name": "gDot1qPortVlanTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qPortVlanEntry": {
+    "name": "gDot1qPortVlanEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qPvid": {
+    "name": "gDot1qPvid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortAcceptableFrameTypes": {
+    "name": "gDot1qPortAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2
+        }
+      }
+    },
+    "default": {
+      "value": "admitAll",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortIngressFiltering": {
+    "name": "gDot1qPortIngressFiltering",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortGvrpStatus": {
+    "name": "gDot1qPortGvrpStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortGvrpFailedRegistrations": {
+    "name": "gDot1qPortGvrpFailedRegistrations",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qPortGvrpLastPduOrigin": {
+    "name": "gDot1qPortGvrpLastPduOrigin",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1dPortGarpTable": {
+    "name": "gDot1dPortGarpTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1dPortGarpEntry": {
+    "name": "gDot1dPortGarpEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1dPortEnable": {
+    "name": "gDot1dPortEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dPortGarpJoinTime": {
+    "name": "gDot1dPortGarpJoinTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dPortGarpLeaveTime": {
+    "name": "gDot1dPortGarpLeaveTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dPortGarpLeaveAllTime": {
+    "name": "gDot1dPortGarpLeaveAllTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "value": 1000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dGmrpStatus": {
+    "name": "gDot1dGmrpStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dPortGmrpTable": {
+    "name": "gDot1dPortGmrpTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1dPortGmrpEntry": {
+    "name": "gDot1dPortGmrpEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1dPortGmrp": {
+    "name": "gDot1dPortGmrp",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1dPortGmrpStatus": {
+    "name": "gDot1dPortGmrpStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1dPortGmrpFailedRegistrations": {
+    "name": "gDot1dPortGmrpFailedRegistrations",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1dPortGmrpLastPduOrigin": {
+    "name": "gDot1dPortGmrpLastPduOrigin",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qLearningConstraintsTable": {
+    "name": "gDot1qLearningConstraintsTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qLearningConstraintsEntry": {
+    "name": "gDot1qLearningConstraintsEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintVlan",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintSet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qConstraintVlan": {
+    "name": "gDot1qConstraintVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qConstraintSet": {
+    "name": "gDot1qConstraintSet",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qConstraintType": {
+    "name": "gDot1qConstraintType",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qConstraintStatus": {
+    "name": "gDot1qConstraintStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gDot1qConstraintSetDefault": {
+    "name": "gDot1qConstraintSetDefault",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qConstraintTypeDefault": {
+    "name": "gDot1qConstraintTypeDefault",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "garpMIBConformance": {
+    "name": "garpMIBConformance",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.2",
+    "class": "objectidentity"
+  },
+  "garpMIBGroups": {
+    "name": "garpMIBGroups",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.2.1",
+    "class": "objectidentity"
+  },
+  "garpMIBCompliances": {
+    "name": "garpMIBCompliances",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.2.2",
+    "class": "objectidentity"
+  },
+  "garpMIBBaseGroup": {
+    "name": "garpMIBBaseGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanVersionNumber"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qMaxVlanId"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qMaxSupportedVlans"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qNumVlans"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qGvrpStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qFdbDynamicCount"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpFdbPort"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpFdbStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpGroupEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qTpGroupLearnt"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardAllPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardAllStaticPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardAllForbiddenPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardUnregisteredPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardUnregisteredStaticPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qForwardUnregisteredForbiddenPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticUnicastAllowedToGoTo"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticUnicastStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticMulticastStaticEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticMulticastForbiddenEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStaticMulticastStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanNumDeletes"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanFdbId"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanCurrentEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanCurrentUntaggedPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanCreationTime"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanStaticName"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanStaticEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanForbiddenEgressPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanStaticUntaggedPorts"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanStaticRowStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qNextFreeLocalVlanIndex"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPvid"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPortAcceptableFrameTypes"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPortIngressFiltering"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPortGvrpStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPortGvrpFailedRegistrations"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPortGvrpLastPduOrigin"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGarpJoinTime"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGarpLeaveTime"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGarpLeaveAllTime"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrpStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrpFailedRegistrations"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dPortGmrpLastPduOrigin"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1dGmrpStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintType"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintStatus"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintSetDefault"
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qConstraintTypeDefault"
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qDoubleTagging": {
+    "name": "gDot1qDoubleTagging",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTpid": {
+    "name": "gDot1qTpid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qDoubleTaggingTable": {
+    "name": "gDot1qDoubleTaggingTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qDoubleTaggingEntry": {
+    "name": "gDot1qDoubleTaggingEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qDoubleTaggingPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qDoubleTaggingPort": {
+    "name": "gDot1qDoubleTaggingPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qDoubleTaggingMode": {
+    "name": "gDot1qDoubleTaggingMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtagModeNone": 0,
+          "dtagModeInternal": 1,
+          "dtagModeExternal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortInnerTpid": {
+    "name": "gDot1qPortInnerTpid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPortOuterTpid": {
+    "name": "gDot1qPortOuterTpid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qInnerTpid": {
+    "name": "gDot1qInnerTpid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanMacTable": {
+    "name": "gDot1qVlanMacTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanMacEntry": {
+    "name": "gDot1qVlanMacEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanMacAddress": {
+    "name": "gDot1qVlanMacAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanMacNewVlanId": {
+    "name": "gDot1qVlanMacNewVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanMacNewPriority": {
+    "name": "gDot1qVlanMacNewPriority",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanMacStatus": {
+    "name": "gDot1qVlanMacStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 2,
+          "destroy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetTable": {
+    "name": "gDot1qVlanSubnetTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetEntry": {
+    "name": "gDot1qVlanSubnetEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSubnetIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSubnetIpMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanSubnetIpAddress": {
+    "name": "gDot1qVlanSubnetIpAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetIpMask": {
+    "name": "gDot1qVlanSubnetIpMask",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetNewVlanId": {
+    "name": "gDot1qVlanSubnetNewVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetNewPriority": {
+    "name": "gDot1qVlanSubnetNewPriority",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetStatus": {
+    "name": "gDot1qVlanSubnetStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 2,
+          "destroy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanProtoTable": {
+    "name": "gDot1qVlanProtoTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanProtoEntry": {
+    "name": "gDot1qVlanProtoEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanProtoFrameType",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanProtoEthertype",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanProtoPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanProtoFrameType": {
+    "name": "gDot1qVlanProtoFrameType",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanProtoEthertype": {
+    "name": "gDot1qVlanProtoEthertype",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanProtoPortId": {
+    "name": "gDot1qVlanProtoPortId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanProtoNewVlanId": {
+    "name": "gDot1qVlanProtoNewVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanProtoStatus": {
+    "name": "gDot1qVlanProtoStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 2,
+          "destroy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanTranslationTable": {
+    "name": "gDot1qVlanTranslationTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanTransEntry": {
+    "name": "gDot1qVlanTransEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanTransVlanId",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanTransPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanTransVlanId": {
+    "name": "gDot1qVlanTransVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanTransPortId": {
+    "name": "gDot1qVlanTransPortId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gDot1qVlanTransNewVlanId": {
+    "name": "gDot1qVlanTransNewVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanTransNewPriority": {
+    "name": "gDot1qVlanTransNewPriority",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanTransStatus": {
+    "name": "gDot1qVlanTransStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 2,
+          "destroy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSubnetPrecede": {
+    "name": "gDot1qVlanSubnetPrecede",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanTransEnable": {
+    "name": "gDot1qVlanTransEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStackVlanTable": {
+    "name": "gDot1qStackVlanTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qStackVlanEntry": {
+    "name": "gDot1qStackVlanEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qStackVlanPort",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qEndStackVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qStackVlanPort": {
+    "name": "gDot1qStackVlanPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStartStackVlan": {
+    "name": "gDot1qStartStackVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qEndStackVlan": {
+    "name": "gDot1qEndStackVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTargetStackVlan": {
+    "name": "gDot1qTargetStackVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStackVlanRowStatus": {
+    "name": "gDot1qStackVlanRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanPassthroughTable": {
+    "name": "gDot1qVlanPassthroughTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanPassthroughEntry": {
+    "name": "gDot1qVlanPassthroughEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qPassthroughPort",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qEndPassthroughVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qPassthroughPort": {
+    "name": "gDot1qPassthroughPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStartPassthroughVlan": {
+    "name": "gDot1qStartPassthroughVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qEndPassthroughVlan": {
+    "name": "gDot1qEndPassthroughVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qPassthroughRowStatus": {
+    "name": "gDot1qPassthroughRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSwapTable": {
+    "name": "gDot1qVlanSwapTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qVlanSwapEntry": {
+    "name": "gDot1qVlanSwapEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qVlanSwapPort",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "gDot1qEndSwapVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gDot1qVlanSwapPort": {
+    "name": "gDot1qVlanSwapPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qStartSwapVlan": {
+    "name": "gDot1qStartSwapVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qEndSwapVlan": {
+    "name": "gDot1qEndSwapVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTargetSwapVlan": {
+    "name": "gDot1qTargetSwapVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qVlanSwapRowStatus": {
+    "name": "gDot1qVlanSwapRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qProtocolVlan": {
+    "name": "gDot1qProtocolVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14",
+    "class": "objectidentity"
+  },
+  "gDot1qProtocolVlanTable": {
+    "name": "gDot1qProtocolVlanTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qProtocolVlanEntry": {
+    "name": "gDot1qProtocolVlanEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "protocolVlanTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "protocolVlanTableIndex": {
+    "name": "protocolVlanTableIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolVlanTableEthertype": {
+    "name": "protocolVlanTableEthertype",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "protocolVlanTableProtocol": {
+    "name": "protocolVlanTableProtocol",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernetv2": 1,
+          "non-snap-llc": 2,
+          "ethernetv2-non-snap-llc": 3,
+          "snap-llc": 4,
+          "ethernetv2-snap-llc": 5,
+          "non-snap-llc-snap-llc": 6,
+          "ethernetv2-non-snap-llc-snap-llc": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "protocolVlanTableStatus": {
+    "name": "protocolVlanTableStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qProtocolVlanActionTable": {
+    "name": "gDot1qProtocolVlanActionTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qProtocolVlanActionEntry": {
+    "name": "gDot1qProtocolVlanActionEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "protocolVlanAcitonTablePort",
+        "implied": 0
+      },
+      {
+        "module": "GARP-MIB",
+        "object": "protocolVlanTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "protocolVlanAcitonTablePort": {
+    "name": "protocolVlanAcitonTablePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolVlanActionTableNewVlan": {
+    "name": "protocolVlanActionTableNewVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "protocolVlanActionTableStatus": {
+    "name": "protocolVlanActionTableStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qProtocolVlanAdminTable": {
+    "name": "gDot1qProtocolVlanAdminTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qProtocolVlanAdminEntry": {
+    "name": "gDot1qProtocolVlanAdminEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "protocolVlanAdminTablePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "protocolVlanAdminTablePort": {
+    "name": "protocolVlanAdminTablePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolVlanAdminTableEnable": {
+    "name": "protocolVlanAdminTableEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.14.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTranslateVlan": {
+    "name": "gDot1qTranslateVlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15",
+    "class": "objectidentity"
+  },
+  "gDot1qTranslateVlanIngressTable": {
+    "name": "gDot1qTranslateVlanIngressTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTranslateVlanIngressEntry": {
+    "name": "gDot1qTranslateVlanIngressEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "translateVlanIngressTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "translateVlanIngressTableIndex": {
+    "name": "translateVlanIngressTableIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "translateIngressTargetVlanID": {
+    "name": "translateIngressTargetVlanID",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTranslateVlanEgressTable": {
+    "name": "gDot1qTranslateVlanEgressTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTranslateVlanEgressEntry": {
+    "name": "gDot1qTranslateVlanEgressEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "translateVlanEgressTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "translateVlanEgressTableIndex": {
+    "name": "translateVlanEgressTableIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "translateEgressTargetVlanID": {
+    "name": "translateEgressTargetVlanID",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gDot1qTranslateVlanPortTable": {
+    "name": "gDot1qTranslateVlanPortTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gDot1qTranslateVlanPortEntry": {
+    "name": "gDot1qTranslateVlanPortEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARP-MIB",
+        "object": "translateVlanTablePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "translateVlanTablePort": {
+    "name": "translateVlanTablePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "translateTargetVlanIngressTableEnable": {
+    "name": "translateTargetVlanIngressTableEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "translateTargetVlanEgressTableEnable": {
+    "name": "translateTargetVlanEgressTableEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.1.8.15.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "garpMIBCompliance": {
+    "name": "garpMIBCompliance",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.2.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "garpMIBBaseGroup",
+        "module": "GARP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GARP-MIB",
+      "Source digest sha256:8895c8c4ff9e7cbc030e899b117d146dcfd2737165b1801372225ff5e6713d76",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GARP-MIB"
+  }
+}

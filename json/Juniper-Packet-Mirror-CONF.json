@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPacketMirrorAgent": {
+    "name": "juniPacketMirrorAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.72",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-06-30 18:13",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniPacketMirrorAgentV1": {
+    "name": "juniPacketMirrorAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.72.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Packet Mirror component of the JUNOSe SNMP agent.\n        This version of the Packet Mirror component is supported in JUNOSe 6.0\n        and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PACKET-MIRROR-MIB",
+        "includes": [
+          "juniPacketMirrorNotificationObjectsGroup",
+          "juniPacketMirrorNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Packet-Mirror-CONF",
+      "Source digest sha256:6f508440919e7621b7b137191ebe6f0cfe8ce71026f29c3ad06bbfb116a8f15b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Packet-Mirror-CONF"
+  }
+}

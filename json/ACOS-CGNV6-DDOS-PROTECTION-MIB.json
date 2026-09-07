@@ -1,0 +1,1248 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgnv6DdosProtectionModule": {
+    "name": "cgnv6DdosProtectionModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411",
+    "class": "moduleidentity"
+  },
+  "ddosProtection": {
+    "name": "ddosProtection",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1",
+    "class": "objectidentity"
+  },
+  "ddosProtectionStatsTable": {
+    "name": "ddosProtectionStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ddosProtectionStatsEntry": {
+    "name": "ddosProtectionStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "ddosProtectionStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ddosProtectionStatsSlotId": {
+    "name": "ddosProtectionStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryAdded": {
+    "name": "ddosProtectionStatsL3EntryAdded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryDeleted": {
+    "name": "ddosProtectionStatsL3EntryDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryAddedToBgp": {
+    "name": "ddosProtectionStatsL3EntryAddedToBgp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryRemovedFromBgp": {
+    "name": "ddosProtectionStatsL3EntryRemovedFromBgp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryAddedToHw": {
+    "name": "ddosProtectionStatsL3EntryAddedToHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryRemovedFromHw": {
+    "name": "ddosProtectionStatsL3EntryRemovedFromHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryTooMany": {
+    "name": "ddosProtectionStatsL3EntryTooMany",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryMatchDrop": {
+    "name": "ddosProtectionStatsL3EntryMatchDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryMatchDropHw": {
+    "name": "ddosProtectionStatsL3EntryMatchDropHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryDropMaxHwExceeded": {
+    "name": "ddosProtectionStatsL3EntryDropMaxHwExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryAdded": {
+    "name": "ddosProtectionStatsL4EntryAdded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryDeleted": {
+    "name": "ddosProtectionStatsL4EntryDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryAddedToHw": {
+    "name": "ddosProtectionStatsL4EntryAddedToHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryRemovedFromHw": {
+    "name": "ddosProtectionStatsL4EntryRemovedFromHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4HwOutOfEntries": {
+    "name": "ddosProtectionStatsL4HwOutOfEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryMatchDrop": {
+    "name": "ddosProtectionStatsL4EntryMatchDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryMatchDropHw": {
+    "name": "ddosProtectionStatsL4EntryMatchDropHw",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryDropMaxHwExceeded": {
+    "name": "ddosProtectionStatsL4EntryDropMaxHwExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryListAlloc": {
+    "name": "ddosProtectionStatsL4EntryListAlloc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryListFree": {
+    "name": "ddosProtectionStatsL4EntryListFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL4EntryListAllocFailure": {
+    "name": "ddosProtectionStatsL4EntryListAllocFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpNodeAlloc": {
+    "name": "ddosProtectionStatsIpNodeAlloc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpNodeFree": {
+    "name": "ddosProtectionStatsIpNodeFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpNodeAllocFailure": {
+    "name": "ddosProtectionStatsIpNodeAllocFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpPortBlockAlloc": {
+    "name": "ddosProtectionStatsIpPortBlockAlloc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpPortBlockFree": {
+    "name": "ddosProtectionStatsIpPortBlockFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpPortBlockAllocFailure": {
+    "name": "ddosProtectionStatsIpPortBlockAllocFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpOtherBlockAlloc": {
+    "name": "ddosProtectionStatsIpOtherBlockAlloc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpOtherBlockFree": {
+    "name": "ddosProtectionStatsIpOtherBlockFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsIpOtherBlockAllocFailure": {
+    "name": "ddosProtectionStatsIpOtherBlockAllocFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsEntryAddedShadow": {
+    "name": "ddosProtectionStatsEntryAddedShadow",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsEntryInvalidated": {
+    "name": "ddosProtectionStatsEntryInvalidated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryAddToBgpFailure": {
+    "name": "ddosProtectionStatsL3EntryAddToBgpFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryRemoveFromBgpFailure": {
+    "name": "ddosProtectionStatsL3EntryRemoveFromBgpFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsL3EntryAddToHwFailure": {
+    "name": "ddosProtectionStatsL3EntryAddToHwFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsSynCookieSynAckSent": {
+    "name": "ddosProtectionStatsSynCookieSynAckSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsSynCookieVerificationPassed": {
+    "name": "ddosProtectionStatsSynCookieVerificationPassed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsSynCookieVerificationFailed": {
+    "name": "ddosProtectionStatsSynCookieVerificationFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddosProtectionStatsSynCookieConnSetupFailed": {
+    "name": "ddosProtectionStatsSynCookieConnSetupFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4Entries": {
+    "name": "l4Entries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2",
+    "class": "objectidentity"
+  },
+  "l4EntriesOperTable": {
+    "name": "l4EntriesOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "l4EntriesOperEntry": {
+    "name": "l4EntriesOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "l4EntriesOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l4EntriesOperSlotId": {
+    "name": "l4EntriesOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperTotalEntries": {
+    "name": "l4EntriesOperTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperAll": {
+    "name": "l4EntriesOperAll",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperNatPool": {
+    "name": "l4EntriesOperNatPool",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperV4Netmask": {
+    "name": "l4EntriesOperV4Netmask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperNotInHardware": {
+    "name": "l4EntriesOperNotInHardware",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListTable": {
+    "name": "l4EntriesOperDdosL4EntriesListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListEntry": {
+    "name": "l4EntriesOperDdosL4EntriesListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "l4EntriesOperDdosL4EntriesListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListSlotId": {
+    "name": "l4EntriesOperDdosL4EntriesListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId": {
+    "name": "l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListV4Address": {
+    "name": "l4EntriesOperDdosL4EntriesListV4Address",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListL4Protocol": {
+    "name": "l4EntriesOperDdosL4EntriesListL4Protocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListPort": {
+    "name": "l4EntriesOperDdosL4EntriesListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListInHardware": {
+    "name": "l4EntriesOperDdosL4EntriesListInHardware",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListHardwareIndex": {
+    "name": "l4EntriesOperDdosL4EntriesListHardwareIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListPps": {
+    "name": "l4EntriesOperDdosL4EntriesListPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListExpiration": {
+    "name": "l4EntriesOperDdosL4EntriesListExpiration",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4EntriesOperDdosL4EntriesListIsDeleted": {
+    "name": "l4EntriesOperDdosL4EntriesListIsDeleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntries": {
+    "name": "ipEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3",
+    "class": "objectidentity"
+  },
+  "ipEntriesOperTable": {
+    "name": "ipEntriesOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipEntriesOperEntry": {
+    "name": "ipEntriesOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "ipEntriesOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipEntriesOperSlotId": {
+    "name": "ipEntriesOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperTotalEntries": {
+    "name": "ipEntriesOperTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperAll": {
+    "name": "ipEntriesOperAll",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperNatPool": {
+    "name": "ipEntriesOperNatPool",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperV4Netmask": {
+    "name": "ipEntriesOperV4Netmask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListTable": {
+    "name": "ipEntriesOperDdosIpEntriesListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListEntry": {
+    "name": "ipEntriesOperDdosIpEntriesListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "ipEntriesOperDdosIpEntriesListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListSlotId": {
+    "name": "ipEntriesOperDdosIpEntriesListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId": {
+    "name": "ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListV4Address": {
+    "name": "ipEntriesOperDdosIpEntriesListV4Address",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListExpiration": {
+    "name": "ipEntriesOperDdosIpEntriesListExpiration",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListHints": {
+    "name": "ipEntriesOperDdosIpEntriesListHints",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListL4EntriesCount": {
+    "name": "ipEntriesOperDdosIpEntriesListL4EntriesCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListSwReceivePps": {
+    "name": "ipEntriesOperDdosIpEntriesListSwReceivePps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListSwL4DropPps": {
+    "name": "ipEntriesOperDdosIpEntriesListSwL4DropPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListHwL4DropPps": {
+    "name": "ipEntriesOperDdosIpEntriesListHwL4DropPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListSwL3DropPps": {
+    "name": "ipEntriesOperDdosIpEntriesListSwL3DropPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListHwL3DropPps": {
+    "name": "ipEntriesOperDdosIpEntriesListHwL3DropPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListTotalPps": {
+    "name": "ipEntriesOperDdosIpEntriesListTotalPps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListInBlacklist": {
+    "name": "ipEntriesOperDdosIpEntriesListInBlacklist",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListInHardware": {
+    "name": "ipEntriesOperDdosIpEntriesListInHardware",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntriesOperDdosIpEntriesListHardwareIndex": {
+    "name": "ipEntriesOperDdosIpEntriesListHardwareIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgp": {
+    "name": "disableNatIpByBgp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4",
+    "class": "objectidentity"
+  },
+  "disableNatIpByBgpOperTable": {
+    "name": "disableNatIpByBgpOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperEntry": {
+    "name": "disableNatIpByBgpOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "disableNatIpByBgpOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "disableNatIpByBgpOperSlotId": {
+    "name": "disableNatIpByBgpOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperTotalEntries": {
+    "name": "disableNatIpByBgpOperTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperAll": {
+    "name": "disableNatIpByBgpOperAll",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperV4Address": {
+    "name": "disableNatIpByBgpOperV4Address",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListTable": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB",
+        "object": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListV4Address": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListV4Address",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableNatIpByBgpOperDdosDisabledByBgpEntriesListNatPoolName": {
+    "name": "disableNatIpByBgpOperDdosDisabledByBgpEntriesListNatPoolName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.411.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CGNV6-DDOS-PROTECTION-MIB",
+      "Source digest sha256:907e7941b6653a58c7cac5475c229927f90bda39aa58db1e09dd0dd90c93f4f6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CGNV6-DDOS-PROTECTION-MIB"
+  }
+}

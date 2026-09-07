@@ -1,0 +1,231 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmSeverityCode",
+      "AlarmStatus"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "manualOperation": {
+    "name": "manualOperation",
+    "oid": "1.3.6.1.4.1.3373.1103.71",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-17 00:00",
+        "description": "Fixed DESCRIPTION of manualOpActiveSeverityCode "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of manualOpMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "manualOpTrap": {
+    "name": "manualOpTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.71.0",
+    "class": "objectidentity"
+  },
+  "manualOpMibVersion": {
+    "name": "manualOpMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.71.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpTable": {
+    "name": "manualOpTable",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "manualOpRecord": {
+    "name": "manualOpRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-MANOP-MIB",
+        "object": "manualOpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "manualOpId": {
+    "name": "manualOpId",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpObjectId": {
+    "name": "manualOpObjectId",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpEventTime": {
+    "name": "manualOpEventTime",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpValueType": {
+    "name": "manualOpValueType",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "integer32": 1,
+          "objectId": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpIntegerVal": {
+    "name": "manualOpIntegerVal",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpOidVal": {
+    "name": "manualOpOidVal",
+    "oid": "1.3.6.1.4.1.3373.1103.71.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpActive": {
+    "name": "manualOpActive",
+    "oid": "1.3.6.1.4.1.3373.1103.71.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manualOpActiveSeverityCode": {
+    "name": "manualOpActiveSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.71.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "value": "warningTrapEnable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manualOpTimeOut": {
+    "name": "manualOpTimeOut",
+    "oid": "1.3.6.1.4.1.3373.1103.71.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 172800
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-MANOP-MIB",
+      "Source digest sha256:20403252a41aa14e0f4ab69112c5879be75917f55e14f3725017c7d2e1d3d8bc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-MANOP-MIB"
+  }
+}

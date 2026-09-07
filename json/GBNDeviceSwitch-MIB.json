@@ -1,0 +1,2899 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnDevice"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanIndex",
+      "dot1qStaticMulticastEntry"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "gbnDeviceSwitch": {
+    "name": "gbnDeviceSwitch",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1900-11-02 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "MirrorMacType": {
+    "name": "MirrorMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "destination": 1,
+          "source": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "gbnDeviceSwitchMirror": {
+    "name": "gbnDeviceSwitchMirror",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchPort": {
+    "name": "gbnDeviceSwitchPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchAggregation": {
+    "name": "gbnDeviceSwitchAggregation",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchL3": {
+    "name": "gbnDeviceSwitchL3",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchLoopTest": {
+    "name": "gbnDeviceSwitchLoopTest",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.5",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchSRM": {
+    "name": "gbnDeviceSwitchSRM",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.6",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchFlowAlarm": {
+    "name": "gbnDeviceSwitchFlowAlarm",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchQueneScheduer": {
+    "name": "gbnDeviceSwitchQueneScheduer",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchLineRate": {
+    "name": "gbnDeviceSwitchLineRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchPortIsolation": {
+    "name": "gbnDeviceSwitchPortIsolation",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchStormControl": {
+    "name": "gbnDeviceSwitchStormControl",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchAntiDos": {
+    "name": "gbnDeviceSwitchAntiDos",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.12",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchBandWidth": {
+    "name": "gbnDeviceSwitchBandWidth",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchHigigStatistics": {
+    "name": "gbnDeviceSwitchHigigStatistics",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchChannelStats": {
+    "name": "gbnDeviceSwitchChannelStats",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchRmoteMirror": {
+    "name": "gbnDeviceSwitchRmoteMirror",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchPortSFPInfo": {
+    "name": "gbnDeviceSwitchPortSFPInfo",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchPortAvgRate": {
+    "name": "gbnDeviceSwitchPortAvgRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18",
+    "class": "objectidentity"
+  },
+  "gbnDeviceSwitchPortbandwidthUtilization": {
+    "name": "gbnDeviceSwitchPortbandwidthUtilization",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19",
+    "class": "objectidentity"
+  },
+  "mirroringPort": {
+    "name": "mirroringPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirroredEgrPort": {
+    "name": "mirroredEgrPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirroredIgrPort": {
+    "name": "mirroredIgrPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ingressMirrorMac": {
+    "name": "ingressMirrorMac",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "egressMirrorMac": {
+    "name": "egressMirrorMac",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ingressMirrorMacType": {
+    "name": "ingressMirrorMacType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MirrorMacType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "egressMirrorMacType": {
+    "name": "egressMirrorMacType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MirrorMacType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ingressMirrorDivider": {
+    "name": "ingressMirrorDivider",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "egressMirrorDivider": {
+    "name": "egressMirrorDivider",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portTypeTable": {
+    "name": "portTypeTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portTypeEntry": {
+    "name": "portTypeEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portNumber": {
+    "name": "portNumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portType": {
+    "name": "portType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blank": 1,
+          "FE": 2,
+          "single100FX": 3,
+          "double100FX": 4,
+          "single1000FX": 5,
+          "double1000FX": 6,
+          "fE1000": 7,
+          "cpu": 8,
+          "FX10000": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggTable": {
+    "name": "aggTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "aggEntry": {
+    "name": "aggEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "aggUnit",
+        "implied": 0
+      },
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "aggPort",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "aggUnit": {
+    "name": "aggUnit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "aggPort": {
+    "name": "aggPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "aggPortListPorts": {
+    "name": "aggPortListPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "aggRule": {
+    "name": "aggRule",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcMAC": 1,
+          "destMAC": 2,
+          "srcXORDestMAC": 3,
+          "srcIP": 4,
+          "destIP": 5,
+          "srcXORDestIP": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "aggRowstatus": {
+    "name": "aggRowstatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "l3Table": {
+    "name": "l3Table",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "l3Entry": {
+    "name": "l3Entry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "l3IpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l3IpAddress": {
+    "name": "l3IpAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l3NextHopMacAddress": {
+    "name": "l3NextHopMacAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l3Vlan": {
+    "name": "l3Vlan",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l3Port": {
+    "name": "l3Port",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l3CreateTime": {
+    "name": "l3CreateTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l3UpdateTime": {
+    "name": "l3UpdateTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loopTestPortno": {
+    "name": "loopTestPortno",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "loopTestType": {
+    "name": "loopTestType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "local": 2,
+          "remote": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "loopTestSuccess": {
+    "name": "loopTestSuccess",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srmHardwareEnable": {
+    "name": "srmHardwareEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srmHardwareDEFCPU": {
+    "name": "srmHardwareDEFCPU",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFlowAlarmTable": {
+    "name": "portFlowAlarmTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portFlowAlarmEntry": {
+    "name": "portFlowAlarmEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portFlowAlarmPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portFlowAlarmPort": {
+    "name": "portFlowAlarmPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portFlowAlarmEnable": {
+    "name": "portFlowAlarmEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFlowAlarmExceedStatus": {
+    "name": "portFlowAlarmExceedStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portFlowAlarmExceedThreshold": {
+    "name": "portFlowAlarmExceedThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFlowAlarmNormalThreshold": {
+    "name": "portFlowAlarmNormalThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFlowAlarmGlobalEnable": {
+    "name": "portFlowAlarmGlobalEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFlowAlarmTrap": {
+    "name": "portFlowAlarmTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.5",
+    "class": "objectidentity"
+  },
+  "portFlowAlarmExceedTrap": {
+    "name": "portFlowAlarmExceedTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portFlowAlarmPort"
+      }
+    ],
+    "status": "current"
+  },
+  "portFlowAlarmNormalTrap": {
+    "name": "portFlowAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.7.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portFlowAlarmPort"
+      }
+    ],
+    "status": "current"
+  },
+  "qosQueueSchedulerGroup": {
+    "name": "qosQueueSchedulerGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1",
+    "class": "objectidentity"
+  },
+  "qosWrrQueue1Weight": {
+    "name": "qosWrrQueue1Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue2Weight": {
+    "name": "qosWrrQueue2Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue3Weight": {
+    "name": "qosWrrQueue3Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue4Weight": {
+    "name": "qosWrrQueue4Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrMaxDelayValue": {
+    "name": "qosWrrMaxDelayValue",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosQueueSchedulerMode": {
+    "name": "qosQueueSchedulerMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strictPriority": 1,
+          "wrr": 2,
+          "sp-wrr": 3
+        }
+      }
+    },
+    "default": {
+      "value": "strictPriority",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue5Weight": {
+    "name": "qosWrrQueue5Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue6Weight": {
+    "name": "qosWrrQueue6Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue7Weight": {
+    "name": "qosWrrQueue7Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosWrrQueue8Weight": {
+    "name": "qosWrrQueue8Weight",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.8.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosLineRateTable": {
+    "name": "qosLineRateTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qosLineRateEntry": {
+    "name": "qosLineRateEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "qosLineRateInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qosLineRateInterface": {
+    "name": "qosLineRateInterface",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qosLineRateTargetRate": {
+    "name": "qosLineRateTargetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosLineRateTargetBurst": {
+    "name": "qosLineRateTargetBurst",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qosLineRateTargetRateIngress": {
+    "name": "qosLineRateTargetRateIngress",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIsolationGroup": {
+    "name": "portIsolationGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1",
+    "class": "objectidentity"
+  },
+  "portIsolationDownLinkPorts": {
+    "name": "portIsolationDownLinkPorts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIsolationUpLinkTable": {
+    "name": "portIsolationUpLinkTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portIsolationUpLinkEntry": {
+    "name": "portIsolationUpLinkEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portisolationInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portisolationInterface": {
+    "name": "portisolationInterface",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portisolationUplinkList": {
+    "name": "portisolationUplinkList",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormControlTable": {
+    "name": "stormControlTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stormControlEntry": {
+    "name": "stormControlEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "stormControlInterface",
+        "implied": 0
+      },
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "stormControlType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stormControlInterface": {
+    "name": "stormControlInterface",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stormControlType": {
+    "name": "stormControlType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stormControlTargetRate": {
+    "name": "stormControlTargetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormControlRowStatus": {
+    "name": "stormControlRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormControlMode": {
+    "name": "stormControlMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pps": 0,
+          "bps": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipfragmnetnumber": {
+    "name": "ipfragmnetnumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTTL": {
+    "name": "ipTTL",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bandwidthcontrolTable": {
+    "name": "bandwidthcontrolTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bandwidthcontrolEntry": {
+    "name": "bandwidthcontrolEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "controlPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "controlPort": {
+    "name": "controlPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portEgressBandwidthcontrol": {
+    "name": "portEgressBandwidthcontrol",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIngressBandwidthcontrol": {
+    "name": "portIngressBandwidthcontrol",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "higigStatisticsTable": {
+    "name": "higigStatisticsTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "higigStatisticsEntry": {
+    "name": "higigStatisticsEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "unit",
+        "implied": 0
+      },
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "higig",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "unit": {
+    "name": "unit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "higig": {
+    "name": "higig",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snEtherStatsPkts64Octets": {
+    "name": "snEtherStatsPkts64Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsPkts65to127Octets": {
+    "name": "snEtherStatsPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsPkts128to255Octets": {
+    "name": "snEtherStatsPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsPkts256to511Octets": {
+    "name": "snEtherStatsPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsPkts512to1023Octets": {
+    "name": "snEtherStatsPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsPkts1024to1518Octets": {
+    "name": "snEtherStatsPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sndot1dTpPortInFrames": {
+    "name": "sndot1dTpPortInFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snifInOctets": {
+    "name": "snifInOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifInDiscards": {
+    "name": "snifInDiscards",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifInUcastPkts": {
+    "name": "snifInUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifInMulticastPkts": {
+    "name": "snifInMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifInBroadcastPkts": {
+    "name": "snifInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifInErrors": {
+    "name": "snifInErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDot3StatsFCSErrors": {
+    "name": "snDot3StatsFCSErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDot3StatsSymbolErrors": {
+    "name": "snDot3StatsSymbolErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDot3StatsCarrierSenseErrors": {
+    "name": "snDot3StatsCarrierSenseErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsUndersizePkts": {
+    "name": "snEtherStatsUndersizePkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsOversizePkts": {
+    "name": "snEtherStatsOversizePkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsFragments": {
+    "name": "snEtherStatsFragments",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsJabbers": {
+    "name": "snEtherStatsJabbers",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sndot1dTpPortOutFrames": {
+    "name": "sndot1dTpPortOutFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snifOutOctets": {
+    "name": "snifOutOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifOutDiscards": {
+    "name": "snifOutDiscards",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifOutUcastPkts": {
+    "name": "snifOutUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifOutMulticastPkts": {
+    "name": "snifOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifOutBroadcastPkts": {
+    "name": "snifOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snifOutErrors": {
+    "name": "snifOutErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDot3StatsDeferredTransmissions": {
+    "name": "snDot3StatsDeferredTransmissions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snEtherStatsCollisions": {
+    "name": "snEtherStatsCollisions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snDot3StatsLateCollisions": {
+    "name": "snDot3StatsLateCollisions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.14.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelStatsTable": {
+    "name": "channelStatsTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelStatsEntry": {
+    "name": "channelStatsEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "channelGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelGroupIndex": {
+    "name": "channelGroupIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInOctetRate": {
+    "name": "channelInOctetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInFrameRate": {
+    "name": "channelInFrameRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutOctetRate": {
+    "name": "channelOutOctetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutFrameRate": {
+    "name": "channelOutFrameRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts64Octets": {
+    "name": "channelPkts64Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts65to127Octets": {
+    "name": "channelPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts128to255Octets": {
+    "name": "channelPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts256to511Octets": {
+    "name": "channelPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts512to1023Octets": {
+    "name": "channelPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPkts1024to1518Octets": {
+    "name": "channelPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInFrames": {
+    "name": "channelInFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "channelInOctets": {
+    "name": "channelInOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInDiscards": {
+    "name": "channelInDiscards",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInUcastPkts": {
+    "name": "channelInUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInMulticastPkts": {
+    "name": "channelInMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInBroadcastPkts": {
+    "name": "channelInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInErrors": {
+    "name": "channelInErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelFCSErrors": {
+    "name": "channelFCSErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelSymbolErrors": {
+    "name": "channelSymbolErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelCarrierSenseErrors": {
+    "name": "channelCarrierSenseErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelUndersizePkts": {
+    "name": "channelUndersizePkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOversizePkts": {
+    "name": "channelOversizePkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelFragments": {
+    "name": "channelFragments",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelJabbers": {
+    "name": "channelJabbers",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutFrames": {
+    "name": "channelOutFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "channelOutOctets": {
+    "name": "channelOutOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutDiscards": {
+    "name": "channelOutDiscards",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutUcastPkts": {
+    "name": "channelOutUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutMulticastPkts": {
+    "name": "channelOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutBroadcastPkts": {
+    "name": "channelOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOutErrors": {
+    "name": "channelOutErrors",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelDeferredTransmissions": {
+    "name": "channelDeferredTransmissions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelCollisions": {
+    "name": "channelCollisions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLateCollisions": {
+    "name": "channelLateCollisions",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelStatsXTable": {
+    "name": "channelStatsXTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelStatsXEntry": {
+    "name": "channelStatsXEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "channelStatsXEntry",
+      "module": "GBNDeviceSwitch-MIB",
+      "object": "channelStatsEntry"
+    },
+    "status": "current"
+  },
+  "channelHCInFrames": {
+    "name": "channelHCInFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCInOctets": {
+    "name": "channelHCInOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCInUcastPkts": {
+    "name": "channelHCInUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCInMulticastPkts": {
+    "name": "channelHCInMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCInBroadcastPkts": {
+    "name": "channelHCInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCInDiscards": {
+    "name": "channelHCInDiscards",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCOutFrames": {
+    "name": "channelHCOutFrames",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCOutOctets": {
+    "name": "channelHCOutOctets",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCOutUcastPkts": {
+    "name": "channelHCOutUcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCOutMulticastPkts": {
+    "name": "channelHCOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelHCOutBroadcastPkts": {
+    "name": "channelHCOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.15.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteMirrorVlanTable": {
+    "name": "remoteMirrorVlanTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "remoteMirrorVlanEntry": {
+    "name": "remoteMirrorVlanEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "remoteMirrorVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "remoteMirrorVlanIndex": {
+    "name": "remoteMirrorVlanIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteMirrorVlanEnable": {
+    "name": "remoteMirrorVlanEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "remoteMirrorRspanVlanSet": {
+    "name": "remoteMirrorRspanVlanSet",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "remoteMirrorEnable": {
+    "name": "remoteMirrorEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSFPInfoTable": {
+    "name": "portSFPInfoTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSFPInfoEntry": {
+    "name": "portSFPInfoEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portSFPNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSFPNumber": {
+    "name": "portSFPNumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transceiverType": {
+    "name": "transceiverType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "SFPNotExist": 0,
+          "GBIC": 1,
+          "SFF": 2,
+          "SFP": 3,
+          "XBI": 4,
+          "Xenpak": 5,
+          "XFP": 6,
+          "XFF": 7,
+          "XFP-E": 8,
+          "XPak": 9,
+          "X2": 10,
+          "DWDM-SFP": 11,
+          "QSFP": 12,
+          "Unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compliance": {
+    "name": "compliance",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connectorType": {
+    "name": "connectorType",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "SFPNotExist": 0,
+          "SC": 1,
+          "FibreChannelStyle1CopperConnector": 2,
+          "FibreChannelStyle2CopperConnector": 3,
+          "BNCTNC": 4,
+          "FibreChannelCoaxialHeaders": 5,
+          "FiberJack": 6,
+          "LC": 7,
+          "MT-RJ": 8,
+          "MU": 9,
+          "SG": 10,
+          "OpticalPigtail": 11,
+          "MPOParallelOptic": 12,
+          "HSSDCII": 32,
+          "CopperPigtail": 33,
+          "RJ45": 34,
+          "Electrical-Mode": 35,
+          "Unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waveLength": {
+    "name": "waveLength",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transferDistance": {
+    "name": "transferDistance",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalDiagnosticMonitor": {
+    "name": "digitalDiagnosticMonitor",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "SFPNotExist": 0,
+          "NotSupported": 1,
+          "Supported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorName": {
+    "name": "vendorName",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manuSerialNumber": {
+    "name": "manuSerialNumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manufacturingDate": {
+    "name": "manufacturingDate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltage": {
+    "name": "voltage",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biasCurrent": {
+    "name": "biasCurrent",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biasHighThreshold": {
+    "name": "biasHighThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biasLowThreshold": {
+    "name": "biasLowThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPower": {
+    "name": "rxPower",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPowerHighThreshold": {
+    "name": "rxPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPowerLowThreshold": {
+    "name": "rxPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPower": {
+    "name": "txPower",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPowerHighThreshold": {
+    "name": "txPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPowerLowThreshold": {
+    "name": "txPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.17.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portRateStatisticsInterval": {
+    "name": "portRateStatisticsInterval",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portAvgRateTable": {
+    "name": "portAvgRateTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portAvgRateEntry": {
+    "name": "portAvgRateEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portInOctetRate": {
+    "name": "portInOctetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portInFrameRate": {
+    "name": "portInFrameRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOutOctetRate": {
+    "name": "portOutOctetRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOutFrameRate": {
+    "name": "portOutFrameRate",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.18.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portBandwidthUtilizationEnable": {
+    "name": "portBandwidthUtilizationEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portBandwidthUtilizationTable": {
+    "name": "portBandwidthUtilizationTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portBandwidthUtilizationEntry": {
+    "name": "portBandwidthUtilizationEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.2.2",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceSwitch-MIB",
+        "object": "portBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portBandIndex": {
+    "name": "portBandIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.2.2.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portInBandwidthUtilization": {
+    "name": "portInBandwidthUtilization",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.2.2.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOutBandwidthUtilization": {
+    "name": "portOutBandwidthUtilization",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.1.19.2.2.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNDeviceSwitch-MIB",
+      "Source digest sha256:010b817eccc770c0b647a2420153310930848f2d600bd477e74fd6b51ff09b08",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNDeviceSwitch-MIB"
+  }
+}

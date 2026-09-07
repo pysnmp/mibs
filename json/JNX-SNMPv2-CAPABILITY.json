@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSnmpV2Capability": {
+    "name": "jnxSnmpV2Capability",
+    "oid": "1.3.6.1.4.1.2636.11.2",
+    "class": "moduleidentity"
+  },
+  "jnxSnmpV2CapJunos": {
+    "name": "jnxSnmpV2CapJunos",
+    "oid": "1.3.6.1.4.1.2636.11.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "All JUNOS Version",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "systemGroup",
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "snmpSetGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "sysDescr",
+            "access": "read-only"
+          },
+          {
+            "object": "sysObjectID",
+            "access": "read-only"
+          },
+          {
+            "object": "sysORLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORUpTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpSetSerialNo",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JNX-SNMPv2-CAPABILITY",
+      "Source digest sha256:bf120090f6f632bf10cfd7a5090c7829a94c3a38a434019c6087f979959c5db0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JNX-SNMPv2-CAPABILITY"
+  }
+}

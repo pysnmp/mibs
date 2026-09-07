@@ -1,0 +1,1688 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "broadsoft": {
+    "name": "broadsoft",
+    "oid": "1.3.6.1.4.1.6431",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-09 09:30",
+        "description": "Modified patching tables."
+      },
+      {
+        "revision": "2006-03-23 19:35",
+        "description": "Added alarm thresholds."
+      },
+      {
+        "revision": "2005-08-16 10:00",
+        "description": "Added MIB conformance section."
+      },
+      {
+        "revision": "2000-09-19 14:31",
+        "description": ""
+      }
+    ]
+  },
+  "broadworks": {
+    "name": "broadworks",
+    "oid": "1.3.6.1.4.1.6431.1",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.6431.1.1",
+    "class": "objectidentity"
+  },
+  "managedObjects": {
+    "name": "managedObjects",
+    "oid": "1.3.6.1.4.1.6431.1.1.2",
+    "class": "objectidentity"
+  },
+  "thresholds": {
+    "name": "thresholds",
+    "oid": "1.3.6.1.4.1.6431.1.1.3",
+    "class": "objectidentity"
+  },
+  "reservedModule": {
+    "name": "reservedModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.10",
+    "class": "objectidentity"
+  },
+  "bwMtcMibConformance": {
+    "name": "bwMtcMibConformance",
+    "oid": "1.3.6.1.4.1.6431.1.1.20",
+    "class": "objectidentity"
+  },
+  "moServerModule": {
+    "name": "moServerModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "moSoftwareVersionModule": {
+    "name": "moSoftwareVersionModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "moDeviceModule": {
+    "name": "moDeviceModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "thCounterModule": {
+    "name": "thCounterModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "thGaugeModule": {
+    "name": "thGaugeModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "thAlarmModule": {
+    "name": "thAlarmModule",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "bwServerType": {
+    "name": "bwServerType",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwRedundancyType": {
+    "name": "bwRedundancyType",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonRedundant": 0,
+          "primary": 1,
+          "seconday": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwActiveSoftwareVersion": {
+    "name": "bwActiveSoftwareVersion",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAdminState": {
+    "name": "bwAdminState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lock": 0,
+          "locking": 1,
+          "unlock": 2,
+          "shuttingDown": 3,
+          "stopped": 4,
+          "forceLock": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwOperationalState": {
+    "name": "bwOperationalState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwResetServer": {
+    "name": "bwResetServer",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 0,
+          "reset": 1,
+          "hardReset": 2,
+          "revertReset": 3,
+          "hardRevertReset": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSubComponentTable": {
+    "name": "bwSubComponentTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwTargetSoftwareVersion": {
+    "name": "bwTargetSoftwareVersion",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwRevertBackupLocation": {
+    "name": "bwRevertBackupLocation",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSubComponentEntry": {
+    "name": "bwSubComponentEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSubComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSubComponentIndex": {
+    "name": "bwSubComponentIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSubComponentName": {
+    "name": "bwSubComponentName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSubComponentInfo": {
+    "name": "bwSubComponentInfo",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwUpdateSoftwareVersionTable": {
+    "name": "bwUpdateSoftwareVersionTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reload": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSoftwareVersionTable": {
+    "name": "bwSoftwareVersionTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSoftwarePatchTable": {
+    "name": "bwSoftwarePatchTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyTable": {
+    "name": "bwSoftwareThirdPartyTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSoftwarePatchHistoryTable": {
+    "name": "bwSoftwarePatchHistoryTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSoftwarePatchImpactedFileTable": {
+    "name": "bwSoftwarePatchImpactedFileTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSoftwareVersionEntry": {
+    "name": "bwSoftwareVersionEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSoftwareVersionIndex": {
+    "name": "bwSoftwareVersionIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareVersionName": {
+    "name": "bwSoftwareVersionName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareVersionInstallDate": {
+    "name": "bwSoftwareVersionInstallDate",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareVersionStatus": {
+    "name": "bwSoftwareVersionStatus",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchEntry": {
+    "name": "bwSoftwarePatchEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSoftwarePatchIndex": {
+    "name": "bwSoftwarePatchIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchVersionName": {
+    "name": "bwSoftwarePatchVersionName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bwSoftwarePatchName": {
+    "name": "bwSoftwarePatchName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchType": {
+    "name": "bwSoftwarePatchType",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bwSoftwarePatchInstallDate": {
+    "name": "bwSoftwarePatchInstallDate",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bwSoftwarePatchState": {
+    "name": "bwSoftwarePatchState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 0,
+          "active": 1,
+          "installedPendingActive": 2,
+          "activePendingInstalled": 3,
+          "deleted": 4,
+          "installedMissingDependencies": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchOperation": {
+    "name": "bwSoftwarePatchOperation",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "apply": 1,
+          "remove": 2,
+          "delete": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "bwSoftwarePatchBundle": {
+    "name": "bwSoftwarePatchBundle",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyEntry": {
+    "name": "bwSoftwareThirdPartyEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyIndex": {
+    "name": "bwSoftwareThirdPartyIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyName": {
+    "name": "bwSoftwareThirdPartyName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyVersion": {
+    "name": "bwSoftwareThirdPartyVersion",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwareThirdPartyStatus": {
+    "name": "bwSoftwareThirdPartyStatus",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchHistoryEntry": {
+    "name": "bwSoftwarePatchHistoryEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSoftwarePatchHistoryIndex": {
+    "name": "bwSoftwarePatchHistoryIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchHistPatchName": {
+    "name": "bwSoftwarePatchHistPatchName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchHistTimeStamp": {
+    "name": "bwSoftwarePatchHistTimeStamp",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchHistNewState": {
+    "name": "bwSoftwarePatchHistNewState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 0,
+          "active": 1,
+          "installedPendingActive": 2,
+          "activePendingInstalled": 3,
+          "deleted": 4,
+          "installedMissingDependencies": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchImpactedFileEntry": {
+    "name": "bwSoftwarePatchImpactedFileEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSoftwarePatchImpactedFileIndex": {
+    "name": "bwSoftwarePatchImpactedFileIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchImpactedFilePatchName": {
+    "name": "bwSoftwarePatchImpactedFilePatchName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSoftwarePatchImpactedFileFileName": {
+    "name": "bwSoftwarePatchImpactedFileFileName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwManagedObjectsTable": {
+    "name": "bwManagedObjectsTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwManagedObjectsEntry": {
+    "name": "bwManagedObjectsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwManagedObjectsIndex": {
+    "name": "bwManagedObjectsIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwManagedObjectsName": {
+    "name": "bwManagedObjectsName",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwManagedObjectsProtocol": {
+    "name": "bwManagedObjectsProtocol",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwManagedObjectsType": {
+    "name": "bwManagedObjectsType",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwManagedObjectsAdminState": {
+    "name": "bwManagedObjectsAdminState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lock": 0,
+          "locking": 1,
+          "unlock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwManagedObjectsOperationalState": {
+    "name": "bwManagedObjectsOperationalState",
+    "oid": "1.3.6.1.4.1.6431.1.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwCounterThresholdTable": {
+    "name": "bwCounterThresholdTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwCounterThresholdEntry": {
+    "name": "bwCounterThresholdEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwCounterThresholdIndex": {
+    "name": "bwCounterThresholdIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwCounterThresholdDescription": {
+    "name": "bwCounterThresholdDescription",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCounterThresholdName": {
+    "name": "bwCounterThresholdName",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCounterThresholdInitialValue": {
+    "name": "bwCounterThresholdInitialValue",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCounterThresholdOffsetValue": {
+    "name": "bwCounterThresholdOffsetValue",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCounterThresholdCurrentValue": {
+    "name": "bwCounterThresholdCurrentValue",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwCounterThresholdSeverity": {
+    "name": "bwCounterThresholdSeverity",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCounterThresholdControl": {
+    "name": "bwCounterThresholdControl",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1,
+          "delete": 2,
+          "create": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdTable": {
+    "name": "bwGaugeThresholdTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwGaugeThresholdEntry": {
+    "name": "bwGaugeThresholdEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwGaugeThresholdIndex": {
+    "name": "bwGaugeThresholdIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwGaugeThresholdDescription": {
+    "name": "bwGaugeThresholdDescription",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdName": {
+    "name": "bwGaugeThresholdName",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdNotifyLow": {
+    "name": "bwGaugeThresholdNotifyLow",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdNotifyHigh": {
+    "name": "bwGaugeThresholdNotifyHigh",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdSeverity": {
+    "name": "bwGaugeThresholdSeverity",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwGaugeThresholdControl": {
+    "name": "bwGaugeThresholdControl",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1,
+          "delete": 2,
+          "create": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdTable": {
+    "name": "bwAlarmThresholdTable",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwAlarmThresholdEntry": {
+    "name": "bwAlarmThresholdEntry",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwAlarmThresholdIndex": {
+    "name": "bwAlarmThresholdIndex",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwAlarmThresholdName": {
+    "name": "bwAlarmThresholdName",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdMaxNumTrapsPerTimePeriod": {
+    "name": "bwAlarmThresholdMaxNumTrapsPerTimePeriod",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdTimePeriodInSeconds": {
+    "name": "bwAlarmThresholdTimePeriodInSeconds",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdProblemTextVarNum1": {
+    "name": "bwAlarmThresholdProblemTextVarNum1",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdProblemTextVarNum2": {
+    "name": "bwAlarmThresholdProblemTextVarNum2",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdProblemTextVarNum3": {
+    "name": "bwAlarmThresholdProblemTextVarNum3",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdProblemTextVarNum4": {
+    "name": "bwAlarmThresholdProblemTextVarNum4",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdProblemTextVarNum5": {
+    "name": "bwAlarmThresholdProblemTextVarNum5",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdMinimumSeverity": {
+    "name": "bwAlarmThresholdMinimumSeverity",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwAlarmThresholdControl": {
+    "name": "bwAlarmThresholdControl",
+    "oid": "1.3.6.1.4.1.6431.1.1.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1,
+          "delete": 2,
+          "create": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwReservedScalar": {
+    "name": "bwReservedScalar",
+    "oid": "1.3.6.1.4.1.6431.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notUsed": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwMtcMibGroups": {
+    "name": "bwMtcMibGroups",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1",
+    "class": "objectidentity"
+  },
+  "bwMtcMibCompliancy": {
+    "name": "bwMtcMibCompliancy",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.2",
+    "class": "objectidentity"
+  },
+  "bwMoServerGroup": {
+    "name": "bwMoServerGroup",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwServerType"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwRedundancyType"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwActiveSoftwareVersion"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAdminState"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwOperationalState"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwResetServer"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSubComponentTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwTargetSoftwareVersion"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSubComponentIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSubComponentName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSubComponentInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMoSoftwareVersionsGroup": {
+    "name": "bwMoSoftwareVersionsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwUpdateSoftwareVersionTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionInstallDate"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareVersionStatus"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchInstallDate"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchState"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchBundle"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyVersion"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwareThirdPartyStatus"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchHistoryTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchHistoryIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchHistPatchName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchHistTimeStamp"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchHistNewState"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchImpactedFileTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchImpactedFileIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchImpactedFilePatchName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwSoftwarePatchImpactedFileFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMoDeviceGroup": {
+    "name": "bwMoDeviceGroup",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsProtocol"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsType"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsAdminState"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwManagedObjectsOperationalState"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMoThresholdsGroup": {
+    "name": "bwMoThresholdsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdDescription"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdInitialValue"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdOffsetValue"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdCurrentValue"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdSeverity"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwCounterThresholdControl"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdDescription"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdNotifyLow"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdNotifyHigh"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdSeverity"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwGaugeThresholdControl"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdTable"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdIndex"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdName"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdMaxNumTrapsPerTimePeriod"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdTimePeriodInSeconds"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdProblemTextVarNum1"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdProblemTextVarNum2"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdProblemTextVarNum3"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdProblemTextVarNum4"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdProblemTextVarNum5"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdMinimumSeverity"
+      },
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwAlarmThresholdControl"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMoReserveGroup": {
+    "name": "bwMoReserveGroup",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BroadworksMaintenance",
+        "object": "bwReservedScalar"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMoBasicCompliance": {
+    "name": "bwMoBasicCompliance",
+    "oid": "1.3.6.1.4.1.6431.1.1.20.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bwMoServerGroup",
+        "module": "BroadworksMaintenance"
+      },
+      {
+        "object": "bwMoSoftwareVersionsGroup",
+        "module": "BroadworksMaintenance"
+      },
+      {
+        "object": "bwMoDeviceGroup",
+        "module": "BroadworksMaintenance"
+      },
+      {
+        "object": "bwMoThresholdsGroup",
+        "module": "BroadworksMaintenance"
+      },
+      {
+        "object": "bwMoReserveGroup",
+        "module": "BroadworksMaintenance"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BroadworksMaintenance",
+      "Source digest sha256:8cd389f63fbb72d87f436f5182e7063eb2966a8b9a0858ae067a54bff4b0d60d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BroadworksMaintenance"
+  }
+}

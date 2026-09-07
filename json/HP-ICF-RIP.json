@@ -1,0 +1,408 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipRouteProtocol"
+    ],
+    "RIPv2-MIB": [
+      "rip2IfConfEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfRip": {
+    "name": "hpicfRip",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-05-13 02:17",
+        "description": "Added an object for configuring a default administrative distance for RIP routes."
+      },
+      {
+        "revision": "2001-11-13 03:39",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfRipObjects": {
+    "name": "hpicfRipObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipGeneral": {
+    "name": "hpicfRipGeneral",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipAdminStatus": {
+    "name": "hpicfRipAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipDefaultMetric": {
+    "name": "hpicfRipDefaultMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipAutoSummary": {
+    "name": "hpicfRipAutoSummary",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipDistance": {
+    "name": "hpicfRipDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipIfConfTable": {
+    "name": "hpicfRipIfConfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipIfConfEntry": {
+    "name": "hpicfRipIfConfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfRipIfConfEntry",
+      "module": "HP-ICF-RIP",
+      "object": "rip2IfConfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfRipIfConfDoPoison": {
+    "name": "hpicfRipIfConfDoPoison",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipIfConfCost": {
+    "name": "hpicfRipIfConfCost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipRedistTable": {
+    "name": "hpicfRipRedistTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipRedistEntry": {
+    "name": "hpicfRipRedistEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipRedistSrcProto",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipRedistSrcProto": {
+    "name": "hpicfRipRedistSrcProto",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipRedistEnabled": {
+    "name": "hpicfRipRedistEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipRedistRestrictTable": {
+    "name": "hpicfRipRedistRestrictTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipRedistRestrictEntry": {
+    "name": "hpicfRipRedistRestrictEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipRedistRestrictAddr",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipRedistRestrictMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipRedistRestrictAddr": {
+    "name": "hpicfRipRedistRestrictAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipRedistRestrictMask": {
+    "name": "hpicfRipRedistRestrictMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipRedistRestrictStatus": {
+    "name": "hpicfRipRedistRestrictStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipConformance": {
+    "name": "hpicfRipConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2",
+    "class": "objectidentity"
+  },
+  "hpicfRipGroups": {
+    "name": "hpicfRipGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipBaseGroup": {
+    "name": "hpicfRipBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipAdminStatus"
+      },
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipDefaultMetric"
+      },
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipAutoSummary"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipIfGroup": {
+    "name": "hpicfRipIfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipIfConfDoPoison"
+      },
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipIfConfCost"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipRedistGroup": {
+    "name": "hpicfRipRedistGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipRedistEnabled"
+      },
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipRedistRestrictStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipDistanceGroup": {
+    "name": "hpicfRipDistanceGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIP",
+        "object": "hpicfRipDistance"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipCompliances": {
+    "name": "hpicfRipCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfRipCompliance": {
+    "name": "hpicfRipCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.13.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRipBaseGroup",
+        "module": "HP-ICF-RIP"
+      },
+      {
+        "object": "hpicfRipIfGroup",
+        "module": "HP-ICF-RIP"
+      },
+      {
+        "object": "hpicfRipRedistGroup",
+        "module": "HP-ICF-RIP"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-RIP",
+      "Source digest sha256:7db250057aa061d34757fbf7603d06ac66c3fce3c16e8a0cc10a99d5bf25dea5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-RIP"
+  }
+}

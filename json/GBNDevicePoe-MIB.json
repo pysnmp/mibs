@@ -1,0 +1,408 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnDevice"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gbnDevicePoe": {
+    "name": "gbnDevicePoe",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1900-11-02 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "poePowerSupplyTable": {
+    "name": "poePowerSupplyTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poePowerSupplyEntry": {
+    "name": "poePowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDevicePoe-MIB",
+        "object": "powerindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerindex": {
+    "name": "powerindex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeVersion": {
+    "name": "poeVersion",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerstatus": {
+    "name": "powerstatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeDevicePowerLimit": {
+    "name": "poeDevicePowerLimit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 37,
+            "max": 806
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeDevicePowerConsume": {
+    "name": "poeDevicePowerConsume",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poePortTable": {
+    "name": "poePortTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poePortEntry": {
+    "name": "poePortEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDevicePoe-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerlimit": {
+    "name": "powerlimit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerConsume": {
+    "name": "powerConsume",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poePdPortTable": {
+    "name": "poePdPortTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poePdPortEntry": {
+    "name": "poePdPortEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDevicePoe-MIB",
+        "object": "portPdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portPdIndex": {
+    "name": "portPdIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portPoePdEnable": {
+    "name": "portPoePdEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portPoePdConfig": {
+    "name": "portPoePdConfig",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeFanControlTable": {
+    "name": "poeFanControlTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poeFanControlEntry": {
+    "name": "poeFanControlEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDevicePoe-MIB",
+        "object": "poeFandefault",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "poeFandefault": {
+    "name": "poeFandefault",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "user-defined": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeFanlowVaule": {
+    "name": "poeFanlowVaule",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeFanmiddleVaule": {
+    "name": "poeFanmiddleVaule",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 26,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeFanhighVaule": {
+    "name": "poeFanhighVaule",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 61,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeFanModeSet": {
+    "name": "poeFanModeSet",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "user-defined": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "poeFan1Speed": {
+    "name": "poeFan1Speed",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeFan2Speed": {
+    "name": "poeFan2Speed",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeTemperature": {
+    "name": "poeTemperature",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNDevicePoe-MIB",
+      "Source digest sha256:34e06b83b6d7beadeb8389633d23954ebf901c5eadbc266082c223899cd53035",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNDevicePoe-MIB"
+  }
+}

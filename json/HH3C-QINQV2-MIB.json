@@ -1,0 +1,197 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hh3cQinQv2": {
+    "name": "hh3cQinQv2",
+    "oid": "1.3.6.1.4.1.25506.2.137",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-08 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "hh3cQinQv2MibObject": {
+    "name": "hh3cQinQv2MibObject",
+    "oid": "1.3.6.1.4.1.25506.2.137.1",
+    "class": "objectidentity"
+  },
+  "hh3cQinQv2ScalarObjects": {
+    "name": "hh3cQinQv2ScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cQinQv2ServiceTPID": {
+    "name": "hh3cQinQv2ServiceTPID",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQv2CustomerTPID": {
+    "name": "hh3cQinQv2CustomerTPID",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQv2IfCfgTable": {
+    "name": "hh3cQinQv2IfCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQinQv2IfCfgEntry": {
+    "name": "hh3cQinQv2IfCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQinQv2IfState": {
+    "name": "hh3cQinQv2IfState",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQv2IfServiceTPID": {
+    "name": "hh3cQinQv2IfServiceTPID",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQv2IfCustomerTPID": {
+    "name": "hh3cQinQv2IfCustomerTPID",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQinQv2IfTransVlanList": {
+    "name": "hh3cQinQv2IfTransVlanList",
+    "oid": "1.3.6.1.4.1.25506.2.137.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-QINQV2-MIB",
+      "Source digest sha256:dfaaf396d3d15dc73bebe39466b5b78cbd34795f43ac1ae72f24f805fb24d32e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-QINQV2-MIB"
+  }
+}

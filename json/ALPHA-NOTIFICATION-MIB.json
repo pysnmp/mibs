@@ -1,0 +1,285 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALARM-MIB": [
+      "alarmActiveModelPointer",
+      "alarmActiveResourceId",
+      "alarmModelDescription"
+    ],
+    "ALPHA-RESOURCE-MIB": [
+      "alpha",
+      "componentListReference",
+      "componentListStaticName",
+      "controllerInfoName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alphaAlarmNotifications": {
+    "name": "alphaAlarmNotifications",
+    "oid": "1.3.6.1.4.1.7309.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-31 00:00",
+        "description": " Added alarmAdditionalInformation varbinds. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-07-28 00:00",
+        "description": " Updated to follow MIB structure conformance rules. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-07-23 00:00",
+        "description": "Fixed MIB syntax warnings."
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "General revision."
+      }
+    ]
+  },
+  "alphaAlarmNotificationsExtension": {
+    "name": "alphaAlarmNotificationsExtension",
+    "oid": "1.3.6.1.4.1.7309.101",
+    "class": "objectidentity"
+  },
+  "alphaAlarmActiveState": {
+    "name": "alphaAlarmActiveState",
+    "oid": "1.3.6.1.4.1.7309.100.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveModelPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveResourceId"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmPriority"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelDescription"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListStaticName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoName"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmCustomDescription"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmAdditionalInformation"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaAlarmClearState": {
+    "name": "alphaAlarmClearState",
+    "oid": "1.3.6.1.4.1.7309.100.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveModelPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveResourceId"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmPriority"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelDescription"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListStaticName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoName"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmCustomDescription"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmAdditionalInformation"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmSeverity": {
+    "name": "alarmSeverity",
+    "oid": "1.3.6.1.4.1.7309.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmCustomDescription": {
+    "name": "alarmCustomDescription",
+    "oid": "1.3.6.1.4.1.7309.101.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPriority": {
+    "name": "alarmPriority",
+    "oid": "1.3.6.1.4.1.7309.101.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmAdditionalInformation": {
+    "name": "alarmAdditionalInformation",
+    "oid": "1.3.6.1.4.1.7309.101.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alphaAlarmNotificationConformance": {
+    "name": "alphaAlarmNotificationConformance",
+    "oid": "1.3.6.1.4.1.7309.100.102",
+    "class": "objectidentity"
+  },
+  "alphaAlarmNotificationCompliances": {
+    "name": "alphaAlarmNotificationCompliances",
+    "oid": "1.3.6.1.4.1.7309.100.102.1",
+    "class": "objectidentity"
+  },
+  "alphaAlarmNotificationCompliance": {
+    "name": "alphaAlarmNotificationCompliance",
+    "oid": "1.3.6.1.4.1.7309.100.102.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alphaParameterGroup",
+        "module": "ALPHA-NOTIFICATION-MIB"
+      },
+      {
+        "object": "alphaNotificationsGroup",
+        "module": "ALPHA-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaAlarmNotificationGroups": {
+    "name": "alphaAlarmNotificationGroups",
+    "oid": "1.3.6.1.4.1.7309.100.102.1.2",
+    "class": "objectidentity"
+  },
+  "alphaParameterGroup": {
+    "name": "alphaParameterGroup",
+    "oid": "1.3.6.1.4.1.7309.100.102.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmCustomDescription"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmPriority"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alarmAdditionalInformation"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaNotificationsGroup": {
+    "name": "alphaNotificationsGroup",
+    "oid": "1.3.6.1.4.1.7309.100.102.1.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alphaAlarmActiveState"
+      },
+      {
+        "module": "ALPHA-NOTIFICATION-MIB",
+        "object": "alphaAlarmClearState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALPHA-NOTIFICATION-MIB",
+      "Source digest sha256:2aeb7c30fde74f490917194469b26d0f6474ac21670c69c5e66b7effb5cd524d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALPHA-NOTIFICATION-MIB"
+  }
+}

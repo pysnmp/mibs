@@ -1,0 +1,244 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ngWafStatusModule": {
+    "name": "ngWafStatusModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386",
+    "class": "moduleidentity"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1",
+    "class": "objectidentity"
+  },
+  "statusOperTable": {
+    "name": "statusOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusOperEntry": {
+    "name": "statusOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-NGWAF-STATUS-MIB",
+        "object": "statusOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statusOperSlotId": {
+    "name": "statusOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperNgwafVersion": {
+    "name": "statusOperNgwafVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListTable": {
+    "name": "statusOperPartitionListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusOperPartitionListEntry": {
+    "name": "statusOperPartitionListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-NGWAF-STATUS-MIB",
+        "object": "statusOperPartitionListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-NGWAF-STATUS-MIB",
+        "object": "statusOperPartitionListPartitionListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statusOperPartitionListSlotId": {
+    "name": "statusOperPartitionListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListPartitionListListId": {
+    "name": "statusOperPartitionListPartitionListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListPartitionName": {
+    "name": "statusOperPartitionListPartitionName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListStatus": {
+    "name": "statusOperPartitionListStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListAgentName": {
+    "name": "statusOperPartitionListAgentName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListAccessKeyId": {
+    "name": "statusOperPartitionListAccessKeyId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListSecretAccessKey": {
+    "name": "statusOperPartitionListSecretAccessKey",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListCpu": {
+    "name": "statusOperPartitionListCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListCacheEntries": {
+    "name": "statusOperPartitionListCacheEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPartitionListTrackedCustomSignal": {
+    "name": "statusOperPartitionListTrackedCustomSignal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.386.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-NGWAF-STATUS-MIB",
+      "Source digest sha256:a01e4a25f17193dbe3b626f8597a637aa8a5aa3870fcaf6baefe75d8446972eb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-NGWAF-STATUS-MIB"
+  }
+}

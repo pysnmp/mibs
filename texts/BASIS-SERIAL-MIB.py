@@ -1,0 +1,58 @@
+#
+# PySNMP MIB module BASIS-SERIAL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source BASIS-SERIAL-MIB
+# Source digest sha256:e4e33240f90575febcf5c5204f8da8f6d3ed63bb1e018b776650559951a328c6
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+basisLines, = mibBuilder.importSymbols("BASIS-MIB", "basisLines")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+basisSerialMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 69))
+basisSerialMIB.setRevisions(('2003-05-03 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: basisSerialMIB.setRevisionsDescriptions(('Initial version of the MIB.\n\n        The content of this MIB was originally available\n        in CISCO-WAN-AXIPOP-MIB defined using SMIv1.\n        The applicable objects from CISCO-WAN-AXIPOP-MIB\n        are defined using SMIv2 in this MIB. Also the\n        descriptions of some of the objects have been \n        modified.',))
+if mibBuilder.loadTexts: basisSerialMIB.setLastUpdated('2003-05-03 00:00')
+if mibBuilder.loadTexts: basisSerialMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: basisSerialMIB.setContactInfo('       Cisco Systems\n                        Customer Service\n\n                Postal: 170 W Tasman Drive\n                        San Jose, CA  95134\n                        USA\n\n                        Tel: +1 800 553-NETS\n\n                E-mail: cs-wanatm@cisco.com')
+if mibBuilder.loadTexts: basisSerialMIB.setDescription('The MIB module to configure serial ports\n        in Processor Module and different Service \n        Modules(cards) in MGX8850,MGX8250 and MGX8220\n        ATM Edge switches.')
+serialInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 4, 1))
+serialPortNumOfValidEntries = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialPortNumOfValidEntries.setStatus('current')
+if mibBuilder.loadTexts: serialPortNumOfValidEntries.setDescription('This object contains number of serial ports.\n        This identifies the number of entries in\n        serialInterfacetable.')
+serialInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: serialInterfaceTable.setStatus('current')
+if mibBuilder.loadTexts: serialInterfaceTable.setDescription('This table represents Physical serial interfaces in\n        the module.')
+serialInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "BASIS-SERIAL-MIB", "serialPortNum"))
+if mibBuilder.loadTexts: serialInterfaceEntry.setStatus('current')
+if mibBuilder.loadTexts: serialInterfaceEntry.setDescription('An entry for each serial interface. \n        Each entry contains information on\n        port type, port speed.')
+serialPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialPortNum.setStatus('current')
+if mibBuilder.loadTexts: serialPortNum.setDescription('This object identifies the serial port number.\n\n         The value 1 is used for Console Port.\n         The Console Port is also known as control port(CP).\n\n         The value 2 is used for Maintenance Port\n         and this can be used as SLIP\n         (Serial Line Internet Protocol) interface.\n         The Maintenance Port is also known as \n         Modem Port(MP).')
+serialPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("main", 1), ("debug", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialPortType.setStatus('current')
+if mibBuilder.loadTexts: serialPortType.setDescription('This object identifies the type of port.\n        \n        main(1)  : This is applicable for Maintenance Port\n        debug(2) : This is applicable for Console Port.')
+serialPortEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serialPortEnable.setStatus('current')
+if mibBuilder.loadTexts: serialPortEnable.setDescription('This object is used for enabling/disabling\n        serial port.')
+serialPortbps = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 4, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("bps9600", 1), ("bps2400", 2), ("bps19200", 3))).clone('bps9600')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serialPortbps.setStatus('current')
+if mibBuilder.loadTexts: serialPortbps.setDescription('This object identifies the baud rate of the ports.')
+basisSerialMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 69, 2))
+basisSerialMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 69, 2, 1))
+basisSerialMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 69, 2, 2))
+basisSerialCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 69, 2, 2, 1)).setObjects(("BASIS-SERIAL-MIB", "basisSerialConfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    basisSerialCompliance = basisSerialCompliance.setStatus('current')
+if mibBuilder.loadTexts: basisSerialCompliance.setDescription('The compliance statement for objects related\n        to Serial Ports.')
+basisSerialConfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 69, 2, 1, 1)).setObjects(("BASIS-SERIAL-MIB", "serialPortNumOfValidEntries"), ("BASIS-SERIAL-MIB", "serialPortNum"), ("BASIS-SERIAL-MIB", "serialPortType"), ("BASIS-SERIAL-MIB", "serialPortEnable"), ("BASIS-SERIAL-MIB", "serialPortbps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    basisSerialConfGroup = basisSerialConfGroup.setStatus('current')
+if mibBuilder.loadTexts: basisSerialConfGroup.setDescription('The collection of objects which are used to represent\n          serial ports.')
+mibBuilder.exportSymbols("BASIS-SERIAL-MIB", PYSNMP_MODULE_ID=basisSerialMIB, basisSerialCompliance=basisSerialCompliance, basisSerialConfGroup=basisSerialConfGroup, basisSerialMIB=basisSerialMIB, basisSerialMIBCompliances=basisSerialMIBCompliances, basisSerialMIBConformance=basisSerialMIBConformance, basisSerialMIBGroups=basisSerialMIBGroups, serialInterface=serialInterface, serialInterfaceEntry=serialInterfaceEntry, serialInterfaceTable=serialInterfaceTable, serialPortEnable=serialPortEnable, serialPortNum=serialPortNum, serialPortNumOfValidEntries=serialPortNumOfValidEntries, serialPortType=serialPortType, serialPortbps=serialPortbps)

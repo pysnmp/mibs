@@ -1,0 +1,166 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "routingIND1Vrf"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1VirtualRouterMIB": {
+    "name": "alcatelIND1VirtualRouterMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-17 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1VirtualRouterMIBObjects": {
+    "name": "alcatelIND1VirtualRouterMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1",
+    "class": "objectidentity"
+  },
+  "alaVirtualRouterConfig": {
+    "name": "alaVirtualRouterConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaVirtualRouterNameTable": {
+    "name": "alaVirtualRouterNameTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVirtualRouterNameEntry": {
+    "name": "alaVirtualRouterNameEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVirtualRouterName": {
+    "name": "alaVirtualRouterName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVirtualRouterNameIndex": {
+    "name": "alaVirtualRouterNameIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterNameRowStatus": {
+    "name": "alaVirtualRouterNameRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1VirtualRouterMIBConformance": {
+    "name": "alcatelIND1VirtualRouterMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1VirtualRouterMIBCompliances": {
+    "name": "alcatelIND1VirtualRouterMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1VirtualRouterMIBGroups": {
+    "name": "alcatelIND1VirtualRouterMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaVirtualRouterCompliance": {
+    "name": "alaVirtualRouterCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaVirtualRouterConfigMIBGroup",
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVirtualRouterConfigMIBGroup": {
+    "name": "alaVirtualRouterConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterNameIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterNameRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-VIRTUALROUTER-MIB",
+      "Source digest sha256:024773eb8e5006b5d00f87f38e2445f52ea79aa5cb2f3e5d656d993629d72765",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-VIRTUALROUTER-MIB"
+  }
+}

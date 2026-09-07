@@ -1,0 +1,189 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TPLINK-DDMMANAGE-MIB": [
+      "tplinkDdmManageMIBObjects"
+    ]
+  },
+  "ddmBiasCurThreshold": {
+    "name": "ddmBiasCurThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ddmBiasCurThresholdTable": {
+    "name": "ddmBiasCurThresholdTable",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdEntry": {
+    "name": "ddmBiasCurThresholdEntry",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ddmBiasCurThresholdPort": {
+    "name": "ddmBiasCurThresholdPort",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdHighAlarm": {
+    "name": "ddmBiasCurThresholdHighAlarm",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdLowAlarm": {
+    "name": "ddmBiasCurThresholdLowAlarm",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdHighWarn": {
+    "name": "ddmBiasCurThresholdHighWarn",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdLowWarn": {
+    "name": "ddmBiasCurThresholdLowWarn",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmBiasCurThresholdPortLAG": {
+    "name": "ddmBiasCurThresholdPortLAG",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TPLINK-DDMBIASCURTHRESHOLD-MIB",
+      "Source digest sha256:ffa48bd92b1171160c59338740da367adf76f63408a5e1b34424a2009ff5972c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TPLINK-DDMBIASCURTHRESHOLD-MIB"
+  }
+}

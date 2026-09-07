@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBridge"
+    ],
+    "HOST-RESOURCES-MIB": [
+      "hostResourcesMibModule"
+    ],
+    "IANAifType-MIB": [
+      "ianaifType"
+    ],
+    "IF-MIB": [
+      "ifMIB"
+    ],
+    "INET-ADDRESS-MIB": [
+      "inetAddressMIB"
+    ],
+    "IP-FORWARD-MIB": [
+      "ipForward"
+    ],
+    "IP-MIB": [
+      "ipMIB"
+    ],
+    "OPENBSD-BASE-MIB": [
+      "openBSD"
+    ],
+    "OPENBSD-CARP-MIB": [
+      "carpMIBObjects"
+    ],
+    "OPENBSD-MEM-MIB": [
+      "memMIBObjects"
+    ],
+    "OPENBSD-PF-MIB": [
+      "pfMIBObjects"
+    ],
+    "OPENBSD-SENSORS-MIB": [
+      "sensorsMIBObjects"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpMIB"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source OPENBSD-SNMPD-CONF",
+      "Source digest sha256:366005730dd2d36cedab0115cf77fe505340ede7bd3764623e7acdf9d0f3317a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "OPENBSD-SNMPD-CONF"
+  }
+}

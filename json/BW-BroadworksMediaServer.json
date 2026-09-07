@@ -1,0 +1,2308 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "broadsoft": {
+    "name": "broadsoft",
+    "oid": "1.3.6.1.4.1.6431",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-15 14:30",
+        "description": "Adding a MODULE-COMPLIANCE statement and OBJECT-GROUP definitions."
+      },
+      {
+        "revision": "2000-09-19 14:31",
+        "description": ""
+      }
+    ]
+  },
+  "broadworks": {
+    "name": "broadworks",
+    "oid": "1.3.6.1.4.1.6431.1",
+    "class": "objectidentity"
+  },
+  "mediaServer": {
+    "name": "mediaServer",
+    "oid": "1.3.6.1.4.1.6431.1.3",
+    "class": "objectidentity"
+  },
+  "mcp": {
+    "name": "mcp",
+    "oid": "1.3.6.1.4.1.6431.1.3.1",
+    "class": "objectidentity"
+  },
+  "rtp": {
+    "name": "rtp",
+    "oid": "1.3.6.1.4.1.6431.1.3.2",
+    "class": "objectidentity"
+  },
+  "smtp": {
+    "name": "smtp",
+    "oid": "1.3.6.1.4.1.6431.1.3.3",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.6431.1.3.4",
+    "class": "objectidentity"
+  },
+  "http": {
+    "name": "http",
+    "oid": "1.3.6.1.4.1.6431.1.3.5",
+    "class": "objectidentity"
+  },
+  "management": {
+    "name": "management",
+    "oid": "1.3.6.1.4.1.6431.1.3.6",
+    "class": "objectidentity"
+  },
+  "sip": {
+    "name": "sip",
+    "oid": "1.3.6.1.4.1.6431.1.3.7",
+    "class": "objectidentity"
+  },
+  "mscml": {
+    "name": "mscml",
+    "oid": "1.3.6.1.4.1.6431.1.3.8",
+    "class": "objectidentity"
+  },
+  "liveaudio": {
+    "name": "liveaudio",
+    "oid": "1.3.6.1.4.1.6431.1.3.9",
+    "class": "objectidentity"
+  },
+  "video": {
+    "name": "video",
+    "oid": "1.3.6.1.4.1.6431.1.3.10",
+    "class": "objectidentity"
+  },
+  "fax": {
+    "name": "fax",
+    "oid": "1.3.6.1.4.1.6431.1.3.11",
+    "class": "objectidentity"
+  },
+  "vxml": {
+    "name": "vxml",
+    "oid": "1.3.6.1.4.1.6431.1.3.12",
+    "class": "objectidentity"
+  },
+  "ccxml": {
+    "name": "ccxml",
+    "oid": "1.3.6.1.4.1.6431.1.3.13",
+    "class": "objectidentity"
+  },
+  "interfaces": {
+    "name": "interfaces",
+    "oid": "1.3.6.1.4.1.6431.1.3.14",
+    "class": "objectidentity"
+  },
+  "bwMsConformance": {
+    "name": "bwMsConformance",
+    "oid": "1.3.6.1.4.1.6431.1.3.20",
+    "class": "objectidentity"
+  },
+  "conferencing": {
+    "name": "conferencing",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "ivr": {
+    "name": "ivr",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "msPortsInUse": {
+    "name": "msPortsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msNoPortAvailableErrors": {
+    "name": "msNoPortAvailableErrors",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMCPNotificationsTransmitted": {
+    "name": "msMCPNotificationsTransmitted",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msMCPNotificationsRetransmitted": {
+    "name": "msMCPNotificationsRetransmitted",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msMCPCommandsReceived": {
+    "name": "msMCPCommandsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfAddParticipantFailed": {
+    "name": "msConfAddParticipantFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfAddParticipant": {
+    "name": "msConfAddParticipant",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfAllocateBridge": {
+    "name": "msConfAllocateBridge",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfAllocateBridgeFailed": {
+    "name": "msConfAllocateBridgeFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfRemoveParticipant": {
+    "name": "msConfRemoveParticipant",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfRemoveParticipantFailed": {
+    "name": "msConfRemoveParticipantFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfCurrentPortsInUse": {
+    "name": "msConfCurrentPortsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msConferenceCount": {
+    "name": "msConferenceCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msConfTotalDuration": {
+    "name": "msConfTotalDuration",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msConfUpdateParticipant": {
+    "name": "msConfUpdateParticipant",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msConfUpdateParticipantFailed": {
+    "name": "msConfUpdateParticipantFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrFreeAudioMemory": {
+    "name": "msIvrFreeAudioMemory",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msIvrAudioMemoryInUse": {
+    "name": "msIvrAudioMemoryInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msIvrCurrentPortsInUse": {
+    "name": "msIvrCurrentPortsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msIvrCreateConnection": {
+    "name": "msIvrCreateConnection",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrCreateConnectionFailed": {
+    "name": "msIvrCreateConnectionFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrUpdateConnection": {
+    "name": "msIvrUpdateConnection",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrUpdateConnectionFailed": {
+    "name": "msIvrUpdateConnectionFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlay": {
+    "name": "msIvrPlay",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlayFailed": {
+    "name": "msIvrPlayFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlayCollect": {
+    "name": "msIvrPlayCollect",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlayCollectFailed": {
+    "name": "msIvrPlayCollectFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlayRecord": {
+    "name": "msIvrPlayRecord",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrPlayRecordFailed": {
+    "name": "msIvrPlayRecordFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrSendEmail": {
+    "name": "msIvrSendEmail",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrSendEmailFailed": {
+    "name": "msIvrSendEmailFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrSessionCount": {
+    "name": "msIvrSessionCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msIvrTotalDuration": {
+    "name": "msIvrTotalDuration",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msIvrTotalRecordingDuration": {
+    "name": "msIvrTotalRecordingDuration",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrMerge": {
+    "name": "msIvrMerge",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrMergeFailed": {
+    "name": "msIvrMergeFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msIvrEmptyRecordings": {
+    "name": "msIvrEmptyRecordings",
+    "oid": "1.3.6.1.4.1.6431.1.3.1.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msRtpSessionsCount": {
+    "name": "msRtpSessionsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "receive": {
+    "name": "receive",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "transmit": {
+    "name": "transmit",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.3",
+    "class": "objectidentity"
+  },
+  "msRtpSessionsInUse": {
+    "name": "msRtpSessionsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtcpSenderReports": {
+    "name": "msRtcpSenderReports",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpPacketsExpected": {
+    "name": "msRtpPacketsExpected",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpPacketsReceived": {
+    "name": "msRtpPacketsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpOutOfOrder": {
+    "name": "msRtpOutOfOrder",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpBadPayload": {
+    "name": "msRtpBadPayload",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpSsrc": {
+    "name": "msRtpSsrc",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpReceivedPacketJitter": {
+    "name": "msRtpReceivedPacketJitter",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpCumulativePacketsLost": {
+    "name": "msRtpCumulativePacketsLost",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpPacketsSent": {
+    "name": "msRtpPacketsSent",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpFramesSkipped": {
+    "name": "msRtpFramesSkipped",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msRtpTransmitJitter": {
+    "name": "msRtpTransmitJitter",
+    "oid": "1.3.6.1.4.1.6431.1.3.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "primary": {
+    "name": "primary",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "secondary": {
+    "name": "secondary",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "msPrimaryEmailSent": {
+    "name": "msPrimaryEmailSent",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msPrimarySmtpErrors": {
+    "name": "msPrimarySmtpErrors",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSecondaryEmailSent": {
+    "name": "msSecondaryEmailSent",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSecondarySmtpErrors": {
+    "name": "msSecondarySmtpErrors",
+    "oid": "1.3.6.1.4.1.6431.1.3.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msAlarmsCount": {
+    "name": "msAlarmsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSoftwareErrorsCount": {
+    "name": "msSoftwareErrorsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msACLViolationCount": {
+    "name": "msACLViolationCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMaxCapacityInPorts": {
+    "name": "msMaxCapacityInPorts",
+    "oid": "1.3.6.1.4.1.6431.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msNumLicensedPorts": {
+    "name": "msNumLicensedPorts",
+    "oid": "1.3.6.1.4.1.6431.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsInviteIns": {
+    "name": "msSipStatsInviteIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsAckIns": {
+    "name": "msSipStatsAckIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsByeIns": {
+    "name": "msSipStatsByeIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsByeOuts": {
+    "name": "msSipStatsByeOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsInfoIns": {
+    "name": "msSipStatsInfoIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsInfoOuts": {
+    "name": "msSipStatsInfoOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsOthersIns": {
+    "name": "msSipStatsOthersIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsOthersOuts": {
+    "name": "msSipStatsOthersOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsResponsesIns": {
+    "name": "msSipStatsResponsesIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsResponsesOuts": {
+    "name": "msSipStatsResponsesOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsInvite200OKRetransmitsOuts": {
+    "name": "msSipStatsInvite200OKRetransmitsOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsRequestRetransmittedIns": {
+    "name": "msSipStatsRequestRetransmittedIns",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msSipStatsReferOuts": {
+    "name": "msSipStatsReferOuts",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msRedirectsCount": {
+    "name": "msRedirectsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msTimeOutRouteAdvancesCount": {
+    "name": "msTimeOutRouteAdvancesCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msRouteAdvancesCount": {
+    "name": "msRouteAdvancesCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLPlayCollect": {
+    "name": "msMSCMLPlayCollect",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLPlayCollectFailed": {
+    "name": "msMSCMLPlayCollectFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLPlay": {
+    "name": "msMSCMLPlay",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLPlayFailed": {
+    "name": "msMSCMLPlayFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLPlayRecord": {
+    "name": "msMSCMLPlayRecord",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLRecordFailed": {
+    "name": "msMSCMLRecordFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLSendMail": {
+    "name": "msMSCMLSendMail",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLSendMailFailed": {
+    "name": "msMSCMLSendMailFailed",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLTotalRecordingDuration": {
+    "name": "msMSCMLTotalRecordingDuration",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMSCMLEmptyRecordings": {
+    "name": "msMSCMLEmptyRecordings",
+    "oid": "1.3.6.1.4.1.6431.1.3.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFilesDownloaded": {
+    "name": "msFilesDownloaded",
+    "oid": "1.3.6.1.4.1.6431.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msTotalSizeDownloadedFiles": {
+    "name": "msTotalSizeDownloadedFiles",
+    "oid": "1.3.6.1.4.1.6431.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFilesRetrievedFromCache": {
+    "name": "msFilesRetrievedFromCache",
+    "oid": "1.3.6.1.4.1.6431.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msLiveAudioRequestCount": {
+    "name": "msLiveAudioRequestCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msLiveAudioFailureCount": {
+    "name": "msLiveAudioFailureCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msLiveAudioTotalDuration": {
+    "name": "msLiveAudioTotalDuration",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "msLiveAudioULawUserCount": {
+    "name": "msLiveAudioULawUserCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msLiveAudioALawUserCount": {
+    "name": "msLiveAudioALawUserCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msLiveAudioG726UserCount": {
+    "name": "msLiveAudioG726UserCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msLiveAudioG729UserCount": {
+    "name": "msLiveAudioG729UserCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "msVideoRecorded": {
+    "name": "msVideoRecorded",
+    "oid": "1.3.6.1.4.1.6431.1.3.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msVideoPlayback": {
+    "name": "msVideoPlayback",
+    "oid": "1.3.6.1.4.1.6431.1.3.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFaxReceived": {
+    "name": "msFaxReceived",
+    "oid": "1.3.6.1.4.1.6431.1.3.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFaxReceptionFailure": {
+    "name": "msFaxReceptionFailure",
+    "oid": "1.3.6.1.4.1.6431.1.3.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFaxPrinted": {
+    "name": "msFaxPrinted",
+    "oid": "1.3.6.1.4.1.6431.1.3.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msFaxPrintingFailure": {
+    "name": "msFaxPrintingFailure",
+    "oid": "1.3.6.1.4.1.6431.1.3.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msVoiceXMLErrorCount": {
+    "name": "msVoiceXMLErrorCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msVoiceXMLFilesDownloaded": {
+    "name": "msVoiceXMLFilesDownloaded",
+    "oid": "1.3.6.1.4.1.6431.1.3.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msCallControlXMLSessionCount": {
+    "name": "msCallControlXMLSessionCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msCallControlXMLCreateCallCount": {
+    "name": "msCallControlXMLCreateCallCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msCallControlXMLDialogCount": {
+    "name": "msCallControlXMLDialogCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msCallControlXMLConfCount": {
+    "name": "msCallControlXMLConfCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resetAllMSCounters": {
+    "name": "resetAllMSCounters",
+    "oid": "1.3.6.1.4.1.6431.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mrcp": {
+    "name": "mrcp",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1",
+    "class": "objectidentity"
+  },
+  "msMrcpAsrSessionsCount": {
+    "name": "msMrcpAsrSessionsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpAsrSessionsInUse": {
+    "name": "msMrcpAsrSessionsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpTtsSessionsCount": {
+    "name": "msMrcpTtsSessionsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpTtsSessionsInUse": {
+    "name": "msMrcpTtsSessionsInUse",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpRecognitionAttemptsCount": {
+    "name": "msMrcpRecognitionAttemptsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpSuccessfulRecognitionsCount": {
+    "name": "msMrcpSuccessfulRecognitionsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpRequestsCount": {
+    "name": "msMrcpRequestsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpFailedRequestsCount": {
+    "name": "msMrcpFailedRequestsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpFailedConnectionsCount": {
+    "name": "msMrcpFailedConnectionsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpKeepAliveFailuresCount": {
+    "name": "msMrcpKeepAliveFailuresCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpSpeakRequestsCount": {
+    "name": "msMrcpSpeakRequestsCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msMrcpSpeakRequestFailuresCount": {
+    "name": "msMrcpSpeakRequestFailuresCount",
+    "oid": "1.3.6.1.4.1.6431.1.3.14.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwMSGroups": {
+    "name": "bwMSGroups",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1",
+    "class": "objectidentity"
+  },
+  "bwMSCompliancy": {
+    "name": "bwMSCompliancy",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.2",
+    "class": "objectidentity"
+  },
+  "bwMSGroupMCP": {
+    "name": "bwMSGroupMCP",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msPortsInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msNoPortAvailableErrors"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMCPNotificationsTransmitted"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMCPNotificationsRetransmitted"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMCPCommandsReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupMCPConferencing": {
+    "name": "bwMSGroupMCPConferencing",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfAddParticipantFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfAddParticipant"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfAllocateBridge"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfAllocateBridgeFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfRemoveParticipant"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfRemoveParticipantFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfCurrentPortsInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConferenceCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfTotalDuration"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfUpdateParticipant"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msConfUpdateParticipantFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupMCPIVR": {
+    "name": "bwMSGroupMCPIVR",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrFreeAudioMemory"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrAudioMemoryInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrCurrentPortsInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrCreateConnection"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrCreateConnectionFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrUpdateConnection"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrUpdateConnectionFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlay"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlayFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlayCollect"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlayCollectFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlayRecord"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrPlayRecordFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrSendEmail"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrSendEmailFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrSessionCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrTotalDuration"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrTotalRecordingDuration"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrMerge"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrMergeFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msIvrEmptyRecordings"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupRTP": {
+    "name": "bwMSGroupRTP",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtcpSenderReports"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpPacketsExpected"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpPacketsReceived"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpOutOfOrder"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpBadPayload"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpSsrc"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpReceivedPacketJitter"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpCumulativePacketsLost"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpPacketsSent"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpFramesSkipped"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpTransmitJitter"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpSessionsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRtpSessionsInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupSMTP": {
+    "name": "bwMSGroupSMTP",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msPrimaryEmailSent"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msPrimarySmtpErrors"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSecondaryEmailSent"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSecondarySmtpErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupSystem": {
+    "name": "bwMSGroupSystem",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msAlarmsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSoftwareErrorsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msACLViolationCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMaxCapacityInPorts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msNumLicensedPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupHTTP": {
+    "name": "bwMSGroupHTTP",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFilesDownloaded"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msTotalSizeDownloadedFiles"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFilesRetrievedFromCache"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupManagement": {
+    "name": "bwMSGroupManagement",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "resetAllMSCounters"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupSIP": {
+    "name": "bwMSGroupSIP",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsInviteIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsAckIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsByeIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsByeOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsInfoIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsInfoOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsOthersIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsOthersOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsResponsesIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsResponsesOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsInvite200OKRetransmitsOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsRequestRetransmittedIns"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msSipStatsReferOuts"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRedirectsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msTimeOutRouteAdvancesCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msRouteAdvancesCount"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupMSCML": {
+    "name": "bwMSGroupMSCML",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLPlayCollect"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLPlayCollectFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLPlay"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLPlayFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLPlayRecord"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLRecordFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLSendMail"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLSendMailFailed"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLTotalRecordingDuration"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMSCMLEmptyRecordings"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupLiveAudio": {
+    "name": "bwMSGroupLiveAudio",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioRequestCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioFailureCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioTotalDuration"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioULawUserCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioALawUserCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioG726UserCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msLiveAudioG729UserCount"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupVideo": {
+    "name": "bwMSGroupVideo",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msVideoRecorded"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msVideoPlayback"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupFax": {
+    "name": "bwMSGroupFax",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFaxReceived"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFaxReceptionFailure"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFaxPrinted"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msFaxPrintingFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupVxml": {
+    "name": "bwMSGroupVxml",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msVoiceXMLErrorCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msVoiceXMLFilesDownloaded"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupCcxml": {
+    "name": "bwMSGroupCcxml",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msCallControlXMLSessionCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msCallControlXMLCreateCallCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msCallControlXMLDialogCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msCallControlXMLConfCount"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMSGroupMrcp": {
+    "name": "bwMSGroupMrcp",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msCallControlXMLConfCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpAsrSessionsInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpTtsSessionsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpTtsSessionsInUse"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpRecognitionAttemptsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpSuccessfulRecognitionsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpRequestsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpFailedRequestsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpFailedConnectionsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpKeepAliveFailuresCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpSpeakRequestsCount"
+      },
+      {
+        "module": "BW-BroadworksMediaServer",
+        "object": "msMrcpSpeakRequestFailuresCount"
+      }
+    ],
+    "status": "current"
+  },
+  "bwMsBasicCompliance": {
+    "name": "bwMsBasicCompliance",
+    "oid": "1.3.6.1.4.1.6431.1.3.20.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bwMSGroupMCP",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupMCPConferencing",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupMCPIVR",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupRTP",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupSMTP",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupSystem",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupHTTP",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupManagement",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupSIP",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupMSCML",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupLiveAudio",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupVideo",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupFax",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupVxml",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupCcxml",
+        "module": "BW-BroadworksMediaServer"
+      },
+      {
+        "object": "bwMSGroupMrcp",
+        "module": "BW-BroadworksMediaServer"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BW-BroadworksMediaServer",
+      "Source digest sha256:b659a88c6fbf5640432c4879d4aee18cf6aff9c1c2d202d35d36d9a07aa77d70",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BW-BroadworksMediaServer"
+  }
+}

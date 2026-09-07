@@ -1,0 +1,79 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-ATM-MIB": [
+      "begemotAtmIfEntry",
+      "begemotAtmSysGroup"
+    ],
+    "BEGEMOT-NETGRAPH-MIB": [
+      "NgNodeIdOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "begemotAtmFreeBSDGroup": {
+    "name": "begemotAtmFreeBSDGroup",
+    "oid": "1.3.6.1.4.1.12325.1.101.1.4.1",
+    "class": "moduleidentity"
+  },
+  "begemotAtmNgGroup": {
+    "name": "begemotAtmNgGroup",
+    "oid": "1.3.6.1.4.1.12325.1.101.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "begemotAtmNgIfTable": {
+    "name": "begemotAtmNgIfTable",
+    "oid": "1.3.6.1.4.1.12325.1.101.1.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotAtmNgIfEntry": {
+    "name": "begemotAtmNgIfEntry",
+    "oid": "1.3.6.1.4.1.12325.1.101.1.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "begemotAtmNgIfEntry",
+      "module": "BEGEMOT-ATM-FREEBSD-MIB",
+      "object": "begemotAtmIfEntry"
+    },
+    "status": "current"
+  },
+  "begemotAtmNgIfNodeId": {
+    "name": "begemotAtmNgIfNodeId",
+    "oid": "1.3.6.1.4.1.12325.1.101.1.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BEGEMOT-ATM-FREEBSD-MIB",
+      "Source digest sha256:29c143c94f78f487de272c62bf9b54736ae0e37b224ef703f9d42cb44b01b282",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BEGEMOT-ATM-FREEBSD-MIB"
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoworks"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cwLogMIB": {
+    "name": "cwLogMIB",
+    "oid": "1.3.6.1.4.1.9.14.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-18 00:00",
+        "description": "Updated for SNMPv2 and for publishing."
+      },
+      {
+        "revision": "1995-04-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cwLog": {
+    "name": "cwLog",
+    "oid": "1.3.6.1.4.1.9.14.1.1",
+    "class": "objectidentity"
+  },
+  "cwTrapsPrefix": {
+    "name": "cwTrapsPrefix",
+    "oid": "1.3.6.1.4.1.9.14.1.2",
+    "class": "objectidentity"
+  },
+  "cwMIBConform": {
+    "name": "cwMIBConform",
+    "oid": "1.3.6.1.4.1.9.14.1.3",
+    "class": "objectidentity"
+  },
+  "cwLogDate": {
+    "name": "cwLogDate",
+    "oid": "1.3.6.1.4.1.9.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwLogSource": {
+    "name": "cwLogSource",
+    "oid": "1.3.6.1.4.1.9.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ciscoworks": 2,
+          "device": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwLogApp": {
+    "name": "cwLogApp",
+    "oid": "1.3.6.1.4.1.9.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwLogMsg": {
+    "name": "cwLogMsg",
+    "oid": "1.3.6.1.4.1.9.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwTraps": {
+    "name": "cwTraps",
+    "oid": "1.3.6.1.4.1.9.14.1.2.0",
+    "class": "objectidentity"
+  },
+  "cwAppLogTrap": {
+    "name": "cwAppLogTrap",
+    "oid": "1.3.6.1.4.1.9.14.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogDate"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogSource"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogApp"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "cwDevLogTrap": {
+    "name": "cwDevLogTrap",
+    "oid": "1.3.6.1.4.1.9.14.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogDate"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogSource"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCwMIBCompliances": {
+    "name": "ciscoCwMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.14.1.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCwMIBGroups": {
+    "name": "ciscoCwMIBGroups",
+    "oid": "1.3.6.1.4.1.9.14.1.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoCwMIBCompliance": {
+    "name": "ciscoCwMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.14.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCwObjectsGroup",
+        "module": "CISCOWORKS-MIB"
+      },
+      {
+        "object": "ciscoCwNotificationsGroup",
+        "module": "CISCOWORKS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCwObjectsGroup": {
+    "name": "ciscoCwObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.14.1.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogDate"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogSource"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogApp"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwLogMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCwNotificationsGroup": {
+    "name": "ciscoCwNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.14.1.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwAppLogTrap"
+      },
+      {
+        "module": "CISCOWORKS-MIB",
+        "object": "cwDevLogTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOWORKS-MIB",
+      "Source digest sha256:b20a8a808fdfc6215995fb77d605fe738a5d8dcb0b785f65617d736b839fa605",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOWORKS-MIB"
+  }
+}

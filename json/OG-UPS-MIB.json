@@ -1,0 +1,215 @@
+{
+  "imports": {
+    "class": "imports",
+    "OG-SMI-MIB": [
+      "ogMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ogNetUpsMib": {
+    "name": "ogNetUpsMib",
+    "oid": "1.3.6.1.4.1.25049.10.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-11 00:00",
+        "description": "Renamed from OPENGEAR-UPS-MIB to OG-UPS-MIB to fix naming discrepancy."
+      },
+      {
+        "revision": "2010-03-22 11:27",
+        "description": "Syntax corrections by Opengear Inc."
+      },
+      {
+        "revision": "2008-06-13 11:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ogNetUpsMibObjects": {
+    "name": "ogNetUpsMibObjects",
+    "oid": "1.3.6.1.4.1.25049.10.16.10",
+    "class": "objectidentity"
+  },
+  "ognupsEvent": {
+    "name": "ognupsEvent",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1",
+    "class": "objectidentity"
+  },
+  "ognupsEventTable": {
+    "name": "ognupsEventTable",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ognupsEventEntry": {
+    "name": "ognupsEventEntry",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ognupsEventIndex": {
+    "name": "ognupsEventIndex",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ognupsEventName": {
+    "name": "ognupsEventName",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ognupsEventType": {
+    "name": "ognupsEventType",
+    "oid": "1.3.6.1.4.1.25049.10.16.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ogNetUpsMibNotificationPrefix": {
+    "name": "ogNetUpsMibNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25049.10.16.2",
+    "class": "objectidentity"
+  },
+  "ognupsMibNotifications": {
+    "name": "ognupsMibNotifications",
+    "oid": "1.3.6.1.4.1.25049.10.16.2.0",
+    "class": "objectidentity"
+  },
+  "ognupsEventOccurred": {
+    "name": "ognupsEventOccurred",
+    "oid": "1.3.6.1.4.1.25049.10.16.2.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventName"
+      },
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventType"
+      }
+    ],
+    "status": "current"
+  },
+  "ogNetUpsMibConformance": {
+    "name": "ogNetUpsMibConformance",
+    "oid": "1.3.6.1.4.1.25049.10.16.3",
+    "class": "objectidentity"
+  },
+  "ogNetUpsMibCompliances": {
+    "name": "ogNetUpsMibCompliances",
+    "oid": "1.3.6.1.4.1.25049.10.16.3.1",
+    "class": "objectidentity"
+  },
+  "ogNetUpsMibGroups": {
+    "name": "ogNetUpsMibGroups",
+    "oid": "1.3.6.1.4.1.25049.10.16.3.2",
+    "class": "objectidentity"
+  },
+  "ogNetUpsMibCompliance": {
+    "name": "ogNetUpsMibCompliance",
+    "oid": "1.3.6.1.4.1.25049.10.16.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ogNetUpsMibGroup",
+        "module": "OG-UPS-MIB"
+      },
+      {
+        "object": "ognupsNotificationsGroup",
+        "module": "OG-UPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ogNetUpsMibGroup": {
+    "name": "ogNetUpsMibGroup",
+    "oid": "1.3.6.1.4.1.25049.10.16.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventName"
+      },
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventType"
+      }
+    ],
+    "status": "current"
+  },
+  "ognupsNotificationsGroup": {
+    "name": "ognupsNotificationsGroup",
+    "oid": "1.3.6.1.4.1.25049.10.16.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "OG-UPS-MIB",
+        "object": "ognupsEventOccurred"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source OG-UPS-MIB",
+      "Source digest sha256:6f52ddc1a8d9904b6d1e41dd9efb1dfb41754359ee395a615df60744d5cd99b5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "OG-UPS-MIB"
+  }
+}

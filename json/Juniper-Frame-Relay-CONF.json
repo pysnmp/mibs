@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniFrameRelayAgent": {
+    "name": "juniFrameRelayAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-27 15:58",
+        "description": "Replaced Unisphere names with Juniper names. Added multi-link frame relay support."
+      },
+      {
+        "revision": "2001-04-18 19:26",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniFrameRelayAgentV1": {
+    "name": "juniFrameRelayAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.17.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Frame Relay component of the JUNOSe SNMP agent.  This\n        version of the Frame Relay component was supported in JUNOSe 1.0 thru\n        4.x system releases.",
+    "capabilities": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "includes": [
+          "frPortGroup",
+          "frCircuitGroup"
+        ]
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "includes": [
+          "juniFrGroup",
+          "juniFrSubIfGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniFrameRelayAgentV2": {
+    "name": "juniFrameRelayAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.17.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Frame Relay component of the JUNOSe SNMP agent.  This\n        version of the Frame Relay component is supported in JUNOSe 5.0 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "FRAME-RELAY-DTE-MIB",
+        "includes": [
+          "frPortGroup",
+          "frCircuitGroup"
+        ]
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "includes": [
+          "juniFrGroup2",
+          "juniFrSubIfGroup",
+          "juniFrMlFrGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Frame-Relay-CONF",
+      "Source digest sha256:dfcf754b583a753003f561f2a28fec332eb45ed71703c58a49b9f6753f96afe6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Frame-Relay-CONF"
+  }
+}

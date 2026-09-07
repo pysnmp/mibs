@@ -1,0 +1,162 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpEntityPowerMIB": {
+    "name": "hpEntityPowerMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-04-11 00:00",
+        "description": "Initial version of this MIB"
+      }
+    ]
+  },
+  "hpEntPowerObjects": {
+    "name": "hpEntPowerObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1",
+    "class": "objectidentity"
+  },
+  "hpEntPowerTable": {
+    "name": "hpEntPowerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpEntPowerEntry": {
+    "name": "hpEntPowerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpEntPowerMaxPowerUsage": {
+    "name": "hpEntPowerMaxPowerUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpEntPowerMinPowerUsage": {
+    "name": "hpEntPowerMinPowerUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpEntPowerCurrentPowerUsage": {
+    "name": "hpEntPowerCurrentPowerUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpEntPowerConformance": {
+    "name": "hpEntPowerConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.2",
+    "class": "objectidentity"
+  },
+  "hpEntPowerCompliances": {
+    "name": "hpEntPowerCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.2.1",
+    "class": "objectidentity"
+  },
+  "hpEntPowerCompliance": {
+    "name": "hpEntPowerCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpEntPowerGroup",
+        "module": "HP-ENTITY-POWER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpEntPowerGroups": {
+    "name": "hpEntPowerGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.2.2",
+    "class": "objectidentity"
+  },
+  "hpEntPowerGroup": {
+    "name": "hpEntPowerGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.71.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ENTITY-POWER-MIB",
+        "object": "hpEntPowerMaxPowerUsage"
+      },
+      {
+        "module": "HP-ENTITY-POWER-MIB",
+        "object": "hpEntPowerMinPowerUsage"
+      },
+      {
+        "module": "HP-ENTITY-POWER-MIB",
+        "object": "hpEntPowerCurrentPowerUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ENTITY-POWER-MIB",
+      "Source digest sha256:2ad1fc847c61af013beb13941028679f773ec6f7df1050680bf0e824c6bed3b8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ENTITY-POWER-MIB"
+  }
+}

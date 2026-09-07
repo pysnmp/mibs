@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSnmpUsmOidsMIB": {
+    "name": "ciscoSnmpUsmOidsMIB",
+    "oid": "1.3.6.1.4.1.9.12.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSnmpPrivProtocols": {
+    "name": "ciscoSnmpPrivProtocols",
+    "oid": "1.3.6.1.4.1.9.12.6.1",
+    "class": "objectidentity"
+  },
+  "cusmAESCfb192PrivProtocol": {
+    "name": "cusmAESCfb192PrivProtocol",
+    "oid": "1.3.6.1.4.1.9.12.6.1.1",
+    "class": "objectidentity"
+  },
+  "cusmAESCfb256PrivProtocol": {
+    "name": "cusmAESCfb256PrivProtocol",
+    "oid": "1.3.6.1.4.1.9.12.6.1.2",
+    "class": "objectidentity"
+  },
+  "cusm3DES168PrivProtocol": {
+    "name": "cusm3DES168PrivProtocol",
+    "oid": "1.3.6.1.4.1.9.12.6.1.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SNMP-USM-OIDS-MIB",
+      "Source digest sha256:b3d7854867674b2c5d2abf8dc2ad9468876b272535ce9fb3d5f526e4ae566244",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SNMP-USM-OIDS-MIB"
+  }
+}

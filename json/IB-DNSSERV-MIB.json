@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "IB-SMI-MIB": [
+      "IbString",
+      "ibDNSServ"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibDnsServMIBModule": {
+    "name": "ibDnsServMIBModule",
+    "oid": "1.3.6.1.4.1.32.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-07-13 00:00",
+        "description": "Creation of the DNS Server MIB file"
+      }
+    ]
+  },
+  "ibDnsServMIBObjects": {
+    "name": "ibDnsServMIBObjects",
+    "oid": "1.3.6.1.4.1.32.1.1",
+    "class": "objectidentity"
+  },
+  "ibDnsServConfig": {
+    "name": "ibDnsServConfig",
+    "oid": "1.3.6.1.4.1.32.1.1.1",
+    "class": "objectidentity"
+  },
+  "ibDnsServConfigImplementIdent": {
+    "name": "ibDnsServConfigImplementIdent",
+    "oid": "1.3.6.1.4.1.32.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IB-DNSSERV-MIB",
+      "Source digest sha256:f08e5103c82f6d93b2419d2220d579a6847a71be160d7ba81ff6fa908d73190f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IB-DNSSERV-MIB"
+  }
+}

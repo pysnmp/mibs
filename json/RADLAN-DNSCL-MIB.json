@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "DNS-RESOLVER-MIB": [
+      "dnsResConfigSbeltEntry"
+    ],
+    "DNS-SERVER-MIB": [
+      "DnsName"
+    ],
+    "RADLAN-MIB": [
+      "rlDnsCl"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "SNMPv2-TC-v1": [
+      "DisplayString"
+    ]
+  },
+  "rlDnsClMibVersion": {
+    "name": "rlDnsClMibVersion",
+    "oid": "1.3.6.1.4.1.89.93.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDnsClEnable": {
+    "name": "rlDnsClEnable",
+    "oid": "1.3.6.1.4.1.89.93.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClDomainNameTable": {
+    "name": "rlDnsClDomainNameTable",
+    "oid": "1.3.6.1.4.1.89.93.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDnsClDomainNameEntry": {
+    "name": "rlDnsClDomainNameEntry",
+    "oid": "1.3.6.1.4.1.89.93.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-DNSCL-MIB",
+        "object": "rlDnsClDomainNameName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDnsClDomainNameName": {
+    "name": "rlDnsClDomainNameName",
+    "oid": "1.3.6.1.4.1.89.93.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClDomainNameOwner": {
+    "name": "rlDnsClDomainNameOwner",
+    "oid": "1.3.6.1.4.1.89.93.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClDomainNameRowStatus": {
+    "name": "rlDnsClDomainNameRowStatus",
+    "oid": "1.3.6.1.4.1.89.93.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClMaxNumOfRetransmissions": {
+    "name": "rlDnsClMaxNumOfRetransmissions",
+    "oid": "1.3.6.1.4.1.89.93.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClMinRetransmissionInterval": {
+    "name": "rlDnsClMinRetransmissionInterval",
+    "oid": "1.3.6.1.4.1.89.93.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClNamesTable": {
+    "name": "rlDnsClNamesTable",
+    "oid": "1.3.6.1.4.1.89.93.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDnsClNamesEntry": {
+    "name": "rlDnsClNamesEntry",
+    "oid": "1.3.6.1.4.1.89.93.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-DNSCL-MIB",
+        "object": "rlDnsClNamesName",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-DNSCL-MIB",
+        "object": "rlDnsClNamesOwner",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-DNSCL-MIB",
+        "object": "rlDnsClNamesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlDnsClNamesName": {
+    "name": "rlDnsClNamesName",
+    "oid": "1.3.6.1.4.1.89.93.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDnsClNamesOwner": {
+    "name": "rlDnsClNamesOwner",
+    "oid": "1.3.6.1.4.1.89.93.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClNamesIndex": {
+    "name": "rlDnsClNamesIndex",
+    "oid": "1.3.6.1.4.1.89.93.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlDnsClNamesAddr": {
+    "name": "rlDnsClNamesAddr",
+    "oid": "1.3.6.1.4.1.89.93.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDnsClNamesRowStatus": {
+    "name": "rlDnsClNamesRowStatus",
+    "oid": "1.3.6.1.4.1.89.93.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResConfigSbeltExtTable": {
+    "name": "dnsResConfigSbeltExtTable",
+    "oid": "1.3.6.1.4.1.89.93.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResConfigSbeltExtEntry": {
+    "name": "dnsResConfigSbeltExtEntry",
+    "oid": "1.3.6.1.4.1.89.93.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "dnsResConfigSbeltExtEntry",
+      "module": "RADLAN-DNSCL-MIB",
+      "object": "dnsResConfigSbeltEntry"
+    },
+    "status": "current"
+  },
+  "dnsResConfigSbeltOwner": {
+    "name": "dnsResConfigSbeltOwner",
+    "oid": "1.3.6.1.4.1.89.93.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2
+        }
+      }
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RADLAN-DNSCL-MIB",
+      "Source digest sha256:9e1f3e6f35228cce05236c46c260fdcc106a0c40be2bb9d464961cb29dccd27f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RADLAN-DNSCL-MIB"
+  }
+}

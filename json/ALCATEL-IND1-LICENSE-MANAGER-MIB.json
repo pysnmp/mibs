@@ -1,0 +1,870 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1LicenseManager"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "aluLicenseManagerMIB": {
+    "name": "aluLicenseManagerMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-23 00:00",
+        "description": "The latest version of this MIB Module."
+      },
+      {
+        "revision": "2011-07-14 00:00",
+        "description": "The MIB is added with new objects for addtional licensing packages."
+      },
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "aluLicenseManagerMIBNotifications": {
+    "name": "aluLicenseManagerMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.0",
+    "class": "objectidentity"
+  },
+  "aluLicenseManagerMIBObjects": {
+    "name": "aluLicenseManagerMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluLicenseManagerMIBConformance": {
+    "name": "aluLicenseManagerMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluLicenseManagerMIBGroups": {
+    "name": "aluLicenseManagerMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluLicenseManagerMIBCompliances": {
+    "name": "aluLicenseManagerMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aluLicenseManagerMIBTrapObjects": {
+    "name": "aluLicenseManagerMIBTrapObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.3",
+    "class": "objectidentity"
+  },
+  "aluLicenseManagerLicenseExpired": {
+    "name": "aluLicenseManagerLicenseExpired",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedApplication"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerLicenseExpiry": {
+    "name": "aluLicenseManagerLicenseExpiry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoFeature"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoTimeRemaining"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedInfoSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicensedInfoSlot": {
+    "name": "aluLicensedInfoSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseInfoFeature": {
+    "name": "aluLicenseInfoFeature",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseManagerConfig": {
+    "name": "aluLicenseManagerConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.1",
+    "class": "objectidentity"
+  },
+  "aluLicenseManagerApplyLicense": {
+    "name": "aluLicenseManagerApplyLicense",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "apply": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicensedFileName": {
+    "name": "aluLicensedFileName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "lmlicense.dat",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseManagerInfoTable": {
+    "name": "aluLicenseManagerInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseManagerInfoEntry": {
+    "name": "aluLicenseManagerInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseId": {
+    "name": "aluLicenseId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicensedApplication": {
+    "name": "aluLicensedApplication",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseType": {
+    "name": "aluLicenseType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "demo": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseTimeRemaining": {
+    "name": "aluLicenseTimeRemaining",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseManagerFileInfoTable": {
+    "name": "aluLicenseManagerFileInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseManagerFileInfoEntry": {
+    "name": "aluLicenseManagerFileInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseFileIndex": {
+    "name": "aluLicenseFileIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluSwitchMacAddress": {
+    "name": "aluSwitchMacAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicensedFileApplication": {
+    "name": "aluLicensedFileApplication",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicensedFileLocal": {
+    "name": "aluLicensedFileLocal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseManagerRemoveTable": {
+    "name": "aluLicenseManagerRemoveTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseManagerRemoveEntry": {
+    "name": "aluLicenseManagerRemoveEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseRemoveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseRemoveIndex": {
+    "name": "aluLicenseRemoveIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseRemoveFeatureID": {
+    "name": "aluLicenseRemoveFeatureID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "metro": 1,
+          "oneGig": 2,
+          "tenGig": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseRemoveSlotID": {
+    "name": "aluLicenseRemoveSlotID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseManagerDemoLicenseTable": {
+    "name": "aluLicenseManagerDemoLicenseTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseManagerDemoLicenseEntry": {
+    "name": "aluLicenseManagerDemoLicenseEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseDemoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseDemoIndex": {
+    "name": "aluLicenseDemoIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseDemoFeatureID": {
+    "name": "aluLicenseDemoFeatureID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "metro": 1,
+          "oneGig": 2,
+          "tenGig": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseDemoSlotID": {
+    "name": "aluLicenseDemoSlotID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluLicenseManagerLicenseInfoTable": {
+    "name": "aluLicenseManagerLicenseInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseManagerLicenseInfoEntry": {
+    "name": "aluLicenseManagerLicenseInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedInfoApplication",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseInfoSlotId": {
+    "name": "aluLicenseInfoSlotId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicensedInfoApplication": {
+    "name": "aluLicensedInfoApplication",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluLicenseInfoType": {
+    "name": "aluLicenseInfoType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "demo": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseInfoTimeRemaining": {
+    "name": "aluLicenseInfoTimeRemaining",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseInfoCustomerInfo": {
+    "name": "aluLicenseInfoCustomerInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluLicenseManagerMIBCompliance": {
+    "name": "aluLicenseManagerMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aluLicenseManagerConfigGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerLicenseInfoGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerNotificationsGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerFileInfoGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerRemoveInfoGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerDemoInfoGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      },
+      {
+        "object": "aluLicenseManagerInfoGroup",
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerConfigGroup": {
+    "name": "aluLicenseManagerConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseManagerApplyLicense"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerInfoGroup": {
+    "name": "aluLicenseManagerInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedApplication"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseType"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerNotificationsGroup": {
+    "name": "aluLicenseManagerNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseManagerLicenseExpired"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseManagerLicenseExpiry"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerFileInfoGroup": {
+    "name": "aluLicenseManagerFileInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluSwitchMacAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedFileApplication"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicensedFileLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerRemoveInfoGroup": {
+    "name": "aluLicenseManagerRemoveInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseRemoveFeatureID"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseRemoveSlotID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerDemoInfoGroup": {
+    "name": "aluLicenseManagerDemoInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseDemoFeatureID"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseDemoSlotID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluLicenseManagerLicenseInfoGroup": {
+    "name": "aluLicenseManagerLicenseInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoType"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoTimeRemaining"
+      },
+      {
+        "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB",
+        "object": "aluLicenseInfoCustomerInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-LICENSE-MANAGER-MIB",
+      "Source digest sha256:6bae7c7edb0b6f658dbf54496b9180401286ac9dff8e8fbc8b2214dc375945df",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"
+  }
+}

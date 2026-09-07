@@ -1,0 +1,93 @@
+#
+# PySNMP MIB module SFLOW-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source SFLOW-MIB
+# Source digest sha256:257f41cd4b34d5fc9f3a0bba71a5b173560c6e732661a207db9c83d688ee3a8d
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sFlowMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14706, 1))
+sFlowMIB.setRevisions(('2003-10-18 00:00', '2003-09-24 00:00', '2003-04-08 00:00', '2002-09-17 00:00', '2001-07-31 00:00', '2001-05-01 00:00',))
+if mibBuilder.loadTexts: sFlowMIB.setLastUpdated('2003-09-24 00:00')
+if mibBuilder.loadTexts: sFlowMIB.setOrganization('Netgear Inc')
+sFlowAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 14706, 1, 1))
+class SFlowDataSource(TextualConvention, ObjectIdentifier):
+    status = 'current'
+
+class SFlowInstance(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+
+class SFlowReceiver(TextualConvention, Integer32):
+    status = 'current'
+
+sFlowVersion = MibScalar((1, 3, 6, 1, 4, 1, 14706, 1, 1, 1), SnmpAdminString().clone('1.3;;')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sFlowVersion.setStatus('current')
+sFlowAgentAddressType = MibScalar((1, 3, 6, 1, 4, 1, 14706, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sFlowAgentAddressType.setStatus('current')
+sFlowAgentAddress = MibScalar((1, 3, 6, 1, 4, 1, 14706, 1, 1, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sFlowAgentAddress.setStatus('current')
+sFlowRcvrTable = MibTable((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowRcvrTable.setStatus('current')
+sFlowRcvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "SFLOW-MIB", "sFlowRcvrIndex"))
+if mibBuilder.loadTexts: sFlowRcvrEntry.setStatus('current')
+sFlowRcvrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowRcvrIndex.setStatus('current')
+sFlowRcvrOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 2), OwnerString().clone('')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrOwner.setStatus('current')
+sFlowRcvrTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 3), Integer32().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrTimeout.setStatus('current')
+sFlowRcvrMaximumDatagramSize = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 4), Integer32().clone(1400)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrMaximumDatagramSize.setStatus('current')
+sFlowRcvrAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 5), InetAddressType().clone('ipv4')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrAddressType.setStatus('current')
+sFlowRcvrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 6), InetAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrAddress.setStatus('current')
+sFlowRcvrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 7), Integer32().clone(6343)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrPort.setStatus('current')
+sFlowRcvrDatagramVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 4, 1, 8), Integer32().clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowRcvrDatagramVersion.setStatus('current')
+sFlowFsTable = MibTable((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowFsTable.setStatus('current')
+sFlowFsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "SFLOW-MIB", "sFlowFsDataSource"), (0, "SFLOW-MIB", "sFlowFsInstance"))
+if mibBuilder.loadTexts: sFlowFsEntry.setStatus('current')
+sFlowFsDataSource = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1, 1), SFlowDataSource()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowFsDataSource.setStatus('current')
+sFlowFsInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1, 2), SFlowInstance()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowFsInstance.setStatus('current')
+sFlowFsReceiver = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1, 3), SFlowReceiver().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowFsReceiver.setStatus('current')
+sFlowFsPacketSamplingRate = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1, 4), Integer32().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowFsPacketSamplingRate.setStatus('current')
+sFlowFsMaximumHeaderSize = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 5, 1, 5), Integer32().clone(128)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowFsMaximumHeaderSize.setStatus('current')
+sFlowCpTable = MibTable((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowCpTable.setStatus('current')
+sFlowCpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "SFLOW-MIB", "sFlowCpDataSource"), (0, "SFLOW-MIB", "sFlowCpInstance"))
+if mibBuilder.loadTexts: sFlowCpEntry.setStatus('current')
+sFlowCpDataSource = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6, 1, 1), SFlowDataSource()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowCpDataSource.setStatus('current')
+sFlowCpInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6, 1, 2), SFlowInstance()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sFlowCpInstance.setStatus('current')
+sFlowCpReceiver = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6, 1, 3), SFlowReceiver().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowCpReceiver.setStatus('current')
+sFlowCpInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 14706, 1, 1, 6, 1, 4), Integer32().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sFlowCpInterval.setStatus('current')
+sFlowMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 14706, 1, 2))
+sFlowMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 14706, 1, 2, 1))
+sFlowMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 14706, 1, 2, 2))
+sFlowCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 14706, 1, 2, 2, 1)).setObjects(("SFLOW-MIB", "sFlowAgentGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sFlowCompliance = sFlowCompliance.setStatus('current')
+sFlowAgentGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14706, 1, 2, 1, 1)).setObjects(("SFLOW-MIB", "sFlowVersion"), ("SFLOW-MIB", "sFlowAgentAddressType"), ("SFLOW-MIB", "sFlowAgentAddress"), ("SFLOW-MIB", "sFlowRcvrOwner"), ("SFLOW-MIB", "sFlowRcvrTimeout"), ("SFLOW-MIB", "sFlowRcvrMaximumDatagramSize"), ("SFLOW-MIB", "sFlowRcvrAddressType"), ("SFLOW-MIB", "sFlowRcvrAddress"), ("SFLOW-MIB", "sFlowRcvrPort"), ("SFLOW-MIB", "sFlowRcvrDatagramVersion"), ("SFLOW-MIB", "sFlowFsReceiver"), ("SFLOW-MIB", "sFlowFsPacketSamplingRate"), ("SFLOW-MIB", "sFlowFsMaximumHeaderSize"), ("SFLOW-MIB", "sFlowCpReceiver"), ("SFLOW-MIB", "sFlowCpInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sFlowAgentGroup = sFlowAgentGroup.setStatus('current')
+mibBuilder.exportSymbols("SFLOW-MIB", PYSNMP_MODULE_ID=sFlowMIB, SFlowDataSource=SFlowDataSource, SFlowInstance=SFlowInstance, SFlowReceiver=SFlowReceiver, sFlowAgent=sFlowAgent, sFlowAgentAddress=sFlowAgentAddress, sFlowAgentAddressType=sFlowAgentAddressType, sFlowAgentGroup=sFlowAgentGroup, sFlowCompliance=sFlowCompliance, sFlowCpDataSource=sFlowCpDataSource, sFlowCpEntry=sFlowCpEntry, sFlowCpInstance=sFlowCpInstance, sFlowCpInterval=sFlowCpInterval, sFlowCpReceiver=sFlowCpReceiver, sFlowCpTable=sFlowCpTable, sFlowFsDataSource=sFlowFsDataSource, sFlowFsEntry=sFlowFsEntry, sFlowFsInstance=sFlowFsInstance, sFlowFsMaximumHeaderSize=sFlowFsMaximumHeaderSize, sFlowFsPacketSamplingRate=sFlowFsPacketSamplingRate, sFlowFsReceiver=sFlowFsReceiver, sFlowFsTable=sFlowFsTable, sFlowMIB=sFlowMIB, sFlowMIBCompliances=sFlowMIBCompliances, sFlowMIBConformance=sFlowMIBConformance, sFlowMIBGroups=sFlowMIBGroups, sFlowRcvrAddress=sFlowRcvrAddress, sFlowRcvrAddressType=sFlowRcvrAddressType, sFlowRcvrDatagramVersion=sFlowRcvrDatagramVersion, sFlowRcvrEntry=sFlowRcvrEntry, sFlowRcvrIndex=sFlowRcvrIndex, sFlowRcvrMaximumDatagramSize=sFlowRcvrMaximumDatagramSize, sFlowRcvrOwner=sFlowRcvrOwner, sFlowRcvrPort=sFlowRcvrPort, sFlowRcvrTable=sFlowRcvrTable, sFlowRcvrTimeout=sFlowRcvrTimeout, sFlowVersion=sFlowVersion)

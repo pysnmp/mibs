@@ -1,0 +1,133 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmAutoShutdownCapability": {
+    "name": "cmAutoShutdownCapability",
+    "oid": "1.3.6.1.4.1.9.7.386",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-29 00:00",
+        "description": "Add the capability statements cmAutoShutdownCapV12R0233SXH3PCat6K and cmAutoShutdownCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2004-01-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cmAutoShutdownCapCatOSV08R0301": {
+    "name": "cmAutoShutdownCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.386.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MODULE-AUTO-SHUTDOWN-MIB",
+        "includes": [
+          "cmasModuleGroup",
+          "cmasNotificationEnableGroup",
+          "cmasNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmAutoShutdownCapV12R0233SXH3PCat6K": {
+    "name": "cmAutoShutdownCapV12R0233SXH3PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.386.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH3 on Catalyst 6000/6500\n                        series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MODULE-AUTO-SHUTDOWN-MIB",
+        "includes": [
+          "cmasModuleSysActionGroup",
+          "cmasNotificationsGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmAutoShutdownCapV12R0233SXIPCat6K": {
+    "name": "cmAutoShutdownCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.386.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                        series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MODULE-AUTO-SHUTDOWN-MIB",
+        "includes": [
+          "cmasModuleSysActionGroup",
+          "cmasNotificationsGroup2",
+          "cmasModuleGroup",
+          "cmasNotificationEnableGroup",
+          "cmasNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmasFrequency",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmasPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MODULE-AUTO-SHUTDOWN-CAPABILITY",
+      "Source digest sha256:96b151cb538f2b3518debb292dadcf060a75467b3f7b3c94fbfb286acd9bf70a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MODULE-AUTO-SHUTDOWN-CAPABILITY"
+  }
+}

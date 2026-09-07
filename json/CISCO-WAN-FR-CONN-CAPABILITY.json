@@ -1,0 +1,299 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWanAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanFrConnCapability": {
+    "name": "ciscoWanFrConnCapability",
+    "oid": "1.3.6.1.4.1.351.160.358",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-27 00:00",
+        "description": "Initial version of this MIB Module."
+      }
+    ]
+  },
+  "cwFrConnCapabilityFrsm12V3R00": {
+    "name": "cwFrConnCapabilityFrsm12V3R00",
+    "oid": "1.3.6.1.4.1.351.160.358.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-AXIPOP-MIB",
+        "includes": [
+          "ciscoWanFrConnGroup",
+          "ciscoWanFrConnEndptGroup",
+          "ciscoWanFrConnStateGroup",
+          "ciscoWanFrConnStdAbrGroup",
+          "ciscoWanFrConnCntGroup"
+        ],
+        "variations": [
+          {
+            "object": "ingressQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ingressQECNThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ingressQDEThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "egressQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "egressQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "egressQDEThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "egressQECNThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cir",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 44736000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ibs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "foreSightEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "qir",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mir",
+            "access": "not-implemented"
+          },
+          {
+            "object": "pir",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanLocRmtLpbkState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "frNIW": 1,
+                  "frSIW-transparent": 2,
+                  "frSIW-translate": 3,
+                  "frForward": 5,
+                  "frNIWReplace": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "chanEgrSrvRate",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2400,
+                    "max": 44736000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "chanOvrSubOvrRide",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanFrConnType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frCDRNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frVpcFlag",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "vcc": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "frConnServiceType",
+            "access": "read-only"
+          },
+          {
+            "object": "frMaxCost",
+            "default": [
+              2147483647
+            ]
+          },
+          {
+            "object": "frRestrictTrunkType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frConnPercentUtil",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frConnRemotePercentUtil",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frConnForeSightEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frConnFGCRAEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanServType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "highpriority": 1,
+                  "rtVBR": 2,
+                  "nrtVBR": 3,
+                  "uBR": 5,
+                  "stdABR": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "chanServiceRateOverride",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanServiceRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "frConnTemplateId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chanNumNextAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtATMState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "notSending": 1,
+                  "sendingAIS": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rcvATMState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "notRcving": 1,
+                  "rcvingAIS": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rcvFramesDiscShelfAlarm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtBytesDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtFramesDiscXceedQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtBytesDiscXceedQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtFramesDiscXceedDEThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtFramesDiscReassmFail",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-FR-CONN-CAPABILITY",
+      "Source digest sha256:8ec4e60ab04c13bcdc013905264508e5f581e65cc13f0a047200dec12f6946f7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-FR-CONN-CAPABILITY"
+  }
+}

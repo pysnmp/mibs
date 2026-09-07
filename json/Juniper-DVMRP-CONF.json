@@ -1,0 +1,134 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniDvmrpAgent": {
+    "name": "juniDvmrpAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-16 21:01",
+        "description": "Replaced Unisphere names with Juniper names. Added support for unicast routing and the interface announce list name."
+      },
+      {
+        "revision": "2001-11-30 20:24",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDvmrpAgentV1": {
+    "name": "juniDvmrpAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.12.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DVMRP component of the JUNOSe SNMP agent.  This\n        version of the DVMRP component was supported in JUNOSe 3.0 thru 4.x\n        system releases.",
+    "capabilities": [
+      {
+        "module": "DVMRP-STD-MIB-JUNI",
+        "includes": [
+          "junidDvmrpGeneralGroup",
+          "junidDvmrpInterfaceGroup",
+          "junidDvmrpNeighborGroup",
+          "junidDvmrpRoutingGroup",
+          "junidDvmrpSecurityGroup",
+          "junidDvmrpTreeGroup"
+        ],
+        "variations": [
+          {
+            "object": "junidDvmrpInterfaceLocalAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "junidDvmrpInterfaceInterfaceKey",
+            "access": "not-implemented"
+          },
+          {
+            "object": "junidDvmrpInterfaceInterfaceKeyVersion",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DVMRP-MIB",
+        "includes": [
+          "juniDvmrpBaseGroup",
+          "juniDvmrpAclDistNbrGroup",
+          "juniDvmrpInterfaceGroup",
+          "juniDvmrpSourceGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDvmrpAgentV2": {
+    "name": "juniDvmrpAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.12.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the DVMRP component of the JUNOSe SNMP agent.  This\n        version of the DVMRP component is supported in JUNOSe 5.0 and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "DVMRP-STD-MIB-JUNI",
+        "includes": [
+          "junidDvmrpGeneralGroup",
+          "junidDvmrpInterfaceGroup",
+          "junidDvmrpNeighborGroup",
+          "junidDvmrpRoutingGroup",
+          "junidDvmrpSecurityGroup",
+          "junidDvmrpTreeGroup"
+        ],
+        "variations": [
+          {
+            "object": "junidDvmrpInterfaceLocalAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "junidDvmrpInterfaceInterfaceKey",
+            "access": "not-implemented"
+          },
+          {
+            "object": "junidDvmrpInterfaceInterfaceKeyVersion",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DVMRP-MIB",
+        "includes": [
+          "juniDvmrpBaseGroup2",
+          "juniDvmrpAclDistNbrGroup",
+          "juniDvmrpInterfaceGroup2",
+          "juniDvmrpSourceGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-DVMRP-CONF",
+      "Source digest sha256:ac94e653009dcd72db7da12b1a38b23920f028c57ab53b1ad71a16e6f3845792",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-DVMRP-CONF"
+  }
+}

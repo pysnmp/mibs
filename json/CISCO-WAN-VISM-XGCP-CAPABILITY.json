@@ -1,0 +1,141 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWanAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanVismXgcpCapability": {
+    "name": "ciscoWanVismXgcpCapability",
+    "oid": "1.3.6.1.4.1.351.160.322",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-02-27 00:00",
+        "description": "Fix bug CSCdw32263 where xgcpRestartDelay returns illegal value"
+      },
+      {
+        "revision": "2002-01-21 00:00",
+        "description": "Changed INCLUDES fields in order to pass SMIC compiler"
+      },
+      {
+        "revision": "2001-08-09 00:00",
+        "description": "Added ciscoWanVismXgcpCapabilityV2R01 AGENT-CAPABILITIES."
+      }
+    ]
+  },
+  "ciscoWanVismXgcpCapabilityV2R00": {
+    "name": "ciscoWanVismXgcpCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.351.160.322.1",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release1.5,VISM Release2.0",
+    "capabilities": [
+      {
+        "module": "XGCP-MIB",
+        "includes": [
+          "xgcpCoreGroup",
+          "xgcpExtensionGroup",
+          "xgcpPackageGroup"
+        ],
+        "variations": [
+          {
+            "object": "xgcpAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xgcpOperStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanVismXgcpCapabilityV2R01": {
+    "name": "ciscoWanVismXgcpCapabilityV2R01",
+    "oid": "1.3.6.1.4.1.351.160.322.2",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release2.2",
+    "capabilities": [
+      {
+        "module": "XGCP-MIB",
+        "includes": [
+          "xgcpCoreGroup",
+          "xgcpExtensionGroup",
+          "xgcpPackageGroup"
+        ],
+        "variations": [
+          {
+            "object": "xgcpAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xgcpOperStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanVismXgcpCapabilityV3R00": {
+    "name": "ciscoWanVismXgcpCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.351.160.322.3",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release3.0",
+    "capabilities": [
+      {
+        "module": "XGCP-MIB",
+        "includes": [
+          "xgcpCoreGroup",
+          "xgcpExtensionGroup",
+          "xgcpPackageGroup"
+        ],
+        "variations": [
+          {
+            "object": "xgcpRequestTimeOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xgcpAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xgcpOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xgcpRestartDelay",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-VISM-XGCP-CAPABILITY",
+      "Source digest sha256:11ccbb649e9cb133f12c6ed834adc87b654afdcbe48acedb1f9cc7c34715b109",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-VISM-XGCP-CAPABILITY"
+  }
+}

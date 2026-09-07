@@ -1,0 +1,57 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "packetflux": {
+    "name": "packetflux",
+    "oid": "1.3.6.1.4.1.32050",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-04 16:31",
+        "description": "initial version of this module"
+      },
+      {
+        "revision": "2013-06-04 21:58",
+        "description": "Correct MIB ID"
+      }
+    ]
+  },
+  "packetfluxProducts": {
+    "name": "packetfluxProducts",
+    "oid": "1.3.6.1.4.1.32050.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "packetfluxMgmt": {
+    "name": "packetfluxMgmt",
+    "oid": "1.3.6.1.4.1.32050.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PACKETFLUX-SMI",
+      "Source digest sha256:4970e4d8e69f1b7d1ed6b6b3f3b5facbc49ea3640f39c53510b35bb4a5731009",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PACKETFLUX-SMI"
+  }
+}

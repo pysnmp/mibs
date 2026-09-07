@@ -1,0 +1,2751 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-OSPF": [
+      "HpicfOspfLogAction",
+      "HpicfOspfLogType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "OSPF-MIB": [
+      "BigMetric",
+      "Metric"
+    ],
+    "OSPFV3-MIB": [
+      "Ospfv3RouterIdTC",
+      "ospfv3AreaAggregateEntry",
+      "ospfv3AreaEntry",
+      "ospfv3AreaLsdbAreaId",
+      "ospfv3AreaLsdbEntry",
+      "ospfv3AreaLsdbLsid",
+      "ospfv3AreaLsdbRouterId",
+      "ospfv3AreaLsdbType",
+      "ospfv3AsLsdbEntry",
+      "ospfv3IfEntry",
+      "ospfv3IfIndex",
+      "ospfv3IfInstId",
+      "ospfv3LinkLsdbEntry",
+      "ospfv3LinkLsdbIfIndex",
+      "ospfv3LinkLsdbIfInstId",
+      "ospfv3LinkLsdbLsid",
+      "ospfv3LinkLsdbRouterId",
+      "ospfv3LinkLsdbType",
+      "ospfv3NbrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfOspfv3MIB": {
+    "name": "hpicfOspfv3MIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-18 00:00",
+        "description": "Added hpicfOspfv3ReferenceCost. Added hpicfOspfv3IfFlagValue Added hpicfOspfv3MetricGroup Added hpicfOspfv3Compliance2 Deprecated hpicfOspfv3Compliance."
+      },
+      {
+        "revision": "2014-06-13 00:00",
+        "description": "Updated the descriptions for MIB objects. Deleted Notifications."
+      },
+      {
+        "revision": "2012-04-30 00:00",
+        "description": "Added objects in hpicfOspfv3NbrTable hpicfOspfv3NbrDataBaseSummary hpicfOspfv3NbrLinkStateRequest hpicfOspfv3NbrRestartState Added objected in hpicfOspfv3IfStatsTable hpicfOspfv3IfSentTotalErrorCount hpicfOspfv3IfRcvdTotalErrorCount"
+      },
+      {
+        "revision": "2012-04-20 00:00",
+        "description": "Added hpicfOspfv3AreaLsdbStatsTable, hpicfOspfv3AreaLsdbStatsTable and added objects hpicfOspfv3AreaLsdbStatRtrLsaCnt hpicfOspfv3AreaLsdbStatNwLsaCnt hpicfOspfv3AreaLsdbStatInterPreLsaCnt hpicfOspfv3AreaLsdbStatInterRtrLsaCnt hpicfOspfv3AreaLsdbStatIntraPreLsaCnt, Added objects in hpicfOspfv3GeneralGroup hpicfOspfv3AreaCount hpicfOspfv3RestartHelper hpicfOspfv3ASscopeUnknownLsaCount hpicfOspfv3LinkLsdbStatLinkLsa, Added objects in hpicfOspfv3LinkLsdbTable, Added objects in hpicfOspfv3AreaTable hpicfOspfv3AreaNbrDownCount hpicfOspfv3AreaNbrAttemptCount hpicfOspfv3AreaNbrInitCount hpicfOspfv3AreaNbr2wayCount hpicfOspfv3AreaNbrExstartCount hpicfOspfv3AreaNbrExchangeCount hpicfOspfv3AreaNbrLoadingCount hpicfOspfv3AreaNbrFullCount hpicfOspfv3AreaInterfaceCount hpicfOspfv3AreaScopeUnknownLsaCount Added objects in hpicfOspfv3AreaLsdbTable hpicfOspfv3AreaLsdbLsaLength hpicfOspfv3AreaLsdbLinks"
+      },
+      {
+        "revision": "2011-06-13 19:53",
+        "description": "Added hpicfOspfv3AreaAggregateTable, hpicfOspfv3AreaAggregateEntry, HpicfOspfv3AreaAggregateEntry and hpicfOspfv3AreaAggregateCost"
+      },
+      {
+        "revision": "2010-11-04 00:00",
+        "description": "Added 'hpicfOspfv3AreaTable', 'hpicfOspfv3VirtIntfTable' and added objects in 'hpicfOspfv3IfTable'"
+      },
+      {
+        "revision": "2009-02-05 18:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfOspfv3Objects": {
+    "name": "hpicfOspfv3Objects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3Conformance": {
+    "name": "hpicfOspfv3Conformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3GeneralGroup": {
+    "name": "hpicfOspfv3GeneralGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3DefaultImportMetric": {
+    "name": "hpicfOspfv3DefaultImportMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3DefaultImportMetricType": {
+    "name": "hpicfOspfv3DefaultImportMetricType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "externalType1": 1,
+          "externalType2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAreaDistance": {
+    "name": "hpicfOspfv3IntraAreaDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3InterAreaDistance": {
+    "name": "hpicfOspfv3InterAreaDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3ExternalDistance": {
+    "name": "hpicfOspfv3ExternalDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfThrottleStartInterval": {
+    "name": "hpicfOspfv3SpfThrottleStartInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfThrottleWaitInterval": {
+    "name": "hpicfOspfv3SpfThrottleWaitInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfThrottleMaxWaitTime": {
+    "name": "hpicfOspfv3SpfThrottleMaxWaitTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfThrottleCurrentSpfInterval": {
+    "name": "hpicfOspfv3SpfThrottleCurrentSpfInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaCount": {
+    "name": "hpicfOspfv3AreaCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3RestartHelper": {
+    "name": "hpicfOspfv3RestartHelper",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3ASscopeUnknownLsaCount": {
+    "name": "hpicfOspfv3ASscopeUnknownLsaCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbStatLinkLsa": {
+    "name": "hpicfOspfv3LinkLsdbStatLinkLsa",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3TotalUnknownLsa": {
+    "name": "hpicfOspfv3TotalUnknownLsa",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3ReferenceCost": {
+    "name": "hpicfOspfv3ReferenceCost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3IfMetricObjects": {
+    "name": "hpicfOspfv3IfMetricObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.4",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3IfMetricTable": {
+    "name": "hpicfOspfv3IfMetricTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfMetricEntry": {
+    "name": "hpicfOspfv3IfMetricEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3IfMetricEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3IfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3IfFlagValue": {
+    "name": "hpicfOspfv3IfFlagValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbTable": {
+    "name": "hpicfOspfv3AsLsdbTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbEntry": {
+    "name": "hpicfOspfv3AsLsdbEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3AsLsdbEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3AsLsdbEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbEFTFlags": {
+    "name": "hpicfOspfv3AsLsdbEFTFlags",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bitE": 0,
+        "bitF": 1,
+        "bitT": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbMetric": {
+    "name": "hpicfOspfv3AsLsdbMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbPrefixLength": {
+    "name": "hpicfOspfv3AsLsdbPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbPrefixOptions": {
+    "name": "hpicfOspfv3AsLsdbPrefixOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbRefLsType": {
+    "name": "hpicfOspfv3AsLsdbRefLsType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbAddrPrefix": {
+    "name": "hpicfOspfv3AsLsdbAddrPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbFwdingAddress": {
+    "name": "hpicfOspfv3AsLsdbFwdingAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbExtRouteTags": {
+    "name": "hpicfOspfv3AsLsdbExtRouteTags",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbRefLsId": {
+    "name": "hpicfOspfv3AsLsdbRefLsId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbLsaLength": {
+    "name": "hpicfOspfv3AsLsdbLsaLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbTable": {
+    "name": "hpicfOspfv3AreaLsdbTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbEntry": {
+    "name": "hpicfOspfv3AreaLsdbEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3AreaLsdbEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3AreaLsdbEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbRtrCapBits": {
+    "name": "hpicfOspfv3AreaLsdbRtrCapBits",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bitV": 0,
+        "bitE": 1,
+        "bitB": 2,
+        "bitW": 3,
+        "bitNt": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbOptions": {
+    "name": "hpicfOspfv3AreaLsdbOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbMetric": {
+    "name": "hpicfOspfv3AreaLsdbMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbPrefixLength": {
+    "name": "hpicfOspfv3AreaLsdbPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbPrefixOptions": {
+    "name": "hpicfOspfv3AreaLsdbPrefixOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbAddrPrefix": {
+    "name": "hpicfOspfv3AreaLsdbAddrPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbDstRtrId": {
+    "name": "hpicfOspfv3AreaLsdbDstRtrId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ospfv3RouterIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbNumPrefixes": {
+    "name": "hpicfOspfv3AreaLsdbNumPrefixes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbRefLsType": {
+    "name": "hpicfOspfv3AreaLsdbRefLsType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbRefLsId": {
+    "name": "hpicfOspfv3AreaLsdbRefLsId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbRefAdvRtrId": {
+    "name": "hpicfOspfv3AreaLsdbRefAdvRtrId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ospfv3RouterIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbEFTFlags": {
+    "name": "hpicfOspfv3AreaLsdbEFTFlags",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bitE": 0,
+        "bitF": 1,
+        "bitT": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbFwdingAddress": {
+    "name": "hpicfOspfv3AreaLsdbFwdingAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbExtRouteTags": {
+    "name": "hpicfOspfv3AreaLsdbExtRouteTags",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbLsaLength": {
+    "name": "hpicfOspfv3AreaLsdbLsaLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbLinks": {
+    "name": "hpicfOspfv3AreaLsdbLinks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbTable": {
+    "name": "hpicfOspfv3LinkLsdbTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbEntry": {
+    "name": "hpicfOspfv3LinkLsdbEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3LinkLsdbEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3LinkLsdbEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbRtrPriority": {
+    "name": "hpicfOspfv3LinkLsdbRtrPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbOptions": {
+    "name": "hpicfOspfv3LinkLsdbOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbLocalAddress": {
+    "name": "hpicfOspfv3LinkLsdbLocalAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbNumPrefixes": {
+    "name": "hpicfOspfv3LinkLsdbNumPrefixes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbLsaLength": {
+    "name": "hpicfOspfv3LinkLsdbLsaLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfTable": {
+    "name": "hpicfOspfv3IfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfEntry": {
+    "name": "hpicfOspfv3IfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3IfEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3IfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3IfPassive": {
+    "name": "hpicfOspfv3IfPassive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfOspfv3IfNbrCount": {
+    "name": "hpicfOspfv3IfNbrCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfDRAddr": {
+    "name": "hpicfOspfv3IfDRAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfBDRAddr": {
+    "name": "hpicfOspfv3IfBDRAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfHelloDueTime": {
+    "name": "hpicfOspfv3IfHelloDueTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfAdjNbrCount": {
+    "name": "hpicfOspfv3IfAdjNbrCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrTable": {
+    "name": "hpicfOspfv3NbrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrEntry": {
+    "name": "hpicfOspfv3NbrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3NbrEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3NbrEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3NbrUpTime": {
+    "name": "hpicfOspfv3NbrUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrTimeToExpiry": {
+    "name": "hpicfOspfv3NbrTimeToExpiry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrDataBaseSummary": {
+    "name": "hpicfOspfv3NbrDataBaseSummary",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrLinkStateRequest": {
+    "name": "hpicfOspfv3NbrLinkStateRequest",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NbrRestartState": {
+    "name": "hpicfOspfv3NbrRestartState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "helper": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfStatsTable": {
+    "name": "hpicfOspfv3IfStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfStatsEntry": {
+    "name": "hpicfOspfv3IfStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentHelloPkt": {
+    "name": "hpicfOspfv3IfSentHelloPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentDDPkt": {
+    "name": "hpicfOspfv3IfSentDDPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentLSRPkt": {
+    "name": "hpicfOspfv3IfSentLSRPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentLSUPkt": {
+    "name": "hpicfOspfv3IfSentLSUPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentLSAPkt": {
+    "name": "hpicfOspfv3IfSentLSAPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdHelloPkt": {
+    "name": "hpicfOspfv3IfRcvdHelloPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdDDPkt": {
+    "name": "hpicfOspfv3IfRcvdDDPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdLSRPkt": {
+    "name": "hpicfOspfv3IfRcvdLSRPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdLSUPkt": {
+    "name": "hpicfOspfv3IfRcvdLSUPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdLSAPkt": {
+    "name": "hpicfOspfv3IfRcvdLSAPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfSentTotalErrorCount": {
+    "name": "hpicfOspfv3IfSentTotalErrorCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfRcvdTotalErrorCount": {
+    "name": "hpicfOspfv3IfRcvdTotalErrorCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfErrorTable": {
+    "name": "hpicfOspfv3IfErrorTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfErrorEntry": {
+    "name": "hpicfOspfv3IfErrorEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfInstId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfErrorType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3IfErrorType": {
+    "name": "hpicfOspfv3IfErrorType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfErrorCount": {
+    "name": "hpicfOspfv3IfErrorCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IfClearStatsTable": {
+    "name": "hpicfOspfv3IfClearStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IfClearStatsEntry": {
+    "name": "hpicfOspfv3IfClearStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3IfInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3ClearCounters": {
+    "name": "hpicfOspfv3ClearCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfTable": {
+    "name": "hpicfOspfv3SpfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfEntry": {
+    "name": "hpicfOspfv3SpfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3SpfIndex": {
+    "name": "hpicfOspfv3SpfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3SpfReason": {
+    "name": "hpicfOspfv3SpfReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LogTable": {
+    "name": "hpicfOspfv3LogTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LogEntry": {
+    "name": "hpicfOspfv3LogEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3LogType": {
+    "name": "hpicfOspfv3LogType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfOspfLogType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LogAction": {
+    "name": "hpicfOspfv3LogAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfOspfLogAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSATable": {
+    "name": "hpicfOspfv3RouterLSATable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSAEntry": {
+    "name": "hpicfOspfv3RouterLSAEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RouterLSANbrIfId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RouterLSANbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSANbrIfId": {
+    "name": "hpicfOspfv3RouterLSANbrIfId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSANbrRtrId": {
+    "name": "hpicfOspfv3RouterLSANbrRtrId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ospfv3RouterIdTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSAIfType": {
+    "name": "hpicfOspfv3RouterLSAIfType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSAMetric": {
+    "name": "hpicfOspfv3RouterLSAMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3RouterLSAIfId": {
+    "name": "hpicfOspfv3RouterLSAIfId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3NetworkLSATable": {
+    "name": "hpicfOspfv3NetworkLSATable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3NetworkLSAEntry": {
+    "name": "hpicfOspfv3NetworkLSAEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NetworkLSASeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3NetworkLSASeqNum": {
+    "name": "hpicfOspfv3NetworkLSASeqNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3NetworkLSAAttachedRouter": {
+    "name": "hpicfOspfv3NetworkLSAAttachedRouter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ospfv3RouterIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPLSATable": {
+    "name": "hpicfOspfv3IntraAPLSATable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPLSAEntry": {
+    "name": "hpicfOspfv3IntraAPLSAEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3AreaLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IntraAPAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IntraAPPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPAddrPrefix": {
+    "name": "hpicfOspfv3IntraAPAddrPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPPrefixLength": {
+    "name": "hpicfOspfv3IntraAPPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPPrefixOptions": {
+    "name": "hpicfOspfv3IntraAPPrefixOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3IntraAPMetric": {
+    "name": "hpicfOspfv3IntraAPMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLSATable": {
+    "name": "hpicfOspfv3LinkLSATable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLSAEntry": {
+    "name": "hpicfOspfv3LinkLSAEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3LinkLsdbIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3LinkLsdbIfInstId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3LinkLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3LinkLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB",
+        "object": "ospfv3LinkLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3LinkAddrPrefix": {
+    "name": "hpicfOspfv3LinkAddrPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkPrefixLength": {
+    "name": "hpicfOspfv3LinkPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3LinkPrefixOptions": {
+    "name": "hpicfOspfv3LinkPrefixOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3Trap": {
+    "name": "hpicfOspfv3Trap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.16",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3Traps": {
+    "name": "hpicfOspfv3Traps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.16.0",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3TrapControl": {
+    "name": "hpicfOspfv3TrapControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.16.1",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3SetTrap": {
+    "name": "hpicfOspfv3SetTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaAggregateTable": {
+    "name": "hpicfOspfv3AreaAggregateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaAggregateEntry": {
+    "name": "hpicfOspfv3AreaAggregateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3AreaAggregateEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3AreaAggregateEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3AreaAggregateCost": {
+    "name": "hpicfOspfv3AreaAggregateCost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaTable": {
+    "name": "hpicfOspfv3AreaTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaEntry": {
+    "name": "hpicfOspfv3AreaEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3AreaEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3AreaEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrDownCount": {
+    "name": "hpicfOspfv3AreaNbrDownCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrAttemptCount": {
+    "name": "hpicfOspfv3AreaNbrAttemptCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrInitCount": {
+    "name": "hpicfOspfv3AreaNbrInitCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbr2wayCount": {
+    "name": "hpicfOspfv3AreaNbr2wayCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrExstartCount": {
+    "name": "hpicfOspfv3AreaNbrExstartCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrExchangeCount": {
+    "name": "hpicfOspfv3AreaNbrExchangeCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrLoadingCount": {
+    "name": "hpicfOspfv3AreaNbrLoadingCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaNbrFullCount": {
+    "name": "hpicfOspfv3AreaNbrFullCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaInterfaceCount": {
+    "name": "hpicfOspfv3AreaInterfaceCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaScopeUnknownLsaCount": {
+    "name": "hpicfOspfv3AreaScopeUnknownLsaCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatsTable": {
+    "name": "hpicfOspfv3AreaLsdbStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatsEntry": {
+    "name": "hpicfOspfv3AreaLsdbStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfOspfv3AreaLsdbStatsEntry",
+      "module": "HP-ICF-OSPFV3-MIB",
+      "object": "ospfv3AreaEntry"
+    },
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatRtrLsaCnt": {
+    "name": "hpicfOspfv3AreaLsdbStatRtrLsaCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatNwLsaCnt": {
+    "name": "hpicfOspfv3AreaLsdbStatNwLsaCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatInterPreLsaCnt": {
+    "name": "hpicfOspfv3AreaLsdbStatInterPreLsaCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatInterRtrLsaCnt": {
+    "name": "hpicfOspfv3AreaLsdbStatInterRtrLsaCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatIntraPreLsaCnt": {
+    "name": "hpicfOspfv3AreaLsdbStatIntraPreLsaCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfOspfv3Groups": {
+    "name": "hpicfOspfv3Groups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3Compliances": {
+    "name": "hpicfOspfv3Compliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfOspfv3Compliance": {
+    "name": "hpicfOspfv3Compliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfOspfv3BasicGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3IfGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3NbrGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AsLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3LinkLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3StatisticGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3LogGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3TrapControlGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaLsdbStatsGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfOspfv3Compliance2": {
+    "name": "hpicfOspfv3Compliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfOspfv3BasicGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3IfGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3NbrGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AsLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3LinkLsdbGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3StatisticGroup1",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3LogGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3TrapControlGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3AreaLsdbStatsGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      },
+      {
+        "object": "hpicfOspfv3MetricGroup",
+        "module": "HP-ICF-OSPFV3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3BasicGroup": {
+    "name": "hpicfOspfv3BasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3DefaultImportMetric"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3DefaultImportMetricType"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3ReferenceCost"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IntraAreaDistance"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3InterAreaDistance"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3ExternalDistance"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfThrottleStartInterval"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfThrottleWaitInterval"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfThrottleMaxWaitTime"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfThrottleCurrentSpfInterval"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaAggregateCost"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RestartHelper"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3ASscopeUnknownLsaCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbStatLinkLsa"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3TotalUnknownLsa"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3AsLsdbGroup": {
+    "name": "hpicfOspfv3AsLsdbGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbEFTFlags"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbMetric"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbPrefixLength"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbPrefixOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbRefLsType"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbAddrPrefix"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbFwdingAddress"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbExtRouteTags"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbRefLsId"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AsLsdbLsaLength"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbGroup": {
+    "name": "hpicfOspfv3AreaLsdbGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbRtrCapBits"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbMetric"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbPrefixLength"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbPrefixOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbAddrPrefix"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbDstRtrId"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbNumPrefixes"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbRefLsType"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbRefLsId"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbRefAdvRtrId"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbEFTFlags"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbFwdingAddress"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbExtRouteTags"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RouterLSAIfType"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RouterLSAMetric"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3RouterLSAIfId"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NetworkLSAAttachedRouter"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IntraAPPrefixOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IntraAPMetric"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbLsaLength"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbLinks"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3LinkLsdbGroup": {
+    "name": "hpicfOspfv3LinkLsdbGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbRtrPriority"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbLocalAddress"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbNumPrefixes"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkPrefixOptions"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LinkLsdbLsaLength"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3LogGroup": {
+    "name": "hpicfOspfv3LogGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3LogAction"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3TrapControlGroup": {
+    "name": "hpicfOspfv3TrapControlGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SetTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3AreaGroup": {
+    "name": "hpicfOspfv3AreaGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrDownCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrAttemptCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrInitCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbr2wayCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrExstartCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrExchangeCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrLoadingCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaNbrFullCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaInterfaceCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaScopeUnknownLsaCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3AreaLsdbStatsGroup": {
+    "name": "hpicfOspfv3AreaLsdbStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbStatRtrLsaCnt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbStatNwLsaCnt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbStatInterPreLsaCnt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbStatInterRtrLsaCnt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3AreaLsdbStatIntraPreLsaCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3NbrGroup1": {
+    "name": "hpicfOspfv3NbrGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NbrUpTime"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NbrTimeToExpiry"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NbrDataBaseSummary"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NbrLinkStateRequest"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3NbrRestartState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3StatisticGroup1": {
+    "name": "hpicfOspfv3StatisticGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentHelloPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentDDPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentLSRPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentLSUPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentLSAPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdHelloPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdDDPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdLSRPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdLSUPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdLSAPkt"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfErrorCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfSentTotalErrorCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfRcvdTotalErrorCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3ClearCounters"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3SpfReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3IfGroup1": {
+    "name": "hpicfOspfv3IfGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfPassive"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfNbrCount"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfDRAddr"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfBDRAddr"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfHelloDueTime"
+      },
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfAdjNbrCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOspfv3MetricGroup": {
+    "name": "hpicfOspfv3MetricGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.44.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OSPFV3-MIB",
+        "object": "hpicfOspfv3IfFlagValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-OSPFV3-MIB",
+      "Source digest sha256:86a6da6abfa71aa38966de46e4e183fe32f52a63107a980eb5807f9e0e3a1d16",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-OSPFV3-MIB"
+  }
+}

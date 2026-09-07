@@ -1,0 +1,520 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "novell": {
+    "name": "novell",
+    "oid": "1.3.6.1.4.1.23",
+    "class": "objectidentity"
+  },
+  "mibDoc": {
+    "name": "mibDoc",
+    "oid": "1.3.6.1.4.1.23.2",
+    "class": "objectidentity"
+  },
+  "ripsap": {
+    "name": "ripsap",
+    "oid": "1.3.6.1.4.1.23.2.20",
+    "class": "objectidentity"
+  },
+  "ripsapSystem": {
+    "name": "ripsapSystem",
+    "oid": "1.3.6.1.4.1.23.2.20.1",
+    "class": "objectidentity"
+  },
+  "ripsapCircuit": {
+    "name": "ripsapCircuit",
+    "oid": "1.3.6.1.4.1.23.2.20.2",
+    "class": "objectidentity"
+  },
+  "ripSysTable": {
+    "name": "ripSysTable",
+    "oid": "1.3.6.1.4.1.23.2.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ripSysEntry": {
+    "name": "ripSysEntry",
+    "oid": "1.3.6.1.4.1.23.2.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPSAP",
+        "object": "ripSysInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ripSysInstance": {
+    "name": "ripSysInstance",
+    "oid": "1.3.6.1.4.1.23.2.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripSysState": {
+    "name": "ripSysState",
+    "oid": "1.3.6.1.4.1.23.2.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripSysIncorrectPackets": {
+    "name": "ripSysIncorrectPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapSysTable": {
+    "name": "sapSysTable",
+    "oid": "1.3.6.1.4.1.23.2.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapSysEntry": {
+    "name": "sapSysEntry",
+    "oid": "1.3.6.1.4.1.23.2.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPSAP",
+        "object": "sapSysInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sapSysInstance": {
+    "name": "sapSysInstance",
+    "oid": "1.3.6.1.4.1.23.2.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapSysState": {
+    "name": "sapSysState",
+    "oid": "1.3.6.1.4.1.23.2.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapSysIncorrectPackets": {
+    "name": "sapSysIncorrectPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ripCircTable": {
+    "name": "ripCircTable",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ripCircEntry": {
+    "name": "ripCircEntry",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPSAP",
+        "object": "ripCircSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "RIPSAP",
+        "object": "ripCircIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ripCircSysInstance": {
+    "name": "ripCircSysInstance",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircIndex": {
+    "name": "ripCircIndex",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircState": {
+    "name": "ripCircState",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "auto-on": 3,
+          "auto-off": 4
+        }
+      }
+    },
+    "default": {
+      "value": "auto-off",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircPace": {
+    "name": "ripCircPace",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircUpdate": {
+    "name": "ripCircUpdate",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircAgeMultiplier": {
+    "name": "ripCircAgeMultiplier",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 4,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircPacketSize": {
+    "name": "ripCircPacketSize",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ripCircOutPackets": {
+    "name": "ripCircOutPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ripCircInPackets": {
+    "name": "ripCircInPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapCircTable": {
+    "name": "sapCircTable",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sapCircEntry": {
+    "name": "sapCircEntry",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPSAP",
+        "object": "sapCircSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "RIPSAP",
+        "object": "sapCircIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sapCircSysInstance": {
+    "name": "sapCircSysInstance",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircIndex": {
+    "name": "sapCircIndex",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircState": {
+    "name": "sapCircState",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "auto-on": 3,
+          "auto-off": 4
+        }
+      }
+    },
+    "default": {
+      "value": "auto-off",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircPace": {
+    "name": "sapCircPace",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircUpdate": {
+    "name": "sapCircUpdate",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircAgeMultiplier": {
+    "name": "sapCircAgeMultiplier",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 4,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircPacketSize": {
+    "name": "sapCircPacketSize",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircGetNearestServerReply": {
+    "name": "sapCircGetNearestServerReply",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "value": "yes",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sapCircOutPackets": {
+    "name": "sapCircOutPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sapCircInPackets": {
+    "name": "sapCircInPackets",
+    "oid": "1.3.6.1.4.1.23.2.20.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RIPSAP",
+      "Source digest sha256:224f2b0d3fa93d14afcd2eded2f14075b6173fe16c56cb497670394d2c209956",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RIPSAP"
+  }
+}

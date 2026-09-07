@@ -1,0 +1,249 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoUdldpCapability": {
+    "name": "ciscoUdldpCapability",
+    "oid": "1.3.6.1.4.1.9.7.344",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-10 00:00",
+        "description": "Added capability statement ciscoUdldpCapV15R0001SY1PCat6K."
+      },
+      {
+        "revision": "2011-03-30 00:00",
+        "description": "Added capability statement ciscoUdldpCapV15R0002SGPCat4K."
+      },
+      {
+        "revision": "2010-03-16 09:00",
+        "description": "Added capability statement ciscoUdldpCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2004-04-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoUdldpCapV12R0214SXCat6K": {
+    "name": "ciscoUdldpCapV12R0214SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.344.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(14SX) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpCapCatOSV07R0604": {
+    "name": "ciscoUdldpCapCatOSV07R0604",
+    "oid": "1.3.6.1.4.1.9.7.344.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.6(4).",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup",
+          "ciscoUdldpAggreModeOptionalGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpCapCatOSV08R0101": {
+    "name": "ciscoUdldpCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.344.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup",
+          "ciscoUdldpAggreModeOptionalGroup",
+          "ciscoUdldpMIBGroup2"
+        ],
+        "variations": [
+          {
+            "object": "cudldpGlobalMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cudldpInterfaceAdminMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "aggressive": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpCapV12R0233SXI4PCat6K": {
+    "name": "ciscoUdldpCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.344.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices running IOS images.",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup2",
+          "ciscoUdldpFastHelloGroup",
+          "ciscoUdldpFastHelloNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cudldpIfFastHelloInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 200,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpCapV15R0002SGPCat4K": {
+    "name": "ciscoUdldpCapV15R0002SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.344.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(2)SG on Catalyst 4000 family\n                    switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup2",
+          "ciscoUdldpMIBGroup3",
+          "ciscoUdldpFastHelloGroup",
+          "ciscoUdldpFastHelloNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cudldpIfFastHelloInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 200,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpCapV15R0001SY1PCat6K": {
+    "name": "ciscoUdldpCapV15R0001SY1PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.344.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY1 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "includes": [
+          "ciscoUdldpMIBGroup2",
+          "ciscoUdldpFastHelloGroup",
+          "ciscoUdldpFastHelloNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cudldpIfFastHelloInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 200,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-UDLDP-CAPABILITY",
+      "Source digest sha256:30579dfb1f8809459bc303071648d223d218d30a3180275ae1a07280f2af7aa5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-UDLDP-CAPABILITY"
+  }
+}

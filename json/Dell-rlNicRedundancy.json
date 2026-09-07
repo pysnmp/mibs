@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlNicRedundancy": {
+    "name": "rlNicRedundancy",
+    "oid": "1.3.6.1.4.1.89.105",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-06-16 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rlNicRedundancyEnable": {
+    "name": "rlNicRedundancyEnable",
+    "oid": "1.3.6.1.4.1.89.105.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-rlNicRedundancy",
+      "Source digest sha256:9c7cfe02e6877de8492dc057d27c012ecbb4ff294e9bcbd8472f40b5bac60958",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-rlNicRedundancy"
+  }
+}

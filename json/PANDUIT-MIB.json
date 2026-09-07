@@ -1,0 +1,5981 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "g5": {
+    "name": "g5",
+    "oid": "1.3.6.1.4.1.19536.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2023-07-24 12:00",
+        "description": "SNMPv3 Traps support for Ipv6 address"
+      },
+      {
+        "revision": "2023-06-27 12:00",
+        "description": "Updated pdug5GroupCurrentThStatus to include CB_off status"
+      },
+      {
+        "revision": "2023-03-13 12:00",
+        "description": "Added 2 New OIDs to support Beacon control"
+      },
+      {
+        "revision": "2023-02-13 12:00",
+        "description": "Updated to fix description, misspellings and punctuation"
+      },
+      {
+        "revision": "2022-12-15 12:00",
+        "description": "Updated pdug5OutletType to include COMBO outlet type"
+      },
+      {
+        "revision": "2022-10-17 12:00",
+        "description": "Added new OID pdug5HWVersion"
+      },
+      {
+        "revision": "2022-07-12 12:00",
+        "description": "Updated access type for group threshold OIDs and display string size limit for sensors"
+      },
+      {
+        "revision": "2022-02-04 12:00",
+        "description": "Added Support for RCM Self-Test"
+      },
+      {
+        "revision": "2021-02-02 12:00",
+        "description": "Added Support for RCM"
+      },
+      {
+        "revision": "2020-06-30 12:00",
+        "description": "Added Support for Power Share and Enhanced access control support"
+      },
+      {
+        "revision": "2020-03-30 12:00",
+        "description": "Added new access hub OIDs and corrected the scale for temperature and humidity sensor"
+      },
+      {
+        "revision": "2019-02-12 12:00",
+        "description": "Fix the index and access hub and added the Energy Thresholds"
+      },
+      {
+        "revision": "2018-01-12 12:00",
+        "description": "First Major Release"
+      }
+    ]
+  },
+  "panduit": {
+    "name": "panduit",
+    "oid": "1.3.6.1.4.1.19536",
+    "class": "objectidentity"
+  },
+  "pdug5": {
+    "name": "pdug5",
+    "oid": "1.3.6.1.4.1.19536.10.1",
+    "class": "objectidentity"
+  },
+  "pdug5Ident": {
+    "name": "pdug5Ident",
+    "oid": "1.3.6.1.4.1.19536.10.1.1",
+    "class": "objectidentity"
+  },
+  "pdug5Input": {
+    "name": "pdug5Input",
+    "oid": "1.3.6.1.4.1.19536.10.1.2",
+    "class": "objectidentity"
+  },
+  "pdug5Group": {
+    "name": "pdug5Group",
+    "oid": "1.3.6.1.4.1.19536.10.1.3",
+    "class": "objectidentity"
+  },
+  "pdug5Environment": {
+    "name": "pdug5Environment",
+    "oid": "1.3.6.1.4.1.19536.10.1.4",
+    "class": "objectidentity"
+  },
+  "pdug5Outlet": {
+    "name": "pdug5Outlet",
+    "oid": "1.3.6.1.4.1.19536.10.1.5",
+    "class": "objectidentity"
+  },
+  "pdug5Traps": {
+    "name": "pdug5Traps",
+    "oid": "1.3.6.1.4.1.19536.10.1.6",
+    "class": "objectidentity"
+  },
+  "pdug5TrapInfo": {
+    "name": "pdug5TrapInfo",
+    "oid": "1.3.6.1.4.1.19536.10.1.7",
+    "class": "objectidentity"
+  },
+  "pdug5Conformance": {
+    "name": "pdug5Conformance",
+    "oid": "1.3.6.1.4.1.19536.10.1.8",
+    "class": "objectidentity"
+  },
+  "pdug5NumberPDU": {
+    "name": "pdug5NumberPDU",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5IdentTable": {
+    "name": "pdug5IdentTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5IdentEntry": {
+    "name": "pdug5IdentEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5IdentIndex": {
+    "name": "pdug5IdentIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5Name": {
+    "name": "pdug5Name",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5Model": {
+    "name": "pdug5Model",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5Manufacturer": {
+    "name": "pdug5Manufacturer",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5FirmwareVersion": {
+    "name": "pdug5FirmwareVersion",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5FirmwareVersionTimeStamp": {
+    "name": "pdug5FirmwareVersionTimeStamp",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PartNumber": {
+    "name": "pdug5PartNumber",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5SerialNumber": {
+    "name": "pdug5SerialNumber",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5Status": {
+    "name": "pdug5Status",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5Controllable": {
+    "name": "pdug5Controllable",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseCount": {
+    "name": "pdug5InputPhaseCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupCount": {
+    "name": "pdug5GroupCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletCount": {
+    "name": "pdug5OutletCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5MACAddress": {
+    "name": "pdug5MACAddress",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5IPv4Address": {
+    "name": "pdug5IPv4Address",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5IPv6Address": {
+    "name": "pdug5IPv6Address",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HWVersion": {
+    "name": "pdug5HWVersion",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5ConfigTable": {
+    "name": "pdug5ConfigTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5ConfigEntry": {
+    "name": "pdug5ConfigEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5ConfigIndex": {
+    "name": "pdug5ConfigIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5ConfigSsh": {
+    "name": "pdug5ConfigSsh",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigFtps": {
+    "name": "pdug5ConfigFtps",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigHttp": {
+    "name": "pdug5ConfigHttp",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigHttps": {
+    "name": "pdug5ConfigHttps",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigIPv4IPv6Switch": {
+    "name": "pdug5ConfigIPv4IPv6Switch",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iPv4": 1,
+          "iPv6": 2,
+          "iPv4IPv6": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigRedfishAPI": {
+    "name": "pdug5ConfigRedfishAPI",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigOledDispalyOrientation": {
+    "name": "pdug5ConfigOledDispalyOrientation",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "displayNormal": 1,
+          "displayReverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigEnergyReset": {
+    "name": "pdug5ConfigEnergyReset",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 1,
+          "reset": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigNetworkManagementCardReset": {
+    "name": "pdug5ConfigNetworkManagementCardReset",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5ConfigDaisyChainStatus": {
+    "name": "pdug5ConfigDaisyChainStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daisychain": 0,
+          "rna": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5PowershareTable": {
+    "name": "pdug5PowershareTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5PowershareEntry": {
+    "name": "pdug5PowershareEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5PowershareIndex": {
+    "name": "pdug5PowershareIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5PowershareFunctionStatus": {
+    "name": "pdug5PowershareFunctionStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 0,
+          "available": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PowershareFunctionUpstreamStatus": {
+    "name": "pdug5PowershareFunctionUpstreamStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 0,
+          "available": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PowershareOutput": {
+    "name": "pdug5PowershareOutput",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PowershareInput": {
+    "name": "pdug5PowershareInput",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PowershareOptMode": {
+    "name": "pdug5PowershareOptMode",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerByPowershare": 0,
+          "powerByMains": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5PowershareFunc": {
+    "name": "pdug5PowershareFunc",
+    "oid": "1.3.6.1.4.1.19536.10.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disablePowershare": 0,
+          "enablePowershare": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputTable": {
+    "name": "pdug5InputTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5InputEntry": {
+    "name": "pdug5InputEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5InputType": {
+    "name": "pdug5InputType",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "splitPhase": 2,
+          "threePhaseDelta": 3,
+          "threePhaseWye": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputFrequency": {
+    "name": "pdug5InputFrequency",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputFrequencyStatus": {
+    "name": "pdug5InputFrequencyStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "outOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPowerVA": {
+    "name": "pdug5InputPowerVA",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPowerWatts": {
+    "name": "pdug5InputPowerWatts",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputTotalEnergy": {
+    "name": "pdug5InputTotalEnergy",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPowerWattHourTimer": {
+    "name": "pdug5InputPowerWattHourTimer",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputResettableEnergy": {
+    "name": "pdug5InputResettableEnergy",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPowerFactor": {
+    "name": "pdug5InputPowerFactor",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPowerVAR": {
+    "name": "pdug5InputPowerVAR",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputTotalCurrent": {
+    "name": "pdug5InputTotalCurrent",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseTable": {
+    "name": "pdug5InputPhaseTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5InputPhaseEntry": {
+    "name": "pdug5InputPhaseEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5InputPhaseIndex": {
+    "name": "pdug5InputPhaseIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageMeasType": {
+    "name": "pdug5InputPhaseVoltageMeasType",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "phase1toN": 2,
+          "phase2toN": 3,
+          "phase3toN": 4,
+          "phase1to2": 5,
+          "phase2to3": 6,
+          "phase3to1": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltage": {
+    "name": "pdug5InputPhaseVoltage",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThStatus": {
+    "name": "pdug5InputPhaseVoltageThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThLowerWarning": {
+    "name": "pdug5InputPhaseVoltageThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThLowerCritical": {
+    "name": "pdug5InputPhaseVoltageThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThUpperWarning": {
+    "name": "pdug5InputPhaseVoltageThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThUpperCritical": {
+    "name": "pdug5InputPhaseVoltageThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentMeasType": {
+    "name": "pdug5InputPhaseCurrentMeasType",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "neutral": 2,
+          "phase1": 3,
+          "phase2": 4,
+          "phase3": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentRating": {
+    "name": "pdug5InputPhaseCurrentRating",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrent": {
+    "name": "pdug5InputPhaseCurrent",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThStatus": {
+    "name": "pdug5InputPhaseCurrentThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThLowerWarning": {
+    "name": "pdug5InputPhaseCurrentThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThLowerCritical": {
+    "name": "pdug5InputPhaseCurrentThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThUpperWarning": {
+    "name": "pdug5InputPhaseCurrentThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThUpperCritical": {
+    "name": "pdug5InputPhaseCurrentThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentPercentLoad": {
+    "name": "pdug5InputPhaseCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerMeasType": {
+    "name": "pdug5InputPhasePowerMeasType",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "neutral": 2,
+          "phase1": 3,
+          "phase2": 4,
+          "phase3": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerVA": {
+    "name": "pdug5InputPhasePowerVA",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerWatts": {
+    "name": "pdug5InputPhasePowerWatts",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerWattHour": {
+    "name": "pdug5InputPhasePowerWattHour",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerWattHourTimer": {
+    "name": "pdug5InputPhasePowerWattHourTimer",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerFactor": {
+    "name": "pdug5InputPhasePowerFactor",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerVAR": {
+    "name": "pdug5InputPhasePowerVAR",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThResetThld": {
+    "name": "pdug5InputPhaseVoltageThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThChangeDelay": {
+    "name": "pdug5InputPhaseVoltageThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseVoltageThCtrl": {
+    "name": "pdug5InputPhaseVoltageThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThResetThld": {
+    "name": "pdug5InputPhaseCurrentThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThChangeDelay": {
+    "name": "pdug5InputPhaseCurrentThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhaseCurrentThCtrl": {
+    "name": "pdug5InputPhaseCurrentThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThLowerWarning": {
+    "name": "pdug5InputPowerThresholdThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThLowerCritical": {
+    "name": "pdug5InputPowerThresholdThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThUpperWarning": {
+    "name": "pdug5InputPowerThresholdThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThUpperCritical": {
+    "name": "pdug5InputPowerThresholdThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThResetThld": {
+    "name": "pdug5InputPowerThresholdThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThChangeDelay": {
+    "name": "pdug5InputPowerThresholdThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPowerThresholdThCtrl": {
+    "name": "pdug5InputPowerThresholdThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputEnergyThresholdThUpperWarning": {
+    "name": "pdug5InputEnergyThresholdThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputEnergyThresholdThUpperCritical": {
+    "name": "pdug5InputEnergyThresholdThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputEnergyThresholdThResetThld": {
+    "name": "pdug5InputEnergyThresholdThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputEnergyThresholdThChangeDelay": {
+    "name": "pdug5InputEnergyThresholdThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputEnergyThresholdThCtrl": {
+    "name": "pdug5InputEnergyThresholdThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputPhasePowerThStatus": {
+    "name": "pdug5InputPhasePowerThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmTable": {
+    "name": "pdug5InputRcmTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5InputRcmEntry": {
+    "name": "pdug5InputRcmEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5InputRcmEnabled": {
+    "name": "pdug5InputRcmEnabled",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmModStatus": {
+    "name": "pdug5InputRcmModStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmThUpperWarning": {
+    "name": "pdug5InputRcmThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmThUpperCritical": {
+    "name": "pdug5InputRcmThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmThResetThld": {
+    "name": "pdug5InputRcmThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmThChangeDelay": {
+    "name": "pdug5InputRcmThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmThCtrl": {
+    "name": "pdug5InputRcmThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmThStatus": {
+    "name": "pdug5InputRcmThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "good": 1,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmCurrent": {
+    "name": "pdug5InputRcmCurrent",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestTable": {
+    "name": "pdug5InputRcmSelfTestTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestEntry": {
+    "name": "pdug5InputRcmSelfTestEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestEnable": {
+    "name": "pdug5InputRcmSelfTestEnable",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestFreq": {
+    "name": "pdug5InputRcmSelfTestFreq",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "daily": 1,
+          "weekly": 2,
+          "monthly": 3,
+          "yearly": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestHour": {
+    "name": "pdug5InputRcmSelfTestHour",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestMinute": {
+    "name": "pdug5InputRcmSelfTestMinute",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestDay": {
+    "name": "pdug5InputRcmSelfTestDay",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestMonth": {
+    "name": "pdug5InputRcmSelfTestMonth",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestNextRunTime": {
+    "name": "pdug5InputRcmSelfTestNextRunTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestLastRunTime": {
+    "name": "pdug5InputRcmSelfTestLastRunTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5InputRcmSelfTestLastRunStatus": {
+    "name": "pdug5InputRcmSelfTestLastRunStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureNotAvailable": -1,
+          "passed": 1,
+          "failed": 2,
+          "pending": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupTable": {
+    "name": "pdug5GroupTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5GroupEntry": {
+    "name": "pdug5GroupEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5GroupIndex": {
+    "name": "pdug5GroupIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5GroupName": {
+    "name": "pdug5GroupName",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5GroupType": {
+    "name": "pdug5GroupType",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "breaker1pole": 2,
+          "breaker2pole": 3,
+          "breaker3pole": 4,
+          "outletSection": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageMeasType": {
+    "name": "pdug5GroupVoltageMeasType",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "phase1toN": 2,
+          "phase2toN": 3,
+          "phase3toN": 4,
+          "phase1to2": 5,
+          "phase2to3": 6,
+          "phase3to1": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltage": {
+    "name": "pdug5GroupVoltage",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThStatus": {
+    "name": "pdug5GroupVoltageThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThLowerWarning": {
+    "name": "pdug5GroupVoltageThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThLowerCritical": {
+    "name": "pdug5GroupVoltageThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThUpperWarning": {
+    "name": "pdug5GroupVoltageThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThUpperCritical": {
+    "name": "pdug5GroupVoltageThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5groupCurrentRating": {
+    "name": "pdug5groupCurrentRating",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupCurrent": {
+    "name": "pdug5GroupCurrent",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThStatus": {
+    "name": "pdug5GroupCurrentThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5,
+          "cbOff": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThLowerWarning": {
+    "name": "pdug5GroupCurrentThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThLowerCritical": {
+    "name": "pdug5GroupCurrentThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThUpperWarning": {
+    "name": "pdug5GroupCurrentThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThUpperCritical": {
+    "name": "pdug5GroupCurrentThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5GroupCurrentPercentLoad": {
+    "name": "pdug5GroupCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerVA": {
+    "name": "pdug5GroupPowerVA",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerWatts": {
+    "name": "pdug5GroupPowerWatts",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerWattHour": {
+    "name": "pdug5GroupPowerWattHour",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerWattHourTimer": {
+    "name": "pdug5GroupPowerWattHourTimer",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerFactor": {
+    "name": "pdug5GroupPowerFactor",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupPowerVAR": {
+    "name": "pdug5GroupPowerVAR",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupOutletCount": {
+    "name": "pdug5GroupOutletCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupBreakerStatus": {
+    "name": "pdug5GroupBreakerStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "breakerOn": 2,
+          "breakerOff": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupVoltageThCtrl": {
+    "name": "pdug5GroupVoltageThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5GroupCurrentThCtrl": {
+    "name": "pdug5GroupCurrentThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5EnvProbeTable": {
+    "name": "pdug5EnvProbeTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5EnvProbeEntry": {
+    "name": "pdug5EnvProbeEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5TemperatureScale": {
+    "name": "pdug5TemperatureScale",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureCount": {
+    "name": "pdug5TemperatureCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HumidityCount": {
+    "name": "pdug5HumidityCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5DoorCount": {
+    "name": "pdug5DoorCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5DryCount": {
+    "name": "pdug5DryCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5SpotCount": {
+    "name": "pdug5SpotCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5RopeCount": {
+    "name": "pdug5RopeCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HidCount": {
+    "name": "pdug5HidCount",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5TemperatureTable": {
+    "name": "pdug5TemperatureTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5TemperatureEntry": {
+    "name": "pdug5TemperatureEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5TemperatureIndex": {
+    "name": "pdug5TemperatureIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5TemperatureName": {
+    "name": "pdug5TemperatureName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureProbeStatus": {
+    "name": "pdug5TemperatureProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5TemperatureValue": {
+    "name": "pdug5TemperatureValue",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5TemperatureThStatus": {
+    "name": "pdug5TemperatureThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5TemperatureThLowerWarning": {
+    "name": "pdug5TemperatureThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureThLowerCritical": {
+    "name": "pdug5TemperatureThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureThUpperWarning": {
+    "name": "pdug5TemperatureThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureThUpperCritical": {
+    "name": "pdug5TemperatureThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5TemperatureThCtrl": {
+    "name": "pdug5TemperatureThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityTable": {
+    "name": "pdug5HumidityTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5HumidityEntry": {
+    "name": "pdug5HumidityEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5HumidityIndex": {
+    "name": "pdug5HumidityIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5HumidityName": {
+    "name": "pdug5HumidityName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityProbeStatus": {
+    "name": "pdug5HumidityProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HumidityValue": {
+    "name": "pdug5HumidityValue",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HumidityThStatus": {
+    "name": "pdug5HumidityThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HumidityThLowerWarning": {
+    "name": "pdug5HumidityThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityThLowerCritical": {
+    "name": "pdug5HumidityThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityThUpperWarning": {
+    "name": "pdug5HumidityThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityThUpperCritical": {
+    "name": "pdug5HumidityThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HumidityThCtrl": {
+    "name": "pdug5HumidityThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5DoorTable": {
+    "name": "pdug5DoorTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5DoorEntry": {
+    "name": "pdug5DoorEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DoorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5DoorIndex": {
+    "name": "pdug5DoorIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5DoorName": {
+    "name": "pdug5DoorName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5DoorProbeStatus": {
+    "name": "pdug5DoorProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5DoorState": {
+    "name": "pdug5DoorState",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doorOpen": 1,
+          "doorClosed": 2,
+          "badDoorSensor": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5DryTable": {
+    "name": "pdug5DryTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5DryEntry": {
+    "name": "pdug5DryEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5DryIndex": {
+    "name": "pdug5DryIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5DryName": {
+    "name": "pdug5DryName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5DryProbeStatus": {
+    "name": "pdug5DryProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5DryState": {
+    "name": "pdug5DryState",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "alarmed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5SpotTable": {
+    "name": "pdug5SpotTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5SpotEntry": {
+    "name": "pdug5SpotEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SpotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5SpotIndex": {
+    "name": "pdug5SpotIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5SpotName": {
+    "name": "pdug5SpotName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5SpotProbeStatus": {
+    "name": "pdug5SpotProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5SpotState": {
+    "name": "pdug5SpotState",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noleak": 1,
+          "leak": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5RopeTable": {
+    "name": "pdug5RopeTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5RopeEntry": {
+    "name": "pdug5RopeEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5RopeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5RopeIndex": {
+    "name": "pdug5RopeIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5RopeName": {
+    "name": "pdug5RopeName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5RopeProbeStatus": {
+    "name": "pdug5RopeProbeStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2,
+          "bad": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5RopeState": {
+    "name": "pdug5RopeState",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noleak": 1,
+          "leak": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5EnvHID": {
+    "name": "pdug5EnvHID",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10",
+    "class": "objectidentity"
+  },
+  "pdug5EnvHidTable": {
+    "name": "pdug5EnvHidTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5EnvHidEntry": {
+    "name": "pdug5EnvHidEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5HIDIndex": {
+    "name": "pdug5HIDIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5HidAisle": {
+    "name": "pdug5HidAisle",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cold": 1,
+          "hot": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HidHandleOperation": {
+    "name": "pdug5HidHandleOperation",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduHIDVer": {
+    "name": "pduHIDVer",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5MechanicalLock": {
+    "name": "pdug5MechanicalLock",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduHIDSerial": {
+    "name": "pduHIDSerial",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduHIDHwVer": {
+    "name": "pduHIDHwVer",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HIDAutoLockTime": {
+    "name": "pdug5HIDAutoLockTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDDoorOpenTime": {
+    "name": "pdug5HIDDoorOpenTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDMaxDoorOpenTime": {
+    "name": "pdug5HIDMaxDoorOpenTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDUserPinLength": {
+    "name": "pdug5HIDUserPinLength",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDUserPinMode": {
+    "name": "pdug5HIDUserPinMode",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "visible": 1,
+          "hidden": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDAisleControl": {
+    "name": "pdug5HIDAisleControl",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "combined": 1,
+          "standalone": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HIDBeaconFuncControl": {
+    "name": "pdug5HIDBeaconFuncControl",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locate": 0,
+          "standby": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidBeaconColorControl": {
+    "name": "pdug5HidBeaconColorControl",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "red": 0,
+          "green": 1,
+          "blue": 2,
+          "yellow": 3,
+          "magenta": 4,
+          "aqua": 5,
+          "white": 6,
+          "beaconoff": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5EnvHidControlTable": {
+    "name": "pdug5EnvHidControlTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5EnvHidControlEntry": {
+    "name": "pdug5EnvHidControlEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5HidControlIndex": {
+    "name": "pdug5HidControlIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5HidControlUserName": {
+    "name": "pdug5HidControlUserName",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlCardID": {
+    "name": "pdug5HidControlCardID",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlTimestamp": {
+    "name": "pdug5HidControlTimestamp",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5HidControlCardAisle": {
+    "name": "pdug5HidControlCardAisle",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cold": 1,
+          "hot": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlStartTime": {
+    "name": "pdug5HidControlStartTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlExpireTime": {
+    "name": "pdug5HidControlExpireTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlTempUser": {
+    "name": "pdug5HidControlTempUser",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlPin": {
+    "name": "pdug5HidControlPin",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5HidControlCardIdStr": {
+    "name": "pdug5HidControlCardIdStr",
+    "oid": "1.3.6.1.4.1.19536.10.1.4.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletTable": {
+    "name": "pdug5OutletTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5OutletEntry": {
+    "name": "pdug5OutletEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5OutletIndex": {
+    "name": "pdug5OutletIndex",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5OutletName": {
+    "name": "pdug5OutletName",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletType": {
+    "name": "pdug5OutletType",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iecC13": 1,
+          "iecC19": 2,
+          "nema5-20R": 3,
+          "iecC13iecC15combo": 4,
+          "iecC13iecC15iec19combo": 5,
+          "uk": 10,
+          "french": 11,
+          "schuko": 12,
+          "nema515": 20,
+          "nema51520": 21,
+          "nema520": 22,
+          "nemaL520": 23,
+          "nemaL530": 24,
+          "nema615": 25,
+          "nema620": 26,
+          "nemaL620": 27,
+          "nemaL630": 28,
+          "nemaL715": 29,
+          "rf203p277": 30
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletCurrentRating": {
+    "name": "pdug5OutletCurrentRating",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletCurrent": {
+    "name": "pdug5OutletCurrent",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThStatus": {
+    "name": "pdug5OutletActivePowerThStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "lowWarning": 2,
+          "lowCritical": 3,
+          "highWarning": 4,
+          "highCritical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThLowerWarning": {
+    "name": "pdug5OutletActivePowerThLowerWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThLowerCritical": {
+    "name": "pdug5OutletActivePowerThLowerCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThUpperWarning": {
+    "name": "pdug5OutletActivePowerThUpperWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThUpperCritical": {
+    "name": "pdug5OutletActivePowerThUpperCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletCurrentPercentLoad": {
+    "name": "pdug5OutletCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletVA": {
+    "name": "pdug5OutletVA",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletWatts": {
+    "name": "pdug5OutletWatts",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletWh": {
+    "name": "pdug5OutletWh",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletWhTimer": {
+    "name": "pdug5OutletWhTimer",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletPowerFactor": {
+    "name": "pdug5OutletPowerFactor",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletVAR": {
+    "name": "pdug5OutletVAR",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletBranch": {
+    "name": "pdug5OutletBranch",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThResetThld": {
+    "name": "pdug5OutletActivePowerThResetThld",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThChangeDelay": {
+    "name": "pdug5OutletActivePowerThChangeDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletActivePowerThCtrl": {
+    "name": "pdug5OutletActivePowerThCtrl",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlTable": {
+    "name": "pdug5OutletControlTable",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pdug5OutletControlEntry": {
+    "name": "pdug5OutletControlEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5OutletControlStatus": {
+    "name": "pdug5OutletControlStatus",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pendingOff": 3,
+          "pendingOn": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5OutletControlOffCmd": {
+    "name": "pdug5OutletControlOffCmd",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlOnCmd": {
+    "name": "pdug5OutletControlOnCmd",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlRebootCmd": {
+    "name": "pdug5OutletControlRebootCmd",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlPowerOnState": {
+    "name": "pdug5OutletControlPowerOnState",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "lastState": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlSequenceDelay": {
+    "name": "pdug5OutletControlSequenceDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlRebootOffTime": {
+    "name": "pdug5OutletControlRebootOffTime",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlSwitchable": {
+    "name": "pdug5OutletControlSwitchable",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchable": 1,
+          "notSwitchable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlShutoffDelay": {
+    "name": "pdug5OutletControlShutoffDelay",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pdug5OutletControlCommand": {
+    "name": "pdug5OutletControlCommand",
+    "oid": "1.3.6.1.4.1.19536.10.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediateOff": 1,
+          "immediateOn": 2,
+          "delayedOff": 3,
+          "delayedOn": 4,
+          "immediateReboot": 5,
+          "delayedReboot": 6,
+          "outletUnknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapCritical": {
+    "name": "trapCritical",
+    "oid": "1.3.6.1.4.1.19536.10.1.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "trapWarning": {
+    "name": "trapWarning",
+    "oid": "1.3.6.1.4.1.19536.10.1.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "trapInformation": {
+    "name": "trapInformation",
+    "oid": "1.3.6.1.4.1.19536.10.1.6.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "trapCleared": {
+    "name": "trapCleared",
+    "oid": "1.3.6.1.4.1.19536.10.1.6.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "trapTest": {
+    "name": "trapTest",
+    "oid": "1.3.6.1.4.1.19536.10.1.6.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5TrapInfoEntry": {
+    "name": "pdug5TrapInfoEntry",
+    "oid": "1.3.6.1.4.1.19536.10.1.7.1",
+    "class": "objectidentity"
+  },
+  "trapCode": {
+    "name": "trapCode",
+    "oid": "1.3.6.1.4.1.19536.10.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapDescription": {
+    "name": "trapDescription",
+    "oid": "1.3.6.1.4.1.19536.10.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pdug5Compliances": {
+    "name": "pdug5Compliances",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.1",
+    "class": "objectidentity"
+  },
+  "pdug5Groups": {
+    "name": "pdug5Groups",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2",
+    "class": "objectidentity"
+  },
+  "pdug5FullCompliance": {
+    "name": "pdug5FullCompliance",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pdug5IdentGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5InputGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5GroupGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5EnvironmentGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5OutletGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5TrapGroup",
+        "module": "PANDUIT-MIB"
+      },
+      {
+        "object": "pdug5TrapInfoGroup",
+        "module": "PANDUIT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5IdentGroup": {
+    "name": "pdug5IdentGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5NumberPDU"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5Name"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5Model"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5Manufacturer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5FirmwareVersion"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5FirmwareVersionTimeStamp"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PartNumber"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SerialNumber"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5Status"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5Controllable"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5MACAddress"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv4Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5IPv6Address"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HWVersion"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigSsh"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigFtps"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigHttp"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigHttps"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigIPv4IPv6Switch"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigRedfishAPI"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigOledDispalyOrientation"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigEnergyReset"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigNetworkManagementCardReset"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5ConfigDaisyChainStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareFunctionStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareFunctionUpstreamStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareOutput"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareInput"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareOptMode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5PowershareFunc"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5InputGroup": {
+    "name": "pdug5InputGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputFrequency"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputFrequencyStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerVA"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerWatts"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputTotalEnergy"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerWattHourTimer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputResettableEnergy"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerFactor"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerVAR"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputTotalCurrent"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageMeasType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltage"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentMeasType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentRating"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrent"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentPercentLoad"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerMeasType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerVA"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerWatts"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerWattHour"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerWattHourTimer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerFactor"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerVAR"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseVoltageThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhaseCurrentThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPowerThresholdThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputEnergyThresholdThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputEnergyThresholdThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputEnergyThresholdThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputEnergyThresholdThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputEnergyThresholdThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputPhasePowerThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmEnabled"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmModStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmCurrent"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestEnable"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestFreq"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestHour"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestMinute"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestDay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestMonth"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestNextRunTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestLastRunTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5InputRcmSelfTestLastRunStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5GroupGroup": {
+    "name": "pdug5GroupGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageMeasType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltage"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5groupCurrentRating"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrent"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentPercentLoad"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerVA"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerWatts"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerWattHour"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerWattHourTimer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerFactor"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupPowerVAR"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupOutletCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupBreakerStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupVoltageThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5GroupCurrentThCtrl"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5EnvironmentGroup": {
+    "name": "pdug5EnvironmentGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureScale"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DoorCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DryCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SpotCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5RopeCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidCount"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureValue"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5TemperatureThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityValue"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HumidityThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DoorName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DoorProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DoorState"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DryName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DryProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5DryState"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SpotName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SpotProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5SpotState"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5RopeName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5RopeProbeStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5RopeState"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidAisle"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidHandleOperation"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pduHIDVer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5MechanicalLock"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pduHIDSerial"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pduHIDHwVer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDAutoLockTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDDoorOpenTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDMaxDoorOpenTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDUserPinLength"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDUserPinMode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDAisleControl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HIDBeaconFuncControl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidBeaconColorControl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlUserName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlCardID"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlTimestamp"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlCardAisle"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlStartTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlExpireTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlTempUser"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlPin"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5HidControlCardIdStr"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5OutletGroup": {
+    "name": "pdug5OutletGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletName"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletType"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletCurrentRating"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletCurrent"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThLowerWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThLowerCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThUpperWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThUpperCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletCurrentPercentLoad"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletVA"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletWatts"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletWh"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletWhTimer"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletPowerFactor"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletVAR"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletBranch"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThResetThld"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThChangeDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletActivePowerThCtrl"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlStatus"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlOffCmd"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlOnCmd"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlRebootCmd"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlPowerOnState"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlSequenceDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlRebootOffTime"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlSwitchable"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlShutoffDelay"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "pdug5OutletControlCommand"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5TrapGroup": {
+    "name": "pdug5TrapGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCritical"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapWarning"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapInformation"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCleared"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapTest"
+      }
+    ],
+    "status": "current"
+  },
+  "pdug5TrapInfoGroup": {
+    "name": "pdug5TrapInfoGroup",
+    "oid": "1.3.6.1.4.1.19536.10.1.8.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "PANDUIT-MIB",
+        "object": "trapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PANDUIT-MIB",
+      "Source digest sha256:25f5a34a3c51496b5b854e3bdc1c68fb1d2facd59985dcd4b5e6a19dfe01647b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PANDUIT-MIB"
+  }
+}

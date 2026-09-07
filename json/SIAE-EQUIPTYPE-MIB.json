@@ -1,0 +1,96 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "equipTypeMib": {
+    "name": "equipTypeMib",
+    "oid": "1.3.6.1.4.1.3373.1103.501",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-23 00:00",
+        "description": "Added equipTypeEasyCellGateway (78). "
+      },
+      {
+        "revision": "2014-10-29 00:00",
+        "description": "Added equipTypeALFOplus2 (77). "
+      },
+      {
+        "revision": "2014-06-23 00:00",
+        "description": "Fixed IMPORTS clause. "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version "
+      }
+    ]
+  },
+  "equipTypeList": {
+    "name": "equipTypeList",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5",
+    "class": "objectidentity"
+  },
+  "equipTypeUnknown": {
+    "name": "equipTypeUnknown",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFO80HD": {
+    "name": "equipTypeALFO80HD",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFO80HDsm": {
+    "name": "equipTypeALFO80HDsm",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeAGS20": {
+    "name": "equipTypeAGS20",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFOplus2": {
+    "name": "equipTypeALFOplus2",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeEasyCellGateway": {
+    "name": "equipTypeEasyCellGateway",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-EQUIPTYPE-MIB",
+      "Source digest sha256:4a6343e3de2233bf4344ef559c0d20a387f4aa3b3f0af9492ee768525a7e9864",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-EQUIPTYPE-MIB"
+  }
+}

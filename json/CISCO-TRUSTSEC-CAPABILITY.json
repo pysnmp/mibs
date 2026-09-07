@@ -1,0 +1,452 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsPasswordEncryptionType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTrustSecCapability": {
+    "name": "ciscoTrustSecCapability",
+    "oid": "1.3.6.1.4.1.9.7.598",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Added capability statements - ciscoTrustSecCapV15R0101SYPCat6kSup2T - ciscoTrustSecCapV15R0101SYPCat6kSup720 Added VARITION for object ctsSgtAssignmentMethod to the following capability statements: - ciscoTrustSecCapV12R0250SYPCat6k - ciscoTrustSecCapV15R0001SYPCat6k"
+      },
+      {
+        "revision": "2011-09-28 00:00",
+        "description": "Added capability statement ciscoTrustSecCapV15R0001SYPCat6k."
+      },
+      {
+        "revision": "2010-11-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecCapV12R0250SYPCat6k": {
+    "name": "ciscoTrustSecCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.598.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "includes": [
+          "ciscoTrustSecCacheGroup",
+          "ciscoTrustSecSgtGroup",
+          "ciscoTrustSecCredentialsGroup",
+          "ciscoTrustSecHwKeystoreInfoGroup",
+          "ciscoTrustSecEnvDataGroup",
+          "ciscoTrustSecSgtAssignmentGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsCacheNvStorage",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 158
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsSecurityGroupTagId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65533
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDeviceId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 80
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDevicePasswordType",
+            "syntax": {
+              "type": "CtsPasswordEncryptionType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 2,
+                  "clearText": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsPacStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCapV15R0001SYPCat6k": {
+    "name": "ciscoTrustSecCapV15R0001SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.598.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "includes": [
+          "ciscoTrustSecCacheGroup",
+          "ciscoTrustSecSgtGroup",
+          "ciscoTrustSecCredentialsGroup",
+          "ciscoTrustSecHwKeystoreInfoGroup",
+          "ciscoTrustSecEnvDataGroup",
+          "ciscoTrustSecSgtAssignmentGroup",
+          "ciscoTrustSecEnvSecGroupNameGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsCacheNvStorage",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 158
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsSecurityGroupTagId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65533
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDeviceId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 80
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDevicePasswordType",
+            "syntax": {
+              "type": "CtsPasswordEncryptionType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 2,
+                  "clearText": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsPacStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCapV15R0101SYPCat6kSup2T": {
+    "name": "ciscoTrustSecCapV15R0101SYPCat6kSup2T",
+    "oid": "1.3.6.1.4.1.9.7.598.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                     series devices with Supervisor 2T present.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "includes": [
+          "ciscoTrustSecCacheGroup",
+          "ciscoTrustSecSgtGroup",
+          "ciscoTrustSecCredentialsGroup",
+          "ciscoTrustSecHwKeystoreInfoGroup",
+          "ciscoTrustSecEnvDataGroup",
+          "ciscoTrustSecSgtAssignmentGroup",
+          "ciscoTrustSecEnvSecGroupNameGroup",
+          "ciscoTrustSecSwKeystoreNotifsInfoGroup",
+          "ciscoTrustSecSwKeystoreNotifsControlGroup",
+          "ciscoTrustSecSwKeystoreNotifsGroup",
+          "ciscoTrustSecFileErrNotifsInfoGroup",
+          "ciscoTrustSecNotifsMessageStringInfoGroup",
+          "ciscoTrustSecCacheFileNotifsControlGroup",
+          "ciscoTrustSecCacheFileNotifsGroup",
+          "ciscoTrustSecCtrDrbgNotifsControlGroup",
+          "ciscoTrustSecCtrDrbgNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsCacheNvStorage",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 158
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsSecurityGroupTagId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65533
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDeviceId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 80
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDevicePasswordType",
+            "syntax": {
+              "type": "CtsPasswordEncryptionType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 2,
+                  "clearText": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsPacStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCapV15R0101SYPCat6kSup720": {
+    "name": "ciscoTrustSecCapV15R0101SYPCat6kSup720",
+    "oid": "1.3.6.1.4.1.9.7.598.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                     series devices with Supervisor 720 present.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "includes": [
+          "ciscoTrustSecCacheGroup",
+          "ciscoTrustSecSgtGroup",
+          "ciscoTrustSecCredentialsGroup",
+          "ciscoTrustSecHwKeystoreInfoGroup",
+          "ciscoTrustSecEnvDataGroup",
+          "ciscoTrustSecEnvSecGroupNameGroup",
+          "ciscoTrustSecSwKeystoreNotifsInfoGroup",
+          "ciscoTrustSecSwKeystoreNotifsControlGroup",
+          "ciscoTrustSecSwKeystoreNotifsGroup",
+          "ciscoTrustSecFileErrNotifsInfoGroup",
+          "ciscoTrustSecNotifsMessageStringInfoGroup",
+          "ciscoTrustSecCacheFileNotifsControlGroup",
+          "ciscoTrustSecCacheFileNotifsGroup",
+          "ciscoTrustSecCtrDrbgNotifsControlGroup",
+          "ciscoTrustSecCtrDrbgNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsCacheNvStorage",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 158
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsSecurityGroupTagId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65533
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDeviceId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 80
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsDevicePasswordType",
+            "syntax": {
+              "type": "CtsPasswordEncryptionType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 2,
+                  "clearText": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsPacStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TRUSTSEC-CAPABILITY",
+      "Source digest sha256:a38262660293d4019c174fac83959747c47266b35ba369d0e501ce1c06c1d136",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TRUSTSEC-CAPABILITY"
+  }
+}

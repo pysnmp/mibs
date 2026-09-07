@@ -1,0 +1,304 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpProtFilterCapability": {
+    "name": "ciscoIpProtFilterCapability",
+    "oid": "1.3.6.1.4.1.9.7.500",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-09 00:00",
+        "description": "Added capability statement cIpProtFilterCapc4710aceVA1R700 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-04-19 00:00",
+        "description": "Added capability statement cIpProtFilterCapACSWV03R000 for Application Control Engine (ACE)."
+      }
+    ]
+  },
+  "cIpProtFilterCapACSWV03R000": {
+    "name": "cIpProtFilterCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.500.1",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "includes": [
+          "ciscoIpProtocolFilteringGroup",
+          "ciscoIpProtocolFilterGroup2",
+          "ciscoIpProtocolFilterExtGroup",
+          "ciscoIpProtocolFilterStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cippfIpProfileType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpProfileStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIfIpProfileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIfIpProfileStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterOrderPosition",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcPortLow",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcPortHigh",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestPortLow",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestPortHigh",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterPrecedence",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterTos",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterLogEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterICMPType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterTCPEstablished",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterFragments",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterICMPCode",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtLogLevel",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtLogInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIpProtFilterCapc4710aceVA1R700": {
+    "name": "cIpProtFilterCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.500.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                  for ACE 4710 Application Control Engine \n                  Appliance.",
+    "capabilities": [
+      {
+        "module": "CISCO-IP-PROTOCOL-FILTER-MIB",
+        "includes": [
+          "ciscoIpProtocolFilteringGroup",
+          "ciscoIpProtocolFilterGroup2",
+          "ciscoIpProtocolFilterExtGroup",
+          "ciscoIpProtocolFilterStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cippfIpProfileType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpProfileStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIfIpProfileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIfIpProfileStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterOrderPosition",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestMask",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcPortLow",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterSrcPortHigh",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestPortLow",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterDestPortHigh",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterPrecedence",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterTos",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterLogEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterICMPType",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterTCPEstablished",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterFragments",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterICMPCode",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtLogLevel",
+            "access": "read-only"
+          },
+          {
+            "object": "cippfIpFilterExtLogInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IP-PROTOCOL-FILTER-CAPABILITY",
+      "Source digest sha256:6352550c49ce276cfe79ac6b4bad0753c5099f8f7ee691ef1b4ee02faa2e3adc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IP-PROTOCOL-FILTER-CAPABILITY"
+  }
+}

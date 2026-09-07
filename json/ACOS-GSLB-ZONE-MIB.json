@@ -1,0 +1,3587 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gslbZoneModule": {
+    "name": "gslbZoneModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428",
+    "class": "moduleidentity"
+  },
+  "zone": {
+    "name": "zone",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1",
+    "class": "objectidentity"
+  },
+  "zoneStatsTable": {
+    "name": "zoneStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneStatsEntry": {
+    "name": "zoneStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneStatsSlotId": {
+    "name": "zoneStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsName": {
+    "name": "zoneStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsReceivedQuery": {
+    "name": "zoneStatsReceivedQuery",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsSentResponse": {
+    "name": "zoneStatsSentResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsProxyModeResponse": {
+    "name": "zoneStatsProxyModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsCacheModeResponse": {
+    "name": "zoneStatsCacheModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsServerModeResponse": {
+    "name": "zoneStatsServerModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsStickyModeResponse": {
+    "name": "zoneStatsStickyModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsBackupModeResponse": {
+    "name": "zoneStatsBackupModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsSmruleRedirFromSvcHit": {
+    "name": "zoneStatsSmruleRedirFromSvcHit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsSmruleRedirFromSvcMiss": {
+    "name": "zoneStatsSmruleRedirFromSvcMiss",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperTable": {
+    "name": "zoneOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneOperEntry": {
+    "name": "zoneOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneOperSlotId": {
+    "name": "zoneOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperName": {
+    "name": "zoneOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperState": {
+    "name": "zoneOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperSmrule": {
+    "name": "zoneOperSmrule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListTable": {
+    "name": "zoneOperDnsSoaRecordListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListEntry": {
+    "name": "zoneOperDnsSoaRecordListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneOperDnsSoaRecordListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneOperDnsSoaRecordListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "zoneOperDnsSoaRecordListDnsSoaRecordListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListSlotId": {
+    "name": "zoneOperDnsSoaRecordListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListName": {
+    "name": "zoneOperDnsSoaRecordListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListDnsSoaRecordListListId": {
+    "name": "zoneOperDnsSoaRecordListDnsSoaRecordListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListName1": {
+    "name": "zoneOperDnsSoaRecordListName1",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListType": {
+    "name": "zoneOperDnsSoaRecordListType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListExpire": {
+    "name": "zoneOperDnsSoaRecordListExpire",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListRefresh": {
+    "name": "zoneOperDnsSoaRecordListRefresh",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListSerial": {
+    "name": "zoneOperDnsSoaRecordListSerial",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListRetry": {
+    "name": "zoneOperDnsSoaRecordListRetry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListTtl": {
+    "name": "zoneOperDnsSoaRecordListTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneOperDnsSoaRecordListMxName": {
+    "name": "zoneOperDnsSoaRecordListMxName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecord": {
+    "name": "dnsMxRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4",
+    "class": "objectidentity"
+  },
+  "dnsMxRecordStatsTable": {
+    "name": "dnsMxRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsMxRecordStatsEntry": {
+    "name": "dnsMxRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordStatsMxName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsMxRecordStatsSlotId": {
+    "name": "dnsMxRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordStatsName": {
+    "name": "dnsMxRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordStatsMxName": {
+    "name": "dnsMxRecordStatsMxName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordStatsHits": {
+    "name": "dnsMxRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperTable": {
+    "name": "dnsMxRecordOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsMxRecordOperEntry": {
+    "name": "dnsMxRecordOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordOperMxName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsMxRecordOperSlotId": {
+    "name": "dnsMxRecordOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperName": {
+    "name": "dnsMxRecordOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperMxName": {
+    "name": "dnsMxRecordOperMxName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperLastServer": {
+    "name": "dnsMxRecordOperLastServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperHits": {
+    "name": "dnsMxRecordOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordOperPriority": {
+    "name": "dnsMxRecordOperPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecord": {
+    "name": "dnsNsRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5",
+    "class": "objectidentity"
+  },
+  "dnsNsRecordStatsTable": {
+    "name": "dnsNsRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsNsRecordStatsEntry": {
+    "name": "dnsNsRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordStatsNsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsNsRecordStatsSlotId": {
+    "name": "dnsNsRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordStatsName": {
+    "name": "dnsNsRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordStatsNsName": {
+    "name": "dnsNsRecordStatsNsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordStatsHits": {
+    "name": "dnsNsRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordOperTable": {
+    "name": "dnsNsRecordOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsNsRecordOperEntry": {
+    "name": "dnsNsRecordOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordOperNsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsNsRecordOperSlotId": {
+    "name": "dnsNsRecordOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordOperName": {
+    "name": "dnsNsRecordOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordOperNsName": {
+    "name": "dnsNsRecordOperNsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordOperLastServer": {
+    "name": "dnsNsRecordOperLastServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordOperHits": {
+    "name": "dnsNsRecordOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecord": {
+    "name": "dnsCaaRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6",
+    "class": "objectidentity"
+  },
+  "dnsCaaRecordStatsTable": {
+    "name": "dnsCaaRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsEntry": {
+    "name": "dnsCaaRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordStatsCriticalFlag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordStatsPropertyTag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordStatsRdata",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsCaaRecordStatsSlotId": {
+    "name": "dnsCaaRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsName": {
+    "name": "dnsCaaRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsCriticalFlag": {
+    "name": "dnsCaaRecordStatsCriticalFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsPropertyTag": {
+    "name": "dnsCaaRecordStatsPropertyTag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsRdata": {
+    "name": "dnsCaaRecordStatsRdata",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordStatsHits": {
+    "name": "dnsCaaRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperTable": {
+    "name": "dnsCaaRecordOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsCaaRecordOperEntry": {
+    "name": "dnsCaaRecordOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordOperCriticalFlag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordOperPropertyTag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordOperRdata",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsCaaRecordOperSlotId": {
+    "name": "dnsCaaRecordOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperName": {
+    "name": "dnsCaaRecordOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperCriticalFlag": {
+    "name": "dnsCaaRecordOperCriticalFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperPropertyTag": {
+    "name": "dnsCaaRecordOperPropertyTag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperRdata": {
+    "name": "dnsCaaRecordOperRdata",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordOperLastServer": {
+    "name": "dnsCaaRecordOperLastServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "service": {
+    "name": "service",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7",
+    "class": "objectidentity"
+  },
+  "serviceStatsTable": {
+    "name": "serviceStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceStatsEntry": {
+    "name": "serviceStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceStatsServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceStatsSlotId": {
+    "name": "serviceStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsName": {
+    "name": "serviceStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsServicePort": {
+    "name": "serviceStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsServiceName": {
+    "name": "serviceStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsReceivedQuery": {
+    "name": "serviceStatsReceivedQuery",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsSentResponse": {
+    "name": "serviceStatsSentResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsProxyModeResponse": {
+    "name": "serviceStatsProxyModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsCacheModeResponse": {
+    "name": "serviceStatsCacheModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsServerModeResponse": {
+    "name": "serviceStatsServerModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsStickyModeResponse": {
+    "name": "serviceStatsStickyModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsBackupModeResponse": {
+    "name": "serviceStatsBackupModeResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsSmruleRedirFromSvcHit": {
+    "name": "serviceStatsSmruleRedirFromSvcHit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatsSmruleRedirFromSvcMiss": {
+    "name": "serviceStatsSmruleRedirFromSvcMiss",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperTable": {
+    "name": "serviceOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceOperEntry": {
+    "name": "serviceOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceOperSlotId": {
+    "name": "serviceOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperName": {
+    "name": "serviceOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperServicePort": {
+    "name": "serviceOperServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperServiceName": {
+    "name": "serviceOperServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperState": {
+    "name": "serviceOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperMatched": {
+    "name": "serviceOperMatched",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperTotalSessions": {
+    "name": "serviceOperTotalSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListTable": {
+    "name": "serviceOperCacheListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceOperCacheListEntry": {
+    "name": "serviceOperCacheListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperCacheListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperCacheListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperCacheListServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperCacheListServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperCacheListCacheListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceOperCacheListSlotId": {
+    "name": "serviceOperCacheListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListName": {
+    "name": "serviceOperCacheListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListServicePort": {
+    "name": "serviceOperCacheListServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListServiceName": {
+    "name": "serviceOperCacheListServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListCacheListListId": {
+    "name": "serviceOperCacheListCacheListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListAlias": {
+    "name": "serviceOperCacheListAlias",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListCacheLength": {
+    "name": "serviceOperCacheListCacheLength",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListCacheTtl": {
+    "name": "serviceOperCacheListCacheTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListCacheDnsFlag": {
+    "name": "serviceOperCacheListCacheDnsFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListQuestionRecords": {
+    "name": "serviceOperCacheListQuestionRecords",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListAnswerRecords": {
+    "name": "serviceOperCacheListAnswerRecords",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListAuthorityRecords": {
+    "name": "serviceOperCacheListAuthorityRecords",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperCacheListAdditionalRecords": {
+    "name": "serviceOperCacheListAdditionalRecords",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListTable": {
+    "name": "serviceOperSessionListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceOperSessionListEntry": {
+    "name": "serviceOperSessionListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSessionListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSessionListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSessionListServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSessionListServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperSessionListSessionListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceOperSessionListSlotId": {
+    "name": "serviceOperSessionListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListName": {
+    "name": "serviceOperSessionListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListServicePort": {
+    "name": "serviceOperSessionListServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListServiceName": {
+    "name": "serviceOperSessionListServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListSessionListListId": {
+    "name": "serviceOperSessionListSessionListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListClient": {
+    "name": "serviceOperSessionListClient",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListBest": {
+    "name": "serviceOperSessionListBest",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListMode": {
+    "name": "serviceOperSessionListMode",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListHits": {
+    "name": "serviceOperSessionListHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListLastSecondHits": {
+    "name": "serviceOperSessionListLastSecondHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListTtl": {
+    "name": "serviceOperSessionListTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListUpdate": {
+    "name": "serviceOperSessionListUpdate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperSessionListAging": {
+    "name": "serviceOperSessionListAging",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListTable": {
+    "name": "serviceOperDnsARecordListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListEntry": {
+    "name": "serviceOperDnsARecordListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperDnsARecordListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperDnsARecordListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperDnsARecordListServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperDnsARecordListServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "serviceOperDnsARecordListDnsARecordListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceOperDnsARecordListSlotId": {
+    "name": "serviceOperDnsARecordListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListName": {
+    "name": "serviceOperDnsARecordListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListServicePort": {
+    "name": "serviceOperDnsARecordListServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListServiceName": {
+    "name": "serviceOperDnsARecordListServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListDnsARecordListListId": {
+    "name": "serviceOperDnsARecordListDnsARecordListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListIp": {
+    "name": "serviceOperDnsARecordListIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceOperDnsARecordListRecTtl": {
+    "name": "serviceOperDnsARecordListRecTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecord": {
+    "name": "dnsARecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6",
+    "class": "objectidentity"
+  },
+  "dnsARecordSrv": {
+    "name": "dnsARecordSrv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2",
+    "class": "objectidentity"
+  },
+  "dnsARecordSrvStatsTable": {
+    "name": "dnsARecordSrvStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsEntry": {
+    "name": "dnsARecordSrvStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordSrvStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordSrvStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordSrvStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordSrvStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordSrvStatsSvrname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsARecordSrvStatsSlotId": {
+    "name": "dnsARecordSrvStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsName": {
+    "name": "dnsARecordSrvStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsServicePort": {
+    "name": "dnsARecordSrvStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsServiceName": {
+    "name": "dnsARecordSrvStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsSvrname": {
+    "name": "dnsARecordSrvStatsSvrname",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordSrvStatsHits": {
+    "name": "dnsARecordSrvStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4": {
+    "name": "dnsARecordIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3",
+    "class": "objectidentity"
+  },
+  "dnsARecordIpv4StatsTable": {
+    "name": "dnsARecordIpv4StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsEntry": {
+    "name": "dnsARecordIpv4StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv4StatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv4StatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv4StatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv4StatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv4StatsIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsSlotId": {
+    "name": "dnsARecordIpv4StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsName": {
+    "name": "dnsARecordIpv4StatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsServicePort": {
+    "name": "dnsARecordIpv4StatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsServiceName": {
+    "name": "dnsARecordIpv4StatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsIp": {
+    "name": "dnsARecordIpv4StatsIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv4StatsHits": {
+    "name": "dnsARecordIpv4StatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6": {
+    "name": "dnsARecordIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4",
+    "class": "objectidentity"
+  },
+  "dnsARecordIpv6StatsTable": {
+    "name": "dnsARecordIpv6StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsEntry": {
+    "name": "dnsARecordIpv6StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv6StatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv6StatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv6StatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv6StatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsARecordIpv6StatsIpv6",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsSlotId": {
+    "name": "dnsARecordIpv6StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsName": {
+    "name": "dnsARecordIpv6StatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsServicePort": {
+    "name": "dnsARecordIpv6StatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsServiceName": {
+    "name": "dnsARecordIpv6StatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsIpv6": {
+    "name": "dnsARecordIpv6StatsIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsARecordIpv6StatsHits": {
+    "name": "dnsARecordIpv6StatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.6.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecord": {
+    "name": "dnsCnameRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7",
+    "class": "objectidentity"
+  },
+  "dnsCnameRecordStatsTable": {
+    "name": "dnsCnameRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsEntry": {
+    "name": "dnsCnameRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCnameRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCnameRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCnameRecordStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCnameRecordStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCnameRecordStatsAliasName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsCnameRecordStatsSlotId": {
+    "name": "dnsCnameRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsName": {
+    "name": "dnsCnameRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsServicePort": {
+    "name": "dnsCnameRecordStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsServiceName": {
+    "name": "dnsCnameRecordStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsAliasName": {
+    "name": "dnsCnameRecordStatsAliasName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCnameRecordStatsCnameHits": {
+    "name": "dnsCnameRecordStatsCnameHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordService": {
+    "name": "dnsMxRecordService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8",
+    "class": "objectidentity"
+  },
+  "dnsMxRecordServiceStatsTable": {
+    "name": "dnsMxRecordServiceStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsEntry": {
+    "name": "dnsMxRecordServiceStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceStatsMxName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsSlotId": {
+    "name": "dnsMxRecordServiceStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsName": {
+    "name": "dnsMxRecordServiceStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsServicePort": {
+    "name": "dnsMxRecordServiceStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsServiceName": {
+    "name": "dnsMxRecordServiceStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsMxName": {
+    "name": "dnsMxRecordServiceStatsMxName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceStatsHits": {
+    "name": "dnsMxRecordServiceStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperTable": {
+    "name": "dnsMxRecordServiceOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperEntry": {
+    "name": "dnsMxRecordServiceOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceOperServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceOperServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsMxRecordServiceOperMxName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperSlotId": {
+    "name": "dnsMxRecordServiceOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperName": {
+    "name": "dnsMxRecordServiceOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperServicePort": {
+    "name": "dnsMxRecordServiceOperServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperServiceName": {
+    "name": "dnsMxRecordServiceOperServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperMxName": {
+    "name": "dnsMxRecordServiceOperMxName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperLastServer": {
+    "name": "dnsMxRecordServiceOperLastServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperHits": {
+    "name": "dnsMxRecordServiceOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsMxRecordServiceOperPriority": {
+    "name": "dnsMxRecordServiceOperPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordService": {
+    "name": "dnsNsRecordService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9",
+    "class": "objectidentity"
+  },
+  "dnsNsRecordServiceStatsTable": {
+    "name": "dnsNsRecordServiceStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsEntry": {
+    "name": "dnsNsRecordServiceStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceStatsNsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsSlotId": {
+    "name": "dnsNsRecordServiceStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsName": {
+    "name": "dnsNsRecordServiceStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsServicePort": {
+    "name": "dnsNsRecordServiceStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsServiceName": {
+    "name": "dnsNsRecordServiceStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsNsName": {
+    "name": "dnsNsRecordServiceStatsNsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceStatsHits": {
+    "name": "dnsNsRecordServiceStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperTable": {
+    "name": "dnsNsRecordServiceOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperEntry": {
+    "name": "dnsNsRecordServiceOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceOperServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceOperServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNsRecordServiceOperNsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperSlotId": {
+    "name": "dnsNsRecordServiceOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperName": {
+    "name": "dnsNsRecordServiceOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperServicePort": {
+    "name": "dnsNsRecordServiceOperServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperServiceName": {
+    "name": "dnsNsRecordServiceOperServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperNsName": {
+    "name": "dnsNsRecordServiceOperNsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperLastServer": {
+    "name": "dnsNsRecordServiceOperLastServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNsRecordServiceOperHits": {
+    "name": "dnsNsRecordServiceOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecord": {
+    "name": "dnsPtrRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10",
+    "class": "objectidentity"
+  },
+  "dnsPtrRecordStatsTable": {
+    "name": "dnsPtrRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsEntry": {
+    "name": "dnsPtrRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsPtrRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsPtrRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsPtrRecordStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsPtrRecordStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsPtrRecordStatsPtrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsPtrRecordStatsSlotId": {
+    "name": "dnsPtrRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsName": {
+    "name": "dnsPtrRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsServicePort": {
+    "name": "dnsPtrRecordStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsServiceName": {
+    "name": "dnsPtrRecordStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsPtrName": {
+    "name": "dnsPtrRecordStatsPtrName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsPtrRecordStatsHits": {
+    "name": "dnsPtrRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecord": {
+    "name": "dnsSrvRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11",
+    "class": "objectidentity"
+  },
+  "dnsSrvRecordStatsTable": {
+    "name": "dnsSrvRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsEntry": {
+    "name": "dnsSrvRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsSrvName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsSrvRecordStatsPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsSrvRecordStatsSlotId": {
+    "name": "dnsSrvRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsName": {
+    "name": "dnsSrvRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsServicePort": {
+    "name": "dnsSrvRecordStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsServiceName": {
+    "name": "dnsSrvRecordStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsSrvName": {
+    "name": "dnsSrvRecordStatsSrvName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsPort": {
+    "name": "dnsSrvRecordStatsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsSrvRecordStatsHits": {
+    "name": "dnsSrvRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecord": {
+    "name": "dnsNaptrRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12",
+    "class": "objectidentity"
+  },
+  "dnsNaptrRecordStatsTable": {
+    "name": "dnsNaptrRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsEntry": {
+    "name": "dnsNaptrRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsNaptrTarget",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsServiceProto",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsNaptrRecordStatsFlag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsSlotId": {
+    "name": "dnsNaptrRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsName": {
+    "name": "dnsNaptrRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsServicePort": {
+    "name": "dnsNaptrRecordStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsServiceName": {
+    "name": "dnsNaptrRecordStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsNaptrTarget": {
+    "name": "dnsNaptrRecordStatsNaptrTarget",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsServiceProto": {
+    "name": "dnsNaptrRecordStatsServiceProto",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsFlag": {
+    "name": "dnsNaptrRecordStatsFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsNaptrRecordStatsNaptrHits": {
+    "name": "dnsNaptrRecordStatsNaptrHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecord": {
+    "name": "dnsTxtRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13",
+    "class": "objectidentity"
+  },
+  "dnsTxtRecordStatsTable": {
+    "name": "dnsTxtRecordStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsEntry": {
+    "name": "dnsTxtRecordStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsTxtRecordStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsTxtRecordStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsTxtRecordStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsTxtRecordStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsTxtRecordStatsRecordName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsTxtRecordStatsSlotId": {
+    "name": "dnsTxtRecordStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsName": {
+    "name": "dnsTxtRecordStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsServicePort": {
+    "name": "dnsTxtRecordStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsServiceName": {
+    "name": "dnsTxtRecordStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsRecordName": {
+    "name": "dnsTxtRecordStatsRecordName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsTxtRecordStatsHits": {
+    "name": "dnsTxtRecordStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordService": {
+    "name": "dnsCaaRecordService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14",
+    "class": "objectidentity"
+  },
+  "dnsCaaRecordServiceStatsTable": {
+    "name": "dnsCaaRecordServiceStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsEntry": {
+    "name": "dnsCaaRecordServiceStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsServicePort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsServiceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsCriticalFlag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsPropertyTag",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-ZONE-MIB",
+        "object": "dnsCaaRecordServiceStatsRdata",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsSlotId": {
+    "name": "dnsCaaRecordServiceStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsName": {
+    "name": "dnsCaaRecordServiceStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsServicePort": {
+    "name": "dnsCaaRecordServiceStatsServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsServiceName": {
+    "name": "dnsCaaRecordServiceStatsServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsCriticalFlag": {
+    "name": "dnsCaaRecordServiceStatsCriticalFlag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsPropertyTag": {
+    "name": "dnsCaaRecordServiceStatsPropertyTag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsRdata": {
+    "name": "dnsCaaRecordServiceStatsRdata",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsCaaRecordServiceStatsHits": {
+    "name": "dnsCaaRecordServiceStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.14.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsRecord": {
+    "name": "dnsRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.15",
+    "class": "objectidentity"
+  },
+  "geoLocation": {
+    "name": "geoLocation",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.428.1.7.16",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-GSLB-ZONE-MIB",
+      "Source digest sha256:84fc29c77a4cc3c9095e8c48b3df61fdf3bf9ee986d51e0bcd8ee2478a6a7230",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-GSLB-ZONE-MIB"
+  }
+}

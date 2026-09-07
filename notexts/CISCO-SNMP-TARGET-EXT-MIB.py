@@ -1,0 +1,81 @@
+#
+# PySNMP MIB module CISCO-SNMP-TARGET-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-SNMP-TARGET-EXT-MIB
+# Source digest sha256:808201d4b565880db43c9e038c08e1e36a48138e1f7b98e901f554c895135e1d
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+snmpTargetAddrEntry, snmpTargetAddrName = mibBuilder.importSymbols("SNMP-TARGET-MIB", "snmpTargetAddrEntry", "snmpTargetAddrName")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, StorageType, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TextualConvention", "TruthValue")
+ciscoSnmpTargetExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 412))
+ciscoSnmpTargetExtMIB.setRevisions(('2008-11-07 00:00', '2007-08-20 00:00', '2004-04-01 00:00',))
+if mibBuilder.loadTexts: ciscoSnmpTargetExtMIB.setLastUpdated('2008-11-07 00:00')
+if mibBuilder.loadTexts: ciscoSnmpTargetExtMIB.setOrganization('Cisco Systems, Inc.')
+ciscoSnmpTargetExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 412, 1))
+cExtSnmpTargetAuthAddr = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 1))
+cExtSnmpTargetAuthInetType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 1, 1), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cExtSnmpTargetAuthInetType.setStatus('current')
+cExtSnmpTargetAuthInetAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cExtSnmpTargetAuthInetAddr.setStatus('current')
+cExtSnmpTargetAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cExtSnmpTargetAddrTable.setStatus('current')
+cExtSnmpTargetAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 2, 1), ).setMaxAccess("notaccessible")
+snmpTargetAddrEntry.registerAugmentions(("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetAddrEntry"))
+cExtSnmpTargetAddrEntry.setIndexNames(*snmpTargetAddrEntry.getIndexNames())
+if mibBuilder.loadTexts: cExtSnmpTargetAddrEntry.setStatus('current')
+cExtSnmpTargetAddrIntIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 2, 1, 1), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cExtSnmpTargetAddrIntIfIndex.setStatus('current')
+cExtSnmpTargetVrfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfTable.setStatus('current')
+cExtSnmpTargetVrfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "SNMP-TARGET-MIB", "snmpTargetAddrName"), (0, "CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetVrfName"))
+if mibBuilder.loadTexts: cExtSnmpTargetVrfEntry.setStatus('current')
+cExtSnmpTargetVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfName.setStatus('current')
+cExtSnmpTargetVrfRoute = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfRoute.setStatus('current')
+cExtSnmpTargetVrfFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1, 3), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfFilter.setStatus('current')
+cExtSnmpTargetVrfStorage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfStorage.setStatus('current')
+cExtSnmpTargetVrfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cExtSnmpTargetVrfStatus.setStatus('current')
+cExtSnmpNotifGblTrapSrcIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cExtSnmpNotifGblTrapSrcIfIndex.setStatus('current')
+cExtSnmpNotifGblInformSrcIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 412, 1, 5), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cExtSnmpNotifGblInformSrcIfIndex.setStatus('current')
+ciscoSnmpTargetExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 412, 2))
+ciscoSnmpTargetExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 1))
+ciscoSnmpTargetExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 2))
+ciscoSnmpTargetExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 1, 1)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetExtMIBGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetAuthFailureGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetExtMIBCompliance = ciscoSnmpTargetExtMIBCompliance.setStatus('deprecated')
+ciscoSnmpTargetExtMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 1, 2)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetExtMIBGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetAuthFailureGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetExtVrfMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetExtMIBComplianceRev1 = ciscoSnmpTargetExtMIBComplianceRev1.setStatus('deprecated')
+ciscoSnmpTargetExtMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 1, 3)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetExtMIBGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetAuthFailureGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetExtVrfMIBGroup"), ("CISCO-SNMP-TARGET-EXT-MIB", "ciscoSnmpTargetNotifSrcIntGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetExtMIBComplianceRev2 = ciscoSnmpTargetExtMIBComplianceRev2.setStatus('current')
+ciscoSnmpTargetAuthFailureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 2, 1)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetAuthInetType"), ("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetAuthInetAddr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetAuthFailureGroup = ciscoSnmpTargetAuthFailureGroup.setStatus('current')
+ciscoSnmpTargetExtMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 2, 2)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetAddrIntIfIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetExtMIBGroup = ciscoSnmpTargetExtMIBGroup.setStatus('current')
+ciscoSnmpTargetExtVrfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 2, 3)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetVrfRoute"), ("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetVrfFilter"), ("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetVrfStorage"), ("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpTargetVrfStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetExtVrfMIBGroup = ciscoSnmpTargetExtVrfMIBGroup.setStatus('current')
+ciscoSnmpTargetNotifSrcIntGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 412, 2, 2, 4)).setObjects(("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpNotifGblTrapSrcIfIndex"), ("CISCO-SNMP-TARGET-EXT-MIB", "cExtSnmpNotifGblInformSrcIfIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpTargetNotifSrcIntGroup = ciscoSnmpTargetNotifSrcIntGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SNMP-TARGET-EXT-MIB", PYSNMP_MODULE_ID=ciscoSnmpTargetExtMIB, cExtSnmpNotifGblInformSrcIfIndex=cExtSnmpNotifGblInformSrcIfIndex, cExtSnmpNotifGblTrapSrcIfIndex=cExtSnmpNotifGblTrapSrcIfIndex, cExtSnmpTargetAddrEntry=cExtSnmpTargetAddrEntry, cExtSnmpTargetAddrIntIfIndex=cExtSnmpTargetAddrIntIfIndex, cExtSnmpTargetAddrTable=cExtSnmpTargetAddrTable, cExtSnmpTargetAuthAddr=cExtSnmpTargetAuthAddr, cExtSnmpTargetAuthInetAddr=cExtSnmpTargetAuthInetAddr, cExtSnmpTargetAuthInetType=cExtSnmpTargetAuthInetType, cExtSnmpTargetVrfEntry=cExtSnmpTargetVrfEntry, cExtSnmpTargetVrfFilter=cExtSnmpTargetVrfFilter, cExtSnmpTargetVrfName=cExtSnmpTargetVrfName, cExtSnmpTargetVrfRoute=cExtSnmpTargetVrfRoute, cExtSnmpTargetVrfStatus=cExtSnmpTargetVrfStatus, cExtSnmpTargetVrfStorage=cExtSnmpTargetVrfStorage, cExtSnmpTargetVrfTable=cExtSnmpTargetVrfTable, ciscoSnmpTargetAuthFailureGroup=ciscoSnmpTargetAuthFailureGroup, ciscoSnmpTargetExtMIB=ciscoSnmpTargetExtMIB, ciscoSnmpTargetExtMIBCompliance=ciscoSnmpTargetExtMIBCompliance, ciscoSnmpTargetExtMIBComplianceRev1=ciscoSnmpTargetExtMIBComplianceRev1, ciscoSnmpTargetExtMIBComplianceRev2=ciscoSnmpTargetExtMIBComplianceRev2, ciscoSnmpTargetExtMIBCompliances=ciscoSnmpTargetExtMIBCompliances, ciscoSnmpTargetExtMIBConformance=ciscoSnmpTargetExtMIBConformance, ciscoSnmpTargetExtMIBGroup=ciscoSnmpTargetExtMIBGroup, ciscoSnmpTargetExtMIBGroups=ciscoSnmpTargetExtMIBGroups, ciscoSnmpTargetExtMIBObjects=ciscoSnmpTargetExtMIBObjects, ciscoSnmpTargetExtVrfMIBGroup=ciscoSnmpTargetExtVrfMIBGroup, ciscoSnmpTargetNotifSrcIntGroup=ciscoSnmpTargetNotifSrcIntGroup)

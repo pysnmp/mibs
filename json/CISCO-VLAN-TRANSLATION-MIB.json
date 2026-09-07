@@ -1,0 +1,346 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoVlanTranslationMIB": {
+    "name": "ciscoVlanTranslationMIB",
+    "oid": "1.3.6.1.4.1.9.9.411",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVlanTranslationMIBNotifs": {
+    "name": "ciscoVlanTranslationMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.411.0",
+    "class": "objectidentity"
+  },
+  "ciscoVlanTranslationMIBObjects": {
+    "name": "ciscoVlanTranslationMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.411.1",
+    "class": "objectidentity"
+  },
+  "ciscoVlanTranslationMIBConform": {
+    "name": "ciscoVlanTranslationMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.411.2",
+    "class": "objectidentity"
+  },
+  "cvtGlobalTranslation": {
+    "name": "cvtGlobalTranslation",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1",
+    "class": "objectidentity"
+  },
+  "cvtGlobalTranslationMax": {
+    "name": "cvtGlobalTranslationMax",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvtGlobalTranslationTable": {
+    "name": "cvtGlobalTranslationTable",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtGlobalTranslationEntry": {
+    "name": "cvtGlobalTranslationEntry",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtGlobalOriginalVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtGlobalOriginalVlan": {
+    "name": "cvtGlobalOriginalVlan",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtGlobalTranslatedVlan": {
+    "name": "cvtGlobalTranslatedVlan",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtGlobalTranslationEffective": {
+    "name": "cvtGlobalTranslationEffective",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvtGlobalTranslationStatus": {
+    "name": "cvtGlobalTranslationStatus",
+    "oid": "1.3.6.1.4.1.9.9.411.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtPortBasedTranslation": {
+    "name": "cvtPortBasedTranslation",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2",
+    "class": "objectidentity"
+  },
+  "cvtPortConfigTable": {
+    "name": "cvtPortConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtPortConfigEntry": {
+    "name": "cvtPortConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtPortTranslationEnabled": {
+    "name": "cvtPortTranslationEnabled",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvtPortTranslationMax": {
+    "name": "cvtPortTranslationMax",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvtPortTranslationTable": {
+    "name": "cvtPortTranslationTable",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtPortTranslationEntry": {
+    "name": "cvtPortTranslationEntry",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtPortOriginalVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtPortOriginalVlan": {
+    "name": "cvtPortOriginalVlan",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtPortTranslatedVlan": {
+    "name": "cvtPortTranslatedVlan",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtPortTranslationStatus": {
+    "name": "cvtPortTranslationStatus",
+    "oid": "1.3.6.1.4.1.9.9.411.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtMIBCompliances": {
+    "name": "cvtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.411.2.1",
+    "class": "objectidentity"
+  },
+  "cvtMIBCompliance": {
+    "name": "cvtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.411.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvtGlobalTranslationGroup",
+        "module": "CISCO-VLAN-TRANSLATION-MIB"
+      },
+      {
+        "object": "cvtPortTranslationGroup",
+        "module": "CISCO-VLAN-TRANSLATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvtMIBGroups": {
+    "name": "cvtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.411.2.2",
+    "class": "objectidentity"
+  },
+  "cvtGlobalTranslationGroup": {
+    "name": "cvtGlobalTranslationGroup",
+    "oid": "1.3.6.1.4.1.9.9.411.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtGlobalTranslationMax"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtGlobalTranslatedVlan"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtGlobalTranslationEffective"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtGlobalTranslationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvtPortTranslationGroup": {
+    "name": "cvtPortTranslationGroup",
+    "oid": "1.3.6.1.4.1.9.9.411.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtPortTranslationEnabled"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtPortTranslationMax"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtPortTranslatedVlan"
+      },
+      {
+        "module": "CISCO-VLAN-TRANSLATION-MIB",
+        "object": "cvtPortTranslationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VLAN-TRANSLATION-MIB",
+      "Source digest sha256:4170aafce31b6594fe52901ee1d1d9d86705e711eb4bc04f4c5a54e3d18d6951",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VLAN-TRANSLATION-MIB"
+  }
+}

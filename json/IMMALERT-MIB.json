@@ -1,0 +1,2756 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "supportProcessor": {
+    "name": "supportProcessor",
+    "oid": "1.3.6.1.4.1.2.6.158",
+    "class": "objectidentity"
+  },
+  "immalertMIB": {
+    "name": "immalertMIB",
+    "oid": "1.3.6.1.4.1.2.6.158.5",
+    "class": "objectidentity"
+  },
+  "immtrapg": {
+    "name": "immtrapg",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1",
+    "class": "objectidentity"
+  },
+  "altDateTime": {
+    "name": "altDateTime",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altSpTxtId": {
+    "name": "altSpTxtId",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altSysUuid": {
+    "name": "altSysUuid",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altSysSern": {
+    "name": "altSysSern",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altPriority": {
+    "name": "altPriority",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altMsgText": {
+    "name": "altMsgText",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altMsgID": {
+    "name": "altMsgID",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altMsgIDPrefix": {
+    "name": "altMsgIDPrefix",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostContact": {
+    "name": "altHostContact",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostLocation": {
+    "name": "altHostLocation",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostRoomID": {
+    "name": "altHostRoomID",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostRackID": {
+    "name": "altHostRackID",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostLowestUpos": {
+    "name": "altHostLowestUpos",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostBladeBay": {
+    "name": "altHostBladeBay",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altEventID": {
+    "name": "altEventID",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altServiceable": {
+    "name": "altServiceable",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notServiceable": 0,
+          "serviceableByIBM": 1,
+          "serviceableByCustomer": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altTest": {
+    "name": "altTest",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altFailingFRUs": {
+    "name": "altFailingFRUs",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altHostMTM": {
+    "name": "altHostMTM",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "altAuxData": {
+    "name": "altAuxData",
+    "oid": "1.3.6.1.4.1.2.6.158.5.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmSpTrapTempC": {
+    "name": "ibmSpTrapTempC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapVoltC": {
+    "name": "ibmSpTrapVoltC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapPowerC": {
+    "name": "ibmSpTrapPowerC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapHdC": {
+    "name": "ibmSpTrapHdC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapFanC": {
+    "name": "ibmSpTrapFanC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapIhcC": {
+    "name": "ibmSpTrapIhcC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapCPUC": {
+    "name": "ibmSpTrapCPUC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapMemoryC": {
+    "name": "ibmSpTrapMemoryC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapRdpsC": {
+    "name": "ibmSpTrapRdpsC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapHardwareC": {
+    "name": "ibmSpTrapHardwareC",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapRdpsN": {
+    "name": "ibmSpTrapRdpsN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapTempN": {
+    "name": "ibmSpTrapTempN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapVoltN": {
+    "name": "ibmSpTrapVoltN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapPowerN": {
+    "name": "ibmSpTrapPowerN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.164",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapFanN": {
+    "name": "ibmSpTrapFanN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.165",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapCPUN": {
+    "name": "ibmSpTrapCPUN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapMemoryN": {
+    "name": "ibmSpTrapMemoryN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapHardwareN": {
+    "name": "ibmSpTrapHardwareN",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapRLogin": {
+    "name": "ibmSpTrapRLogin",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapOsToS": {
+    "name": "ibmSpTrapOsToS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapAppS": {
+    "name": "ibmSpTrapAppS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapPoffS": {
+    "name": "ibmSpTrapPoffS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapPonS": {
+    "name": "ibmSpTrapPonS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapBootS": {
+    "name": "ibmSpTrapBootS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapLdrToS": {
+    "name": "ibmSpTrapLdrToS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapPFAS": {
+    "name": "ibmSpTrapPFAS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapSysLogS": {
+    "name": "ibmSpTrapSysLogS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "ibmSpTrapNwChangeS": {
+    "name": "ibmSpTrapNwChangeS",
+    "oid": "1.3.6.1.4.1.2.6.158.5.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altDateTime"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSpTxtId"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysUuid"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altSysSern"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgIDPrefix"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altPriority"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altMsgText"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostContact"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLocation"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRoomID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostRackID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostLowestUpos"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostBladeBay"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altEventID"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altServiceable"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altTest"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altFailingFRUs"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altHostMTM"
+      },
+      {
+        "module": "IMMALERT-MIB",
+        "object": "altAuxData"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IMMALERT-MIB",
+      "Source digest sha256:8793d84b2fee107af9e729fae840b0979c4db08a7bc1d28e106cb2749816a65f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IMMALERT-MIB"
+  }
+}

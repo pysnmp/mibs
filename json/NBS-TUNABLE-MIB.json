@@ -1,0 +1,194 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsTunableMib": {
+    "name": "nbsTunableMib",
+    "oid": "1.3.6.1.4.1.629.203",
+    "class": "moduleidentity"
+  },
+  "nbsTunableGrp": {
+    "name": "nbsTunableGrp",
+    "oid": "1.3.6.1.4.1.629.203.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsTunableChannelTableSize": {
+    "name": "nbsTunableChannelTableSize",
+    "oid": "1.3.6.1.4.1.629.203.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelTable": {
+    "name": "nbsTunableChannelTable",
+    "oid": "1.3.6.1.4.1.629.203.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsTunableChannelEntry": {
+    "name": "nbsTunableChannelEntry",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-TUNABLE-MIB",
+        "object": "nbsTunableChannelIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsTunableChannelIfIndex": {
+    "name": "nbsTunableChannelIfIndex",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqStart": {
+    "name": "nbsTunableChannelFreqStart",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 190100,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqEnd": {
+    "name": "nbsTunableChannelFreqEnd",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 197200,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqStep": {
+    "name": "nbsTunableChannelFreqStep",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 100,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqExponent": {
+    "name": "nbsTunableChannelFreqExponent",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 9,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqAdmin": {
+    "name": "nbsTunableChannelFreqAdmin",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqOper": {
+    "name": "nbsTunableChannelFreqOper",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTunableChannelFreqDefault": {
+    "name": "nbsTunableChannelFreqDefault",
+    "oid": "1.3.6.1.4.1.629.203.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NBS-TUNABLE-MIB",
+      "Source digest sha256:a23d94f45291694eee0536bd1a54259c94e642aae3dde5c475bb6d7f0af9ee75",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NBS-TUNABLE-MIB"
+  }
+}

@@ -1,0 +1,656 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "BITMAP": {
+    "name": "BITMAP",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "lanOptics": {
+    "name": "lanOptics",
+    "oid": "1.3.6.1.4.1.224",
+    "class": "objectidentity"
+  },
+  "lanOpticsHub": {
+    "name": "lanOpticsHub",
+    "oid": "1.3.6.1.4.1.224.1",
+    "class": "objectidentity"
+  },
+  "snMaxSlots": {
+    "name": "snMaxSlots",
+    "oid": "1.3.6.1.4.1.224.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSlotsNum": {
+    "name": "snSlotsNum",
+    "oid": "1.3.6.1.4.1.224.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snConfig": {
+    "name": "snConfig",
+    "oid": "1.3.6.1.4.1.224.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snLLActiveNMS": {
+    "name": "snLLActiveNMS",
+    "oid": "1.3.6.1.4.1.224.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snReset": {
+    "name": "snReset",
+    "oid": "1.3.6.1.4.1.224.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snInternalID": {
+    "name": "snInternalID",
+    "oid": "1.3.6.1.4.1.224.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snDirtyBit": {
+    "name": "snDirtyBit",
+    "oid": "1.3.6.1.4.1.224.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSlotsTable": {
+    "name": "snSlotsTable",
+    "oid": "1.3.6.1.4.1.224.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1009": {
+    "name": "pysmiFakeCol1009",
+    "oid": "1.3.6.1.4.1.224.1.8.1.1009",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snSlotsEntry": {
+    "name": "snSlotsEntry",
+    "oid": "1.3.6.1.4.1.224.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1009",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snCardName": {
+    "name": "snCardName",
+    "oid": "1.3.6.1.4.1.224.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snCardDescr": {
+    "name": "snCardDescr",
+    "oid": "1.3.6.1.4.1.224.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snLLHwRevision": {
+    "name": "snLLHwRevision",
+    "oid": "1.3.6.1.4.1.224.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snLLSwRevision": {
+    "name": "snLLSwRevision",
+    "oid": "1.3.6.1.4.1.224.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snLLControl0": {
+    "name": "snLLControl0",
+    "oid": "1.3.6.1.4.1.224.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snLLControl1": {
+    "name": "snLLControl1",
+    "oid": "1.3.6.1.4.1.224.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPollInf": {
+    "name": "snPollInf",
+    "oid": "1.3.6.1.4.1.224.1.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snResetSlot": {
+    "name": "snResetSlot",
+    "oid": "1.3.6.1.4.1.224.1.8.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPollInfCode": {
+    "name": "snPollInfCode",
+    "oid": "1.3.6.1.4.1.224.1.8.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAssCode": {
+    "name": "snAssCode",
+    "oid": "1.3.6.1.4.1.224.1.8.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPairAddress": {
+    "name": "snPairAddress",
+    "oid": "1.3.6.1.4.1.224.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPairData": {
+    "name": "snPairData",
+    "oid": "1.3.6.1.4.1.224.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snHubSplitTable": {
+    "name": "snHubSplitTable",
+    "oid": "1.3.6.1.4.1.224.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1010": {
+    "name": "pysmiFakeCol1010",
+    "oid": "1.3.6.1.4.1.224.1.11.1.1010",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snHubSplitEntry": {
+    "name": "snHubSplitEntry",
+    "oid": "1.3.6.1.4.1.224.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1010",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snHubSplitStatus": {
+    "name": "snHubSplitStatus",
+    "oid": "1.3.6.1.4.1.224.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "splitted": 1,
+          "missing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snHubPSTable": {
+    "name": "snHubPSTable",
+    "oid": "1.3.6.1.4.1.224.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1011": {
+    "name": "pysmiFakeCol1011",
+    "oid": "1.3.6.1.4.1.224.1.12.1.1011",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snHubPSEntry": {
+    "name": "snHubPSEntry",
+    "oid": "1.3.6.1.4.1.224.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1011",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snHubPSStatus": {
+    "name": "snHubPSStatus",
+    "oid": "1.3.6.1.4.1.224.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "malfunctioning": 1,
+          "missing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snHubFanTable": {
+    "name": "snHubFanTable",
+    "oid": "1.3.6.1.4.1.224.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1012": {
+    "name": "pysmiFakeCol1012",
+    "oid": "1.3.6.1.4.1.224.1.13.1.1012",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snHubFanEntry": {
+    "name": "snHubFanEntry",
+    "oid": "1.3.6.1.4.1.224.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1012",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snHubFanStatus": {
+    "name": "snHubFanStatus",
+    "oid": "1.3.6.1.4.1.224.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "malfunctioning": 1,
+          "missing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snHubSlotsTable": {
+    "name": "snHubSlotsTable",
+    "oid": "1.3.6.1.4.1.224.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1013": {
+    "name": "pysmiFakeCol1013",
+    "oid": "1.3.6.1.4.1.224.1.14.1.1013",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snHubSlotsEntry": {
+    "name": "snHubSlotsEntry",
+    "oid": "1.3.6.1.4.1.224.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1013",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snHubSlotConnected": {
+    "name": "snHubSlotConnected",
+    "oid": "1.3.6.1.4.1.224.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snHubSlotFreqError": {
+    "name": "snHubSlotFreqError",
+    "oid": "1.3.6.1.4.1.224.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slot-4M": 4,
+          "slot-16M": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snHubSlotRevChanged": {
+    "name": "snHubSlotRevChanged",
+    "oid": "1.3.6.1.4.1.224.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unchanged": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snCompanionHW": {
+    "name": "snCompanionHW",
+    "oid": "1.3.6.1.4.1.224.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snCompanionReset": {
+    "name": "snCompanionReset",
+    "oid": "1.3.6.1.4.1.224.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snCompanionStatus": {
+    "name": "snCompanionStatus",
+    "oid": "1.3.6.1.4.1.224.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snGenPortsTable": {
+    "name": "snGenPortsTable",
+    "oid": "1.3.6.1.4.1.224.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1014": {
+    "name": "pysmiFakeCol1014",
+    "oid": "1.3.6.1.4.1.224.1.18.1.1014",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "pysmiFakeCol1015": {
+    "name": "pysmiFakeCol1015",
+    "oid": "1.3.6.1.4.1.224.1.18.1.1015",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snGenPortsEntry": {
+    "name": "snGenPortsEntry",
+    "oid": "1.3.6.1.4.1.224.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1014",
+        "implied": 0
+      },
+      {
+        "module": "LANOPTICS-HUB-MIB",
+        "object": "pysmiFakeCol1015",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snPortValue": {
+    "name": "snPortValue",
+    "oid": "1.3.6.1.4.1.224.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LANOPTICS-HUB-MIB",
+      "Source digest sha256:965dde45d553b281aa8337dbbecb26388fe37b9a38effc31c3b9a24508d7835b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LANOPTICS-HUB-MIB"
+  }
+}

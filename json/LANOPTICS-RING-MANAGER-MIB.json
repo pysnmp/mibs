@@ -1,0 +1,1117 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "BITMAP": {
+    "name": "BITMAP",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "RING_CONFIGURATION": {
+    "name": "RING-CONFIGURATION",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "lanOptics": {
+    "name": "lanOptics",
+    "oid": "1.3.6.1.4.1.224",
+    "class": "objectidentity"
+  },
+  "lanOpticsDot5Monitor": {
+    "name": "lanOpticsDot5Monitor",
+    "oid": "1.3.6.1.4.1.224.5",
+    "class": "objectidentity"
+  },
+  "rmServerReportingTo": {
+    "name": "rmServerReportingTo",
+    "oid": "1.3.6.1.4.1.224.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingStatus": {
+    "name": "rmRingStatus",
+    "oid": "1.3.6.1.4.1.224.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "beaconing": 1,
+          "single-station": 2,
+          "errors-increasing": 3,
+          "excessive-errors": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmServerHealthText": {
+    "name": "rmServerHealthText",
+    "oid": "1.3.6.1.4.1.224.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmServerHealth": {
+    "name": "rmServerHealth",
+    "oid": "1.3.6.1.4.1.224.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial-State": 1,
+          "not-Active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingEventInLog": {
+    "name": "rmRingEventInLog",
+    "oid": "1.3.6.1.4.1.224.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingEventTable": {
+    "name": "rmRingEventTable",
+    "oid": "1.3.6.1.4.1.224.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1000": {
+    "name": "pysmiFakeCol1000",
+    "oid": "1.3.6.1.4.1.224.5.6.1.1000",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "pysmiFakeCol1001": {
+    "name": "pysmiFakeCol1001",
+    "oid": "1.3.6.1.4.1.224.5.6.1.1001",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "pysmiFakeCol1002": {
+    "name": "pysmiFakeCol1002",
+    "oid": "1.3.6.1.4.1.224.5.6.1.1002",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "pysmiFakeCol1003": {
+    "name": "pysmiFakeCol1003",
+    "oid": "1.3.6.1.4.1.224.5.6.1.1003",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "rmRingEventEntry": {
+    "name": "rmRingEventEntry",
+    "oid": "1.3.6.1.4.1.224.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-RING-MANAGER-MIB",
+        "object": "pysmiFakeCol1000",
+        "implied": 0
+      },
+      {
+        "module": "LANOPTICS-RING-MANAGER-MIB",
+        "object": "pysmiFakeCol1001",
+        "implied": 0
+      },
+      {
+        "module": "LANOPTICS-RING-MANAGER-MIB",
+        "object": "pysmiFakeCol1002",
+        "implied": 0
+      },
+      {
+        "module": "LANOPTICS-RING-MANAGER-MIB",
+        "object": "pysmiFakeCol1003",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rmRingEvent": {
+    "name": "rmRingEvent",
+    "oid": "1.3.6.1.4.1.224.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingBeaconingStatus": {
+    "name": "rmRingBeaconingStatus",
+    "oid": "1.3.6.1.4.1.224.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingIsoErrorStatus": {
+    "name": "rmRingIsoErrorStatus",
+    "oid": "1.3.6.1.4.1.224.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingSingleStationStatus": {
+    "name": "rmRingSingleStationStatus",
+    "oid": "1.3.6.1.4.1.224.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingFullConfiguration": {
+    "name": "rmRingFullConfiguration",
+    "oid": "1.3.6.1.4.1.224.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RING_CONFIGURATION",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingConfigurationUpdate": {
+    "name": "rmRingConfigurationUpdate",
+    "oid": "1.3.6.1.4.1.224.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RING_CONFIGURATION",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmServerInitProcess": {
+    "name": "rmServerInitProcess",
+    "oid": "1.3.6.1.4.1.224.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmServerAdminState": {
+    "name": "rmServerAdminState",
+    "oid": "1.3.6.1.4.1.224.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmServerOperatingState": {
+    "name": "rmServerOperatingState",
+    "oid": "1.3.6.1.4.1.224.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmServerAdminParameters": {
+    "name": "rmServerAdminParameters",
+    "oid": "1.3.6.1.4.1.224.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmServerOperatingParameters": {
+    "name": "rmServerOperatingParameters",
+    "oid": "1.3.6.1.4.1.224.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BITMAP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceStatusTable": {
+    "name": "rmDeviceStatusTable",
+    "oid": "1.3.6.1.4.1.224.5.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rmDeviceEntry": {
+    "name": "rmDeviceEntry",
+    "oid": "1.3.6.1.4.1.224.5.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-RING-MANAGER-MIB",
+        "object": "rmDeviceMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rmDeviceMacAddress": {
+    "name": "rmDeviceMacAddress",
+    "oid": "1.3.6.1.4.1.224.5.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceUpstream": {
+    "name": "rmDeviceUpstream",
+    "oid": "1.3.6.1.4.1.224.5.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceAdminState": {
+    "name": "rmDeviceAdminState",
+    "oid": "1.3.6.1.4.1.224.5.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "removed": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmDeviceOperateState": {
+    "name": "rmDeviceOperateState",
+    "oid": "1.3.6.1.4.1.224.5.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "removed": 4,
+          "neverInserted": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDevicePhysLocation": {
+    "name": "rmDevicePhysLocation",
+    "oid": "1.3.6.1.4.1.224.5.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceGroupAddress": {
+    "name": "rmDeviceGroupAddress",
+    "oid": "1.3.6.1.4.1.224.5.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceFunctionAddress": {
+    "name": "rmDeviceFunctionAddress",
+    "oid": "1.3.6.1.4.1.224.5.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceProductID": {
+    "name": "rmDeviceProductID",
+    "oid": "1.3.6.1.4.1.224.5.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceStationID": {
+    "name": "rmDeviceStationID",
+    "oid": "1.3.6.1.4.1.224.5.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceStationStatus": {
+    "name": "rmDeviceStationStatus",
+    "oid": "1.3.6.1.4.1.224.5.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceFunctionClass": {
+    "name": "rmDeviceFunctionClass",
+    "oid": "1.3.6.1.4.1.224.5.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceAccessPriority": {
+    "name": "rmDeviceAccessPriority",
+    "oid": "1.3.6.1.4.1.224.5.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceMicroLevel": {
+    "name": "rmDeviceMicroLevel",
+    "oid": "1.3.6.1.4.1.224.5.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceMonitored": {
+    "name": "rmDeviceMonitored",
+    "oid": "1.3.6.1.4.1.224.5.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceDaysAllowed": {
+    "name": "rmDeviceDaysAllowed",
+    "oid": "1.3.6.1.4.1.224.5.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmDeviceHoursAllowed": {
+    "name": "rmDeviceHoursAllowed",
+    "oid": "1.3.6.1.4.1.224.5.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingPollProcessStatus": {
+    "name": "rmRingPollProcessStatus",
+    "oid": "1.3.6.1.4.1.224.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingNumber": {
+    "name": "rmRingNumber",
+    "oid": "1.3.6.1.4.1.224.5.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingSoftErrorTimer": {
+    "name": "rmRingSoftErrorTimer",
+    "oid": "1.3.6.1.4.1.224.5.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingIsolatingTab": {
+    "name": "rmRingIsolatingTab",
+    "oid": "1.3.6.1.4.1.224.5.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingCongestTab": {
+    "name": "rmRingCongestTab",
+    "oid": "1.3.6.1.4.1.224.5.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingNonIsolatingTab": {
+    "name": "rmRingNonIsolatingTab",
+    "oid": "1.3.6.1.4.1.224.5.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingAutoRemove": {
+    "name": "rmRingAutoRemove",
+    "oid": "1.3.6.1.4.1.224.5.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmRingAllowedDaysPartition1": {
+    "name": "rmRingAllowedDaysPartition1",
+    "oid": "1.3.6.1.4.1.224.5.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmRingAllowedDaysPartition2": {
+    "name": "rmRingAllowedDaysPartition2",
+    "oid": "1.3.6.1.4.1.224.5.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmRingAllowedHoursPartition1": {
+    "name": "rmRingAllowedHoursPartition1",
+    "oid": "1.3.6.1.4.1.224.5.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmRingAllowedHoursPartition2": {
+    "name": "rmRingAllowedHoursPartition2",
+    "oid": "1.3.6.1.4.1.224.5.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmServerPowerOn": {
+    "name": "rmServerPowerOn",
+    "oid": "1.3.6.1.4.1.224.5.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmTRLastErrorClass": {
+    "name": "rmTRLastErrorClass",
+    "oid": "1.3.6.1.4.1.224.5.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adapter-error": 1,
+          "beaconing": 2,
+          "iso-increasing": 3,
+          "iso-excessive": 4,
+          "iso-decay": 5,
+          "congestion": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmTRLastErrorType": {
+    "name": "rmTRLastErrorType",
+    "oid": "1.3.6.1.4.1.224.5.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmTRFaultDomainNode1": {
+    "name": "rmTRFaultDomainNode1",
+    "oid": "1.3.6.1.4.1.224.5.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmTRFaultDomainNode2": {
+    "name": "rmTRFaultDomainNode2",
+    "oid": "1.3.6.1.4.1.224.5.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmIsoTresholdExceededCount": {
+    "name": "rmIsoTresholdExceededCount",
+    "oid": "1.3.6.1.4.1.224.5.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmNonIsoTresholdExceededCount": {
+    "name": "rmNonIsoTresholdExceededCount",
+    "oid": "1.3.6.1.4.1.224.5.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmCongestionTresholdExceededCount": {
+    "name": "rmCongestionTresholdExceededCount",
+    "oid": "1.3.6.1.4.1.224.5.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmBeaconCounter": {
+    "name": "rmBeaconCounter",
+    "oid": "1.3.6.1.4.1.224.5.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmSpareCounter": {
+    "name": "rmSpareCounter",
+    "oid": "1.3.6.1.4.1.224.5.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmPurgeCounter": {
+    "name": "rmPurgeCounter",
+    "oid": "1.3.6.1.4.1.224.5.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmClaimCounter": {
+    "name": "rmClaimCounter",
+    "oid": "1.3.6.1.4.1.224.5.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmAdapterResetCounter": {
+    "name": "rmAdapterResetCounter",
+    "oid": "1.3.6.1.4.1.224.5.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmLostFramesCounter": {
+    "name": "rmLostFramesCounter",
+    "oid": "1.3.6.1.4.1.224.5.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmCongestionCounter": {
+    "name": "rmCongestionCounter",
+    "oid": "1.3.6.1.4.1.224.5.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmFrameCopyCounter": {
+    "name": "rmFrameCopyCounter",
+    "oid": "1.3.6.1.4.1.224.5.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmFrequencyErrorCounter": {
+    "name": "rmFrequencyErrorCounter",
+    "oid": "1.3.6.1.4.1.224.5.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmTokenCounter": {
+    "name": "rmTokenCounter",
+    "oid": "1.3.6.1.4.1.224.5.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmLineCounter": {
+    "name": "rmLineCounter",
+    "oid": "1.3.6.1.4.1.224.5.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmInternalCounter": {
+    "name": "rmInternalCounter",
+    "oid": "1.3.6.1.4.1.224.5.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmBurstCounter": {
+    "name": "rmBurstCounter",
+    "oid": "1.3.6.1.4.1.224.5.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmARIFCICounter": {
+    "name": "rmARIFCICounter",
+    "oid": "1.3.6.1.4.1.224.5.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmAbortCounter": {
+    "name": "rmAbortCounter",
+    "oid": "1.3.6.1.4.1.224.5.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmPollFailCounter": {
+    "name": "rmPollFailCounter",
+    "oid": "1.3.6.1.4.1.224.5.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmNoResponseCounter": {
+    "name": "rmNoResponseCounter",
+    "oid": "1.3.6.1.4.1.224.5.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmWholeRingCounters": {
+    "name": "rmWholeRingCounters",
+    "oid": "1.3.6.1.4.1.224.5.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmResetOldDevicesSetup": {
+    "name": "rmResetOldDevicesSetup",
+    "oid": "1.3.6.1.4.1.224.5.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmResetErrorCounters": {
+    "name": "rmResetErrorCounters",
+    "oid": "1.3.6.1.4.1.224.5.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmSetCurrentTime": {
+    "name": "rmSetCurrentTime",
+    "oid": "1.3.6.1.4.1.224.5.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rmRingFirstSplitConfiguration": {
+    "name": "rmRingFirstSplitConfiguration",
+    "oid": "1.3.6.1.4.1.224.5.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RING_CONFIGURATION",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rmRingNextSplitConfiguration": {
+    "name": "rmRingNextSplitConfiguration",
+    "oid": "1.3.6.1.4.1.224.5.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RING_CONFIGURATION",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LANOPTICS-RING-MANAGER-MIB",
+      "Source digest sha256:7d17603145481759d2c01d716dfa12269d3948f6eefcf63ac2aebc03e2051c45",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LANOPTICS-RING-MANAGER-MIB"
+  }
+}

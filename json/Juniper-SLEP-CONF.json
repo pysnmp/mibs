@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniSlepAgent": {
+    "name": "juniSlepAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-10 21:27",
+        "description": "Added version 2 capabilities."
+      },
+      {
+        "revision": "2002-12-23 20:40",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-30 14:15",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniSlepAgentV1": {
+    "name": "juniSlepAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.38.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the SLEP component of the JUNOSe SNMP agent.  This version\n        of the SLEP component was supported in JUNOSe 1.3 thru 3.0 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-SLEP-MIB",
+        "includes": [
+          "juniSlepGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniSlepAgentV2": {
+    "name": "juniSlepAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.38.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the SLEP component of the JUNOSe SNMP agent.  This version\n        of the SLEP component is supported in JUNOSe 3.1 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-SLEP-MIB",
+        "includes": [
+          "juniSlepGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-SLEP-CONF",
+      "Source digest sha256:e7f5155b9baff8b7040339b02ad62bf66367ee9b3aca9675c07033f9d58d8bc4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-SLEP-CONF"
+  }
+}

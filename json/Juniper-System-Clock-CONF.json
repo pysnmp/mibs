@@ -1,0 +1,145 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniSysClockAgent": {
+    "name": "juniSysClockAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.52",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-14 14:01",
+        "description": "Added rsNtpPeerLastUpdateTime to Peer Table."
+      },
+      {
+        "revision": "2003-09-15 14:03",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2003-09-12 14:39",
+        "description": "Added an indicator to stratum number that no stratum is set. Added traps for significant NTP state changes. Added replacement clock offset and frequency error objects with DisplaySting syntax."
+      },
+      {
+        "revision": "2002-04-04 18:47",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniSysClockAgentV1": {
+    "name": "juniSysClockAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.52.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the system clock component of the JUNOSe SNMP agent.  This\n        version of the system clock component was supported in JUNOSe 4.0 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "includes": [
+          "juniSysClockTimeGroup",
+          "juniSysClockDstGroup",
+          "juniNtpSysClockGroup",
+          "juniNtpClientGroup",
+          "juniNtpServerGroup",
+          "juniNtpPeersGroup",
+          "juniNtpAccessGroupGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSysClockAgentV2": {
+    "name": "juniSysClockAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.52.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the system clock component of the JUNOSe SNMP agent.  This\n        version of the system clock component was supported in early JUNOSe 4.1\n        and 5.0 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "includes": [
+          "juniSysClockTimeGroup",
+          "juniSysClockDstGroup",
+          "juniNtpSysClockGroup",
+          "juniNtpClientGroup",
+          "juniNtpServerGroup",
+          "juniNtpPeersGroup",
+          "juniNtpAccessGroupGroup",
+          "juniNtpNotificationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSysClockAgentV3": {
+    "name": "juniSysClockAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.52.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the system clock component of the JUNOSe SNMP agent.  This\n        version of the system clock component is supported in JUNOSe 4.1.2,\n        5.0.2 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "includes": [
+          "juniSysClockTimeGroup",
+          "juniSysClockDstGroup",
+          "juniNtpSysClockGroup2",
+          "juniNtpClientGroup",
+          "juniNtpServerGroup",
+          "juniNtpPeersGroup",
+          "juniNtpAccessGroupGroup",
+          "juniNtpNotificationGroup",
+          "juniNtpSysClockDeprecatedGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSysClockAgentV4": {
+    "name": "juniSysClockAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.52.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the system clock component of the JUNOSe SNMP agent.  This\n        version of the system clock component is supported in JUNOSe 7.0 and \n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-System-Clock-MIB",
+        "includes": [
+          "juniSysClockTimeGroup",
+          "juniSysClockDstGroup",
+          "juniNtpSysClockGroup2",
+          "juniNtpClientGroup",
+          "juniNtpServerGroup",
+          "juniNtpPeersGroup1",
+          "juniNtpAccessGroupGroup",
+          "juniNtpNotificationGroup",
+          "juniNtpSysClockDeprecatedGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-System-Clock-CONF",
+      "Source digest sha256:7498f1a4bd15023df9a7b1075ac074742dabccf360359613c8958053e9d8261e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-System-Clock-CONF"
+  }
+}

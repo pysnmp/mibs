@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGyroacMIB": {
+    "name": "ciscoGyroacMIB",
+    "oid": "1.3.6.1.4.1.9.9.859",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-01-09 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGyroacMIBObjects": {
+    "name": "ciscoGyroacMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.859.0",
+    "class": "objectidentity"
+  },
+  "ciscoGyro": {
+    "name": "ciscoGyro",
+    "oid": "1.3.6.1.4.1.9.9.859.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GYROAC-MIB",
+      "Source digest sha256:4cb2522bf283aa75bb8995f9260804219c682c173e0cca7b49d792bcf57ebc61",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GYROAC-MIB"
+  }
+}

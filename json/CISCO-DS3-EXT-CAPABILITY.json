@@ -1,0 +1,750 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDs3ExtCapability": {
+    "name": "ciscoDs3ExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.262",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-23 00:00",
+        "description": "Added ciscoDs3Ext155CapabilityV5R00."
+      },
+      {
+        "revision": "2003-03-20 00:00",
+        "description": "Added ciscoDs3ExtCapabilityV4R00 for 10 Gig. AXSM Module (AXSM-XG) and Processor Switch Module Enhanced(PXM1E) controller card."
+      },
+      {
+        "revision": "2002-03-25 00:00",
+        "description": "Initial version of the MIB Module."
+      }
+    ]
+  },
+  "ciscoDs3ExtAxsmCapabilityV2R00": {
+    "name": "ciscoDs3ExtAxsmCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.9.7.262.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.0",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "ciscoDs3ConfMIBGroup",
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoPlcpAlarmMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitadm": 1,
+                  "ds3cbitplcp": 2,
+                  "e3g832adm": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3InternalEqualizer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NearEndLineLoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FarEndLineLoopbackStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs3ExtAxsmeCapabilityV21R60": {
+    "name": "ciscoDs3ExtAxsmeCapabilityV21R60",
+    "oid": "1.3.6.1.4.1.9.7.262.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.60",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "ciscoDs3ConfMIBGroup",
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoPlcpAlarmMIBGroup",
+          "ciscoPlcpCounterMIBGroup",
+          "ciscoDs3Previous24HrGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitadm": 1,
+                  "ds3cbitplcp": 2,
+                  "e3g832adm": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3InternalEqualizer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NearEndLineLoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3EXZSCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CPECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEBECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvAISCount",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs3ExtSrmCapabilityV3R00": {
+    "name": "ciscoDs3ExtSrmCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.262.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.00.",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "ciscoDs3ConfMIBGroup",
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoDs3Previous24HrGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx3M23": 9,
+                  "dsx3CbitParity": 11
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3IntervalNumber",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cds3TraceAlarm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CPECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvAISCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PSESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3SEFSPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3UASPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CCVPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CSESPrevious24Hr",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs3ExtFrsm12CapabilityV3R00": {
+    "name": "ciscoDs3ExtFrsm12CapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.262.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "ciscoDs3ConfMIBGroup",
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoDs3Previous24HrGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitfrmronly": 15,
+                  "ds3m23frmronly": 16,
+                  "e3g832frmronly": 17,
+                  "e3g751frmronly": 18
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3InternalEqualizer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NearEndLineLoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3EXZSCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CPECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEBECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvAISCount",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs3ExtCapabilityV4R00": {
+    "name": "ciscoDs3ExtCapabilityV4R00",
+    "oid": "1.3.6.1.4.1.9.7.262.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8950 and MGX8850 Release \n                         4.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "ciscoDs3ConfMIBGroup",
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoPlcpAlarmMIBGroup",
+          "ciscoPlcpCounterMIBGroup",
+          "ciscoDs3Previous24HrGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitadm": 1,
+                  "ds3cbitplcp": 2,
+                  "e3g832adm": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitadm": 1,
+                  "ds3cbitplcp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3RcvLOSCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvOOFCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpSEFSCurrent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpUAS24HrBucket",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpRcvRAICount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpFECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpFESecCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PlcpSEFSecCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PSESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3SEFSCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LSESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PSESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3SEFSPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LSESPrevious24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3InternalEqualizer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NearEndLineLoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3EXZSCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CPECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEBECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvAISCount",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs3ExtCapabilityV5R00": {
+    "name": "ciscoDs3ExtCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.262.6",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0",
+    "capabilities": [
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup"
+        ]
+      },
+      {
+        "module": "CISCO-DS3-MIB",
+        "includes": [
+          "cds3StatsMIBGroup",
+          "ciscoDs3AlarmMIBGroup",
+          "ciscoDs3ConfMIBGroup",
+          "ciscoPlcpAlarmMIBGroup",
+          "ciscoPlcpCounterMIBGroup",
+          "ciscoDs3Previous24HrGroup"
+        ],
+        "variations": [
+          {
+            "object": "cds3IntervalNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3cbitadm": 1,
+                  "ds3cbitplcp": 2,
+                  "e3g832adm": 3,
+                  "dsx3M23": 9,
+                  "dsx3CbitParity": 11,
+                  "e3g832frmronly": 17
+                }
+              }
+            }
+          },
+          {
+            "object": "cds3IntervalLSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PSESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3SEFSCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3UASCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CCVCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CSESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LSESCurrent24Hr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CSES15MinThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CSES24HrThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmThreshold",
+            "default": [
+              1500
+            ]
+          },
+          {
+            "object": "cds3NEAlarmThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3InternalEqualizer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NearEndLineLoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3NEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmUpCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEAlarmDownCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3EXZSCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3LCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3PCVCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3CPECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3FEBECount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cds3RcvAISCount",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DS3-EXT-CAPABILITY",
+      "Source digest sha256:e842d42a0a53831c253034ca1cffb78ff3352272f68ad89110702efd42103f53",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DS3-EXT-CAPABILITY"
+  }
+}

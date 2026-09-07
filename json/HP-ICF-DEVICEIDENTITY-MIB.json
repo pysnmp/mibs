@@ -1,0 +1,222 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfDeviceIdentityMIB": {
+    "name": "hpicfDeviceIdentityMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-03 00:00",
+        "description": "Added new device identity table HpicfDeviceIdentityEntry. This table is used to identify device using discovery protocol like LLDP. LLDP make use of OUI and device subtype of organization specific TLV to detect device."
+      }
+    ]
+  },
+  "hpicfDeviceIdentityConfig": {
+    "name": "hpicfDeviceIdentityConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1",
+    "class": "objectidentity"
+  },
+  "hpicfDeviceIdentityConformance": {
+    "name": "hpicfDeviceIdentityConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.2",
+    "class": "objectidentity"
+  },
+  "hpicfDeviceIdentityTable": {
+    "name": "hpicfDeviceIdentityTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityEntry": {
+    "name": "hpicfDeviceIdentityEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DEVICEIDENTITY-MIB",
+        "object": "hpicfDeviceIdentityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDeviceIdentityIndex": {
+    "name": "hpicfDeviceIdentityIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityRowStatus": {
+    "name": "hpicfDeviceIdentityRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityName": {
+    "name": "hpicfDeviceIdentityName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityLldpOui": {
+    "name": "hpicfDeviceIdentityLldpOui",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityLldpSubType": {
+    "name": "hpicfDeviceIdentityLldpSubType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDeviceIdentityGroups": {
+    "name": "hpicfDeviceIdentityGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDeviceIdentityCompliances": {
+    "name": "hpicfDeviceIdentityCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfiDeviceIdentityCompliance": {
+    "name": "hpicfiDeviceIdentityCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDeviceIdentityGroup",
+        "module": "HP-ICF-DEVICEIDENTITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDeviceIdentityGroup": {
+    "name": "hpicfDeviceIdentityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.135.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DEVICEIDENTITY-MIB",
+        "object": "hpicfDeviceIdentityRowStatus"
+      },
+      {
+        "module": "HP-ICF-DEVICEIDENTITY-MIB",
+        "object": "hpicfDeviceIdentityName"
+      },
+      {
+        "module": "HP-ICF-DEVICEIDENTITY-MIB",
+        "object": "hpicfDeviceIdentityLldpOui"
+      },
+      {
+        "module": "HP-ICF-DEVICEIDENTITY-MIB",
+        "object": "hpicfDeviceIdentityLldpSubType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-DEVICEIDENTITY-MIB",
+      "Source digest sha256:094382ff57d8760d7fcee94d3f2e7a44bec055f83334c90e478e5ba3614a7c4b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-DEVICEIDENTITY-MIB"
+  }
+}

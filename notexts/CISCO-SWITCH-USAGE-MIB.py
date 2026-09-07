@@ -1,0 +1,45 @@
+#
+# PySNMP MIB module CISCO-SWITCH-USAGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-SWITCH-USAGE-MIB
+# Source digest sha256:fcb48b8bd4e6ebf9ab4c15eebbcb9732bd8a8cda80fcae3475b5c22466127a5a
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoSwitchUsageMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 201))
+ciscoSwitchUsageMIB.setRevisions(('2001-05-02 00:00',))
+if mibBuilder.loadTexts: ciscoSwitchUsageMIB.setLastUpdated('2001-05-02 00:00')
+if mibBuilder.loadTexts: ciscoSwitchUsageMIB.setOrganization('Cisco Systems, Inc.')
+ciscoSwitchUsageMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 1))
+ciscoSwitchUsageStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1))
+cswitchUsageStatTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cswitchUsageStatTable.setStatus('current')
+cswitchUsageStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cswitchUsageStatEntry.setStatus('current')
+cswitchUsageByIngrsIntfPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cswitchUsageByIngrsIntfPkts.setStatus('current')
+cswitchUsageByIngrsIntfHCPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cswitchUsageByIngrsIntfHCPkts.setStatus('current')
+cswitchUsageByIngrsIntfOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cswitchUsageByIngrsIntfOctets.setStatus('current')
+cswitchUsageByIngrsIntfHCOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 201, 1, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cswitchUsageByIngrsIntfHCOctets.setStatus('current')
+ciscoSwitchUsageMIBNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 2))
+ciscoSwitchUsageMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 2, 0))
+ciscoSwitchUsageMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 3))
+ciscoSwitchUsageMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 3, 1))
+ciscoSwitchUsageMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 201, 3, 2))
+ciscoSwitchUsageMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 201, 3, 1, 1)).setObjects(("CISCO-SWITCH-USAGE-MIB", "ciscoSwitchUsageMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSwitchUsageMIBCompliance = ciscoSwitchUsageMIBCompliance.setStatus('current')
+ciscoSwitchUsageMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 201, 3, 2, 1)).setObjects(("CISCO-SWITCH-USAGE-MIB", "cswitchUsageByIngrsIntfPkts"), ("CISCO-SWITCH-USAGE-MIB", "cswitchUsageByIngrsIntfHCPkts"), ("CISCO-SWITCH-USAGE-MIB", "cswitchUsageByIngrsIntfOctets"), ("CISCO-SWITCH-USAGE-MIB", "cswitchUsageByIngrsIntfHCOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSwitchUsageMIBGroup = ciscoSwitchUsageMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SWITCH-USAGE-MIB", PYSNMP_MODULE_ID=ciscoSwitchUsageMIB, ciscoSwitchUsageMIB=ciscoSwitchUsageMIB, ciscoSwitchUsageMIBCompliance=ciscoSwitchUsageMIBCompliance, ciscoSwitchUsageMIBCompliances=ciscoSwitchUsageMIBCompliances, ciscoSwitchUsageMIBConformance=ciscoSwitchUsageMIBConformance, ciscoSwitchUsageMIBGroup=ciscoSwitchUsageMIBGroup, ciscoSwitchUsageMIBGroups=ciscoSwitchUsageMIBGroups, ciscoSwitchUsageMIBNotifications=ciscoSwitchUsageMIBNotifications, ciscoSwitchUsageMIBNotifyPrefix=ciscoSwitchUsageMIBNotifyPrefix, ciscoSwitchUsageMIBObjects=ciscoSwitchUsageMIBObjects, ciscoSwitchUsageStats=ciscoSwitchUsageStats, cswitchUsageByIngrsIntfHCOctets=cswitchUsageByIngrsIntfHCOctets, cswitchUsageByIngrsIntfHCPkts=cswitchUsageByIngrsIntfHCPkts, cswitchUsageByIngrsIntfOctets=cswitchUsageByIngrsIntfOctets, cswitchUsageByIngrsIntfPkts=cswitchUsageByIngrsIntfPkts, cswitchUsageStatEntry=cswitchUsageStatEntry, cswitchUsageStatTable=cswitchUsageStatTable)

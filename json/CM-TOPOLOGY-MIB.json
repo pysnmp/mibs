@@ -1,0 +1,306 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-ENTITY-MIB": [
+      "neIndex",
+      "shelfIndex",
+      "slotIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "cmTopologyMIB": {
+    "name": "cmTopologyMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-03 00:00",
+        "description": "Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM 3.1."
+      }
+    ]
+  },
+  "cmTopologyObjects": {
+    "name": "cmTopologyObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1",
+    "class": "objectidentity"
+  },
+  "cmTopologyConformance": {
+    "name": "cmTopologyConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.2",
+    "class": "objectidentity"
+  },
+  "cmTopologyRegionId": {
+    "name": "cmTopologyRegionId",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTopologyRegionDescr": {
+    "name": "cmTopologyRegionDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTopologyRegionLastUpdateTime": {
+    "name": "cmTopologyRegionLastUpdateTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTopologyItemTable": {
+    "name": "cmTopologyItemTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmTopologyItemEntry": {
+    "name": "cmTopologyItemEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmTopologyItemId": {
+    "name": "cmTopologyItemId",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTopologyItemDescr": {
+    "name": "cmTopologyItemDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTopologyLinkTable": {
+    "name": "cmTopologyLinkTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmTopologyLinkEntry": {
+    "name": "cmTopologyLinkEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyLinkFromPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmTopologyLinkId": {
+    "name": "cmTopologyLinkId",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTopologyLinkFromPort": {
+    "name": "cmTopologyLinkFromPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTopologyLinkToPort": {
+    "name": "cmTopologyLinkToPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTopologyCompliances": {
+    "name": "cmTopologyCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.2.1",
+    "class": "objectidentity"
+  },
+  "cmTopologyGroups": {
+    "name": "cmTopologyGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.2.2",
+    "class": "objectidentity"
+  },
+  "cmTopologyCompliance": {
+    "name": "cmTopologyCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmTopologyObjectGroup",
+        "module": "CM-TOPOLOGY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmTopologyObjectGroup": {
+    "name": "cmTopologyObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyRegionId"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyRegionDescr"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyRegionLastUpdateTime"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyItemId"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyItemDescr"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyLinkId"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyLinkFromPort"
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "object": "cmTopologyLinkToPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CM-TOPOLOGY-MIB",
+      "Source digest sha256:99418405627388db04d32500bbe46b48f0ff4efae68234aab28199b4f46a2e11",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CM-TOPOLOGY-MIB"
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoLwappClientRoamingCapability": {
+    "name": "ciscoLwappClientRoamingCapability",
+    "oid": "1.3.6.1.4.1.9.7.501",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-06 00:00",
+        "description": "Added ciscoLwappClientRoamingCapabilityCUWNSV7R0"
+      },
+      {
+        "revision": "2006-05-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappClientRoamingCapabilityCUWNSV4R0": {
+    "name": "ciscoLwappClientRoamingCapabilityCUWNSV4R0",
+    "oid": "1.3.6.1.4.1.9.7.501.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 4.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-CLIENT-ROAMING-MIB",
+        "includes": [
+          "ciscoLwappClRoamDot11aRfParamsGroup",
+          "ciscoLwappClRoamDot11bRfParamsGroup",
+          "ciscoLwappClRoamroamReasonGroup"
+        ],
+        "variations": [
+          {
+            "object": "clcrDot11aMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "default": 1,
+                  "custom": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "clcrDot11bMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "default": 1,
+                  "custom": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappClientRoamingCapabilityCUWNSV7R0": {
+    "name": "ciscoLwappClientRoamingCapabilityCUWNSV7R0",
+    "oid": "1.3.6.1.4.1.9.7.501.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 7.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-CLIENT-ROAMING-MIB",
+        "includes": [
+          "ciscoLwappClRoamroamReasonGroup",
+          "ciscoLwappClRoamroamingStatsGroup",
+          "ciscoLwappClRoamDot11aRfParamsGroupSup1",
+          "ciscoLwappClRoamDot11bRfParamsGroupSup1"
+        ],
+        "variations": [
+          {
+            "object": "clcrDot11aMinRssiV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -90,
+                    "max": -50
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11aHysteresisV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 3,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11aAdaptiveScanThresholdV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -90,
+                    "max": -50
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11aTransitionTimeV2",
+            "syntax": {
+              "type": "TimeInterval",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 500
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11bMinRssiV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -90,
+                    "max": -50
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11bHysteresisV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 3,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11bAdaptiveScanThresholdV2",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -90,
+                    "max": -50
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcrDot11bTransitionTimeV2",
+            "syntax": {
+              "type": "TimeInterval",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 100,
+                    "max": 500
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-CLIENT-ROAMING-CAPABILITY",
+      "Source digest sha256:b5327e53e510b532f2eb2a543c756d09a57d89761d31d57f123fe579ae697d21",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-CLIENT-ROAMING-CAPABILITY"
+  }
+}

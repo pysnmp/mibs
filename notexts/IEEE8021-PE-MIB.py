@@ -1,0 +1,113 @@
+#
+# PySNMP MIB module IEEE8021-PE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source IEEE8021-PE-MIB
+# Source digest sha256:977fb78e1073579beb231fc128cfde011d5190c25f52fc9bab46a276601e367e
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+IEEE8021BridgePortNumber, IEEE8021BridgePortNumberOrZero, IEEE8021PbbComponentIdentifier, ieee802dot1mibs = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021BridgePortNumber", "IEEE8021BridgePortNumberOrZero", "IEEE8021PbbComponentIdentifier", "ieee802dot1mibs")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, MacAddress, TextualConvention, TimeStamp, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention", "TimeStamp", "TruthValue")
+ieee8021BridgePEMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 25))
+ieee8021BridgePEMib.setRevisions(('2012-01-22 00:00',))
+if mibBuilder.loadTexts: ieee8021BridgePEMib.setLastUpdated('2012-01-22 00:00')
+if mibBuilder.loadTexts: ieee8021BridgePEMib.setOrganization('IEEE 802.1 Working Group')
+ieee8021BridgePENotifications = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 25, 1))
+ieee8021BridgePEObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 25, 2))
+ieee8021BridgePEConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 25, 3))
+class IEEE802BridgePEEChannelIDTC(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4194302)
+
+class IEEE802BridgePETrafficClassValueTC(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+
+class IEEE802BridgePETrafficSelectionAlgorithmTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 255))
+    namedValues = NamedValues(("tsaStrictPriority", 0), ("tsaCreditBasedShaper", 1), ("tsaEnhancedTransmission", 2), ("tsaVendorSpecific", 255))
+
+class IEEE802BridgePETrafficClassBandwidthValue(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+ieee8021BridgePEPortTable = MibTable((1, 3, 111, 2, 802, 1, 1, 25, 2, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEPortTable.setStatus('current')
+ieee8021BridgePEPortEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IEEE8021-PE-MIB", "ieee8021BridgePEPortComponentId"), (0, "IEEE8021-PE-MIB", "ieee8021BridgePEPort"), (0, "IEEE8021-PE-MIB", "ieee8021BridgePEPortType"))
+if mibBuilder.loadTexts: ieee8021BridgePEPortEntry.setStatus('current')
+ieee8021BridgePEPortComponentId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 1), IEEE8021PbbComponentIdentifier()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEPortComponentId.setStatus('current')
+ieee8021BridgePEPort = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 2), IEEE8021BridgePortNumber()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEPort.setStatus('current')
+ieee8021BridgePEPortType = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("pepCascade", 1), ("pepUpstream", 2), ("pepExtended", 3)))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEPortType.setStatus('current')
+ieee8021BridgePEPortUpstreamCSPAddress = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortUpstreamCSPAddress.setStatus('current')
+ieee8021BridgePEPortEcid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 5), IEEE802BridgePEEChannelIDTC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortEcid.setStatus('current')
+ieee8021BridgePEPortNumber = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 6), IEEE8021BridgePortNumberOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortNumber.setStatus('current')
+ieee8021BridgePECounterDiscontinuityTime = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePECounterDiscontinuityTime.setStatus('current')
+ieee8021BridgePEPortRxrqErrorsBridge = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 8), Counter64()).setUnits('frames').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortRxrqErrorsBridge.setStatus('current')
+ieee8021BridgePEPortRxrspErrorsBridge = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 9), Counter64()).setUnits('octets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortRxrspErrorsBridge.setStatus('current')
+ieee8021BridgePEPortRxrqErrorsPE = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 10), Counter64()).setUnits('frames').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortRxrqErrorsPE.setStatus('current')
+ieee8021BridgePEPortRxrspErrorsPE = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 11), Counter64()).setUnits('octets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPortRxrspErrorsPE.setStatus('current')
+ieee8021BridgePEPCP = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPCP.setStatus('current')
+ieee8021BridgePEROW = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEROW.setStatus('current')
+ieee8021BridgePEDEI = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEDEI.setStatus('current')
+ieee8021BridgePECN = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 15), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePECN.setStatus('current')
+ieee8021BridgePEPFC = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 16), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEPFC.setStatus('current')
+ieee8021BridgePEExtPortEChannelsSupported = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1048575))).setUnits('E-channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEExtPortEChannelsSupported.setStatus('current')
+ieee8021BridgePERemoteRepEChannelsSupported = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 18), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3145727))).setUnits('E-channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePERemoteRepEChannelsSupported.setStatus('current')
+ieee8021BridgePETCsSupported = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setUnits('traffic classes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePETCsSupported.setStatus('current')
+ieee8021BridgePEUtVLANsSupported = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 1, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setUnits('VLANs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePEUtVLANsSupported.setStatus('current')
+ieee8021BridgePERemoteReplicationTable = MibTable((1, 3, 111, 2, 802, 1, 1, 25, 2, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePERemoteReplicationTable.setStatus('current')
+ieee8021BridgePERemoteReplicationEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 25, 2, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IEEE8021-PE-MIB", "ieee8021BridgePEPortComponentId"), (0, "IEEE8021-PE-MIB", "ieee8021BridgePERREcid"))
+if mibBuilder.loadTexts: ieee8021BridgePERemoteReplicationEntry.setStatus('current')
+ieee8021BridgePERREcid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 2, 1, 1), IEEE802BridgePEEChannelIDTC()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePERREcid.setStatus('current')
+ieee8021BridgePERRPortMap = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 2, 1, 2), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021BridgePERRPortMap.setStatus('current')
+ieee8021BridgePEETSTable = MibTable((1, 3, 111, 2, 802, 1, 1, 25, 2, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEETSTable.setStatus('current')
+ieee8021BridgePEETSEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 25, 2, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IEEE8021-PE-MIB", "ieee8021BridgePEPortComponentId"), (0, "IEEE8021-PE-MIB", "ieee8021BridgePEPort"), (0, "IEEE8021-PE-MIB", "ieee8021BridgePEETSTrafficClass"))
+if mibBuilder.loadTexts: ieee8021BridgePEETSEntry.setStatus('current')
+ieee8021BridgePEETSTrafficClass = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 3, 1, 1), IEEE802BridgePETrafficClassValueTC()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ieee8021BridgePEETSTrafficClass.setStatus('current')
+ieee8021BridgePEETSTrafficSelectionAlgorthm = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 3, 1, 2), IEEE802BridgePETrafficSelectionAlgorithmTC()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021BridgePEETSTrafficSelectionAlgorthm.setStatus('current')
+ieee8021BridgePEETSBandwidth = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 25, 2, 3, 1, 3), IEEE802BridgePETrafficClassBandwidthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021BridgePEETSBandwidth.setStatus('current')
+ieee8021BridgePEGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 25, 3, 1))
+ieee8021BridgePECompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 25, 3, 2))
+ieee8021BridgePEGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 25, 3, 1, 1)).setObjects(("IEEE8021-PE-MIB", "ieee8021BridgePEPortUpstreamCSPAddress"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortEcid"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortNumber"), ("IEEE8021-PE-MIB", "ieee8021BridgePECounterDiscontinuityTime"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortRxrqErrorsBridge"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortRxrspErrorsBridge"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortRxrqErrorsPE"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPortRxrspErrorsPE"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPCP"), ("IEEE8021-PE-MIB", "ieee8021BridgePEROW"), ("IEEE8021-PE-MIB", "ieee8021BridgePEDEI"), ("IEEE8021-PE-MIB", "ieee8021BridgePECN"), ("IEEE8021-PE-MIB", "ieee8021BridgePEPFC"), ("IEEE8021-PE-MIB", "ieee8021BridgePEExtPortEChannelsSupported"), ("IEEE8021-PE-MIB", "ieee8021BridgePERemoteRepEChannelsSupported"), ("IEEE8021-PE-MIB", "ieee8021BridgePETCsSupported"), ("IEEE8021-PE-MIB", "ieee8021BridgePEUtVLANsSupported"), ("IEEE8021-PE-MIB", "ieee8021BridgePERRPortMap"), ("IEEE8021-PE-MIB", "ieee8021BridgePEETSTrafficSelectionAlgorthm"), ("IEEE8021-PE-MIB", "ieee8021BridgePEETSBandwidth"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021BridgePEGroup = ieee8021BridgePEGroup.setStatus('current')
+ieee8021BridgePECompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 25, 3, 2, 1)).setObjects(("IEEE8021-PE-MIB", "ieee8021BridgePEGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021BridgePECompliance = ieee8021BridgePECompliance.setStatus('current')
+mibBuilder.exportSymbols("IEEE8021-PE-MIB", IEEE802BridgePEEChannelIDTC=IEEE802BridgePEEChannelIDTC, IEEE802BridgePETrafficClassBandwidthValue=IEEE802BridgePETrafficClassBandwidthValue, IEEE802BridgePETrafficClassValueTC=IEEE802BridgePETrafficClassValueTC, IEEE802BridgePETrafficSelectionAlgorithmTC=IEEE802BridgePETrafficSelectionAlgorithmTC, PYSNMP_MODULE_ID=ieee8021BridgePEMib, ieee8021BridgePECN=ieee8021BridgePECN, ieee8021BridgePECompliance=ieee8021BridgePECompliance, ieee8021BridgePECompliances=ieee8021BridgePECompliances, ieee8021BridgePEConformance=ieee8021BridgePEConformance, ieee8021BridgePECounterDiscontinuityTime=ieee8021BridgePECounterDiscontinuityTime, ieee8021BridgePEDEI=ieee8021BridgePEDEI, ieee8021BridgePEETSBandwidth=ieee8021BridgePEETSBandwidth, ieee8021BridgePEETSEntry=ieee8021BridgePEETSEntry, ieee8021BridgePEETSTable=ieee8021BridgePEETSTable, ieee8021BridgePEETSTrafficClass=ieee8021BridgePEETSTrafficClass, ieee8021BridgePEETSTrafficSelectionAlgorthm=ieee8021BridgePEETSTrafficSelectionAlgorthm, ieee8021BridgePEExtPortEChannelsSupported=ieee8021BridgePEExtPortEChannelsSupported, ieee8021BridgePEGroup=ieee8021BridgePEGroup, ieee8021BridgePEGroups=ieee8021BridgePEGroups, ieee8021BridgePEMib=ieee8021BridgePEMib, ieee8021BridgePENotifications=ieee8021BridgePENotifications, ieee8021BridgePEObjects=ieee8021BridgePEObjects, ieee8021BridgePEPCP=ieee8021BridgePEPCP, ieee8021BridgePEPFC=ieee8021BridgePEPFC, ieee8021BridgePEPort=ieee8021BridgePEPort, ieee8021BridgePEPortComponentId=ieee8021BridgePEPortComponentId, ieee8021BridgePEPortEcid=ieee8021BridgePEPortEcid, ieee8021BridgePEPortEntry=ieee8021BridgePEPortEntry, ieee8021BridgePEPortNumber=ieee8021BridgePEPortNumber, ieee8021BridgePEPortRxrqErrorsBridge=ieee8021BridgePEPortRxrqErrorsBridge, ieee8021BridgePEPortRxrqErrorsPE=ieee8021BridgePEPortRxrqErrorsPE, ieee8021BridgePEPortRxrspErrorsBridge=ieee8021BridgePEPortRxrspErrorsBridge, ieee8021BridgePEPortRxrspErrorsPE=ieee8021BridgePEPortRxrspErrorsPE, ieee8021BridgePEPortTable=ieee8021BridgePEPortTable, ieee8021BridgePEPortType=ieee8021BridgePEPortType, ieee8021BridgePEPortUpstreamCSPAddress=ieee8021BridgePEPortUpstreamCSPAddress, ieee8021BridgePEROW=ieee8021BridgePEROW, ieee8021BridgePERREcid=ieee8021BridgePERREcid, ieee8021BridgePERRPortMap=ieee8021BridgePERRPortMap, ieee8021BridgePERemoteRepEChannelsSupported=ieee8021BridgePERemoteRepEChannelsSupported, ieee8021BridgePERemoteReplicationEntry=ieee8021BridgePERemoteReplicationEntry, ieee8021BridgePERemoteReplicationTable=ieee8021BridgePERemoteReplicationTable, ieee8021BridgePETCsSupported=ieee8021BridgePETCsSupported, ieee8021BridgePEUtVLANsSupported=ieee8021BridgePEUtVLANsSupported)

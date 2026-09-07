@@ -1,0 +1,159 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfContext": {
+    "name": "hpnicfContext",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-18 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfContextTables": {
+    "name": "hpnicfContextTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1",
+    "class": "objectidentity"
+  },
+  "hpnicfContextControl": {
+    "name": "hpnicfContextControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfContextControlTable": {
+    "name": "hpnicfContextControlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfContextControlEntry": {
+    "name": "hpnicfContextControlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-CONTEXT-MIB",
+        "object": "hpnicfContextIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfContextIndex": {
+    "name": "hpnicfContextIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfContextName": {
+    "name": "hpnicfContextName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfContextNotification": {
+    "name": "hpnicfContextNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.8",
+    "class": "objectidentity"
+  },
+  "hpnicfContextNotificationObjects": {
+    "name": "hpnicfContextNotificationObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.8.0",
+    "class": "objectidentity"
+  },
+  "hpnicfContextStateChangeToActive": {
+    "name": "hpnicfContextStateChangeToActive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-CONTEXT-MIB",
+        "object": "hpnicfContextIndex"
+      },
+      {
+        "module": "HPN-ICF-CONTEXT-MIB",
+        "object": "hpnicfContextName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfContextStateChangeToInactive": {
+    "name": "hpnicfContextStateChangeToInactive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.154.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-CONTEXT-MIB",
+        "object": "hpnicfContextIndex"
+      },
+      {
+        "module": "HPN-ICF-CONTEXT-MIB",
+        "object": "hpnicfContextName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-CONTEXT-MIB",
+      "Source digest sha256:df0e9dbd0a68535744782a8461aebaf7bb0ff13ba50f04edd54d006acf5e73a7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-CONTEXT-MIB"
+  }
+}

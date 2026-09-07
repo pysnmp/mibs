@@ -1,0 +1,48 @@
+#
+# PySNMP MIB module CISCO-VISM-PORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-VISM-PORT-MIB
+# Source digest sha256:66d2f809f81ce6f24d01fb48e84e4397ebd9ba2ce3af265ce444d77a84d8301f
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+vismPort, = mibBuilder.importSymbols("BASIS-MIB", "vismPort")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoVismPortMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 92))
+ciscoVismPortMIB.setRevisions(('2003-10-16 00:00',))
+if mibBuilder.loadTexts: ciscoVismPortMIB.setLastUpdated('2003-10-16 00:00')
+if mibBuilder.loadTexts: ciscoVismPortMIB.setOrganization('Cisco Systems, Inc.')
+vismPortCnfGrp = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1))
+vismPortCnfGrpTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: vismPortCnfGrpTable.setStatus('current')
+vismPortCnfGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-VISM-PORT-MIB", "vismPortNum"))
+if mibBuilder.loadTexts: vismPortCnfGrpEntry.setStatus('current')
+vismPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vismPortNum.setStatus('current')
+vismPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("add", 1), ("del", 2), ("mod", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vismPortRowStatus.setStatus('current')
+vismPortLineNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8)).clone(0)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vismPortLineNum.setStatus('current')
+vismPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("voIP", 1), ("userPort", 2))).clone('voIP')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vismPortType.setStatus('current')
+vismPortDs0ConfigBitMap = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215)).clone(0)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vismPortDs0ConfigBitMap.setStatus('current')
+vismPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5651320)).clone(5651320)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vismPortSpeed.setStatus('current')
+vismPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notConfigured", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vismPortState.setStatus('current')
+ciscoVismPortMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 92, 2))
+ciscoVismPortMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 92, 2, 1))
+ciscoVismPortMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 92, 2, 2))
+ciscoVismPortCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 92, 2, 2, 1)).setObjects(("CISCO-VISM-PORT-MIB", "ciscoVismPortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVismPortCompliance = ciscoVismPortCompliance.setStatus('current')
+ciscoVismPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 92, 2, 1, 1)).setObjects(("CISCO-VISM-PORT-MIB", "vismPortNum"), ("CISCO-VISM-PORT-MIB", "vismPortRowStatus"), ("CISCO-VISM-PORT-MIB", "vismPortLineNum"), ("CISCO-VISM-PORT-MIB", "vismPortType"), ("CISCO-VISM-PORT-MIB", "vismPortDs0ConfigBitMap"), ("CISCO-VISM-PORT-MIB", "vismPortSpeed"), ("CISCO-VISM-PORT-MIB", "vismPortState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVismPortGroup = ciscoVismPortGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VISM-PORT-MIB", PYSNMP_MODULE_ID=ciscoVismPortMIB, ciscoVismPortCompliance=ciscoVismPortCompliance, ciscoVismPortGroup=ciscoVismPortGroup, ciscoVismPortMIB=ciscoVismPortMIB, ciscoVismPortMIBCompliances=ciscoVismPortMIBCompliances, ciscoVismPortMIBConformance=ciscoVismPortMIBConformance, ciscoVismPortMIBGroups=ciscoVismPortMIBGroups, vismPortCnfGrp=vismPortCnfGrp, vismPortCnfGrpEntry=vismPortCnfGrpEntry, vismPortCnfGrpTable=vismPortCnfGrpTable, vismPortDs0ConfigBitMap=vismPortDs0ConfigBitMap, vismPortLineNum=vismPortLineNum, vismPortNum=vismPortNum, vismPortRowStatus=vismPortRowStatus, vismPortSpeed=vismPortSpeed, vismPortState=vismPortState, vismPortType=vismPortType)

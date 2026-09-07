@@ -1,0 +1,440 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-TARGET-MIB": [
+      "snmpTargetAddrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfOobmMIB": {
+    "name": "hpicfOobmMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-26 00:00",
+        "description": "Added oobm member tables"
+      },
+      {
+        "revision": "2009-02-13 00:00",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "hpicfOobmNotifications": {
+    "name": "hpicfOobmNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.0",
+    "class": "objectidentity"
+  },
+  "hpicfOobmObjects": {
+    "name": "hpicfOobmObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1",
+    "class": "objectidentity"
+  },
+  "hpicfOobmConformance": {
+    "name": "hpicfOobmConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3",
+    "class": "objectidentity"
+  },
+  "HpicfOobmServerIndex": {
+    "name": "HpicfOobmServerIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "ssh": 2,
+          "tftp": 3,
+          "http": 4,
+          "snmp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfOobmServerState": {
+    "name": "HpicfOobmServerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oobm": 1,
+          "data": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfOobmScalars": {
+    "name": "hpicfOobmScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfOobmStatus": {
+    "name": "hpicfOobmStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOobmServers": {
+    "name": "hpicfOobmServers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfOobmServerTable": {
+    "name": "hpicfOobmServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmServerEntry": {
+    "name": "hpicfOobmServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmServerType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmServerType": {
+    "name": "hpicfOobmServerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfOobmServerIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmServerListenMode": {
+    "name": "hpicfOobmServerListenMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfOobmServerState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOobmSnmpTargetAddrIsOobm": {
+    "name": "hpicfOobmSnmpTargetAddrIsOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpTargetAddrIsOobmTable": {
+    "name": "hpicfSnmpTargetAddrIsOobmTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSnmpTargetAddrIsOobmEntry": {
+    "name": "hpicfSnmpTargetAddrIsOobmEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfSnmpTargetAddrIsOobmEntry",
+      "module": "HP-ICF-OOBM-MIB",
+      "object": "snmpTargetAddrEntry"
+    },
+    "status": "current"
+  },
+  "hpicfSnmpTargetAddrIsOobm": {
+    "name": "hpicfSnmpTargetAddrIsOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfOobmDefGateway": {
+    "name": "hpicfOobmDefGateway",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfOobmDefGatewayTable": {
+    "name": "hpicfOobmDefGatewayTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmDefGatewayEntry": {
+    "name": "hpicfOobmDefGatewayEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmDefGatewayType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmDefGatewayType": {
+    "name": "hpicfOobmDefGatewayType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmDefGatewayAddr": {
+    "name": "hpicfOobmDefGatewayAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOobmStackMembers": {
+    "name": "hpicfOobmStackMembers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.5",
+    "class": "objectidentity"
+  },
+  "hpicfOobmMemberDefGatewayTable": {
+    "name": "hpicfOobmMemberDefGatewayTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmMemberDefGatewayEntry": {
+    "name": "hpicfOobmMemberDefGatewayEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmMemberDefGatewayType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmMemberDefGatewayType": {
+    "name": "hpicfOobmMemberDefGatewayType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfOobmMemberDefGatewayAddr": {
+    "name": "hpicfOobmMemberDefGatewayAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfOobmCompliance": {
+    "name": "hpicfOobmCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfOobmGroups": {
+    "name": "hpicfOobmGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfOobmMibCompliance": {
+    "name": "hpicfOobmMibCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfOobmScalarsGroup",
+        "module": "HP-ICF-OOBM-MIB"
+      },
+      {
+        "object": "hpicfOobmServersGroup",
+        "module": "HP-ICF-OOBM-MIB"
+      },
+      {
+        "object": "hpicfSnmpTargetAddrIsOobmGroup",
+        "module": "HP-ICF-OOBM-MIB"
+      },
+      {
+        "object": "hpicfOobmDefGatewayGroup",
+        "module": "HP-ICF-OOBM-MIB"
+      },
+      {
+        "object": "hpicfOobmMemberGroup",
+        "module": "HP-ICF-OOBM-MIB"
+      },
+      {
+        "object": "hpicfOobmGroups",
+        "module": "HP-ICF-OOBM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmScalarsGroup": {
+    "name": "hpicfOobmScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmServersGroup": {
+    "name": "hpicfOobmServersGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmServerListenMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpTargetAddrIsOobmGroup": {
+    "name": "hpicfSnmpTargetAddrIsOobmGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfSnmpTargetAddrIsOobm"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmDefGatewayGroup": {
+    "name": "hpicfOobmDefGatewayGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmDefGatewayAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfOobmMemberGroup": {
+    "name": "hpicfOobmMemberGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.58.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-OOBM-MIB",
+        "object": "hpicfOobmMemberDefGatewayAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-OOBM-MIB",
+      "Source digest sha256:1359766cf874e5244713e1606c0beaa276d7cc91fec71af2f82f4759e7ef4427",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-OOBM-MIB"
+  }
+}

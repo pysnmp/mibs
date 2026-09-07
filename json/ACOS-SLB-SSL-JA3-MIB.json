@@ -1,0 +1,137 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbSslJa3Module": {
+    "name": "slbSslJa3Module",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314",
+    "class": "moduleidentity"
+  },
+  "sslJa3": {
+    "name": "sslJa3",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1",
+    "class": "objectidentity"
+  },
+  "sslJa3OperRecordTable": {
+    "name": "sslJa3OperRecordTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslJa3OperRecordEntry": {
+    "name": "sslJa3OperRecordEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SSL-JA3-MIB",
+        "object": "sslJa3OperRecordSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SSL-JA3-MIB",
+        "object": "sslJa3OperRecordRecordListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslJa3OperRecordSlotId": {
+    "name": "sslJa3OperRecordSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslJa3OperRecordRecordListId": {
+    "name": "sslJa3OperRecordRecordListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslJa3OperRecordAddrV4": {
+    "name": "sslJa3OperRecordAddrV4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslJa3OperRecordAddrV6": {
+    "name": "sslJa3OperRecordAddrV6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslJa3OperRecordAmount": {
+    "name": "sslJa3OperRecordAmount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.314.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SSL-JA3-MIB",
+      "Source digest sha256:8ab4213c8fa5fa629fc732c45a9a73a77145ef07a55a829cd6e4407e02c7ed89",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SSL-JA3-MIB"
+  }
+}

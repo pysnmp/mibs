@@ -1,0 +1,49 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctDcm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dCM": {
+    "name": "dCM",
+    "oid": "1.3.6.1.4.1.52.4.1.6.1",
+    "class": "objectidentity"
+  },
+  "dCMMode": {
+    "name": "dCMMode",
+    "oid": "1.3.6.1.4.1.52.4.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-DCM-MIB",
+      "Source digest sha256:b92edd868b51e8324104166a7dcd168997c3d354ecd7ec647fea7d603ffd36f1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-DCM-MIB"
+  }
+}

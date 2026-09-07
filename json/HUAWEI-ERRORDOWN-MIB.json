@@ -1,0 +1,186 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwErrordownMIB": {
+    "name": "hwErrordownMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.257",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-08-08 10:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwErrordownObjects": {
+    "name": "hwErrordownObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1",
+    "class": "objectidentity"
+  },
+  "hwErrordownNotifications": {
+    "name": "hwErrordownNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2",
+    "class": "objectidentity"
+  },
+  "hwErrordownConformance": {
+    "name": "hwErrordownConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3",
+    "class": "objectidentity"
+  },
+  "hwErrordownCause": {
+    "name": "hwErrordownCause",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwErrordownRecoverType": {
+    "name": "hwErrordownRecoverType",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwErrordown": {
+    "name": "hwErrordown",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErrordownRecovery": {
+    "name": "hwErrordownRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecoverType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErrordownCompliances": {
+    "name": "hwErrordownCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.1",
+    "class": "objectidentity"
+  },
+  "hwErrordowFullCompliance": {
+    "name": "hwErrordowFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwErrordownObjectGroup",
+        "module": "HUAWEI-ERRORDOWN-MIB"
+      },
+      {
+        "object": "hwErrordownNotificationGroup",
+        "module": "HUAWEI-ERRORDOWN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErrordownGroups": {
+    "name": "hwErrordownGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2",
+    "class": "objectidentity"
+  },
+  "hwErrordownObjectGroup": {
+    "name": "hwErrordownObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecoverType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErrordownNotificationGroup": {
+    "name": "hwErrordownNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordown"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecovery"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-ERRORDOWN-MIB",
+      "Source digest sha256:30fc948e98ef46e0e7fb2d3fad67061c4bf29cc52c5cecd05f300ff270f94677",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-ERRORDOWN-MIB"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "DIFFSERV-MIB": [
+      "IfDirection",
+      "IndexInteger"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "diffServMibCapability": {
+    "name": "diffServMibCapability",
+    "oid": "1.3.6.1.4.1.9.7.377",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-13 00:00",
+        "description": "The capabilities description of DIFFSERV-MIB (RFC 3289) for MDS 1.3(1)."
+      }
+    ]
+  },
+  "diffServMibCapabilityMDS13R1": {
+    "name": "diffServMibCapabilityMDS13R1",
+    "oid": "1.3.6.1.4.1.9.7.377.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 1.3(1)",
+    "capabilities": [
+      {
+        "module": "DIFFSERV-MIB",
+        "includes": [
+          "diffServMIBDataPathGroup",
+          "diffServMIBClfrGroup",
+          "diffServMIBClfrElementGroup",
+          "diffServMIBMeterGroup",
+          "diffServMIBActionGroup",
+          "diffServMIBDscpMarkActGroup"
+        ],
+        "variations": [
+          {
+            "object": "diffServDataPathIfDirection",
+            "syntax": {
+              "type": "IfDirection",
+              "class": "type"
+            }
+          },
+          {
+            "object": "diffServDataPathStart",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServDataPathStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServDataPathStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServClfrNextFree",
+            "access": "not-implemented"
+          },
+          {
+            "object": "diffServClfrId",
+            "syntax": {
+              "type": "IndexInteger",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1023
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "diffServClfrStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServClfrElementNextFree",
+            "access": "not-implemented"
+          },
+          {
+            "object": "diffServClfrElementId",
+            "syntax": {
+              "type": "IndexInteger",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 256
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "diffServClfrElementPrecedence",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServClfrElementStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServClfrElementEntry",
+            "creationrequires": [
+              "diffServClfrElementSpecific"
+            ]
+          },
+          {
+            "object": "diffServMeterNextFree",
+            "access": "not-implemented"
+          },
+          {
+            "object": "diffServMeterSucceedNext",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServMeterFailNext",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServMeterSpecific",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServMeterStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServMeterStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServActionNextFree",
+            "access": "not-implemented"
+          },
+          {
+            "object": "diffServActionNext",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServActionSpecific",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServActionStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServActionInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "diffServActionStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DIFFSERV-MIB-CAPABILITY",
+      "Source digest sha256:7a1a456d03b655b14e8882ceb0fd7cb5e2d27c6f340ab0702222b2d79802f031",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DIFFSERV-MIB-CAPABILITY"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "STORMSHIELD-SMI-MIB": [
+      "stormshieldMIB"
+    ]
+  },
+  "snsPolicy": {
+    "name": "snsPolicy",
+    "oid": "1.3.6.1.4.1.11256.1.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-20 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "snsPolicyTable": {
+    "name": "snsPolicyTable",
+    "oid": "1.3.6.1.4.1.11256.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsPolicyEntry": {
+    "name": "snsPolicyEntry",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-POLICY-MIB",
+        "object": "snsPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsPolicyIndex": {
+    "name": "snsPolicyIndex",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsPolicyName": {
+    "name": "snsPolicyName",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsPolicySlotName": {
+    "name": "snsPolicySlotName",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsPolicyActive": {
+    "name": "snsPolicyActive",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsPolicySync": {
+    "name": "snsPolicySync",
+    "oid": "1.3.6.1.4.1.11256.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source STORMSHIELD-POLICY-MIB",
+      "Source digest sha256:bb400db0f76b90cd61ad9cf9e8a379f323b493479a2c4254b9feedef21eee510",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "STORMSHIELD-POLICY-MIB"
+  }
+}

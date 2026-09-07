@@ -1,0 +1,247 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB": [
+      "jnxLsysSpNATdstpool"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpNATdstpoolMIB": {
+    "name": "jnxLsysSpNATdstpoolMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1",
+    "class": "moduleidentity"
+  },
+  "jnxLsysSpNATdstpoolObjects": {
+    "name": "jnxLsysSpNATdstpoolObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATdstpoolSummary": {
+    "name": "jnxLsysSpNATdstpoolSummary",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATdstpoolTable": {
+    "name": "jnxLsysSpNATdstpoolTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolEntry": {
+    "name": "jnxLsysSpNATdstpoolEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LSYSSP-NATDSTPOOL-MIB",
+        "object": "jnxLsysSpNATdstpoolLsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolLsysName": {
+    "name": "jnxLsysSpNATdstpoolLsysName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolProfileName": {
+    "name": "jnxLsysSpNATdstpoolProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolUsage": {
+    "name": "jnxLsysSpNATdstpoolUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolReserved": {
+    "name": "jnxLsysSpNATdstpoolReserved",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolMaximum": {
+    "name": "jnxLsysSpNATdstpoolMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolUsedAmount": {
+    "name": "jnxLsysSpNATdstpoolUsedAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolMaxQuota": {
+    "name": "jnxLsysSpNATdstpoolMaxQuota",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolAvailableAmount": {
+    "name": "jnxLsysSpNATdstpoolAvailableAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolHeaviestUsage": {
+    "name": "jnxLsysSpNATdstpoolHeaviestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolHeaviestUser": {
+    "name": "jnxLsysSpNATdstpoolHeaviestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolLightestUsage": {
+    "name": "jnxLsysSpNATdstpoolLightestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATdstpoolLightestUser": {
+    "name": "jnxLsysSpNATdstpoolLightestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-LSYSSP-NATDSTPOOL-MIB",
+      "Source digest sha256:1b384d7abc38585fff6e47b9f50fb2dcc5e7fbf8b87a73eb5d5f4b3b949b2123",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-LSYSSP-NATDSTPOOL-MIB"
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-DEVICE-MIB": [
+      "coDevDisIndex"
+    ],
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "colubrisDeviceIfMIB": {
+    "name": "colubrisDeviceIfMIB",
+    "oid": "1.3.6.1.4.1.8744.5.24",
+    "class": "moduleidentity"
+  },
+  "colubrisDeviceIfMIBObjects": {
+    "name": "colubrisDeviceIfMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.24.1",
+    "class": "objectidentity"
+  },
+  "coDeviceIfStatusGroup": {
+    "name": "coDeviceIfStatusGroup",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1",
+    "class": "objectidentity"
+  },
+  "coDeviceIfStatsGroup": {
+    "name": "coDeviceIfStatsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2",
+    "class": "objectidentity"
+  },
+  "coDeviceIfStatusTable": {
+    "name": "coDeviceIfStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceIfStatusEntry": {
+    "name": "coDeviceIfStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevIfStaIfIndex": {
+    "name": "coDevIfStaIfIndex",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevIfStaFriendlyInterfaceName": {
+    "name": "coDevIfStaFriendlyInterfaceName",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaType": {
+    "name": "coDevIfStaType",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ethernet": 2,
+          "l2vlan": 3,
+          "bridge": 4,
+          "ieee80211": 5,
+          "ieee80211Wds": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaVLAN": {
+    "name": "coDevIfStaVLAN",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaIpAddress": {
+    "name": "coDevIfStaIpAddress",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaNetworkMask": {
+    "name": "coDevIfStaNetworkMask",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaMACAddress": {
+    "name": "coDevIfStaMACAddress",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStaState": {
+    "name": "coDevIfStaState",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceIfStatsTable": {
+    "name": "coDeviceIfStatsTable",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceIfStatsEntry": {
+    "name": "coDeviceIfStatsEntry",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "coDeviceIfStatsEntry",
+      "module": "COLUBRIS-DEVICE-IF-MIB",
+      "object": "coDeviceIfStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevIfStsRxBytes": {
+    "name": "coDevIfStsRxBytes",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStsRxPackets": {
+    "name": "coDevIfStsRxPackets",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStsRxErrors": {
+    "name": "coDevIfStsRxErrors",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStsTxBytes": {
+    "name": "coDevIfStsTxBytes",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStsTxPackets": {
+    "name": "coDevIfStsTxPackets",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevIfStsTxErrors": {
+    "name": "coDevIfStsTxErrors",
+    "oid": "1.3.6.1.4.1.8744.5.24.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisDeviceIfMIBNotificationPrefix": {
+    "name": "colubrisDeviceIfMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.24.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceIfMIBNotifications": {
+    "name": "colubrisDeviceIfMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.24.2.0",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceIfMIBConformance": {
+    "name": "colubrisDeviceIfMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.24.3",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceIfMIBCompliances": {
+    "name": "colubrisDeviceIfMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.24.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceIfMIBGroups": {
+    "name": "colubrisDeviceIfMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.24.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceIfMIBCompliance": {
+    "name": "colubrisDeviceIfMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.24.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisDeviceIfStatusMIBGroup",
+        "module": "COLUBRIS-DEVICE-IF-MIB"
+      },
+      {
+        "object": "colubrisDeviceIfStatsMIBGroup",
+        "module": "COLUBRIS-DEVICE-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceIfStatusMIBGroup": {
+    "name": "colubrisDeviceIfStatusMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.24.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaFriendlyInterfaceName"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaType"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaVLAN"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaIpAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaNetworkMask"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaMACAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStaState"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceIfStatsMIBGroup": {
+    "name": "colubrisDeviceIfStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.24.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsRxBytes"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsRxPackets"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsRxErrors"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsTxBytes"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsTxPackets"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-IF-MIB",
+        "object": "coDevIfStsTxErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source COLUBRIS-DEVICE-IF-MIB",
+      "Source digest sha256:7c8d505e006500324e1c1903cfcf10c788710498ff7afa5c0498b5f758ffe1b2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "COLUBRIS-DEVICE-IF-MIB"
+  }
+}

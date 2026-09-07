@@ -1,0 +1,213 @@
+-- **********************************************************************
+-- **********************************************************************
+-- **
+-- **  COPYRIGHT      (c) 2006 Rohde & Schwarz GmbH & Co. KG
+-- **                          Muehldorfstrasse 15
+-- **    R & S                 81671 Muenchen
+-- **
+-- ** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-- **
+-- **  MODULE         RS-COMMON-MIB.my
+-- **  
+-- **  DESCRIPTION    Rohde & Schwarz common SNMP mib
+-- **
+-- **  HISTORY        2010-08-09 Christian Hoelzl
+-- **                 rsProdRadioCommEquipment added
+-- **
+-- **                 05/27/2008 Christian Hoelzl
+-- **                 rsProdBroadcastHeadend added
+-- **
+-- **                 05/07/2008 Christian Hoelzl
+-- **                 rsProdRadioCommSystems added
+-- **
+-- **                 10/31/2007 Christian Hoelzl
+-- **                 rsProdRadioCommunications added
+-- **                 rsProdRadioCommCommon added
+-- **                 rsProdRadioCommSeries4200 added
+-- **
+-- **                 09/05/2006 Christian Hoelzl
+-- **                 rsCrypto added
+-- **
+-- **                 06/24/2005 Christian Hoelzl
+-- **                 first version
+-- **
+-- ** +-iso(1)
+-- **   +-org(3)
+-- **     +-dod(6)
+-- **       +-internet(1)
+-- **         +-private(4)
+-- **           +-enterprises(1)
+-- **             +-rsRoot(2566)
+-- **               +-rsCommon(123)
+-- **               +-rsProduct(127)
+-- **               | +-rsProdBroadcast(1)
+-- **               | | +-rsProdBroadcastMeasurement(1)
+-- **               | | +-rsProdBroadcastTransmitter(2)
+-- **               | | +-rsProdBroadcastHeadend(3)
+-- **               | |
+-- **               | +-rsProdRadioCommunications(2)
+-- **               |   +-rsProdRadioCommCommon(1)
+-- **               |   +-rsProdRadioCommSeries4200(2)
+-- **               |   +-rsProdRadioCommSystems(3)
+-- **               |   +-rsPrdoRadioCommEquipment(4)
+-- **               |
+-- **               +-rsRequirements(131)
+-- **               +-rsExperimental(137)
+-- **               +-rsCapabilities(139)
+-- **               +-rsRegistration(149)
+-- **               | +-rsRegModules(1)
+-- **               | +-rsRegBroadcast(2)
+-- **               |   +-rsRegBroadcastMeasurement(1)
+-- **               |   +-rsRegBroadcastTransmitter(2)
+-- **               |
+-- **               +-rsCrypto(151)
+-- ** 
+-- **
+-- **********************************************************************
+-- **********************************************************************
+
+  RS-COMMON-MIB DEFINITIONS ::= BEGIN
+ 
+    IMPORTS enterprises, OBJECT-IDENTITY, MODULE-IDENTITY FROM SNMPv2-SMI;
+
+    rsRoot MODULE-IDENTITY
+        LAST-UPDATED "201008090803Z" -- August 9th 2010 at 08:03 GMT
+        ORGANIZATION 
+		        "Rohde&Schwarz GmbH & Co.KG"
+        CONTACT-INFO 
+		        "Rohde & Schwarz GmbH & Co. KG
+		         Muehldorfstrasse 15
+		         81671 Munich
+		         Germany"
+	      DESCRIPTION 
+            "The root OID of Rohde&Schwarz GmbH & Co.KG"
+        REVISION "201008090803Z" -- August 9th 2010 at 08:03 GMT
+	      DESCRIPTION 
+            "MODULE-IDENTITY added to RS-COMMON-MIB"
+        ::= { enterprises 2566 }
+
+    rsCommon OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for common object and event definitions"
+        ::= { rsRoot 113 }
+
+    rsProducts OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for products."
+        ::= { rsRoot 127 }
+
+    rsProdBroadcast OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for broadcast products."
+        ::= { rsProducts 1 }
+
+    rsProdBroadcastMeasurement OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for broadcast measurement products."
+        ::= { rsProdBroadcast 1 }
+
+    rsProdBroadcastTransmitter OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for broadcast transmitter products."
+        ::= { rsProdBroadcast 2 }
+
+    rsProdBroadcastHeadend OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for broadcast headend products."
+        ::= { rsProdBroadcast 3 }
+
+    rsProdRadioCommunications OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for radio communication products."
+        ::= { rsProducts 2 }
+
+    rsProdRadioCommCommon OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for radio communication product common features."
+        ::= { rsProdRadioCommunications 1 }
+
+    rsProdRadioCommSeries4200 OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for radio communication series 4200."
+        ::= { rsProdRadioCommunications 2 }
+
+    rsProdRadioCommSystems OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for radio communication systems."
+        ::= { rsProdRadioCommunications 3 }
+
+    rsProdRadioCommEquipment OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for radio communication equipment."
+        ::= { rsProdRadioCommunications 4 }
+
+    rsRequirements OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for management application requirements"
+        ::= { rsRoot 131 }
+
+    rsExperimental OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for experimental definitions"
+        ::= { rsRoot 137 }
+
+    rsCapabilities OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for agent capabilities"
+        ::= { rsRoot 139 }
+
+    rsRegistration OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for registrations"
+        ::= { rsRoot 149 }
+
+    rsRegModules OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for modules registrations"
+        ::= { rsRegistration 1 }
+    
+    rsRegBroadcast OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Description."
+        ::= { rsRegistration 2 }
+
+    rsRegBroadcastMeasurement OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Description."
+        ::= { rsRegBroadcast 1 }
+
+    rsRegBroadcastTransmitter OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Description."
+        ::= { rsRegBroadcast 2 }
+
+    rsCrypto OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION 
+            "Sub-tree for crypto algorithms"
+        ::= { rsRoot 151 }
+
+    END
+
+--
+-- RS-COMMON-MIB.my
+--

@@ -1,0 +1,237 @@
+{
+  "imports": {
+    "class": "imports",
+    "ERICSSON-TOP-MIB": [
+      "ericssonModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ericssonAlarmTCMIB": {
+    "name": "ericssonAlarmTCMIB",
+    "oid": "1.3.6.1.4.1.193.183.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-06-16 00:00",
+        "description": "Added EriAlarmSourceIdentifierType. Document number: 3/196 03-CXC 172 7549, Rev G."
+      },
+      {
+        "revision": "2021-02-04 00:00",
+        "description": "Removed employee Id from CONTACT-INFO. Document number: 3/196 03-CXC 172 7549, Rev F."
+      },
+      {
+        "revision": "2017-08-11 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 3.0 package. Updated to remove author's name. Document number: 3/196 03-CXC 172 7549, Rev E."
+      },
+      {
+        "revision": "2017-05-18 00:00",
+        "description": "Updated to increase size of Additional Info. Document number: 3/196 03-CXC 172 7549, Rev D."
+      },
+      {
+        "revision": "2017-03-31 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.1 package. Updated with reference to TEA. Document number: 3/196 03-CXC 172 7549, Rev C."
+      },
+      {
+        "revision": "2016-06-24 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.0 package. Updated header. Document number: 3/196 03-CXC 172 7549, Rev B."
+      },
+      {
+        "revision": "2008-10-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "EriAlarmType": {
+    "name": "EriAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAlarmIndex": {
+    "name": "EriAlarmIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAdditionalText": {
+    "name": "EriAdditionalText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriLargeAdditionalText": {
+    "name": "EriLargeAdditionalText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmSpecificProblem": {
+    "name": "EriAlarmSpecificProblem",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmSequenceNumber": {
+    "name": "EriAlarmSequenceNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAdditionalInfo": {
+    "name": "EriAdditionalInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAppendedAdditionalInfo": {
+    "name": "EriAppendedAdditionalInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriLargeAdditionalInfo": {
+    "name": "EriLargeAdditionalInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 768
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmRecordType": {
+    "name": "EriAlarmRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmNew": 0,
+          "alarmChange": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EriAlarmSourceIdentifierType": {
+    "name": "EriAlarmSourceIdentifierType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ERICSSON-ALARM-TC-MIB",
+      "Source digest sha256:44d18af82671056b24d14e23fd6ccf2d834dfcd756725fb851bdf97f8c1c30e7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ERICSSON-ALARM-TC-MIB"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRmon2Capability": {
+    "name": "ciscoRmon2Capability",
+    "oid": "1.3.6.1.4.1.9.7.361",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRmon2CapCatOSV08R0101": {
+    "name": "ciscoRmon2CapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.361.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "RMON2-MIB",
+        "includes": [
+          "probeInformationGroup",
+          "probeConfigurationGroup",
+          "usrHistoryGroup"
+        ],
+        "variations": [
+          {
+            "object": "probeDateTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeResetControl",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadFile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadTFTPServer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemInitString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemHangUpString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemConnectResp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemNoConnectResp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialDialoutTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectDestIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectDialString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchConnectSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchDisconnectSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchResetSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigIPAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigSubnetMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netDefaultGateway",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RMON2-CAPABILITY",
+      "Source digest sha256:2e07b926242f8e0291aa432b20720d2ff44a2d1ed67cffc43096401db25eef84",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RMON2-CAPABILITY"
+  }
+}

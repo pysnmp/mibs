@@ -1,0 +1,557 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappTextualConventions": {
+    "name": "ciscoLwappTextualConventions",
+    "oid": "1.3.6.1.4.1.9.9.514",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-11-29 00:00",
+        "description": "Added new textual conventions CLApNtpStatus"
+      },
+      {
+        "revision": "2016-08-23 00:00",
+        "description": "Added new textual conventions CLApMode"
+      },
+      {
+        "revision": "2011-09-13 00:00",
+        "description": "Added new textual conventions CcxServiceVersion"
+      },
+      {
+        "revision": "2010-02-23 00:00",
+        "description": "Added new textual conventions CLApDot11RadioRole, CLClientPowerSaveMode,and CLApDot11RadioSubband."
+      },
+      {
+        "revision": "2007-09-11 00:00",
+        "description": "Added new textual convention CLWebAuthType."
+      },
+      {
+        "revision": "2007-02-05 00:00",
+        "description": "Added new textual conventions CLDot11ChannelBandwidth, CLDot11Band and CLApAssocFailureReason."
+      },
+      {
+        "revision": "2006-10-31 00:00",
+        "description": "Added new textual conventions CLMfpEventSource, CLCdpAdvtVersionType and CLDot11ClientStatus."
+      },
+      {
+        "revision": "2006-04-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CLApIfType": {
+    "name": "CLApIfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11bg": 1,
+          "dot11a": 2,
+          "uwb": 3,
+          "dot11abgn": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLDot11Channel": {
+    "name": "CLDot11Channel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 34,
+            "max": 34
+          },
+          {
+            "min": 36,
+            "max": 36
+          },
+          {
+            "min": 38,
+            "max": 38
+          },
+          {
+            "min": 40,
+            "max": 40
+          },
+          {
+            "min": 42,
+            "max": 42
+          },
+          {
+            "min": 44,
+            "max": 44
+          },
+          {
+            "min": 46,
+            "max": 46
+          },
+          {
+            "min": 48,
+            "max": 48
+          },
+          {
+            "min": 52,
+            "max": 52
+          },
+          {
+            "min": 56,
+            "max": 56
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 64,
+            "max": 64
+          },
+          {
+            "min": 149,
+            "max": 149
+          },
+          {
+            "min": 153,
+            "max": 153
+          },
+          {
+            "min": 157,
+            "max": 157
+          },
+          {
+            "min": 161,
+            "max": 161
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CLDot11ClientStatus": {
+    "name": "CLDot11ClientStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "aaaPending": 2,
+          "authenticated": 3,
+          "associated": 4,
+          "powersave": 5,
+          "disassociated": 6,
+          "tobedeleted": 7,
+          "probing": 8,
+          "excluded": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLEventFrames": {
+    "name": "CLEventFrames",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cLAssocRequestFrm": 0,
+        "cLAssocResponseFrm": 1,
+        "cLReAssocRequestFrm": 2,
+        "cLReAssocResponseFrm": 3,
+        "cLProbeRequestFrm": 4,
+        "cLProbeResponseFrm": 5,
+        "cLReserved1": 6,
+        "cLReserved2": 7,
+        "cLBeaconFrm": 8,
+        "cLAtimFrm": 9,
+        "cLDissociationFrm": 10,
+        "cLAuthenticationFrm": 11,
+        "cLDeAuthenticationFrm": 12
+      }
+    },
+    "status": "current"
+  },
+  "CLMfpEventType": {
+    "name": "CLMfpEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidMic": 1,
+          "invalidSeq": 2,
+          "noMic": 3,
+          "unexpectedMic": 4,
+          "ccmpNoEncryptError": 16,
+          "ccmpDecryptError": 17,
+          "ccmpInvalidReplayCtr": 19,
+          "tkipNoEncryptError": 20,
+          "tkipInvalidIcv": 21,
+          "tkipInvalidMic": 22,
+          "tkipInvalidMhdrIe": 23,
+          "tkipInvalidReplayCtr": 24,
+          "bcastDisassociationFrameRcvd": 32,
+          "bcastDeauthenticationFrameRcvd": 33,
+          "bcastActionFrameRcvd": 34
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLMfpEventSource": {
+    "name": "CLMfpEventSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infrastructureMfp": 1,
+          "clientMfp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLMfpVersion": {
+    "name": "CLMfpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mfpv1": 1,
+          "mfpv2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLTimeBaseStatus": {
+    "name": "CLTimeBaseStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cTimeBaseInSync": 1,
+          "cTimeBaseNotInSync": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLSecEncryptType": {
+    "name": "CLSecEncryptType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tkip": 0,
+        "aes": 1
+      }
+    },
+    "status": "current"
+  },
+  "CLSecKeyFormat": {
+    "name": "CLSecKeyFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "hex": 2,
+          "ascii": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLDot11RfParamMode": {
+    "name": "CLDot11RfParamMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "custom": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLTsmDot11CurrentPackets": {
+    "name": "CLTsmDot11CurrentPackets",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CLCdpAdvtVersionType": {
+    "name": "CLCdpAdvtVersionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdpv1": 1,
+          "cdpv2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLDot11ChannelBandwidth": {
+    "name": "CLDot11ChannelBandwidth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 1,
+          "ten": 2,
+          "twenty": 3,
+          "aboveforty": 4,
+          "belowforty": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLDot11Band": {
+    "name": "CLDot11Band",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "band2dot4": 1,
+          "band5": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLApAssocFailureReason": {
+    "name": "CLApAssocFailureReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notSupported": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLWebAuthType": {
+    "name": "CLWebAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internalDefault": 1,
+          "internalCustom": 2,
+          "external": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLClientPowerSaveMode": {
+    "name": "CLClientPowerSaveMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "powersave": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLApDot11RadioSubband": {
+    "name": "CLApDot11RadioSubband",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "sub49": 2,
+          "sub52": 3,
+          "sub54": 4,
+          "sub58": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLApDot11RadioRole": {
+    "name": "CLApDot11RadioRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 0,
+          "upDownlink": 1,
+          "uplink": 2,
+          "downlink": 3,
+          "access": 4,
+          "uplinkAccess": 5,
+          "downlinkAccess": 6,
+          "upDownlinkAccess": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcxServiceVersion": {
+    "name": "CcxServiceVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "version1": 2,
+          "version2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLApMode": {
+    "name": "CLApMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 0,
+          "monitor": 1,
+          "remote": 2,
+          "rogueDetector": 3,
+          "sniffer": 4,
+          "bridge": 5,
+          "seConnect": 6,
+          "remoteBridge": 7,
+          "remoteHybrid": 8,
+          "sensor": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CLApNtpStatus": {
+    "name": "CLApNtpStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValid": 1,
+          "none": 2,
+          "unreachable": 3,
+          "synched": 4,
+          "notSynched": 5,
+          "waitSynch": 6,
+          "authFail": 7,
+          "notSuitable": 8,
+          "unknown": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Dscp": {
+    "name": "Dscp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-TC-MIB",
+      "Source digest sha256:25636c6315f67bdcd1a802d11882b285e462d0585534afc8e0302531c8db6bdf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-TC-MIB"
+  }
+}

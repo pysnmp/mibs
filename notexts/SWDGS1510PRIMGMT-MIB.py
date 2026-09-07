@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module SWDGS1510PRIMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source SWDGS1510PRIMGMT-MIB
+# Source digest sha256:77ab7046a05a5ecd8b75dc9220152a10ccb56271ab79757802b707d299468993
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlink_Dgs1510Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137)).setLabel("dlink-Dgs1510Prod")
+dlink_Dgs1510Prod_Dgs1510_20 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 1)).setLabel("dlink-Dgs1510Prod-Dgs1510-20")
+dlink_Dgs1510Prod_Dgs1510_28 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 2)).setLabel("dlink-Dgs1510Prod-Dgs1510-28")
+dlink_Dgs1510Prod_Dgs1510_28P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 3)).setLabel("dlink-Dgs1510Prod-Dgs1510-28P")
+dlink_Dgs1510Prod_Dgs1510_52 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 4)).setLabel("dlink-Dgs1510Prod-Dgs1510-52")
+dlink_Dgs1510Prod_Dgs1510_28X = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 6)).setLabel("dlink-Dgs1510Prod-Dgs1510-28X")
+dlink_Dgs1510Prod_Dgs1510_52X = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 8)).setLabel("dlink-Dgs1510Prod-Dgs1510-52X")
+dlink_Dgs1510Prod_Dgs1510_28XMP = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 9)).setLabel("dlink-Dgs1510Prod-Dgs1510-28XMP")
+dlink_Dgs1510Prod_Dgs1510_52XMP = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 137, 10)).setLabel("dlink-Dgs1510Prod-Dgs1510-52XMP")
+dlink_Dgs1510Proj = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118)).setLabel("dlink-Dgs1510Proj")
+dlink_Dgs1510ProjModel = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1)).setLabel("dlink-Dgs1510ProjModel")
+dlink_Dgs1510Proj_Dgs1510_20 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 1)).setLabel("dlink-Dgs1510Proj-Dgs1510-20")
+dlink_Dgs1510Proj_Dgs1510_28 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 2)).setLabel("dlink-Dgs1510Proj-Dgs1510-28")
+dlink_Dgs1510Proj_Dgs1510_28P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 3)).setLabel("dlink-Dgs1510Proj-Dgs1510-28P")
+dlink_Dgs1510Proj_Dgs1510_52 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 4)).setLabel("dlink-Dgs1510Proj-Dgs1510-52")
+dlink_Dgs1510Proj_Dgs1510_28X = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 6)).setLabel("dlink-Dgs1510Proj-Dgs1510-28X")
+dlink_Dgs1510Proj_Dgs1510_52X = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 8)).setLabel("dlink-Dgs1510Proj-Dgs1510-52X")
+dlink_Dgs1510Proj_Dgs1510_28XMP = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 9)).setLabel("dlink-Dgs1510Proj-Dgs1510-28XMP")
+dlink_Dgs1510Proj_Dgs1510_52XMP = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1, 10)).setLabel("dlink-Dgs1510Proj-Dgs1510-52XMP")
+mibBuilder.exportSymbols("SWDGS1510PRIMGMT-MIB", dlink_Dgs1510Prod=dlink_Dgs1510Prod, dlink_Dgs1510Prod_Dgs1510_20=dlink_Dgs1510Prod_Dgs1510_20, dlink_Dgs1510Prod_Dgs1510_28=dlink_Dgs1510Prod_Dgs1510_28, dlink_Dgs1510Prod_Dgs1510_28P=dlink_Dgs1510Prod_Dgs1510_28P, dlink_Dgs1510Prod_Dgs1510_28X=dlink_Dgs1510Prod_Dgs1510_28X, dlink_Dgs1510Prod_Dgs1510_28XMP=dlink_Dgs1510Prod_Dgs1510_28XMP, dlink_Dgs1510Prod_Dgs1510_52=dlink_Dgs1510Prod_Dgs1510_52, dlink_Dgs1510Prod_Dgs1510_52X=dlink_Dgs1510Prod_Dgs1510_52X, dlink_Dgs1510Prod_Dgs1510_52XMP=dlink_Dgs1510Prod_Dgs1510_52XMP, dlink_Dgs1510Proj=dlink_Dgs1510Proj, dlink_Dgs1510ProjModel=dlink_Dgs1510ProjModel, dlink_Dgs1510Proj_Dgs1510_20=dlink_Dgs1510Proj_Dgs1510_20, dlink_Dgs1510Proj_Dgs1510_28=dlink_Dgs1510Proj_Dgs1510_28, dlink_Dgs1510Proj_Dgs1510_28P=dlink_Dgs1510Proj_Dgs1510_28P, dlink_Dgs1510Proj_Dgs1510_28X=dlink_Dgs1510Proj_Dgs1510_28X, dlink_Dgs1510Proj_Dgs1510_28XMP=dlink_Dgs1510Proj_Dgs1510_28XMP, dlink_Dgs1510Proj_Dgs1510_52=dlink_Dgs1510Proj_Dgs1510_52, dlink_Dgs1510Proj_Dgs1510_52X=dlink_Dgs1510Proj_Dgs1510_52X, dlink_Dgs1510Proj_Dgs1510_52XMP=dlink_Dgs1510Proj_Dgs1510_52XMP)

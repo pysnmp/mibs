@@ -1,0 +1,270 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGslbTcMIB": {
+    "name": "ciscoGslbTcMIB",
+    "oid": "1.3.6.1.4.1.9.9.583",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-23 00:00",
+        "description": "Added enumeration 'scriptedKal' to CiscoGslbKeepaliveMethod. Added enumeration 'init' to CiscoGslbAnswerStatus."
+      },
+      {
+        "revision": "2006-09-26 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "CiscoGslbNodeServices": {
+    "name": "CiscoGslbNodeServices",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "standby": 2,
+          "secondary": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbPeerStatus": {
+    "name": "CiscoGslbPeerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "offline": 2,
+          "online": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbAnswerType": {
+    "name": "CiscoGslbAnswerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "vip": 2,
+          "ns": 3,
+          "cra": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKeepaliveTargetType": {
+    "name": "CiscoGslbKeepaliveTargetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "vip": 2,
+          "ns": 3,
+          "cra": 4,
+          "shared": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKeepaliveMethod": {
+    "name": "CiscoGslbKeepaliveMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "icmp": 3,
+          "tcp": 4,
+          "httphead": 5,
+          "kalap": 6,
+          "ns": 7,
+          "cra": 8,
+          "scriptedKal": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKeepaliveConfigState": {
+    "name": "CiscoGslbKeepaliveConfigState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "suspend": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKeepaliveRate": {
+    "name": "CiscoGslbKeepaliveRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "standard": 2,
+          "fast": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbTerminationMethod": {
+    "name": "CiscoGslbTerminationMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "graceful": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKeepaliveStatus": {
+    "name": "CiscoGslbKeepaliveStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "offline": 2,
+          "online": 3,
+          "suspended": 4,
+          "init": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbAnswerStatus": {
+    "name": "CiscoGslbAnswerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "offline": 2,
+          "online": 3,
+          "suspended": 4,
+          "init": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbAnswerAdminState": {
+    "name": "CiscoGslbAnswerAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "suspended": 1,
+          "active": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbKalapType": {
+    "name": "CiscoGslbKalapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "kalapByVip": 2,
+          "kalapByTag": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoGslbBalanceMethod": {
+    "name": "CiscoGslbBalanceMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "orderedList": 2,
+          "roundRobin": 3,
+          "weightedRR": 4,
+          "leastLoaded": 5,
+          "hashed": 6,
+          "boomerang": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GSLB-TC-MIB",
+      "Source digest sha256:8b93da28aeae2b82986a4df6e302aec30d4c8ceb21abdf451a961f3f489e8e54",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GSLB-TC-MIB"
+  }
+}

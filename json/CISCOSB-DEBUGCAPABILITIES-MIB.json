@@ -1,0 +1,249 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval",
+      "TruthValue"
+    ]
+  },
+  "rlSna": {
+    "name": "rlSna",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-12 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlSnaNextFreeSessionId": {
+    "name": "rlSnaNextFreeSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnaClientAgentPollingTable": {
+    "name": "rlSnaClientAgentPollingTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnaClientAgentPollingEntry": {
+    "name": "rlSnaClientAgentPollingEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-DEBUGCAPABILITIES-MIB",
+        "object": "rlSnaClientAgentClientSessionId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-DEBUGCAPABILITIES-MIB",
+        "object": "rlSnaClientAgentAgentAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-DEBUGCAPABILITIES-MIB",
+        "object": "rlSnaClientAgentAgentAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-DEBUGCAPABILITIES-MIB",
+        "object": "rlSnaClientAgentMibName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlSnaClientAgentClientSessionId": {
+    "name": "rlSnaClientAgentClientSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnaClientAgentAgentAddressType": {
+    "name": "rlSnaClientAgentAgentAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnaClientAgentAgentAddress": {
+    "name": "rlSnaClientAgentAgentAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnaClientAgentMibName": {
+    "name": "rlSnaClientAgentMibName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnaClientAgentMibFieldsMask": {
+    "name": "rlSnaClientAgentMibFieldsMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnaClientAgentSecondaryMibName": {
+    "name": "rlSnaClientAgentSecondaryMibName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnaClientAgentPollingEnable": {
+    "name": "rlSnaClientAgentPollingEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnaClientAgentPollingInterval": {
+    "name": "rlSnaClientAgentPollingInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "value": 12000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSnaClientAgentStatus": {
+    "name": "rlSnaClientAgentStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.229.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOSB-DEBUGCAPABILITIES-MIB",
+      "Source digest sha256:905256a950e5ae275a32bb398551b79f74fe92006fc0ec368f4d884a4761f017",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOSB-DEBUGCAPABILITIES-MIB"
+  }
+}

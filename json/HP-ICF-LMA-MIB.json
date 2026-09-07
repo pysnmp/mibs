@@ -1,0 +1,1280 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-AUTZ-MIB": [
+      "HpAutzUserRoleName"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "VidList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfLmaMIB": {
+    "name": "hpicfLmaMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-28 07:10",
+        "description": "Added mac-pinning related MIB Object."
+      },
+      {
+        "revision": "2016-02-12 07:10",
+        "description": "Added user role support."
+      },
+      {
+        "revision": "2013-04-10 09:00",
+        "description": "Initial version of Local MAC Authentication MIB module."
+      }
+    ]
+  },
+  "hpicfLmaNotifications": {
+    "name": "hpicfLmaNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.0",
+    "class": "objectidentity"
+  },
+  "hpicfLmaObjects": {
+    "name": "hpicfLmaObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1",
+    "class": "objectidentity"
+  },
+  "hpicfLmaConformance": {
+    "name": "hpicfLmaConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2",
+    "class": "objectidentity"
+  },
+  "hpicfLmaConfigObjects": {
+    "name": "hpicfLmaConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfLmaStatsObjects": {
+    "name": "hpicfLmaStatsObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfLmaScalarObjects": {
+    "name": "hpicfLmaScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfLmaMacGrpTable": {
+    "name": "hpicfLmaMacGrpTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaMacGrpEntry": {
+    "name": "hpicfLmaMacGrpEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaMacGrpName": {
+    "name": "hpicfLmaMacGrpName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaMacGrpRowStatus": {
+    "name": "hpicfLmaMacGrpRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaMacTable": {
+    "name": "hpicfLmaMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaMacEntry": {
+    "name": "hpicfLmaMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacGrpName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaMacType": {
+    "name": "hpicfLmaMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAddress": 1,
+          "macMask": 2,
+          "macOui": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaMacValue": {
+    "name": "hpicfLmaMacValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaMacRowStatus": {
+    "name": "hpicfLmaMacRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaProfileTable": {
+    "name": "hpicfLmaProfileTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaProfileEntry": {
+    "name": "hpicfLmaProfileEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaProfileName": {
+    "name": "hpicfLmaProfileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaProfileUntaggedVid": {
+    "name": "hpicfLmaProfileUntaggedVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaProfileTaggedVids": {
+    "name": "hpicfLmaProfileTaggedVids",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaProfileCoS": {
+    "name": "hpicfLmaProfileCoS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaProfileIsAssociated": {
+    "name": "hpicfLmaProfileIsAssociated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaProfileRowStatus": {
+    "name": "hpicfLmaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaAssociationTable": {
+    "name": "hpicfLmaAssociationTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaAssociationEntry": {
+    "name": "hpicfLmaAssociationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssociationMacType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssociationMacValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaAssociationMacType": {
+    "name": "hpicfLmaAssociationMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macGrp": 0,
+          "macAddress": 1,
+          "macMask": 2,
+          "macOui": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaAssociationMacValue": {
+    "name": "hpicfLmaAssociationMacValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaAssociationRowStatus": {
+    "name": "hpicfLmaAssociationRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaConfigTable": {
+    "name": "hpicfLmaConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaConfigEntry": {
+    "name": "hpicfLmaConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaPortNumber": {
+    "name": "hpicfLmaPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaClientLimit": {
+    "name": "hpicfLmaClientLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaQuietPeriod": {
+    "name": "hpicfLmaQuietPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaLogoffPeriod": {
+    "name": "hpicfLmaLogoffPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999999999
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaAuthVid": {
+    "name": "hpicfLmaAuthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaUnauthVid": {
+    "name": "hpicfLmaUnauthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaUnAuthPeriod": {
+    "name": "hpicfLmaUnAuthPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaReauthenticate": {
+    "name": "hpicfLmaReauthenticate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaMacPin": {
+    "name": "hpicfLmaMacPin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationTable": {
+    "name": "hpicfLmaUserRoleAssociationTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationEntry": {
+    "name": "hpicfLmaUserRoleAssociationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUserRoleAssociationName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUserRoleAssociationMacType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUserRoleAssociationMacValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationName": {
+    "name": "hpicfLmaUserRoleAssociationName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpAutzUserRoleName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationMacType": {
+    "name": "hpicfLmaUserRoleAssociationMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macGrp": 0,
+          "macAddress": 1,
+          "macMask": 2,
+          "macOui": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationMacValue": {
+    "name": "hpicfLmaUserRoleAssociationMacValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaUserRoleAssociationRowStatus": {
+    "name": "hpicfLmaUserRoleAssociationRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfLmaAssocActiveTable": {
+    "name": "hpicfLmaAssocActiveTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaAssocActiveEntry": {
+    "name": "hpicfLmaAssocActiveEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssocActiveProfileName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssocActiveMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaAssocActiveProfileName": {
+    "name": "hpicfLmaAssocActiveProfileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaAssocActiveMacAddress": {
+    "name": "hpicfLmaAssocActiveMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionStatsTable": {
+    "name": "hpicfLmaSessionStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaSessionStatsEntry": {
+    "name": "hpicfLmaSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaSessionMacAddr": {
+    "name": "hpicfLmaSessionMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLmaSessionState": {
+    "name": "hpicfLmaSessionState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authenticated": 1,
+          "unauthenticated": 2,
+          "authenticating": 3,
+          "authReqRejectNoVlan": 4,
+          "authReqRejectUnauthVlan": 5,
+          "authReqTimeoutNoVlan": 6,
+          "authReqTimeoutUnauthVlan": 7,
+          "initialRole": 8,
+          "initialRoleFailed": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionStateTime": {
+    "name": "hpicfLmaSessionStateTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionAuthVid": {
+    "name": "hpicfLmaSessionAuthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionUnauthVid": {
+    "name": "hpicfLmaSessionUnauthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionUsrNumberCnt": {
+    "name": "hpicfLmaSessionUsrNumberCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaSessionUserRole": {
+    "name": "hpicfLmaSessionUserRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpAutzUserRoleName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfLmaCompliances": {
+    "name": "hpicfLmaCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfLmaGroups": {
+    "name": "hpicfLmaGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfLmaCompliance1": {
+    "name": "hpicfLmaCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfLmaMacGroup",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaConfigGroup",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaSessionStatsGroup",
+        "module": "HP-ICF-LMA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaCompliance2": {
+    "name": "hpicfLmaCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfLmaMacGroup1",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaConfigGroup1",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaSessionStatsGroup1",
+        "module": "HP-ICF-LMA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaCompliance3": {
+    "name": "hpicfLmaCompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfLmaMacGroup1",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaConfigGroup2",
+        "module": "HP-ICF-LMA-MIB"
+      },
+      {
+        "object": "hpicfLmaSessionStatsGroup1",
+        "module": "HP-ICF-LMA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaMacGroup": {
+    "name": "hpicfLmaMacGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacGrpRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileUntaggedVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileTaggedVids"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileCoS"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileIsAssociated"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssociationRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaConfigGroup": {
+    "name": "hpicfLmaConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaClientLimit"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaQuietPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaLogoffPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAuthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnauthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnAuthPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaReauthenticate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaSessionStatsGroup": {
+    "name": "hpicfLmaSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssocActiveMacAddress"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionState"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionStateTime"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionAuthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionUnauthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionUsrNumberCnt"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaMacGroup1": {
+    "name": "hpicfLmaMacGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacGrpRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileUntaggedVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileTaggedVids"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileCoS"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileIsAssociated"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaProfileRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssociationRowStatus"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUserRoleAssociationRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaConfigGroup1": {
+    "name": "hpicfLmaConfigGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaClientLimit"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaQuietPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaLogoffPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAuthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnauthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnAuthPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaReauthenticate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfLmaSessionStatsGroup1": {
+    "name": "hpicfLmaSessionStatsGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAssocActiveMacAddress"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionState"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionStateTime"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionAuthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionUnauthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionUsrNumberCnt"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaSessionUserRole"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLmaConfigGroup2": {
+    "name": "hpicfLmaConfigGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.97.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaClientLimit"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaQuietPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaLogoffPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaAuthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnauthVid"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaUnAuthPeriod"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaReauthenticate"
+      },
+      {
+        "module": "HP-ICF-LMA-MIB",
+        "object": "hpicfLmaMacPin"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-LMA-MIB",
+      "Source digest sha256:72d4c9d1a27a17d6d0c6175706ccf1c07b8931f6300b71987301782d57778898",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-LMA-MIB"
+  }
+}

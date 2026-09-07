@@ -1,0 +1,101 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cloudgenix": {
+    "name": "cloudgenix",
+    "oid": "1.3.6.1.4.1.50114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-19 18:00",
+        "description": "Inital Revision"
+      }
+    ]
+  },
+  "CgxDegreesC": {
+    "name": "CgxDegreesC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "CgxVolts": {
+    "name": "CgxVolts",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "cgxObjects": {
+    "name": "cgxObjects",
+    "oid": "1.3.6.1.4.1.50114.1",
+    "class": "objectidentity"
+  },
+  "cgxConformance": {
+    "name": "cgxConformance",
+    "oid": "1.3.6.1.4.1.50114.2",
+    "class": "objectidentity"
+  },
+  "cgxCompliances": {
+    "name": "cgxCompliances",
+    "oid": "1.3.6.1.4.1.50114.2.1",
+    "class": "objectidentity"
+  },
+  "cloudgenixCompliance": {
+    "name": "cloudgenixCompliance",
+    "oid": "1.3.6.1.4.1.50114.2.1.1",
+    "class": "modulecompliance",
+    "status": "current"
+  },
+  "cgxGroups": {
+    "name": "cgxGroups",
+    "oid": "1.3.6.1.4.1.50114.2.2",
+    "class": "objectidentity"
+  },
+  "cgxMgmt": {
+    "name": "cgxMgmt",
+    "oid": "1.3.6.1.4.1.50114.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cgxProducts": {
+    "name": "cgxProducts",
+    "oid": "1.3.6.1.4.1.50114.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CLOUDGENIX-SMI",
+      "Source digest sha256:30654b9792d171a448ede49f041d997d21a068fd419b81cc6eb1d4facd11c173",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CLOUDGENIX-SMI"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIeee8023LagCapability": {
+    "name": "ciscoIeee8023LagCapability",
+    "oid": "1.3.6.1.4.1.9.7.337",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-19 00:00",
+        "description": "Added cIeee8023LagCapCatOSV08R0601."
+      },
+      {
+        "revision": "2004-02-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIeee8023LagCapV12R0111bEXCat6K": {
+    "name": "cIeee8023LagCapV12R0111bEXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.337.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11b)EX on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortListGroup",
+          "dot3adAggPortGroup",
+          "dot3adAggPortStatsGroup",
+          "dot3adTablesLastChangedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3adAggCollectorMaxDelay",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32768,
+                    "max": 32768
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot3adAggPortActorOperKey",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8023LagCapV12R0214SXCat6K": {
+    "name": "cIeee8023LagCapV12R0214SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.337.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(14)SX on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortListGroup",
+          "dot3adAggPortGroup",
+          "dot3adAggPortStatsGroup",
+          "dot3adTablesLastChangedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3adAggCollectorMaxDelay",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32768,
+                    "max": 32768
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot3adAggPortActorOperKey",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8023LagCapCatOSV08R0101": {
+    "name": "cIeee8023LagCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.337.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortListGroup",
+          "dot3adAggPortGroup",
+          "dot3adAggPortStatsGroup",
+          "dot3adTablesLastChangedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3adAggCollectorMaxDelay",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32768,
+                    "max": 32768
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot3adAggPortActorOperKey",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8023LagCapCatOSV08R0601": {
+    "name": "cIeee8023LagCapCatOSV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.337.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1).",
+    "capabilities": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortListGroup",
+          "dot3adAggPortGroup",
+          "dot3adAggPortStatsGroup",
+          "dot3adTablesLastChangedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3adAggActorAdminKey",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggCollectorMaxDelay",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32768,
+                    "max": 32768
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot3adAggPortActorOperKey",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminSystemPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminSystemID",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminKey",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminPort",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminPortPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortActorAdminState",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminState",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IEEE8023-LAG-CAPABILITY",
+      "Source digest sha256:aa315361f99265053243bbcde059da61453ee8bbceca6cc7347330492cd19c93",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IEEE8023-LAG-CAPABILITY"
+  }
+}

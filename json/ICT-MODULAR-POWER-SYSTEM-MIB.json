@@ -1,0 +1,541 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ictPower": {
+    "name": "ictPower",
+    "oid": "1.3.6.1.4.1.39145",
+    "class": "objectidentity"
+  },
+  "powerSystem": {
+    "name": "powerSystem",
+    "oid": "1.3.6.1.4.1.39145.13",
+    "class": "objectidentity"
+  },
+  "deviceModel": {
+    "name": "deviceModel",
+    "oid": "1.3.6.1.4.1.39145.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.39145.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "deviceHardware": {
+    "name": "deviceHardware",
+    "oid": "1.3.6.1.4.1.39145.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "deviceFirmware": {
+    "name": "deviceFirmware",
+    "oid": "1.3.6.1.4.1.39145.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "deviceMacAddress": {
+    "name": "deviceMacAddress",
+    "oid": "1.3.6.1.4.1.39145.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inputVoltage": {
+    "name": "inputVoltage",
+    "oid": "1.3.6.1.4.1.39145.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outputVoltage": {
+    "name": "outputVoltage",
+    "oid": "1.3.6.1.4.1.39145.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outputCurrent": {
+    "name": "outputCurrent",
+    "oid": "1.3.6.1.4.1.39145.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outputEnable": {
+    "name": "outputEnable",
+    "oid": "1.3.6.1.4.1.39145.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "moduleTable": {
+    "name": "moduleTable",
+    "oid": "1.3.6.1.4.1.39145.13.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "moduleEntry": {
+    "name": "moduleEntry",
+    "oid": "1.3.6.1.4.1.39145.13.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "moduleNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "moduleNumber": {
+    "name": "moduleNumber",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleStatus": {
+    "name": "moduleStatus",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "ok": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleType": {
+    "name": "moduleType",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "power": 2,
+          "battery": 3,
+          "distribution": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleVoltage": {
+    "name": "moduleVoltage",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleCurrentA": {
+    "name": "moduleCurrentA",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleCurrentB": {
+    "name": "moduleCurrentB",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleCurrentC": {
+    "name": "moduleCurrentC",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleCurrentD": {
+    "name": "moduleCurrentD",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleControlA": {
+    "name": "moduleControlA",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "moduleControlB": {
+    "name": "moduleControlB",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "moduleControlC": {
+    "name": "moduleControlC",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "moduleControlD": {
+    "name": "moduleControlD",
+    "oid": "1.3.6.1.4.1.39145.13.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "alarmTable": {
+    "name": "alarmTable",
+    "oid": "1.3.6.1.4.1.39145.13.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "alarmEntry": {
+    "name": "alarmEntry",
+    "oid": "1.3.6.1.4.1.39145.13.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "alarmNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "alarmNumber": {
+    "name": "alarmNumber",
+    "oid": "1.3.6.1.4.1.39145.13.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmName": {
+    "name": "alarmName",
+    "oid": "1.3.6.1.4.1.39145.13.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmStatus": {
+    "name": "alarmStatus",
+    "oid": "1.3.6.1.4.1.39145.13.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "ready": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleAlarmTrap": {
+    "name": "moduleAlarmTrap",
+    "oid": "1.3.6.1.4.1.39145.13.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "moduleNumber"
+      }
+    ]
+  },
+  "alarmInputTrap": {
+    "name": "alarmInputTrap",
+    "oid": "1.3.6.1.4.1.39145.13.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "alarmNumber"
+      }
+    ]
+  },
+  "acFailAlarmTrap": {
+    "name": "acFailAlarmTrap",
+    "oid": "1.3.6.1.4.1.39145.13.0.103",
+    "class": "notificationtype"
+  },
+  "sysCurrentLimitTrap": {
+    "name": "sysCurrentLimitTrap",
+    "oid": "1.3.6.1.4.1.39145.13.0.104",
+    "class": "notificationtype"
+  },
+  "moduleAlarmClear": {
+    "name": "moduleAlarmClear",
+    "oid": "1.3.6.1.4.1.39145.13.0.111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "moduleNumber"
+      }
+    ]
+  },
+  "alarmInputClear": {
+    "name": "alarmInputClear",
+    "oid": "1.3.6.1.4.1.39145.13.0.112",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICT-MODULAR-POWER-SYSTEM-MIB",
+        "object": "alarmNumber"
+      }
+    ]
+  },
+  "acFailAlarmClear": {
+    "name": "acFailAlarmClear",
+    "oid": "1.3.6.1.4.1.39145.13.0.113",
+    "class": "notificationtype"
+  },
+  "sysCurrentLimitClear": {
+    "name": "sysCurrentLimitClear",
+    "oid": "1.3.6.1.4.1.39145.13.0.114",
+    "class": "notificationtype"
+  },
+  "batteryTestStart": {
+    "name": "batteryTestStart",
+    "oid": "1.3.6.1.4.1.39145.13.0.121",
+    "class": "notificationtype"
+  },
+  "batteryTestComplete": {
+    "name": "batteryTestComplete",
+    "oid": "1.3.6.1.4.1.39145.13.0.122",
+    "class": "notificationtype"
+  },
+  "batteryTestFail": {
+    "name": "batteryTestFail",
+    "oid": "1.3.6.1.4.1.39145.13.0.123",
+    "class": "notificationtype"
+  },
+  "batteryEqualiseStart": {
+    "name": "batteryEqualiseStart",
+    "oid": "1.3.6.1.4.1.39145.13.0.124",
+    "class": "notificationtype"
+  },
+  "batteryEqualiseComplete": {
+    "name": "batteryEqualiseComplete",
+    "oid": "1.3.6.1.4.1.39145.13.0.125",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ICT-MODULAR-POWER-SYSTEM-MIB",
+      "Source digest sha256:c5362dfdb503c6c429a3fa5e7af3c24c9a09e96aaad2b67c34ba7cd627713999",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ICT-MODULAR-POWER-SYSTEM-MIB"
+  }
+}

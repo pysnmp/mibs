@@ -1,0 +1,408 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dellMDStorageArrayMIB": {
+    "name": "dellMDStorageArrayMIB",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-11-16 12:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity"
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.674.10893",
+    "class": "objectidentity"
+  },
+  "hardware": {
+    "name": "hardware",
+    "oid": "1.3.6.1.4.1.674.10893.2",
+    "class": "objectidentity"
+  },
+  "mdStorageManager": {
+    "name": "mdStorageManager",
+    "oid": "1.3.6.1.4.1.674.10893.2.30",
+    "class": "objectidentity"
+  },
+  "infoTable": {
+    "name": "infoTable",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "infoEntry": {
+    "name": "infoEntry",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostIPType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHostIPType": {
+    "name": "deviceHostIPType",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHostIPAddr": {
+    "name": "deviceHostIPAddr",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHostName": {
+    "name": "deviceHostName",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceUserLabel": {
+    "name": "deviceUserLabel",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceErrorCode": {
+    "name": "deviceErrorCode",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventTime": {
+    "name": "eventTime",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapDescription": {
+    "name": "trapDescription",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 69
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentType": {
+    "name": "componentType",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentLocation": {
+    "name": "componentLocation",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "storageArrayCritical": {
+    "name": "storageArrayCritical",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostIP"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostName"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceUserLabel"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceErrorCode"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "eventTime"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "trapDescription"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentType"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentLocation"
+      }
+    ]
+  },
+  "storageArrayWarning": {
+    "name": "storageArrayWarning",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostIP"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostName"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceUserLabel"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceErrorCode"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "eventTime"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "trapDescription"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentType"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentLocation"
+      }
+    ]
+  },
+  "storageArrayInformational": {
+    "name": "storageArrayInformational",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostIP"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostName"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceUserLabel"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceErrorCode"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "eventTime"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "trapDescription"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentType"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentLocation"
+      }
+    ]
+  },
+  "storageArrayDebug": {
+    "name": "storageArrayDebug",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostIP"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceHostName"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceUserLabel"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "deviceErrorCode"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "eventTime"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "trapDescription"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentType"
+      },
+      {
+        "module": "DellMDStorageArray",
+        "object": "componentLocation"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DellMDStorageArray",
+      "Source digest sha256:70395c2fa46924be8920183e260873c510bf1dc3a46593e7a79f7af5e4797300",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DellMDStorageArray"
+  }
+}

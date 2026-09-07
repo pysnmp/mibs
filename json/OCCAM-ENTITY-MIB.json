@@ -1,0 +1,445 @@
+{
+  "imports": {
+    "class": "imports",
+    "OCCAM-REG-MODULE": [
+      "occamGenericHardwareModules"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "PhysAddress",
+      "RowPointer",
+      "TAddress",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "entityMIB": {
+    "name": "entityMIB",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-10 00:00",
+        "description": "Realigned objects and indices ordering"
+      },
+      {
+        "revision": "2007-10-02 00:00",
+        "description": "modified entitySoftwareRevExt object OID"
+      },
+      {
+        "revision": "2007-09-20 00:00",
+        "description": "added entitySoftwareRevExt object"
+      },
+      {
+        "revision": "1999-12-07 00:00",
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037."
+      }
+    ]
+  },
+  "PhysicalIndex": {
+    "name": "PhysicalIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "mgmt": {
+    "name": "mgmt",
+    "oid": "1.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "entityMIBObjects": {
+    "name": "entityMIBObjects",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "entityMIBTraps": {
+    "name": "entityMIBTraps",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "entityCompanyName": {
+    "name": "entityCompanyName",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityMacAddress": {
+    "name": "entityMacAddress",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityBoardName": {
+    "name": "entityBoardName",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityBoardAssembly": {
+    "name": "entityBoardAssembly",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityBoardType": {
+    "name": "entityBoardType",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entitySerialNum": {
+    "name": "entitySerialNum",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityHardwareRev": {
+    "name": "entityHardwareRev",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityFirmwareRev": {
+    "name": "entityFirmwareRev",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entitySoftwareRev": {
+    "name": "entitySoftwareRev",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityMfgDate": {
+    "name": "entityMfgDate",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entitySoftwareRevExt": {
+    "name": "entitySoftwareRevExt",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityOntSlotId": {
+    "name": "entityOntSlotId",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityPortTable": {
+    "name": "entityPortTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entityPortEntry": {
+    "name": "entityPortEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityPortShelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityPortSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entityPortShelfIndex": {
+    "name": "entityPortShelfIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityPortSlotIndex": {
+    "name": "entityPortSlotIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityPortIndex": {
+    "name": "entityPortIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityPortName": {
+    "name": "entityPortName",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityMIBConformance": {
+    "name": "entityMIBConformance",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "entityMIBGroups": {
+    "name": "entityMIBGroups",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "entityMIBCompliances": {
+    "name": "entityMIBCompliances",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "entityMIBObjGroups": {
+    "name": "entityMIBObjGroups",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "entityMIBEventGroups": {
+    "name": "entityMIBEventGroups",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "entityCompliance": {
+    "name": "entityCompliance",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalGroup",
+        "module": "OCCAM-ENTITY-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entitySerialNum",
+        "kind": "object",
+        "minaccess": "not-accessible"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysicalGroup": {
+    "name": "entityPhysicalGroup",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.1.3.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityCompanyName"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityMacAddress"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityBoardName"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityBoardAssembly"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityBoardType"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entitySerialNum"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityHardwareRev"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityFirmwareRev"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entitySoftwareRev"
+      },
+      {
+        "module": "OCCAM-ENTITY-MIB",
+        "object": "entityMfgDate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source OCCAM-ENTITY-MIB",
+      "Source digest sha256:768e9270ebd8d4f18ebc5d40dc325aa2abffa0486ecf6cb73ff83cded858d9a0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "OCCAM-ENTITY-MIB"
+  }
+}

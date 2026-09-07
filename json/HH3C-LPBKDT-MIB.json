@@ -1,0 +1,316 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifDescr",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hh3cLpbkdt": {
+    "name": "hh3cLpbkdt",
+    "oid": "1.3.6.1.4.1.25506.2.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-26 15:18",
+        "description": "Added new nodes to configure the loop detection."
+      },
+      {
+        "revision": "2009-03-30 17:41",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2008-09-27 15:04",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cLpbkdtActionType": {
+    "name": "Hh3cLpbkdtActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "block": 2,
+          "nolearning": 3,
+          "shutdown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cLpbkdtNotifications": {
+    "name": "hh3cLpbkdtNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.95.1",
+    "class": "objectidentity"
+  },
+  "hh3cLpbkdtObjects": {
+    "name": "hh3cLpbkdtObjects",
+    "oid": "1.3.6.1.4.1.25506.2.95.2",
+    "class": "objectidentity"
+  },
+  "hh3cLpbkdtTrapPrefix": {
+    "name": "hh3cLpbkdtTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.95.1.0",
+    "class": "objectidentity"
+  },
+  "hh3cLpbkdtTrapLoopbacked": {
+    "name": "hh3cLpbkdtTrapLoopbacked",
+    "oid": "1.3.6.1.4.1.25506.2.95.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLpbkdtTrapRecovered": {
+    "name": "hh3cLpbkdtTrapRecovered",
+    "oid": "1.3.6.1.4.1.25506.2.95.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLpbkdtTrapPerVlanLoopbacked": {
+    "name": "hh3cLpbkdtTrapPerVlanLoopbacked",
+    "oid": "1.3.6.1.4.1.25506.2.95.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-LPBKDT-MIB",
+        "object": "hh3cLpbkdtVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLpbkdtTrapPerVlanRecovered": {
+    "name": "hh3cLpbkdtTrapPerVlanRecovered",
+    "oid": "1.3.6.1.4.1.25506.2.95.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-LPBKDT-MIB",
+        "object": "hh3cLpbkdtVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLpbkdtVlanID": {
+    "name": "hh3cLpbkdtVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLpbkdtVlanEnable": {
+    "name": "hh3cLpbkdtVlanEnable",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLpbkdtAction": {
+    "name": "hh3cLpbkdtAction",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cLpbkdtActionType",
+      "class": "type"
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLpbkdtIntervalTime": {
+    "name": "hh3cLpbkdtIntervalTime",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLpbkdtPortTable": {
+    "name": "hh3cLpbkdtPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLpbkdtPortEntry": {
+    "name": "hh3cLpbkdtPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LPBKDT-MIB",
+        "object": "hh3cLpbkdtPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLpbkdtPortIfIndex": {
+    "name": "hh3cLpbkdtPortIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLpbkdtPortVlanEnable": {
+    "name": "hh3cLpbkdtPortVlanEnable",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLpbkdtPortAction": {
+    "name": "hh3cLpbkdtPortAction",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cLpbkdtActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLpbkdtPortLoopbacked": {
+    "name": "hh3cLpbkdtPortLoopbacked",
+    "oid": "1.3.6.1.4.1.25506.2.95.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-LPBKDT-MIB",
+      "Source digest sha256:dee933c07b1027ef3ccabee852d2e5de5fde4212a5f77fe85ee99b3f0be90309",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-LPBKDT-MIB"
+  }
+}

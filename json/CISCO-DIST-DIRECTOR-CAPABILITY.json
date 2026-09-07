@@ -1,0 +1,221 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDistDirCapability": {
+    "name": "ciscoDistDirCapability",
+    "oid": "1.3.6.1.4.1.9.7.267",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-04-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDistDirCapabilityV12R02": {
+    "name": "ciscoDistDirCapabilityV12R02",
+    "oid": "1.3.6.1.4.1.9.7.267.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)T",
+    "capabilities": [
+      {
+        "module": "CISCO-DIST-DIRECTOR-MIB",
+        "includes": [
+          "ciscoDistDirGeneralGroup",
+          "ciscoDistDirHostGroup",
+          "ciscoDistDirServerGroup",
+          "ciscoDistDirMappingGroup",
+          "ciscoDistDirNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cddGeneralMetricProfPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralMetricProfWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralMetricProfRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralCacheEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralCacheTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralTTL",
+            "access": "read-only"
+          },
+          {
+            "object": "cddGeneralDefPriorityWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostServicePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostPriorityWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostDrpMed",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostDrpRttProbes",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostDrpRttTol",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostAccessControl",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostMultipleRecord",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostLogging",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostUrlString",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostUrlIntv",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostConnectCfgIntv",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostConnectCfgRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostTolCfgPerc",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostTolCfgRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerDrpAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerDrpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerAdmin",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortion",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerName",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerAvail",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortAdmin",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortConnIntv",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortPortion",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortAvail",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortUrlString",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortUrlIntv",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortMetricWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cddServerPortMetricRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cddHostServerMappingRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DIST-DIRECTOR-CAPABILITY",
+      "Source digest sha256:5c025c57c577960f190eaad8953209078e22f1c6ba1988ec1d5b89054267f394",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DIST-DIRECTOR-CAPABILITY"
+  }
+}

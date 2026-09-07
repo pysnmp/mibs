@@ -1,0 +1,1929 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfTransceiverMIB": {
+    "name": "hpicfTransceiverMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-07-25 00:00",
+        "description": "Deprecated hpicfXcvrDiagnosticsTimeStamp, add hpicfXcvrDiagnosticsTimeTicks."
+      },
+      {
+        "revision": "2011-06-08 00:00",
+        "description": "Add objects for reporting phy and cable diagnostics information."
+      },
+      {
+        "revision": "2011-03-14 00:00",
+        "description": "Change hpicfXcvrInfoEntry INDEX to ifIndex and hpicfXcvrPortIndex to Integer32 and read-only."
+      },
+      {
+        "revision": "2011-03-02 00:00",
+        "description": "Management Infromation Base module for transceiver information and statistics."
+      }
+    ]
+  },
+  "hpicfXcvrObjects": {
+    "name": "hpicfXcvrObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1",
+    "class": "objectidentity"
+  },
+  "hpicfXcvrInfo": {
+    "name": "hpicfXcvrInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfXcvrInfoTable": {
+    "name": "hpicfXcvrInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfXcvrInfoEntry": {
+    "name": "hpicfXcvrInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfXcvrPortIndex": {
+    "name": "hpicfXcvrPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPortDesc": {
+    "name": "hpicfXcvrPortDesc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrModel": {
+    "name": "hpicfXcvrModel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrSerial": {
+    "name": "hpicfXcvrSerial",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrType": {
+    "name": "hpicfXcvrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrConnectorType": {
+    "name": "hpicfXcvrConnectorType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrWavelength": {
+    "name": "hpicfXcvrWavelength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTxDist": {
+    "name": "hpicfXcvrTxDist",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrDiagnostics": {
+    "name": "hpicfXcvrDiagnostics",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "dom": 1,
+          "vct": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrDiagnosticsUpdate": {
+    "name": "hpicfXcvrDiagnosticsUpdate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfXcvrTemp": {
+    "name": "hpicfXcvrTemp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrVoltage": {
+    "name": "hpicfXcvrVoltage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "hundreds of microvolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrBias": {
+    "name": "hpicfXcvrBias",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTxPower": {
+    "name": "hpicfXcvrTxPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrRxPower": {
+    "name": "hpicfXcvrRxPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrAlarms": {
+    "name": "hpicfXcvrAlarms",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rxPowerLowWarning": 0,
+        "rxPowerHighWarning": 1,
+        "txPowerLowWarning": 2,
+        "txPowerHighWarning": 3,
+        "txBiasLowWarning": 4,
+        "txBiasHighWarning": 5,
+        "vccLowWarning": 6,
+        "vccHighWarning": 7,
+        "tempLowWarning": 8,
+        "tempHighWarning": 9,
+        "rxPowerLowAlarm": 10,
+        "rxPowerHighAlarm": 11,
+        "txPowerLowAlarm": 12,
+        "txPowerHighAlarm": 13,
+        "txBiasLowAlarm": 14,
+        "txBiasHighAlarm": 15,
+        "vccLowAlarm": 16,
+        "vccHighAlarm": 17,
+        "tempLowAlarm": 18,
+        "tempHighAlarm": 19
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrErrors": {
+    "name": "hpicfXcvrErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "xcvrIOError": 0,
+        "xcvrChecksum": 1,
+        "xcvrTypeAndPortConfigMismatch": 2,
+        "xcvrTypeNotSupported": 3,
+        "wisLocalFault": 4,
+        "rcvOpticalPowerFault": 5,
+        "pmapmdReceiverLocalFault": 6,
+        "pcsReceiveLocalFault": 7,
+        "phyXSReceiveLocalFault": 8,
+        "laserBiasCurrentFault": 9,
+        "laserTemperatureFault": 10,
+        "laserOutputPowerFault": 11,
+        "txFault": 12,
+        "pmapmdTransmitterLocalFault": 13,
+        "pcsTransmitLocalFault": 14,
+        "phyXSTransmitLocalFault": 15,
+        "rxLossOfSignal": 16
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTempHiAlarm": {
+    "name": "hpicfXcvrTempHiAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTempLoAlarm": {
+    "name": "hpicfXcvrTempLoAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTempHiWarn": {
+    "name": "hpicfXcvrTempHiWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrTempLoWarn": {
+    "name": "hpicfXcvrTempLoWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "thousandths of degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrVccHiAlarm": {
+    "name": "hpicfXcvrVccHiAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "hundreds of microvolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrVccLoAlarm": {
+    "name": "hpicfXcvrVccLoAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "hundreds of microvolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrVccHiWarn": {
+    "name": "hpicfXcvrVccHiWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "hundreds of microvolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrVccLoWarn": {
+    "name": "hpicfXcvrVccLoWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "hundreds of microvolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrBiasHiAlarm": {
+    "name": "hpicfXcvrBiasHiAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrBiasLoAlarm": {
+    "name": "hpicfXcvrBiasLoAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrBiasHiWarn": {
+    "name": "hpicfXcvrBiasHiWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrBiasLoWarn": {
+    "name": "hpicfXcvrBiasLoWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "microamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPwrOutHiAlarm": {
+    "name": "hpicfXcvrPwrOutHiAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPwrOutLoAlarm": {
+    "name": "hpicfXcvrPwrOutLoAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPwrOutHiWarn": {
+    "name": "hpicfXcvrPwrOutHiWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPwrOutLoWarn": {
+    "name": "hpicfXcvrPwrOutLoWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrRcvPwrHiAlarm": {
+    "name": "hpicfXcvrRcvPwrHiAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrRcvPwrLoAlarm": {
+    "name": "hpicfXcvrRcvPwrLoAlarm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrRcvPwrHiWarn": {
+    "name": "hpicfXcvrRcvPwrHiWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrRcvPwrLoWarn": {
+    "name": "hpicfXcvrRcvPwrLoWarn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of microwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrDiagnosticsTimeStamp": {
+    "name": "hpicfXcvrDiagnosticsTimeStamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpicfXcvrPhyLinkStatus": {
+    "name": "hpicfXcvrPhyLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPhySpeed": {
+    "name": "hpicfXcvrPhySpeed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrPhyDuplex": {
+    "name": "hpicfXcvrPhyDuplex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 0,
+          "full": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairACableStatus": {
+    "name": "hpicfXcvrMdiPairACableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "short": 1,
+          "open": 2,
+          "failed": 3,
+          "impedanceMismatch": 4,
+          "unspecified": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairACableLength": {
+    "name": "hpicfXcvrMdiPairACableLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairADistanceToFault": {
+    "name": "hpicfXcvrMdiPairADistanceToFault",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairAPolaritySwap": {
+    "name": "hpicfXcvrMdiPairAPolaritySwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reversed": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairASkew": {
+    "name": "hpicfXcvrMdiPairASkew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairBCableStatus": {
+    "name": "hpicfXcvrMdiPairBCableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "short": 1,
+          "open": 2,
+          "failed": 3,
+          "impedanceMismatch": 4,
+          "unspecified": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairBCableLength": {
+    "name": "hpicfXcvrMdiPairBCableLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairBDistanceToFault": {
+    "name": "hpicfXcvrMdiPairBDistanceToFault",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairBPolaritySwap": {
+    "name": "hpicfXcvrMdiPairBPolaritySwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reversed": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairBSkew": {
+    "name": "hpicfXcvrMdiPairBSkew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCCableStatus": {
+    "name": "hpicfXcvrMdiPairCCableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "short": 1,
+          "open": 2,
+          "failed": 3,
+          "impedanceMismatch": 4,
+          "unspecified": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCCableLength": {
+    "name": "hpicfXcvrMdiPairCCableLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCDistanceToFault": {
+    "name": "hpicfXcvrMdiPairCDistanceToFault",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCPolaritySwap": {
+    "name": "hpicfXcvrMdiPairCPolaritySwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reversed": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCSkew": {
+    "name": "hpicfXcvrMdiPairCSkew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairDCableStatus": {
+    "name": "hpicfXcvrMdiPairDCableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "short": 1,
+          "open": 2,
+          "failed": 3,
+          "impedanceMismatch": 4,
+          "unspecified": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairDCableLength": {
+    "name": "hpicfXcvrMdiPairDCableLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairDDistanceToFault": {
+    "name": "hpicfXcvrMdiPairDDistanceToFault",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairDPolaritySwap": {
+    "name": "hpicfXcvrMdiPairDPolaritySwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reversed": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairDSkew": {
+    "name": "hpicfXcvrMdiPairDSkew",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairABSwap": {
+    "name": "hpicfXcvrMdiPairABSwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 0,
+          "mdix": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrMdiPairCDSwap": {
+    "name": "hpicfXcvrMdiPairCDSwap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 0,
+          "mdix": 1,
+          "unspecified": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrDiagnosticsTimeTicks": {
+    "name": "hpicfXcvrDiagnosticsTimeTicks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.1.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfXcvrConformance": {
+    "name": "hpicfXcvrConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2",
+    "class": "objectidentity"
+  },
+  "hpicfXcvrGroups": {
+    "name": "hpicfXcvrGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfXcvrInfoGroup": {
+    "name": "hpicfXcvrInfoGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPortIndex"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPortDesc"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrModel"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrSerial"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrType"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrConnectorType"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrWavelength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTxDist"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnostics"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnosticsUpdate"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTemp"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVoltage"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBias"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRxPower"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTxPower"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrAlarms"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrErrors"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnosticsTimeStamp"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhyLinkStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhySpeed"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhyDuplex"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairACableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairACableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairADistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairAPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairASkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairABSwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCDSwap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfXcvrInfoGroup1": {
+    "name": "hpicfXcvrInfoGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPortIndex"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPortDesc"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrModel"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrSerial"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrType"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrConnectorType"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrWavelength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTxDist"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnostics"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnosticsUpdate"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTemp"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVoltage"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBias"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRxPower"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTxPower"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrAlarms"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrErrors"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrTempLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrVccLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrBiasLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPwrOutLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrHiAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrLoAlarm"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrHiWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrRcvPwrLoWarn"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhyLinkStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhySpeed"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrPhyDuplex"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairACableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairACableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairADistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairAPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairASkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairBSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDCableStatus"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDCableLength"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDDistanceToFault"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDPolaritySwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairDSkew"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairABSwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrMdiPairCDSwap"
+      },
+      {
+        "module": "HP-ICF-TRANSCEIVER-MIB",
+        "object": "hpicfXcvrDiagnosticsTimeTicks"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfXcvrCompliances": {
+    "name": "hpicfXcvrCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfXcvrCompliance": {
+    "name": "hpicfXcvrCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfXcvrInfoGroup",
+        "module": "HP-ICF-TRANSCEIVER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfXcvrCompliance1": {
+    "name": "hpicfXcvrCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.82.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfXcvrInfoGroup1",
+        "module": "HP-ICF-TRANSCEIVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-TRANSCEIVER-MIB",
+      "Source digest sha256:aa7d99aa0f14e72b069d7cf660260b68635c7a712a81f0dcc1b1d63f1eb2a1c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-TRANSCEIVER-MIB"
+  }
+}

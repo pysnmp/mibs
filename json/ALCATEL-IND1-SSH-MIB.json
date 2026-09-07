@@ -1,0 +1,186 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Ssh"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1SshMIB": {
+    "name": "alcatelIND1SshMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1SshMIBObjects": {
+    "name": "alcatelIND1SshMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SshMIBConformance": {
+    "name": "alcatelIND1SshMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SshMIBGroups": {
+    "name": "alcatelIND1SshMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SshMIBCompliances": {
+    "name": "alcatelIND1SshMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaSshAdminStatus": {
+    "name": "alaSshAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaScpSftpAdminStatus": {
+    "name": "alaScpSftpAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSshPubKeyEnforceAdminStatus": {
+    "name": "alaSshPubKeyEnforceAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSshPortNumber": {
+    "name": "alaSshPortNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1SshMIBCompliance": {
+    "name": "alcatelIND1SshMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaSshConfigGroup",
+        "module": "ALCATEL-IND1-SSH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaSshConfigGroup": {
+    "name": "alaSshConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SSH-MIB",
+        "object": "alaSshAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SSH-MIB",
+        "object": "alaScpSftpAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SSH-MIB",
+        "object": "alaSshPubKeyEnforceAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-SSH-MIB",
+      "Source digest sha256:62676a0c8b1e2e4957615731eb1fde56105494ac576ad29a19b7e4e35397391f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-SSH-MIB"
+  }
+}

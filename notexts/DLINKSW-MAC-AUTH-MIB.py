@@ -1,0 +1,62 @@
+#
+# PySNMP MIB module DLINKSW-MAC-AUTH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source DLINKSW-MAC-AUTH-MIB
+# Source digest sha256:70554669aa76c3b0399faa2ba3bf4ef3207da7ea7784d3aaf1c96a87cef78fff
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+dlinkIndustrialCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkIndustrialCommon")
+dnaSessionAuthVlan, dnaSessionClientMacAddress = mibBuilder.importSymbols("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionAuthVlan", "dnaSessionClientMacAddress")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+dlinkSwMacAuthMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 14, 153))
+dlinkSwMacAuthMIB.setRevisions(('2013-08-02 00:00',))
+if mibBuilder.loadTexts: dlinkSwMacAuthMIB.setLastUpdated('2013-08-02 00:00')
+if mibBuilder.loadTexts: dlinkSwMacAuthMIB.setOrganization('D-Link Corp.')
+dMacAuthNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 0))
+dMacAuthMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 1))
+dMacAuthMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 2))
+dMacAuthGlobalCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 1))
+dMacAuthNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dMacAuthNotifEnabled.setStatus('current')
+dMacAuthEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dMacAuthEnabled.setStatus('current')
+dMacAuthPWD = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dMacAuthPWD.setStatus('current')
+dMacAuthUserName = MibScalar((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dMacAuthUserName.setStatus('current')
+dMacAuthIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: dMacAuthIfTable.setStatus('current')
+dMacAuthIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dMacAuthIfEntry.setStatus('current')
+dMacAuthIfEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 14, 153, 1, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dMacAuthIfEnabled.setStatus('current')
+dMacAuthLoggedSuccess = NotificationType((1, 3, 6, 1, 4, 1, 171, 14, 153, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionClientMacAddress"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionAuthVlan"))
+if mibBuilder.loadTexts: dMacAuthLoggedSuccess.setStatus('current')
+dMacAuthLoggedFail = NotificationType((1, 3, 6, 1, 4, 1, 171, 14, 153, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionClientMacAddress"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionAuthVlan"))
+if mibBuilder.loadTexts: dMacAuthLoggedFail.setStatus('current')
+dMacAuthLoggedAgesOut = NotificationType((1, 3, 6, 1, 4, 1, 171, 14, 153, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionClientMacAddress"), ("DLINKSW-NETWORK-ACCESS-MIB", "dnaSessionAuthVlan"))
+if mibBuilder.loadTexts: dMacAuthLoggedAgesOut.setStatus('current')
+dMacAuthMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 1))
+dMacAuthMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 2))
+dMacAuthMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 1, 1)).setObjects(("DLINKSW-MAC-AUTH-MIB", "dMacAuthGlobalCfgGroup"), ("DLINKSW-MAC-AUTH-MIB", "dMacAuthIfCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dMacAuthMIBCompliance = dMacAuthMIBCompliance.setStatus('current')
+dMacAuthGlobalCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 2, 1)).setObjects(("DLINKSW-MAC-AUTH-MIB", "dMacAuthEnabled"), ("DLINKSW-MAC-AUTH-MIB", "dMacAuthPWD"), ("DLINKSW-MAC-AUTH-MIB", "dMacAuthUserName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dMacAuthGlobalCfgGroup = dMacAuthGlobalCfgGroup.setStatus('current')
+dMacAuthIfCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 2, 2)).setObjects(("DLINKSW-MAC-AUTH-MIB", "dMacAuthIfEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dMacAuthIfCfgGroup = dMacAuthIfCfgGroup.setStatus('current')
+dMacAuthNotifyCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 2, 3)).setObjects(("DLINKSW-MAC-AUTH-MIB", "dMacAuthNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dMacAuthNotifyCfgGroup = dMacAuthNotifyCfgGroup.setStatus('current')
+dMacAuthNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 171, 14, 153, 2, 2, 4)).setObjects(("DLINKSW-MAC-AUTH-MIB", "dMacAuthLoggedSuccess"), ("DLINKSW-MAC-AUTH-MIB", "dMacAuthLoggedFail"), ("DLINKSW-MAC-AUTH-MIB", "dMacAuthLoggedAgesOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dMacAuthNotificationGroup = dMacAuthNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKSW-MAC-AUTH-MIB", PYSNMP_MODULE_ID=dlinkSwMacAuthMIB, dMacAuthEnabled=dMacAuthEnabled, dMacAuthGlobalCfgGroup=dMacAuthGlobalCfgGroup, dMacAuthGlobalCtrl=dMacAuthGlobalCtrl, dMacAuthIfCfgGroup=dMacAuthIfCfgGroup, dMacAuthIfEnabled=dMacAuthIfEnabled, dMacAuthIfEntry=dMacAuthIfEntry, dMacAuthIfTable=dMacAuthIfTable, dMacAuthLoggedAgesOut=dMacAuthLoggedAgesOut, dMacAuthLoggedFail=dMacAuthLoggedFail, dMacAuthLoggedSuccess=dMacAuthLoggedSuccess, dMacAuthMIBCompliance=dMacAuthMIBCompliance, dMacAuthMIBCompliances=dMacAuthMIBCompliances, dMacAuthMIBConformance=dMacAuthMIBConformance, dMacAuthMIBGroups=dMacAuthMIBGroups, dMacAuthMIBObjects=dMacAuthMIBObjects, dMacAuthNotifEnabled=dMacAuthNotifEnabled, dMacAuthNotificationGroup=dMacAuthNotificationGroup, dMacAuthNotifications=dMacAuthNotifications, dMacAuthNotifyCfgGroup=dMacAuthNotifyCfgGroup, dMacAuthPWD=dMacAuthPWD, dMacAuthUserName=dMacAuthUserName, dlinkSwMacAuthMIB=dlinkSwMacAuthMIB)

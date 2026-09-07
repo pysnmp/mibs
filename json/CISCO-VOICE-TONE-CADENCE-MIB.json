@@ -1,0 +1,537 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "CVoiceTonePlanIndex",
+      "cmgwIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CountryCode"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceToneCadenceMIB": {
+    "name": "ciscoVoiceToneCadenceMIB",
+    "oid": "1.3.6.1.4.1.9.9.356",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-05-28 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoVoiceToneCadenceMIBNotifs": {
+    "name": "ciscoVoiceToneCadenceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.356.0",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceToneCadenceMIBObjects": {
+    "name": "ciscoVoiceToneCadenceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.356.1",
+    "class": "objectidentity"
+  },
+  "cVoiceToneCadenceConfig": {
+    "name": "cVoiceToneCadenceConfig",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1",
+    "class": "objectidentity"
+  },
+  "CToneFrequency": {
+    "name": "CToneFrequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CToneAmplitude": {
+    "name": "CToneAmplitude",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CToneCadence": {
+    "name": "CToneCadence",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cvtcTonePlanTable": {
+    "name": "cvtcTonePlanTable",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtcTonePlanEntry": {
+    "name": "cvtcTonePlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtcTonePlanId": {
+    "name": "cvtcTonePlanId",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CVoiceTonePlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtcTonePlanVifCount": {
+    "name": "cvtcTonePlanVifCount",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvtcTonePlanCountry": {
+    "name": "cvtcTonePlanCountry",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CountryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcTonePlanVersion": {
+    "name": "cvtcTonePlanVersion",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcTonePlanFileName": {
+    "name": "cvtcTonePlanFileName",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcTonePlanStorageType": {
+    "name": "cvtcTonePlanStorageType",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvtcTonePlanRowStatus": {
+    "name": "cvtcTonePlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcToneIdTable": {
+    "name": "cvtcToneIdTable",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtcToneIdEntry": {
+    "name": "cvtcToneIdEntry",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcToneId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtcToneId": {
+    "name": "cvtcToneId",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtcToneName": {
+    "name": "cvtcToneName",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcToneIdRowStatus": {
+    "name": "cvtcToneIdRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneTable": {
+    "name": "cvtcProgrammableToneTable",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvtcProgrammableToneEntry": {
+    "name": "cvtcProgrammableToneEntry",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcToneId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvtcProgrammableToneFrequency": {
+    "name": "cvtcProgrammableToneFrequency",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CToneFrequency",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneAmplitude": {
+    "name": "cvtcProgrammableToneAmplitude",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CToneAmplitude",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneCadence": {
+    "name": "cvtcProgrammableToneCadence",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CToneCadence",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneDuration": {
+    "name": "cvtcProgrammableToneDuration",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneStorageType": {
+    "name": "cvtcProgrammableToneStorageType",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvtcProgrammableToneRowStatus": {
+    "name": "cvtcProgrammableToneRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.356.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoVoiceToneCadenceMIBConform": {
+    "name": "ciscoVoiceToneCadenceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.356.3",
+    "class": "objectidentity"
+  },
+  "cVoiceToneCadenceCompliances": {
+    "name": "cVoiceToneCadenceCompliances",
+    "oid": "1.3.6.1.4.1.9.9.356.3.1",
+    "class": "objectidentity"
+  },
+  "cVoiceToneCadenceGroups": {
+    "name": "cVoiceToneCadenceGroups",
+    "oid": "1.3.6.1.4.1.9.9.356.3.2",
+    "class": "objectidentity"
+  },
+  "cVoiceToneCadenceCompliance": {
+    "name": "cVoiceToneCadenceCompliance",
+    "oid": "1.3.6.1.4.1.9.9.356.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvtcToneConfigGroup",
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvtcToneConfigGroup": {
+    "name": "cvtcToneConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.356.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanVifCount"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanCountry"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanVersion"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanFileName"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanStorageType"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcTonePlanRowStatus"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcToneName"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcToneIdRowStatus"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneFrequency"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneAmplitude"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneCadence"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneDuration"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneStorageType"
+      },
+      {
+        "module": "CISCO-VOICE-TONE-CADENCE-MIB",
+        "object": "cvtcProgrammableToneRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-TONE-CADENCE-MIB",
+      "Source digest sha256:6731ad2cf75bdf91c92745c9c5cf9b68c3e97b5d684e5e660ee0b184e195a084",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-TONE-CADENCE-MIB"
+  }
+}

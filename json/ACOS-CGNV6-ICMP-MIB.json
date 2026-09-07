@@ -1,0 +1,528 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgnv6IcmpModule": {
+    "name": "cgnv6IcmpModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418",
+    "class": "moduleidentity"
+  },
+  "icmp": {
+    "name": "icmp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1",
+    "class": "objectidentity"
+  },
+  "icmpStatsTable": {
+    "name": "icmpStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icmpStatsEntry": {
+    "name": "icmpStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-ICMP-MIB",
+        "object": "icmpStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icmpStatsSlotId": {
+    "name": "icmpStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpUnknownType": {
+    "name": "icmpStatsIcmpUnknownType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpNoPortInfo": {
+    "name": "icmpStatsIcmpNoPortInfo",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpNoSessionDrop": {
+    "name": "icmpStatsIcmpNoSessionDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6UnknownType": {
+    "name": "icmpStatsIcmpv6UnknownType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6NoPortInfo": {
+    "name": "icmpStatsIcmpv6NoPortInfo",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6NoSessionDrop": {
+    "name": "icmpStatsIcmpv6NoSessionDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmp": {
+    "name": "icmpStatsIcmpToIcmp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmpv6": {
+    "name": "icmpStatsIcmpToIcmpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmp": {
+    "name": "icmpStatsIcmpv6ToIcmp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmpv6": {
+    "name": "icmpStatsIcmpv6ToIcmpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpBadType": {
+    "name": "icmpStatsIcmpBadType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6BadType": {
+    "name": "icmpStatsIcmpv6BadType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats64KnownDrop": {
+    "name": "icmpStats64KnownDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats64UnknownDrop": {
+    "name": "icmpStats64UnknownDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats64MidpointHop": {
+    "name": "icmpStats64MidpointHop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats46KnownDrop": {
+    "name": "icmpStats46KnownDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats46UnknownDrop": {
+    "name": "icmpStats46UnknownDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats46NoPrefixForIpv4": {
+    "name": "icmpStats46NoPrefixForIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStats46BadEncapIpHeaderLen": {
+    "name": "icmpStats46BadEncapIpHeaderLen",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmpErr": {
+    "name": "icmpStatsIcmpToIcmpErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmpv6Err": {
+    "name": "icmpStatsIcmpToIcmpv6Err",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmpErr": {
+    "name": "icmpStatsIcmpv6ToIcmpErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmpv6Err": {
+    "name": "icmpStatsIcmpv6ToIcmpv6Err",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEncapCrossCpuNoMatch": {
+    "name": "icmpStatsEncapCrossCpuNoMatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEncapCrossCpuPreprocessErr": {
+    "name": "icmpStatsEncapCrossCpuPreprocessErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmpUnknownL4": {
+    "name": "icmpStatsIcmpToIcmpUnknownL4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpToIcmpv6UnknownL4": {
+    "name": "icmpStatsIcmpToIcmpv6UnknownL4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmpUnknownL4": {
+    "name": "icmpStatsIcmpv6ToIcmpUnknownL4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsIcmpv6ToIcmpv6UnknownL4": {
+    "name": "icmpStatsIcmpv6ToIcmpv6UnknownL4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsStaticNat": {
+    "name": "icmpStatsStaticNat",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEchoToPoolReply": {
+    "name": "icmpStatsEchoToPoolReply",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEchoToPoolDrop": {
+    "name": "icmpStatsEchoToPoolDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsErrorToPoolDrop": {
+    "name": "icmpStatsErrorToPoolDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEchoToPoolReplyV6": {
+    "name": "icmpStatsEchoToPoolReplyV6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsEchoToPoolDropV6": {
+    "name": "icmpStatsEchoToPoolDropV6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsErrorToPoolDropV6": {
+    "name": "icmpStatsErrorToPoolDropV6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpStatsErrorIpMismatch": {
+    "name": "icmpStatsErrorIpMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.418.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CGNV6-ICMP-MIB",
+      "Source digest sha256:5c05c6b640e87538dadc3c9cfc41031e20ee3961313616ca2fd260a9b04565b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CGNV6-ICMP-MIB"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "isisCapabiltyMIB": {
+    "name": "isisCapabiltyMIB",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-26 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIsisCapabiltyV3R8Capability": {
+    "name": "ciscoIsisCapabiltyV3R8Capability",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOX XR 3.8",
+    "capabilities": [
+      {
+        "module": "ISIS-MIB",
+        "includes": [
+          "isisSystemGroup",
+          "isisNotificationObjectGroup",
+          "isisNotificationGroup",
+          "isisISPDUCounterGroup"
+        ],
+        "variations": [
+          {
+            "object": "isisSysLevelType",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysID",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysMaxPathSplits",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysMaxLSPGenInt",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysPollESHelloRate",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysWaitTime",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysAdminState",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysL2toL1Leaking",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysMaxAge",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelOrigLSPBuffSize",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelMinLSPGenInt",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelSetOverload",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelSetOverloadUntil",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelMetricStyle",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelSPFConsiders",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysLevelTEEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSysReceiveLSPBufferSize",
+            "access": "read-only"
+          },
+          {
+            "object": "isisSummAddrExistState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSummAddrMetric",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisManAreaAddrExistState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisAreaAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSummAddrFullMetric",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisRedistributeAddrExistState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisRouterID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSysStatCorrLSPs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSysStatManAddrDropFromAreas",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSysStatAttmptToExMaxSeqNums",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisSysStatPartChanges",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisManualAddressDrops",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisPacketCountISHello",
+            "access": "not-implemented"
+          },
+          {
+            "object": "isisPacketCountESHello",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ISIS-CAPABILTY-MIB",
+      "Source digest sha256:addacd3e86358941e4784670ccd49797ae9fa05e318b28570c710bcd484db6a5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ISIS-CAPABILTY-MIB"
+  }
+}

@@ -1,0 +1,829 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "Unsigned64"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsConditionRemoteInvRslt",
+      "CucsFsmCompletion",
+      "CucsFsmFlags",
+      "CucsFsmFsmStageStatus",
+      "CucsNetworkSwitchId",
+      "CucsSysfileMutationAction",
+      "CucsSysfileMutationFsmCurrentFsm",
+      "CucsSysfileMutationFsmStageName",
+      "CucsSysfileMutationFsmTaskItem"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "cucsSysfileObjects": {
+    "name": "cucsSysfileObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48",
+    "class": "moduleidentity"
+  },
+  "cucsSysfileDigestTable": {
+    "name": "cucsSysfileDigestTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileDigestEntry": {
+    "name": "cucsSysfileDigestEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+        "object": "cucsSysfileDigestInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysfileDigestInstanceId": {
+    "name": "cucsSysfileDigestInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileDigestDn": {
+    "name": "cucsSysfileDigestDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestRn": {
+    "name": "cucsSysfileDigestRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestCreationTS": {
+    "name": "cucsSysfileDigestCreationTS",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestDescr": {
+    "name": "cucsSysfileDigestDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestName": {
+    "name": "cucsSysfileDigestName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestSize": {
+    "name": "cucsSysfileDigestSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestSource": {
+    "name": "cucsSysfileDigestSource",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestSwitchId": {
+    "name": "cucsSysfileDigestSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestTs": {
+    "name": "cucsSysfileDigestTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileDigestUri": {
+    "name": "cucsSysfileDigestUri",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationTable": {
+    "name": "cucsSysfileMutationTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationEntry": {
+    "name": "cucsSysfileMutationEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+        "object": "cucsSysfileMutationInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysfileMutationInstanceId": {
+    "name": "cucsSysfileMutationInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationDn": {
+    "name": "cucsSysfileMutationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationRn": {
+    "name": "cucsSysfileMutationRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationAction": {
+    "name": "cucsSysfileMutationAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileMutationAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationDescr": {
+    "name": "cucsSysfileMutationDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmDescr": {
+    "name": "cucsSysfileMutationFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmPrev": {
+    "name": "cucsSysfileMutationFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmProgr": {
+    "name": "cucsSysfileMutationFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtInvErrCode": {
+    "name": "cucsSysfileMutationFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtInvErrDescr": {
+    "name": "cucsSysfileMutationFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtInvRslt": {
+    "name": "cucsSysfileMutationFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageDescr": {
+    "name": "cucsSysfileMutationFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStamp": {
+    "name": "cucsSysfileMutationFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStatus": {
+    "name": "cucsSysfileMutationFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTry": {
+    "name": "cucsSysfileMutationFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTable": {
+    "name": "cucsSysfileMutationFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmEntry": {
+    "name": "cucsSysfileMutationFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+        "object": "cucsSysfileMutationFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmInstanceId": {
+    "name": "cucsSysfileMutationFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmDn": {
+    "name": "cucsSysfileMutationFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRn": {
+    "name": "cucsSysfileMutationFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmCompletionTime": {
+    "name": "cucsSysfileMutationFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmCurrentFsm": {
+    "name": "cucsSysfileMutationFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileMutationFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmDescrData": {
+    "name": "cucsSysfileMutationFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmFsmStatus": {
+    "name": "cucsSysfileMutationFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmProgress": {
+    "name": "cucsSysfileMutationFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtErrCode": {
+    "name": "cucsSysfileMutationFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtErrDescr": {
+    "name": "cucsSysfileMutationFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmRmtRslt": {
+    "name": "cucsSysfileMutationFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageTable": {
+    "name": "cucsSysfileMutationFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageEntry": {
+    "name": "cucsSysfileMutationFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+        "object": "cucsSysfileMutationFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageInstanceId": {
+    "name": "cucsSysfileMutationFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageDn": {
+    "name": "cucsSysfileMutationFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageRn": {
+    "name": "cucsSysfileMutationFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageDescrData": {
+    "name": "cucsSysfileMutationFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageLastUpdateTime": {
+    "name": "cucsSysfileMutationFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageName": {
+    "name": "cucsSysfileMutationFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileMutationFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageOrder": {
+    "name": "cucsSysfileMutationFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageRetry": {
+    "name": "cucsSysfileMutationFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmStageStageStatus": {
+    "name": "cucsSysfileMutationFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskTable": {
+    "name": "cucsSysfileMutationFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskEntry": {
+    "name": "cucsSysfileMutationFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+        "object": "cucsSysfileMutationFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskInstanceId": {
+    "name": "cucsSysfileMutationFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskDn": {
+    "name": "cucsSysfileMutationFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskRn": {
+    "name": "cucsSysfileMutationFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskCompletion": {
+    "name": "cucsSysfileMutationFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskFlags": {
+    "name": "cucsSysfileMutationFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskItem": {
+    "name": "cucsSysfileMutationFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileMutationFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysfileMutationFsmTaskSeqId": {
+    "name": "cucsSysfileMutationFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.48.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-UNIFIED-COMPUTING-SYSFILE-MIB",
+      "Source digest sha256:a23e0edcb93e409cf1656586824ef29f447a8782f3220c744aba8632761d78bd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-SYSFILE-MIB"
+  }
+}

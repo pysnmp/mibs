@@ -1,0 +1,102 @@
+--------------------------------------------------------------------------------
+--ACMEPACKET-AMI-MIB:  Acme Packet AMI MIB file
+--
+--March 2007
+--
+--Copyright (c) by Oracle Communications
+--All rights reserved.
+--------------------------------------------------------------------------------
+--This MIB provides a means to gather information about the
+--Acme Management Interface running at the SBC
+--
+
+APAMI-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32
+        FROM SNMPv2-SMI
+    OBJECT-GROUP
+        FROM SNMPv2-CONF
+    acmepacketMgmt
+        FROM ACMEPACKET-SMI;
+
+    apAMIModule MODULE-IDENTITY
+        LAST-UPDATED	"201406260000Z"
+        ORGANIZATION 	"Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+        DESCRIPTION         "The Acme Management Interface MIB for Oracle Communications Acme Packet SBCs"
+        REVISION 	"201207160000Z"        
+        DESCRIPTION		"initial version."
+	REVISION 	"201406260000Z" 			
+	DESCRIPTION
+	        "Updated Organization and Contact info."
+
+        ::= { acmepacketMgmt 6 }
+
+
+    apAMIMIBObjects OBJECT IDENTIFIER ::= { apAMIModule 1 }
+
+    apAMISoapObjects OBJECT IDENTIFIER ::= { apAMIMIBObjects 1 }
+
+    --Soap Scalars
+    apAMISoapHttp OBJECT-TYPE
+        SYNTAX              INTEGER {
+                                enabled( 1 ),
+                                disabled( 2 )
+                            }
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Indicates the status of the soap http interface."
+        ::= { apAMISoapObjects 1 }
+
+    apAMISoapHttpPort OBJECT-TYPE
+        SYNTAX              Integer32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "the tcp port soap over HTTP is running on."
+        ::= { apAMISoapObjects 2 }
+
+    apAMISoapHttps OBJECT-TYPE
+        SYNTAX              INTEGER {
+                                enabled( 1 ),
+                                disabled( 2 )
+                            }
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Indicates the status of the soap https interface."
+        ::= { apAMISoapObjects 3 }
+
+    apAMISoapHttpsPort OBJECT-TYPE
+        SYNTAX              Integer32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "the tcp port soap over HTTPS is running on."
+        ::= { apAMISoapObjects 4 }
+
+    apAMIModuleConformance OBJECT IDENTIFIER ::= { apAMIModule 2 }
+
+    apAMIModuleGroups OBJECT IDENTIFIER ::= { apAMIModuleConformance 1 }
+
+    apAMIMibObjectsGroup OBJECT-GROUP
+        OBJECTS	{
+        		apAMISoapHttp,
+        		apAMISoapHttpPort,
+        		apAMISoapHttps,
+        		apAMISoapHttpsPort
+        	}
+        STATUS		    current
+        DESCRIPTION         "This automatically created object group contains
+                            all those objects that do not belong to any other
+                            OBJECT-GROUP"
+        ::= { apAMIModuleGroups 1 }
+
+
+END
+

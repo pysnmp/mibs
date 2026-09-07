@@ -1,0 +1,169 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cEpon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cEponFBMibObjects": {
+    "name": "hh3cEponFBMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.42.6",
+    "class": "moduleidentity"
+  },
+  "hh3cEponFBMIB": {
+    "name": "hh3cEponFBMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cEponFBMIBTable": {
+    "name": "hh3cEponFBMIBTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEponFBMIBEntry": {
+    "name": "hh3cEponFBMIBEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-EPON-FB-MIB",
+        "object": "hh3cEponFBGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEponFBGroupIndex": {
+    "name": "hh3cEponFBGroupIndex",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEponFBGroupRowStatus": {
+    "name": "hh3cEponFBGroupRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBMasterPort": {
+    "name": "hh3cEponFBMasterPort",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBSlavePort": {
+    "name": "hh3cEponFBSlavePort",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cEponFBMasterPortStatus": {
+    "name": "hh3cEponFBMasterPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEponFBSlavePortStatus": {
+    "name": "hh3cEponFBSlavePortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEponFBSwitchover": {
+    "name": "hh3cEponFBSwitchover",
+    "oid": "1.3.6.1.4.1.25506.2.42.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-EPON-FB-MIB",
+      "Source digest sha256:b2af93982105e69efff27e26cf4c1e992fb2e2fb815b726aac1501c2d7e2e41d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-EPON-FB-MIB"
+  }
+}

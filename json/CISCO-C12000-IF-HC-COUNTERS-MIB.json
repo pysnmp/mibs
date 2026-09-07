@@ -1,0 +1,238 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoC12000IfHcCountersMIB": {
+    "name": "ciscoC12000IfHcCountersMIB",
+    "oid": "1.3.6.1.4.1.9.10.31",
+    "class": "moduleidentity"
+  },
+  "cHCCounterMIBObjects": {
+    "name": "cHCCounterMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.31.1",
+    "class": "objectidentity"
+  },
+  "cHCCounterTable": {
+    "name": "cHCCounterTable",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cHCCounterEntry": {
+    "name": "cHCCounterEntry",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cHCCounterIfInOctetsUpper": {
+    "name": "cHCCounterIfInOctetsUpper",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfInOctetsLower": {
+    "name": "cHCCounterIfInOctetsLower",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfInUcastPktsUpper": {
+    "name": "cHCCounterIfInUcastPktsUpper",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfInUcastPktsLower": {
+    "name": "cHCCounterIfInUcastPktsLower",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfOutOctetsUpper": {
+    "name": "cHCCounterIfOutOctetsUpper",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfOutOctetsLower": {
+    "name": "cHCCounterIfOutOctetsLower",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfOutUcastPktsUpper": {
+    "name": "cHCCounterIfOutUcastPktsUpper",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cHCCounterIfOutUcastPktsLower": {
+    "name": "cHCCounterIfOutUcastPktsLower",
+    "oid": "1.3.6.1.4.1.9.10.31.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHCCountersMIBNotifications": {
+    "name": "ciscoHCCountersMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.31.2",
+    "class": "objectidentity"
+  },
+  "ciscoHCCountersMIBConformance": {
+    "name": "ciscoHCCountersMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.31.3",
+    "class": "objectidentity"
+  },
+  "ciscoHCCountersMIBCompliances": {
+    "name": "ciscoHCCountersMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.31.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoHCCountersMIBGroups": {
+    "name": "ciscoHCCountersMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.31.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoHCCountersMIBCompliance": {
+    "name": "ciscoHCCountersMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.31.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoHCCountersMIBGroup",
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHCCountersMIBGroup": {
+    "name": "ciscoHCCountersMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.31.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfInOctetsUpper"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfInOctetsLower"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfInUcastPktsUpper"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfInUcastPktsLower"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfOutOctetsUpper"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfOutOctetsLower"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfOutUcastPktsUpper"
+      },
+      {
+        "module": "CISCO-C12000-IF-HC-COUNTERS-MIB",
+        "object": "cHCCounterIfOutUcastPktsLower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-C12000-IF-HC-COUNTERS-MIB",
+      "Source digest sha256:ae4f1d03c5d641f05f0199c4fedb09e9e3d65acd95cf614eb247c26d5eaf92a2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-C12000-IF-HC-COUNTERS-MIB"
+  }
+}

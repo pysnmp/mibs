@@ -1,0 +1,433 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PPP-LCP-MIB": [
+      "ppp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pppBridge": {
+    "name": "pppBridge",
+    "oid": "1.3.6.1.2.1.10.23.4",
+    "class": "objectidentity"
+  },
+  "pppBridgeTable": {
+    "name": "pppBridgeTable",
+    "oid": "1.3.6.1.2.1.10.23.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppBridgeEntry": {
+    "name": "pppBridgeEntry",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppBridgeOperStatus": {
+    "name": "pppBridgeOperStatus",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "not-opened": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeLocalToRemoteTinygramCompression": {
+    "name": "pppBridgeLocalToRemoteTinygramCompression",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeRemoteToLocalTinygramCompression": {
+    "name": "pppBridgeRemoteToLocalTinygramCompression",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeLocalToRemoteLanId": {
+    "name": "pppBridgeLocalToRemoteLanId",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeRemoteToLocalLanId": {
+    "name": "pppBridgeRemoteToLocalLanId",
+    "oid": "1.3.6.1.2.1.10.23.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigTable": {
+    "name": "pppBridgeConfigTable",
+    "oid": "1.3.6.1.2.1.10.23.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigEntry": {
+    "name": "pppBridgeConfigEntry",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppBridgeConfigAdminStatus": {
+    "name": "pppBridgeConfigAdminStatus",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigTinygram": {
+    "name": "pppBridgeConfigTinygram",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigRingId": {
+    "name": "pppBridgeConfigRingId",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigLineId": {
+    "name": "pppBridgeConfigLineId",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeConfigLanId": {
+    "name": "pppBridgeConfigLanId",
+    "oid": "1.3.6.1.2.1.10.23.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaTable": {
+    "name": "pppBridgeMediaTable",
+    "oid": "1.3.6.1.2.1.10.23.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaEntry": {
+    "name": "pppBridgeMediaEntry",
+    "oid": "1.3.6.1.2.1.10.23.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PPP-BRIDGE-NCP-MIB",
+        "object": "pppBridgeMediaMacType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppBridgeMediaMacType": {
+    "name": "pppBridgeMediaMacType",
+    "oid": "1.3.6.1.2.1.10.23.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaLocalStatus": {
+    "name": "pppBridgeMediaLocalStatus",
+    "oid": "1.3.6.1.2.1.10.23.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 1,
+          "dont-accept": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaRemoteStatus": {
+    "name": "pppBridgeMediaRemoteStatus",
+    "oid": "1.3.6.1.2.1.10.23.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 1,
+          "dont-accept": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaConfigTable": {
+    "name": "pppBridgeMediaConfigTable",
+    "oid": "1.3.6.1.2.1.10.23.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaConfigEntry": {
+    "name": "pppBridgeMediaConfigEntry",
+    "oid": "1.3.6.1.2.1.10.23.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PPP-BRIDGE-NCP-MIB",
+        "object": "pppBridgeMediaConfigMacType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppBridgeMediaConfigMacType": {
+    "name": "pppBridgeMediaConfigMacType",
+    "oid": "1.3.6.1.2.1.10.23.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppBridgeMediaConfigLocalStatus": {
+    "name": "pppBridgeMediaConfigLocalStatus",
+    "oid": "1.3.6.1.2.1.10.23.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 1,
+          "dont-accept": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PPP-BRIDGE-NCP-MIB",
+      "Source digest sha256:0cb05f98f3ba942a5b7e1076fc9b4ab1506e70bcf09b6f42ef50ce4ac78c8ada",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PPP-BRIDGE-NCP-MIB"
+  }
+}

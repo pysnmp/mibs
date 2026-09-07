@@ -1,0 +1,288 @@
+{
+  "imports": {
+    "class": "imports",
+    "FIREBRICK-MIB": [
+      "firebrickNewStyle"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fbSipMib": {
+    "name": "fbSipMib",
+    "oid": "1.3.6.1.4.1.24693.100.5060",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-07-15 00:00",
+        "description": "Additional validation"
+      },
+      {
+        "revision": "2021-12-08 00:00",
+        "description": "Updated version of this MIB module with carrier count"
+      },
+      {
+        "revision": "2020-06-17 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "fbSipActiveLegs": {
+    "name": "fbSipActiveLegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipRadiusRegs": {
+    "name": "fbSipRadiusRegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipMixerUsage": {
+    "name": "fbSipMixerUsage",
+    "oid": "1.3.6.1.4.1.24693.100.5060.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipMixerHWM": {
+    "name": "fbSipMixerHWM",
+    "oid": "1.3.6.1.4.1.24693.100.5060.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipCarriers": {
+    "name": "fbSipCarriers",
+    "oid": "1.3.6.1.4.1.24693.100.5060.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipMixerMax": {
+    "name": "fbSipMixerMax",
+    "oid": "1.3.6.1.4.1.24693.100.5060.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipCarrierTable": {
+    "name": "fbSipCarrierTable",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbSipCarrierEntry": {
+    "name": "fbSipCarrierEntry",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIREBRICK-VOIP-MIB",
+        "object": "fbSipCarrierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fbSipCarrierName": {
+    "name": "fbSipCarrierName",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipCarrierIndex": {
+    "name": "fbSipCarrierIndex",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbSipCarrierTotalLegs": {
+    "name": "fbSipCarrierTotalLegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipCarrierConnectedLegs": {
+    "name": "fbSipCarrierConnectedLegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipPhoneTable": {
+    "name": "fbSipPhoneTable",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbSipPhoneEntry": {
+    "name": "fbSipPhoneEntry",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIREBRICK-VOIP-MIB",
+        "object": "fbSipPhoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fbSipPhoneName": {
+    "name": "fbSipPhoneName",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipPhoneIndex": {
+    "name": "fbSipPhoneIndex",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbSipPhoneTotalLegs": {
+    "name": "fbSipPhoneTotalLegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbSipPhoneConnectedLegs": {
+    "name": "fbSipPhoneConnectedLegs",
+    "oid": "1.3.6.1.4.1.24693.100.5060.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FIREBRICK-VOIP-MIB",
+      "Source digest sha256:411a3b434d782379e367391587d14a4e7c013ed7d5442a59a619c4d83387bc88",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FIREBRICK-VOIP-MIB"
+  }
+}

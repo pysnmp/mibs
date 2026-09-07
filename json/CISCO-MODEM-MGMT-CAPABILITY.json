@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoModemMgmtCapability": {
+    "name": "ciscoModemMgmtCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-31 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoModemMgmtCapV12R4TISR": {
+    "name": "ciscoModemMgmtCapV12R4TISR",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4 for ATG Platform Devices",
+    "capabilities": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "includes": [
+          "cmSystemInfoGroup",
+          "cmGroupInfoGroup",
+          "cmLineInfoGroup",
+          "cmManagedLineInfoGroup",
+          "cmLineSpeedInfoGroup",
+          "cmSystemInfoGroupRev1",
+          "cmLineSpeedInfoGroupRev1",
+          "cmManagedLineInfoGroupRev1",
+          "cmNotificationConfigGroup",
+          "cmLineSpeedInfoGroupRev2",
+          "cmManagedLineInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "cmStateNotifyEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MODEM-MGMT-CAPABILITY",
+      "Source digest sha256:f04b315fe9224621d8bdba0bc49303117faef9f15307338378a9a985a180d250",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MODEM-MGMT-CAPABILITY"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfConnectionRateFilter": {
+    "name": "hpicfConnectionRateFilter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-07 01:08",
+        "description": "Added Connection Rate Filter MIBs."
+      }
+    ]
+  },
+  "hpicfConnectionRateFilterNotifications": {
+    "name": "hpicfConnectionRateFilterNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.0",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterNotificationControl": {
+    "name": "hpicfConnectionRateFilterNotificationControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.1",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterObjects": {
+    "name": "hpicfConnectionRateFilterObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.2",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterConformance": {
+    "name": "hpicfConnectionRateFilterConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterNotification": {
+    "name": "hpicfConnectionRateFilterNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicifConnectionRateFilterVlanId"
+      },
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicifConnectionRateFilterInetAddress"
+      },
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicifConnectionRateFilterInetAddressType"
+      },
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicifConnectionRateFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicifConnectionRateFilterVlanId": {
+    "name": "hpicifConnectionRateFilterVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicifConnectionRateFilterInetAddress": {
+    "name": "hpicifConnectionRateFilterInetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicifConnectionRateFilterInetAddressType": {
+    "name": "hpicifConnectionRateFilterInetAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicifConnectionRateFilterMode": {
+    "name": "hpicifConnectionRateFilterMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inform": 0,
+          "throttle": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfConnectionRateFilterNotificationControlEnable": {
+    "name": "hpicfConnectionRateFilterNotificationControlEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfConnectionRateFilterCompliances": {
+    "name": "hpicfConnectionRateFilterCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterGroups": {
+    "name": "hpicfConnectionRateFilterGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfConnectionRateFilterCompliance": {
+    "name": "hpicfConnectionRateFilterCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfConnectionRateFilterNotifyGroup",
+        "module": "HP-ICF-CONNECTION-RATE-FILTER"
+      },
+      {
+        "object": "hpicfConnectionRateFilterObjectGroup",
+        "module": "HP-ICF-CONNECTION-RATE-FILTER"
+      },
+      {
+        "object": "hpicfConnectionRateFilterNotifyGroup",
+        "module": "HP-ICF-CONNECTION-RATE-FILTER"
+      },
+      {
+        "object": "hpicfConnectionRateFilterObjectGroup",
+        "module": "HP-ICF-CONNECTION-RATE-FILTER"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfConnectionRateFilterNotifyGroup": {
+    "name": "hpicfConnectionRateFilterNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicfConnectionRateFilterNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfConnectionRateFilterObjectGroup": {
+    "name": "hpicfConnectionRateFilterObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.24.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-CONNECTION-RATE-FILTER",
+        "object": "hpicfConnectionRateFilterNotificationControlEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-CONNECTION-RATE-FILTER",
+      "Source digest sha256:a8c9d1b3b69c64805918cac7a41b0c84807d23c0c7de51921e88f8f0d5114357",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-CONNECTION-RATE-FILTER"
+  }
+}

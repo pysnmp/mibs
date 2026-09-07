@@ -1,0 +1,1952 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "UUID-TC-MIB": [
+      "UUID"
+    ],
+    "VELOCLOUD-MIB": [
+      "modules"
+    ]
+  },
+  "edge": {
+    "name": "edge",
+    "oid": "1.3.6.1.4.1.45346.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2023-04-05 00:00",
+        "description": "Deprecate CPU Utilization and add CPU average Load in Health Group"
+      },
+      {
+        "revision": "2022-01-25 00:00",
+        "description": "Added LinkName and LinkUUID mapping support, LinkCapacity and LinkThroughput"
+      },
+      {
+        "revision": "2021-08-31 00:00",
+        "description": "Removed the object vceLinkVpnState"
+      },
+      {
+        "revision": "2021-07-14 00:00",
+        "description": "Added Gauge32 data type for few Link and Path group-objects"
+      },
+      {
+        "revision": "2021-05-10 00:00",
+        "description": "Update of VMware nomenclature"
+      },
+      {
+        "revision": "2019-08-02 00:00",
+        "description": "Update definition of VMware SD-WAN Edge MIB Objects"
+      },
+      {
+        "revision": "2017-01-18 00:00",
+        "description": "Implementation of VMware SD-WAN Edge Module MIB Objects"
+      },
+      {
+        "revision": "2017-01-13 00:00",
+        "description": "Inital definition of VMware SD-WAN MIB Objects"
+      }
+    ]
+  },
+  "VceHaAdminStateType": {
+    "name": "VceHaAdminStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "theVelocloudActiveStandbyPair": 2,
+          "theVeloCloudCluster": 3,
+          "nonVeloCloudVrrpPair": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VceHaPeerStateType": {
+    "name": "VceHaPeerStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "active": 2,
+          "standby": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VceLinkStateType": {
+    "name": "VceLinkStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "dead": 2,
+          "unusable": 3,
+          "quiet": 4,
+          "standby": 5,
+          "unstable": 6,
+          "stable": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VcePathStateType": {
+    "name": "VcePathStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "dead": 2,
+          "unusable": 3,
+          "quiet": 4,
+          "unstable": 5,
+          "bwUnmeasurable": 6,
+          "waitingForLinkbw": 7,
+          "measuringTxBw": 8,
+          "measuringRxBw": 9,
+          "stable": 10,
+          "active": 11,
+          "upHsby": 12,
+          "idleHsby": 13,
+          "backup": 14,
+          "unknown": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VcePathTunlModeType": {
+    "name": "VcePathTunlModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "trusted": 2,
+          "untrustedTransport": 3,
+          "untrustedTunnel": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VceArpStateType": {
+    "name": "VceArpStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reachable": 1,
+          "stale": 2,
+          "invalid": 5,
+          "unknown": 6,
+          "incomplete": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vceCompliance": {
+    "name": "vceCompliance",
+    "oid": "1.3.6.1.4.1.45346.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vceHaGroup",
+        "module": "VELOCLOUD-EDGE-MIB"
+      },
+      {
+        "object": "vceHealthGroup",
+        "module": "VELOCLOUD-EDGE-MIB"
+      },
+      {
+        "object": "vceLinkGroup",
+        "module": "VELOCLOUD-EDGE-MIB"
+      },
+      {
+        "object": "vcePathGroup",
+        "module": "VELOCLOUD-EDGE-MIB"
+      },
+      {
+        "object": "vceArpGroup",
+        "module": "VELOCLOUD-EDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vceEdgeObject": {
+    "name": "vceEdgeObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2",
+    "class": "objectidentity"
+  },
+  "vceHA": {
+    "name": "vceHA",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "vceHealth": {
+    "name": "vceHealth",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "vceLink": {
+    "name": "vceLink",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "vcePath": {
+    "name": "vcePath",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "vceARP": {
+    "name": "vceARP",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "vceHaGroup": {
+    "name": "vceHaGroup",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaAdminState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaPeerState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaActiveWanItfNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaActiveLanItfNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaStanbyWanItfNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceHaStanbyLanItfNum"
+      }
+    ],
+    "status": "current"
+  },
+  "vceHAObject": {
+    "name": "vceHAObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "vceHaAdminState": {
+    "name": "vceHaAdminState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VceHaAdminStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHaPeerState": {
+    "name": "vceHaPeerState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VceHaPeerStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHaActiveWanItfNum": {
+    "name": "vceHaActiveWanItfNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHaActiveLanItfNum": {
+    "name": "vceHaActiveLanItfNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHaStanbyWanItfNum": {
+    "name": "vceHaStanbyWanItfNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHaStanbyLanItfNum": {
+    "name": "vceHaStanbyLanItfNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceHealthGroup": {
+    "name": "vceHealthGroup",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceCpuUtilPct5min"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceCpuUtilPct30sec"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceMemUsedPct"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceCpuLoadPct5min"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceCpuLoadPct60sec"
+      }
+    ],
+    "status": "current"
+  },
+  "vceHealthObject": {
+    "name": "vceHealthObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "vceCpuUtilPct5min": {
+    "name": "vceCpuUtilPct5min",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceCpuUtilPct30sec": {
+    "name": "vceCpuUtilPct30sec",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceMemUsedPct": {
+    "name": "vceMemUsedPct",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceCpuLoadPct5min": {
+    "name": "vceCpuLoadPct5min",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceCpuLoadPct60sec": {
+    "name": "vceCpuLoadPct60sec",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkGroup": {
+    "name": "vceLinkGroup",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkName"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP1Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP1Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP1Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP1Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP2Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP2Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP2Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP2Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP3Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP3Pkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxP3Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxP3Bytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxCtlPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxCtlPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxCtlBytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxCtlBytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxJitter"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxJitter"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxLatency"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxLatency"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxLostPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxLostPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkPublicIpType"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkPublicIp"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkLocalIpType"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkLocalIp"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkVlanId"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkMtu"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkItf"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkVeloSvcReachable"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTotTxPkts"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTotRxPkts"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTotTxbytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTotRxBytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkIf"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkNextHopType"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkNextHop"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxJitterGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxJitterGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxLatencyGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxLatencyGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkTxLostPktGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkRxLostPktGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkCapacityBpsGaugeTx"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkCapacityBpsGaugeRx"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkThroughputBpsGaugeTx"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkThroughputBpsGaugeRx"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkNameUUIDMapping"
+      }
+    ],
+    "status": "current"
+  },
+  "vceLinkObject": {
+    "name": "vceLinkObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "vceLinkNum": {
+    "name": "vceLinkNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTable": {
+    "name": "vceLinkTable",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceLinkEntry": {
+    "name": "vceLinkEntry",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceLinkIntId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vceLinkIntId": {
+    "name": "vceLinkIntId",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UUID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceLinkName": {
+    "name": "vceLinkName",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP1Pkt": {
+    "name": "vceLinkTxP1Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP1Pkt": {
+    "name": "vceLinkRxP1Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP1Bytes": {
+    "name": "vceLinkTxP1Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP1Bytes": {
+    "name": "vceLinkRxP1Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP2Pkt": {
+    "name": "vceLinkTxP2Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP2Pkt": {
+    "name": "vceLinkRxP2Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP2Bytes": {
+    "name": "vceLinkTxP2Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP2Bytes": {
+    "name": "vceLinkRxP2Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP3Pkt": {
+    "name": "vceLinkTxP3Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP3Pkt": {
+    "name": "vceLinkRxP3Pkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxP3Bytes": {
+    "name": "vceLinkTxP3Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxP3Bytes": {
+    "name": "vceLinkRxP3Bytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxCtlPkt": {
+    "name": "vceLinkTxCtlPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxCtlPkt": {
+    "name": "vceLinkRxCtlPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxCtlBytes": {
+    "name": "vceLinkTxCtlBytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxCtlBytes": {
+    "name": "vceLinkRxCtlBytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxJitter": {
+    "name": "vceLinkTxJitter",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkRxJitter": {
+    "name": "vceLinkRxJitter",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkTxLatency": {
+    "name": "vceLinkTxLatency",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkRxLatency": {
+    "name": "vceLinkRxLatency",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkTxLostPkt": {
+    "name": "vceLinkTxLostPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkRxLostPkt": {
+    "name": "vceLinkRxLostPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vceLinkPublicIpType": {
+    "name": "vceLinkPublicIpType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkPublicIp": {
+    "name": "vceLinkPublicIp",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkLocalIpType": {
+    "name": "vceLinkLocalIpType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkLocalIp": {
+    "name": "vceLinkLocalIp",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkVlanId": {
+    "name": "vceLinkVlanId",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkMtu": {
+    "name": "vceLinkMtu",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkItf": {
+    "name": "vceLinkItf",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkState": {
+    "name": "vceLinkState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VceLinkStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkVeloSvcReachable": {
+    "name": "vceLinkVeloSvcReachable",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTotTxPkts": {
+    "name": "vceLinkTotTxPkts",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTotRxPkts": {
+    "name": "vceLinkTotRxPkts",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTotTxbytes": {
+    "name": "vceLinkTotTxbytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTotRxBytes": {
+    "name": "vceLinkTotRxBytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkIf": {
+    "name": "vceLinkIf",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkNextHopType": {
+    "name": "vceLinkNextHopType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkNextHop": {
+    "name": "vceLinkNextHop",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxJitterGauge": {
+    "name": "vceLinkTxJitterGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxJitterGauge": {
+    "name": "vceLinkRxJitterGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxLatencyGauge": {
+    "name": "vceLinkTxLatencyGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxLatencyGauge": {
+    "name": "vceLinkRxLatencyGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkTxLostPktGauge": {
+    "name": "vceLinkTxLostPktGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkRxLostPktGauge": {
+    "name": "vceLinkRxLostPktGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkCapacityBpsGaugeTx": {
+    "name": "vceLinkCapacityBpsGaugeTx",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkCapacityBpsGaugeRx": {
+    "name": "vceLinkCapacityBpsGaugeRx",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkThroughputBpsGaugeTx": {
+    "name": "vceLinkThroughputBpsGaugeTx",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkThroughputBpsGaugeRx": {
+    "name": "vceLinkThroughputBpsGaugeRx",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceLinkNameUUIDMapping": {
+    "name": "vceLinkNameUUIDMapping",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.3.2.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathGroup": {
+    "name": "vcePathGroup",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathIpType"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathIp"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathPeerName"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathUpTime"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxState"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTunlMode"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxAveLatency"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxAveLatency"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxBytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxBytes"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxLostPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxLostPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxPkt"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxJitter"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxJitter"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxLostPktGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxLostPktGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathRxJitterGauge"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathTxJitterGauge"
+      }
+    ],
+    "status": "current"
+  },
+  "vcePathObject": {
+    "name": "vcePathObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "vcePathNum": {
+    "name": "vcePathNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTable": {
+    "name": "vcePathTable",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcePathEntry": {
+    "name": "vcePathEntry",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathIfIntId",
+        "implied": 0
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vcePathGwAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcePathIfIntId": {
+    "name": "vcePathIfIntId",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UUID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcePathIpType": {
+    "name": "vcePathIpType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathIp": {
+    "name": "vcePathIp",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathGwAddrType": {
+    "name": "vcePathGwAddrType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcePathGwAddr": {
+    "name": "vcePathGwAddr",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcePathPeerName": {
+    "name": "vcePathPeerName",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathState": {
+    "name": "vcePathState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcePathStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathUpTime": {
+    "name": "vcePathUpTime",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxState": {
+    "name": "vcePathRxState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcePathStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxState": {
+    "name": "vcePathTxState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcePathStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTunlMode": {
+    "name": "vcePathTunlMode",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcePathTunlModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxAveLatency": {
+    "name": "vcePathTxAveLatency",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxAveLatency": {
+    "name": "vcePathRxAveLatency",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxBytes": {
+    "name": "vcePathRxBytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxBytes": {
+    "name": "vcePathTxBytes",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxLostPkt": {
+    "name": "vcePathRxLostPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcePathTxLostPkt": {
+    "name": "vcePathTxLostPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcePathRxPkt": {
+    "name": "vcePathRxPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxPkt": {
+    "name": "vcePathTxPkt",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxJitter": {
+    "name": "vcePathRxJitter",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcePathTxJitter": {
+    "name": "vcePathTxJitter",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcePathRxLostPktGauge": {
+    "name": "vcePathRxLostPktGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxLostPktGauge": {
+    "name": "vcePathTxLostPktGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathRxJitterGauge": {
+    "name": "vcePathRxJitterGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcePathTxJitterGauge": {
+    "name": "vcePathTxJitterGauge",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.4.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceArpGroup": {
+    "name": "vceArpGroup",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpNum"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpMac"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpStag"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpCtag"
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpState"
+      }
+    ],
+    "status": "current"
+  },
+  "vceArpObject": {
+    "name": "vceArpObject",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2",
+    "class": "objectidentity"
+  },
+  "vceArpNum": {
+    "name": "vceArpNum",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceArpTable": {
+    "name": "vceArpTable",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceArpEntry": {
+    "name": "vceArpEntry",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpItf",
+        "implied": 0
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "VELOCLOUD-EDGE-MIB",
+        "object": "vceArpIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vceArpItf": {
+    "name": "vceArpItf",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceArpIpAddrType": {
+    "name": "vceArpIpAddrType",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceArpIpAddr": {
+    "name": "vceArpIpAddr",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vceArpMac": {
+    "name": "vceArpMac",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceArpStag": {
+    "name": "vceArpStag",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceArpCtag": {
+    "name": "vceArpCtag",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vceArpState": {
+    "name": "vceArpState",
+    "oid": "1.3.6.1.4.1.45346.1.1.2.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VceArpStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VELOCLOUD-EDGE-MIB",
+      "Source digest sha256:eeb9233ede90afdb49baf6b710b485fa47a9b1b48a7d2fb10d7cecd169d5cc7a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VELOCLOUD-EDGE-MIB"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "Ipv6Address": {
+    "name": "Ipv6Address",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "obsolete"
+  },
+  "Ipv6AddressPrefix": {
+    "name": "Ipv6AddressPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "obsolete"
+  },
+  "Ipv6AddressIfIdentifier": {
+    "name": "Ipv6AddressIfIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "obsolete"
+  },
+  "Ipv6IfIndex": {
+    "name": "Ipv6IfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "obsolete"
+  },
+  "Ipv6IfIndexOrZero": {
+    "name": "Ipv6IfIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "obsolete"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IPV6-TC",
+      "Source digest sha256:4ce05d7b8acbe4d593b61fbe67690acd234065b09e95d659704de95a4e8c5621",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IPV6-TC"
+  }
+}

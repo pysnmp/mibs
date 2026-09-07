@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAISECOM-BASE-MIB": [
+      "rosMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "SWITCH-TC": [
+      "EnableVar"
+    ]
+  },
+  "rosMgmtCommonManagement": {
+    "name": "rosMgmtCommonManagement",
+    "oid": "1.3.6.1.4.1.8886.60.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-04-12 00:00",
+        "description": "MIB file check and modification"
+      }
+    ]
+  },
+  "rosMgmtCommonFunctionGroup": {
+    "name": "rosMgmtCommonFunctionGroup",
+    "oid": "1.3.6.1.4.1.8886.60.2.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtCommonNotifications": {
+    "name": "rosMgmtCommonNotifications",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.0",
+    "class": "objectidentity"
+  },
+  "rosMgmtCommonObjects": {
+    "name": "rosMgmtCommonObjects",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtCommonConformance": {
+    "name": "rosMgmtCommonConformance",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtLoadcfg": {
+    "name": "rosMgmtLoadcfg",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtAutoWrite": {
+    "name": "rosMgmtAutoWrite",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtLoadcfgScalar": {
+    "name": "rosMgmtLoadcfgScalar",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtConfigLoadOperation": {
+    "name": "rosMgmtConfigLoadOperation",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "saving": 2,
+          "erasing": 3,
+          "reboot": 4,
+          "restore": 5,
+          "reload": 6,
+          "backupsaving": 7,
+          "cpoyStaConf2BackConf": 8,
+          "cpoyBackConf2StaConf": 9,
+          "switStaConfBackConf": 10,
+          "backuperasing": 11,
+          "eraseStartupconfig": 12,
+          "eraseStartupconfigAll": 13,
+          "savingall": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtConfigLoadNotificationOnCompletion": {
+    "name": "rosMgmtConfigLoadNotificationOnCompletion",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtConfigLoadState": {
+    "name": "rosMgmtConfigLoadState",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "running": 2,
+          "successful": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtAutoWritecfgEnable": {
+    "name": "rosMgmtAutoWritecfgEnable",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtAutoWritecfgInterval": {
+    "name": "rosMgmtAutoWritecfgInterval",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtConfigLoadCompletion": {
+    "name": "rosMgmtConfigLoadCompletion",
+    "oid": "1.3.6.1.4.1.8886.60.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-COMMON-MANAGEMENT-MIB",
+        "object": "rosMgmtConfigLoadOperation"
+      },
+      {
+        "module": "ROSMGMT-COMMON-MANAGEMENT-MIB",
+        "object": "rosMgmtConfigLoadState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ROSMGMT-COMMON-MANAGEMENT-MIB",
+      "Source digest sha256:9de83099b420e19de99932331c4308ce82759e9f85c67aed76542b11a40473dc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ROSMGMT-COMMON-MANAGEMENT-MIB"
+  }
+}

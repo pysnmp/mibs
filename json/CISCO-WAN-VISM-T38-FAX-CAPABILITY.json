@@ -1,0 +1,164 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWanAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cwVismT38FaxCapability": {
+    "name": "cwVismT38FaxCapability",
+    "oid": "1.3.6.1.4.1.351.160.335",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-08-05 00:00",
+        "description": "Initial version of this MIB module"
+      },
+      {
+        "revision": "2002-06-01 00:00",
+        "description": " t38FaxInfoFieldSize variation was modified. t38HsDataPacketSize variation was added. t38LsDataRedundancy variation was modified. t38HsDataRedundancy variation was modified. t38ErrCorrection variation was added. t38NSFCountryCode variation was modified. t38NSFVendorCode variation was added. t38Redundancy variation was added. "
+      }
+    ]
+  },
+  "cwVismT38FaxCapabilityV2R00": {
+    "name": "cwVismT38FaxCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.351.160.335.1",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release3.1",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-T38-FAXRELAY-MIB",
+        "includes": [
+          "t38FaxRelayGroup"
+        ],
+        "variations": [
+          {
+            "object": "t38vismDs1Number",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 8
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "t38FaxInfoFieldSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "t38HsDataPacketSize",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tenms": 10,
+                  "twentyms": 20,
+                  "thirtyms": 30
+                }
+              }
+            },
+            "default": [
+              "thirtyms"
+            ]
+          },
+          {
+            "object": "t38LsDataRedundancy",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "t38HsDataRedundancy",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "t38ErrCorrection",
+            "access": "not-implemented"
+          },
+          {
+            "object": "t38NSFCountryCode",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 255
+                  }
+                ]
+              }
+            },
+            "default": [
+              173
+            ]
+          },
+          {
+            "object": "t38NSFVendorCode",
+            "default": [
+              81
+            ]
+          },
+          {
+            "object": "t38Redundancy",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-VISM-T38-FAX-CAPABILITY",
+      "Source digest sha256:8578b50dcb70152c51edbfec7c307eac40011dca28137c19a5b707c262f70b03",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-VISM-T38-FAX-CAPABILITY"
+  }
+}

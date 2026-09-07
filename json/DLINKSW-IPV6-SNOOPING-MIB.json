@@ -1,0 +1,336 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwIpv6SnoopMIB": {
+    "name": "dlinkSwIpv6SnoopMIB",
+    "oid": "1.3.6.1.4.1.171.14.143",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dIpv6SnoopNotifications": {
+    "name": "dIpv6SnoopNotifications",
+    "oid": "1.3.6.1.4.1.171.14.143.0",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopObjects": {
+    "name": "dIpv6SnoopObjects",
+    "oid": "1.3.6.1.4.1.171.14.143.1",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopConformance": {
+    "name": "dIpv6SnoopConformance",
+    "oid": "1.3.6.1.4.1.171.14.143.2",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopGlobal": {
+    "name": "dIpv6SnoopGlobal",
+    "oid": "1.3.6.1.4.1.171.14.143.1.1",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopPolicy": {
+    "name": "dIpv6SnoopPolicy",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopInterface": {
+    "name": "dIpv6SnoopInterface",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopStationMoveEnabled": {
+    "name": "dIpv6SnoopStationMoveEnabled",
+    "oid": "1.3.6.1.4.1.171.14.143.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyNumber": {
+    "name": "dIpv6SnoopPolicyNumber",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyTable": {
+    "name": "dIpv6SnoopPolicyTable",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyEntry": {
+    "name": "dIpv6SnoopPolicyEntry",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyName": {
+    "name": "dIpv6SnoopPolicyName",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyProtocol": {
+    "name": "dIpv6SnoopPolicyProtocol",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ndp": 0,
+        "dhcp": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyLimitAddrCount": {
+    "name": "dIpv6SnoopPolicyLimitAddrCount",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyRowStatus": {
+    "name": "dIpv6SnoopPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.143.1.2.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachTable": {
+    "name": "dIpv6SnoopPolicyAttachTable",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachEntry": {
+    "name": "dIpv6SnoopPolicyAttachEntry",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyAttachVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachVlanId": {
+    "name": "dIpv6SnoopPolicyAttachVlanId",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachPolicy": {
+    "name": "dIpv6SnoopPolicyAttachPolicy",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachRowStatus": {
+    "name": "dIpv6SnoopPolicyAttachRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.143.1.3.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpv6SnoopMIBCompliances": {
+    "name": "dIpv6SnoopMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.143.2.1",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopMIBGroups": {
+    "name": "dIpv6SnoopMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.143.2.2",
+    "class": "objectidentity"
+  },
+  "dIpv6SnoopMIBCompliance": {
+    "name": "dIpv6SnoopMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.143.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dIpv6SnoopPolicyGroup",
+        "module": "DLINKSW-IPV6-SNOOPING-MIB"
+      },
+      {
+        "object": "dIpv6SnoopPolicyAttachGroup",
+        "module": "DLINKSW-IPV6-SNOOPING-MIB"
+      },
+      {
+        "object": "dIpv6SnoopStationMoveCfgGroup",
+        "module": "DLINKSW-IPV6-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyGroup": {
+    "name": "dIpv6SnoopPolicyGroup",
+    "oid": "1.3.6.1.4.1.171.14.143.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyNumber"
+      },
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyProtocol"
+      },
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyLimitAddrCount"
+      },
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6SnoopPolicyAttachGroup": {
+    "name": "dIpv6SnoopPolicyAttachGroup",
+    "oid": "1.3.6.1.4.1.171.14.143.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyAttachPolicy"
+      },
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopPolicyAttachRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpv6SnoopStationMoveCfgGroup": {
+    "name": "dIpv6SnoopStationMoveCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.143.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IPV6-SNOOPING-MIB",
+        "object": "dIpv6SnoopStationMoveEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-IPV6-SNOOPING-MIB",
+      "Source digest sha256:7fea3d7132d4cf9f62ef3001474f1e35c9464f84adda13f5d0e6983b950065a8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-IPV6-SNOOPING-MIB"
+  }
+}

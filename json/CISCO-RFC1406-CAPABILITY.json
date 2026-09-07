@@ -1,0 +1,471 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRFC1406Capability": {
+    "name": "ciscoRFC1406Capability",
+    "oid": "1.3.6.1.4.1.9.7.102",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-22 00:00",
+        "description": "Support SET operation for dsx1LineCoding and dsx1LineType"
+      },
+      {
+        "revision": "2001-08-17 00:00",
+        "description": "Support SET operation for dsx1LoopbackConfig object."
+      },
+      {
+        "revision": "1994-08-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRFC1406CapabilityV10R02": {
+    "name": "ciscoRFC1406CapabilityV10R02",
+    "oid": "1.3.6.1.4.1.9.7.102.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "RFC1406-MIB",
+        "includes": [
+          "ds1Group"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineType",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1FarEndCurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FracIfIndex",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1406CapabilityV122R12T": {
+    "name": "ciscoRFC1406CapabilityV122R12T",
+    "oid": "1.3.6.1.4.1.9.7.102.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(12)T",
+    "capabilities": [
+      {
+        "module": "RFC1406-MIB",
+        "includes": [
+          "ds1Group"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineType",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1FarEndCurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalLESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalPCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FracIfIndex",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoRFC1406CapabilityV122R12TRev2": {
+    "name": "ciscoRFC1406CapabilityV122R12TRev2",
+    "oid": "1.3.6.1.4.1.9.7.102.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(12)T",
+    "capabilities": [
+      {
+        "module": "RFC1406-MIB",
+        "includes": [
+          "ds1Group"
+        ],
+        "variations": [
+          {
+            "object": "dsx1SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1FarEndCurrentEntry",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalEntry",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalEntry",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FracIfIndex",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RFC1406-CAPABILITY",
+      "Source digest sha256:965a1e0cb8dd41f75af96f9bbd77e8134fb033e23eb85ef88129987741879023",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RFC1406-CAPABILITY"
+  }
+}

@@ -1,0 +1,58 @@
+#
+# PySNMP MIB module ALCATEL-IND1-OSPF3-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ALCATEL-IND1-OSPF3-MIB
+# Source digest sha256:dce9e288f7b581b4e29b181c8222e61798ff223b3b789a1d5f2de32eba856b8b
+# Produced by pysmi-2.3.0
+#
+routingIND1Ospf3, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1Ospf3")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelIND1OSPF3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1))
+alcatelIND1OSPF3MIB.setRevisions(('2019-10-07 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setRevisionsDescriptions(('Updated the latest contact and Copyright information for ALE USA Inc.',))
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setLastUpdated('2019-10-07 00:00')
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setOrganization('ALE USA Inc')
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setContactInfo('Please consult with Customer Service to ensure the most appropriate\n         version of this document is used with the products in question:\n\n                        Alcatel-Lucent Enterprise,\n                           26801 West Agoura Road\n                        Agoura Hills, CA  91301-5122\n                          United States Of America\n\n        Telephone:               +1 800 995 2696 \n \t\t\t\t                 \n        Electronic Mail:         ebg_global_supportcenter@al-enterprise.com\n        World Wide Web:          https://www.al-enterprise.com')
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setDescription('This module describes an authoritative enterprise-specific Simple\n         Network Management Protocol (SNMP) Management Information Base (MIB):\n\n             This proprietary MIB contains management information for\n             the configuration of OSPFv3 global configuration parameters.\n\n         The right to make changes in specification and other information\n         contained in this document without prior notice is reserved.\n\n         No liability shall be assumed for any incidental, indirect, special, o\nr\n         consequential damages whatsoever arising from or related to this\n         document or the information contained herein.\n\n         Vendors, end-users, and other interested parties are granted\n         non-exclusive license to use this specification in connection with\n         management of the products for which it is intended to be used.\n\n                     Copyright (C) ALE USA Inc. 2014-2019\n\t\t     Copyright (C) 1995-2013 Alcatel-Lucent\n                     ALL RIGHTS RESERVED WORLDWIDE')
+alcatelIND1OSPF3MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1))
+alaProtocolOspf3 = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1))
+alaOspf3OrigRouteTag = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 1), Unsigned32().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3OrigRouteTag.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3OrigRouteTag.setDescription('Route tag that is originated with ASEs')
+alaOspf3TimerSpfDelay = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3TimerSpfDelay.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3TimerSpfDelay.setDescription('Delay (in seconds) between topology change and SPF run')
+alaOspf3TimerSpfHold = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3TimerSpfHold.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3TimerSpfHold.setDescription('Delay (in seconds) between subsequent SPF executions')
+alaOspf3RestartHelperSupport = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartHelperSupport.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3RestartHelperSupport.setDescription('This router can be a helper to another restarting router')
+alaOspf3RestartStrictLsaChecking = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartStrictLsaChecking.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3RestartStrictLsaChecking.setDescription('Will changed LSA result in restart termination')
+alaOspf3RestartInitiate = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartInitiate.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3RestartInitiate.setDescription('Start a graceful restart')
+alaOspf3MTUCheck = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3MTUCheck.setStatus('current')
+if mibBuilder.loadTexts: alaOspf3MTUCheck.setDescription('Verify the MTU of a neighbor matches our own.')
+alcatelIND1OSPF3MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2))
+alcatelIND1OSPF3MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1))
+alcatelIND1OSPF3MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2))
+alcatelIND1OSPF3MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-OSPF3-MIB", "alaOSPF3ConfigMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1OSPF3MIBCompliance = alcatelIND1OSPF3MIBCompliance.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIBCompliance.setDescription('The compliance statement for OSPFv3\n             and implementing the ALCATEL-IND1-OSPF3 MIB.')
+alaOSPF3ConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-OSPF3-MIB", "alaOspf3OrigRouteTag"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfDelay"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfHold"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartHelperSupport"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartStrictLsaChecking"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartInitiate"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3MTUCheck"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaOSPF3ConfigMIBGroup = alaOSPF3ConfigMIBGroup.setStatus('current')
+if mibBuilder.loadTexts: alaOSPF3ConfigMIBGroup.setDescription('A collection of objects to support management of OSPF3.')
+mibBuilder.exportSymbols("ALCATEL-IND1-OSPF3-MIB", PYSNMP_MODULE_ID=alcatelIND1OSPF3MIB, alaOSPF3ConfigMIBGroup=alaOSPF3ConfigMIBGroup, alaOspf3MTUCheck=alaOspf3MTUCheck, alaOspf3OrigRouteTag=alaOspf3OrigRouteTag, alaOspf3RestartHelperSupport=alaOspf3RestartHelperSupport, alaOspf3RestartInitiate=alaOspf3RestartInitiate, alaOspf3RestartStrictLsaChecking=alaOspf3RestartStrictLsaChecking, alaOspf3TimerSpfDelay=alaOspf3TimerSpfDelay, alaOspf3TimerSpfHold=alaOspf3TimerSpfHold, alaProtocolOspf3=alaProtocolOspf3, alcatelIND1OSPF3MIB=alcatelIND1OSPF3MIB, alcatelIND1OSPF3MIBCompliance=alcatelIND1OSPF3MIBCompliance, alcatelIND1OSPF3MIBCompliances=alcatelIND1OSPF3MIBCompliances, alcatelIND1OSPF3MIBConformance=alcatelIND1OSPF3MIBConformance, alcatelIND1OSPF3MIBGroups=alcatelIND1OSPF3MIBGroups, alcatelIND1OSPF3MIBObjects=alcatelIND1OSPF3MIBObjects)

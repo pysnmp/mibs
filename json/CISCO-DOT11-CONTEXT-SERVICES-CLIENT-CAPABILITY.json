@@ -1,0 +1,98 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDot11CscCapability": {
+    "name": "ciscoDot11CscCapability",
+    "oid": "1.3.6.1.4.1.9.7.336",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-07-24 00:00",
+        "description": "Added ciscoDot11CscCapabilityV2 for IOS 12.3(2)."
+      },
+      {
+        "revision": "2003-08-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11CscCapabilityV1": {
+    "name": "ciscoDot11CscCapabilityV1",
+    "oid": "1.3.6.1.4.1.9.7.336.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "includes": [
+          "ciscoDot11CscConfigGlobalGroup"
+        ],
+        "variations": [
+          {
+            "object": "cDot11CscMnInactivityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11CscStateTransitions",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11CscCapabilityV2": {
+    "name": "ciscoDot11CscCapabilityV2",
+    "oid": "1.3.6.1.4.1.9.7.336.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3(2) JA",
+    "capabilities": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "includes": [
+          "ciscoDot11CscConfigGlobalGroup"
+        ],
+        "variations": [
+          {
+            "object": "cDot11CscMnInactivityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11CscStateTransitions",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DOT11-CONTEXT-SERVICES-CLIENT-CAPABILITY",
+      "Source digest sha256:2b4738331268fc53d17bab01250901266f9ba108cb2be78e1f30515ebf045ab5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-CAPABILITY"
+  }
+}

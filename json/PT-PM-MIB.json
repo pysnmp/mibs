@@ -1,0 +1,228 @@
+{
+  "imports": {
+    "class": "imports",
+    "PT-MIB": [
+      "pt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ptPM": {
+    "name": "ptPM",
+    "oid": "1.3.6.1.4.1.193.223.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-08-29 12:30",
+        "description": "Support for PT PM OIDs"
+      },
+      {
+        "revision": "2016-03-09 12:30",
+        "description": "Version 1.0: Validated."
+      },
+      {
+        "revision": "2016-02-10 12:30",
+        "description": "Version 0.1: The initial version of this MIB module."
+      }
+    ]
+  },
+  "ptPMConformance": {
+    "name": "ptPMConformance",
+    "oid": "1.3.6.1.4.1.193.223.2.5.2",
+    "class": "objectidentity"
+  },
+  "ptPMTable": {
+    "name": "ptPMTable",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptPMEntry": {
+    "name": "ptPMEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-PM-MIB",
+        "object": "queueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "queueIndex": {
+    "name": "queueIndex",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "forwardingPacket": {
+    "name": "forwardingPacket",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "forwardingOctets": {
+    "name": "forwardingOctets",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "discardPackets": {
+    "name": "discardPackets",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "discardOctets": {
+    "name": "discardOctets",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPackets": {
+    "name": "inputPackets",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputOctets": {
+    "name": "inputOctets",
+    "oid": "1.3.6.1.4.1.193.223.2.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptPMCompliances": {
+    "name": "ptPMCompliances",
+    "oid": "1.3.6.1.4.1.193.223.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "ptPMGroups": {
+    "name": "ptPMGroups",
+    "oid": "1.3.6.1.4.1.193.223.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "ptPMFullCompliance": {
+    "name": "ptPMFullCompliance",
+    "oid": "1.3.6.1.4.1.193.223.2.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptPMCompleteGroup",
+        "module": "PT-PM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptPMCompleteGroup": {
+    "name": "ptPMCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.223.2.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PT-PM-MIB",
+        "object": "forwardingPacket"
+      },
+      {
+        "module": "PT-PM-MIB",
+        "object": "forwardingOctets"
+      },
+      {
+        "module": "PT-PM-MIB",
+        "object": "discardPackets"
+      },
+      {
+        "module": "PT-PM-MIB",
+        "object": "discardOctets"
+      },
+      {
+        "module": "PT-PM-MIB",
+        "object": "inputPackets"
+      },
+      {
+        "module": "PT-PM-MIB",
+        "object": "inputOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PT-PM-MIB",
+      "Source digest sha256:78fe823904b71151820f18ecc1799919d72dbcd5c87f0627c5287d1da94787b4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PT-PM-MIB"
+  }
+}

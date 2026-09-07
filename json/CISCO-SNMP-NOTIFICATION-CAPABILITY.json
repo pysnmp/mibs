@@ -1,0 +1,343 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSnmpNotificationCapability": {
+    "name": "ciscoSnmpNotificationCapability",
+    "oid": "1.3.6.1.4.1.9.7.330",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Added capability statement cSnmpNotifCapc4710aceVA1R700 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-03-29 00:00",
+        "description": "Added capability statement cSnmpNotifCapACSWV03R000 for Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2004-07-28 00:00",
+        "description": "Added capability for VISM Release 3.3."
+      },
+      {
+        "revision": "2003-08-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cSnmpNotifCapCatOSV05R0501": {
+    "name": "cSnmpNotifCapCatOSV05R0501",
+    "oid": "1.3.6.1.4.1.9.7.330.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 5.5(1).",
+    "capabilities": [
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup",
+          "snmpNotifyFilterGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpNotifyTag",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 32
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "snmpNotifyStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2,
+                  "nonVolatile": 3,
+                  "readOnly": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "snmpNotifyFilterProfileStorType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "snmpNotifyFilterStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cSnmpNotifCapVISM33": {
+    "name": "cSnmpNotifCapVISM33",
+    "oid": "1.3.6.1.4.1.9.7.330.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco VISM Release 3.3.",
+    "capabilities": [
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyFilterGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpNotifyFilterProfileName",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileStorType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notReady": 3
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterMask",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "included": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cSnmpNotifCapACSWV03R000": {
+    "name": "cSnmpNotifCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.330.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup",
+          "snmpNotifyFilterGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpNotifyTag",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileName",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileStorType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterMask",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cSnmpNotifCapc4710aceVA1R700": {
+    "name": "cSnmpNotifCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.330.4",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                         for ACE 4710 Application Control Engine \n                         Appliance.",
+    "capabilities": [
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup",
+          "snmpNotifyFilterGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpNotifyTag",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileName",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileStorType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterProfileRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterMask",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyFilterRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SNMP-NOTIFICATION-CAPABILITY",
+      "Source digest sha256:50ba4bc0f41c45fa4da42c0920773b35793b6fd3470b4ed73ef524d6abd1a98c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SNMP-NOTIFICATION-CAPABILITY"
+  }
+}

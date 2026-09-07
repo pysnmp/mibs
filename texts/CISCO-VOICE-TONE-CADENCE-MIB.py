@@ -1,0 +1,132 @@
+#
+# PySNMP MIB module CISCO-VOICE-TONE-CADENCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-VOICE-TONE-CADENCE-MIB
+# Source digest sha256:6731ad2cf75bdf91c92745c9c5cf9b68c3e97b5d684e5e660ee0b184e195a084
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+CVoiceTonePlanIndex, cmgwIndex = mibBuilder.importSymbols("CISCO-MEDIA-GATEWAY-MIB", "CVoiceTonePlanIndex", "cmgwIndex")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CountryCode, = mibBuilder.importSymbols("CISCO-TC", "CountryCode")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TextualConvention")
+ciscoVoiceToneCadenceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 356))
+ciscoVoiceToneCadenceMIB.setRevisions(('2003-05-28 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setRevisionsDescriptions(('Initial version of the MIB.',))
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setLastUpdated('2003-05-28 00:00')
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setContactInfo('       Cisco Systems\n                        Customer Service\n                Postal: 170 W. Tasman Drive\n                        San Jose, CA  95134\n                        USA\n                Tel: +1 800 553-NETS\n                E-mail: cs-voice-gateway@cisco.com')
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setDescription('The MIB defines the attributes of the programmable\n                 tones specified in ITU-T E.180 Supplement 2. \n\n                 Each country has its own regulation to the generation\n                 and detection of the call progressing\n                 tones such as dial tone, busy tone, ring back tone.\n                 The tone attributes are programmable, for example\n                 frequency, amplitude, cadence and duration of the\n                 tone.')
+ciscoVoiceToneCadenceMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 0))
+ciscoVoiceToneCadenceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 1))
+cVoiceToneCadenceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1))
+class CToneFrequency(TextualConvention, OctetString):
+    reference = 'ITU E.180 Supplement 2 - Various Tones Used In National\n         Network.'
+    description = "This Textual Convention defines frequency of the\n         programmable tone to be played or detected.\n\n         The format of frequency of the programmable tone is\n         based on ITU E.180 Supplement 2. The frequency octet string\n         is a combination of Frequency Expression, frequency \n         conjuncture and frequency delimiter.\n\n         Frequency Expression - The frequency expression is a single\n               numeric value or a string of numeric values with the \n               notation '+' or '/'. The numeric values are the\n               frequency's decimal values in Hz.\n\n         '+' - frequency conjuncture. The Frequency Expression to the\n               left and to the right of this notation are emitted\n               simultaneously.\n\n         '/' - frequency delimiter. The Frequency Expression to the\n               left of this notation is emitted before the Frequency\n               Expression to the right.\n\n         For example, the Payphone Recognition Tone of Australia is\n         '1100+1750/750+1450', which means frequency 1100Hz and 1750Hz\n         are emitted simultaneously, stopped for a period of time,\n         followed by the simultaneously emission of 750Hz and 1450Hz.\n        "
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 64)
+
+class CToneAmplitude(TextualConvention, OctetString):
+    reference = 'ITU E.180/Q.35 - Technical Characteristic of Tones for the \n         Telephone Service.'
+    description = "This Textual Convention defines amplitude expression of the\n         programmable tone to be played or detected.\n\n         This textual convention is a combination of Amplitude \n         Expression, Amplitude conjuncture and Amplitude delimiter.\n\n         Amplitude Expression - The amplitude expression is a single\n               numeric value or a string of numeric values with the \n               notation '+' or '/'. The numeric values are the\n               amplitude's decimal values in dBm. The numeric values\n               are usually negative.\n\n         '+' - Amplitude conjuncture. The Amplitude Expression to the\n               left and to the right of this notation are emitted \n               simultaneously.\n               The Amplitude Expression preceded this notation\n               is the amplitude expression of the Frequency Expression \n               preceded '+'.\n               The Amplitude Expression followed this notation\n               is the amplitude expression of the Frequency Expression\n               followed '+'.\n\n         '/' - Amplitude delimiter. The Amplitude Expression to the\n               left of this notation is emitted before the Amplitude\n               Expression to the right.\n               The Amplitude Expression preceded this notation\n               is the amplitude expression of the Frequency Expression \n               preceded '/'.\n               The Amplitude Expression followed this notation\n               is the amplitude expression of the Frequency Expression \n               followed '/'.\n\n         For example, the amplitude of USA Recall Dial Tone is\n         '-10+-10' and the frequency is '350+440'. \n         It means amplitude of the both frequencies 350Hz and 440Hz\n         are emitted simultaneously, each with amplitude expression\n         -10 dBm."
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 64)
+
+class CToneCadence(TextualConvention, OctetString):
+    reference = 'ITU E.180 Supplement 2 - Various Tones Used In National\n         Network.'
+    description = "This Textual Convention defines cadence of the programmable\n         tone to be played or detected.\n\n         The format of cadence of the programmable tone is\n         based on ITU E.180 Supplement 2.\n\n         Cadence string consists of cadence units, digits, keywords \n         and special characters. Cadence Units are digits where each\n         unit is one second.\n         No space is allowed in the cadence string. \n         The keywords are 'on', 'off', 'CYCLES' and 'CONTINUOUS'.\n         The special characters are '-', '*', '(', ')' and ','.\n\n         'on' -  The number preceded this keyword is the duration of\n                 emission in second.\n         'off' - The number preceded this keyword is the duration of\n                 absence in second.\n         'CONTINUOUS' - The frequencies are sent out and stayed on\n                 indefinitely.\n         An on-off Period is either the keyword 'CONTINUOUS' or a\n         Cadence Unit followed by the keyword 'ON' or 'OFF'.\n\n         '-' - Separator. It separates multiple on-off Periods.\n\n         A Cadence List is a sequence of  on-off Periods separated by\n         the special character '-'. \n\n         'CYCLES' - When preceded by special character ',' and a\n                 number X, the Cadence List before the special\n                 character ',' is repeated X times. \n\n         Cadence List - The parentheses are delimiters. It is used\n                 for the repetition. The entire Cadence List in the\n                 parentheses is to be repeated. Without the delimiter,\n                 only the first On-off Period is repeated.\n\n         '*' - Repetition. When preceded by a number X, the On-off\n               Period or the parenthesized Cadence List is to be\n               repeated X times.\n\n         ',' - Terminator.  It terminates a Cadence List and announces\n               the presence of the keyword, 'CYCLES'. When followed by\n               a number X and then the keyword 'CYCLES', the preceded\n               Cadence List is repeated X times\n\n         For example, in United States, the cadence of confirmation\n         tone is '3*100on-2*100off', the cadence of dial tone is\n         '3*(100on-100off)-CONTINUOUS'.\n         In United Kingdom, the cadence of payphone tone is\n         '200on-200off-200on-200off'.\n         Any thing other then the above notation is not supported.\n        "
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 64)
+
+cvtcTonePlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cvtcTonePlanTable.setReference('ITU E.180 Supplement 2 - Various Tones Used In National\n          Network.')
+if mibBuilder.loadTexts: cvtcTonePlanTable.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanTable.setDescription('This table contains the configuration of tone plans \n          for the programmable tones in different countries.')
+cvtcTonePlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanId"))
+if mibBuilder.loadTexts: cvtcTonePlanEntry.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanEntry.setDescription('An entry represents one tone plan which defines attributes\n          of the programmable tones for a country.\n          Each country can have more than one tone plans with \n          different version.  Each entry should have the unique\n          combination of cvtcTonePlanCountry and cvtcTonePlanVersion.\n\n          There are some system built-in tone plans. The built-in \n          tone plans will be populated by the system automatically \n          at the system start-up. They can not be created, deleted or \n          modified by user.\n\n          When an entry is created, the following objects must be\n          provided:\n                   cvtcTonePlanCountry, \n                   cvtcTonePlanVersion, \n                   cvtcTonePlanFileName \n\n          When an entry is active, it can not be modified.\n          A system built-in tone plan can not be deleted. Only the\n          entries added by user can be deleted.')
+cvtcTonePlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 1), CVoiceTonePlanIndex()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cvtcTonePlanId.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanId.setDescription('This object uniquely identifies the tone plan in the table.')
+cvtcTonePlanVifCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtcTonePlanVifCount.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanVifCount.setDescription('This object indicates the number of voice interfaces are \n         using the tone plan.')
+cvtcTonePlanCountry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 3), CountryCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanCountry.setReference('ITU E.180 Supplement 2.\n         ISO-3166 Country Code. ')
+if mibBuilder.loadTexts: cvtcTonePlanCountry.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanCountry.setDescription('This object specifies the country code (defined in ISO-3166)\n         of the country that the tone plan is used for.\n\n         The country specified by the country code should be registered\n         in ITU E.180 Supplement 2. \n\n         Any other entry in this table may have the identical \n         country code, but the combination of cvtcTonePlanCountry and \n         cvtcTonePlanVersion must be unique.')
+cvtcTonePlanVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanVersion.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanVersion.setDescription('This object specifies the version of the tone plan for\n         a country. One country may have many tone plans,\n         therefore they may have the same country name, but the \n         combination of cvtcTonePlanCountry and cvtcTonePlanVersion \n         must be unique.')
+cvtcTonePlanFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanFileName.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanFileName.setDescription("This object specifies the valid file name stored on\n         the media gateway's harddisk.\n         The tone plan file can be transferred to the media gateway\n         via FTP text file transfer mechanism.\n         When creating a conceptual row, the tone plan file must\n         be transferred to the media gateway already.\n\n         If the entry is a built-in tone plan predefined in system,\n         then this object will have the value of 'BUILT-IN'.\n         Other provision-able tone plan files are not allowed to have\n         the string 'BUILT-IN' as their names.")
+cvtcTonePlanStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 6), StorageType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtcTonePlanStorageType.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanStorageType.setDescription('This object specifies the storage type for this conceptual\n         row. If this conceptual row represents a system built-in\n         tone plan, the value of this object is readOnly (5).\n         If this conceptual row represents an user defined tone \n         plan, the value of this object is nonVolatile (3). \n\n         The built-in tone plans will be added by the system\n         automatically at the system start-up. They can not be\n         added, deleted or modified by user.')
+cvtcTonePlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanRowStatus.setStatus('current')
+if mibBuilder.loadTexts: cvtcTonePlanRowStatus.setDescription('The entries for The system built-in tone plans will be\n         added by the system at start-up, they can not be added,\n         modified or deleted by user.')
+cvtcToneIdTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cvtcToneIdTable.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneIdTable.setDescription('This table contains the identification of the \n          programmable tones.')
+cvtcToneIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneId"))
+if mibBuilder.loadTexts: cvtcToneIdEntry.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneIdEntry.setDescription('An entry represents the identification for  \n          one programmable tone in a tone plan.')
+cvtcToneId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cvtcToneId.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneId.setDescription('This object uniquely identifies the programmable tone in\n         a tone plan.')
+cvtcToneName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcToneName.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneName.setDescription('This object specified the name of the programmable tone.')
+cvtcToneIdRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcToneIdRowStatus.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneIdRowStatus.setDescription('The entries for ITU defined tones will be added by the \n         system at start-up.')
+cvtcProgrammableToneTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cvtcProgrammableToneTable.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneTable.setDescription('This table contains the configurable attributes \n          of the programmable tones for tone plan.')
+cvtcProgrammableToneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanId"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneId"))
+if mibBuilder.loadTexts: cvtcProgrammableToneEntry.setReference('ITU E.180 Supplement 2 - Various Tones Used In National\n          Network.')
+if mibBuilder.loadTexts: cvtcProgrammableToneEntry.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneEntry.setDescription('An entry represents the configurable attributes for \n          one programmable tone in a tone plan.\n          The tone attributes are specified in ITU E.180\n          Supplement 2.')
+cvtcProgrammableToneFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 1), CToneFrequency()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneFrequency.setReference('ITU E.180 Supplement 2 - Various Tones Used In National\n          Network.')
+if mibBuilder.loadTexts: cvtcProgrammableToneFrequency.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneFrequency.setDescription('This object specified the frequency of the tone \n         to be played or detected.')
+cvtcProgrammableToneAmplitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 2), CToneAmplitude()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneAmplitude.setReference('ITU E.180/Q.35 - Technical Characteristic of Tones for the \n         Telephone Service.')
+if mibBuilder.loadTexts: cvtcProgrammableToneAmplitude.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneAmplitude.setDescription('This object specified the amplitude expression of the tone \n         to be played or detected.')
+cvtcProgrammableToneCadence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 3), CToneCadence()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneCadence.setReference('ITU E.180 Supplement 2 - Various Tones Used In National\n          Network.')
+if mibBuilder.loadTexts: cvtcProgrammableToneCadence.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneCadence.setDescription('This object specified the cadence of the tone \n         to be played or detected.')
+cvtcProgrammableToneDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneDuration.setReference('ITU E.180/Q.35 - Technical Characteristic of Tones for the \n         Telephone Service.')
+if mibBuilder.loadTexts: cvtcProgrammableToneDuration.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneDuration.setDescription('This object specified the duration of the tone \n         will be played.\n         The value of 0 indicates that the tone will be played\n         infinitely unless interrupted.')
+cvtcProgrammableToneStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 5), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneStorageType.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneStorageType.setDescription('This object specifies the storage type for this \n         conceptual row. If this conceptual row represents \n         a programmable tone in a system built-in tone plan,\n         the value of this object is permanent (4). \n         If this conceptual row represents a programmable tone\n         in an user defined tone plan, the value of this object\n         is nonVolatile (3). \n\n         If the value of this object is permanent (4), \n         cvtcProgrammableToneDuration is the only object can be\n         modified by the user.')
+cvtcProgrammableToneRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneRowStatus.setStatus('current')
+if mibBuilder.loadTexts: cvtcProgrammableToneRowStatus.setDescription('This object is used to add, delete or modify the entry\n        of the table.\n        When an entry is created, the following objects have to\n        be provided:\n            cvtcProgrammableToneFrequency,\n            cvtcProgrammableToneAmplitude,\n            cvtcProgrammableToneCadence.\n       ')
+ciscoVoiceToneCadenceMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3))
+cVoiceToneCadenceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 1))
+cVoiceToneCadenceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 2))
+cVoiceToneCadenceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 1, 1)).setObjects(("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVoiceToneCadenceCompliance = cVoiceToneCadenceCompliance.setStatus('current')
+if mibBuilder.loadTexts: cVoiceToneCadenceCompliance.setDescription('The compliance statement for entities which implement\n         the CISCO-VOICE-TONE-CADENCE-MIB')
+cvtcToneConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 2, 1)).setObjects(("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanVifCount"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanCountry"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanVersion"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanFileName"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanStorageType"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanRowStatus"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneName"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneIdRowStatus"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneFrequency"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneAmplitude"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneCadence"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneDuration"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneStorageType"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvtcToneConfigGroup = cvtcToneConfigGroup.setStatus('current')
+if mibBuilder.loadTexts: cvtcToneConfigGroup.setDescription('The collection of objects providing programmable tones\n         and tone plans. ')
+mibBuilder.exportSymbols("CISCO-VOICE-TONE-CADENCE-MIB", CToneAmplitude=CToneAmplitude, CToneCadence=CToneCadence, CToneFrequency=CToneFrequency, PYSNMP_MODULE_ID=ciscoVoiceToneCadenceMIB, cVoiceToneCadenceCompliance=cVoiceToneCadenceCompliance, cVoiceToneCadenceCompliances=cVoiceToneCadenceCompliances, cVoiceToneCadenceConfig=cVoiceToneCadenceConfig, cVoiceToneCadenceGroups=cVoiceToneCadenceGroups, ciscoVoiceToneCadenceMIB=ciscoVoiceToneCadenceMIB, ciscoVoiceToneCadenceMIBConform=ciscoVoiceToneCadenceMIBConform, ciscoVoiceToneCadenceMIBNotifs=ciscoVoiceToneCadenceMIBNotifs, ciscoVoiceToneCadenceMIBObjects=ciscoVoiceToneCadenceMIBObjects, cvtcProgrammableToneAmplitude=cvtcProgrammableToneAmplitude, cvtcProgrammableToneCadence=cvtcProgrammableToneCadence, cvtcProgrammableToneDuration=cvtcProgrammableToneDuration, cvtcProgrammableToneEntry=cvtcProgrammableToneEntry, cvtcProgrammableToneFrequency=cvtcProgrammableToneFrequency, cvtcProgrammableToneRowStatus=cvtcProgrammableToneRowStatus, cvtcProgrammableToneStorageType=cvtcProgrammableToneStorageType, cvtcProgrammableToneTable=cvtcProgrammableToneTable, cvtcToneConfigGroup=cvtcToneConfigGroup, cvtcToneId=cvtcToneId, cvtcToneIdEntry=cvtcToneIdEntry, cvtcToneIdRowStatus=cvtcToneIdRowStatus, cvtcToneIdTable=cvtcToneIdTable, cvtcToneName=cvtcToneName, cvtcTonePlanCountry=cvtcTonePlanCountry, cvtcTonePlanEntry=cvtcTonePlanEntry, cvtcTonePlanFileName=cvtcTonePlanFileName, cvtcTonePlanId=cvtcTonePlanId, cvtcTonePlanRowStatus=cvtcTonePlanRowStatus, cvtcTonePlanStorageType=cvtcTonePlanStorageType, cvtcTonePlanTable=cvtcTonePlanTable, cvtcTonePlanVersion=cvtcTonePlanVersion, cvtcTonePlanVifCount=cvtcTonePlanVifCount)

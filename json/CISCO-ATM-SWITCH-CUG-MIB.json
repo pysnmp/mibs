@@ -1,0 +1,423 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "csCugMIB": {
+    "name": "csCugMIB",
+    "oid": "1.3.6.1.4.1.9.9.89",
+    "class": "moduleidentity"
+  },
+  "CsCugInterlockCode": {
+    "name": "CsCugInterlockCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Unsigned32": {
+    "name": "Unsigned32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "csCugMIBObjects": {
+    "name": "csCugMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.89.1",
+    "class": "objectidentity"
+  },
+  "csCugInterlockCodeTable": {
+    "name": "csCugInterlockCodeTable",
+    "oid": "1.3.6.1.4.1.9.9.89.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCugInterlockCodeEntry": {
+    "name": "csCugInterlockCodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.89.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugInterlockCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csCugInterlockCode": {
+    "name": "csCugInterlockCode",
+    "oid": "1.3.6.1.4.1.9.9.89.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsCugInterlockCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCugInterlockCodeAliasName": {
+    "name": "csCugInterlockCodeAliasName",
+    "oid": "1.3.6.1.4.1.9.9.89.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugInterlockCodeRowStatus": {
+    "name": "csCugInterlockCodeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.89.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugIfTable": {
+    "name": "csCugIfTable",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCugIfEntry": {
+    "name": "csCugIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csCugIfAccessEnable": {
+    "name": "csCugIfAccessEnable",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugIfPermitUnknownCugsToUser": {
+    "name": "csCugIfPermitUnknownCugsToUser",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugIfPermitUnknownCugsFromUser": {
+    "name": "csCugIfPermitUnknownCugsFromUser",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permitPerCall": 2,
+          "permitPermanently": 3
+        }
+      }
+    },
+    "default": {
+      "value": "deny",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugIfRowStatus": {
+    "name": "csCugIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.89.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugTable": {
+    "name": "csCugTable",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCugEntry": {
+    "name": "csCugEntry",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugInterlockCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csCugIndex": {
+    "name": "csCugIndex",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugPreferential": {
+    "name": "csCugPreferential",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugDenySameGroupToUser": {
+    "name": "csCugDenySameGroupToUser",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugDenySameGroupFromUser": {
+    "name": "csCugDenySameGroupFromUser",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugRowStatus": {
+    "name": "csCugRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.89.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csCugMIBConformance": {
+    "name": "csCugMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.89.3",
+    "class": "objectidentity"
+  },
+  "csCugMIBCompliances": {
+    "name": "csCugMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.89.3.1",
+    "class": "objectidentity"
+  },
+  "csCugMIBGroups": {
+    "name": "csCugMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.89.3.2",
+    "class": "objectidentity"
+  },
+  "csCugMIBCompliance": {
+    "name": "csCugMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.89.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csCugMIBGroup",
+        "module": "CISCO-ATM-SWITCH-CUG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csCugMIBGroup": {
+    "name": "csCugMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.89.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugInterlockCodeAliasName"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugInterlockCodeRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugIfAccessEnable"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugIfPermitUnknownCugsToUser"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugIfPermitUnknownCugsFromUser"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugIfRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugIndex"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugPreferential"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugDenySameGroupToUser"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugDenySameGroupFromUser"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-CUG-MIB",
+        "object": "csCugRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ATM-SWITCH-CUG-MIB",
+      "Source digest sha256:d150b5d69b25d2ae33740bb22ad10c130ee3787e514859b92d53f3931d170486",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ATM-SWITCH-CUG-MIB"
+  }
+}

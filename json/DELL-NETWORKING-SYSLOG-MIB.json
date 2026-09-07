@@ -1,0 +1,66 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dellNetSyslogMib": {
+    "name": "dellNetSyslogMib",
+    "oid": "1.3.6.1.4.1.6027.3.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dellNetSyslogNotifications": {
+    "name": "dellNetSyslogNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.30.1",
+    "class": "objectidentity"
+  },
+  "dellNetSyslogTraps": {
+    "name": "dellNetSyslogTraps",
+    "oid": "1.3.6.1.4.1.6027.3.30.1.1",
+    "class": "objectidentity"
+  },
+  "dellNetSyslogServerNotReachableTrap": {
+    "name": "dellNetSyslogServerNotReachableTrap",
+    "oid": "1.3.6.1.4.1.6027.3.30.1.1.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dellNetSyslogServerReachableTrap": {
+    "name": "dellNetSyslogServerReachableTrap",
+    "oid": "1.3.6.1.4.1.6027.3.30.1.1.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DELL-NETWORKING-SYSLOG-MIB",
+      "Source digest sha256:8566b09d362746fa8ccb404ffd03550da0e83f463043b712d2c5e8a01bf5c92a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DELL-NETWORKING-SYSLOG-MIB"
+  }
+}

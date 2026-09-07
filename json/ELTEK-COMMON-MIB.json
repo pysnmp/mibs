@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eltek": {
+    "name": "eltek",
+    "oid": "1.3.6.1.4.1.12148",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-03 08:25",
+        "description": "Updates in miscellaneous info fields."
+      },
+      {
+        "revision": "2010-10-29 08:29",
+        "description": "Added traps and OID's for SolarChargers. Added reading of values on programmable inputs of IO Monitor."
+      },
+      {
+        "revision": "2009-03-12 15:15",
+        "description": "Added support for external IO monitor and Load monitor units. Changes are done in the MIB to accomodate the v2c standard."
+      },
+      {
+        "revision": "2008-01-30 11:49",
+        "description": "Some OIDs were added to this revision. Since all new stuff are additions and no existing information was moved, this V3 revision stays in branch 9. enjoy!"
+      },
+      {
+        "revision": "2007-06-22 11:27",
+        "description": "Branch 9, contains mainly changes in the Traps format. The traps now meets SNMP v2c specification."
+      },
+      {
+        "revision": "2005-09-07 12:38",
+        "description": "added battery test and boost start/stop and ac voltages"
+      },
+      {
+        "revision": "2005-06-28 11:30",
+        "description": "First revision"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ELTEK-COMMON-MIB",
+      "Source digest sha256:4b821ce7758e36b309703baa55eed3c7cb3c783d473b6a2a07d9e80caf3fc560",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ELTEK-COMMON-MIB"
+  }
+}

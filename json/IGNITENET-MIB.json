@@ -1,0 +1,692 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ignitenetMIB": {
+    "name": "ignitenetMIB",
+    "oid": "1.3.6.1.4.1.47307.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-02-24 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "ignitenet": {
+    "name": "ignitenet",
+    "oid": "1.3.6.1.4.1.47307",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.47307.1.1",
+    "class": "objectidentity"
+  },
+  "ethernetPorts": {
+    "name": "ethernetPorts",
+    "oid": "1.3.6.1.4.1.47307.1.2",
+    "class": "objectidentity"
+  },
+  "radios": {
+    "name": "radios",
+    "oid": "1.3.6.1.4.1.47307.1.3",
+    "class": "objectidentity"
+  },
+  "metrolinqRadios": {
+    "name": "metrolinqRadios",
+    "oid": "1.3.6.1.4.1.47307.1.4",
+    "class": "objectidentity"
+  },
+  "model": {
+    "name": "model",
+    "oid": "1.3.6.1.4.1.47307.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVersion": {
+    "name": "hwVersion",
+    "oid": "1.3.6.1.4.1.47307.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwVersion": {
+    "name": "fwVersion",
+    "oid": "1.3.6.1.4.1.47307.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethNumber": {
+    "name": "ethNumber",
+    "oid": "1.3.6.1.4.1.47307.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethInfoTable": {
+    "name": "ethInfoTable",
+    "oid": "1.3.6.1.4.1.47307.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethInfoEntry": {
+    "name": "ethInfoEntry",
+    "oid": "1.3.6.1.4.1.47307.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IGNITENET-MIB",
+        "object": "ethNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethDescr": {
+    "name": "ethDescr",
+    "oid": "1.3.6.1.4.1.47307.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethInfoSpeed": {
+    "name": "ethInfoSpeed",
+    "oid": "1.3.6.1.4.1.47307.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethInfoDuplex": {
+    "name": "ethInfoDuplex",
+    "oid": "1.3.6.1.4.1.47307.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioNumber": {
+    "name": "mlRadioNumber",
+    "oid": "1.3.6.1.4.1.47307.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoTable": {
+    "name": "mlRadioInfoTable",
+    "oid": "1.3.6.1.4.1.47307.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mlRadioInfoEntry": {
+    "name": "mlRadioInfoEntry",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IGNITENET-MIB",
+        "object": "mlRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mlRadioInfoEnabled": {
+    "name": "mlRadioInfoEnabled",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoRegDomain": {
+    "name": "mlRadioInfoRegDomain",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoAckTimeout": {
+    "name": "mlRadioInfoAckTimeout",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoTxPower": {
+    "name": "mlRadioInfoTxPower",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoAMSDU": {
+    "name": "mlRadioInfoAMSDU",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoAMPDU": {
+    "name": "mlRadioInfoAMPDU",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoRSSILocal": {
+    "name": "mlRadioInfoRSSILocal",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoRSSIRemote": {
+    "name": "mlRadioInfoRSSIRemote",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoEncryption": {
+    "name": "mlRadioInfoEncryption",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoSSID": {
+    "name": "mlRadioInfoSSID",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioInfoFailover": {
+    "name": "mlRadioInfoFailover",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusTable": {
+    "name": "mlRadioStatusTable",
+    "oid": "1.3.6.1.4.1.47307.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mlRadioStatusEntry": {
+    "name": "mlRadioStatusEntry",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IGNITENET-MIB",
+        "object": "mlRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mlRadioStatusFailoverStatus": {
+    "name": "mlRadioStatusFailoverStatus",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusFailoverStats": {
+    "name": "mlRadioStatusFailoverStats",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusCRCErrors": {
+    "name": "mlRadioStatusCRCErrors",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusDrops": {
+    "name": "mlRadioStatusDrops",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusRetries": {
+    "name": "mlRadioStatusRetries",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RadioIndex": {
+    "name": "RadioIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "mlRadioInfoIndex": {
+    "name": "mlRadioInfoIndex",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mlRadioStatusIndex": {
+    "name": "mlRadioStatusIndex",
+    "oid": "1.3.6.1.4.1.47307.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "EthernetIndex": {
+    "name": "EthernetIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ethInfoIndex": {
+    "name": "ethInfoIndex",
+    "oid": "1.3.6.1.4.1.47307.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthernetIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FrequencyGHz": {
+    "name": "FrequencyGHz",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "mlRadioInfoFrequency": {
+    "name": "mlRadioInfoFrequency",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FrequencyGHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RadioMcsRate": {
+    "name": "RadioMcsRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "mcs-6m": 4,
+          "mcs-9M": 5,
+          "mcs-12M": 6,
+          "mcs-18M": 7,
+          "mcs-24M": 8,
+          "mcs-36M": 9,
+          "mcs-48M": 10,
+          "mcs-54M": 11,
+          "mcs0": 12,
+          "mcs1": 13,
+          "mcs2": 14,
+          "mcs3": 15,
+          "mcs4": 16,
+          "mcs5": 17,
+          "mcs6": 18,
+          "mcs7": 19,
+          "mcs8": 20,
+          "mcs9": 21,
+          "mcs10": 22,
+          "mcs11": 23,
+          "mcs12": 24,
+          "mcs13": 25,
+          "mcs14": 26,
+          "mcs15": 27,
+          "nss1-mcs0": 30,
+          "nss1-mcs1": 31,
+          "nss1-mcs2": 32,
+          "nss1-mcs3": 33,
+          "nss1-mcs4": 34,
+          "nss1-mcs5": 35,
+          "nss1-mcs6": 36,
+          "nss1-mcs7": 37,
+          "nss1-mcs8": 38,
+          "nss1-mcs9": 39,
+          "nss2-mcs1": 40,
+          "nss2-mcs2": 41,
+          "nss2-mcs3": 42,
+          "nss2-mcs4": 43,
+          "nss2-mcs5": 44,
+          "nss2-mcs6": 45,
+          "nss2-mcs7": 46,
+          "nss2-mcs8": 47,
+          "nss2-mcs9": 49
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mlRadioInfomcs": {
+    "name": "mlRadioInfomcs",
+    "oid": "1.3.6.1.4.1.47307.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioMcsRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IGNITENET-MIB",
+      "Source digest sha256:94442925c4a52eb0769dd114d3ec759649882ffab9f37c0f30eb6407752326ed",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IGNITENET-MIB"
+  }
+}

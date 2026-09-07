@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "NET-SNMP-EXAMPLES-MIB": [
+      "netSnmpExamples"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netSnmpPassExamples": {
+    "name": "netSnmpPassExamples",
+    "oid": "1.3.6.1.4.1.8072.2.255",
+    "class": "moduleidentity"
+  },
+  "netSnmpPassString": {
+    "name": "netSnmpPassString",
+    "oid": "1.3.6.1.4.1.8072.2.255.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "Life, the Universe, and Everything",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netSnmpPassTimeTicks": {
+    "name": "netSnmpPassTimeTicks",
+    "oid": "1.3.6.1.4.1.8072.2.255.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 363136200,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netSnmpPassIpAddress": {
+    "name": "netSnmpPassIpAddress",
+    "oid": "1.3.6.1.4.1.8072.2.255.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "value": "7f000001",
+      "format": "hex"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netSnmpPassCounter": {
+    "name": "netSnmpPassCounter",
+    "oid": "1.3.6.1.4.1.8072.2.255.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netSnmpPassGauge": {
+    "name": "netSnmpPassGauge",
+    "oid": "1.3.6.1.4.1.8072.2.255.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "default": {
+      "value": 42,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netSnmpPassOIDValue": {
+    "name": "netSnmpPassOIDValue",
+    "oid": "1.3.6.1.4.1.8072.2.255.99",
+    "class": "objectidentity"
+  },
+  "netSnmpPassTable": {
+    "name": "netSnmpPassTable",
+    "oid": "1.3.6.1.4.1.8072.2.255.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "netSnmpPassEntry": {
+    "name": "netSnmpPassEntry",
+    "oid": "1.3.6.1.4.1.8072.2.255.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-PASS-MIB",
+        "object": "netSnmpPassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "netSnmpPassIndex": {
+    "name": "netSnmpPassIndex",
+    "oid": "1.3.6.1.4.1.8072.2.255.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "netSnmpPassInteger": {
+    "name": "netSnmpPassInteger",
+    "oid": "1.3.6.1.4.1.8072.2.255.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 42,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netSnmpPassOID": {
+    "name": "netSnmpPassOID",
+    "oid": "1.3.6.1.4.1.8072.2.255.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "value": "(1, 3, 6, 1, 4, 1, 8072, 2, 255, 99)",
+      "format": "oid"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NET-SNMP-PASS-MIB",
+      "Source digest sha256:2c1815ad384b9cdd797ae05d4fbbdd8f467c450058c87b43355c61213fa471bb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NET-SNMP-PASS-MIB"
+  }
+}

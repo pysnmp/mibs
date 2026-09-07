@@ -1,0 +1,201 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmSeverityCode",
+      "AlarmStatus"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "queueDepth": {
+    "name": "queueDepth",
+    "oid": "1.3.6.1.4.1.3373.1103.84",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-05-20 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "DisplayString1024": {
+    "name": "DisplayString1024",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "displayhint": "1024a",
+    "status": "current"
+  },
+  "queueDepthMibVersion": {
+    "name": "queueDepthMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.84.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileTable": {
+    "name": "qdProfileTable",
+    "oid": "1.3.6.1.4.1.3373.1103.84.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qdProfileEntry": {
+    "name": "qdProfileEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.84.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-QUEUE-DEPTH-MIB",
+        "object": "qdProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qdProfileIndex": {
+    "name": "qdProfileIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.84.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileName": {
+    "name": "qdProfileName",
+    "oid": "1.3.6.1.4.1.3373.1103.84.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileDescription": {
+    "name": "qdProfileDescription",
+    "oid": "1.3.6.1.4.1.3373.1103.84.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString1024",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileSelect": {
+    "name": "qdProfileSelect",
+    "oid": "1.3.6.1.4.1.3373.1103.84.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qdActualProfile": {
+    "name": "qdActualProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.84.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileMismatchAlarm": {
+    "name": "qdProfileMismatchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.84.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qdProfileMismatchAlarmSeverityCode": {
+    "name": "qdProfileMismatchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.84.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "value": "warningTrapEnable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-QUEUE-DEPTH-MIB",
+      "Source digest sha256:aa07a1b3fbff37b31b2526b98711585f20f704a916cc88325cbf41c60830d09e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-QUEUE-DEPTH-MIB"
+  }
+}

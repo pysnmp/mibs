@@ -1,0 +1,285 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctTokenRingFnb"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctronFnbTR": {
+    "name": "ctronFnbTR",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1",
+    "class": "objectidentity"
+  },
+  "ctronMultiFnbTR": {
+    "name": "ctronMultiFnbTR",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2",
+    "class": "objectidentity"
+  },
+  "ctronFnbTRTable": {
+    "name": "ctronFnbTRTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctronFnbTREntry": {
+    "name": "ctronFnbTREntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-FNBTR-MIB",
+        "object": "ctronFnbTRIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctronFnbTRIndex": {
+    "name": "ctronFnbTRIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctronFnbConnectLeft": {
+    "name": "ctronFnbConnectLeft",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "detached": 2,
+          "attached": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctronFnbConnectRight": {
+    "name": "ctronFnbConnectRight",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "detached": 2,
+          "attached": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctronFnbBypass": {
+    "name": "ctronFnbBypass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctronFnbRPBypass": {
+    "name": "ctronFnbRPBypass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbTRTable": {
+    "name": "ctronMultiFnbTRTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbTREntry": {
+    "name": "ctronMultiFnbTREntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-FNBTR-MIB",
+        "object": "ctronMultiFnbTRIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-FNBTR-MIB",
+        "object": "ctronMultiFnbRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctronMultiFnbTRIndex": {
+    "name": "ctronMultiFnbTRIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbRingIndex": {
+    "name": "ctronMultiFnbRingIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbConnectLeft": {
+    "name": "ctronMultiFnbConnectLeft",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "detached": 2,
+          "attached": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbConnectRight": {
+    "name": "ctronMultiFnbConnectRight",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "detached": 2,
+          "attached": 3,
+          "faulted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbBypass": {
+    "name": "ctronMultiFnbBypass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctronMultiFnbRPBypass": {
+    "name": "ctronMultiFnbRPBypass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-FNBTR-MIB",
+      "Source digest sha256:af42ba2209734a05b726a2a2d8be430450609fa2cd607cfc587ee6f688145f2d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-FNBTR-MIB"
+  }
+}

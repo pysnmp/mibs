@@ -1,0 +1,262 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPortQosCapability": {
+    "name": "ciscoPortQosCapability",
+    "oid": "1.3.6.1.4.1.9.7.209",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-25 00:00",
+        "description": "Added ciscoPortQosCapabilityV12R0250SE capabilities."
+      },
+      {
+        "revision": "2001-02-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortQosCapabilityCat2948gL3": {
+    "name": "ciscoPortQosCapabilityCat2948gL3",
+    "oid": "1.3.6.1.4.1.9.7.209.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-QOS-MIB",
+        "includes": [
+          "ciscoPortQosMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cportQosRLConfigRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32000,
+                    "max": 1000000000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cportQosTSConfigRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 32000,
+                    "max": 1000000000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPortQosCapabilityV12R0250SE": {
+    "name": "ciscoPortQosCapabilityV12R0250SE",
+    "oid": "1.3.6.1.4.1.9.7.209.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SE",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-QOS-MIB",
+        "includes": [
+          "ciscoPortQosStatsMIBGroupRev2",
+          "ciscoPortQosStatsMIBGroupRev2Supp1",
+          "ciscoPortQosStatsMIBGroupRev2Supp4",
+          "ciscoPortQosStatsMIBGroupRev2Supp5",
+          "ciscoPortQosStatsMIBGroupRev2Supp6",
+          "ciscoPortQosStatsMIBGroupRev2Supp7",
+          "ciscoPortQosStatsMIBGroupRev2Supp8"
+        ],
+        "variations": [
+          {
+            "object": "cportQosIndexTypeNew",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "dscp": 2,
+                  "cos": 4,
+                  "police": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "cportQosPrePolicyOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPostPolicyOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassifiedOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassifiedPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosNoChangePkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosNoChangeOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosInProfPolicyPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosOutOfProfPolicyPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosVlanInProfPolicyPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosVlanOutOfProfPolicyPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosQueueEnqueuePkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosQueueDropPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassEnqueuePkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassDropPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassNameLevel1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosClassNameLevel2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceConformPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceConformOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceExceedPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceExceedOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceViolatePkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceViolateOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceConformRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceExceedRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceViolateRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosPoliceDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosDscpIngressOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosDscpEgressOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosCosIngressOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cportQosCosEgressOctets",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PORT-QOS-CAPABILITY",
+      "Source digest sha256:419263430bdfa161ba8aea3e2bed5756f12b31513f7595751bae5a16b85aa7bd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PORT-QOS-CAPABILITY"
+  }
+}

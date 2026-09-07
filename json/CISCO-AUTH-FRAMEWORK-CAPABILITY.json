@@ -1,0 +1,1970 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAuthFrameworkCapability": {
+    "name": "ciscoAuthFrameworkCapability",
+    "oid": "1.3.6.1.4.1.9.7.573",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-04 00:00",
+        "description": "Added capability statement cafCapV15R0101SYPCat6K."
+      },
+      {
+        "revision": "2012-04-02 00:00",
+        "description": "Added capability statement cafCapV15R0101SGPCat4K."
+      },
+      {
+        "revision": "2011-03-29 00:00",
+        "description": "Added capability statement cafCapV15R0002SGPCat4K. Updated VARIATION of cafPortViolationAction for cafCapV12R0254SGPCat4K."
+      },
+      {
+        "revision": "2011-03-24 00:00",
+        "description": "Added capability statement cafCapV12R0233SXJPCat6K. Updated VARIATION of cafPortViolationAction for cafCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2010-05-06 00:00",
+        "description": "Added capability statement cafCapV12R0254SGPCat4K."
+      },
+      {
+        "revision": "2010-04-05 00:00",
+        "description": "Added capability statement cafCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2010-03-09 00:00",
+        "description": "Added capability statement cafCapV12R0252SGPCat4K."
+      },
+      {
+        "revision": "2009-05-18 00:00",
+        "description": "Added capability statement cafCapV12R0233SXI2PCat6K. Updated cafCapV12R0233SXIPCat6K with additional VARIATION clauses."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cafCapV12R0233SXIPCat6K": {
+    "name": "cafCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.573.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV12R0233SXI2PCat6K": {
+    "name": "cafCapV12R0233SXI2PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.573.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI2 on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV12R0252SGPCat4K": {
+    "name": "cafCapV12R0252SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.573.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(52)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV12R0233SXI4PCat6K": {
+    "name": "cafCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.573.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV12R0254SGPCat4K": {
+    "name": "cafCapV12R0254SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.573.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(54)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV12R0233SXJPCat6K": {
+    "name": "cafCapV12R0233SXJPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.573.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXJ on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup",
+          "cafMacMoveConfigGroup",
+          "cafCoACommandConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV15R0002SGPCat4K": {
+    "name": "cafCapV15R0002SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.573.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(2)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup",
+          "cafMacMoveConfigGroup",
+          "cafCoACommandConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV15R0101SGPCat4K": {
+    "name": "cafCapV15R0101SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.573.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup",
+          "cafMacMoveConfigGroup",
+          "cafCoACommandConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cafCapV15R0101SYPCat6K": {
+    "name": "cafCapV15R0101SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.573.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "includes": [
+          "cafAuthMethodRegGroup",
+          "cafAaaNoRespRecoveryDelayGroup",
+          "cafAuthPortConfigGroup",
+          "cafPortMethodGroup",
+          "cafAuthFailedEventGroup",
+          "cafClientNoRespEventGroup",
+          "cafServerEventGroup",
+          "cafSessionGroup",
+          "cafSessionMethodInfoGroup",
+          "cafSecViolationNotifEnableGroup",
+          "cafSecurityViolationNotifGroup",
+          "cafSecurityViolationClientGroup",
+          "cafSessionVlanGroupNameGroup",
+          "cafMacMoveConfigGroup",
+          "cafCoACommandConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cafAaaNoRespRecoveryDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortFallBackProfile",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortReauthInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortRestartInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortInactivityTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafPortViolationAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "restrict": 1,
+                  "shutdown": 2,
+                  "replace": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedMaxRetry",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafAuthFailedAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafClientNoRespAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cafServerDeadAuthorizedVlan",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": -1
+                  },
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-AUTH-FRAMEWORK-CAPABILITY",
+      "Source digest sha256:4df2c26bbd5b747e83e40a3a5fca08f8e71f2b7a60548bbe6873e488d4493a92",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-AUTH-FRAMEWORK-CAPABILITY"
+  }
+}

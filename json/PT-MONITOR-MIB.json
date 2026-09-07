@@ -1,0 +1,183 @@
+{
+  "imports": {
+    "class": "imports",
+    "PT-MIB": [
+      "pt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ptMonitor": {
+    "name": "ptMonitor",
+    "oid": "1.3.6.1.4.1.193.223.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-09 12:30",
+        "description": "Validated."
+      },
+      {
+        "revision": "2016-02-10 12:30",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ptMonitorConformance": {
+    "name": "ptMonitorConformance",
+    "oid": "1.3.6.1.4.1.193.223.2.4.2",
+    "class": "objectidentity"
+  },
+  "HealthStatusTC": {
+    "name": "HealthStatusTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eOK": 1,
+          "eNOTOK": 2,
+          "eUNKNOWN": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwDiagnosticsTable": {
+    "name": "hwDiagnosticsTable",
+    "oid": "1.3.6.1.4.1.193.223.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDiagnosticsEntry": {
+    "name": "hwDiagnosticsEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-MONITOR-MIB",
+        "object": "hwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIndex": {
+    "name": "hwIndex",
+    "oid": "1.3.6.1.4.1.193.223.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureStatus": {
+    "name": "temperatureStatus",
+    "oid": "1.3.6.1.4.1.193.223.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthStatus": {
+    "name": "healthStatus",
+    "oid": "1.3.6.1.4.1.193.223.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthStatusTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptMonitorCompliances": {
+    "name": "ptMonitorCompliances",
+    "oid": "1.3.6.1.4.1.193.223.2.4.2.1",
+    "class": "objectidentity"
+  },
+  "ptMonitorGroups": {
+    "name": "ptMonitorGroups",
+    "oid": "1.3.6.1.4.1.193.223.2.4.2.2",
+    "class": "objectidentity"
+  },
+  "ptMonitorFullCompliance": {
+    "name": "ptMonitorFullCompliance",
+    "oid": "1.3.6.1.4.1.193.223.2.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptMonitorCompleteGroup",
+        "module": "PT-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptMonitorCompleteGroup": {
+    "name": "ptMonitorCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.223.2.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PT-MONITOR-MIB",
+        "object": "temperatureStatus"
+      },
+      {
+        "module": "PT-MONITOR-MIB",
+        "object": "healthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PT-MONITOR-MIB",
+      "Source digest sha256:42708e5c7a780aa0ed4f4d5915a1fb602a04b232bf454812ef4923c4419697f6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PT-MONITOR-MIB"
+  }
+}

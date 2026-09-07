@@ -1,0 +1,175 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwDeviceExt": {
+    "name": "hwDeviceExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.188",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-23 14:14",
+        "description": "modify the description."
+      },
+      {
+        "revision": "2008-12-17 14:14",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "hwDeviceExtObject": {
+    "name": "hwDeviceExtObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1",
+    "class": "objectidentity"
+  },
+  "hwDeviceEsn": {
+    "name": "hwDeviceEsn",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPlatformName": {
+    "name": "hwPlatformName",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPlatformVersion": {
+    "name": "hwPlatformVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwProductName": {
+    "name": "hwProductName",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwProductVersion": {
+    "name": "hwProductVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDeviceExtConformance": {
+    "name": "hwDeviceExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4",
+    "class": "objectidentity"
+  },
+  "hwDeviceExtCompliances": {
+    "name": "hwDeviceExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.1",
+    "class": "objectidentity"
+  },
+  "hwDeviceExtCompliance": {
+    "name": "hwDeviceExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwDeviceInfoGroup",
+        "module": "HUAWEI-DEVICE-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDeviceExtGroups": {
+    "name": "hwDeviceExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.2",
+    "class": "objectidentity"
+  },
+  "hwDeviceInfoGroup": {
+    "name": "hwDeviceInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwDeviceEsn"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwPlatformName"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwPlatformVersion"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwProductName"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwProductVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-DEVICE-EXT-MIB",
+      "Source digest sha256:323acd15932f610a2c92597602f35d6947fdd54a548faff48d2d718652a0da66",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-DEVICE-EXT-MIB"
+  }
+}

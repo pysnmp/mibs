@@ -1,0 +1,74 @@
+#
+# PySNMP MIB module CTRON-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CTRON-PRIORITY-CLASSIFY-MIB
+# Source digest sha256:4c0f5d6a4423078576065985918b35e621348905bc5e39a28585b1b702e4f203
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ctPriClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6))
+if mibBuilder.loadTexts: ctPriClassify.setLastUpdated('2002-03-12 18:55')
+if mibBuilder.loadTexts: ctPriClassify.setOrganization('Cabletron Systems, Inc')
+ctPriClassifyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1))
+class CtPriClassifyType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25))
+    namedValues = NamedValues(("etherType", 1), ("llcDsapSsap", 2), ("ipTypeOfService", 3), ("ipProtocolType", 4), ("ipxClassOfService", 5), ("ipxPacketType", 6), ("ipAddressSource", 7), ("ipAddressDestination", 8), ("ipAddressBilateral", 9), ("ipxNetworkSource", 10), ("ipxNetworkDestination", 11), ("ipxNetworkBilateral", 12), ("ipUdpPortSource", 13), ("ipUdpPortDestination", 14), ("ipUdpPortBilateral", 15), ("ipTcpPortSource", 16), ("ipTcpPortDestination", 17), ("ipTcpPortBilateral", 18), ("ipxSocketSource", 19), ("ipxSocketDestination", 20), ("ipxSocketBilateral", 21), ("macAddressSource", 22), ("macAddressDestination", 23), ("macAddressBilateral", 24), ("ipFragments", 25))
+
+class PortList(TextualConvention, OctetString):
+    status = 'current'
+
+ctPriClassifyStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctPriClassifyStatus.setStatus('current')
+ctPriClassifyMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctPriClassifyMaxEntries.setStatus('current')
+ctPriClassifyNumEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctPriClassifyNumEntries.setStatus('current')
+ctPriClassifyTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyTable.setStatus('current')
+ctPriClassifyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyPriority"), (0, "CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyDataMeaning"), (0, "CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyDataVal"), (0, "CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyDataMask"))
+if mibBuilder.loadTexts: ctPriClassifyEntry.setStatus('current')
+ctPriClassifyPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyPriority.setStatus('current')
+ctPriClassifyDataMeaning = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 2), CtPriClassifyType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyDataMeaning.setStatus('current')
+ctPriClassifyDataVal = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 3), Unsigned32()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyDataVal.setStatus('current')
+ctPriClassifyDataMask = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 4), Unsigned32()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyDataMask.setStatus('current')
+ctPriClassifyIngressList = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 5), PortList().clone(hexValue="0000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ctPriClassifyIngressList.setStatus('current')
+ctPriClassifyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ctPriClassifyRowStatus.setStatus('current')
+ctPriClassifyRowInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctPriClassifyRowInfo.setStatus('current')
+ctPriClassifyTOSStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctPriClassifyTOSStatus.setStatus('current')
+ctPriClassifyTOSValue = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctPriClassifyTOSValue.setStatus('current')
+ctPriClassifyAbilityTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 5), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyAbilityTable.setStatus('current')
+ctPriClassifyAbilityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 5, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyAbility"))
+if mibBuilder.loadTexts: ctPriClassifyAbilityEntry.setStatus('current')
+ctPriClassifyAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 5, 1, 1), CtPriClassifyType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ctPriClassifyAbility.setStatus('current')
+ctPriClassifyPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 5, 1, 2), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctPriClassifyPorts.setStatus('current')
+ctPriClassifyTableLastChange = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctPriClassifyTableLastChange.setStatus('current')
+ctPriClassifyConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 2))
+ctPriClassifyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 2, 1))
+ctPriClassifyCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 2, 2))
+ctPriClassifyBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 2, 1, 1)).setObjects(("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyStatus"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyMaxEntries"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyNumEntries"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyIngressList"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyRowStatus"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyRowInfo"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyTOSStatus"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyTOSValue"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyPorts"), ("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyTableLastChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctPriClassifyBaseGroup = ctPriClassifyBaseGroup.setStatus('current')
+ctPriClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6, 2, 2, 1)).setObjects(("CTRON-PRIORITY-CLASSIFY-MIB", "ctPriClassifyBaseGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctPriClassifyCompliance = ctPriClassifyCompliance.setStatus('current')
+mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", CtPriClassifyType=CtPriClassifyType, PYSNMP_MODULE_ID=ctPriClassify, PortList=PortList, ctPriClassify=ctPriClassify, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange)

@@ -1,0 +1,1415 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "interfaceEthernetModule": {
+    "name": "interfaceEthernetModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189",
+    "class": "moduleidentity"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1",
+    "class": "objectidentity"
+  },
+  "ethernetStatsTable": {
+    "name": "ethernetStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetStatsEntry": {
+    "name": "ethernetStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetStatsIfnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethernetStatsSlotId": {
+    "name": "ethernetStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsIfnum": {
+    "name": "ethernetStatsIfnum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsPacketsInput": {
+    "name": "ethernetStatsPacketsInput",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsBytesInput": {
+    "name": "ethernetStatsBytesInput",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsReceivedBroadcasts": {
+    "name": "ethernetStatsReceivedBroadcasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsReceivedMulticasts": {
+    "name": "ethernetStatsReceivedMulticasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsReceivedUnicasts": {
+    "name": "ethernetStatsReceivedUnicasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsInputErrors": {
+    "name": "ethernetStatsInputErrors",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsCrc": {
+    "name": "ethernetStatsCrc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsFrame": {
+    "name": "ethernetStatsFrame",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsRunts": {
+    "name": "ethernetStatsRunts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsGiants": {
+    "name": "ethernetStatsGiants",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsPacketsOutput": {
+    "name": "ethernetStatsPacketsOutput",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsBytesOutput": {
+    "name": "ethernetStatsBytesOutput",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsTransmittedBroadcasts": {
+    "name": "ethernetStatsTransmittedBroadcasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsTransmittedMulticasts": {
+    "name": "ethernetStatsTransmittedMulticasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsTransmittedUnicasts": {
+    "name": "ethernetStatsTransmittedUnicasts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsOutputErrors": {
+    "name": "ethernetStatsOutputErrors",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsCollisions": {
+    "name": "ethernetStatsCollisions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsGiantsOutput": {
+    "name": "ethernetStatsGiantsOutput",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsRatePktSent": {
+    "name": "ethernetStatsRatePktSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsRateByteSent": {
+    "name": "ethernetStatsRateByteSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsRatePktRcvd": {
+    "name": "ethernetStatsRatePktRcvd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsRateByteRcvd": {
+    "name": "ethernetStatsRateByteRcvd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsLoadInterval": {
+    "name": "ethernetStatsLoadInterval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsTransmitDrops": {
+    "name": "ethernetStatsTransmitDrops",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsReceiveDrops": {
+    "name": "ethernetStatsReceiveDrops",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsInputUtilization": {
+    "name": "ethernetStatsInputUtilization",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetStatsOutputUtilization": {
+    "name": "ethernetStatsOutputUtilization",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperTable": {
+    "name": "ethernetOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetOperEntry": {
+    "name": "ethernetOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIfnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethernetOperSlotId": {
+    "name": "ethernetOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIfnum": {
+    "name": "ethernetOperIfnum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperState": {
+    "name": "ethernetOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperLineProtocol": {
+    "name": "ethernetOperLineProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperLinkType": {
+    "name": "ethernetOperLinkType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperMac": {
+    "name": "ethernetOperMac",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperConfigSpeed": {
+    "name": "ethernetOperConfigSpeed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperActualSpeed": {
+    "name": "ethernetOperActualSpeed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperConfigDuplexity": {
+    "name": "ethernetOperConfigDuplexity",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperActualDuplexity": {
+    "name": "ethernetOperActualDuplexity",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperMediaType": {
+    "name": "ethernetOperMediaType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4Address": {
+    "name": "ethernetOperIpv4Address",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4Netmask": {
+    "name": "ethernetOperIpv4Netmask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4AddrCount": {
+    "name": "ethernetOperIpv4AddrCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6AddrCount": {
+    "name": "ethernetOperIpv6AddrCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6LinkLocal": {
+    "name": "ethernetOperIpv6LinkLocal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6LinkLocalPrefix": {
+    "name": "ethernetOperIpv6LinkLocalPrefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6LinkLocalType": {
+    "name": "ethernetOperIpv6LinkLocalType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6LinkLocalScope": {
+    "name": "ethernetOperIpv6LinkLocalScope",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIgmpQuerySent": {
+    "name": "ethernetOperIgmpQuerySent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIcmpRateLimitCurrent": {
+    "name": "ethernetOperIcmpRateLimitCurrent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIcmpRateOverLimitDrop": {
+    "name": "ethernetOperIcmpRateOverLimitDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIcmp6RateLimitCurrent": {
+    "name": "ethernetOperIcmp6RateLimitCurrent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIcmp6RateOverLimitDrop": {
+    "name": "ethernetOperIcmp6RateOverLimitDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIsTagged": {
+    "name": "ethernetOperIsTagged",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperVlanId": {
+    "name": "ethernetOperVlanId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperTaggedVlanList": {
+    "name": "ethernetOperTaggedVlanList",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperSpanMode": {
+    "name": "ethernetOperSpanMode",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperSpanPortState": {
+    "name": "ethernetOperSpanPortState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIsLeadMember": {
+    "name": "ethernetOperIsLeadMember",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIsBlocked": {
+    "name": "ethernetOperIsBlocked",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperCurrentVnpId": {
+    "name": "ethernetOperCurrentVnpId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperPortVnpId": {
+    "name": "ethernetOperPortVnpId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIsPristine": {
+    "name": "ethernetOperIsPristine",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperRateByteRcvd": {
+    "name": "ethernetOperRateByteRcvd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperRateByteSent": {
+    "name": "ethernetOperRateByteSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperRatePktRcvd": {
+    "name": "ethernetOperRatePktRcvd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperRatePktSent": {
+    "name": "ethernetOperRatePktSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperInputUtilization": {
+    "name": "ethernetOperInputUtilization",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperOutputUtilization": {
+    "name": "ethernetOperOutputUtilization",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIsDeviceTransparent": {
+    "name": "ethernetOperIsDeviceTransparent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIncomingPktsMirrored": {
+    "name": "ethernetOperIncomingPktsMirrored",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperOutgoingPktsMirrored": {
+    "name": "ethernetOperOutgoingPktsMirrored",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIncomingPktsMonitored": {
+    "name": "ethernetOperIncomingPktsMonitored",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperOutgoingPktsMonitored": {
+    "name": "ethernetOperOutgoingPktsMonitored",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpUnnumberedOper": {
+    "name": "ethernetOperIpUnnumberedOper",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpUnnumberedEnabled": {
+    "name": "ethernetOperIpUnnumberedEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpUnnumberedMacLearned": {
+    "name": "ethernetOperIpUnnumberedMacLearned",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpUnnumberedPeerLla": {
+    "name": "ethernetOperIpUnnumberedPeerLla",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperLastCountClearAt": {
+    "name": "ethernetOperLastCountClearAt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperLastUpEventAt": {
+    "name": "ethernetOperLastUpEventAt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperLastDownEventAt": {
+    "name": "ethernetOperLastDownEventAt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListTable": {
+    "name": "ethernetOperIpv4ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListEntry": {
+    "name": "ethernetOperIpv4ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv4ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv4ListIfnum",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv4ListIpv4ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethernetOperIpv4ListSlotId": {
+    "name": "ethernetOperIpv4ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListIfnum": {
+    "name": "ethernetOperIpv4ListIfnum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListIpv4ListListId": {
+    "name": "ethernetOperIpv4ListIpv4ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListAddr": {
+    "name": "ethernetOperIpv4ListAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv4ListMask": {
+    "name": "ethernetOperIpv4ListMask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListTable": {
+    "name": "ethernetOperIpv6ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListEntry": {
+    "name": "ethernetOperIpv6ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv6ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv6ListIfnum",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-ETHERNET-MIB",
+        "object": "ethernetOperIpv6ListIpv6ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethernetOperIpv6ListSlotId": {
+    "name": "ethernetOperIpv6ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListIfnum": {
+    "name": "ethernetOperIpv6ListIfnum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListIpv6ListListId": {
+    "name": "ethernetOperIpv6ListIpv6ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListAddr": {
+    "name": "ethernetOperIpv6ListAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListPrefix": {
+    "name": "ethernetOperIpv6ListPrefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetOperIpv6ListIsAnycast": {
+    "name": "ethernetOperIpv6ListIsAnycast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldp": {
+    "name": "lldp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.5",
+    "class": "objectidentity"
+  },
+  "ddos": {
+    "name": "ddos",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.6",
+    "class": "objectidentity"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7",
+    "class": "objectidentity"
+  },
+  "statefulFirewall": {
+    "name": "statefulFirewall",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.2",
+    "class": "objectidentity"
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.3",
+    "class": "objectidentity"
+  },
+  "isis": {
+    "name": "isis",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.3.2",
+    "class": "objectidentity"
+  },
+  "rip": {
+    "name": "rip",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.4",
+    "class": "objectidentity"
+  },
+  "ospf": {
+    "name": "ospf",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.5",
+    "class": "objectidentity"
+  },
+  "ospfGlobal": {
+    "name": "ospfGlobal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.5.2",
+    "class": "objectidentity"
+  },
+  "ospfIp": {
+    "name": "ospfIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.7.5.3",
+    "class": "objectidentity"
+  },
+  "ipv6": {
+    "name": "ipv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8",
+    "class": "objectidentity"
+  },
+  "statefulFirewallIpv6": {
+    "name": "statefulFirewallIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.2",
+    "class": "objectidentity"
+  },
+  "routerIpv6": {
+    "name": "routerIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.3",
+    "class": "objectidentity"
+  },
+  "ripng": {
+    "name": "ripng",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.3.2",
+    "class": "objectidentity"
+  },
+  "ospfRouterIpv6": {
+    "name": "ospfRouterIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.3.3",
+    "class": "objectidentity"
+  },
+  "isisRouterIpv6": {
+    "name": "isisRouterIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.3.4",
+    "class": "objectidentity"
+  },
+  "ripIpv6": {
+    "name": "ripIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.4",
+    "class": "objectidentity"
+  },
+  "ospfIpv6": {
+    "name": "ospfIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.8.5",
+    "class": "objectidentity"
+  },
+  "nptv6": {
+    "name": "nptv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.9",
+    "class": "objectidentity"
+  },
+  "domain": {
+    "name": "domain",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.9.2",
+    "class": "objectidentity"
+  },
+  "dhcpv6": {
+    "name": "dhcpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.10",
+    "class": "objectidentity"
+  },
+  "mapT": {
+    "name": "mapT",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.10.2",
+    "class": "objectidentity"
+  },
+  "map": {
+    "name": "map",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.11",
+    "class": "objectidentity"
+  },
+  "lw4o6": {
+    "name": "lw4o6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.12",
+    "class": "objectidentity"
+  },
+  "trunkGroup": {
+    "name": "trunkGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.13",
+    "class": "objectidentity"
+  },
+  "bfd": {
+    "name": "bfd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.14",
+    "class": "objectidentity"
+  },
+  "isisEthernet": {
+    "name": "isisEthernet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.15",
+    "class": "objectidentity"
+  },
+  "spanningTree": {
+    "name": "spanningTree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.189.1.16",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-INTERFACE-ETHERNET-MIB",
+      "Source digest sha256:78c1ac4d3757fa6accb22149e209d4a649a3e10b1bc3c59fc93824b8f9f8db2e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-INTERFACE-ETHERNET-MIB"
+  }
+}

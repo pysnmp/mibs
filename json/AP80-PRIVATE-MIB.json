@@ -1,0 +1,5323 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mgmt"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "TruthValue": {
+    "name": "TruthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 2,
+          "true": 1
+        }
+      }
+    }
+  },
+  "aruba": {
+    "name": "aruba",
+    "oid": "1.3.6.1.4.1.14823",
+    "class": "objectidentity"
+  },
+  "arubaEnterpriseMibModules": {
+    "name": "arubaEnterpriseMibModules",
+    "oid": "1.3.6.1.4.1.14823.2",
+    "class": "objectidentity"
+  },
+  "arubaAp": {
+    "name": "arubaAp",
+    "oid": "1.3.6.1.4.1.14823.2.3",
+    "class": "objectidentity"
+  },
+  "wlsrOutDoorApMibModules": {
+    "name": "wlsrOutDoorApMibModules",
+    "oid": "1.3.6.1.4.1.14823.2.3.2",
+    "class": "objectidentity"
+  },
+  "enterpriseApSys": {
+    "name": "enterpriseApSys",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "enterpriseApLineMgnt": {
+    "name": "enterpriseApLineMgnt",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "enterpriseApPortMgnt": {
+    "name": "enterpriseApPortMgnt",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3",
+    "class": "objectidentity"
+  },
+  "enterpriseApFileTransferMgt": {
+    "name": "enterpriseApFileTransferMgt",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4",
+    "class": "objectidentity"
+  },
+  "enterpriseApResetMgt": {
+    "name": "enterpriseApResetMgt",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.5",
+    "class": "objectidentity"
+  },
+  "enterpriseApIpMgt": {
+    "name": "enterpriseApIpMgt",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6",
+    "class": "objectidentity"
+  },
+  "enterpriseAPdot11": {
+    "name": "enterpriseAPdot11",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7",
+    "class": "objectidentity"
+  },
+  "enterpriseApAdmin": {
+    "name": "enterpriseApAdmin",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.8",
+    "class": "objectidentity"
+  },
+  "enterpriseApVLAN": {
+    "name": "enterpriseApVLAN",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9",
+    "class": "objectidentity"
+  },
+  "enterpriseApFilterControl": {
+    "name": "enterpriseApFilterControl",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10",
+    "class": "objectidentity"
+  },
+  "enterpriseApSNTP": {
+    "name": "enterpriseApSNTP",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11",
+    "class": "objectidentity"
+  },
+  "enterpriseApDNS": {
+    "name": "enterpriseApDNS",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.12",
+    "class": "objectidentity"
+  },
+  "enterpriseApSyslog": {
+    "name": "enterpriseApSyslog",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13",
+    "class": "objectidentity"
+  },
+  "enterpriseApSecurity": {
+    "name": "enterpriseApSecurity",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14",
+    "class": "objectidentity"
+  },
+  "enterpriseApRadio": {
+    "name": "enterpriseApRadio",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15",
+    "class": "objectidentity"
+  },
+  "enterpriseApSNMP": {
+    "name": "enterpriseApSNMP",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16",
+    "class": "objectidentity"
+  },
+  "enterpriseApSession": {
+    "name": "enterpriseApSession",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17",
+    "class": "objectidentity"
+  },
+  "enterpriseAPVapRadio": {
+    "name": "enterpriseAPVapRadio",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20",
+    "class": "objectidentity"
+  },
+  "enterpriseApRadioWds": {
+    "name": "enterpriseApRadioWds",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22",
+    "class": "objectidentity"
+  },
+  "enterpriseApWMM": {
+    "name": "enterpriseApWMM",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24",
+    "class": "objectidentity"
+  },
+  "enterpriseApSTP": {
+    "name": "enterpriseApSTP",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25",
+    "class": "objectidentity"
+  },
+  "swHardwareVer": {
+    "name": "swHardwareVer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBootRomVer": {
+    "name": "swBootRomVer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swOpCodeVer": {
+    "name": "swOpCodeVer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSerialNumber": {
+    "name": "swSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysNotificationTree": {
+    "name": "sysNotificationTree",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5",
+    "class": "objectidentity"
+  },
+  "sysNotificationObjects": {
+    "name": "sysNotificationObjects",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.1",
+    "class": "objectidentity"
+  },
+  "sysNotifications": {
+    "name": "sysNotifications",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.2",
+    "class": "objectidentity"
+  },
+  "sysSystemUp": {
+    "name": "sysSystemUp",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.2.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sysSystemDown": {
+    "name": "sysSystemDown",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.2.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sysRadiusServerChanged": {
+    "name": "sysRadiusServerChanged",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.2.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "sysConfigFileVersionChanged": {
+    "name": "sysConfigFileVersionChanged",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.1.5.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "lineTable": {
+    "name": "lineTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lineEntry": {
+    "name": "lineEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "lineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineIndex": {
+    "name": "lineIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lineDataBits": {
+    "name": "lineDataBits",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineParity": {
+    "name": "lineParity",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 99,
+          "odd": 1,
+          "even": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineSpeed": {
+    "name": "lineSpeed",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineStopBits": {
+    "name": "lineStopBits",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portTable": {
+    "name": "portTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portEntry": {
+    "name": "portEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portName": {
+    "name": "portName",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portType": {
+    "name": "portType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "hundredBaseTX": 2,
+          "hundredBaseFX": 3,
+          "thousandBaseSX": 4,
+          "thousandBaseLX": 5,
+          "thousandBaseT": 6,
+          "thousandBaseGBIC": 7,
+          "thousandBaseMiniGBIC": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSpeedDpxCfg": {
+    "name": "portSpeedDpxCfg",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "halfDuplex10": 2,
+          "fullDuplex10": 3,
+          "halfDuplex100": 4,
+          "fullDuplex100": 5,
+          "halfDuplex1000": 6,
+          "fullDuplex1000": 7
+        }
+      }
+    },
+    "default": {
+      "value": "halfDuplex10",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portFlowCtrlCfg": {
+    "name": "portFlowCtrlCfg",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "backPressure": 3,
+          "dot3xFlowControl": 4
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portCapabilities": {
+    "name": "portCapabilities",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portCap10half": 99,
+          "portCap10full": 1,
+          "portCap100half": 2,
+          "portCap100full": 3,
+          "portCap1000half": 4,
+          "portCap1000full": 5,
+          "reserved6": 6,
+          "reserved7": 7,
+          "reserved8": 8,
+          "reserved9": 9,
+          "reserved10": 10,
+          "reserved11": 11,
+          "reserved12": 12,
+          "reserved13": 13,
+          "portCapSym": 14,
+          "portCapFlowCtrl": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portAutonegotiation": {
+    "name": "portAutonegotiation",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSpeedDpxStatus": {
+    "name": "portSpeedDpxStatus",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "halfDuplex10": 2,
+          "fullDuplex10": 3,
+          "halfDuplex100": 4,
+          "fullDuplex100": 5,
+          "halfDuplex1000": 6,
+          "fullDuplex1000": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portFlowCtrlStatus": {
+    "name": "portFlowCtrlStatus",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "backPressure": 2,
+          "dot3xFlowControl": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transferType": {
+    "name": "transferType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileType": {
+    "name": "fileType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "application": 1,
+          "config": 2,
+          "bootcode": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srcFile": {
+    "name": "srcFile",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "destFile": {
+    "name": "destFile",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServer": {
+    "name": "fileServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "password": {
+    "name": "password",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "success": 2,
+          "failureGeneric": 3,
+          "flashOpenError": 10,
+          "flashMallocError": 11,
+          "flashReadError": 12,
+          "flashFtypeError": 13,
+          "socketWriteError": 20,
+          "protocolError": 30
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transferStart": {
+    "name": "transferStart",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 0,
+          "download": 1,
+          "upload": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "restartOpCodeFile": {
+    "name": "restartOpCodeFile",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "restartControl": {
+    "name": "restartControl",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "warmBoot": 2,
+          "coldBoot": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigIPAddress": {
+    "name": "netConfigIPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigSubnetMask": {
+    "name": "netConfigSubnetMask",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigDefaultGateway": {
+    "name": "netConfigDefaultGateway",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigHttpState": {
+    "name": "netConfigHttpState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigHttpPort": {
+    "name": "netConfigHttpPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigHttpsState": {
+    "name": "netConfigHttpsState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigHttpsPort": {
+    "name": "netConfigHttpsPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netConfigDHCPState": {
+    "name": "netConfigDHCPState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationEntry": {
+    "name": "dot11AuthenticationEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1",
+    "class": "objectidentity"
+  },
+  "dot118021xState": {
+    "name": "dot118021xState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "supported": 1,
+          "required": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dot118021xBroadcastKeyRefreshRate": {
+    "name": "dot118021xBroadcastKeyRefreshRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dot118021xSessionKeyRefreshRate": {
+    "name": "dot118021xSessionKeyRefreshRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dot118021xReauthenticationTimeout": {
+    "name": "dot118021xReauthenticationTimeout",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dot11MACAuthenticationType": {
+    "name": "dot11MACAuthenticationType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "local": 1,
+          "radius": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dot11AuthenticationServerTable": {
+    "name": "dot11AuthenticationServerTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AuthenticationServerEntry": {
+    "name": "dot11AuthenticationServerEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11AuthenticationServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11AuthenticationServerIndex": {
+    "name": "dot11AuthenticationServerIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AuthenticationServer": {
+    "name": "dot11AuthenticationServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationPort": {
+    "name": "dot11AuthenticationPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationKey": {
+    "name": "dot11AuthenticationKey",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationRetransmit": {
+    "name": "dot11AuthenticationRetransmit",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationTimeout": {
+    "name": "dot11AuthenticationTimeout",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationAcctPort": {
+    "name": "dot11AuthenticationAcctPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1813,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationAcctInterimUpdate": {
+    "name": "dot11AuthenticationAcctInterimUpdate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3600,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationMACAddressFormat": {
+    "name": "dot11AuthenticationMACAddressFormat",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-delimiter": 1,
+          "single-dash": 2,
+          "multi-dash": 3,
+          "multi-colon": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AuthenticationVLANIDFormat": {
+    "name": "dot11AuthenticationVLANIDFormat",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "ascii": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11MACAuthenticationFilter": {
+    "name": "dot11MACAuthenticationFilter",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3",
+    "class": "objectidentity"
+  },
+  "dot11FilterDefault": {
+    "name": "dot11FilterDefault",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11FilterTable": {
+    "name": "dot11FilterTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11FilterEntry": {
+    "name": "dot11FilterEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11FilterAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11FilterAddress": {
+    "name": "dot11FilterAddress",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11FilterStatus": {
+    "name": "dot11FilterStatus",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowed": 30,
+          "denied": 31,
+          "delete": 32
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11NotificationTree": {
+    "name": "dot11NotificationTree",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4",
+    "class": "objectidentity"
+  },
+  "dot11NotificationObjects": {
+    "name": "dot11NotificationObjects",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1",
+    "class": "objectidentity"
+  },
+  "dot11MacAddr": {
+    "name": "dot11MacAddr",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11Station": {
+    "name": "dot11Station",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11RequestType": {
+    "name": "dot11RequestType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "association": 2,
+          "reAssociation": 3,
+          "authentication": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11ReasonCode": {
+    "name": "dot11ReasonCode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidModeOrState": 1,
+          "unAuthenticatedStation": 2,
+          "internalError": 3,
+          "outOfSequenceFrame": 4,
+          "unsupportedAlgorithm": 5,
+          "invalidFrameLngth": 6,
+          "wepRequiredOnAP": 7,
+          "wepNotAllowed": 8,
+          "challengeTextMismatch": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11ApIpAddress": {
+    "name": "dot11ApIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1xAuthenticatorMacAddr": {
+    "name": "dot1xAuthenticatorMacAddr",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11Notifications": {
+    "name": "dot11Notifications",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2",
+    "class": "objectidentity"
+  },
+  "dot11StationAssociation": {
+    "name": "dot11StationAssociation",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11StationReAssociation": {
+    "name": "dot11StationReAssociation",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11StationAuthentication": {
+    "name": "dot11StationAuthentication",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11StationRequestFail": {
+    "name": "dot11StationRequestFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11RequestType"
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11ReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11InterfaceBFail": {
+    "name": "dot11InterfaceBFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dot11InterfaceAGFail": {
+    "name": "dot11InterfaceAGFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dot1xMacAddrAuthSuccess": {
+    "name": "dot1xMacAddrAuthSuccess",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xMacAddrAuthFail": {
+    "name": "dot1xMacAddrAuthFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xAuthNotInitiated": {
+    "name": "dot1xAuthNotInitiated",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xAuthSuccess": {
+    "name": "dot1xAuthSuccess",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xAuthFail": {
+    "name": "dot1xAuthFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "localMacAddrAuthSuccess": {
+    "name": "localMacAddrAuthSuccess",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "localMacAddrAuthFail": {
+    "name": "localMacAddrAuthFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      }
+    ],
+    "status": "current"
+  },
+  "pppLogonFail": {
+    "name": "pppLogonFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "iappStationRoamedFrom": {
+    "name": "iappStationRoamedFrom",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11ApIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "iappStationRoamedTo": {
+    "name": "iappStationRoamedTo",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11ApIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "iappContextDataSent": {
+    "name": "iappContextDataSent",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Station"
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11ApIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xSupplicantAuthenticated": {
+    "name": "dot1xSupplicantAuthenticated",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.4.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11AuthenticatorMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dot11AuthenticationSupplicantTable": {
+    "name": "dot11AuthenticationSupplicantTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11AuthenticationSupplicantEntry": {
+    "name": "dot11AuthenticationSupplicantEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11AuthenticationSuppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot118021xSuppIndex": {
+    "name": "dot118021xSuppIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot118021xSuppState": {
+    "name": "dot118021xSuppState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot118021xSuppUser": {
+    "name": "dot118021xSuppUser",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot118021xSuppPasswd": {
+    "name": "dot118021xSuppPasswd",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11VapAuthenticationTable": {
+    "name": "dot11VapAuthenticationTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11VapAuthenticationEntry": {
+    "name": "dot11VapAuthenticationEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "dot11Vap8021xIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot11Vap8021xIndex": {
+    "name": "dot11Vap8021xIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot11Vap8021xState": {
+    "name": "dot11Vap8021xState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "supported": 1,
+          "required": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11Vap8021xBroadcastKeyRefreshRate": {
+    "name": "dot11Vap8021xBroadcastKeyRefreshRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11Vap8021xSessionKeyRefreshRate": {
+    "name": "dot11Vap8021xSessionKeyRefreshRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11Vap8021xReauthenticationTimeout": {
+    "name": "dot11Vap8021xReauthenticationTimeout",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11VapAuthMACAuthenticationType": {
+    "name": "dot11VapAuthMACAuthenticationType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11VapAuthMACAuthenticationTimeout": {
+    "name": "dot11VapAuthMACAuthenticationTimeout",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.7.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApAdminUser": {
+    "name": "enterpriseApAdminUser",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApAdminPassword": {
+    "name": "enterpriseApAdminPassword",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApVLANNativeId": {
+    "name": "enterpriseApVLANNativeId",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApVLANState": {
+    "name": "enterpriseApVLANState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApNativeVlanTable": {
+    "name": "enterpriseApNativeVlanTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "enterpriseApNativeVlanEntry": {
+    "name": "enterpriseApNativeVlanEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "nativeVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "nativeVlanSsidNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nativeVlanIfIndex": {
+    "name": "nativeVlanIfIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nativeVlanSsidNumber": {
+    "name": "nativeVlanSsidNumber",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nativeVlanVlanId": {
+    "name": "nativeVlanVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enterpriseApFilterControlInterClientSTAsCommun": {
+    "name": "enterpriseApFilterControlInterClientSTAsCommun",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "PreventIntraVAPClient": 2,
+          "PreventInterAndIntraVAPClient": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApFilterControlAPManage": {
+    "name": "enterpriseApFilterControlAPManage",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApFilterControlEthernet": {
+    "name": "enterpriseApFilterControlEthernet",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolTable": {
+    "name": "enterpriseApFilterProtocolTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolEntry": {
+    "name": "enterpriseApFilterProtocolEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApFilterProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolIndex": {
+    "name": "enterpriseApFilterProtocolIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolName": {
+    "name": "enterpriseApFilterProtocolName",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolISODesignator": {
+    "name": "enterpriseApFilterProtocolISODesignator",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApFilterProtocolState": {
+    "name": "enterpriseApFilterProtocolState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApFilterUplinkPortMACAddrFilter": {
+    "name": "enterpriseApFilterUplinkPortMACAddrFilter",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5",
+    "class": "objectidentity"
+  },
+  "uplinkPortMACAddrFilterStatus": {
+    "name": "uplinkPortMACAddrFilterStatus",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "uplinkPortMACAddrFilterAddMac": {
+    "name": "uplinkPortMACAddrFilterAddMac",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "uplinkPortMACAddrFilteringTable": {
+    "name": "uplinkPortMACAddrFilteringTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "uplinkPortMACAddrFilteringEntry": {
+    "name": "uplinkPortMACAddrFilteringEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "uplinkPortMacAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "uplinkPortMacAddrIndex": {
+    "name": "uplinkPortMacAddrIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uplinkPortMACAddr": {
+    "name": "uplinkPortMACAddr",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deleteMacAddr": {
+    "name": "deleteMacAddr",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.10.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Delete": 1,
+          "Nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPState": {
+    "name": "enterpriseApSNTPState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPPrimaryServer": {
+    "name": "enterpriseApSNTPPrimaryServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPSecondaryServer": {
+    "name": "enterpriseApSNTPSecondaryServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPTimezone": {
+    "name": "enterpriseApSNTPTimezone",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enewetakKwajalein": 0,
+          "midwayIsland": 1,
+          "hawaii": 2,
+          "alaska": 3,
+          "pacific": 4,
+          "arizona": 5,
+          "mountain": 6,
+          "central": 7,
+          "mexicoCity": 8,
+          "saskatchewan": 9,
+          "bogota": 10,
+          "eastern": 11,
+          "indiana": 12,
+          "atlantic": 13,
+          "caracas": 14,
+          "santiago": 15,
+          "newfoundland": 16,
+          "brasilia": 17,
+          "buenos": 18,
+          "midAtlantic": 19,
+          "azores": 20,
+          "casablanca": 21,
+          "greenwichMeanTimeDublin": 22,
+          "greenwichMeanTimeLisbon": 23,
+          "amsterdam": 24,
+          "stockhoim": 25,
+          "bratislava": 26,
+          "prague": 27,
+          "paris": 28,
+          "sofija": 29,
+          "athens": 30,
+          "bucharest": 31,
+          "cairo": 32,
+          "harare": 33,
+          "helsinki": 34,
+          "israel": 35,
+          "baghdad": 36,
+          "moscow": 37,
+          "tehran": 38,
+          "abuDhabi": 39,
+          "vogograd": 40,
+          "islamabad": 41,
+          "almaty": 42,
+          "bangkok": 43,
+          "beijing": 44,
+          "taipei": 45,
+          "tokyo": 46,
+          "brisbane": 47,
+          "canberra": 48,
+          "guam": 49,
+          "hobart": 50,
+          "magadan": 51,
+          "fiji": 52,
+          "wellington": 53
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPDST": {
+    "name": "enterpriseApSNTPDST",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPDSTStartMonth": {
+    "name": "enterpriseApSNTPDSTStartMonth",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPDSTStartDay": {
+    "name": "enterpriseApSNTPDSTStartDay",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPDSTEndMonth": {
+    "name": "enterpriseApSNTPDSTEndMonth",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNTPDSTEndDay": {
+    "name": "enterpriseApSNTPDSTEndDay",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpNotificationTree": {
+    "name": "sntpNotificationTree",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.10",
+    "class": "objectidentity"
+  },
+  "sntpNotificationObjects": {
+    "name": "sntpNotificationObjects",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.10.1",
+    "class": "objectidentity"
+  },
+  "sntpNotifications": {
+    "name": "sntpNotifications",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.10.2",
+    "class": "objectidentity"
+  },
+  "sntpServerFail": {
+    "name": "sntpServerFail",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.11.10.2.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "enterpriseApDNSPrimaryServer": {
+    "name": "enterpriseApDNSPrimaryServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApDNSSecondaryServer": {
+    "name": "enterpriseApDNSSecondaryServer",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogState": {
+    "name": "enterpriseApSyslogState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogConsoleState": {
+    "name": "enterpriseApSyslogConsoleState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogLevel": {
+    "name": "enterpriseApSyslogLevel",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogServerTable": {
+    "name": "enterpriseApSyslogServerTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSyslogServerEntry": {
+    "name": "enterpriseApSyslogServerEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSyslogServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApSyslogServerIndex": {
+    "name": "enterpriseApSyslogServerIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSyslogServerState": {
+    "name": "enterpriseApSyslogServerState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogServerIPAddress": {
+    "name": "enterpriseApSyslogServerIPAddress",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSyslogServerPort": {
+    "name": "enterpriseApSyslogServerPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.13.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityTable": {
+    "name": "enterpriseApSecurityTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSecurityEntry": {
+    "name": "enterpriseApSecurityEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSecurityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApSecurityIndex": {
+    "name": "enterpriseApSecurityIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSecurityAuthType": {
+    "name": "enterpriseApSecurityAuthType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opensystem": 0,
+          "sharedkey": 1,
+          "wpa": 2,
+          "wpapsk": 3,
+          "wpawpa2mixed": 4,
+          "wpawpa2pskmixed": 5,
+          "wpa2": 6,
+          "wpa2psk": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecuritySharedKeyLen": {
+    "name": "enterpriseApSecuritySharedKeyLen",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sixtyFour": 1,
+          "oneHundredTwentyEight": 2,
+          "oneHundredFiftyTwo": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPAMode": {
+    "name": "enterpriseApSecurityWPAMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 0,
+          "required": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPAKeyType": {
+    "name": "enterpriseApSecurityWPAKeyType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1x": 0,
+          "presharedkey": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPACipher": {
+    "name": "enterpriseApSecurityWPACipher",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wep": 0,
+          "tkip": 1,
+          "aes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApSecurityWPAPSKType": {
+    "name": "enterpriseApSecurityWPAPSKType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 0,
+          "alphanumeric": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPAPSK": {
+    "name": "enterpriseApSecurityWPAPSK",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWEPKeyType": {
+    "name": "enterpriseApSecurityWEPKeyType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hexadecimal": 0,
+          "alphanumeric": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWEPEnabled": {
+    "name": "enterpriseApSecurityWEPEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPACipherSuite": {
+    "name": "enterpriseApSecurityWPACipherSuite",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes-ccmp": 0,
+          "tkip": 1,
+          "wep": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPAPreAuthentication": {
+    "name": "enterpriseApSecurityWPAPreAuthentication",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSecurityWPAPmksaLifetime": {
+    "name": "enterpriseApSecurityWPAPmksaLifetime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSsh": {
+    "name": "enterpriseApSsh",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.2",
+    "class": "objectidentity"
+  },
+  "enterpriseApSshServerEnabled": {
+    "name": "enterpriseApSshServerEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enterpriseApSshServerPort": {
+    "name": "enterpriseApSshServerPort",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 22,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enterpriseApSshTelnetServerEnabled": {
+    "name": "enterpriseApSshTelnetServerEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.14.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enterpriseApRadioTable": {
+    "name": "enterpriseApRadioTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApRadioEntry": {
+    "name": "enterpriseApRadioEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApRadioIndex": {
+    "name": "enterpriseApRadioIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApRadioState": {
+    "name": "enterpriseApRadioState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApRadioAutoChannel": {
+    "name": "enterpriseApRadioAutoChannel",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioTransmitPower": {
+    "name": "enterpriseApRadioTransmitPower",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "min": 0,
+          "eighth": 1,
+          "quarter": 2,
+          "half": 3,
+          "full": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioClosedSystem": {
+    "name": "enterpriseApRadioClosedSystem",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApRadioMaxAssoc": {
+    "name": "enterpriseApRadioMaxAssoc",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApRadioTransmitKey": {
+    "name": "enterpriseApRadioTransmitKey",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApRadioTurboMode": {
+    "name": "enterpriseApRadioTurboMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "static-turbo": 2,
+          "dynamic-turbo": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioDescription": {
+    "name": "enterpriseApRadioDescription",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "enterpriseApRadioDataRate": {
+    "name": "enterpriseApRadioDataRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneMbps": 1,
+          "twoMbps": 2,
+          "fiveAndHalfMbps": 5,
+          "sixMbps": 6,
+          "nineMbps": 9,
+          "elevenMbps": 11,
+          "twelveMbps": 12,
+          "eighteenMbps": 18,
+          "twentyFourMbps": 24,
+          "thirtySixMbps": 36,
+          "fourtyEightMbps": 48,
+          "fiftyFourMbps": 54,
+          "auto": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioGMode": {
+    "name": "enterpriseApRadioGMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bOnly": 1,
+          "gOnly": 2,
+          "bg": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioAntennaMode": {
+    "name": "enterpriseApRadioAntennaMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enterpriseApRadioAntennaId": {
+    "name": "enterpriseApRadioAntennaId",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApRadioAntennaControlMethod": {
+    "name": "enterpriseApRadioAntennaControlMethod",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Diversity": 1,
+          "Left": 2,
+          "Right": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioAntennaLocation": {
+    "name": "enterpriseApRadioAntennaLocation",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Indoor": 1,
+          "Outdoor": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioRogueApDetection": {
+    "name": "enterpriseApRadioRogueApDetection",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioRogueApScanInterval": {
+    "name": "enterpriseApRadioRogueApScanInterval",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 10080
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioRogueApScanDuration": {
+    "name": "enterpriseApRadioRogueApScanDuration",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioRogueApScanNow": {
+    "name": "enterpriseApRadioRogueApScanNow",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioMICMode": {
+    "name": "enterpriseApRadioMICMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "software": 1,
+          "hardware": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioSuperMode": {
+    "name": "enterpriseApRadioSuperMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioBeaconInterval": {
+    "name": "enterpriseApRadioBeaconInterval",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioDataBeaconRate": {
+    "name": "enterpriseApRadioDataBeaconRate",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioChannel": {
+    "name": "enterpriseApRadioChannel",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioFragmentLength": {
+    "name": "enterpriseApRadioFragmentLength",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 2346
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioRTSThreshold": {
+    "name": "enterpriseApRadioRTSThreshold",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2347
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioAntennaGainReduction": {
+    "name": "enterpriseApRadioAntennaGainReduction",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.15.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPCommunityReadOnly": {
+    "name": "enterpriseApSNMPCommunityReadOnly",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPCommunityReadWrite": {
+    "name": "enterpriseApSNMPCommunityReadWrite",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationTable": {
+    "name": "enterpriseApSNMPTrapDestinationTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationEntry": {
+    "name": "enterpriseApSNMPTrapDestinationEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSNMPTrapDestinationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationIndex": {
+    "name": "enterpriseApSNMPTrapDestinationIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationCommunity": {
+    "name": "enterpriseApSNMPTrapDestinationCommunity",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationIP": {
+    "name": "enterpriseApSNMPTrapDestinationIP",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapDestinationState": {
+    "name": "enterpriseApSNMPTrapDestinationState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSNMPTrapFilters": {
+    "name": "enterpriseApSNMPTrapFilters",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4",
+    "class": "objectidentity"
+  },
+  "sysSystemUpTrapEnabled": {
+    "name": "sysSystemUpTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysSystemDownTrapEnabled": {
+    "name": "sysSystemDownTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysRadiusServerChangedTrapEnabled": {
+    "name": "sysRadiusServerChangedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysConfigFileVersionChangedTrapEnabled": {
+    "name": "sysConfigFileVersionChangedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11StationAssociationTrapEnabled": {
+    "name": "dot11StationAssociationTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11StationReAssociationTrapEnabled": {
+    "name": "dot11StationReAssociationTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11StationAuthenticationTrapEnabled": {
+    "name": "dot11StationAuthenticationTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11StationRequestFailTrapEnabled": {
+    "name": "dot11StationRequestFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11InterfaceBFailTrapEnabled": {
+    "name": "dot11InterfaceBFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11InterfaceAGFailTrapEnabled": {
+    "name": "dot11InterfaceAGFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xMacAddrAuthSuccessTrapEnabled": {
+    "name": "dot1xMacAddrAuthSuccessTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xMacAddrAuthFailTrapEnabled": {
+    "name": "dot1xMacAddrAuthFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xAuthNotInitiatedTrapEnabled": {
+    "name": "dot1xAuthNotInitiatedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xAuthSuccessTrapEnabled": {
+    "name": "dot1xAuthSuccessTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xAuthFailTrapEnabled": {
+    "name": "dot1xAuthFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "localMacAddrAuthSuccessTrapEnabled": {
+    "name": "localMacAddrAuthSuccessTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "localMacAddrAuthFailTrapEnabled": {
+    "name": "localMacAddrAuthFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pppLogonFailTrapEnabled": {
+    "name": "pppLogonFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iappStationRoamedFromTrapEnabled": {
+    "name": "iappStationRoamedFromTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iappStationRoamedToTrapEnabled": {
+    "name": "iappStationRoamedToTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iappContextDataSentTrapEnabled": {
+    "name": "iappContextDataSentTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpServerFailTrapEnabled": {
+    "name": "sntpServerFailTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1xSuppAuthenticatedTrapEnabled": {
+    "name": "dot1xSuppAuthenticatedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11FailedTransmitsTrapEnabled": {
+    "name": "dot11FailedTransmitsTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11AckFailuresTrapEnabled": {
+    "name": "dot11AckFailuresTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot11FcsErrorsTrapEnabled": {
+    "name": "dot11FcsErrorsTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rogueAPDetectedTrapEnabled": {
+    "name": "rogueAPDetectedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "possibleRogueAPDetectedTrapEnabled": {
+    "name": "possibleRogueAPDetectedTrapEnabled",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.16.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSessionTable": {
+    "name": "enterpriseApSessionTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSessionEntry": {
+    "name": "enterpriseApSessionEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSessionIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSessionStationAddres",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApSessionIfIndex": {
+    "name": "enterpriseApSessionIfIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSessionStationAddres": {
+    "name": "enterpriseApSessionStationAddres",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSessionAuthenticated": {
+    "name": "enterpriseApSessionAuthenticated",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionAssociated": {
+    "name": "enterpriseApSessionAssociated",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionIsForwarding": {
+    "name": "enterpriseApSessionIsForwarding",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionKeyType": {
+    "name": "enterpriseApSessionKeyType",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "staticWep": 2,
+          "dynamicWep": 3,
+          "wpaWep": 4,
+          "wpaTkip": 5,
+          "wpaAes": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionAssociationId": {
+    "name": "enterpriseApSessionAssociationId",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionLastAuthenticatedTime": {
+    "name": "enterpriseApSessionLastAuthenticatedTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionAssociatedTime": {
+    "name": "enterpriseApSessionAssociatedTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionLastAssociatedTime": {
+    "name": "enterpriseApSessionLastAssociatedTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionLastDisassociatedTime": {
+    "name": "enterpriseApSessionLastDisassociatedTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionTxPacketCount": {
+    "name": "enterpriseApSessionTxPacketCount",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionRxPacketCount": {
+    "name": "enterpriseApSessionRxPacketCount",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionTxByteCount": {
+    "name": "enterpriseApSessionTxByteCount",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApSessionRxByteCount": {
+    "name": "enterpriseApSessionRxByteCount",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.17.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioTable": {
+    "name": "enterpriseAPVapRadioTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioEntry": {
+    "name": "enterpriseAPVapRadioEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseAPVapRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseAPVapRadioIndex": {
+    "name": "enterpriseAPVapRadioIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioState": {
+    "name": "enterpriseAPVapRadioState",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioClosedSystem": {
+    "name": "enterpriseAPVapRadioClosedSystem",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioMaxAssoc": {
+    "name": "enterpriseAPVapRadioMaxAssoc",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioTransmitKey": {
+    "name": "enterpriseAPVapRadioTransmitKey",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioDescription": {
+    "name": "enterpriseAPVapRadioDescription",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioAuthTimeoutInterval": {
+    "name": "enterpriseAPVapRadioAuthTimeoutInterval",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioAssocTimeoutInterval": {
+    "name": "enterpriseAPVapRadioAssocTimeoutInterval",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseAPVapRadioWPA2PMKSALifeTime": {
+    "name": "enterpriseAPVapRadioWPA2PMKSALifeTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.20.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioWdsTable": {
+    "name": "enterpriseApRadioWdsTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApRadioWdsEntry": {
+    "name": "enterpriseApRadioWdsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wdsApRole": {
+    "name": "wdsApRole",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleAp": 1,
+          "roleBridgeMaster": 2,
+          "roleBridge": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wdsChannelAutoSync": {
+    "name": "wdsChannelAutoSync",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wdsMasterSlaveMode": {
+    "name": "wdsMasterSlaveMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApRadioWdsPeerTable": {
+    "name": "enterpriseApRadioWdsPeerTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApRadioWdsPeerEntry": {
+    "name": "enterpriseApRadioWdsPeerEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "wdsPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wdsPeerIndex": {
+    "name": "wdsPeerIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wdsPeerBssid": {
+    "name": "wdsPeerBssid",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.22.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMTable": {
+    "name": "enterpriseApWMMTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApWMMEntry": {
+    "name": "enterpriseApWMMEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApWMMModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApWMMModeIndex": {
+    "name": "enterpriseApWMMModeIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApWMMMode": {
+    "name": "enterpriseApWMMMode",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "support": 2,
+          "required": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAckPolicyTable": {
+    "name": "enterpriseApWMMAckPolicyTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApWMMAckPolicyEntry": {
+    "name": "enterpriseApWMMAckPolicyEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApWMMAckPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApWMMAckPolicyIndex": {
+    "name": "enterpriseApWMMAckPolicyIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApWMMACKPolicy": {
+    "name": "enterpriseApWMMACKPolicy",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acknowledge": 1,
+          "NoAcknowledge": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamTable": {
+    "name": "enterpriseApWMMBSSParamTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamEntry": {
+    "name": "enterpriseApWMMBSSParamEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApWMMBSSParamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamIndex": {
+    "name": "enterpriseApWMMBSSParamIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamLogCwMin": {
+    "name": "enterpriseApWMMBSSParamLogCwMin",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamLogCwMax": {
+    "name": "enterpriseApWMMBSSParamLogCwMax",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamAIFSN": {
+    "name": "enterpriseApWMMBSSParamAIFSN",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamTXOPLimit": {
+    "name": "enterpriseApWMMBSSParamTXOPLimit",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMBSSParamAdmissionCtrl": {
+    "name": "enterpriseApWMMBSSParamAdmissionCtrl",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ebabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamTable": {
+    "name": "enterpriseApWMMAPParamTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamEntry": {
+    "name": "enterpriseApWMMAPParamEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApWMMAPParamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamIndex": {
+    "name": "enterpriseApWMMAPParamIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamLogCwMin": {
+    "name": "enterpriseApWMMAPParamLogCwMin",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamLogCwMax": {
+    "name": "enterpriseApWMMAPParamLogCwMax",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamAIFSN": {
+    "name": "enterpriseApWMMAPParamAIFSN",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamTXOPLimit": {
+    "name": "enterpriseApWMMAPParamTXOPLimit",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApWMMAPParamAdmissionCtrl": {
+    "name": "enterpriseApWMMAPParamAdmissionCtrl",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.24.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ebabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPBridgeStatus": {
+    "name": "enterpriseApSTPBridgeStatus",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPBridgePriority": {
+    "name": "enterpriseApSTPBridgePriority",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPBridgeMaxAge": {
+    "name": "enterpriseApSTPBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPHelloTime": {
+    "name": "enterpriseApSTPHelloTime",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPBridgeForwardingDelay": {
+    "name": "enterpriseApSTPBridgeForwardingDelay",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPRadioInterface": {
+    "name": "enterpriseApSTPRadioInterface",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6",
+    "class": "objectidentity"
+  },
+  "enterpriseApSTPNodeTable": {
+    "name": "enterpriseApSTPNodeTable",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSTPNodeEntry": {
+    "name": "enterpriseApSTPNodeEntry",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP80-PRIVATE-MIB",
+        "object": "enterpriseApSTPNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "enterpriseApSTPNodeIndex": {
+    "name": "enterpriseApSTPNodeIndex",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "enterpriseApSTPNodeLinkPathCost": {
+    "name": "enterpriseApSTPNodeLinkPathCost",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPNodeLinkPortPriority": {
+    "name": "enterpriseApSTPNodeLinkPortPriority",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPEthernetInterface": {
+    "name": "enterpriseApSTPEthernetInterface",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.7",
+    "class": "objectidentity"
+  },
+  "enterpriseApSTPEthernetLinkPathCost": {
+    "name": "enterpriseApSTPEthernetLinkPathCost",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enterpriseApSTPEthernetLinkPortPriority": {
+    "name": "enterpriseApSTPEthernetLinkPortPriority",
+    "oid": "1.3.6.1.4.1.14823.2.3.2.25.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AP80-PRIVATE-MIB",
+      "Source digest sha256:a13a27fb5c618bade767d92ed2664d52516700b1e1660d5648d6d0ae59ccacf7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AP80-PRIVATE-MIB"
+  }
+}

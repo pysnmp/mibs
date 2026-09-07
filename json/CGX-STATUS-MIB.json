@@ -1,0 +1,1003 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLOUDGENIX-SMI": [
+      "CgxDegreesC",
+      "CgxVolts",
+      "cgxMgmt"
+    ],
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "cgxStatusMIB": {
+    "name": "cgxStatusMIB",
+    "oid": "1.3.6.1.4.1.50114.10.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-02-24 19:35",
+        "description": "24.2.2022 PaloAlto Rebranding and new hardware"
+      }
+    ]
+  },
+  "cgxStatusNotifications": {
+    "name": "cgxStatusNotifications",
+    "oid": "1.3.6.1.4.1.50114.10.2.0",
+    "class": "objectidentity"
+  },
+  "cgxStatusObjects": {
+    "name": "cgxStatusObjects",
+    "oid": "1.3.6.1.4.1.50114.10.2.1",
+    "class": "objectidentity"
+  },
+  "cgxStatusStats": {
+    "name": "cgxStatusStats",
+    "oid": "1.3.6.1.4.1.50114.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "cgxStatusConfig": {
+    "name": "cgxStatusConfig",
+    "oid": "1.3.6.1.4.1.50114.10.2.1.2",
+    "class": "objectidentity"
+  },
+  "cgxTunnelObjects": {
+    "name": "cgxTunnelObjects",
+    "oid": "1.3.6.1.4.1.50114.10.2.1.3",
+    "class": "objectidentity"
+  },
+  "cgxStatusConformance": {
+    "name": "cgxStatusConformance",
+    "oid": "1.3.6.1.4.1.50114.10.2.2",
+    "class": "objectidentity"
+  },
+  "cgxStatusCompliances": {
+    "name": "cgxStatusCompliances",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.1",
+    "class": "objectidentity"
+  },
+  "cgxStatusMIBCompliance": {
+    "name": "cgxStatusMIBCompliance",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cgxIfSfpTableEntryGroup",
+        "module": "CGX-STATUS-MIB"
+      },
+      {
+        "object": "cgxTunnelTableEntryGroup",
+        "module": "CGX-STATUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxStatusGroups": {
+    "name": "cgxStatusGroups",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.2",
+    "class": "objectidentity"
+  },
+  "cgxTunnelTableEntryGroup": {
+    "name": "cgxTunnelTableEntryGroup",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelId"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelType"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelEncapsulation"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelLocalCircuitName"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelLocalCircuitType"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelRemoteCircuitName"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelRemoteSiteName"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelParentInterface"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelSrcAddress"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelDstAddress"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelRemotePublicIpAndPort"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelUsable"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelActive"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelCiphersuite"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelPeerVepId"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelInByteCounts"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelInPacketCounts"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelOutByteCounts"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelOutPacketCounts"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelIndex"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxIfSfpTableEntryGroup": {
+    "name": "cgxIfSfpTableEntryGroup",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableBitrateNominal"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableConnector"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableEncoding"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableExtendedIdentifier"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableIfDescr"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableIfIndex"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableifType"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthCopper"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthOM1"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthOM2"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthOM3"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthSmf"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLengthSmfKm"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableLowerBitrateMargin"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableModuleTemperature"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableModuleVoltage"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableRateIdentifier"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableSfpIdentifier"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableTransceiver"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableTransceiverData"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableUpperBitrateMargin"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorDateCode"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorName"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorOUI"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorPartNumber"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorRevision"
+      },
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableVendorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxIfExtensionNumberGroup": {
+    "name": "cgxIfExtensionNumberGroup",
+    "oid": "1.3.6.1.4.1.50114.10.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxTunnelMIB": {
+    "name": "cgxTunnelMIB",
+    "oid": "1.3.6.1.4.1.50114.10.2.10",
+    "class": "objectidentity"
+  },
+  "cgxTunnelTable": {
+    "name": "cgxTunnelTable",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgxTunnelEntry": {
+    "name": "cgxTunnelEntry",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxTunnelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgxTunnelIndex": {
+    "name": "cgxTunnelIndex",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelId": {
+    "name": "cgxTunnelId",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelStatus": {
+    "name": "cgxTunnelStatus",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelType": {
+    "name": "cgxTunnelType",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelEncapsulation": {
+    "name": "cgxTunnelEncapsulation",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelLocalCircuitName": {
+    "name": "cgxTunnelLocalCircuitName",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelLocalCircuitType": {
+    "name": "cgxTunnelLocalCircuitType",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelRemoteCircuitName": {
+    "name": "cgxTunnelRemoteCircuitName",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelRemoteSiteName": {
+    "name": "cgxTunnelRemoteSiteName",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelParentInterface": {
+    "name": "cgxTunnelParentInterface",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelSrcAddress": {
+    "name": "cgxTunnelSrcAddress",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelDstAddress": {
+    "name": "cgxTunnelDstAddress",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelRemotePublicIpAndPort": {
+    "name": "cgxTunnelRemotePublicIpAndPort",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelUsable": {
+    "name": "cgxTunnelUsable",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelActive": {
+    "name": "cgxTunnelActive",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelCiphersuite": {
+    "name": "cgxTunnelCiphersuite",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelPeerVepId": {
+    "name": "cgxTunnelPeerVepId",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelInByteCounts": {
+    "name": "cgxTunnelInByteCounts",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelInPacketCounts": {
+    "name": "cgxTunnelInPacketCounts",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelOutByteCounts": {
+    "name": "cgxTunnelOutByteCounts",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxTunnelOutPacketCounts": {
+    "name": "cgxTunnelOutPacketCounts",
+    "oid": "1.3.6.1.4.1.50114.10.2.10.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfExtensionMIB": {
+    "name": "cgxIfExtensionMIB",
+    "oid": "1.3.6.1.4.1.50114.10.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cgxIfSfpNumber": {
+    "name": "cgxIfSfpNumber",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTable": {
+    "name": "cgxIfSfpTable",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgxIfSfpEntry": {
+    "name": "cgxIfSfpEntry",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CGX-STATUS-MIB",
+        "object": "cgxIfSfpTableIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgxIfSfpTableIfIndex": {
+    "name": "cgxIfSfpTableIfIndex",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableIfDescr": {
+    "name": "cgxIfSfpTableIfDescr",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableifType": {
+    "name": "cgxIfSfpTableifType",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableSfpIdentifier": {
+    "name": "cgxIfSfpTableSfpIdentifier",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableExtendedIdentifier": {
+    "name": "cgxIfSfpTableExtendedIdentifier",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableConnector": {
+    "name": "cgxIfSfpTableConnector",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableTransceiver": {
+    "name": "cgxIfSfpTableTransceiver",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableTransceiverData": {
+    "name": "cgxIfSfpTableTransceiverData",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableEncoding": {
+    "name": "cgxIfSfpTableEncoding",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableBitrateNominal": {
+    "name": "cgxIfSfpTableBitrateNominal",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableRateIdentifier": {
+    "name": "cgxIfSfpTableRateIdentifier",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthSmfKm": {
+    "name": "cgxIfSfpTableLengthSmfKm",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthSmf": {
+    "name": "cgxIfSfpTableLengthSmf",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthOM2": {
+    "name": "cgxIfSfpTableLengthOM2",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthOM1": {
+    "name": "cgxIfSfpTableLengthOM1",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthCopper": {
+    "name": "cgxIfSfpTableLengthCopper",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLengthOM3": {
+    "name": "cgxIfSfpTableLengthOM3",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorName": {
+    "name": "cgxIfSfpTableVendorName",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorOUI": {
+    "name": "cgxIfSfpTableVendorOUI",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorPartNumber": {
+    "name": "cgxIfSfpTableVendorPartNumber",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorRevision": {
+    "name": "cgxIfSfpTableVendorRevision",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableUpperBitrateMargin": {
+    "name": "cgxIfSfpTableUpperBitrateMargin",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableLowerBitrateMargin": {
+    "name": "cgxIfSfpTableLowerBitrateMargin",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorSerialNumber": {
+    "name": "cgxIfSfpTableVendorSerialNumber",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableVendorDateCode": {
+    "name": "cgxIfSfpTableVendorDateCode",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableModuleTemperature": {
+    "name": "cgxIfSfpTableModuleTemperature",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgxDegreesC",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgxIfSfpTableModuleVoltage": {
+    "name": "cgxIfSfpTableModuleVoltage",
+    "oid": "1.3.6.1.4.1.50114.10.2.11.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgxVolts",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CGX-STATUS-MIB",
+      "Source digest sha256:4dc4d1729b4f349aa8fd710a6625dddc4cd1cc938774f8f1ac1f446876199e21",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CGX-STATUS-MIB"
+  }
+}

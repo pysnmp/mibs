@@ -1,0 +1,283 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfCurrentCount",
+      "PerfIntervalCount",
+      "PerfTotalCount"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "slAlsMib": {
+    "name": "slAlsMib",
+    "oid": "1.3.6.1.4.1.4515.1.12",
+    "class": "moduleidentity"
+  },
+  "slAlsConfig": {
+    "name": "slAlsConfig",
+    "oid": "1.3.6.1.4.1.4515.1.12.1",
+    "class": "objectidentity"
+  },
+  "slAlsTraps": {
+    "name": "slAlsTraps",
+    "oid": "1.3.6.1.4.1.4515.1.12.2",
+    "class": "objectidentity"
+  },
+  "slAlsConfigTable": {
+    "name": "slAlsConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slAlsConfigEntry": {
+    "name": "slAlsConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slAlsMode": {
+    "name": "slAlsMode",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsLosDeclareTime": {
+    "name": "slAlsLosDeclareTime",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ms500": 1,
+          "ms550": 2,
+          "ms600": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsTestPulseTime": {
+    "name": "slAlsTestPulseTime",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s80": 1,
+          "s90": 2,
+          "s100": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsManualPulseTime": {
+    "name": "slAlsManualPulseTime",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ms1750": 1,
+          "ms2000": 2,
+          "ms2250": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsAutomaticPulseTime": {
+    "name": "slAlsAutomaticPulseTime",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ms1750": 1,
+          "ms2000": 2,
+          "ms2250": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsAutomaticDelayTime": {
+    "name": "slAlsAutomaticDelayTime",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsLaserTestActivate": {
+    "name": "slAlsLaserTestActivate",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsLaserManualActivate": {
+    "name": "slAlsLaserManualActivate",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsOperStatus": {
+    "name": "slAlsOperStatus",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slAlsResetParams": {
+    "name": "slAlsResetParams",
+    "oid": "1.3.6.1.4.1.4515.1.12.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetCounters": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slAlsStatusChangeTrap": {
+    "name": "slAlsStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.4515.1.12.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "SL-ALS-MIB",
+        "object": "slAlsOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-ALS-MIB",
+      "Source digest sha256:3bef2c637a35df7a9af8ce3ea51d42119ea12e1c7c80e653a72332a1de0f0ab0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-ALS-MIB"
+  }
+}

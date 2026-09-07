@@ -1,0 +1,2044 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoSmartLicMIB": {
+    "name": "ciscoSmartLicMIB",
+    "oid": "1.3.6.1.4.1.9.9.831",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-07-21 00:00",
+        "description": "Documentaiton change for few of the existing OIDs. Also added new traps for few more new notifications for Policy mode."
+      },
+      {
+        "revision": "2020-06-21 00:00",
+        "description": "Documentaiton change."
+      },
+      {
+        "revision": "2020-05-04 00:00",
+        "description": "Documentaiton change."
+      },
+      {
+        "revision": "2020-01-07 00:00",
+        "description": "Added new notifications."
+      },
+      {
+        "revision": "2019-11-27 00:00",
+        "description": "Added new notifications."
+      },
+      {
+        "revision": "2017-08-14 00:00",
+        "description": "Added new notifications."
+      },
+      {
+        "revision": "2017-03-30 00:00",
+        "description": "Refactored the EntitlementInfo object and removed the HA info related notification objects"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Removed Scheduler, HA and Certificate Info and also changes the data type for time related fields to Unsigned32. Also changed the data type to TruthValue for fields having boolean state"
+      },
+      {
+        "revision": "2014-11-10 00:00",
+        "description": "Modified based on review comments"
+      },
+      {
+        "revision": "2014-11-09 00:00",
+        "description": "Initial Version of Cisco Smart Licensing MIB"
+      }
+    ]
+  },
+  "ciscoSlaMIBObjects": {
+    "name": "ciscoSlaMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.831.0",
+    "class": "objectidentity"
+  },
+  "ciscoSlaInstanceId": {
+    "name": "ciscoSlaInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.831.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaSUDIInfo": {
+    "name": "ciscoSlaSUDIInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaVersion": {
+    "name": "ciscoSlaVersion",
+    "oid": "1.3.6.1.4.1.9.9.831.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEnabled": {
+    "name": "ciscoSlaEnabled",
+    "oid": "1.3.6.1.4.1.9.9.831.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementInfo": {
+    "name": "ciscoSlaEntitlementInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5",
+    "class": "objectidentity"
+  },
+  "ciscoSlaEntitlementInfoTable": {
+    "name": "ciscoSlaEntitlementInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementInfoEntry": {
+    "name": "ciscoSlaEntitlementInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaEntitlementInfoIndex": {
+    "name": "ciscoSlaEntitlementInfoIndex",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementRequestCount": {
+    "name": "ciscoSlaEntitlementRequestCount",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementTag": {
+    "name": "ciscoSlaEntitlementTag",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementVersion": {
+    "name": "ciscoSlaEntitlementVersion",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementEnforceMode": {
+    "name": "ciscoSlaEntitlementEnforceMode",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialized": 1,
+          "waiting": 2,
+          "authorized": 3,
+          "outOfCompliance": 4,
+          "overage": 5,
+          "evaluationPeriod": 6,
+          "evaluationExpired": 7,
+          "authorizationExpired": 8,
+          "gracePeriodExpired": 9,
+          "disabled": 10,
+          "reservedAuthorized": 11,
+          "invalidTag": 12,
+          "notAuthorized": 13,
+          "notApplicable": 14,
+          "inUse": 15,
+          "notInUse": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementDescription": {
+    "name": "ciscoSlaEntitlementDescription",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementFeatureName": {
+    "name": "ciscoSlaEntitlementFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementExportAllowed": {
+    "name": "ciscoSlaEntitlementExportAllowed",
+    "oid": "1.3.6.1.4.1.9.9.831.0.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRegistrationStatusInfo": {
+    "name": "ciscoSlaRegistrationStatusInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6",
+    "class": "objectidentity"
+  },
+  "ciscoSlaRegistrationStatus": {
+    "name": "ciscoSlaRegistrationStatus",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegistered": 1,
+          "registrationInProgress": 2,
+          "registrationFailed": 3,
+          "registrationRetryinProgress": 4,
+          "registrationCompleted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaVirtualAccount": {
+    "name": "ciscoSlaVirtualAccount",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaNextCertificateExpireTime": {
+    "name": "ciscoSlaNextCertificateExpireTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaEnterpriseAccountName": {
+    "name": "ciscoSlaEnterpriseAccountName",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRegisterTime": {
+    "name": "ciscoSlaRegisterTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.5",
+    "class": "objectidentity"
+  },
+  "ciscoSlaRegisterInitTime": {
+    "name": "ciscoSlaRegisterInitTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRegisterSuccess": {
+    "name": "ciscoSlaRegisterSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRegisterFailureReason": {
+    "name": "ciscoSlaRegisterFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRegisterNextRetryTime": {
+    "name": "ciscoSlaRegisterNextRetryTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRenewTime": {
+    "name": "ciscoSlaRenewTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.6",
+    "class": "objectidentity"
+  },
+  "ciscoSlaRenewInitTime": {
+    "name": "ciscoSlaRenewInitTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRenewSuccess": {
+    "name": "ciscoSlaRenewSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRenewFailureReason": {
+    "name": "ciscoSlaRenewFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaRenewNextRetryTime": {
+    "name": "ciscoSlaRenewNextRetryTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.6.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthorizationInfo": {
+    "name": "ciscoSlaAuthorizationInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7",
+    "class": "objectidentity"
+  },
+  "ciscoSlaAuthExpireTime": {
+    "name": "ciscoSlaAuthExpireTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthComplianceStatus": {
+    "name": "ciscoSlaAuthComplianceStatus",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthOOCStartTime": {
+    "name": "ciscoSlaAuthOOCStartTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthEvalPeriod": {
+    "name": "ciscoSlaAuthEvalPeriod",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.4",
+    "class": "objectidentity"
+  },
+  "ciscoSlaAuthEvalPeriodInUse": {
+    "name": "ciscoSlaAuthEvalPeriodInUse",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthEvalExpiredTime": {
+    "name": "ciscoSlaAuthEvalExpiredTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthEvalPeriodLeft": {
+    "name": "ciscoSlaAuthEvalPeriodLeft",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthRenewTime": {
+    "name": "ciscoSlaAuthRenewTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.5",
+    "class": "objectidentity"
+  },
+  "ciscoSlaAuthRenewInitTime": {
+    "name": "ciscoSlaAuthRenewInitTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthRenewSuccess": {
+    "name": "ciscoSlaAuthRenewSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthRenewFailureReason": {
+    "name": "ciscoSlaAuthRenewFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaAuthRenewNextRetryTime": {
+    "name": "ciscoSlaAuthRenewNextRetryTime",
+    "oid": "1.3.6.1.4.1.9.9.831.0.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaNotifObjects": {
+    "name": "ciscoSlaNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.831.0.8",
+    "class": "objectidentity"
+  },
+  "ciscoSlaGlobalNotifEnable": {
+    "name": "ciscoSlaGlobalNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.831.0.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSlaEntitlementNotifEnable": {
+    "name": "ciscoSlaEntitlementNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.831.0.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSlaDeRegistrationInfo": {
+    "name": "ciscoSlaDeRegistrationInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.9",
+    "class": "objectidentity"
+  },
+  "ciscoSlaFailureReason": {
+    "name": "ciscoSlaFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.831.0.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "alreadyRegistered": 1,
+          "dailyJobTimerReset": 2,
+          "deRegisterFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaDeRegisterFailureMsg": {
+    "name": "ciscoSlaDeRegisterFailureMsg",
+    "oid": "1.3.6.1.4.1.9.9.831.0.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaThirdPartyAndUtilityInfo": {
+    "name": "ciscoSlaThirdPartyAndUtilityInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.10",
+    "class": "objectidentity"
+  },
+  "ciscoSlaThirdPartyAndUtilityFailureMsg": {
+    "name": "ciscoSlaThirdPartyAndUtilityFailureMsg",
+    "oid": "1.3.6.1.4.1.9.9.831.0.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaExportInfo": {
+    "name": "ciscoSlaExportInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.11",
+    "class": "objectidentity"
+  },
+  "ciscoSlaExportFailureReason": {
+    "name": "ciscoSlaExportFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.831.0.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaExportFailureMessage": {
+    "name": "ciscoSlaExportFailureMessage",
+    "oid": "1.3.6.1.4.1.9.9.831.0.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaReportingInfo": {
+    "name": "ciscoSlaReportingInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.12",
+    "class": "objectidentity"
+  },
+  "ciscoSlaDaysRUMAckNotReceived": {
+    "name": "ciscoSlaDaysRUMAckNotReceived",
+    "oid": "1.3.6.1.4.1.9.9.831.0.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaDaysReportingRequired": {
+    "name": "ciscoSlaDaysReportingRequired",
+    "oid": "1.3.6.1.4.1.9.9.831.0.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaPolicyModeInfo": {
+    "name": "ciscoSlaPolicyModeInfo",
+    "oid": "1.3.6.1.4.1.9.9.831.0.13",
+    "class": "objectidentity"
+  },
+  "ciscoSlaPolicyModeFailureMessage": {
+    "name": "ciscoSlaPolicyModeFailureMessage",
+    "oid": "1.3.6.1.4.1.9.9.831.0.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaPolicyModeInitialACKState": {
+    "name": "ciscoSlaPolicyModeInitialACKState",
+    "oid": "1.3.6.1.4.1.9.9.831.0.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlaMIBNotifs": {
+    "name": "ciscoSlaMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.831.1",
+    "class": "objectidentity"
+  },
+  "ciscoSlaSmartAgentNotifyEnforcementMode": {
+    "name": "ciscoSlaSmartAgentNotifyEnforcementMode",
+    "oid": "1.3.6.1.4.1.9.9.831.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementEnforceMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyReady": {
+    "name": "ciscoSlaSmartAgentNotifyReady",
+    "oid": "1.3.6.1.4.1.9.9.831.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyEnabled": {
+    "name": "ciscoSlaSmartAgentNotifyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.831.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyDisabled": {
+    "name": "ciscoSlaSmartAgentNotifyDisabled",
+    "oid": "1.3.6.1.4.1.9.9.831.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyRegisterFailed": {
+    "name": "ciscoSlaSmartAgentNotifyRegisterFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyRegisterSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyRegisterSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertExpired": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertExpired",
+    "oid": "1.3.6.1.4.1.9.9.831.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertRenewSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertRenewSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertRenewFail": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertRenewFail",
+    "oid": "1.3.6.1.4.1.9.9.831.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyAuthRenewSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyAuthRenewSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyAuthRenewFail": {
+    "name": "ciscoSlaSmartAgentNotifyAuthRenewFail",
+    "oid": "1.3.6.1.4.1.9.9.831.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyCommunicationFailure": {
+    "name": "ciscoSlaSmartAgentNotifyCommunicationFailure",
+    "oid": "1.3.6.1.4.1.9.9.831.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyCommunicationRestored": {
+    "name": "ciscoSlaSmartAgentNotifyCommunicationRestored",
+    "oid": "1.3.6.1.4.1.9.9.831.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertRenewNotStarted": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertRenewNotStarted",
+    "oid": "1.3.6.1.4.1.9.9.831.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyEntitlementEnforceMode": {
+    "name": "ciscoSlaSmartAgentNotifyEntitlementEnforceMode",
+    "oid": "1.3.6.1.4.1.9.9.831.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementRequestCount"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementTag"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementVersion"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementEnforceMode"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertOutOfRange": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertOutOfRange",
+    "oid": "1.3.6.1.4.1.9.9.831.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifySystemClockChanged": {
+    "name": "ciscoSlaSmartAgentNotifySystemClockChanged",
+    "oid": "1.3.6.1.4.1.9.9.831.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyEvalExpiryWarning": {
+    "name": "ciscoSlaSmartAgentNotifyEvalExpiryWarning",
+    "oid": "1.3.6.1.4.1.9.9.831.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyEvalExpired": {
+    "name": "ciscoSlaSmartAgentNotifyEvalExpired",
+    "oid": "1.3.6.1.4.1.9.9.831.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyIdCertExpiryWarning": {
+    "name": "ciscoSlaSmartAgentNotifyIdCertExpiryWarning",
+    "oid": "1.3.6.1.4.1.9.9.831.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyDeRegisterSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyDeRegisterSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyDeRegisterFailed": {
+    "name": "ciscoSlaSmartAgentNotifyDeRegisterFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDeRegisterFailureMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyThirdpartyModeEnabled": {
+    "name": "ciscoSlaSmartAgentNotifyThirdpartyModeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.831.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyThirdpartyModeDisabled": {
+    "name": "ciscoSlaSmartAgentNotifyThirdpartyModeDisabled",
+    "oid": "1.3.6.1.4.1.9.9.831.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityCertExpired": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityCertExpired",
+    "oid": "1.3.6.1.4.1.9.9.831.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityCertRenewFailed": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityCertRenewFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaThirdPartyAndUtilityFailureMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityCertRenewSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityCertRenewSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityDataReportingStarted": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityDataReportingStarted",
+    "oid": "1.3.6.1.4.1.9.9.831.1.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityDataReportingStopped": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityDataReportingStopped",
+    "oid": "1.3.6.1.4.1.9.9.831.1.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilitySendRUMFailed": {
+    "name": "ciscoSlaSmartAgentNotifyUtilitySendRUMFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaThirdPartyAndUtilityFailureMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyUtilityCertFQDNMismatch": {
+    "name": "ciscoSlaSmartAgentNotifyUtilityCertFQDNMismatch",
+    "oid": "1.3.6.1.4.1.9.9.831.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifySmartTransportNotConfigured": {
+    "name": "ciscoSlaSmartAgentNotifySmartTransportNotConfigured",
+    "oid": "1.3.6.1.4.1.9.9.831.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyHostnameMatchedWithUDI": {
+    "name": "ciscoSlaSmartAgentNotifyHostnameMatchedWithUDI",
+    "oid": "1.3.6.1.4.1.9.9.831.1.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyExportRequestFailure": {
+    "name": "ciscoSlaSmartAgentNotifyExportRequestFailure",
+    "oid": "1.3.6.1.4.1.9.9.831.1.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementFeatureName"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementTag"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaExportFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyExportHAMismatch": {
+    "name": "ciscoSlaSmartAgentNotifyExportHAMismatch",
+    "oid": "1.3.6.1.4.1.9.9.831.1.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaExportFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaExportFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyExportAuthKeyNotSupported": {
+    "name": "ciscoSlaSmartAgentNotifyExportAuthKeyNotSupported",
+    "oid": "1.3.6.1.4.1.9.9.831.1.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyExportControlledTag": {
+    "name": "ciscoSlaSmartAgentNotifyExportControlledTag",
+    "oid": "1.3.6.1.4.1.9.9.831.1.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementTag"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementExportAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyEndPointReset": {
+    "name": "ciscoSlaSmartAgentNotifyEndPointReset",
+    "oid": "1.3.6.1.4.1.9.9.831.1.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyExportRequestSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyExportRequestSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementFeatureName"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementTag"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyAuthorizationInstall": {
+    "name": "ciscoSlaSmartAgentNotifyAuthorizationInstall",
+    "oid": "1.3.6.1.4.1.9.9.831.1.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyAuthorizationRemove": {
+    "name": "ciscoSlaSmartAgentNotifyAuthorizationRemove",
+    "oid": "1.3.6.1.4.1.9.9.831.1.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyPolicyInstalled": {
+    "name": "ciscoSlaSmartAgentNotifyPolicyInstalled",
+    "oid": "1.3.6.1.4.1.9.9.831.1.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyPolicyRemoved": {
+    "name": "ciscoSlaSmartAgentNotifyPolicyRemoved",
+    "oid": "1.3.6.1.4.1.9.9.831.1.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyRUMACKNotReceived": {
+    "name": "ciscoSlaSmartAgentNotifyRUMACKNotReceived",
+    "oid": "1.3.6.1.4.1.9.9.831.1.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDaysRUMAckNotReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyRUMACKReceived": {
+    "name": "ciscoSlaSmartAgentNotifyRUMACKReceived",
+    "oid": "1.3.6.1.4.1.9.9.831.1.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyAuthorizationInstallFailed": {
+    "name": "ciscoSlaSmartAgentNotifyAuthorizationInstallFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyReportingRequired": {
+    "name": "ciscoSlaSmartAgentNotifyReportingRequired",
+    "oid": "1.3.6.1.4.1.9.9.831.1.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDaysReportingRequired"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyPolicyInstallFailed": {
+    "name": "ciscoSlaSmartAgentNotifyPolicyInstallFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaPolicyModeFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyPolicyInstallSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyPolicyInstallSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyReportingNotSupported": {
+    "name": "ciscoSlaSmartAgentNotifyReportingNotSupported",
+    "oid": "1.3.6.1.4.1.9.9.831.1.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyTrustInstallSuccess": {
+    "name": "ciscoSlaSmartAgentNotifyTrustInstallSuccess",
+    "oid": "1.3.6.1.4.1.9.9.831.1.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyTrustInstallFailed": {
+    "name": "ciscoSlaSmartAgentNotifyTrustInstallFailed",
+    "oid": "1.3.6.1.4.1.9.9.831.1.52",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoSlaSmartAgentNotifyPolicyInitialACKState": {
+    "name": "ciscoSlaSmartAgentNotifyPolicyInitialACKState",
+    "oid": "1.3.6.1.4.1.9.9.831.1.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaPolicyModeInitialACKState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBConform": {
+    "name": "ciscoSlaMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.831.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlaMIBCompliances": {
+    "name": "ciscoSlaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.831.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSlaMIBCompliance": {
+    "name": "ciscoSlaMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.831.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlaMIBEntitlementInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBRegistrationStatusInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBGlobalNotificationGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBAgentInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBEntitlementNotifGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBNotificationEnableGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBAuthorizationInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBDeRegistrationInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBThirdPartyAndUtilityInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBExportInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBReportingInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      },
+      {
+        "object": "ciscoSlaMIBPolicyModeInfoGroup",
+        "module": "CISCO-SMART-LIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBGroups": {
+    "name": "ciscoSlaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlaMIBEntitlementInfoGroup": {
+    "name": "ciscoSlaMIBEntitlementInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementRequestCount"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementTag"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementVersion"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementEnforceMode"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementFeatureName"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementDescription"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementExportAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBRegistrationStatusInfoGroup": {
+    "name": "ciscoSlaMIBRegistrationStatusInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRegistrationStatus"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaVirtualAccount"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaNextCertificateExpireTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEnterpriseAccountName"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRegisterInitTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRegisterSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRenewInitTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRenewSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRenewFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRenewNextRetryTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRegisterFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaRegisterNextRetryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBGlobalNotificationGroup": {
+    "name": "ciscoSlaMIBGlobalNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEnforcementMode"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyReady"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEnabled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyDisabled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyRegisterFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyRegisterSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertExpired"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertRenewSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertRenewFail"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyAuthRenewSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyAuthRenewFail"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyCommunicationFailure"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyCommunicationRestored"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertRenewNotStarted"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertOutOfRange"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifySystemClockChanged"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEvalExpiryWarning"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEvalExpired"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyIdCertExpiryWarning"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyDeRegisterSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyDeRegisterFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyThirdpartyModeEnabled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyThirdpartyModeDisabled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityCertExpired"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityCertRenewFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityCertRenewSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityDataReportingStarted"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityDataReportingStopped"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilitySendRUMFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyUtilityCertFQDNMismatch"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifySmartTransportNotConfigured"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyHostnameMatchedWithUDI"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyExportRequestFailure"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyExportHAMismatch"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyExportAuthKeyNotSupported"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyExportControlledTag"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEndPointReset"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyExportRequestSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyAuthorizationInstall"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyAuthorizationRemove"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyPolicyInstalled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyPolicyRemoved"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyRUMACKNotReceived"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyRUMACKReceived"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyAuthorizationInstallFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyReportingRequired"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyPolicyInstallFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyPolicyInstallSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyReportingNotSupported"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyTrustInstallSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyTrustInstallFailed"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyPolicyInitialACKState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBAgentInfoGroup": {
+    "name": "ciscoSlaMIBAgentInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaVersion"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEnabled"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSUDIInfo"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaInstanceId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBEntitlementNotifGroup": {
+    "name": "ciscoSlaMIBEntitlementNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaSmartAgentNotifyEntitlementEnforceMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBNotificationEnableGroup": {
+    "name": "ciscoSlaMIBNotificationEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaGlobalNotifEnable"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaEntitlementNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBAuthorizationInfoGroup": {
+    "name": "ciscoSlaMIBAuthorizationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthExpireTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthComplianceStatus"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthOOCStartTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthRenewInitTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthRenewSuccess"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthRenewFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthRenewNextRetryTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthEvalPeriodInUse"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthEvalExpiredTime"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaAuthEvalPeriodLeft"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBDeRegistrationInfoGroup": {
+    "name": "ciscoSlaMIBDeRegistrationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDeRegisterFailureMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBThirdPartyAndUtilityInfoGroup": {
+    "name": "ciscoSlaMIBThirdPartyAndUtilityInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaThirdPartyAndUtilityFailureMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBExportInfoGroup": {
+    "name": "ciscoSlaMIBExportInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaExportFailureReason"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaExportFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBReportingInfoGroup": {
+    "name": "ciscoSlaMIBReportingInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDaysRUMAckNotReceived"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaDaysReportingRequired"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlaMIBPolicyModeInfoGroup": {
+    "name": "ciscoSlaMIBPolicyModeInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.831.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaPolicyModeFailureMessage"
+      },
+      {
+        "module": "CISCO-SMART-LIC-MIB",
+        "object": "ciscoSlaPolicyModeInitialACKState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SMART-LIC-MIB",
+      "Source digest sha256:dff37b3dcb7b257a6d0b3184d4f7a929b6e8e341f76ebe35ee2e5994496d2396",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SMART-LIC-MIB"
+  }
+}

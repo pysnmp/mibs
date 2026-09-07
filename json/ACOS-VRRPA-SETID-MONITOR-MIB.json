@@ -1,0 +1,313 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vrrpASetidMonitorModule": {
+    "name": "vrrpASetidMonitorModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13",
+    "class": "moduleidentity"
+  },
+  "setidMonitor": {
+    "name": "setidMonitor",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1",
+    "class": "objectidentity"
+  },
+  "setidMonitorOperTable": {
+    "name": "setidMonitorOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "setidMonitorOperEntry": {
+    "name": "setidMonitorOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "setidMonitorOperSlotId": {
+    "name": "setidMonitorOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetId": {
+    "name": "setidMonitorOperSetId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListTable": {
+    "name": "setidMonitorOperSetidListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListEntry": {
+    "name": "setidMonitorOperSetidListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSetidListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSetidListSetidListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "setidMonitorOperSetidListSlotId": {
+    "name": "setidMonitorOperSetidListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListSetidListListId": {
+    "name": "setidMonitorOperSetidListSetidListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListInterfaceType": {
+    "name": "setidMonitorOperSetidListInterfaceType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListLif": {
+    "name": "setidMonitorOperSetidListLif",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListTable": {
+    "name": "setidMonitorOperSetidListIpListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListEntry": {
+    "name": "setidMonitorOperSetidListIpListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSetidListIpListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSetidListIpListSetidListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-SETID-MONITOR-MIB",
+        "object": "setidMonitorOperSetidListIpListIpListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListSlotId": {
+    "name": "setidMonitorOperSetidListIpListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListSetidListListId": {
+    "name": "setidMonitorOperSetidListIpListSetidListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListIpListListId": {
+    "name": "setidMonitorOperSetidListIpListIpListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListDeviceId": {
+    "name": "setidMonitorOperSetidListIpListDeviceId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListIpaddress": {
+    "name": "setidMonitorOperSetidListIpListIpaddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListIpv6": {
+    "name": "setidMonitorOperSetidListIpListIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListMac": {
+    "name": "setidMonitorOperSetidListIpListMac",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListVlan": {
+    "name": "setidMonitorOperSetidListIpListVlan",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setidMonitorOperSetidListIpListLastObserved": {
+    "name": "setidMonitorOperSetidListIpListLastObserved",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.13.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VRRPA-SETID-MONITOR-MIB",
+      "Source digest sha256:c3127087e341e2c761e5a71104511d4ccb6c6307642ba426f3939e36ef28796e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VRRPA-SETID-MONITOR-MIB"
+  }
+}

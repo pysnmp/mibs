@@ -1,0 +1,334 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-WAN-CES-PORT-MIB": [
+      "cesmPort"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanCesRsrcPartMIB": {
+    "name": "ciscoWanCesRsrcPartMIB",
+    "oid": "1.3.6.1.4.1.351.150.41",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-03 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "cesmPortCnfResPartGrp": {
+    "name": "cesmPortCnfResPartGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2",
+    "class": "objectidentity"
+  },
+  "cesmPortCnfResPartGrpTable": {
+    "name": "cesmPortCnfResPartGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesmPortCnfResPartGrpEntry": {
+    "name": "cesmPortCnfResPartGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartPortNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartCtrlrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cesmResPartPortNum": {
+    "name": "cesmResPartPortNum",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesmResPartCtrlrNum": {
+    "name": "cesmResPartCtrlrNum",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "par": 1,
+          "pnni": 2,
+          "tag": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesmResPartRowStatus": {
+    "name": "cesmResPartRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "del": 2,
+          "mod": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartNumOfLcnAvail": {
+    "name": "cesmResPartNumOfLcnAvail",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartLcnLow": {
+    "name": "cesmResPartLcnLow",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartLcnHigh": {
+    "name": "cesmResPartLcnHigh",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartIngrPctBW": {
+    "name": "cesmResPartIngrPctBW",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartEgrPctBW": {
+    "name": "cesmResPartEgrPctBW",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesmResPartCtrlrID": {
+    "name": "cesmResPartCtrlrID",
+    "oid": "1.3.6.1.4.1.351.110.5.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwcRsrcPartMIBConformance": {
+    "name": "cwcRsrcPartMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.41.2",
+    "class": "objectidentity"
+  },
+  "cwcRsrcPartMIBCompliances": {
+    "name": "cwcRsrcPartMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.41.2.1",
+    "class": "objectidentity"
+  },
+  "cwcRsrcPartMIBGroups": {
+    "name": "cwcRsrcPartMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.41.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWanCesRsrcPartCompliance": {
+    "name": "ciscoWanCesRsrcPartCompliance",
+    "oid": "1.3.6.1.4.1.351.150.41.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWanCesRsrcPartGroup",
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanCesRsrcPartGroup": {
+    "name": "ciscoWanCesRsrcPartGroup",
+    "oid": "1.3.6.1.4.1.351.150.41.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartPortNum"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartCtrlrNum"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartNumOfLcnAvail"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartLcnLow"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartLcnHigh"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartIngrPctBW"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartEgrPctBW"
+      },
+      {
+        "module": "CISCO-WAN-CES-RSRC-PART-MIB",
+        "object": "cesmResPartCtrlrID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-CES-RSRC-PART-MIB",
+      "Source digest sha256:1df5df918282cf11917d322f3d3beb9ef971ee1243a2dd7b367a95e71c494c88",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-CES-RSRC-PART-MIB"
+  }
+}

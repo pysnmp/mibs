@@ -1,0 +1,57 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "ZYXEL-ES-SMI": [
+      "esMgmt"
+    ]
+  },
+  "zyxelAPMgmt": {
+    "name": "zyxelAPMgmt",
+    "oid": "1.3.6.1.4.1.890.1.15.3.4",
+    "class": "moduleidentity"
+  },
+  "operationMode": {
+    "name": "operationMode",
+    "oid": "1.3.6.1.4.1.890.1.15.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 1,
+          "controller": 2,
+          "managed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ZYXEL-ES-ZyxelAPMgmt",
+      "Source digest sha256:0779fd1a477952e839b47f0f97c5884cbb732ec87ea35ec95f269d481e389785",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ZYXEL-ES-ZyxelAPMgmt"
+  }
+}

@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module ACOS-CONFIG-SYNC-STATUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ACOS-CONFIG-SYNC-STATUS-MIB
+# Source digest sha256:1601a68002b8761d77b63395e24dc4f0c00d17e0928ba0273a7f2f2ce11bc182
+# Produced by pysmi-2.3.0
+#
+acosSchema, = mibBuilder.importSymbols("A10-AX-MIB", "acosSchema")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, PhysAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "PhysAddress", "TextualConvention")
+configSyncStatusModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170))
+if mibBuilder.loadTexts: configSyncStatusModule.setLastUpdated('2007-05-07 13:27')
+if mibBuilder.loadTexts: configSyncStatusModule.setOrganization('A10 Networks, Inc.')
+configSyncStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1))
+configSyncStatusOperConfigSyncListTable = MibTable((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListTable.setStatus('current')
+configSyncStatusOperConfigSyncListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ACOS-CONFIG-SYNC-STATUS-MIB", "configSyncStatusOperConfigSyncListSlotId"), (0, "ACOS-CONFIG-SYNC-STATUS-MIB", "configSyncStatusOperConfigSyncListConfigSyncListListId"))
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListEntry.setStatus('current')
+configSyncStatusOperConfigSyncListSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListSlotId.setStatus('current')
+configSyncStatusOperConfigSyncListConfigSyncListListId = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListConfigSyncListListId.setStatus('current')
+configSyncStatusOperConfigSyncListPartitionName = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListPartitionName.setStatus('current')
+configSyncStatusOperConfigSyncListRunSyncStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListRunSyncStatus.setStatus('current')
+configSyncStatusOperConfigSyncListStartupSyncStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 170, 1, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configSyncStatusOperConfigSyncListStartupSyncStatus.setStatus('current')
+mibBuilder.exportSymbols("ACOS-CONFIG-SYNC-STATUS-MIB", PYSNMP_MODULE_ID=configSyncStatusModule, configSyncStatus=configSyncStatus, configSyncStatusModule=configSyncStatusModule, configSyncStatusOperConfigSyncListConfigSyncListListId=configSyncStatusOperConfigSyncListConfigSyncListListId, configSyncStatusOperConfigSyncListEntry=configSyncStatusOperConfigSyncListEntry, configSyncStatusOperConfigSyncListPartitionName=configSyncStatusOperConfigSyncListPartitionName, configSyncStatusOperConfigSyncListRunSyncStatus=configSyncStatusOperConfigSyncListRunSyncStatus, configSyncStatusOperConfigSyncListSlotId=configSyncStatusOperConfigSyncListSlotId, configSyncStatusOperConfigSyncListStartupSyncStatus=configSyncStatusOperConfigSyncListStartupSyncStatus, configSyncStatusOperConfigSyncListTable=configSyncStatusOperConfigSyncListTable)

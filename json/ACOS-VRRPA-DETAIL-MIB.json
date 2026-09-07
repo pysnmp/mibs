@@ -1,0 +1,724 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vrrpADetailModule": {
+    "name": "vrrpADetailModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14",
+    "class": "moduleidentity"
+  },
+  "detail": {
+    "name": "detail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1",
+    "class": "objectidentity"
+  },
+  "detailOperTable": {
+    "name": "detailOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperEntry": {
+    "name": "detailOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperSlotId": {
+    "name": "detailOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperDupIdRcv": {
+    "name": "detailOperDupIdRcv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperBadGroupRcv": {
+    "name": "detailOperBadGroupRcv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperSetIdMismatch": {
+    "name": "detailOperSetIdMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperVrrpVersionMismatch": {
+    "name": "detailOperVrrpVersionMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperTimeInaccurateCount": {
+    "name": "detailOperTimeInaccurateCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperIpPoolsExceeded": {
+    "name": "detailOperIpPoolsExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperIp6PoolsExceeded": {
+    "name": "detailOperIp6PoolsExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperErrPort": {
+    "name": "detailOperErrPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperErrDevid": {
+    "name": "detailOperErrDevid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperErrParid": {
+    "name": "detailOperErrParid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLockTry": {
+    "name": "detailOperLockTry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperL2NoRoute": {
+    "name": "detailOperL2NoRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListTable": {
+    "name": "detailOperPeerInfoListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperPeerInfoListEntry": {
+    "name": "detailOperPeerInfoListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerInfoListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperPeerInfoListSlotId": {
+    "name": "detailOperPeerInfoListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerInfoListListId": {
+    "name": "detailOperPeerInfoListPeerInfoListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerIp": {
+    "name": "detailOperPeerInfoListPeerIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerPktRecv": {
+    "name": "detailOperPeerInfoListPeerPktRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListTable": {
+    "name": "detailOperPeerInfoListPeerListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListEntry": {
+    "name": "detailOperPeerInfoListPeerListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerInfoListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListSlotId": {
+    "name": "detailOperPeerInfoListPeerListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerInfoListListId": {
+    "name": "detailOperPeerInfoListPeerListPeerInfoListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerListListId": {
+    "name": "detailOperPeerInfoListPeerListPeerListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerId": {
+    "name": "detailOperPeerInfoListPeerListPeerId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListVrid": {
+    "name": "detailOperPeerInfoListPeerListVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListMissingHeartbeat": {
+    "name": "detailOperPeerInfoListPeerListMissingHeartbeat",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListTable": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListEntry": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerPortListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerPortListPeerListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperPeerInfoListPeerListPeerPortListPeerPortListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListSlotId": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListPeerListListId": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListPeerListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListPeerPortListListId": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListPeerPortListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListEth": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListEth",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListVrrpPktRecv": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListVrrpPktRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperPeerInfoListPeerListPeerPortListEthMiss": {
+    "name": "detailOperPeerInfoListPeerListPeerPortListEthMiss",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListTable": {
+    "name": "detailOperLocalInfoListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperLocalInfoListEntry": {
+    "name": "detailOperLocalInfoListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperLocalInfoListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperLocalInfoListLocalInfoListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperLocalInfoListSlotId": {
+    "name": "detailOperLocalInfoListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalInfoListListId": {
+    "name": "detailOperLocalInfoListLocalInfoListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListSwitchToActive": {
+    "name": "detailOperLocalInfoListSwitchToActive",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListSwitchToStandby": {
+    "name": "detailOperLocalInfoListSwitchToStandby",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListVrid": {
+    "name": "detailOperLocalInfoListVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListVrrpPktSend": {
+    "name": "detailOperLocalInfoListVrrpPktSend",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListTable": {
+    "name": "detailOperLocalInfoListLocalEthSendListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListEntry": {
+    "name": "detailOperLocalInfoListLocalEthSendListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperLocalInfoListLocalEthSendListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperLocalInfoListLocalEthSendListLocalInfoListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-DETAIL-MIB",
+        "object": "detailOperLocalInfoListLocalEthSendListLocalEthSendListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListSlotId": {
+    "name": "detailOperLocalInfoListLocalEthSendListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListLocalInfoListListId": {
+    "name": "detailOperLocalInfoListLocalEthSendListLocalInfoListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListLocalEthSendListListId": {
+    "name": "detailOperLocalInfoListLocalEthSendListLocalEthSendListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListEthPort": {
+    "name": "detailOperLocalInfoListLocalEthSendListEthPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "detailOperLocalInfoListLocalEthSendListEthPktSend": {
+    "name": "detailOperLocalInfoListLocalEthSendListEthPktSend",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.14.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VRRPA-DETAIL-MIB",
+      "Source digest sha256:0b2c3ef5e2e2956b8dd9fa29bf799451acbd6a7de3024c10f730e992549c6a17",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VRRPA-DETAIL-MIB"
+  }
+}

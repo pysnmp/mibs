@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module ACOS-SLB-SSL-JA4-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ACOS-SLB-SSL-JA4-MIB
+# Source digest sha256:088eca07870270a4a2c9b803fe88f3dc7ec9c13a877c3787efebf64718a10261
+# Produced by pysmi-2.3.0
+#
+acosSchema, = mibBuilder.importSymbols("A10-AX-MIB", "acosSchema")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, PhysAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "PhysAddress", "TextualConvention")
+slbSslJa4Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315))
+if mibBuilder.loadTexts: slbSslJa4Module.setLastUpdated('2007-05-07 13:27')
+if mibBuilder.loadTexts: slbSslJa4Module.setOrganization('A10 Networks, Inc.')
+sslJa4 = MibIdentifier((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1))
+sslJa4OperRecordTable = MibTable((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: sslJa4OperRecordTable.setStatus('current')
+sslJa4OperRecordEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ACOS-SLB-SSL-JA4-MIB", "sslJa4OperRecordSlotId"), (0, "ACOS-SLB-SSL-JA4-MIB", "sslJa4OperRecordRecordListId"))
+if mibBuilder.loadTexts: sslJa4OperRecordEntry.setStatus('current')
+sslJa4OperRecordSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sslJa4OperRecordSlotId.setStatus('current')
+sslJa4OperRecordRecordListId = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sslJa4OperRecordRecordListId.setStatus('current')
+sslJa4OperRecordAddrV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sslJa4OperRecordAddrV4.setStatus('current')
+sslJa4OperRecordAddrV6 = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sslJa4OperRecordAddrV6.setStatus('current')
+sslJa4OperRecordAmount = MibTableColumn((1, 3, 6, 1, 4, 1, 22610, 2, 4, 8, 315, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sslJa4OperRecordAmount.setStatus('current')
+mibBuilder.exportSymbols("ACOS-SLB-SSL-JA4-MIB", PYSNMP_MODULE_ID=slbSslJa4Module, slbSslJa4Module=slbSslJa4Module, sslJa4=sslJa4, sslJa4OperRecordAddrV4=sslJa4OperRecordAddrV4, sslJa4OperRecordAddrV6=sslJa4OperRecordAddrV6, sslJa4OperRecordAmount=sslJa4OperRecordAmount, sslJa4OperRecordEntry=sslJa4OperRecordEntry, sslJa4OperRecordRecordListId=sslJa4OperRecordRecordListId, sslJa4OperRecordSlotId=sslJa4OperRecordSlotId, sslJa4OperRecordTable=sslJa4OperRecordTable)

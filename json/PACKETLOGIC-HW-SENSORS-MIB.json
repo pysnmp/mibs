@@ -1,0 +1,236 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "PACKETLOGIC-HW-MIB": [
+      "hw"
+    ],
+    "PACKETLOGIC-MIB": [
+      "packetlogic2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.15397.2.30.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-12 15:00",
+        "description": " Latest version at the revision date for version GET VERSION HERE"
+      }
+    ]
+  },
+  "tempSensors": {
+    "name": "tempSensors",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorEntry": {
+    "name": "tempSensorEntry",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PACKETLOGIC-HW-SENSORS-MIB",
+        "object": "tempSensorEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorEntryIndex": {
+    "name": "tempSensorEntryIndex",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1.999",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanSensors": {
+    "name": "fanSensors",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanSensorEntry": {
+    "name": "fanSensorEntry",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PACKETLOGIC-HW-SENSORS-MIB",
+        "object": "fanSensorEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanSensorEntryIndex": {
+    "name": "fanSensorEntryIndex",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1.999",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorId": {
+    "name": "tempSensorId",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorReading": {
+    "name": "tempSensorReading",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorStatus": {
+    "name": "tempSensorStatus",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorUnit": {
+    "name": "tempSensorUnit",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSensorId": {
+    "name": "fanSensorId",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSensorSpeed": {
+    "name": "fanSensorSpeed",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSensorStatus": {
+    "name": "fanSensorStatus",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSensorUnit": {
+    "name": "fanSensorUnit",
+    "oid": "1.3.6.1.4.1.15397.2.30.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PACKETLOGIC-HW-SENSORS-MIB",
+      "Source digest sha256:26774d24d8f3f9f3447023e01e5ea4cce27c1908cccef6e9988d95a873274309",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PACKETLOGIC-HW-SENSORS-MIB"
+  }
+}

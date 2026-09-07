@@ -1,0 +1,585 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpnsa": {
+    "name": "hpnsa",
+    "oid": "1.3.6.1.4.1.11.2.23",
+    "class": "objectidentity"
+  },
+  "hpIpfE0Events": {
+    "name": "hpIpfE0Events",
+    "oid": "1.3.6.1.4.1.11.2.23.35",
+    "class": "objectidentity"
+  },
+  "hpIpf02Events": {
+    "name": "hpIpf02Events",
+    "oid": "1.3.6.1.4.1.11.2.23.45",
+    "class": "objectidentity"
+  },
+  "hpIpfEvtDetailStr": {
+    "name": "hpIpfEvtDetailStr",
+    "oid": "1.3.6.1.4.1.11.2.23.45.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpTempHighWarning752": {
+    "name": "hpTempHighWarning752",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.752",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTempHighCritical753": {
+    "name": "hpTempHighCritical753",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.753",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTempHighNonRecoverable754": {
+    "name": "hpTempHighNonRecoverable754",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.754",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTemperature4": {
+    "name": "hpTemperature4",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTemperature5": {
+    "name": "hpTemperature5",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTemperature6": {
+    "name": "hpTemperature6",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTemperature755": {
+    "name": "hpTemperature755",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.755",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpTemperature756": {
+    "name": "hpTemperature756",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.756",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment8": {
+    "name": "hpEnvironment8",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment9": {
+    "name": "hpEnvironment9",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment10": {
+    "name": "hpEnvironment10",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment12": {
+    "name": "hpEnvironment12",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment704": {
+    "name": "hpEnvironment704",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.704",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment728": {
+    "name": "hpEnvironment728",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.728",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment705": {
+    "name": "hpEnvironment705",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.705",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment706": {
+    "name": "hpEnvironment706",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.706",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpEnvironment707": {
+    "name": "hpEnvironment707",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.707",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpFan710": {
+    "name": "hpFan710",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.710",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpChassis26": {
+    "name": "hpChassis26",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpBmcFirmware730": {
+    "name": "hpBmcFirmware730",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.730",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpRedundantPower720": {
+    "name": "hpRedundantPower720",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.720",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpRedundantPower732": {
+    "name": "hpRedundantPower732",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.732",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpRedundantPower722": {
+    "name": "hpRedundantPower722",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.722",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpRedundantPower757": {
+    "name": "hpRedundantPower757",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.757",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpRedundantPower758": {
+    "name": "hpRedundantPower758",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.758",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpPowerSupply731": {
+    "name": "hpPowerSupply731",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.731",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpPowerSupply726": {
+    "name": "hpPowerSupply726",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.726",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW733": {
+    "name": "hpSystemHW733",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.733",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW734": {
+    "name": "hpSystemHW734",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.734",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpECCMemory518": {
+    "name": "hpECCMemory518",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.518",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemFW700": {
+    "name": "hpSystemFW700",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.700",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW744": {
+    "name": "hpSystemHW744",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.744",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW735": {
+    "name": "hpSystemHW735",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.735",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW729": {
+    "name": "hpSystemHW729",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.729",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW745": {
+    "name": "hpSystemHW745",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.745",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW746": {
+    "name": "hpSystemHW746",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.746",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW751": {
+    "name": "hpSystemHW751",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.751",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW747": {
+    "name": "hpSystemHW747",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.747",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemFW699": {
+    "name": "hpSystemFW699",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.699",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW113": {
+    "name": "hpSystemHW113",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.113",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW748": {
+    "name": "hpSystemHW748",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.748",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW749": {
+    "name": "hpSystemHW749",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.749",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW736": {
+    "name": "hpSystemHW736",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.736",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW737": {
+    "name": "hpSystemHW737",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.737",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW738": {
+    "name": "hpSystemHW738",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.738",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW739": {
+    "name": "hpSystemHW739",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.739",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "hpSystemHW740": {
+    "name": "hpSystemHW740",
+    "oid": "1.3.6.1.4.1.11.2.23.45.0.740",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPIPF02TRAP-MIB",
+        "object": "hpIpfEvtDetailStr"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPIPF02TRAP-MIB",
+      "Source digest sha256:4159924b407a6906a29c4d2b09d878f9e3e1680ba56b9c6f14eed5eadee9d1dd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPIPF02TRAP-MIB"
+  }
+}

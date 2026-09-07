@@ -1,0 +1,293 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "interfaceBriefModule": {
+    "name": "interfaceBriefModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201",
+    "class": "moduleidentity"
+  },
+  "brief": {
+    "name": "brief",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1",
+    "class": "objectidentity"
+  },
+  "briefOperInterfacesTable": {
+    "name": "briefOperInterfacesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "briefOperInterfacesEntry": {
+    "name": "briefOperInterfacesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-INTERFACE-BRIEF-MIB",
+        "object": "briefOperInterfacesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-INTERFACE-BRIEF-MIB",
+        "object": "briefOperInterfacesInterfacesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "briefOperInterfacesSlotId": {
+    "name": "briefOperInterfacesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesInterfacesListId": {
+    "name": "briefOperInterfacesInterfacesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesPortNum": {
+    "name": "briefOperInterfacesPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesSpeed": {
+    "name": "briefOperInterfacesSpeed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesDuplexity": {
+    "name": "briefOperInterfacesDuplexity",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesTrunkGroup": {
+    "name": "briefOperInterfacesTrunkGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesVlanInfo": {
+    "name": "briefOperInterfacesVlanInfo",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesEncapInfo": {
+    "name": "briefOperInterfacesEncapInfo",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesState": {
+    "name": "briefOperInterfacesState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesMac": {
+    "name": "briefOperInterfacesMac",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv4AddrCount": {
+    "name": "briefOperInterfacesIpv4AddrCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv4Addr": {
+    "name": "briefOperInterfacesIpv4Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv4Mask": {
+    "name": "briefOperInterfacesIpv4Mask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv6AddrCount": {
+    "name": "briefOperInterfacesIpv6AddrCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv6Addr": {
+    "name": "briefOperInterfacesIpv6Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIpv6Prefix": {
+    "name": "briefOperInterfacesIpv6Prefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesIntfName": {
+    "name": "briefOperInterfacesIntfName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "briefOperInterfacesUnnumberedOper": {
+    "name": "briefOperInterfacesUnnumberedOper",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.201.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-INTERFACE-BRIEF-MIB",
+      "Source digest sha256:6703425233e6d1843dc7800fdbf14b542fe875e5c7f002930e2b64c0390be380",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-INTERFACE-BRIEF-MIB"
+  }
+}

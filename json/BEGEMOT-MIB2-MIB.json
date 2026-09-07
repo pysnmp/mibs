@@ -1,0 +1,103 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-IP-MIB": [
+      "begemotIp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "begemotMib2": {
+    "name": "begemotMib2",
+    "oid": "1.3.6.1.4.1.12325.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-03 00:00",
+        "description": "Second edition adds begemotIfDataPoll object."
+      },
+      {
+        "revision": "2006-02-13 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "begemotIfMaxspeed": {
+    "name": "begemotIfMaxspeed",
+    "oid": "1.3.6.1.4.1.12325.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotIfPoll": {
+    "name": "begemotIfPoll",
+    "oid": "1.3.6.1.4.1.12325.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotIfForcePoll": {
+    "name": "begemotIfForcePoll",
+    "oid": "1.3.6.1.4.1.12325.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotIfDataPoll": {
+    "name": "begemotIfDataPoll",
+    "oid": "1.3.6.1.4.1.12325.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 100,
+      "format": "decimal"
+    },
+    "units": "deciseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BEGEMOT-MIB2-MIB",
+      "Source digest sha256:7b57ea394ad25e01f998c76f58a5a57961adfd2fdbd4d5f097fae4cdc49d9c71",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BEGEMOT-MIB2-MIB"
+  }
+}

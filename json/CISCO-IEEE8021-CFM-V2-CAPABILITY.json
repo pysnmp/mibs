@@ -1,0 +1,186 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIeee8021CfmV2Capability": {
+    "name": "ciscoIeee8021CfmV2Capability",
+    "oid": "1.3.6.1.4.1.9.7.579",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-15 00:00",
+        "description": "Added capability statement ciscoIeee8021CfmV2CapV12R0254SE."
+      },
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIeee8021CfmV2CapCatOSV08R0702": {
+    "name": "ciscoIeee8021CfmV2CapCatOSV08R0702",
+    "oid": "1.3.6.1.4.1.9.7.579.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(2).",
+    "capabilities": [
+      {
+        "module": "IEEE8021-CFM-V2-MIB",
+        "includes": [
+          "ieee8021CfmStackGroup",
+          "ieee8021CfmMaGroup",
+          "ieee8021CfmConfigErrorListGroup"
+        ],
+        "variations": [
+          {
+            "object": "ieee8021CfmMaCompPrimarySelectorType",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompPrimarySelectorOrNone",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 4094
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ieee8021CfmMaCompNumberOfVids",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ieee8021CfmMaCompMhfCreation",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ieee8021CfmMaCompIdPermission",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIeee8021CfmV2CapV12R0254SE": {
+    "name": "ciscoIeee8021CfmV2CapV12R0254SE",
+    "oid": "1.3.6.1.4.1.9.7.579.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(54)SE.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-CFM-V2-MIB",
+        "includes": [
+          "ieee8021CfmStackGroup",
+          "ieee8021CfmMaGroup",
+          "ieee8021CfmVlanIdGroup",
+          "ieee8021CfmDefaultMdGroup",
+          "ieee8021CfmConfigErrorListGroup"
+        ],
+        "variations": [
+          {
+            "object": "ieee8021CfmVlanPrimarySelector",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompPrimarySelectorType",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompPrimarySelectorOrNone",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompMhfCreation",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompIdPermission",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompNumberOfVids",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmMaCompRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmVlanPrimarySelector",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmDefaultMdLevel",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmDefaultMdMhfCreation",
+            "access": "read-only"
+          },
+          {
+            "object": "ieee8021CfmDefaultMdIdPermission",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IEEE8021-CFM-V2-CAPABILITY",
+      "Source digest sha256:fafae44a0bec1e6c144d212d411fb37964a3cc0eff7ca5a3967df5a7860f681b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IEEE8021-CFM-V2-CAPABILITY"
+  }
+}

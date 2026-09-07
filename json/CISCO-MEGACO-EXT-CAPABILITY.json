@@ -1,0 +1,396 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMegacoExtCapability": {
+    "name": "ciscoMegacoExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.376",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMegacoExtCapabilityV5R00": {
+    "name": "ciscoMegacoExtCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.376.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-MEGACO-EXT-MIB",
+        "includes": [
+          "cmedxConfigGroup",
+          "cmedxStatsGroup",
+          "cmedxCallReduceRateGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmedxGatewayIpAddressIndex",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 16
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxGatewayMaxContexts",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 8064
+                  }
+                ]
+              }
+            },
+            "default": [
+              8064
+            ]
+          },
+          {
+            "object": "cmedxGatewayMaxTermsInContext",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10
+                  }
+                ]
+              }
+            },
+            "default": [
+              10
+            ]
+          },
+          {
+            "object": "cmedxGatewayDownServiceDelay",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -1,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxGatewayActiveMgcDomain",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmedxTermType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pdnRtp": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmedxTermTypeProfileId",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxTermTypePkgIds",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "pkgG": 0,
+                "pkgDG": 4,
+                "pkgCG": 6,
+                "pkgNT": 9,
+                "pkgRTP": 10,
+                "pkgAN": 12,
+                "pkgSrvTn": 15
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileDtmfDigitOnDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 40,
+                    "max": 60000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileDtmfPauseDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 40,
+                    "max": 500
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileCot1Frequency",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1780,
+                    "max": 1780
+                  },
+                  {
+                    "min": 2010,
+                    "max": 2010
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileCot2Frequency",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1780,
+                    "max": 1780
+                  },
+                  {
+                    "min": 2010,
+                    "max": 2010
+                  }
+                ]
+              }
+            },
+            "default": [
+              2010
+            ]
+          },
+          {
+            "object": "cmedxProfileInitiateCotDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileDetectLongDigitDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 40,
+                    "max": 60000
+                  }
+                ]
+              }
+            },
+            "default": [
+              1000
+            ]
+          },
+          {
+            "object": "cmedxProfileDetectLongCpToneDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfilePlayCpToneInterDur",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileInGainControl",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": -4,
+                    "max": 14
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmedxProfileVoIpVadTimer",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 250,
+                    "max": 500
+                  }
+                ]
+              }
+            },
+            "default": [
+              250
+            ]
+          },
+          {
+            "object": "cmedxProfileVoAal2VadTimer",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 250,
+                    "max": 500
+                  }
+                ]
+              }
+            },
+            "default": [
+              250
+            ]
+          },
+          {
+            "object": "cmedxProfileAtmAalType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "aal1Sdt": 3,
+                  "aal2": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "cmedxEphTermStatsType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "all": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cmedxCRRNumOfLevel",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmedxCallReduceRate",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MEGACO-EXT-CAPABILITY",
+      "Source digest sha256:78f322eff76ecc16910fa9d5fc5bdb2363d82e34a018bb1dcbc6fb0e8f278ec2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MEGACO-EXT-CAPABILITY"
+  }
+}

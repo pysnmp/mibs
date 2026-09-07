@@ -1,0 +1,88 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxIpCapability": {
+    "name": "jnxIpCapability",
+    "oid": "1.3.6.1.4.1.2636.11.3",
+    "class": "moduleidentity"
+  },
+  "jnxIpCapJunos": {
+    "name": "jnxIpCapJunos",
+    "oid": "1.3.6.1.4.1.2636.11.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "All JUNOS Version",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "icmpStatsGroup",
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          },
+          {
+            "object": "ipSystemStatsInBcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsHCInBcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutBcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsHCOutBcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipAddressSpinLock",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JNX-IP-CAPABILITY",
+      "Source digest sha256:eb3624c1529ede858eaf59083af3e9e6bf3cca94bdeec8043af3a1c431f1cd27",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JNX-IP-CAPABILITY"
+  }
+}

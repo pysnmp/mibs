@@ -1,0 +1,32 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "NotificationName",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "ObjectName",
+      "ObjectSyntax",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SNMPv2-CONF",
+      "Source digest sha256:6ccc8b24df2be48caf0cafce178ffc76dafcd77e5e4fc5081679d9eb094bd259",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SNMPv2-CONF"
+  }
+}

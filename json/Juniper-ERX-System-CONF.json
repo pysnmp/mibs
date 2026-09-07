@@ -1,0 +1,307 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniSystemAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniErxSystemAgent": {
+    "name": "juniErxSystemAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-24 19:53",
+        "description": "Juniper-System-MIB: Added resource utilization notification enable/disable. Added KByte memory capacilty object."
+      },
+      {
+        "revision": "2003-01-28 21:48",
+        "description": "Juniper-System-MIB: Replaced Unisphere names with Juniper names. Added resoure utilization support."
+      },
+      {
+        "revision": "2002-08-19 13:17",
+        "description": "Added support for the Juniper generic system MIB."
+      },
+      {
+        "revision": "2002-04-01 22:32",
+        "description": "Added thermal protection support."
+      },
+      {
+        "revision": "2001-04-13 13:03",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniErxSystemAgentV1": {
+    "name": "juniErxSystemAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 1.3\n        system release.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGroup",
+          "juniERXSysNotifyGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV2": {
+    "name": "juniErxSystemAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 2.x\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV3": {
+    "name": "juniErxSystemAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 3.0 and\n        3.1 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV4": {
+    "name": "juniErxSystemAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 3.2\n        system release.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup2",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup2"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV5": {
+    "name": "juniErxSystemAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component is supported in the JUNOSe 3.3 thru\n        4.0 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup2",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup2",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup3"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV6": {
+    "name": "juniErxSystemAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 4.1 and\n        subsequent 4.x system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup3",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup2",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup3"
+        ]
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "includes": [
+          "juniSystemGeneralGroup",
+          "juniSystemSubsystemGroup",
+          "juniSystemModuleGroup",
+          "juniSystemPortGroup",
+          "juniSystemTimingGroup",
+          "juniSystemFabricGroup",
+          "juniSystemNvsGroup",
+          "juniSystemPowerGroup",
+          "juniSystemTemperatureGroup",
+          "juniSystemNotificationObjectsGroup",
+          "juniSystemNotificationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV7": {
+    "name": "juniErxSystemAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component was supported in the JUNOSe 5.0 and\n        5.1 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup3",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup2",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup3"
+        ]
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "includes": [
+          "juniSystemGeneralGroup",
+          "juniSystemSubsystemGroup",
+          "juniSystemModuleGroup",
+          "juniSystemPortGroup",
+          "juniSystemTimingGroup",
+          "juniSystemFabricGroup",
+          "juniSystemNvsGroup",
+          "juniSystemPowerGroup",
+          "juniSystemTemperatureGroup",
+          "juniSystemUtilizationGroup",
+          "juniSystemNotificationObjectsGroup",
+          "juniSystemNotificationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "juniSystemUtilizationThresholdRising",
+            "access": "read-only"
+          },
+          {
+            "object": "juniSystemUtilizationThresholdFalling",
+            "access": "read-only"
+          },
+          {
+            "object": "juniSystemUtilizationHoldDownTime",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniErxSystemAgentV8": {
+    "name": "juniErxSystemAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.42.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the System component of the JUNOSe SNMP agent.  This\n        version of the ERX System component is supported in the JUNOSe 5.2 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ERX-System-MIB",
+        "includes": [
+          "juniERXSysGeneralGroup3",
+          "juniERXSysTimingGroup",
+          "juniERXSysFabricGroup",
+          "juniERXSysNvsGroup",
+          "juniERXSysSlotGroup",
+          "juniERXSysPortGroup",
+          "juniERXSysPowerGroup",
+          "juniERXSysTemperatureGroup2",
+          "juniERXSysSubsystemGroup",
+          "juniERXSysNotifyGroup3"
+        ]
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "includes": [
+          "juniSystemGeneralGroup2",
+          "juniSystemSubsystemGroup",
+          "juniSystemModuleGroup",
+          "juniSystemPortGroup",
+          "juniSystemTimingGroup",
+          "juniSystemFabricGroup",
+          "juniSystemNvsGroup",
+          "juniSystemPowerGroup",
+          "juniSystemTemperatureGroup",
+          "juniSystemUtilizationGroup",
+          "juniSystemNotificationObjectsGroup",
+          "juniSystemNotificationGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-ERX-System-CONF",
+      "Source digest sha256:0ef7eec52e0e38641bcee92528bc0b21adef9f3e5a9164e212e89d95eecdc496",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-ERX-System-CONF"
+  }
+}

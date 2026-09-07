@@ -1,0 +1,259 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsMib": {
+    "name": "nbsMib",
+    "oid": "1.3.6.1.4.1.629.250",
+    "class": "moduleidentity"
+  },
+  "nbs": {
+    "name": "nbs",
+    "oid": "1.3.6.1.4.1.629",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "Unsigned16TC": {
+    "name": "Unsigned16TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Unsigned64TC": {
+    "name": "Unsigned64TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "WritableU64": {
+    "name": "WritableU64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcTemperature": {
+    "name": "NbsTcTemperature",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcMilliVolt": {
+    "name": "NbsTcMilliVolt",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcMilliAmp": {
+    "name": "NbsTcMilliAmp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcMicroAmp": {
+    "name": "NbsTcMicroAmp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcMilliDb": {
+    "name": "NbsTcMilliDb",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcMilliWatts": {
+    "name": "NbsTcMilliWatts",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "NbsTcMHz": {
+    "name": "NbsTcMHz",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcStatusSimple": {
+    "name": "NbsTcStatusSimple",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "bad": 2,
+          "good": 3,
+          "notInstalled": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcStatusLevel": {
+    "name": "NbsTcStatusLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "statusLowError": 2,
+          "statusLowWarning": 3,
+          "statusGood": 4,
+          "statusHighWarning": 5,
+          "statusHighError": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NbsTcPartIndex": {
+    "name": "NbsTcPartIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "NbsTcStagingCommit": {
+    "name": "NbsTcStagingCommit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "supported": 2,
+          "revertToCommitted": 3,
+          "apply": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NBS-MIB",
+      "Source digest sha256:073ecbc4eee21a0553cff9f7720c993f1078c26b8b4f8a7c0fa8bfa99e68205d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NBS-MIB"
+  }
+}

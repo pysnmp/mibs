@@ -1,0 +1,1045 @@
+ACOS-CGNV6-SERVICE-GROUP-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6ServiceGroupModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6ServiceGroupModule OID for ACOS"
+				::=  {  acosSchema 410 }
+
+serviceGroup		 OBJECT IDENTIFIER ::= { cgnv6ServiceGroupModule 1}
+
+serviceGroupStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceGroupStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Service Group from object 'cgnv6.service-group'"
+	::= {serviceGroup 1}
+
+serviceGroupStatsEntry OBJECT-TYPE
+	SYNTAX ServiceGroupStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceGroupStats stats entry"
+	INDEX {
+		serviceGroupStatsSlotId,
+		serviceGroupStatsName
+	}
+	::= { serviceGroupStatsTable 1 }
+
+ServiceGroupStatsEntry ::=
+	SEQUENCE {
+		serviceGroupStatsSlotId Integer32,
+		serviceGroupStatsName DisplayString,
+		serviceGroupStatsServerSelectionFailDrop	 CounterBasedGauge64,
+		serviceGroupStatsServerSelectionFailReset	 CounterBasedGauge64,
+		serviceGroupStatsServicePeakConn	 CounterBasedGauge64
+	}
+
+serviceGroupStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serviceGroupStatsEntry 1 }
+
+serviceGroupStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serviceGroupStatsEntry 2 }
+
+serviceGroupStatsServerSelectionFailDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_selection_fail_drop"
+	::= { serviceGroupStatsEntry 3 }
+
+serviceGroupStatsServerSelectionFailReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_selection_fail_reset"
+	::= { serviceGroupStatsEntry 4 }
+
+serviceGroupStatsServicePeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service_peak_conn"
+	::= { serviceGroupStatsEntry 5 }
+
+serviceGroupOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceGroupOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service Group from object 'cgnv6.service-group'"
+	::= {serviceGroup 2}
+
+serviceGroupOperEntry OBJECT-TYPE
+	SYNTAX ServiceGroupOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceGroupOper entry"
+	INDEX {
+		serviceGroupOperSlotId,
+		serviceGroupOperName
+	}
+	::= { serviceGroupOperTable 1 }
+
+ServiceGroupOperEntry ::=
+	SEQUENCE {
+		serviceGroupOperSlotId Integer32,
+		serviceGroupOperName DisplayString,
+		serviceGroupOperState	 DisplayString,
+		serviceGroupOperServersUp	 Integer32,
+		serviceGroupOperServersDown	 Integer32,
+		serviceGroupOperServersDisable	 Integer32,
+		serviceGroupOperServersTotal	 Integer32,
+		serviceGroupOperStatelessCurrentRate	 Integer32,
+		serviceGroupOperStatelessCurrentUsage	 Integer32,
+		serviceGroupOperStatelessState	 Integer32,
+		serviceGroupOperStatelessType	 Integer32,
+		serviceGroupOperHmDsrEnableAllVip	 Integer32,
+		serviceGroupOperPriAffinityPriority	 Integer32,
+		serviceGroupOperFilter	 DisplayString
+	}
+
+serviceGroupOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serviceGroupOperEntry 1 }
+
+serviceGroupOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serviceGroupOperEntry 2 }
+
+serviceGroupOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { serviceGroupOperEntry 3 }
+
+serviceGroupOperServersUp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "servers_up"
+	::= { serviceGroupOperEntry 4 }
+
+serviceGroupOperServersDown OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "servers_down"
+	::= { serviceGroupOperEntry 5 }
+
+serviceGroupOperServersDisable OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "servers_disable"
+	::= { serviceGroupOperEntry 6 }
+
+serviceGroupOperServersTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "servers_total"
+	::= { serviceGroupOperEntry 7 }
+
+serviceGroupOperStatelessCurrentRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stateless_current_rate"
+	::= { serviceGroupOperEntry 8 }
+
+serviceGroupOperStatelessCurrentUsage OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stateless_current_usage"
+	::= { serviceGroupOperEntry 9 }
+
+serviceGroupOperStatelessState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stateless_state"
+	::= { serviceGroupOperEntry 10 }
+
+serviceGroupOperStatelessType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stateless_type"
+	::= { serviceGroupOperEntry 11 }
+
+serviceGroupOperHmDsrEnableAllVip OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hm_dsr_enable_all_vip"
+	::= { serviceGroupOperEntry 12 }
+
+serviceGroupOperPriAffinityPriority OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pri_affinity_priority"
+	::= { serviceGroupOperEntry 13 }
+
+serviceGroupOperFilter OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "filter"
+	::= { serviceGroupOperEntry 14 }
+
+serviceGroupOperSgmListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceGroupOperSgmListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service Group from object 'cgnv6.service-group'"
+	::= {serviceGroup 3}
+
+serviceGroupOperSgmListEntry OBJECT-TYPE
+	SYNTAX ServiceGroupOperSgmListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceGroupOperSgmList entry:sgm-list"
+	INDEX {
+		serviceGroupOperSgmListSlotId,
+		serviceGroupOperSgmListName,
+		serviceGroupOperSgmListSgmListListId
+	}
+	::= { serviceGroupOperSgmListTable 1}
+
+ServiceGroupOperSgmListEntry ::=
+	SEQUENCE {
+		serviceGroupOperSgmListSlotId Integer32,
+		serviceGroupOperSgmListName DisplayString,
+		serviceGroupOperSgmListSgmListListId Integer32,
+		serviceGroupOperSgmListSgmName	DisplayString,
+		serviceGroupOperSgmListSgmPort	Integer32
+	}
+
+serviceGroupOperSgmListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceGroupOperSgmListEntry 1}
+
+serviceGroupOperSgmListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { serviceGroupOperSgmListEntry 2}
+
+serviceGroupOperSgmListSgmListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceGroupOperSgmListEntry 3}
+
+serviceGroupOperSgmListSgmName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sgm-name"
+	::= { serviceGroupOperSgmListEntry 4}
+
+serviceGroupOperSgmListSgmPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sgm-port"
+	::= { serviceGroupOperSgmListEntry 5}
+
+member		 OBJECT IDENTIFIER ::= { serviceGroup 4}
+
+memberStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MemberStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Service Group Member from object 'cgnv6.service-group.member'"
+	::= {member 1}
+
+memberStatsEntry OBJECT-TYPE
+	SYNTAX MemberStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The memberStats stats entry"
+	INDEX {
+		memberStatsSlotId,
+		memberStatsServiceGroupName,
+		memberStatsName,
+		memberStatsPort
+	}
+	::= { memberStatsTable 1 }
+
+MemberStatsEntry ::=
+	SEQUENCE {
+		memberStatsSlotId Integer32,
+		memberStatsServiceGroupName DisplayString,
+		memberStatsName DisplayString,
+		memberStatsPort Integer32,
+		memberStatsCurrConn	 CounterBasedGauge64,
+		memberStatsTotalFwdBytes	 CounterBasedGauge64,
+		memberStatsTotalFwdPkts	 CounterBasedGauge64,
+		memberStatsTotalRevBytes	 CounterBasedGauge64,
+		memberStatsTotalRevPkts	 CounterBasedGauge64,
+		memberStatsTotalConn	 CounterBasedGauge64,
+		memberStatsTotalRevPktsInspected	 CounterBasedGauge64,
+		memberStatsTotalRevPktsInspectedStatusCode2xx	 CounterBasedGauge64,
+		memberStatsTotalRevPktsInspectedStatusCodeNon5xx	 CounterBasedGauge64,
+		memberStatsCurrReq	 CounterBasedGauge64,
+		memberStatsTotalReq	 CounterBasedGauge64,
+		memberStatsTotalReqSucc	 CounterBasedGauge64,
+		memberStatsPeakConn	 CounterBasedGauge64,
+		memberStatsResponseTime	 CounterBasedGauge64,
+		memberStatsFastestRspTime	 CounterBasedGauge64,
+		memberStatsSlowestRspTime	 CounterBasedGauge64,
+		memberStatsCurrSslConn	 CounterBasedGauge64,
+		memberStatsTotalSslConn	 CounterBasedGauge64,
+		memberStatsCurrConnOverflow	 CounterBasedGauge64,
+		memberStatsStateFlaps	 CounterBasedGauge64
+	}
+
+memberStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { memberStatsEntry 1 }
+
+memberStatsServiceGroupName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { memberStatsEntry 2 }
+
+memberStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { memberStatsEntry 3 }
+
+memberStatsPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port"
+	::= { memberStatsEntry 4 }
+
+memberStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn"
+	::= { memberStatsEntry 5 }
+
+memberStatsTotalFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes"
+	::= { memberStatsEntry 6 }
+
+memberStatsTotalFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts"
+	::= { memberStatsEntry 7 }
+
+memberStatsTotalRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes"
+	::= { memberStatsEntry 8 }
+
+memberStatsTotalRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts"
+	::= { memberStatsEntry 9 }
+
+memberStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_conn"
+	::= { memberStatsEntry 10 }
+
+memberStatsTotalRevPktsInspected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected"
+	::= { memberStatsEntry 11 }
+
+memberStatsTotalRevPktsInspectedStatusCode2xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected_status_code_2xx"
+	::= { memberStatsEntry 12 }
+
+memberStatsTotalRevPktsInspectedStatusCodeNon5xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected_status_code_non_5xx"
+	::= { memberStatsEntry 13 }
+
+memberStatsCurrReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_req"
+	::= { memberStatsEntry 14 }
+
+memberStatsTotalReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req"
+	::= { memberStatsEntry 15 }
+
+memberStatsTotalReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req_succ"
+	::= { memberStatsEntry 16 }
+
+memberStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak_conn"
+	::= { memberStatsEntry 17 }
+
+memberStatsResponseTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_time"
+	::= { memberStatsEntry 18 }
+
+memberStatsFastestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fastest_rsp_time"
+	::= { memberStatsEntry 19 }
+
+memberStatsSlowestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slowest_rsp_time"
+	::= { memberStatsEntry 20 }
+
+memberStatsCurrSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_ssl_conn"
+	::= { memberStatsEntry 21 }
+
+memberStatsTotalSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_ssl_conn"
+	::= { memberStatsEntry 22 }
+
+memberStatsCurrConnOverflow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_overflow"
+	::= { memberStatsEntry 23 }
+
+memberStatsStateFlaps OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state_flaps"
+	::= { memberStatsEntry 24 }
+
+memberOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MemberOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service Group Member from object 'cgnv6.service-group.member'"
+	::= {member 2}
+
+memberOperEntry OBJECT-TYPE
+	SYNTAX MemberOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The memberOper entry"
+	INDEX {
+		memberOperSlotId,
+		memberOperServiceGroupName,
+		memberOperName,
+		memberOperPort
+	}
+	::= { memberOperTable 1 }
+
+MemberOperEntry ::=
+	SEQUENCE {
+		memberOperSlotId Integer32,
+		memberOperServiceGroupName DisplayString,
+		memberOperName DisplayString,
+		memberOperPort Integer32,
+		memberOperState	 DisplayString,
+		memberOperHmKey	 Integer32,
+		memberOperHmIndex	 Integer32
+	}
+
+memberOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { memberOperEntry 1 }
+
+memberOperServiceGroupName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { memberOperEntry 2 }
+
+memberOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { memberOperEntry 3 }
+
+memberOperPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port"
+	::= { memberOperEntry 4 }
+
+memberOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { memberOperEntry 5 }
+
+memberOperHmKey OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hm-key"
+	::= { memberOperEntry 6 }
+
+memberOperHmIndex OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hm-index"
+	::= { memberOperEntry 7 }
+
+memberOperDrsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MemberOperDrsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service Group Member from object 'cgnv6.service-group.member'"
+	::= {member 3}
+
+memberOperDrsListEntry OBJECT-TYPE
+	SYNTAX MemberOperDrsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The memberOperDrsList entry:drs-list"
+	INDEX {
+		memberOperDrsListSlotId,
+		memberOperDrsListServiceGroupName,
+		memberOperDrsListName,
+		memberOperDrsListPort,
+		memberOperDrsListDrsListListId
+	}
+	::= { memberOperDrsListTable 1}
+
+MemberOperDrsListEntry ::=
+	SEQUENCE {
+		memberOperDrsListSlotId Integer32,
+		memberOperDrsListServiceGroupName DisplayString,
+		memberOperDrsListName DisplayString,
+		memberOperDrsListPort Integer32,
+		memberOperDrsListDrsListListId Integer32,
+		memberOperDrsListDrsName	DisplayString,
+		memberOperDrsListDrsState	DisplayString,
+		memberOperDrsListDrsHmKey	Integer32,
+		memberOperDrsListDrsHmIndex	Integer32,
+		memberOperDrsListDrsPort	Integer32,
+		memberOperDrsListDrsPriority	Integer32,
+		memberOperDrsListDrsCurrConn	Integer32,
+		memberOperDrsListDrsPersConn	Integer32,
+		memberOperDrsListDrsTotalConn	Integer32,
+		memberOperDrsListDrsCurrReq	Integer32,
+		memberOperDrsListDrsTotalReq	Integer32,
+		memberOperDrsListDrsTotalReqSucc	Integer32,
+		memberOperDrsListDrsRevPkts	Integer32,
+		memberOperDrsListDrsFwdPkts	Integer32,
+		memberOperDrsListDrsRevBts	Integer32,
+		memberOperDrsListDrsFwdBts	Integer32,
+		memberOperDrsListDrsPeakConn	Integer32,
+		memberOperDrsListDrsRspTime	Integer32,
+		memberOperDrsListDrsFrspTime	Integer32,
+		memberOperDrsListDrsSrspTime	Integer32
+	}
+
+memberOperDrsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { memberOperDrsListEntry 1}
+
+memberOperDrsListServiceGroupName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { memberOperDrsListEntry 2}
+
+memberOperDrsListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { memberOperDrsListEntry 3}
+
+memberOperDrsListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port"
+	::= { memberOperDrsListEntry 4}
+
+memberOperDrsListDrsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { memberOperDrsListEntry 5}
+
+memberOperDrsListDrsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-name"
+	::= { memberOperDrsListEntry 6}
+
+memberOperDrsListDrsState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-state"
+	::= { memberOperDrsListEntry 7}
+
+memberOperDrsListDrsHmKey OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-hm-key"
+	::= { memberOperDrsListEntry 8}
+
+memberOperDrsListDrsHmIndex OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-hm-index"
+	::= { memberOperDrsListEntry 9}
+
+memberOperDrsListDrsPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-port"
+	::= { memberOperDrsListEntry 10}
+
+memberOperDrsListDrsPriority OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-priority"
+	::= { memberOperDrsListEntry 11}
+
+memberOperDrsListDrsCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr-conn"
+	::= { memberOperDrsListEntry 12}
+
+memberOperDrsListDrsPersConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-pers-conn"
+	::= { memberOperDrsListEntry 13}
+
+memberOperDrsListDrsTotalConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-total-conn"
+	::= { memberOperDrsListEntry 14}
+
+memberOperDrsListDrsCurrReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr-req"
+	::= { memberOperDrsListEntry 15}
+
+memberOperDrsListDrsTotalReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-total-req"
+	::= { memberOperDrsListEntry 16}
+
+memberOperDrsListDrsTotalReqSucc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-total-req-succ"
+	::= { memberOperDrsListEntry 17}
+
+memberOperDrsListDrsRevPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-rev-pkts"
+	::= { memberOperDrsListEntry 18}
+
+memberOperDrsListDrsFwdPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-fwd-pkts"
+	::= { memberOperDrsListEntry 19}
+
+memberOperDrsListDrsRevBts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-rev-bts"
+	::= { memberOperDrsListEntry 20}
+
+memberOperDrsListDrsFwdBts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-fwd-bts"
+	::= { memberOperDrsListEntry 21}
+
+memberOperDrsListDrsPeakConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-peak-conn"
+	::= { memberOperDrsListEntry 22}
+
+memberOperDrsListDrsRspTime OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-rsp-time"
+	::= { memberOperDrsListEntry 23}
+
+memberOperDrsListDrsFrspTime OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-frsp-time"
+	::= { memberOperDrsListEntry 24}
+
+memberOperDrsListDrsSrspTime OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-srsp-time"
+	::= { memberOperDrsListEntry 25}
+
+memberOperAltListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MemberOperAltListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service Group Member from object 'cgnv6.service-group.member'"
+	::= {member 4}
+
+memberOperAltListEntry OBJECT-TYPE
+	SYNTAX MemberOperAltListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The memberOperAltList entry:alt-list"
+	INDEX {
+		memberOperAltListSlotId,
+		memberOperAltListServiceGroupName,
+		memberOperAltListName,
+		memberOperAltListPort,
+		memberOperAltListAltListListId
+	}
+	::= { memberOperAltListTable 1}
+
+MemberOperAltListEntry ::=
+	SEQUENCE {
+		memberOperAltListSlotId Integer32,
+		memberOperAltListServiceGroupName DisplayString,
+		memberOperAltListName DisplayString,
+		memberOperAltListPort Integer32,
+		memberOperAltListAltListListId Integer32,
+		memberOperAltListAltName	DisplayString,
+		memberOperAltListAltPort	Integer32,
+		memberOperAltListAltState	DisplayString,
+		memberOperAltListAltCurrConn	Integer32,
+		memberOperAltListAltTotalConn	Integer32,
+		memberOperAltListAltRevPkts	Integer32,
+		memberOperAltListAltFwdPkts	Integer32,
+		memberOperAltListAltPeakConn	Integer32
+	}
+
+memberOperAltListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { memberOperAltListEntry 1}
+
+memberOperAltListServiceGroupName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { memberOperAltListEntry 2}
+
+memberOperAltListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { memberOperAltListEntry 3}
+
+memberOperAltListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port"
+	::= { memberOperAltListEntry 4}
+
+memberOperAltListAltListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { memberOperAltListEntry 5}
+
+memberOperAltListAltName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-name"
+	::= { memberOperAltListEntry 6}
+
+memberOperAltListAltPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-port"
+	::= { memberOperAltListEntry 7}
+
+memberOperAltListAltState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-state"
+	::= { memberOperAltListEntry 8}
+
+memberOperAltListAltCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-curr-conn"
+	::= { memberOperAltListEntry 9}
+
+memberOperAltListAltTotalConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-total-conn"
+	::= { memberOperAltListEntry 10}
+
+memberOperAltListAltRevPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-rev-pkts"
+	::= { memberOperAltListEntry 11}
+
+memberOperAltListAltFwdPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-fwd-pkts"
+	::= { memberOperAltListEntry 12}
+
+memberOperAltListAltPeakConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alt-peak-conn"
+	::= { memberOperAltListEntry 13}
+
+END
+

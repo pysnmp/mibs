@@ -1,0 +1,127 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFipsStatsMIB": {
+    "name": "ciscoFipsStatsMIB",
+    "oid": "1.3.6.1.4.1.9.9.999999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-10 00:00",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoFipsStatsMIBNotifs": {
+    "name": "ciscoFipsStatsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.999999.0",
+    "class": "objectidentity"
+  },
+  "ciscoFipsStatsMIBObjects": {
+    "name": "ciscoFipsStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.999999.1",
+    "class": "objectidentity"
+  },
+  "ciscoFipsStatsMIBConform": {
+    "name": "ciscoFipsStatsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.999999.2",
+    "class": "objectidentity"
+  },
+  "cfipsStats": {
+    "name": "cfipsStats",
+    "oid": "1.3.6.1.4.1.9.9.999999.1.1",
+    "class": "objectidentity"
+  },
+  "cfipsStatsGlobal": {
+    "name": "cfipsStatsGlobal",
+    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1",
+    "class": "objectidentity"
+  },
+  "cfipsPostStatus": {
+    "name": "cfipsPostStatus",
+    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "passed": 2,
+          "failed": 3,
+          "notAvailable": 4
+        }
+      }
+    },
+    "default": {
+      "value": "notAvailable",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFipsStatsMIBCompliances": {
+    "name": "ciscoFipsStatsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.999999.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFipsStatsMIBGroups": {
+    "name": "ciscoFipsStatsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.999999.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFipsStatsMIBCompliance": {
+    "name": "ciscoFipsStatsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.999999.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFipsStatsMIBGroup",
+        "module": "CISCO-FIPS-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFipsStatsMIBGroup": {
+    "name": "ciscoFipsStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.999999.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FIPS-STATS-MIB",
+        "object": "cfipsPostStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-FIPS-STATS-MIB",
+      "Source digest sha256:f510e5c03bf3a49d48ae22562709319da62dd6926c3373fc79b97df84946a49a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-FIPS-STATS-MIB"
+  }
+}

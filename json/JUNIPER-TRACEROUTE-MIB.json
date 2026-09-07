@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxTraceRouteMIB": {
+    "name": "jnxTraceRouteMIB",
+    "oid": "1.3.6.1.4.1.2636.3.8",
+    "class": "moduleidentity"
+  },
+  "jnxTraceRouteObjects": {
+    "name": "jnxTraceRouteObjects",
+    "oid": "1.3.6.1.4.1.2636.3.8.1",
+    "class": "objectidentity"
+  },
+  "jnxTraceRouteCtlTable": {
+    "name": "jnxTraceRouteCtlTable",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTraceRouteCtlEntry": {
+    "name": "jnxTraceRouteCtlEntry",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TRACEROUTE-MIB",
+        "object": "jnxTRCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TRACEROUTE-MIB",
+        "object": "jnxTRCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTRCtlOwnerIndex": {
+    "name": "jnxTRCtlOwnerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTRCtlTestName": {
+    "name": "jnxTRCtlTestName",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTRCtlIfName": {
+    "name": "jnxTRCtlIfName",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxTRCtlRoutingInstanceName": {
+    "name": "jnxTRCtlRoutingInstanceName",
+    "oid": "1.3.6.1.4.1.2636.3.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-TRACEROUTE-MIB",
+      "Source digest sha256:34f9deccc822a2a517b920194f56d54fb4d9b46a2181b520127b47cce5095309",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-TRACEROUTE-MIB"
+  }
+}

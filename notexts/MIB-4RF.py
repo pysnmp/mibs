@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module MIB-4RF (http://snmplabs.com/pysmi)
+# ASN.1 source MIB-4RF
+# Source digest sha256:51a370026d541b2c5ac0c935c50d544767daa491741de381ec046545c28ddfad
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fourRFRootModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 14817, 2, 1))
+fourRFRootModule.setRevisions(('2007-04-30 00:00', '2004-02-13 00:00',))
+if mibBuilder.loadTexts: fourRFRootModule.setLastUpdated('2007-04-30 00:00')
+if mibBuilder.loadTexts: fourRFRootModule.setOrganization('www.4rf.com')
+fourRFRoot = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817))
+if mibBuilder.loadTexts: fourRFRoot.setStatus('current')
+fourRFRegistrations = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 1))
+if mibBuilder.loadTexts: fourRFRegistrations.setStatus('current')
+fourRFModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 2))
+if mibBuilder.loadTexts: fourRFModules.setStatus('current')
+fourRFGeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 3))
+if mibBuilder.loadTexts: fourRFGeneric.setStatus('current')
+fourRFProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 4))
+if mibBuilder.loadTexts: fourRFProducts.setStatus('current')
+fourRFCapabilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 5))
+if mibBuilder.loadTexts: fourRFCapabilities.setStatus('current')
+fourRFRequirements = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 6))
+if mibBuilder.loadTexts: fourRFRequirements.setStatus('current')
+fourRFExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 14817, 7))
+if mibBuilder.loadTexts: fourRFExperimental.setStatus('current')
+mibBuilder.exportSymbols("MIB-4RF", PYSNMP_MODULE_ID=fourRFRootModule, fourRFCapabilities=fourRFCapabilities, fourRFExperimental=fourRFExperimental, fourRFGeneric=fourRFGeneric, fourRFModules=fourRFModules, fourRFProducts=fourRFProducts, fourRFRegistrations=fourRFRegistrations, fourRFRequirements=fourRFRequirements, fourRFRoot=fourRFRoot, fourRFRootModule=fourRFRootModule)

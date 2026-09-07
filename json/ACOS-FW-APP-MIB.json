@@ -1,0 +1,255 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fwAppModule": {
+    "name": "fwAppModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477",
+    "class": "moduleidentity"
+  },
+  "app": {
+    "name": "app",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1",
+    "class": "objectidentity"
+  },
+  "appStatsTable": {
+    "name": "appStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appStatsEntry": {
+    "name": "appStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-APP-MIB",
+        "object": "appStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appStatsSlotId": {
+    "name": "appStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appStatsDummy": {
+    "name": "appStatsDummy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperTable": {
+    "name": "appOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appOperEntry": {
+    "name": "appOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-APP-MIB",
+        "object": "appOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appOperSlotId": {
+    "name": "appOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperCategory": {
+    "name": "appOperCategory",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperContains": {
+    "name": "appOperContains",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperRelated": {
+    "name": "appOperRelated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperGroupListTable": {
+    "name": "appOperGroupListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appOperGroupListEntry": {
+    "name": "appOperGroupListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-APP-MIB",
+        "object": "appOperGroupListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-FW-APP-MIB",
+        "object": "appOperGroupListGroupListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appOperGroupListSlotId": {
+    "name": "appOperGroupListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperGroupListGroupListListId": {
+    "name": "appOperGroupListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperGroupListCategoryName": {
+    "name": "appOperGroupListCategoryName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperGroupListAppName": {
+    "name": "appOperGroupListAppName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appOperGroupListAppDesc": {
+    "name": "appOperGroupListAppDesc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.477.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-FW-APP-MIB",
+      "Source digest sha256:7d336f221ae21b2b39764b53e1e3b285b0888c406f92794ed8bbf2cd106be6bc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-FW-APP-MIB"
+  }
+}

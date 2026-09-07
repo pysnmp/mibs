@@ -1,0 +1,100 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniIsisAgent": {
+    "name": "juniIsisAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-04-04 20:37",
+        "description": "Added MPLS support."
+      },
+      {
+        "revision": "2001-04-24 19:30",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniIsisAgentV1": {
+    "name": "juniIsisAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.23.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the IS-IS component of the JUNOSe SNMP agent.  This\n        version of the IS-IS component was supported in JUNOSe 2.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ISIS-MIB",
+        "includes": [
+          "juniIsisSystemMgmtGroup",
+          "juniIsisCircuitMgmtGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIsisAgentV2": {
+    "name": "juniIsisAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.23.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the IS-IS component of the JUNOSe SNMP agent.  This\n        version of the IS-IS component was supported in JUNOSe 3.x system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ISIS-MIB",
+        "includes": [
+          "juniIsisSystemMgmtGroup",
+          "juniIsisCircuitMgmtGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniIsisAgentV3": {
+    "name": "juniIsisAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.23.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the IS-IS component of the JUNOSe SNMP agent.  This\n        version of the IS-IS component is supported in JUNOSe 4.0 and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ISIS-MIB",
+        "includes": [
+          "juniIsisSystemMgmtGroup2",
+          "juniIsisCircuitMgmtGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-IS-IS-CONF",
+      "Source digest sha256:cb398cd0bceea81b60652dacf65515984783abb53aed93cf605e88ad94437c61",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-IS-IS-CONF"
+  }
+}

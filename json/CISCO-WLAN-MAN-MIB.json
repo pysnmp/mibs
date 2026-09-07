@@ -1,0 +1,132 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoWlanManMIB": {
+    "name": "ciscoWlanManMIB",
+    "oid": "1.3.6.1.4.1.9.9.415",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-22 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWlanManMIBNotifs": {
+    "name": "ciscoWlanManMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.415.0",
+    "class": "objectidentity"
+  },
+  "ciscoWlanManMIBObjects": {
+    "name": "ciscoWlanManMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.415.1",
+    "class": "objectidentity"
+  },
+  "ciscoWlanManMIBConform": {
+    "name": "ciscoWlanManMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.415.2",
+    "class": "objectidentity"
+  },
+  "cwmDeviceConfig": {
+    "name": "cwmDeviceConfig",
+    "oid": "1.3.6.1.4.1.9.9.415.1.1",
+    "class": "objectidentity"
+  },
+  "cwmNetworkConfig": {
+    "name": "cwmNetworkConfig",
+    "oid": "1.3.6.1.4.1.9.9.415.1.2",
+    "class": "objectidentity"
+  },
+  "cwmHttpServerEnabled": {
+    "name": "cwmHttpServerEnabled",
+    "oid": "1.3.6.1.4.1.9.9.415.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwmTelnetLoginEnabled": {
+    "name": "cwmTelnetLoginEnabled",
+    "oid": "1.3.6.1.4.1.9.9.415.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoWlanManMIBCompliances": {
+    "name": "ciscoWlanManMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.415.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWlanManMIBGroups": {
+    "name": "ciscoWlanManMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.415.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWlanManMIBCompliance": {
+    "name": "ciscoWlanManMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.415.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwmWirelessDeviceGroup",
+        "module": "CISCO-WLAN-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwmWirelessDeviceGroup": {
+    "name": "cwmWirelessDeviceGroup",
+    "oid": "1.3.6.1.4.1.9.9.415.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WLAN-MAN-MIB",
+        "object": "cwmHttpServerEnabled"
+      },
+      {
+        "module": "CISCO-WLAN-MAN-MIB",
+        "object": "cwmTelnetLoginEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WLAN-MAN-MIB",
+      "Source digest sha256:77bbe8eb92be9564bfcd5ac354df62e09ac7f9a0172436673e6f171ecfe81eff",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WLAN-MAN-MIB"
+  }
+}

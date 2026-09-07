@@ -1,0 +1,202 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoContextMappingCapability": {
+    "name": "ciscoContextMappingCapability",
+    "oid": "1.3.6.1.4.1.9.7.564",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-22 00:00",
+        "description": "Added ciscoContextMappingIOSXRV3R7FCICRS1"
+      },
+      {
+        "revision": "2008-03-24 00:00",
+        "description": "Added ciscoContextMappingCapV12R02SG"
+      },
+      {
+        "revision": "2005-05-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoContextMappingCapV12R02S": {
+    "name": "ciscoContextMappingCapV12R02S",
+    "oid": "1.3.6.1.4.1.9.7.564.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2S",
+    "capabilities": [
+      {
+        "module": "CISCO-CONTEXT-MAPPING-MIB",
+        "includes": [
+          "cContextMappingDataGroup"
+        ],
+        "variations": [
+          {
+            "object": "cContextMappingVrfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingTopologyName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingProtoInstName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoContextMappingCapV12R02SG": {
+    "name": "ciscoContextMappingCapV12R02SG",
+    "oid": "1.3.6.1.4.1.9.7.564.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2SG",
+    "capabilities": [
+      {
+        "module": "CISCO-CONTEXT-MAPPING-MIB",
+        "includes": [
+          "cContextMappingDataGroup",
+          "cContextMappingBridgeDomainDataGroup"
+        ],
+        "variations": [
+          {
+            "object": "cContextMappingVrfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingTopologyName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingProtoInstName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeDomainIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeDomainStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeDomainRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoContextMappingIOSXRV3R7FCICRS1": {
+    "name": "ciscoContextMappingIOSXRV3R7FCICRS1",
+    "oid": "1.3.6.1.4.1.9.7.564.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.7FCI for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-CONTEXT-MAPPING-MIB",
+        "includes": [
+          "cContextMappingDataGroup",
+          "cContextMappingBridgeDomainDataGroup",
+          "cContextMappingBridgeInstanceDataGroup"
+        ],
+        "variations": [
+          {
+            "object": "cContextMappingVrfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingTopologyName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cContextMappingProtoInstName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cContextMappingStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeDomainIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cContextMappingBridgeDomainStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cContextMappingBridgeDomainRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cContextMappingBridgeInstName",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeInstStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cContextMappingBridgeInstRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CONTEXT-MAPPING-CAPABILITY",
+      "Source digest sha256:bfa0e05f32deff08c5ecaeb5e408b83c66a53638403777d8e5bb0d3ed010b9f3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CONTEXT-MAPPING-CAPABILITY"
+  }
+}

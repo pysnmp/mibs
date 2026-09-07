@@ -1,0 +1,44 @@
+#
+# PySNMP MIB module CISCOSB-ERRDISABLE-RECOVERY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCOSB-ERRDISABLE-RECOVERY-MIB
+# Source digest sha256:48f39e61c06e02c2c558600338a5d8c51650262b65616826adb34aa4dbb2af95
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "TruthValue")
+rlErrdisableRecovery = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128))
+rlErrdisableRecovery.setRevisions(('2007-11-07 00:00',))
+if mibBuilder.loadTexts: rlErrdisableRecovery.setLastUpdated('2007-11-07 00:00')
+if mibBuilder.loadTexts: rlErrdisableRecovery.setOrganization('Cisco Systems, Inc.')
+class RlErrdisableRecoveryCauseType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("loopback-detection", 1), ("port-security", 2), ("dot1x-src-address", 3), ("acl-deny", 4), ("stp-bpdu-guard", 5), ("stp-loopback-guard", 6), ("pcb-overheat", 7), ("udld", 8), ("storm-control", 9), ("link-flapping", 10))
+
+rlErrdisableRecoveryInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 86400))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlErrdisableRecoveryInterval.setStatus('current')
+rlErrdisableRecoveryCauseTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlErrdisableRecoveryCauseTable.setStatus('current')
+rlErrdisableRecoveryCauseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCOSB-ERRDISABLE-RECOVERY-MIB", "rlErrdisableRecoveryCause"))
+if mibBuilder.loadTexts: rlErrdisableRecoveryCauseEntry.setStatus('current')
+rlErrdisableRecoveryCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 2, 1, 1), RlErrdisableRecoveryCauseType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlErrdisableRecoveryCause.setStatus('current')
+rlErrdisableRecoveryEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlErrdisableRecoveryEnable.setStatus('current')
+rlErrdisableRecoveryIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlErrdisableRecoveryIfTable.setStatus('current')
+rlErrdisableRecoveryIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlErrdisableRecoveryIfEntry.setStatus('current')
+rlErrdisableRecoveryIfReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 3, 1, 1), RlErrdisableRecoveryCauseType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlErrdisableRecoveryIfReason.setStatus('current')
+rlErrdisableRecoveryIfEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlErrdisableRecoveryIfEnable.setStatus('current')
+rlErrdisableRecoveryIfTimeToRecover = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 128, 3, 1, 3), Integer32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlErrdisableRecoveryIfTimeToRecover.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-ERRDISABLE-RECOVERY-MIB", PYSNMP_MODULE_ID=rlErrdisableRecovery, RlErrdisableRecoveryCauseType=RlErrdisableRecoveryCauseType, rlErrdisableRecovery=rlErrdisableRecovery, rlErrdisableRecoveryCause=rlErrdisableRecoveryCause, rlErrdisableRecoveryCauseEntry=rlErrdisableRecoveryCauseEntry, rlErrdisableRecoveryCauseTable=rlErrdisableRecoveryCauseTable, rlErrdisableRecoveryEnable=rlErrdisableRecoveryEnable, rlErrdisableRecoveryIfEnable=rlErrdisableRecoveryIfEnable, rlErrdisableRecoveryIfEntry=rlErrdisableRecoveryIfEntry, rlErrdisableRecoveryIfReason=rlErrdisableRecoveryIfReason, rlErrdisableRecoveryIfTable=rlErrdisableRecoveryIfTable, rlErrdisableRecoveryIfTimeToRecover=rlErrdisableRecoveryIfTimeToRecover, rlErrdisableRecoveryInterval=rlErrdisableRecoveryInterval)

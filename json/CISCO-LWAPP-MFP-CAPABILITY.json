@@ -1,0 +1,72 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappMfpCapability": {
+    "name": "ciscoLwappMfpCapability",
+    "oid": "1.3.6.1.4.1.9.7.504",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-16 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappMfpCapabilityCUWNSV4R0": {
+    "name": "ciscoLwappMfpCapabilityCUWNSV4R0",
+    "oid": "1.3.6.1.4.1.9.7.504.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 4.0 for Cisco WLAN Controllers",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-MFP-MIB",
+        "includes": [
+          "ciscoLwappMfpConfigGroup",
+          "ciscoLwappMfpStatusGroup",
+          "ciscoLwappMfpNotifObjsGroup",
+          "ciscoLwappMfpNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cLMfpCtrlNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cLMfpVersionRequired",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-MFP-CAPABILITY",
+      "Source digest sha256:1fdbf39c92f942980bcbf033839177b30d040af12a5f3a08229fa5600e291e10",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-MFP-CAPABILITY"
+  }
+}

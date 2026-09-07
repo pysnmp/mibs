@@ -1,0 +1,195 @@
+{
+  "imports": {
+    "class": "imports",
+    "RBN-SMI": [
+      "rbnCapabilities"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rbnCpuMeterCap": {
+    "name": "rbnCpuMeterCap",
+    "oid": "1.3.6.1.4.1.2352.4.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-13 18:00",
+        "description": "Added rbnCpuMeterCap6."
+      },
+      {
+        "revision": "2011-06-15 00:00",
+        "description": "Update DESCRIPTION clause of MODULE-IDENTITY and PRODUCT-RELEASE clause of AGENT-CAPABILITIES."
+      },
+      {
+        "revision": "2010-11-01 00:00",
+        "description": "Modified PRODUCT-RELEASE clause for consistent naming. Updated CONTACT-INFO."
+      },
+      {
+        "revision": "2003-10-14 00:00",
+        "description": "Added new OID: rbnCpuMeterCap5."
+      },
+      {
+        "revision": "2003-07-07 00:00",
+        "description": "Added new OID: rbnCpuMeterCap4."
+      },
+      {
+        "revision": "2003-02-11 00:00",
+        "description": "Added new OID: rbnCpuMeterCap3."
+      },
+      {
+        "revision": "2002-06-26 00:00",
+        "description": "Updated CONTACT-INFO. Added new OID: rbnCpuMeterCap2."
+      },
+      {
+        "revision": "1999-06-16 23:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "rbnCpuMeterCap1": {
+    "name": "rbnCpuMeterCap1",
+    "oid": "1.3.6.1.4.1.2352.4.22.1",
+    "class": "agentcapabilities",
+    "productrelease": "AOS 3.0.X.X",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "rbnCpuMeterCap2": {
+    "name": "rbnCpuMeterCap2",
+    "oid": "1.3.6.1.4.1.2352.4.22.2",
+    "class": "agentcapabilities",
+    "productrelease": "SEOS 2.3.3",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "rbnCpuMeterFiveSecondAvg",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rbnCpuMeterFiveMinuteAvg",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "rbnCpuMeterCap3": {
+    "name": "rbnCpuMeterCap3",
+    "oid": "1.3.6.1.4.1.2352.4.22.3",
+    "class": "agentcapabilities",
+    "productrelease": "AOS 6.0.X.X",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup",
+          "rbnCpuProcGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "rbnCpuMeterCap4": {
+    "name": "rbnCpuMeterCap4",
+    "oid": "1.3.6.1.4.1.2352.4.22.4",
+    "class": "agentcapabilities",
+    "productrelease": "SEOS 2.5.4",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "rbnCpuMeterCap5": {
+    "name": "rbnCpuMeterCap5",
+    "oid": "1.3.6.1.4.1.2352.4.22.5",
+    "class": "agentcapabilities",
+    "productrelease": "SEOS 2.6.3 [SE]; SEOS 6.3.X [SM]; SEOS 11.1.X [SSR]",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup",
+          "rbnCpuProcGroup"
+        ],
+        "variations": [
+          {
+            "object": "rbnCpuProcCalls",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rbnCpuProcLongest",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "rbnCpuMeterCap6": {
+    "name": "rbnCpuMeterCap6",
+    "oid": "1.3.6.1.4.1.2352.4.22.6",
+    "class": "agentcapabilities",
+    "productrelease": "IPOS 11.2.X",
+    "capabilities": [
+      {
+        "module": "RBN-CPU-METER-MIB",
+        "includes": [
+          "rbnCpuMeterStatsGroup2",
+          "rbnCpuProcGroup"
+        ],
+        "variations": [
+          {
+            "object": "rbnCpuProcCalls",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rbnCpuProcLongest",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RBN-CPU-METER-CAP",
+      "Source digest sha256:f4794a58368def968c53726478de9fb0fa6dae71514602c8057f88f77e64ed32",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RBN-CPU-METER-CAP"
+  }
+}

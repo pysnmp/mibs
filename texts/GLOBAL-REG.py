@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module GLOBAL-REG (http://snmplabs.com/pysmi)
+# ASN.1 source GLOBAL-REG
+# Source digest sha256:c4b0d693ad78f06a402e64cfc4ac1b6ba4bbe0369abb8ff78f0ffd4d04ebda52
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+globalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 1, 1))
+if mibBuilder.loadTexts: globalRegModule.setLastUpdated('2013-09-13 12:18')
+if mibBuilder.loadTexts: globalRegModule.setOrganization('Delta Energy Systems (Switzerland) AG')
+if mibBuilder.loadTexts: globalRegModule.setContactInfo('postal: Delta Energy Systems (Switzerland) AG\n                         Freiburgstrasse 251,\n                         CH-3018 Bern-Buempliz\n                 web:     www.deltapowersolutions.com\n                 email: adrian.pluess@delta-es.com')
+if mibBuilder.loadTexts: globalRegModule.setDescription('The Delta Energy Systems (Switzerland) AG cental registration modules.')
+delta = MibIdentifier((1, 3, 6, 1, 4, 1, 20246))
+root = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2))
+reg = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1))
+modules = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1, 1))
+generic = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 2))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3))
+controller = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3, 1))
+orion = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3, 1, 1))
+caps = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 4))
+regs = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 5))
+expr = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 6))
+controllerReg = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2))
+controllerOrionReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2, 1))
+if mibBuilder.loadTexts: controllerOrionReg.setStatus('current')
+if mibBuilder.loadTexts: controllerOrionReg.setDescription('The Controller Model Orion')
+mibBuilder.exportSymbols("GLOBAL-REG", PYSNMP_MODULE_ID=globalRegModule, caps=caps, controller=controller, controllerOrionReg=controllerOrionReg, controllerReg=controllerReg, delta=delta, expr=expr, generic=generic, globalRegModule=globalRegModule, modules=modules, orion=orion, products=products, reg=reg, regs=regs, root=root)

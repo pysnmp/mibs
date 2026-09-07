@@ -1,0 +1,346 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoBulkFileCapability": {
+    "name": "ciscoBulkFileCapability",
+    "oid": "1.3.6.1.4.1.9.7.188",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-06 00:00",
+        "description": "Added ciscoBulkFileCapCRS1V2R0 Agent Capabilities for IOS XR 2.0"
+      },
+      {
+        "revision": "2003-11-13 00:00",
+        "description": "Added VXSM 5.0.0 PRODUCT-RELEASE of ciscoBulkFileCapabilityV3R00"
+      },
+      {
+        "revision": "2002-02-17 00:00",
+        "description": "Added following capabilities for MGX8850/SES Products: - ciscoBulkFileCapabilityV2R00 - ciscoBulkFileCapabilityV3R00."
+      },
+      {
+        "revision": "2000-12-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoBulkFileCapabilityV1R0": {
+    "name": "ciscoBulkFileCapabilityV1R0",
+    "oid": "1.3.6.1.4.1.9.7.188.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS mc 1.0",
+    "capabilities": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "includes": [
+          "ciscoBulkFileDefineGroup"
+        ],
+        "variations": [
+          {
+            "object": "cbfDefineFileFormat",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "standardBER": 1,
+                  "bulkBinary": 2,
+                  "bulkASCII": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cbfDefineFileStorage",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cbfDefineFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileCapabilityV2R00": {
+    "name": "ciscoBulkFileCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.9.7.188.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.00,\n                          BPX SES Release 1.00.",
+    "capabilities": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "includes": [
+          "ciscoBulkFileDefineGroup",
+          "ciscoBulkFileStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cbfDefineMaxFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineHighFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFilesRefused",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineMaxObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineHighObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectsRefused",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileFormat",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "standardBER": 1,
+                  "bulkBinary": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileEntryStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineObjectClass",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectEntryStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusMaxFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusHighFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFilesBumped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFileEntryStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileCapabilityV3R00": {
+    "name": "ciscoBulkFileCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.188.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.00,\n                          BPX SES Release 3.00,\n                          VXSM  Release 5.0.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "includes": [
+          "ciscoBulkFileDefineGroup",
+          "ciscoBulkFileStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cbfDefineMaxFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineHighFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFilesRefused",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineMaxObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineHighObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectsRefused",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineFileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileStorage",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileFormat",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "variantBERWithCksum": 4,
+                  "variantBinWithCksum": 5
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineFileEntryStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cbfDefineObjectClass",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfDefineObjectEntryStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusMaxFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusHighFiles",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFilesBumped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbfStatusFileEntryStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBulkFileCapCRS1V2R0": {
+    "name": "ciscoBulkFileCapCRS1V2R0",
+    "oid": "1.3.6.1.4.1.9.7.188.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-BULK-FILE-MIB",
+        "includes": [
+          "ciscoBulkFileDefineGroupRev1",
+          "ciscoBulkFileStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-BULK-FILE-CAPABILITY",
+      "Source digest sha256:c77f654e1ed48b648ad0c7d67bda09de4865315c6ad54391e6fdfc019e57fe78",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-BULK-FILE-CAPABILITY"
+  }
+}

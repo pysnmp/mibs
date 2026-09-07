@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "syslogTCMIB": {
+    "name": "syslogTCMIB",
+    "oid": "1.3.6.1.2.1.173",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-30 00:00",
+        "description": "The initial version, published as RFC 5427."
+      }
+    ]
+  },
+  "SyslogFacility": {
+    "name": "SyslogFacility",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kern": 0,
+          "user": 1,
+          "mail": 2,
+          "daemon": 3,
+          "auth": 4,
+          "syslog": 5,
+          "lpr": 6,
+          "news": 7,
+          "uucp": 8,
+          "cron": 9,
+          "authpriv": 10,
+          "ftp": 11,
+          "ntp": 12,
+          "audit": 13,
+          "console": 14,
+          "cron2": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SyslogSeverity": {
+    "name": "SyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emerg": 0,
+          "alert": 1,
+          "crit": 2,
+          "err": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SYSLOG-TC-MIB",
+      "Source digest sha256:350ae342d36aed0abe2b21e090d22441115ebe66f19a387718afa58e12bbba3e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SYSLOG-TC-MIB"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rbnSMI": {
+    "name": "rbnSMI",
+    "oid": "1.3.6.1.4.1.2352",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-19 18:00",
+        "description": "Update CONTACT-INFO & ORGANIZATION. "
+      },
+      {
+        "revision": "2002-06-06 00:00",
+        "description": "Updated Contact-info and recovered revision info."
+      },
+      {
+        "revision": "2001-06-27 00:00",
+        "description": "Added rbnInternal."
+      },
+      {
+        "revision": "1998-04-18 23:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "rbnProducts": {
+    "name": "rbnProducts",
+    "oid": "1.3.6.1.4.1.2352.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnMgmt": {
+    "name": "rbnMgmt",
+    "oid": "1.3.6.1.4.1.2352.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnExperiment": {
+    "name": "rbnExperiment",
+    "oid": "1.3.6.1.4.1.2352.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnCapabilities": {
+    "name": "rbnCapabilities",
+    "oid": "1.3.6.1.4.1.2352.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnModules": {
+    "name": "rbnModules",
+    "oid": "1.3.6.1.4.1.2352.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnEntities": {
+    "name": "rbnEntities",
+    "oid": "1.3.6.1.4.1.2352.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rbnInternal": {
+    "name": "rbnInternal",
+    "oid": "1.3.6.1.4.1.2352.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RBN-SMI",
+      "Source digest sha256:306f1bba275344453f3137b28982a05929e140a5445cf601fe5124502d7a12ae",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RBN-SMI"
+  }
+}

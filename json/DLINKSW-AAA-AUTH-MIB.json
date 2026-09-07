@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINKSW-AAA-COMMON-MIB": [
+      "DAaaMethodListName",
+      "DAaaMethodName",
+      "DAaaMethodPriority",
+      "DAaaSessionType",
+      "dAaaMIBObjects"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwAaaAuthenticationMIB": {
+    "name": "dlinkSwAaaAuthenticationMIB",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-25 00:00",
+        "description": "This is the first version of the MIB. "
+      }
+    ]
+  },
+  "dAaaAuthMIBNotifications": {
+    "name": "dAaaAuthMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.0",
+    "class": "objectidentity"
+  },
+  "dAaaAuthMIBObjects": {
+    "name": "dAaaAuthMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1",
+    "class": "objectidentity"
+  },
+  "dAaaAuthMIBConformance": {
+    "name": "dAaaAuthMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2",
+    "class": "objectidentity"
+  },
+  "dAaaAuthGenericMethodTable": {
+    "name": "dAaaAuthGenericMethodTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthGenericMethodEntry": {
+    "name": "dAaaAuthGenericMethodEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthGenMethodLstType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthGenMethodLstName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthGenMethodPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAuthGenMethodLstType": {
+    "name": "dAaaAuthGenMethodLstType",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "login": 2,
+          "dot1x": 3,
+          "jwac": 4,
+          "macAuth": 5,
+          "web": 6,
+          "igmpAuth": 7,
+          "mldAuth": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthGenMethodLstName": {
+    "name": "dAaaAuthGenMethodLstName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthGenMethodPriority": {
+    "name": "dAaaAuthGenMethodPriority",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthGenMethodName": {
+    "name": "dAaaAuthGenMethodName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAuthGenMethodRowStatus": {
+    "name": "dAaaAuthGenMethodRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAuthLogin": {
+    "name": "dAaaAuthLogin",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "dAaaAuthLoginApplyTable": {
+    "name": "dAaaAuthLoginApplyTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthLoginApplyEntry": {
+    "name": "dAaaAuthLoginApplyEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthLoginApplySession",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAuthLoginApplySession": {
+    "name": "dAaaAuthLoginApplySession",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaSessionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAuthLoginApplyListName": {
+    "name": "dAaaAuthLoginApplyListName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAuthLoginApplyRowStatus": {
+    "name": "dAaaAuthLoginApplyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAuthMIBCompliances": {
+    "name": "dAaaAuthMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "dAaaAuthMIBCompliance": {
+    "name": "dAaaAuthMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dAaaAuthMethodListGroup",
+        "module": "DLINKSW-AAA-AUTH-MIB"
+      },
+      {
+        "object": "dAaaAuthcLoginMethodApplyGroup",
+        "module": "DLINKSW-AAA-AUTH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAuthMIBGroups": {
+    "name": "dAaaAuthMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2.2",
+    "class": "objectidentity"
+  },
+  "dAaaAuthMethodListGroup": {
+    "name": "dAaaAuthMethodListGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthGenMethodName"
+      },
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthGenMethodRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAuthcLoginMethodApplyGroup": {
+    "name": "dAaaAuthcLoginMethodApplyGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.1.4.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthLoginApplyListName"
+      },
+      {
+        "module": "DLINKSW-AAA-AUTH-MIB",
+        "object": "dAaaAuthLoginApplyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-AAA-AUTH-MIB",
+      "Source digest sha256:9e51f1ff9c25ba4e67c88ebcb42b6cca60e15b25fde6b5c6656628656ecb95b7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-AAA-AUTH-MIB"
+  }
+}

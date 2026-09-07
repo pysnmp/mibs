@@ -1,0 +1,716 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TruthValue"
+    ]
+  },
+  "hpicfMvrpMIB": {
+    "name": "hpicfMvrpMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-20 00:00",
+        "description": "Updated the default value and description."
+      },
+      {
+        "revision": "2015-03-24 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfMvrpNotifications": {
+    "name": "hpicfMvrpNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.0",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpObjects": {
+    "name": "hpicfMvrpObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpConformance": {
+    "name": "hpicfMvrpConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpConfig": {
+    "name": "hpicfMvrpConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpStats": {
+    "name": "hpicfMvrpStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpGlobalClearStats": {
+    "name": "hpicfMvrpGlobalClearStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpMaxVlanLimit": {
+    "name": "hpicfMvrpMaxVlanLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigTable": {
+    "name": "hpicfMvrpPortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigEntry": {
+    "name": "hpicfMvrpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigRegistrarMode": {
+    "name": "hpicfMvrpPortConfigRegistrarMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fixed": 2
+        }
+      }
+    },
+    "default": {
+      "value": "normal",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigPeriodicTimer": {
+    "name": "hpicfMvrpPortConfigPeriodicTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 100,
+      "format": "decimal"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigPeriodicTransmissionStatus": {
+    "name": "hpicfMvrpPortConfigPeriodicTransmissionStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsClearStats": {
+    "name": "hpicfMvrpPortStatsClearStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsTable": {
+    "name": "hpicfMvrpPortStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsEntry": {
+    "name": "hpicfMvrpPortStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsNewReceived": {
+    "name": "hpicfMvrpPortStatsNewReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsJoinInReceived": {
+    "name": "hpicfMvrpPortStatsJoinInReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsJoinEmptyReceived": {
+    "name": "hpicfMvrpPortStatsJoinEmptyReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsLeaveReceived": {
+    "name": "hpicfMvrpPortStatsLeaveReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsInReceived": {
+    "name": "hpicfMvrpPortStatsInReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsEmptyReceived": {
+    "name": "hpicfMvrpPortStatsEmptyReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsLeaveAllReceived": {
+    "name": "hpicfMvrpPortStatsLeaveAllReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsNewTransmitted": {
+    "name": "hpicfMvrpPortStatsNewTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsJoinInTransmitted": {
+    "name": "hpicfMvrpPortStatsJoinInTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsJoinEmptyTransmitted": {
+    "name": "hpicfMvrpPortStatsJoinEmptyTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsLeaveTransmitted": {
+    "name": "hpicfMvrpPortStatsLeaveTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsInTransmitted": {
+    "name": "hpicfMvrpPortStatsInTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsEmptyTransmitted": {
+    "name": "hpicfMvrpPortStatsEmptyTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsLeaveAllTransmitted": {
+    "name": "hpicfMvrpPortStatsLeaveAllTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsTotalPDUReceived": {
+    "name": "hpicfMvrpPortStatsTotalPDUReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsTotalPDUTransmitted": {
+    "name": "hpicfMvrpPortStatsTotalPDUTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsFramesDiscarded": {
+    "name": "hpicfMvrpPortStatsFramesDiscarded",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfBridgeMvrpStateTable": {
+    "name": "hpicfBridgeMvrpStateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBridgeMvrpStateEntry": {
+    "name": "hpicfBridgeMvrpStateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpVlanId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpVlanId": {
+    "name": "hpicfMvrpVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMvrpApplicantState": {
+    "name": "hpicfMvrpApplicantState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aa": 0,
+          "qa": 1,
+          "la": 2,
+          "vp": 3,
+          "ap": 4,
+          "qp": 5,
+          "vo": 6,
+          "ao": 7,
+          "qo": 8,
+          "lo": 9,
+          "vn": 10,
+          "an": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpRegistrarState": {
+    "name": "hpicfMvrpRegistrarState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "lv": 2,
+          "mt": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMvrpVlanLimitReachedEvent": {
+    "name": "hpicfMvrpVlanLimitReachedEvent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpMaxVlanLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpCompliances": {
+    "name": "hpicfMvrpCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpGroups": {
+    "name": "hpicfMvrpGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfMvrpCompliance": {
+    "name": "hpicfMvrpCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfMvrpBaseGroup",
+        "module": "HP-ICF-MVRP-MIB"
+      },
+      {
+        "object": "hpicfMvrpPortConfigGroup",
+        "module": "HP-ICF-MVRP-MIB"
+      },
+      {
+        "object": "hpicfMvrpPortStatsGroup",
+        "module": "HP-ICF-MVRP-MIB"
+      },
+      {
+        "object": "hpicfMvrpPortStateGroup",
+        "module": "HP-ICF-MVRP-MIB"
+      },
+      {
+        "object": "hpicfMvrpNotifyGroup",
+        "module": "HP-ICF-MVRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpBaseGroup": {
+    "name": "hpicfMvrpBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpGlobalClearStats"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpMaxVlanLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpPortConfigGroup": {
+    "name": "hpicfMvrpPortConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortConfigRegistrarMode"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortConfigPeriodicTimer"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortConfigPeriodicTransmissionStatus"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpPortStatsGroup": {
+    "name": "hpicfMvrpPortStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsNewReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsJoinInReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsJoinEmptyReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsLeaveReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsInReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsEmptyReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsLeaveAllReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsNewTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsJoinInTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsJoinEmptyTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsLeaveTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsInTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsEmptyTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsLeaveAllTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsTotalPDUReceived"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsTotalPDUTransmitted"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpPortStatsFramesDiscarded"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpPortStateGroup": {
+    "name": "hpicfMvrpPortStateGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpApplicantState"
+      },
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpRegistrarState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMvrpNotifyGroup": {
+    "name": "hpicfMvrpNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.117.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MVRP-MIB",
+        "object": "hpicfMvrpVlanLimitReachedEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-MVRP-MIB",
+      "Source digest sha256:0cd5722684505553e428722226fe045aff83372b6df940d90bfc4848338b0944",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-MVRP-MIB"
+  }
+}

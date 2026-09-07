@@ -1,0 +1,98 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "arubaMIBModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaVendorTypeMIB": {
+    "name": "arubaVendorTypeMIB",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-27 00:00",
+        "description": "The initial revision of vendortype-oid MIB."
+      }
+    ]
+  },
+  "arubaVendorTypeMIBObjects": {
+    "name": "arubaVendorTypeMIBObjects",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "arubaSystem": {
+    "name": "arubaSystem",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "aSystemUnknown": {
+    "name": "aSystemUnknown",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "aSystemChassis": {
+    "name": "aSystemChassis",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "aSystemBackplane": {
+    "name": "aSystemBackplane",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "aSystemModule": {
+    "name": "aSystemModule",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "aSystemPSU": {
+    "name": "aSystemPSU",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "aSystemFAN": {
+    "name": "aSystemFAN",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "aSystemContainer": {
+    "name": "aSystemContainer",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "aSystemPort": {
+    "name": "aSystemPort",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "aSystemSensor": {
+    "name": "aSystemSensor",
+    "oid": "1.3.6.1.4.1.14823.2.1.1.1.1.1.9",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARUBA-VENDORTYPE",
+      "Source digest sha256:c1e19f4df401588442cd69cb1fada91fca72395daa93f4f79f20f7110eb42ba2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARUBA-VENDORTYPE"
+  }
+}

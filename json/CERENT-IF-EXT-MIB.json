@@ -1,0 +1,172 @@
+{
+  "imports": {
+    "class": "imports",
+    "CERENT-GLOBAL-REGISTRY": [
+      "cerentGeneric",
+      "cerentModules",
+      "cerentRequirements"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "cerentIfExtMIB": {
+    "name": "cerentIfExtMIB",
+    "oid": "1.3.6.1.4.1.3607.1.10.140",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-14 00:00",
+        "description": "Inital version of the module"
+      }
+    ]
+  },
+  "cerentIfExtMIBObjects": {
+    "name": "cerentIfExtMIBObjects",
+    "oid": "1.3.6.1.4.1.3607.2.100",
+    "class": "objectidentity"
+  },
+  "cerentIfExtTable": {
+    "name": "cerentIfExtTable",
+    "oid": "1.3.6.1.4.1.3607.2.100.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cerentIfExtEntry": {
+    "name": "cerentIfExtEntry",
+    "oid": "1.3.6.1.4.1.3607.2.100.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cerentIfExtPreServiceAlarmSuppression": {
+    "name": "cerentIfExtPreServiceAlarmSuppression",
+    "oid": "1.3.6.1.4.1.3607.2.100.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cerentIfExtConfiguredSoakTime": {
+    "name": "cerentIfExtConfiguredSoakTime",
+    "oid": "1.3.6.1.4.1.3607.2.100.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 480,
+      "format": "decimal"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cerentIfExtCurrentSoakTime": {
+    "name": "cerentIfExtCurrentSoakTime",
+    "oid": "1.3.6.1.4.1.3607.2.100.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cerentIfExtMIBConformance": {
+    "name": "cerentIfExtMIBConformance",
+    "oid": "1.3.6.1.4.1.3607.5.90",
+    "class": "objectidentity"
+  },
+  "cerentIfExtMIBCompliances": {
+    "name": "cerentIfExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.3607.5.90.1",
+    "class": "objectidentity"
+  },
+  "cerentIfExtMIBGroups": {
+    "name": "cerentIfExtMIBGroups",
+    "oid": "1.3.6.1.4.1.3607.5.90.2",
+    "class": "objectidentity"
+  },
+  "cerentIfExtMIBCompliance": {
+    "name": "cerentIfExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.3607.5.90.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cerentIfExtGroup",
+        "module": "CERENT-IF-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cerentIfExtGroup": {
+    "name": "cerentIfExtGroup",
+    "oid": "1.3.6.1.4.1.3607.5.90.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-IF-EXT-MIB",
+        "object": "cerentIfExtPreServiceAlarmSuppression"
+      },
+      {
+        "module": "CERENT-IF-EXT-MIB",
+        "object": "cerentIfExtConfiguredSoakTime"
+      },
+      {
+        "module": "CERENT-IF-EXT-MIB",
+        "object": "cerentIfExtCurrentSoakTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CERENT-IF-EXT-MIB",
+      "Source digest sha256:b7e2577f83a208cdf79d84110adfc6829310b2cd2cd05a9344f71ef7a5fdebbc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CERENT-IF-EXT-MIB"
+  }
+}

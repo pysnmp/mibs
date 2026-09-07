@@ -1,0 +1,109 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityExtCapability": {
+    "name": "ciscoEntityExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.392",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-06 00:00",
+        "description": "Addition of ceExtCapV12R0217SXPCat6k and ceExtCapV12R0233SXHPCat6k."
+      },
+      {
+        "revision": "2004-03-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEntityExtCapCatOSV08R0301": {
+    "name": "ciscoEntityExtCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.392.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "includes": [
+          "ceExtPhysicalProcessorGroup",
+          "ciscoEntityExtConfigRegGroup",
+          "ceExtSysBootImageListGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtCapV12R0217SXPCat6k": {
+    "name": "ceExtCapV12R0217SXPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.392.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17)SX on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "includes": [
+          "ceExtPhysicalProcessorGroup",
+          "ciscoEntityExtConfigRegGroup",
+          "ceExtSysBootImageListGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceExtConfigRegNext",
+            "access": "read-only"
+          },
+          {
+            "object": "ceExtSysBootImageList",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtCapV12R0233SXHPCat6k": {
+    "name": "ceExtCapV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.392.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "includes": [
+          "ceExtPhysicalProcessorGroup",
+          "ciscoEntityExtConfigRegGroup",
+          "ceExtSysBootImageListGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENTITY-EXT-CAPABILITY",
+      "Source digest sha256:66af8f9c818cb7d5eddbeb0af05115f60565fe49fdbba25f713c47be7cc0059a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENTITY-EXT-CAPABILITY"
+  }
+}

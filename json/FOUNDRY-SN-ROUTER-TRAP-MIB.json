@@ -1,0 +1,451 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-SN-OSPF-GROUP-MIB": [
+      "snOspfConfigErrorType",
+      "snOspfExtLsdbLimit",
+      "snOspfIfStatusIpAddress",
+      "snOspfIfStatusState",
+      "snOspfLsdbAreaId",
+      "snOspfLsdbLsId",
+      "snOspfLsdbRouterId",
+      "snOspfLsdbType",
+      "snOspfNbrIpAddr",
+      "snOspfNbrRtrId",
+      "snOspfNbrState",
+      "snOspfPacketSrc",
+      "snOspfPacketType",
+      "snOspfRouterId",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfVirtIfStatusState",
+      "snOspfVirtNbrArea",
+      "snOspfVirtNbrRtrId",
+      "snOspfVirtNbrState"
+    ],
+    "FOUNDRY-SN-ROOT-MIB": [
+      "foundry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snTrapOspfIfStateChange": {
+    "name": "snTrapOspfIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusState"
+      }
+    ]
+  },
+  "snTrapOspfVirtIfStateChange": {
+    "name": "snTrapOspfVirtIfStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusState"
+      }
+    ]
+  },
+  "snOspfNbrStateChange": {
+    "name": "snOspfNbrStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrIpAddr"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrState"
+      }
+    ]
+  },
+  "snOspfVirtNbrStateChange": {
+    "name": "snOspfVirtNbrStateChange",
+    "oid": "1.3.6.1.4.1.1991.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrArea"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrState"
+      }
+    ]
+  },
+  "snOspfIfConfigError": {
+    "name": "snOspfIfConfigError",
+    "oid": "1.3.6.1.4.1.1991.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfConfigError": {
+    "name": "snOspfVirtIfConfigError",
+    "oid": "1.3.6.1.4.1.1991.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfIfAuthFailure": {
+    "name": "snOspfIfAuthFailure",
+    "oid": "1.3.6.1.4.1.1991.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfAuthFailure": {
+    "name": "snOspfVirtIfAuthFailure",
+    "oid": "1.3.6.1.4.1.1991.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfIfRxBadPacket": {
+    "name": "snOspfIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.1991.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfRxBadPacket": {
+    "name": "snOspfVirtIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.1991.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfTxRetransmit": {
+    "name": "snOspfTxRetransmit",
+    "oid": "1.3.6.1.4.1.1991.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "ospfVirtIfTxRetransmit": {
+    "name": "ospfVirtIfTxRetransmit",
+    "oid": "1.3.6.1.4.1.1991.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfOriginateLsa": {
+    "name": "snOspfOriginateLsa",
+    "oid": "1.3.6.1.4.1.1991.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfMaxAgeLsa": {
+    "name": "snOspfMaxAgeLsa",
+    "oid": "1.3.6.1.4.1.1991.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfLsdbOverflow": {
+    "name": "snOspfLsdbOverflow",
+    "oid": "1.3.6.1.4.1.1991.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ]
+  },
+  "snOspfLsdbApproachingOverflow": {
+    "name": "snOspfLsdbApproachingOverflow",
+    "oid": "1.3.6.1.4.1.1991.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "FOUNDRY-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FOUNDRY-SN-ROUTER-TRAP-MIB",
+      "Source digest sha256:dfd8aaa08f027040137822a936b04226acf6ff30693f7b2eccad929b7cdd830e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FOUNDRY-SN-ROUTER-TRAP-MIB"
+  }
+}

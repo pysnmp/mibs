@@ -1,0 +1,516 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "MERU-SMI": [
+      "mwConfiguration"
+    ],
+    "MERU-TC": [
+      "MwlAddressAssignmentType",
+      "MwlApIfModeType",
+      "MwlDeviceType",
+      "MwlIpMode",
+      "MwlIpv6AddrType",
+      "MwlL2SecurityMode",
+      "MwlVpnStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "mwConfigStation": {
+    "name": "mwConfigStation",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4",
+    "class": "moduleidentity"
+  },
+  "mwStationTable": {
+    "name": "mwStationTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwStationEntry": {
+    "name": "mwStationEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-STATION-MIB",
+        "object": "mwStationTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwStationTableIndex": {
+    "name": "mwStationTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwStationMacAddress": {
+    "name": "mwStationMacAddress",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpv6Address": {
+    "name": "mwStationIpv6Address",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationAp": {
+    "name": "mwStationAp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationApName": {
+    "name": "mwStationApName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationL3State": {
+    "name": "mwStationL3State",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlVpnStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationVlanTag": {
+    "name": "mwStationVlanTag",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationAuthUser": {
+    "name": "mwStationAuthUser",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationVlanName": {
+    "name": "mwStationVlanName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationRadioType": {
+    "name": "mwStationRadioType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlApIfModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationL2ModeState": {
+    "name": "mwStationL2ModeState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlL2SecurityMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationCurrentRssi": {
+    "name": "mwStationCurrentRssi",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationTxThroughput": {
+    "name": "mwStationTxThroughput",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationRxThroughput": {
+    "name": "mwStationRxThroughput",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationLossPercentage": {
+    "name": "mwStationLossPercentage",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationAddrAssignmentType": {
+    "name": "mwStationAddrAssignmentType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAddressAssignmentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationChannelUtilization": {
+    "name": "mwStationChannelUtilization",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationVirtualPort": {
+    "name": "mwStationVirtualPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationDeviceType": {
+    "name": "mwStationDeviceType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationFilterId": {
+    "name": "mwStationFilterId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationFpDeviceType": {
+    "name": "mwStationFpDeviceType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationFpOsType": {
+    "name": "mwStationFpOsType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationIpMode": {
+    "name": "mwStationIpMode",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlIpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationVlanPoolName": {
+    "name": "mwStationVlanPoolName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationRowStatus": {
+    "name": "mwStationRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpaddressTable": {
+    "name": "mwStationIpaddressTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwStationIpaddressEntry": {
+    "name": "mwStationIpaddressEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-STATION-MIB",
+        "object": "mwStationIpaddressTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwStationIpaddressTableIndex": {
+    "name": "mwStationIpaddressTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwStationIpaddressMacAddress": {
+    "name": "mwStationIpaddressMacAddress",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpaddressIpAddress": {
+    "name": "mwStationIpaddressIpAddress",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpaddressAddrAssignmentType": {
+    "name": "mwStationIpaddressAddrAssignmentType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAddressAssignmentType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpaddressVirtualAddress": {
+    "name": "mwStationIpaddressVirtualAddress",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwStationIpaddressIpv6AddrType": {
+    "name": "mwStationIpaddressIpv6AddrType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlIpv6AddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwStationIpaddressRowStatus": {
+    "name": "mwStationIpaddressRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MERU-CONFIG-STATION-MIB",
+      "Source digest sha256:f30cae44a2d95bf271d4bf5e44c944810bce3dd0d4bfb1fce47e87015cc7de22",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MERU-CONFIG-STATION-MIB"
+  }
+}

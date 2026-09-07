@@ -1,0 +1,142 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "PACKETLOGIC-MIB": [
+      "packetlogic2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "systemOverview": {
+    "name": "systemOverview",
+    "oid": "1.3.6.1.4.1.15397.2.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-12 15:00",
+        "description": " Latest version at the revision date for version GET VERSION HERE"
+      }
+    ]
+  },
+  "overview": {
+    "name": "overview",
+    "oid": "1.3.6.1.4.1.15397.2.40.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "overviewEntry": {
+    "name": "overviewEntry",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PACKETLOGIC-OVERVIEW-MIB",
+        "object": "overviewEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "overviewEntryIndex": {
+    "name": "overviewEntryIndex",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1.999",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "model": {
+    "name": "model",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configMd5Sum": {
+    "name": "configMd5Sum",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "machineId": {
+    "name": "machineId",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.15397.2.40.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PACKETLOGIC-OVERVIEW-MIB",
+      "Source digest sha256:6f4bad0cbadb80c09f0bd8a61dfd1809a4605a6eb4f3e771399c52bbeb98cf7e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PACKETLOGIC-OVERVIEW-MIB"
+  }
+}

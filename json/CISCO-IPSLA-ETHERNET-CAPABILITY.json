@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpSlaEthernetCapability": {
+    "name": "ciscoIpSlaEthernetCapability",
+    "oid": "1.3.6.1.4.1.9.7.498",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-08 00:00",
+        "description": "Initial Creation"
+      }
+    ]
+  },
+  "ciscoIpSlaEthernetCapabilityRev1": {
+    "name": "ciscoIpSlaEthernetCapabilityRev1",
+    "oid": "1.3.6.1.4.1.9.7.498.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(01)SRB",
+    "capabilities": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "includes": [
+          "ciscoIpSlaEthernetAutoGroup",
+          "ciscoIpSlaEthernetStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IPSLA-ETHERNET-CAPABILITY",
+      "Source digest sha256:b0c1ae8cd53f21871f6b7a92ef029ea8c49a96b0db9639d0f3a9f549dd590491",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IPSLA-ETHERNET-CAPABILITY"
+  }
+}

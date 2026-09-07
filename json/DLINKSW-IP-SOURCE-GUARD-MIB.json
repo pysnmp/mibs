@@ -1,0 +1,479 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "DLINKSW-TC-MIB": [
+      "Dlink2kVlanList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwIpSourceGuardMIB": {
+    "name": "dlinkSwIpSourceGuardMIB",
+    "oid": "1.3.6.1.4.1.171.14.132",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "dIpSourceGuardMIBNotifs": {
+    "name": "dIpSourceGuardMIBNotifs",
+    "oid": "1.3.6.1.4.1.171.14.132.0",
+    "class": "objectidentity"
+  },
+  "dIpSourceGuardMIBObjects": {
+    "name": "dIpSourceGuardMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.132.1",
+    "class": "objectidentity"
+  },
+  "dIpSourceGuardMIBConformance": {
+    "name": "dIpSourceGuardMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.132.2",
+    "class": "objectidentity"
+  },
+  "dIpsgBindings": {
+    "name": "dIpsgBindings",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1",
+    "class": "objectidentity"
+  },
+  "dIpsgSrcGuard": {
+    "name": "dIpsgSrcGuard",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2",
+    "class": "objectidentity"
+  },
+  "dIpsgStaticBindingsTable": {
+    "name": "dIpsgStaticBindingsTable",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgStaticBindingsEntry": {
+    "name": "dIpsgStaticBindingsEntry",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgStaticBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgStaticBindingsMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgStaticBindingsIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgStaticBindingsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgStaticBindingsVlan": {
+    "name": "dIpsgStaticBindingsVlan",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgStaticBindingsMacAddress": {
+    "name": "dIpsgStaticBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgStaticBindingsIpAddress": {
+    "name": "dIpsgStaticBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgStaticBindingsInterface": {
+    "name": "dIpsgStaticBindingsInterface",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgStaticBindingsRowStatus": {
+    "name": "dIpsgStaticBindingsRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.132.1.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardConfigTable": {
+    "name": "dIpsgIfSrcGuardConfigTable",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardConfigEntry": {
+    "name": "dIpsgIfSrcGuardConfigEntry",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardFilterType": {
+    "name": "dIpsgIfSrcGuardFilterType",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "ip": 2,
+          "ipMac": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardAddrTable": {
+    "name": "dIpsgIfSrcGuardAddrTable",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardAddrEntry": {
+    "name": "dIpsgIfSrcGuardAddrEntry",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardIndex": {
+    "name": "dIpsgIfSrcGuardIndex",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardFilterMode": {
+    "name": "dIpsgIfSrcGuardFilterMode",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactiveTrustPort": 2,
+          "inactiveNoSnoopingVlan": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardIpAddress": {
+    "name": "dIpsgIfSrcGuardIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardIpFilterAction": {
+    "name": "dIpsgIfSrcGuardIpFilterAction",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permitIpAddress": 1,
+          "permitAllIpAdress": 2,
+          "denyAllIpAddress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardMacAddress": {
+    "name": "dIpsgIfSrcGuardMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardMacFilterAction": {
+    "name": "dIpsgIfSrcGuardMacFilterAction",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowMacAddress": 1,
+          "permitAllMacAddresses": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardVlansFirst2K": {
+    "name": "dIpsgIfSrcGuardVlansFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardVlansSecond2K": {
+    "name": "dIpsgIfSrcGuardVlansSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.132.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpsgMIBCompliances": {
+    "name": "dIpsgMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.132.2.1",
+    "class": "objectidentity"
+  },
+  "dIpsgMIBGroups": {
+    "name": "dIpsgMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.132.2.2",
+    "class": "objectidentity"
+  },
+  "dIpsgMIBCompliance": {
+    "name": "dIpsgMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.132.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dIpsgIfSrcGuardTrafficFilterGroup",
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
+      },
+      {
+        "object": "dIpsgVerifySrcInfoGroup",
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
+      },
+      {
+        "object": "dIpsgStaticBindingsGroup",
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
+      },
+      {
+        "object": "dIpsgVerifySrcInfoExtGroup",
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgStaticBindingsGroup": {
+    "name": "dIpsgStaticBindingsGroup",
+    "oid": "1.3.6.1.4.1.171.14.132.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgStaticBindingsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgVerifySrcInfoGroup": {
+    "name": "dIpsgVerifySrcInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.132.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardIpAddress"
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardIpFilterAction"
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgVerifySrcInfoExtGroup": {
+    "name": "dIpsgVerifySrcInfoExtGroup",
+    "oid": "1.3.6.1.4.1.171.14.132.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardMacAddress"
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardMacFilterAction"
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardVlansFirst2K"
+      },
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardVlansSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpsgIfSrcGuardTrafficFilterGroup": {
+    "name": "dIpsgIfSrcGuardTrafficFilterGroup",
+    "oid": "1.3.6.1.4.1.171.14.132.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-SOURCE-GUARD-MIB",
+        "object": "dIpsgIfSrcGuardFilterType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-IP-SOURCE-GUARD-MIB",
+      "Source digest sha256:7458cb324d4fb4e99653c8700a7e042ca0b550b9aa637f2e37367024bb8715e9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
+  }
+}

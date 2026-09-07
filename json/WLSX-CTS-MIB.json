@@ -1,0 +1,162 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "PhysAddress",
+      "RowStatus",
+      "StorageType",
+      "TAddress",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval",
+      "TruthValue"
+    ]
+  },
+  "wlsxCtsMIB": {
+    "name": "wlsxCtsMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxCtsOpGroup": {
+    "name": "wlsxCtsOpGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1",
+    "class": "objectidentity"
+  },
+  "wlsxCtsRequestTable": {
+    "name": "wlsxCtsRequestTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxCtsRequestEntry": {
+    "name": "wlsxCtsRequestEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-CTS-MIB",
+        "object": "wlsxCtsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxCtsIndex": {
+    "name": "wlsxCtsIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxCtsOpcode": {
+    "name": "wlsxCtsOpcode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxCtsCookie": {
+    "name": "wlsxCtsCookie",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxCtsURL": {
+    "name": "wlsxCtsURL",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxCtsFlags": {
+    "name": "wlsxCtsFlags",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "wlsxCtsFlagForce": 0,
+        "wlsxCtsFlagUseCert": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxCtsStatus": {
+    "name": "wlsxCtsStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.11.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WLSX-CTS-MIB",
+      "Source digest sha256:27d1ca78dcea867f8abe85763ca92aaf19ac93ef9c4fa210d9b6eb7e2cfa3e19",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WLSX-CTS-MIB"
+  }
+}

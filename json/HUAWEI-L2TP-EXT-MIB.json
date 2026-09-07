@@ -1,0 +1,135 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwL2TPExt": {
+    "name": "hwL2TPExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.137",
+    "class": "moduleidentity"
+  },
+  "hwL2TPStatistic": {
+    "name": "hwL2TPStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1",
+    "class": "objectidentity"
+  },
+  "hwL2TPSessionStatTable": {
+    "name": "hwL2TPSessionStatTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2TPSessionStatEntry": {
+    "name": "hwL2TPSessionStatEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2TP-EXT-MIB",
+        "object": "hwL2TPSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2TPSessionIndex": {
+    "name": "hwL2TPSessionIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2TPSessionStatUpPkts": {
+    "name": "hwL2TPSessionStatUpPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2TPSessionStatUpBytes": {
+    "name": "hwL2TPSessionStatUpBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2TPSessionStatDownPkts": {
+    "name": "hwL2TPSessionStatDownPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2TPSessionStatDownBytes": {
+    "name": "hwL2TPSessionStatDownBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-L2TP-EXT-MIB",
+      "Source digest sha256:fa6ccd0b58987430f82d56951176b870c135614d7603edd2dfed4cc3be4690b5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-L2TP-EXT-MIB"
+  }
+}

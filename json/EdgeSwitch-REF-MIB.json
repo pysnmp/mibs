@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "broadcom": {
+    "name": "broadcom",
+    "oid": "1.3.6.1.4.1.4413",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-23 00:00",
+        "description": "Ubiquiti branding related changes."
+      },
+      {
+        "revision": "2003-11-21 00:00",
+        "description": "Revisions made for new release."
+      },
+      {
+        "revision": "2003-02-06 12:00",
+        "description": "Updated for release"
+      }
+    ]
+  },
+  "broadcomProducts": {
+    "name": "broadcomProducts",
+    "oid": "1.3.6.1.4.1.4413.1",
+    "class": "objectidentity"
+  },
+  "fastPath": {
+    "name": "fastPath",
+    "oid": "1.3.6.1.4.1.4413.1.1",
+    "class": "objectidentity"
+  },
+  "AgentPortMask": {
+    "name": "AgentPortMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EdgeSwitch-REF-MIB",
+      "Source digest sha256:ba924ddee87668b3e9ece7a7e2f64287f1ec2a22ef4f55f432d0ea308b65da6c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EdgeSwitch-REF-MIB"
+  }
+}

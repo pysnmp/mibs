@@ -1,0 +1,201 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctFpRedundancy"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctFpRedund": {
+    "name": "ctFpRedund",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1",
+    "class": "objectidentity"
+  },
+  "ctFpRedundReset": {
+    "name": "ctFpRedundReset",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundPollInterval": {
+    "name": "ctFpRedundPollInterval",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundRetrys": {
+    "name": "ctFpRedundRetrys",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundNumAddr": {
+    "name": "ctFpRedundNumAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFpRedundAddAddr": {
+    "name": "ctFpRedundAddAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundDelAddr": {
+    "name": "ctFpRedundDelAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundActivePort": {
+    "name": "ctFpRedundActivePort",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundEnable": {
+    "name": "ctFpRedundEnable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFpRedundAddrTable": {
+    "name": "ctFpRedundAddrTable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFpRedundAddrEntry": {
+    "name": "ctFpRedundAddrEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-FRONTPANEL-MIB",
+        "object": "ctFpRedundAddrId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFpRedundAddrId": {
+    "name": "ctFpRedundAddrId",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFpRedundAddrIPAddr": {
+    "name": "ctFpRedundAddrIPAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.5.5.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-FRONTPANEL-MIB",
+      "Source digest sha256:d56d6d9e7a7a2bd45e97541d8b627e6debf7211b9f39b2adc63e1d8a9b4164b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-FRONTPANEL-MIB"
+  }
+}

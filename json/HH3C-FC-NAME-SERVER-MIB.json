@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-FC-TC-MIB": [
+      "Hh3cFcNameId"
+    ],
+    "HH3C-VSAN-MIB": [
+      "hh3cSan",
+      "hh3cVsanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hh3cFcNameServer": {
+    "name": "hh3cFcNameServer",
+    "oid": "1.3.6.1.4.1.25506.2.127.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-03 10:18",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hh3cFcNameServerMibObjects": {
+    "name": "hh3cFcNameServerMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1",
+    "class": "objectidentity"
+  },
+  "hh3cFcNsNotification": {
+    "name": "hh3cFcNsNotification",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cFcNsNotificationPrefix": {
+    "name": "hh3cFcNsNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.0",
+    "class": "objectidentity"
+  },
+  "hh3cFcNsNotificationSwitch": {
+    "name": "hh3cFcNsNotificationSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cFcNsObjsForNotification": {
+    "name": "hh3cFcNsObjsForNotification",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cFcNsPortLoginNotify": {
+    "name": "hh3cFcNsPortLoginNotify",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VSAN-MIB",
+        "object": "hh3cVsanIndex"
+      },
+      {
+        "module": "HH3C-FC-NAME-SERVER-MIB",
+        "object": "hh3cFcNsLocalSwitchWWN"
+      },
+      {
+        "module": "HH3C-FC-NAME-SERVER-MIB",
+        "object": "hh3cFcNsFloginPortWWN"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcNsPortLogoutNotify": {
+    "name": "hh3cFcNsPortLogoutNotify",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VSAN-MIB",
+        "object": "hh3cVsanIndex"
+      },
+      {
+        "module": "HH3C-FC-NAME-SERVER-MIB",
+        "object": "hh3cFcNsLocalSwitchWWN"
+      },
+      {
+        "module": "HH3C-FC-NAME-SERVER-MIB",
+        "object": "hh3cFcNsFloginPortWWN"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcNsPortLoginNotifyEnable": {
+    "name": "hh3cFcNsPortLoginNotifyEnable",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcNsPortLogoutNotifyEnable": {
+    "name": "hh3cFcNsPortLogoutNotifyEnable",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcNsLocalSwitchWWN": {
+    "name": "hh3cFcNsLocalSwitchWWN",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFcNsFloginPortWWN": {
+    "name": "hh3cFcNsFloginPortWWN",
+    "oid": "1.3.6.1.4.1.25506.2.127.10.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-FC-NAME-SERVER-MIB",
+      "Source digest sha256:de2b8f85c68efdce7241ff7f28ba28d5a2f141249c2651a66b14d2f7a7aaad0e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-FC-NAME-SERVER-MIB"
+  }
+}

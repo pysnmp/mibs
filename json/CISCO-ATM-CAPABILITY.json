@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmCapability": {
+    "name": "ciscoAtmCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-12 00:00",
+        "description": "Initial Version of the MIB module."
+      }
+    ]
+  },
+  "ciscoAtmCapabilityV2R00": {
+    "name": "ciscoAtmCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.00,\n                BPX SES Release 1.00.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceConfGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmInterfaceMaxVpcs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceMaxVccs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceConfVpcs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceConfVccs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceMaxActiveVpiBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceMaxActiveVciBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceIlmiVpi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceIlmiVci",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceMyNeighborIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "atmInterfaceMyNeighborIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "atmInterfaceCurrentMaxVpiBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceCurrentMaxVciBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceSubscrAddress",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ATM-CAPABILITY",
+      "Source digest sha256:7ff0a300d1be02fa37615f2ad82d220d496a9a10487af33c6e54c268c861e745",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ATM-CAPABILITY"
+  }
+}

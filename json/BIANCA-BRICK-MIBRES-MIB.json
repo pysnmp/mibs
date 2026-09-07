@@ -1,0 +1,661 @@
+{
+  "imports": {
+    "class": "imports",
+    "BINTEC-MIB": [
+      "resource"
+    ],
+    "RFC1158-MIB": [
+      "DisplayString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "resourceMIB": {
+    "name": "resourceMIB",
+    "oid": "1.3.6.1.4.1.272.4.17.4.255",
+    "class": "moduleidentity"
+  },
+  "cpuTable": {
+    "name": "cpuTable",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuEntry": {
+    "name": "cpuEntry",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIBRES-MIB",
+        "object": "cpuNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuNumber": {
+    "name": "cpuNumber",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuDescr": {
+    "name": "cpuDescr",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotalUser": {
+    "name": "cpuTotalUser",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotalSystem": {
+    "name": "cpuTotalSystem",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotalStreams": {
+    "name": "cpuTotalStreams",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotalIdle": {
+    "name": "cpuTotalIdle",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadUser": {
+    "name": "cpuLoadUser",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadSystem": {
+    "name": "cpuLoadSystem",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadStreams": {
+    "name": "cpuLoadStreams",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadIdle": {
+    "name": "cpuLoadIdle",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadUser10s": {
+    "name": "cpuLoadUser10s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadSystem10s": {
+    "name": "cpuLoadSystem10s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadStreams10s": {
+    "name": "cpuLoadStreams10s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadIdle10s": {
+    "name": "cpuLoadIdle10s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadUser60s": {
+    "name": "cpuLoadUser60s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadSystem60s": {
+    "name": "cpuLoadSystem60s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadStreams60s": {
+    "name": "cpuLoadStreams60s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadIdle60s": {
+    "name": "cpuLoadIdle60s",
+    "oid": "1.3.6.1.4.1.272.4.17.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryTable": {
+    "name": "memoryTable",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memoryEntry": {
+    "name": "memoryEntry",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIBRES-MIB",
+        "object": "memoryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memoryType": {
+    "name": "memoryType",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flash": 1,
+          "dram": 2,
+          "dpool": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryDescr": {
+    "name": "memoryDescr",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryBlockSize": {
+    "name": "memoryBlockSize",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryTotal": {
+    "name": "memoryTotal",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryInuse": {
+    "name": "memoryInuse",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryDramUse": {
+    "name": "memoryDramUse",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryNAllocs": {
+    "name": "memoryNAllocs",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryNFrees": {
+    "name": "memoryNFrees",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryNFails": {
+    "name": "memoryNFails",
+    "oid": "1.3.6.1.4.1.272.4.17.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspTable": {
+    "name": "dspTable",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspEntry": {
+    "name": "dspEntry",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIBRES-MIB",
+        "object": "dspSlot",
+        "implied": 0
+      },
+      {
+        "module": "BIANCA-BRICK-MIBRES-MIB",
+        "object": "dspUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspSlot": {
+    "name": "dspSlot",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspUnit": {
+    "name": "dspUnit",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspDescr": {
+    "name": "dspDescr",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspCapabilities": {
+    "name": "dspCapabilities",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "g711": 0,
+        "g722": 1,
+        "g723": 2,
+        "g728": 3,
+        "g726": 4,
+        "g729": 5,
+        "ilbc": 6,
+        "clear": 7,
+        "t30": 8,
+        "t38": 9,
+        "dtmf": 10
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspTotalChannels": {
+    "name": "dspTotalChannels",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspUsedChannels": {
+    "name": "dspUsedChannels",
+    "oid": "1.3.6.1.4.1.272.4.17.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BIANCA-BRICK-MIBRES-MIB",
+      "Source digest sha256:79e62f60100e1f44ea144bd111b94cf1089e3351cac88f89b5867873a7ea8cb4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BIANCA-BRICK-MIBRES-MIB"
+  }
+}

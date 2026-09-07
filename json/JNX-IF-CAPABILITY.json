@@ -1,0 +1,105 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxIfCapability": {
+    "name": "jnxIfCapability",
+    "oid": "1.3.6.1.4.1.2636.11.1",
+    "class": "moduleidentity"
+  },
+  "jnxIfCapJunos": {
+    "name": "jnxIfCapJunos",
+    "oid": "1.3.6.1.4.1.2636.11.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "All JUNOS Version",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifOldObjectsGroup",
+          "linkUpDownNotificationsGroup",
+          "ifVHCPacketGroup",
+          "ifCounterDiscontinuityGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifDescr",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "lowerLayerDown": 7
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "read-only"
+          },
+          {
+            "object": "ifStackStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JNX-IF-CAPABILITY",
+      "Source digest sha256:9a82cd79c0d8ddb315843a780c8b0f8f87bc198829b3b7a21d2defcbbfe39b7b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JNX-IF-CAPABILITY"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ianaBfdTCStdMib": {
+    "name": "ianaBfdTCStdMib",
+    "oid": "1.3.6.1.2.1.224",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2025-11-25 00:00",
+        "description": "Added BFD Authentication Types 6-8."
+      },
+      {
+        "revision": "2014-08-12 00:00",
+        "description": "Initial version. Published as RFC 7330."
+      }
+    ]
+  },
+  "IANAbfdDiagTC": {
+    "name": "IANAbfdDiagTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDiagnostic": 0,
+          "controlDetectionTimeExpired": 1,
+          "echoFunctionFailed": 2,
+          "neighborSignaledSessionDown": 3,
+          "forwardingPlaneReset": 4,
+          "pathDown": 5,
+          "concatenatedPathDown": 6,
+          "administrativelyDown": 7,
+          "reverseConcatenatedPathDown": 8,
+          "misConnectivityDefect": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAbfdSessTypeTC": {
+    "name": "IANAbfdSessTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleHop": 1,
+          "multiHopTotallyArbitraryPaths": 2,
+          "multiHopOutOfBandSignaling": 3,
+          "multiHopUnidirectionalLinks": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAbfdSessOperModeTC": {
+    "name": "IANAbfdSessOperModeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asyncModeWEchoFunction": 1,
+          "asynchModeWOEchoFunction": 2,
+          "demandModeWEchoFunction": 3,
+          "demandModeWOEchoFunction": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAbfdSessStateTC": {
+    "name": "IANAbfdSessStateTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDown": 1,
+          "down": 2,
+          "init": 3,
+          "up": 4,
+          "failing": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAbfdSessAuthenticationTypeTC": {
+    "name": "IANAbfdSessAuthenticationTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthentication": -1,
+          "reserved": 0,
+          "simplePassword": 1,
+          "keyedMD5": 2,
+          "meticulousKeyedMD5": 3,
+          "keyedSHA1": 4,
+          "meticulousKeyedSHA1": 5,
+          "null": 6,
+          "optimizedMD5MeticulousKeyedISAACAuthentication": 7,
+          "optimizedSHA1MeticulousKeyedISAACAuthentication": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAbfdSessAuthenticationKeyTC": {
+    "name": "IANAbfdSessAuthenticationKeyTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "displayhint": "1x ",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IANA-BFD-TC-STD-MIB",
+      "Source digest sha256:5617e0077c1e21cce1e3fc318cd2d2d1ff49c495c7b8f405f226141f3176d02d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IANA-BFD-TC-STD-MIB"
+  }
+}

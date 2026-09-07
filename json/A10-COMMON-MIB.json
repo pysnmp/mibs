@@ -1,0 +1,467 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "a10": {
+    "name": "a10",
+    "oid": "1.3.6.1.4.1.22610",
+    "class": "moduleidentity"
+  },
+  "a10Products": {
+    "name": "a10Products",
+    "oid": "1.3.6.1.4.1.22610.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10Mgmt": {
+    "name": "a10Mgmt",
+    "oid": "1.3.6.1.4.1.22610.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10IDsentrie": {
+    "name": "a10IDsentrie",
+    "oid": "1.3.6.1.4.1.22610.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10IDsentrie1000": {
+    "name": "a10IDsentrie1000",
+    "oid": "1.3.6.1.4.1.22610.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10StealthWatch": {
+    "name": "a10StealthWatch",
+    "oid": "1.3.6.1.4.1.22610.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10RetiEntity1000": {
+    "name": "a10RetiEntity1000",
+    "oid": "1.3.6.1.4.1.22610.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10EX": {
+    "name": "a10EX",
+    "oid": "1.3.6.1.4.1.22610.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10EX2100": {
+    "name": "a10EX2100",
+    "oid": "1.3.6.1.4.1.22610.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10EX2180": {
+    "name": "a10EX2180",
+    "oid": "1.3.6.1.4.1.22610.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10EX2200": {
+    "name": "a10EX2200",
+    "oid": "1.3.6.1.4.1.22610.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10EX2280": {
+    "name": "a10EX2280",
+    "oid": "1.3.6.1.4.1.22610.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX": {
+    "name": "a10AX",
+    "oid": "1.3.6.1.4.1.22610.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX2100": {
+    "name": "a10AX2100",
+    "oid": "1.3.6.1.4.1.22610.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3100": {
+    "name": "a10AX3100",
+    "oid": "1.3.6.1.4.1.22610.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3200": {
+    "name": "a10AX3200",
+    "oid": "1.3.6.1.4.1.22610.1.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX2200": {
+    "name": "a10AX2200",
+    "oid": "1.3.6.1.4.1.22610.1.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX2000": {
+    "name": "a10AX2000",
+    "oid": "1.3.6.1.4.1.22610.1.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX1000": {
+    "name": "a10AX1000",
+    "oid": "1.3.6.1.4.1.22610.1.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX5200": {
+    "name": "a10AX5200",
+    "oid": "1.3.6.1.4.1.22610.1.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX2500": {
+    "name": "a10AX2500",
+    "oid": "1.3.6.1.4.1.22610.1.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX2600": {
+    "name": "a10AX2600",
+    "oid": "1.3.6.1.4.1.22610.1.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3000": {
+    "name": "a10AX3000",
+    "oid": "1.3.6.1.4.1.22610.1.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10HitachiBladeServer": {
+    "name": "a10HitachiBladeServer",
+    "oid": "1.3.6.1.4.1.22610.1.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX5100": {
+    "name": "a10AX5100",
+    "oid": "1.3.6.1.4.1.22610.1.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10SoftAX": {
+    "name": "a10SoftAX",
+    "oid": "1.3.6.1.4.1.22610.1.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3030": {
+    "name": "a10AX3030",
+    "oid": "1.3.6.1.4.1.22610.1.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX1030": {
+    "name": "a10AX1030",
+    "oid": "1.3.6.1.4.1.22610.1.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3200_12": {
+    "name": "a10AX3200_12",
+    "oid": "1.3.6.1.4.1.22610.1.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3400": {
+    "name": "a10AX3400",
+    "oid": "1.3.6.1.4.1.22610.1.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX3530": {
+    "name": "a10AX3530",
+    "oid": "1.3.6.1.4.1.22610.1.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX5630": {
+    "name": "a10AX5630",
+    "oid": "1.3.6.1.4.1.22610.1.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH6430": {
+    "name": "a10TH6430",
+    "oid": "1.3.6.1.4.1.22610.1.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5430": {
+    "name": "a10TH5430",
+    "oid": "1.3.6.1.4.1.22610.1.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3030S": {
+    "name": "a10TH3030S",
+    "oid": "1.3.6.1.4.1.22610.1.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH1030S": {
+    "name": "a10TH1030S",
+    "oid": "1.3.6.1.4.1.22610.1.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH930S": {
+    "name": "a10TH930S",
+    "oid": "1.3.6.1.4.1.22610.1.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH4430": {
+    "name": "a10TH4430",
+    "oid": "1.3.6.1.4.1.22610.1.3.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5330": {
+    "name": "a10TH5330",
+    "oid": "1.3.6.1.4.1.22610.1.3.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH4435": {
+    "name": "a10TH4435",
+    "oid": "1.3.6.1.4.1.22610.1.3.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5630": {
+    "name": "a10TH5630",
+    "oid": "1.3.6.1.4.1.22610.1.3.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH6630": {
+    "name": "a10TH6630",
+    "oid": "1.3.6.1.4.1.22610.1.3.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3430": {
+    "name": "a10TH3430",
+    "oid": "1.3.6.1.4.1.22610.1.3.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5430_11": {
+    "name": "a10TH5430_11",
+    "oid": "1.3.6.1.4.1.22610.1.3.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5840": {
+    "name": "a10TH5840",
+    "oid": "1.3.6.1.4.1.22610.1.3.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH940": {
+    "name": "a10TH940",
+    "oid": "1.3.6.1.4.1.22610.1.3.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH1040": {
+    "name": "a10TH1040",
+    "oid": "1.3.6.1.4.1.22610.1.3.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3040": {
+    "name": "a10TH3040",
+    "oid": "1.3.6.1.4.1.22610.1.3.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH7440": {
+    "name": "a10TH7440",
+    "oid": "1.3.6.1.4.1.22610.1.3.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH840": {
+    "name": "a10TH840",
+    "oid": "1.3.6.1.4.1.22610.1.3.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AX12040": {
+    "name": "a10AX12040",
+    "oid": "1.3.6.1.4.1.22610.1.3.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH14045": {
+    "name": "a10TH14045",
+    "oid": "1.3.6.1.4.1.22610.1.3.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3745": {
+    "name": "a10TH3745",
+    "oid": "1.3.6.1.4.1.22610.1.3.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3230": {
+    "name": "a10TH3230",
+    "oid": "1.3.6.1.4.1.22610.1.3.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH4440": {
+    "name": "a10TH4440",
+    "oid": "1.3.6.1.4.1.22610.1.3.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5440": {
+    "name": "a10TH5440",
+    "oid": "1.3.6.1.4.1.22610.1.3.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH6440": {
+    "name": "a10TH6440",
+    "oid": "1.3.6.1.4.1.22610.1.3.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5650": {
+    "name": "a10TH5650",
+    "oid": "1.3.6.1.4.1.22610.1.3.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH7650": {
+    "name": "a10TH7650",
+    "oid": "1.3.6.1.4.1.22610.1.3.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH3350": {
+    "name": "a10TH3350",
+    "oid": "1.3.6.1.4.1.22610.1.3.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5845": {
+    "name": "a10TH5845",
+    "oid": "1.3.6.1.4.1.22610.1.3.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH7445": {
+    "name": "a10TH7445",
+    "oid": "1.3.6.1.4.1.22610.1.3.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5435": {
+    "name": "a10TH5435",
+    "oid": "1.3.6.1.4.1.22610.1.3.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH6435": {
+    "name": "a10TH6435",
+    "oid": "1.3.6.1.4.1.22610.1.3.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH6635": {
+    "name": "a10TH6635",
+    "oid": "1.3.6.1.4.1.22610.1.3.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH5960": {
+    "name": "a10TH5960",
+    "oid": "1.3.6.1.4.1.22610.1.3.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH8665S": {
+    "name": "a10TH8665S",
+    "oid": "1.3.6.1.4.1.22610.1.3.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH1060": {
+    "name": "a10TH1060",
+    "oid": "1.3.6.1.4.1.22610.1.3.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10TH1060C": {
+    "name": "a10TH1060C",
+    "oid": "1.3.6.1.4.1.22610.1.3.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10CentMgmt": {
+    "name": "a10CentMgmt",
+    "oid": "1.3.6.1.4.1.22610.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AGA1": {
+    "name": "a10AGA1",
+    "oid": "1.3.6.1.4.1.22610.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10AGA5000": {
+    "name": "a10AGA5000",
+    "oid": "1.3.6.1.4.1.22610.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "a10SoftAGA": {
+    "name": "a10SoftAGA",
+    "oid": "1.3.6.1.4.1.22610.1.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-COMMON-MIB",
+      "Source digest sha256:07d4864bb2404e62679d8bd373c9f0db5513a7b1b0da93aba432f44ed2f659f9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-COMMON-MIB"
+  }
+}

@@ -1,0 +1,137 @@
+------------------------------------------------------------------------------
+-- Feb 2014
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+--------------------------------------------------------------------------------
+-- 
+
+APCORELB-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+	TimeTicks, Integer32, Unsigned32, Counter32, IpAddress
+                    FROM SNMPv2-SMI
+    InetAddress, InetAddressType, InetPortNumber 
+                    FROM INET-ADDRESS-MIB
+    TEXTUAL-CONVENTION
+                    FROM SNMPv2-TC
+	DisplayString
+                    FROM SNMPv2-TC
+    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+					FROM SNMPv2-CONF
+	acmepacketMgmt
+                    FROM ACMEPACKET-SMI;
+     
+apCORELBModule MODULE-IDENTITY
+		LAST-UPDATED	"201406260000Z"
+	    	ORGANIZATION 	"Oracle Communications"
+	    	CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+		DESCRIPTION
+			"The Core Load Balancer MIB for Oracle Communications Acme Packet SBCs"
+                REVISION "201406260000Z" 			
+                DESCRIPTION
+			"Updated Organization and Contact info."
+		::= { acmepacketMgmt 19 }
+
+
+   	apCORELBMIBObjects OBJECT IDENTIFIER ::= { apCORELBModule 1 }
+	apCORELBNotificationObjects OBJECT IDENTIFIER ::= { apCORELBModule 2 }
+    apCORELBNotificationPrefix OBJECT IDENTIFIER ::= { apCORELBModule 3 }
+	apCORELBConformance OBJECT IDENTIFIER ::= { apCORELBModule 4 }	
+          
+    apCORELBNotifications OBJECT IDENTIFIER ::= { apCORELBNotificationPrefix 0 }
+	apCORELBObjectGroups OBJECT IDENTIFIER ::= { apCORELBConformance 1 }		
+    apCORELBNotificationGroups OBJECT IDENTIFIER ::= { apCORELBConformance 2 }
+	
+
+apCORELBMIBGeneralObjects OBJECT IDENTIFIER ::= {apCORELBMIBObjects 1}
+
+apCoreLBMemberAddress   OBJECT-TYPE
+        SYNTAX          InetAddress
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "This is the IP address of Core LB member."
+        ::= { apCORELBMIBGeneralObjects 1 }
+
+apCoreLBMemberAddressType   OBJECT-TYPE
+        SYNTAX          InetAddressType
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "This is the IP address type of Core LB member."
+        ::= { apCORELBMIBGeneralObjects 2 }
+
+apCoreLBMemberPort OBJECT-TYPE
+        SYNTAX          InetPortNumber
+        MAX-ACCESS      accessible-for-notify
+        STATUS                  current
+        DESCRIPTION     
+	    "This is the port of Core LB member."
+        ::= { apCORELBMIBGeneralObjects 3 }
+
+apCoreLBMemberId                OBJECT-TYPE
+	SYNTAX     	     	DisplayString (SIZE (1..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS	   		current
+	DESCRIPTION
+	"This is the Id of Core LB member."
+	::= { apCORELBMIBGeneralObjects 4 }
+
+apCoreLBReasonCode		OBJECT-TYPE
+	SYNTAX     	     	INTEGER {    
+					service-assoc-terminated(0),
+					service-assoc-timeout(1),
+					connection-down(2)
+				}
+	MAX-ACCESS		accessible-for-notify
+	STATUS	   		current
+	DESCRIPTION
+	"The reason for the Core LB member to go OOS."
+	::= { apCORELBMIBGeneralObjects 5 }
+
+
+apCoreLBMemberInServiceTrap      NOTIFICATION-TYPE
+        OBJECTS         { apCoreLBMemberAddressType,
+	                  apCoreLBMemberAddress,
+                          apCoreLBMemberPort,
+	                  apCoreLBMemberId
+	                }
+        STATUS          current
+        DESCRIPTION
+        " The trap will be generated when Core LB member is in service."
+        ::= { apCORELBNotifications 1 }
+
+apCoreLBMemberOOSTrap      NOTIFICATION-TYPE
+        OBJECTS         { apCoreLBMemberAddressType,
+	                  apCoreLBMemberAddress,
+                          apCoreLBMemberPort,
+	                  apCoreLBMemberId,
+                          apCoreLBReasonCode
+                        }
+        STATUS          current
+        DESCRIPTION
+        " The trap will be generated when Core LB member is out of service."
+        ::= { apCORELBNotifications 2 }
+
+apCoreLBMemberStatusNotificationsGroup  NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                        apCoreLBMemberInServiceTrap,
+                        apCoreLBMemberOOSTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor Core LB members."
+        ::= { apCORELBNotificationGroups 1 }
+
+END
+

@@ -1,0 +1,3956 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue",
+      "VariablePointer"
+    ],
+    "TRIPPLITE": [
+      "tripplite"
+    ],
+    "UPS-MIB": [
+      "NonNegativeInteger",
+      "PositiveInteger"
+    ]
+  },
+  "tlPowerAlert": {
+    "name": "tlPowerAlert",
+    "oid": "1.3.6.1.4.1.850.90",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-28 16:00",
+        "description": "Corrected spelling errors"
+      },
+      {
+        "revision": "2015-07-29 00:00",
+        "description": "Removed obsolete legacy PowerAlert 11 sections"
+      },
+      {
+        "revision": "2014-10-17 09:30",
+        "description": "Added tlUpsAggregatePowerFactor"
+      },
+      {
+        "revision": "2014-09-18 10:00",
+        "description": "Added additional tlUpsInputSource... elements"
+      },
+      {
+        "revision": "2014-08-06 08:30",
+        "description": "Added additional elements to tlUpsOutputCircuitTable"
+      },
+      {
+        "revision": "2014-05-08 08:30",
+        "description": "Added tlUpsInputSourceSelect"
+      },
+      {
+        "revision": "2014-04-09 10:00",
+        "description": "Added missing well known alarms"
+      },
+      {
+        "revision": "2013-10-30 13:00",
+        "description": "Consolidated and Released for PAL v12.06.006x"
+      }
+    ]
+  },
+  "tlEnumerations": {
+    "name": "tlEnumerations",
+    "oid": "1.3.6.1.4.1.850.2",
+    "class": "objectidentity"
+  },
+  "tlOperatingSystems": {
+    "name": "tlOperatingSystems",
+    "oid": "1.3.6.1.4.1.850.2.1",
+    "class": "objectidentity"
+  },
+  "hpux9": {
+    "name": "hpux9",
+    "oid": "1.3.6.1.4.1.850.2.1.1",
+    "class": "objectidentity"
+  },
+  "sunos4": {
+    "name": "sunos4",
+    "oid": "1.3.6.1.4.1.850.2.1.2",
+    "class": "objectidentity"
+  },
+  "solaris": {
+    "name": "solaris",
+    "oid": "1.3.6.1.4.1.850.2.1.3",
+    "class": "objectidentity"
+  },
+  "osf": {
+    "name": "osf",
+    "oid": "1.3.6.1.4.1.850.2.1.4",
+    "class": "objectidentity"
+  },
+  "ultrix": {
+    "name": "ultrix",
+    "oid": "1.3.6.1.4.1.850.2.1.5",
+    "class": "objectidentity"
+  },
+  "hpux10": {
+    "name": "hpux10",
+    "oid": "1.3.6.1.4.1.850.2.1.6",
+    "class": "objectidentity"
+  },
+  "netbsd1": {
+    "name": "netbsd1",
+    "oid": "1.3.6.1.4.1.850.2.1.7",
+    "class": "objectidentity"
+  },
+  "freebsd": {
+    "name": "freebsd",
+    "oid": "1.3.6.1.4.1.850.2.1.8",
+    "class": "objectidentity"
+  },
+  "irix": {
+    "name": "irix",
+    "oid": "1.3.6.1.4.1.850.2.1.9",
+    "class": "objectidentity"
+  },
+  "linux": {
+    "name": "linux",
+    "oid": "1.3.6.1.4.1.850.2.1.10",
+    "class": "objectidentity"
+  },
+  "bsdi": {
+    "name": "bsdi",
+    "oid": "1.3.6.1.4.1.850.2.1.11",
+    "class": "objectidentity"
+  },
+  "openbsd": {
+    "name": "openbsd",
+    "oid": "1.3.6.1.4.1.850.2.1.12",
+    "class": "objectidentity"
+  },
+  "win32": {
+    "name": "win32",
+    "oid": "1.3.6.1.4.1.850.2.1.13",
+    "class": "objectidentity"
+  },
+  "hpux11": {
+    "name": "hpux11",
+    "oid": "1.3.6.1.4.1.850.2.1.14",
+    "class": "objectidentity"
+  },
+  "win9x": {
+    "name": "win9x",
+    "oid": "1.3.6.1.4.1.850.2.1.50",
+    "class": "objectidentity"
+  },
+  "winnt": {
+    "name": "winnt",
+    "oid": "1.3.6.1.4.1.850.2.1.51",
+    "class": "objectidentity"
+  },
+  "solspark": {
+    "name": "solspark",
+    "oid": "1.3.6.1.4.1.850.2.1.52",
+    "class": "objectidentity"
+  },
+  "solintel": {
+    "name": "solintel",
+    "oid": "1.3.6.1.4.1.850.2.1.53",
+    "class": "objectidentity"
+  },
+  "aix": {
+    "name": "aix",
+    "oid": "1.3.6.1.4.1.850.2.1.54",
+    "class": "objectidentity"
+  },
+  "sco": {
+    "name": "sco",
+    "oid": "1.3.6.1.4.1.850.2.1.55",
+    "class": "objectidentity"
+  },
+  "osx": {
+    "name": "osx",
+    "oid": "1.3.6.1.4.1.850.2.1.56",
+    "class": "objectidentity"
+  },
+  "unknown": {
+    "name": "unknown",
+    "oid": "1.3.6.1.4.1.850.2.1.255",
+    "class": "objectidentity"
+  },
+  "tlPASystem": {
+    "name": "tlPASystem",
+    "oid": "1.3.6.1.4.1.850.90.1",
+    "class": "objectidentity"
+  },
+  "tlPAContacts": {
+    "name": "tlPAContacts",
+    "oid": "1.3.6.1.4.1.850.90.1.1",
+    "class": "objectidentity"
+  },
+  "tlPAEmailContacts": {
+    "name": "tlPAEmailContacts",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1",
+    "class": "objectidentity"
+  },
+  "tlPANumberOfEmailContacts": {
+    "name": "tlPANumberOfEmailContacts",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlPAEmailContactsTable": {
+    "name": "tlPAEmailContactsTable",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlPAEmailContactEntry": {
+    "name": "tlPAEmailContactEntry",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlPAEmailContactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlPAEmailContactIndex": {
+    "name": "tlPAEmailContactIndex",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlPAEmailContactRowStatus": {
+    "name": "tlPAEmailContactRowStatus",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPAEmailContactName": {
+    "name": "tlPAEmailContactName",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPAEmailContactAddress": {
+    "name": "tlPAEmailContactAddress",
+    "oid": "1.3.6.1.4.1.850.90.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContacts": {
+    "name": "tlPASnmpContacts",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2",
+    "class": "objectidentity"
+  },
+  "tlPANumberOfSnmpContacts": {
+    "name": "tlPANumberOfSnmpContacts",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlPASnmpContactsTable": {
+    "name": "tlPASnmpContactsTable",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlPASnmpContactEntry": {
+    "name": "tlPASnmpContactEntry",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlPASnmpContactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlPASnmpContactIndex": {
+    "name": "tlPASnmpContactIndex",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlPASnmpContactRowStatus": {
+    "name": "tlPASnmpContactRowStatus",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactName": {
+    "name": "tlPASnmpContactName",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactIpAddress": {
+    "name": "tlPASnmpContactIpAddress",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactPort": {
+    "name": "tlPASnmpContactPort",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactSnmpVersion": {
+    "name": "tlPASnmpContactSnmpVersion",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpv1": 1,
+          "snmpv2c": 2,
+          "snmpv3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactSecurityName": {
+    "name": "tlPASnmpContactSecurityName",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactPrivPassword": {
+    "name": "tlPASnmpContactPrivPassword",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlPASnmpContactAuthPassword": {
+    "name": "tlPASnmpContactAuthPassword",
+    "oid": "1.3.6.1.4.1.850.90.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUPS": {
+    "name": "tlUPS",
+    "oid": "1.3.6.1.4.1.850.100",
+    "class": "objectidentity"
+  },
+  "tlUpsObjects": {
+    "name": "tlUpsObjects",
+    "oid": "1.3.6.1.4.1.850.100.1",
+    "class": "objectidentity"
+  },
+  "tlUpsIdent": {
+    "name": "tlUpsIdent",
+    "oid": "1.3.6.1.4.1.850.100.1.1",
+    "class": "objectidentity"
+  },
+  "tlUpsIdentUpsSoftwareChecksum": {
+    "name": "tlUpsIdentUpsSoftwareChecksum",
+    "oid": "1.3.6.1.4.1.850.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsIdentSerialNum": {
+    "name": "tlUpsIdentSerialNum",
+    "oid": "1.3.6.1.4.1.850.100.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsIdentID": {
+    "name": "tlUpsIdentID",
+    "oid": "1.3.6.1.4.1.850.100.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsSnmpCardSerialNum": {
+    "name": "tlUpsSnmpCardSerialNum",
+    "oid": "1.3.6.1.4.1.850.100.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsSelectedDeviceID": {
+    "name": "tlUpsSelectedDeviceID",
+    "oid": "1.3.6.1.4.1.850.100.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsLocation": {
+    "name": "tlUpsLocation",
+    "oid": "1.3.6.1.4.1.850.100.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsBattery": {
+    "name": "tlUpsBattery",
+    "oid": "1.3.6.1.4.1.850.100.1.2",
+    "class": "objectidentity"
+  },
+  "tlUpsBatteryAge": {
+    "name": "tlUpsBatteryAge",
+    "oid": "1.3.6.1.4.1.850.100.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsTemperatureF": {
+    "name": "tlUpsTemperatureF",
+    "oid": "1.3.6.1.4.1.850.100.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsExternalBatteryAge": {
+    "name": "tlUpsExternalBatteryAge",
+    "oid": "1.3.6.1.4.1.850.100.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInput": {
+    "name": "tlUpsInput",
+    "oid": "1.3.6.1.4.1.850.100.1.3",
+    "class": "objectidentity"
+  },
+  "tlUpsInputNumVoltages": {
+    "name": "tlUpsInputNumVoltages",
+    "oid": "1.3.6.1.4.1.850.100.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputVoltageTable": {
+    "name": "tlUpsInputVoltageTable",
+    "oid": "1.3.6.1.4.1.850.100.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsInputVoltageEntry": {
+    "name": "tlUpsInputVoltageEntry",
+    "oid": "1.3.6.1.4.1.850.100.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsInputVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsInputVoltageIndex": {
+    "name": "tlUpsInputVoltageIndex",
+    "oid": "1.3.6.1.4.1.850.100.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsInputVoltageType": {
+    "name": "tlUpsInputVoltageType",
+    "oid": "1.3.6.1.4.1.850.100.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phaseToNeutral": 0,
+          "phaseToPhase": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputVoltage": {
+    "name": "tlUpsInputVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputSourceSelect": {
+    "name": "tlUpsInputSourceSelect",
+    "oid": "1.3.6.1.4.1.850.100.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputSourceA": 0,
+          "inputSourceB": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsPhaseImbalance": {
+    "name": "tlUpsPhaseImbalance",
+    "oid": "1.3.6.1.4.1.850.100.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputSourceAvailability": {
+    "name": "tlUpsInputSourceAvailability",
+    "oid": "1.3.6.1.4.1.850.100.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "inputSourceA": 1,
+          "inputSourceB": 2,
+          "inputSourceAB": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputSourceInUse": {
+    "name": "tlUpsInputSourceInUse",
+    "oid": "1.3.6.1.4.1.850.100.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputSourceA": 0,
+          "inputSourceB": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsInputSourceTransitionCount": {
+    "name": "tlUpsInputSourceTransitionCount",
+    "oid": "1.3.6.1.4.1.850.100.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutput": {
+    "name": "tlUpsOutput",
+    "oid": "1.3.6.1.4.1.850.100.1.4",
+    "class": "objectidentity"
+  },
+  "tlUpsOutputPowerTotal": {
+    "name": "tlUpsOutputPowerTotal",
+    "oid": "1.3.6.1.4.1.850.100.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuits": {
+    "name": "tlUpsOutputCircuits",
+    "oid": "1.3.6.1.4.1.850.100.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitTable": {
+    "name": "tlUpsOutputCircuitTable",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitEntry": {
+    "name": "tlUpsOutputCircuitEntry",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsOutputCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsOutputCircuitIndex": {
+    "name": "tlUpsOutputCircuitIndex",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitStatus": {
+    "name": "tlUpsOutputCircuitStatus",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "closed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitLoadCurrent": {
+    "name": "tlUpsOutputCircuitLoadCurrent",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Amperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitVoltage": {
+    "name": "tlUpsOutputCircuitVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "0.1 Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitPower": {
+    "name": "tlUpsOutputCircuitPower",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutputCircuitPowerFactor": {
+    "name": "tlUpsOutputCircuitPowerFactor",
+    "oid": "1.3.6.1.4.1.850.100.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAggregatePowerFactor": {
+    "name": "tlUpsAggregatePowerFactor",
+    "oid": "1.3.6.1.4.1.850.100.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": "0.1 Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarm": {
+    "name": "tlUpsAlarm",
+    "oid": "1.3.6.1.4.1.850.100.1.6",
+    "class": "objectidentity"
+  },
+  "tlUpsAlarmsPresent": {
+    "name": "tlUpsAlarmsPresent",
+    "oid": "1.3.6.1.4.1.850.100.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmTable": {
+    "name": "tlUpsAlarmTable",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsAlarmEntry": {
+    "name": "tlUpsAlarmEntry",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsAlarmId": {
+    "name": "tlUpsAlarmId",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmDescr": {
+    "name": "tlUpsAlarmDescr",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmTime": {
+    "name": "tlUpsAlarmTime",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmDetail": {
+    "name": "tlUpsAlarmDetail",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmDeviceId": {
+    "name": "tlUpsAlarmDeviceId",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmDeviceName": {
+    "name": "tlUpsAlarmDeviceName",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmLocation": {
+    "name": "tlUpsAlarmLocation",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmGroup": {
+    "name": "tlUpsAlarmGroup",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "info": 3,
+          "status": 4,
+          "offline": 5,
+          "custom": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmIp": {
+    "name": "tlUpsAlarmIp",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsAlarmMac": {
+    "name": "tlUpsAlarmMac",
+    "oid": "1.3.6.1.4.1.850.100.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsWellKnownAlarms": {
+    "name": "tlUpsWellKnownAlarms",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3",
+    "class": "objectidentity"
+  },
+  "tlUpsAlarmPrimaryPowerOutage": {
+    "name": "tlUpsAlarmPrimaryPowerOutage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmSecondaryPowerOutage": {
+    "name": "tlUpsAlarmSecondaryPowerOutage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmLoadLevelAboveThreshold": {
+    "name": "tlUpsAlarmLoadLevelAboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOutputCurrentChanged": {
+    "name": "tlUpsAlarmOutputCurrentChanged",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBatteryAgeAboveThreshold": {
+    "name": "tlUpsAlarmBatteryAgeAboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmLoadOff": {
+    "name": "tlUpsAlarmLoadOff",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmUserDefined": {
+    "name": "tlUpsAlarmUserDefined",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBatteryBad": {
+    "name": "tlUpsAlarmBatteryBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOnBattery": {
+    "name": "tlUpsAlarmOnBattery",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmLowBattery": {
+    "name": "tlUpsAlarmLowBattery",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmDepletedBattery": {
+    "name": "tlUpsAlarmDepletedBattery",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmTempBad": {
+    "name": "tlUpsAlarmTempBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmInputBad": {
+    "name": "tlUpsAlarmInputBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOutputBad": {
+    "name": "tlUpsAlarmOutputBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOutputOverload": {
+    "name": "tlUpsAlarmOutputOverload",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOnBypass": {
+    "name": "tlUpsAlarmOnBypass",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBypassBad": {
+    "name": "tlUpsAlarmBypassBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOutputOffAsRequested": {
+    "name": "tlUpsAlarmOutputOffAsRequested",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmUpsOffAsRequested": {
+    "name": "tlUpsAlarmUpsOffAsRequested",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmChargerFailed": {
+    "name": "tlUpsAlarmChargerFailed",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmUpsOutputOff": {
+    "name": "tlUpsAlarmUpsOutputOff",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmUpsSystemOff": {
+    "name": "tlUpsAlarmUpsSystemOff",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmFanFailure": {
+    "name": "tlUpsAlarmFanFailure",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmFuseFailure": {
+    "name": "tlUpsAlarmFuseFailure",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmGeneralFault": {
+    "name": "tlUpsAlarmGeneralFault",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmDiagnosticTestFailed": {
+    "name": "tlUpsAlarmDiagnosticTestFailed",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCommunicationsLost": {
+    "name": "tlUpsAlarmCommunicationsLost",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmAwaitingPower": {
+    "name": "tlUpsAlarmAwaitingPower",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmShutdownPending": {
+    "name": "tlUpsAlarmShutdownPending",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmShutdownImminent": {
+    "name": "tlUpsAlarmShutdownImminent",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmTestInProgress": {
+    "name": "tlUpsAlarmTestInProgress",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker1Open": {
+    "name": "tlUpsAlarmCircuitBreaker1Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker2Open": {
+    "name": "tlUpsAlarmCircuitBreaker2Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker3Open": {
+    "name": "tlUpsAlarmCircuitBreaker3Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker4Open": {
+    "name": "tlUpsAlarmCircuitBreaker4Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker5Open": {
+    "name": "tlUpsAlarmCircuitBreaker5Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker6Open": {
+    "name": "tlUpsAlarmCircuitBreaker6Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker7Open": {
+    "name": "tlUpsAlarmCircuitBreaker7Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCircuitBreaker8Open": {
+    "name": "tlUpsAlarmCircuitBreaker8Open",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCurrent1AboveThreshold": {
+    "name": "tlUpsAlarmCurrent1AboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCurrent2AboveThreshold": {
+    "name": "tlUpsAlarmCurrent2AboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmCurrent3AboveThreshold": {
+    "name": "tlUpsAlarmCurrent3AboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmRuntimeBelowWarningLevel": {
+    "name": "tlUpsAlarmRuntimeBelowWarningLevel",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBusStartVoltageLow": {
+    "name": "tlUpsAlarmBusStartVoltageLow",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBusOverVoltage": {
+    "name": "tlUpsAlarmBusOverVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBusUnderVoltage": {
+    "name": "tlUpsAlarmBusUnderVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBusVoltageUnbalanced": {
+    "name": "tlUpsAlarmBusVoltageUnbalanced",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmInverterSoftStartBad": {
+    "name": "tlUpsAlarmInverterSoftStartBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmInverterOverVoltage": {
+    "name": "tlUpsAlarmInverterOverVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmInverterUnderVoltage": {
+    "name": "tlUpsAlarmInverterUnderVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmInverterCircuitBad": {
+    "name": "tlUpsAlarmInverterCircuitBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBatteryOverVoltage": {
+    "name": "tlUpsAlarmBatteryOverVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBatteryUnderVoltage": {
+    "name": "tlUpsAlarmBatteryUnderVoltage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmSiteWiringFault": {
+    "name": "tlUpsAlarmSiteWiringFault",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOverTemperatureProtection": {
+    "name": "tlUpsAlarmOverTemperatureProtection",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmOverCharged": {
+    "name": "tlUpsAlarmOverCharged",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmEPOActive": {
+    "name": "tlUpsAlarmEPOActive",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmBypassFrequencyBad": {
+    "name": "tlUpsAlarmBypassFrequencyBad",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmExternalSmartBatteryAgeAboveThreshold": {
+    "name": "tlUpsAlarmExternalSmartBatteryAgeAboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmExternalNonSmartBatteryAgeAboveThreshold": {
+    "name": "tlUpsAlarmExternalNonSmartBatteryAgeAboveThreshold",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmSmartBatteryCommLost": {
+    "name": "tlUpsAlarmSmartBatteryCommLost",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmSourceAOutage": {
+    "name": "tlUpsAlarmSourceAOutage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmSourceBOutage": {
+    "name": "tlUpsAlarmSourceBOutage",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmWatchdogReset": {
+    "name": "tlUpsAlarmWatchdogReset",
+    "oid": "1.3.6.1.4.1.850.100.1.6.3.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlUpsAlarmDevName": {
+    "name": "tlUpsAlarmDevName",
+    "oid": "1.3.6.1.4.1.850.100.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "tlUpsAlarmDevLocation": {
+    "name": "tlUpsAlarmDevLocation",
+    "oid": "1.3.6.1.4.1.850.100.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "tlUpsAlarmCategory": {
+    "name": "tlUpsAlarmCategory",
+    "oid": "1.3.6.1.4.1.850.100.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "tlUpsTest": {
+    "name": "tlUpsTest",
+    "oid": "1.3.6.1.4.1.850.100.1.7",
+    "class": "objectidentity"
+  },
+  "tlUpsTestDate": {
+    "name": "tlUpsTestDate",
+    "oid": "1.3.6.1.4.1.850.100.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsTestResultsDetail": {
+    "name": "tlUpsTestResultsDetail",
+    "oid": "1.3.6.1.4.1.850.100.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsControl": {
+    "name": "tlUpsControl",
+    "oid": "1.3.6.1.4.1.850.100.1.8",
+    "class": "objectidentity"
+  },
+  "tlUpsWatchdogSupported": {
+    "name": "tlUpsWatchdogSupported",
+    "oid": "1.3.6.1.4.1.850.100.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsWatchdogSecsBeforeReboot": {
+    "name": "tlUpsWatchdogSecsBeforeReboot",
+    "oid": "1.3.6.1.4.1.850.100.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsWellKnownControls": {
+    "name": "tlUpsWellKnownControls",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3",
+    "class": "objectidentity"
+  },
+  "tlUpsControlSelfTest": {
+    "name": "tlUpsControlSelfTest",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsControlRamp": {
+    "name": "tlUpsControlRamp",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsControlShed": {
+    "name": "tlUpsControlShed",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsControlUpsOn": {
+    "name": "tlUpsControlUpsOn",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsControlUpsOff": {
+    "name": "tlUpsControlUpsOff",
+    "oid": "1.3.6.1.4.1.850.100.1.8.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsConfig": {
+    "name": "tlUpsConfig",
+    "oid": "1.3.6.1.4.1.850.100.1.9",
+    "class": "objectidentity"
+  },
+  "tlUpsConfigBattReplDate": {
+    "name": "tlUpsConfigBattReplDate",
+    "oid": "1.3.6.1.4.1.850.100.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsConfigDisplayUnits": {
+    "name": "tlUpsConfigDisplayUnits",
+    "oid": "1.3.6.1.4.1.850.100.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "english": 0,
+          "metric": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsConfigExternalBattReplDate": {
+    "name": "tlUpsConfigExternalBattReplDate",
+    "oid": "1.3.6.1.4.1.850.100.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutlet": {
+    "name": "tlUpsOutlet",
+    "oid": "1.3.6.1.4.1.850.100.1.10",
+    "class": "objectidentity"
+  },
+  "tlUpsOutletNumOutlets": {
+    "name": "tlUpsOutletNumOutlets",
+    "oid": "1.3.6.1.4.1.850.100.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletTable": {
+    "name": "tlUpsOutletTable",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsOutletEntry": {
+    "name": "tlUpsOutletEntry",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsOutletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsOutletIndex": {
+    "name": "tlUpsOutletIndex",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletState": {
+    "name": "tlUpsOutletState",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletType": {
+    "name": "tlUpsOutletType",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletControl": {
+    "name": "tlUpsOutletControl",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOff": 1,
+          "turnOn": 2,
+          "cycle": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletName": {
+    "name": "tlUpsOutletName",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletRampAction": {
+    "name": "tlUpsOutletRampAction",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remainOff": 0,
+          "turnOnAfterDelay": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletRampDataType": {
+    "name": "tlUpsOutletRampDataType",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delayInSeconds": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletRampData": {
+    "name": "tlUpsOutletRampData",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletShedAction": {
+    "name": "tlUpsOutletShedAction",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remainOn": 0,
+          "turnOffAfterDelay": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletShedDataType": {
+    "name": "tlUpsOutletShedDataType",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delayInSeconds": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletShedData": {
+    "name": "tlUpsOutletShedData",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletGroupNdx": {
+    "name": "tlUpsOutletGroupNdx",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletCurrent": {
+    "name": "tlUpsOutletCurrent",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "units": "0.1 RMS Amp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletPower": {
+    "name": "tlUpsOutletPower",
+    "oid": "1.3.6.1.4.1.850.100.1.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletGroup": {
+    "name": "tlUpsOutletGroup",
+    "oid": "1.3.6.1.4.1.850.100.1.11",
+    "class": "objectidentity"
+  },
+  "tlUpsOutletNumOutletGroups": {
+    "name": "tlUpsOutletNumOutletGroups",
+    "oid": "1.3.6.1.4.1.850.100.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletGroupTable": {
+    "name": "tlUpsOutletGroupTable",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlUpsOutletGroupEntry": {
+    "name": "tlUpsOutletGroupEntry",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsOutletGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsOutletGroupIndex": {
+    "name": "tlUpsOutletGroupIndex",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletGroupRowStatus": {
+    "name": "tlUpsOutletGroupRowStatus",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletGroupName": {
+    "name": "tlUpsOutletGroupName",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletGroupDesc": {
+    "name": "tlUpsOutletGroupDesc",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsOutletGroupState": {
+    "name": "tlUpsOutletGroupState",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "off": 1,
+          "on": 2,
+          "mixed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsOutletGroupControl": {
+    "name": "tlUpsOutletGroupControl",
+    "oid": "1.3.6.1.4.1.850.100.1.11.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOff": 1,
+          "turnOn": 2,
+          "cycle": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsMainOutlet": {
+    "name": "tlUpsMainOutlet",
+    "oid": "1.3.6.1.4.1.850.100.1.12",
+    "class": "objectidentity"
+  },
+  "tlUpsMainOutletState": {
+    "name": "tlUpsMainOutletState",
+    "oid": "1.3.6.1.4.1.850.100.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "off": 1,
+          "on": 2,
+          "mixed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsMainOutletControllable": {
+    "name": "tlUpsMainOutletControllable",
+    "oid": "1.3.6.1.4.1.850.100.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsMainOutletControl": {
+    "name": "tlUpsMainOutletControl",
+    "oid": "1.3.6.1.4.1.850.100.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "turnOff": 1,
+          "turnOn": 2,
+          "cycle": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlUpsEnvironment": {
+    "name": "tlUpsEnvironment",
+    "oid": "1.3.6.1.4.1.850.100.1.13",
+    "class": "objectidentity"
+  },
+  "tlUpsTemperature": {
+    "name": "tlUpsTemperature",
+    "oid": "1.3.6.1.4.1.850.100.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlUpsTraps": {
+    "name": "tlUpsTraps",
+    "oid": "1.3.6.1.4.1.850.100.2",
+    "class": "objectidentity"
+  },
+  "tlUpsTrapAlarmEntryAddedV1": {
+    "name": "tlUpsTrapAlarmEntryAddedV1",
+    "oid": "1.3.6.1.4.1.850.100.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDescr"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDetail"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceName"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmLocation"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmGroup"
+      }
+    ]
+  },
+  "tlUpsTrapAlarmEntryAdded": {
+    "name": "tlUpsTrapAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.850.100.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDescr"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDetail"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceName"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmLocation"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsTrapAlarmEntryRemovedV1": {
+    "name": "tlUpsTrapAlarmEntryRemovedV1",
+    "oid": "1.3.6.1.4.1.850.100.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDescr"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDetail"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceName"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmLocation"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmGroup"
+      }
+    ]
+  },
+  "tlUpsTrapAlarmEntryRemoved": {
+    "name": "tlUpsTrapAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.850.100.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDescr"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDetail"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceId"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDeviceName"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmLocation"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsTrapSystemStartup": {
+    "name": "tlUpsTrapSystemStartup",
+    "oid": "1.3.6.1.4.1.850.100.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tlUpsTrapSystemShutdown": {
+    "name": "tlUpsTrapSystemShutdown",
+    "oid": "1.3.6.1.4.1.850.100.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tlEnviroSense": {
+    "name": "tlEnviroSense",
+    "oid": "1.3.6.1.4.1.850.101",
+    "class": "objectidentity"
+  },
+  "tlEnvEnvironment": {
+    "name": "tlEnvEnvironment",
+    "oid": "1.3.6.1.4.1.850.101.1",
+    "class": "objectidentity"
+  },
+  "tlEnvTemperatureData": {
+    "name": "tlEnvTemperatureData",
+    "oid": "1.3.6.1.4.1.850.101.1.1",
+    "class": "objectidentity"
+  },
+  "tlEnvTemperatureC": {
+    "name": "tlEnvTemperatureC",
+    "oid": "1.3.6.1.4.1.850.101.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvTemperatureF": {
+    "name": "tlEnvTemperatureF",
+    "oid": "1.3.6.1.4.1.850.101.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvTemperatureLowLimit": {
+    "name": "tlEnvTemperatureLowLimit",
+    "oid": "1.3.6.1.4.1.850.101.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlEnvTemperatureHighLimit": {
+    "name": "tlEnvTemperatureHighLimit",
+    "oid": "1.3.6.1.4.1.850.101.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlEnvTemperatureInAlarm": {
+    "name": "tlEnvTemperatureInAlarm",
+    "oid": "1.3.6.1.4.1.850.101.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvHumidityData": {
+    "name": "tlEnvHumidityData",
+    "oid": "1.3.6.1.4.1.850.101.1.2",
+    "class": "objectidentity"
+  },
+  "tlEnvHumidity": {
+    "name": "tlEnvHumidity",
+    "oid": "1.3.6.1.4.1.850.101.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvHumidityLowLimit": {
+    "name": "tlEnvHumidityLowLimit",
+    "oid": "1.3.6.1.4.1.850.101.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlEnvHumidityHighLimit": {
+    "name": "tlEnvHumidityHighLimit",
+    "oid": "1.3.6.1.4.1.850.101.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlEnvHumidityInAlarm": {
+    "name": "tlEnvHumidityInAlarm",
+    "oid": "1.3.6.1.4.1.850.101.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvContacts": {
+    "name": "tlEnvContacts",
+    "oid": "1.3.6.1.4.1.850.101.2",
+    "class": "objectidentity"
+  },
+  "tlEnvContactTable": {
+    "name": "tlEnvContactTable",
+    "oid": "1.3.6.1.4.1.850.101.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tlEnvContactEntry": {
+    "name": "tlEnvContactEntry",
+    "oid": "1.3.6.1.4.1.850.101.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlEnvContactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tlEnvContactIndex": {
+    "name": "tlEnvContactIndex",
+    "oid": "1.3.6.1.4.1.850.101.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvContactName": {
+    "name": "tlEnvContactName",
+    "oid": "1.3.6.1.4.1.850.101.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlEnvContactStatus": {
+    "name": "tlEnvContactStatus",
+    "oid": "1.3.6.1.4.1.850.101.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlEnvContactConfig": {
+    "name": "tlEnvContactConfig",
+    "oid": "1.3.6.1.4.1.850.101.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normallyOpen": 0,
+          "normallyClosed": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCooling": {
+    "name": "tlCooling",
+    "oid": "1.3.6.1.4.1.850.103",
+    "class": "objectidentity"
+  },
+  "tlCoolingEnvironment": {
+    "name": "tlCoolingEnvironment",
+    "oid": "1.3.6.1.4.1.850.103.1",
+    "class": "objectidentity"
+  },
+  "tlCoolingIdent": {
+    "name": "tlCoolingIdent",
+    "oid": "1.3.6.1.4.1.850.103.1.1",
+    "class": "objectidentity"
+  },
+  "tlCoolingModel": {
+    "name": "tlCoolingModel",
+    "oid": "1.3.6.1.4.1.850.103.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingManufacturer": {
+    "name": "tlCoolingManufacturer",
+    "oid": "1.3.6.1.4.1.850.103.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingSerialNumber": {
+    "name": "tlCoolingSerialNumber",
+    "oid": "1.3.6.1.4.1.850.103.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingFirmwareVersion": {
+    "name": "tlCoolingFirmwareVersion",
+    "oid": "1.3.6.1.4.1.850.103.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingHostSoftwareVersion": {
+    "name": "tlCoolingHostSoftwareVersion",
+    "oid": "1.3.6.1.4.1.850.103.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingName": {
+    "name": "tlCoolingName",
+    "oid": "1.3.6.1.4.1.850.103.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingLocation": {
+    "name": "tlCoolingLocation",
+    "oid": "1.3.6.1.4.1.850.103.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingStatus": {
+    "name": "tlCoolingStatus",
+    "oid": "1.3.6.1.4.1.850.103.1.2",
+    "class": "objectidentity"
+  },
+  "tlCoolingCondOutletTemp": {
+    "name": "tlCoolingCondOutletTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCondInletTemp": {
+    "name": "tlCoolingCondInletTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingRefrigerantTemp": {
+    "name": "tlCoolingRefrigerantTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingEvapSurfaceTemp": {
+    "name": "tlCoolingEvapSurfaceTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingSuctionPressure": {
+    "name": "tlCoolingSuctionPressure",
+    "oid": "1.3.6.1.4.1.850.103.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingDischargePressure": {
+    "name": "tlCoolingDischargePressure",
+    "oid": "1.3.6.1.4.1.850.103.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingEvapFanSpeed": {
+    "name": "tlCoolingEvapFanSpeed",
+    "oid": "1.3.6.1.4.1.850.103.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "low": 1,
+          "medLow": 2,
+          "med": 3,
+          "medHi": 4,
+          "hi": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCondFanSpeed": {
+    "name": "tlCoolingCondFanSpeed",
+    "oid": "1.3.6.1.4.1.850.103.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "low": 1,
+          "hi": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCompFrequency": {
+    "name": "tlCoolingCompFrequency",
+    "oid": "1.3.6.1.4.1.850.103.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingEEVPercentage": {
+    "name": "tlCoolingEEVPercentage",
+    "oid": "1.3.6.1.4.1.850.103.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingUnitCurrent": {
+    "name": "tlCoolingUnitCurrent",
+    "oid": "1.3.6.1.4.1.850.103.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingFanCurrent": {
+    "name": "tlCoolingFanCurrent",
+    "oid": "1.3.6.1.4.1.850.103.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCompCurrent": {
+    "name": "tlCoolingCompCurrent",
+    "oid": "1.3.6.1.4.1.850.103.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingReturnAirTemp": {
+    "name": "tlCoolingReturnAirTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingSuctionTemp": {
+    "name": "tlCoolingSuctionTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingSupplyAirTemp": {
+    "name": "tlCoolingSupplyAirTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingRunTimes": {
+    "name": "tlCoolingRunTimes",
+    "oid": "1.3.6.1.4.1.850.103.1.3",
+    "class": "objectidentity"
+  },
+  "tlCoolingAirFilterRunHours": {
+    "name": "tlCoolingAirFilterRunHours",
+    "oid": "1.3.6.1.4.1.850.103.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingEvapFanRunDays": {
+    "name": "tlCoolingEvapFanRunDays",
+    "oid": "1.3.6.1.4.1.850.103.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCondFanRunDays": {
+    "name": "tlCoolingCondFanRunDays",
+    "oid": "1.3.6.1.4.1.850.103.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCompressorRunDays": {
+    "name": "tlCoolingCompressorRunDays",
+    "oid": "1.3.6.1.4.1.850.103.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingCondPumpRunDays": {
+    "name": "tlCoolingCondPumpRunDays",
+    "oid": "1.3.6.1.4.1.850.103.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingAtomizerRunDays": {
+    "name": "tlCoolingAtomizerRunDays",
+    "oid": "1.3.6.1.4.1.850.103.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlCoolingConfig": {
+    "name": "tlCoolingConfig",
+    "oid": "1.3.6.1.4.1.850.103.1.4",
+    "class": "objectidentity"
+  },
+  "tlCoolingOnOff": {
+    "name": "tlCoolingOnOff",
+    "oid": "1.3.6.1.4.1.850.103.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOffUnit": 0,
+          "turnOnUnit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingSetPointTemp": {
+    "name": "tlCoolingSetPointTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingAutoStart": {
+    "name": "tlCoolingAutoStart",
+    "oid": "1.3.6.1.4.1.850.103.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingFanSpeedOverride": {
+    "name": "tlCoolingFanSpeedOverride",
+    "oid": "1.3.6.1.4.1.850.103.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoFanSpeed": 0,
+          "low": 1,
+          "medLow": 2,
+          "med": 3,
+          "medHi": 4,
+          "hi": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingControlType": {
+    "name": "tlCoolingControlType",
+    "oid": "1.3.6.1.4.1.850.103.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "returnAirTemp": 0,
+          "remoteTemperature": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingCurrentRemoteTemp": {
+    "name": "tlCoolingCurrentRemoteTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingDisplayUnits": {
+    "name": "tlCoolingDisplayUnits",
+    "oid": "1.3.6.1.4.1.850.103.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "metric": 0,
+          "english": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingBeepOnKey": {
+    "name": "tlCoolingBeepOnKey",
+    "oid": "1.3.6.1.4.1.850.103.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noBeep": 0,
+          "beepOn": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingOutputRelaySource": {
+    "name": "tlCoolingOutputRelaySource",
+    "oid": "1.3.6.1.4.1.850.103.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "allAlarmsAndWarnings": 1,
+          "criticalAlarmsOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingOffOnLeak": {
+    "name": "tlCoolingOffOnLeak",
+    "oid": "1.3.6.1.4.1.850.103.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOff": 0,
+          "alarmOnly": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingOffOnInputContact": {
+    "name": "tlCoolingOffOnInputContact",
+    "oid": "1.3.6.1.4.1.850.103.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOff": 0,
+          "alarmOnly": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingInputContactType": {
+    "name": "tlCoolingInputContactType",
+    "oid": "1.3.6.1.4.1.850.103.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ncRelay": 0,
+          "noRelay": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingOutputRelayDefault": {
+    "name": "tlCoolingOutputRelayDefault",
+    "oid": "1.3.6.1.4.1.850.103.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nc": 0,
+          "no": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingAirFilterInterval": {
+    "name": "tlCoolingAirFilterInterval",
+    "oid": "1.3.6.1.4.1.850.103.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingWaterLeakContactType": {
+    "name": "tlCoolingWaterLeakContactType",
+    "oid": "1.3.6.1.4.1.850.103.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRelay": 0,
+          "ncRelay": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingThresholds": {
+    "name": "tlCoolingThresholds",
+    "oid": "1.3.6.1.4.1.850.103.1.5",
+    "class": "objectidentity"
+  },
+  "tlCoolingMaxAirFilterRunHours": {
+    "name": "tlCoolingMaxAirFilterRunHours",
+    "oid": "1.3.6.1.4.1.850.103.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingEnableAirFilterAlarm": {
+    "name": "tlCoolingEnableAirFilterAlarm",
+    "oid": "1.3.6.1.4.1.850.103.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingMaxSupplyTemp": {
+    "name": "tlCoolingMaxSupplyTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingMinSupplyTemp": {
+    "name": "tlCoolingMinSupplyTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingTempDiffAlarm": {
+    "name": "tlCoolingTempDiffAlarm",
+    "oid": "1.3.6.1.4.1.850.103.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingMaxReturnAirTemp": {
+    "name": "tlCoolingMaxReturnAirTemp",
+    "oid": "1.3.6.1.4.1.850.103.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlCoolingAlarm": {
+    "name": "tlCoolingAlarm",
+    "oid": "1.3.6.1.4.1.850.103.6",
+    "class": "objectidentity"
+  },
+  "tlCoolingWellKnownAlarms": {
+    "name": "tlCoolingWellKnownAlarms",
+    "oid": "1.3.6.1.4.1.850.103.6.3",
+    "class": "objectidentity"
+  },
+  "tlCoolingSupplyAirSensorFault": {
+    "name": "tlCoolingSupplyAirSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingReturnAirSensorFault": {
+    "name": "tlCoolingReturnAirSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCondenserInletAirSensorFault": {
+    "name": "tlCoolingCondenserInletAirSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCondenserOutletAirSensorFault": {
+    "name": "tlCoolingCondenserOutletAirSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSuctionTemperatureSensorFault": {
+    "name": "tlCoolingSuctionTemperatureSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingEvaporatorTemperatureSensorFault": {
+    "name": "tlCoolingEvaporatorTemperatureSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingAirFilterClogged": {
+    "name": "tlCoolingAirFilterClogged",
+    "oid": "1.3.6.1.4.1.850.103.6.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingAirFilterRunHoursViolation": {
+    "name": "tlCoolingAirFilterRunHoursViolation",
+    "oid": "1.3.6.1.4.1.850.103.6.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSuctionPressureSensorFault": {
+    "name": "tlCoolingSuctionPressureSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingInverterCommunicationsFault": {
+    "name": "tlCoolingInverterCommunicationsFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingRemoteShutdownViaInputContact": {
+    "name": "tlCoolingRemoteShutdownViaInputContact",
+    "oid": "1.3.6.1.4.1.850.103.6.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCondensatePumpFault": {
+    "name": "tlCoolingCondensatePumpFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingLowRefrigerantStartupFault": {
+    "name": "tlCoolingLowRefrigerantStartupFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCondenserFanFault": {
+    "name": "tlCoolingCondenserFanFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCondenserFailure": {
+    "name": "tlCoolingCondenserFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingEvaporatorCoolingFailure": {
+    "name": "tlCoolingEvaporatorCoolingFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingReturnAirTempHigh": {
+    "name": "tlCoolingReturnAirTempHigh",
+    "oid": "1.3.6.1.4.1.850.103.6.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSupplyAirTempHigh": {
+    "name": "tlCoolingSupplyAirTempHigh",
+    "oid": "1.3.6.1.4.1.850.103.6.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingEvaporatorFailure": {
+    "name": "tlCoolingEvaporatorFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingEvaporatorFreezeUp": {
+    "name": "tlCoolingEvaporatorFreezeUp",
+    "oid": "1.3.6.1.4.1.850.103.6.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingDischargePressureHigh": {
+    "name": "tlCoolingDischargePressureHigh",
+    "oid": "1.3.6.1.4.1.850.103.6.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingPressureGaugeFailure": {
+    "name": "tlCoolingPressureGaugeFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingDischargePressurePersistentHigh": {
+    "name": "tlCoolingDischargePressurePersistentHigh",
+    "oid": "1.3.6.1.4.1.850.103.6.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSuctionPressureLowStartFailure": {
+    "name": "tlCoolingSuctionPressureLowStartFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSuctionPressureLow": {
+    "name": "tlCoolingSuctionPressureLow",
+    "oid": "1.3.6.1.4.1.850.103.6.3.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingSuctionPressurePersistentLow": {
+    "name": "tlCoolingSuctionPressurePersistentLow",
+    "oid": "1.3.6.1.4.1.850.103.6.3.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingStartupLinePressureImbalance": {
+    "name": "tlCoolingStartupLinePressureImbalance",
+    "oid": "1.3.6.1.4.1.850.103.6.3.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCompressorFailure": {
+    "name": "tlCoolingCompressorFailure",
+    "oid": "1.3.6.1.4.1.850.103.6.3.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingCurrentLimit": {
+    "name": "tlCoolingCurrentLimit",
+    "oid": "1.3.6.1.4.1.850.103.6.3.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingWaterLeak": {
+    "name": "tlCoolingWaterLeak",
+    "oid": "1.3.6.1.4.1.850.103.6.3.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingFanUnderCurrent": {
+    "name": "tlCoolingFanUnderCurrent",
+    "oid": "1.3.6.1.4.1.850.103.6.3.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingFanOverCurrent": {
+    "name": "tlCoolingFanOverCurrent",
+    "oid": "1.3.6.1.4.1.850.103.6.3.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingDischargePressureSensorFault": {
+    "name": "tlCoolingDischargePressureSensorFault",
+    "oid": "1.3.6.1.4.1.850.103.6.3.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingWaterFull": {
+    "name": "tlCoolingWaterFull",
+    "oid": "1.3.6.1.4.1.850.103.6.3.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingAutoCoolingOn": {
+    "name": "tlCoolingAutoCoolingOn",
+    "oid": "1.3.6.1.4.1.850.103.6.3.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingPowerButtonPressed": {
+    "name": "tlCoolingPowerButtonPressed",
+    "oid": "1.3.6.1.4.1.850.103.6.3.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlCoolingDisconnectedFromDevice": {
+    "name": "tlCoolingDisconnectedFromDevice",
+    "oid": "1.3.6.1.4.1.850.103.6.3.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlSrCoolNet": {
+    "name": "tlSrCoolNet",
+    "oid": "1.3.6.1.4.1.850.104",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetData": {
+    "name": "tlSrCoolNetData",
+    "oid": "1.3.6.1.4.1.850.104.1",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetIdent": {
+    "name": "tlSrCoolNetIdent",
+    "oid": "1.3.6.1.4.1.850.104.1.1",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetModel": {
+    "name": "tlSrCoolNetModel",
+    "oid": "1.3.6.1.4.1.850.104.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetManufacturer": {
+    "name": "tlSrCoolNetManufacturer",
+    "oid": "1.3.6.1.4.1.850.104.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetSerialNumber": {
+    "name": "tlSrCoolNetSerialNumber",
+    "oid": "1.3.6.1.4.1.850.104.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetHostSoftwareVersion": {
+    "name": "tlSrCoolNetHostSoftwareVersion",
+    "oid": "1.3.6.1.4.1.850.104.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetName": {
+    "name": "tlSrCoolNetName",
+    "oid": "1.3.6.1.4.1.850.104.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetLocation": {
+    "name": "tlSrCoolNetLocation",
+    "oid": "1.3.6.1.4.1.850.104.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetStatus": {
+    "name": "tlSrCoolNetStatus",
+    "oid": "1.3.6.1.4.1.850.104.1.2",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetMode": {
+    "name": "tlSrCoolNetMode",
+    "oid": "1.3.6.1.4.1.850.104.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "idle": 1,
+          "cooling": 2,
+          "unknown": 3,
+          "dehumidifying": 4,
+          "defrost": 5,
+          "notconnected": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetFanSpeed": {
+    "name": "tlSrCoolNetFanSpeed",
+    "oid": "1.3.6.1.4.1.850.104.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "low": 1,
+          "med": 2,
+          "hi": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetReturnAirTemp": {
+    "name": "tlSrCoolNetReturnAirTemp",
+    "oid": "1.3.6.1.4.1.850.104.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetWaterFull": {
+    "name": "tlSrCoolNetWaterFull",
+    "oid": "1.3.6.1.4.1.850.104.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "waterNotFull": 0,
+          "waterFull": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetCurrentRemoteTemp": {
+    "name": "tlSrCoolNetCurrentRemoteTemp",
+    "oid": "1.3.6.1.4.1.850.104.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetDisplayUnits": {
+    "name": "tlSrCoolNetDisplayUnits",
+    "oid": "1.3.6.1.4.1.850.104.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "metric": 0,
+          "english": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tlSrCoolNetConfig": {
+    "name": "tlSrCoolNetConfig",
+    "oid": "1.3.6.1.4.1.850.104.1.3",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetOnOff": {
+    "name": "tlSrCoolNetOnOff",
+    "oid": "1.3.6.1.4.1.850.104.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "turnOffUnit": 0,
+          "turnOnUnit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolSetMode": {
+    "name": "tlSrCoolSetMode",
+    "oid": "1.3.6.1.4.1.850.104.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cooling": 0,
+          "dehumidifying": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetSetPointTemp": {
+    "name": "tlSrCoolNetSetPointTemp",
+    "oid": "1.3.6.1.4.1.850.104.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetRemoteSetPointTemp": {
+    "name": "tlSrCoolNetRemoteSetPointTemp",
+    "oid": "1.3.6.1.4.1.850.104.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetFanSpeedSetting": {
+    "name": "tlSrCoolNetFanSpeedSetting",
+    "oid": "1.3.6.1.4.1.850.104.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "low": 1,
+          "med": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetRemoteSetpointEnable": {
+    "name": "tlSrCoolNetRemoteSetpointEnable",
+    "oid": "1.3.6.1.4.1.850.104.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetFanAlwaysOn": {
+    "name": "tlSrCoolNetFanAlwaysOn",
+    "oid": "1.3.6.1.4.1.850.104.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tlSrCoolNetAlarm": {
+    "name": "tlSrCoolNetAlarm",
+    "oid": "1.3.6.1.4.1.850.104.2",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetWellKnownAlarms": {
+    "name": "tlSrCoolNetWellKnownAlarms",
+    "oid": "1.3.6.1.4.1.850.104.2.1",
+    "class": "objectidentity"
+  },
+  "tlSrCoolNetWaterFullAlarm": {
+    "name": "tlSrCoolNetWaterFullAlarm",
+    "oid": "1.3.6.1.4.1.850.104.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tlConformance": {
+    "name": "tlConformance",
+    "oid": "1.3.6.1.4.1.850.20",
+    "class": "objectidentity"
+  },
+  "tlCompliances": {
+    "name": "tlCompliances",
+    "oid": "1.3.6.1.4.1.850.20.1",
+    "class": "objectidentity"
+  },
+  "tlGroups": {
+    "name": "tlGroups",
+    "oid": "1.3.6.1.4.1.850.20.2",
+    "class": "objectidentity"
+  },
+  "tlSubsetGroups": {
+    "name": "tlSubsetGroups",
+    "oid": "1.3.6.1.4.1.850.20.2.1",
+    "class": "objectidentity"
+  },
+  "tlBasicGroups": {
+    "name": "tlBasicGroups",
+    "oid": "1.3.6.1.4.1.850.20.2.2",
+    "class": "objectidentity"
+  },
+  "tlFullGroups": {
+    "name": "tlFullGroups",
+    "oid": "1.3.6.1.4.1.850.20.2.3",
+    "class": "objectidentity"
+  },
+  "tlUpsFullGroups": {
+    "name": "tlUpsFullGroups",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100",
+    "class": "objectidentity"
+  },
+  "tlUpsFullIdentGroup": {
+    "name": "tlUpsFullIdentGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsIdentUpsSoftwareChecksum"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsIdentSerialNum"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsIdentID"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsSelectedDeviceID"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullBatteryGroup": {
+    "name": "tlUpsFullBatteryGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsBatteryAge"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsTemperatureF"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullAlarmGroup": {
+    "name": "tlUpsFullAlarmGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.6",
+    "class": "objectidentity"
+  },
+  "tlUpsFullAlarmObjsGroup": {
+    "name": "tlUpsFullAlarmObjsGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.6.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDevName"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmDevLocation"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsAlarmCategory"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullTestGroup": {
+    "name": "tlUpsFullTestGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsTestDate"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsTestResultsDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullControlGroup": {
+    "name": "tlUpsFullControlGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsWatchdogSupported"
+      },
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsWatchdogSecsBeforeReboot"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullConfigGroup": {
+    "name": "tlUpsFullConfigGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsConfigBattReplDate"
+      }
+    ],
+    "status": "current"
+  },
+  "tlUpsFullOutletGroup": {
+    "name": "tlUpsFullOutletGroup",
+    "oid": "1.3.6.1.4.1.850.20.2.3.100.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TRIPPLITE-12X",
+        "object": "tlUpsOutletNumOutlets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TRIPPLITE-12X",
+      "Source digest sha256:b808128dd3e62efd14028fc7d6aace4441d49d4fd138a65cdf7ab04f4c939b80",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TRIPPLITE-12X"
+  }
+}

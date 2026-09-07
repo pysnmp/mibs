@@ -1,0 +1,74 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ceImageCapability": {
+    "name": "ceImageCapability",
+    "oid": "1.3.6.1.4.1.9.7.474",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ceImageCapabilityIOSXRV3R2R0CRS1": {
+    "name": "ceImageCapabilityIOSXRV3R2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.474.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-ENHANCED-IMAGE-MIB",
+        "includes": [
+          "ciscoEnhancedImageMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceImageMedia",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "rom": 2,
+                  "other": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENHANCED-IMAGE-CAPABILITY",
+      "Source digest sha256:192fa7fd5a80d67808cfd7f7e4561b655e597445eabc9e41ca5f31a44a9d08ec",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENHANCED-IMAGE-CAPABILITY"
+  }
+}

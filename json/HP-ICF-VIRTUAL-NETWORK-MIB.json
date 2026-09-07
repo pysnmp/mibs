@@ -1,0 +1,822 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "TUNNEL-MIB": [
+      "tunnelIfAddressType",
+      "tunnelIfEntry",
+      "tunnelIfLocalInetAddress",
+      "tunnelIfRemoteInetAddress"
+    ]
+  },
+  "hpicfVirtualNetwork": {
+    "name": "hpicfVirtualNetwork",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-19 00:00",
+        "description": "Initial Revision."
+      }
+    ]
+  },
+  "hpicfVirtualNetworkNotifications": {
+    "name": "hpicfVirtualNetworkNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.0",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkObjects": {
+    "name": "hpicfVirtualNetworkObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkScalars": {
+    "name": "hpicfVirtualNetworkScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkNotifyScalars": {
+    "name": "hpicfVirtualNetworkNotifyScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfTunnelObjects": {
+    "name": "hpicfTunnelObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2",
+    "class": "objectidentity"
+  },
+  "hpicfVXLANTunnelObjects": {
+    "name": "hpicfVXLANTunnelObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfVXLANTunnelConfigObjects": {
+    "name": "hpicfVXLANTunnelConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfVXLANTunnelScalars": {
+    "name": "hpicfVXLANTunnelScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkConformance": {
+    "name": "hpicfVirtualNetworkConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3",
+    "class": "objectidentity"
+  },
+  "hpicfMaxVirtualNetworks": {
+    "name": "hpicfMaxVirtualNetworks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTotalVirtualNetworks": {
+    "name": "hpicfTotalVirtualNetworks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkTable": {
+    "name": "hpicfVirtualNetworkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkEntry": {
+    "name": "hpicfVirtualNetworkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVirtualNetworkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkID": {
+    "name": "hpicfVirtualNetworkID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkName": {
+    "name": "hpicfVirtualNetworkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkVLANID": {
+    "name": "hpicfVirtualNetworkVLANID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkRowStatus": {
+    "name": "hpicfVirtualNetworkRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfTable": {
+    "name": "hpicfVXLANTunnelIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfEntry": {
+    "name": "hpicfVXLANTunnelIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfVXLANTunnelIfEntry",
+      "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+      "object": "tunnelIfEntry"
+    },
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfDownReason": {
+    "name": "hpicfVXLANTunnelIfDownReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ifAdminDown": 1,
+          "tepNotReachable": 2,
+          "resourceUnavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfNextHopIpType": {
+    "name": "hpicfVXLANTunnelIfNextHopIpType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfNextHopIp": {
+    "name": "hpicfVXLANTunnelIfNextHopIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfNextHopInterface": {
+    "name": "hpicfVXLANTunnelIfNextHopInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelIfNextHopPortName": {
+    "name": "hpicfVXLANTunnelIfNextHopPortName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelStatsRxPackets": {
+    "name": "hpicfVXLANTunnelStatsRxPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelStatsTxPackets": {
+    "name": "hpicfVXLANTunnelStatsTxPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelStatsClear": {
+    "name": "hpicfVXLANTunnelStatsClear",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMaxVXLANTunnels": {
+    "name": "hpicfMaxVXLANTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTotalVXLANTunnels": {
+    "name": "hpicfTotalVXLANTunnels",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelStatsTxMTUViolation": {
+    "name": "hpicfVXLANTunnelStatsTxMTUViolation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelGlobalStatsDropCount": {
+    "name": "hpicfVXLANTunnelGlobalStatsDropCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelGlobalStatsClear": {
+    "name": "hpicfVXLANTunnelGlobalStatsClear",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelEnable": {
+    "name": "hpicfVXLANTunnelEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVXLANTunnelUDPPort": {
+    "name": "hpicfVXLANTunnelUDPPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 4789,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMTUDropRouterAddrType": {
+    "name": "hpicfMTUDropRouterAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropRouterAddr": {
+    "name": "hpicfMTUDropRouterAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropRouterMTU": {
+    "name": "hpicfMTUDropRouterMTU",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropVTEPSrcAddrType": {
+    "name": "hpicfMTUDropVTEPSrcAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropVTEPSource": {
+    "name": "hpicfMTUDropVTEPSource",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropVTEPDstAddrType": {
+    "name": "hpicfMTUDropVTEPDstAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropVTEPDest": {
+    "name": "hpicfMTUDropVTEPDest",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropInIfIndex": {
+    "name": "hpicfMTUDropInIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfMTUDropNotifyEnable": {
+    "name": "hpicfMTUDropNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVirtualNetworkIcmpErrorRcvd": {
+    "name": "hpicfVirtualNetworkIcmpErrorRcvd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterAddr"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterMTU"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPSrcAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPSource"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPDstAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPDest"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropInIfIndex"
+      },
+      {
+        "module": "TUNNEL-MIB",
+        "object": "tunnelIfAddressType"
+      },
+      {
+        "module": "TUNNEL-MIB",
+        "object": "tunnelIfLocalInetAddress"
+      },
+      {
+        "module": "TUNNEL-MIB",
+        "object": "tunnelIfRemoteInetAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkCompliances": {
+    "name": "hpicfVirtualNetworkCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkGroups": {
+    "name": "hpicfVirtualNetworkGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfVirtualNetworkCompliance": {
+    "name": "hpicfVirtualNetworkCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfVirtualNetworkGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      },
+      {
+        "object": "hpicfVirtualNetworkScalarGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      },
+      {
+        "object": "hpicfVXLANTunnelStatsGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      },
+      {
+        "object": "hpicfVXLANTunnelScalarGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      },
+      {
+        "object": "hpicfVirtualNetworkNotifyScalarsGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      },
+      {
+        "object": "hpicfVirtualNetworkNotificationsGroup",
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkGroup": {
+    "name": "hpicfVirtualNetworkGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVirtualNetworkName"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVirtualNetworkVLANID"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVirtualNetworkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkScalarGroup": {
+    "name": "hpicfVirtualNetworkScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMaxVirtualNetworks"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfTotalVirtualNetworks"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVXLANTunnelStatsGroup": {
+    "name": "hpicfVXLANTunnelStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelIfDownReason"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelIfNextHopIpType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelIfNextHopIp"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelIfNextHopInterface"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelIfNextHopPortName"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelStatsRxPackets"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelStatsTxPackets"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVXLANTunnelScalarGroup": {
+    "name": "hpicfVXLANTunnelScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMaxVXLANTunnels"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfTotalVXLANTunnels"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelStatsTxMTUViolation"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelGlobalStatsDropCount"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelGlobalStatsClear"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelEnable"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVXLANTunnelUDPPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkNotifyScalarsGroup": {
+    "name": "hpicfVirtualNetworkNotifyScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterAddr"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropRouterMTU"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPSrcAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPSource"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPDstAddrType"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropVTEPDest"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropInIfIndex"
+      },
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfMTUDropNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVirtualNetworkNotificationsGroup": {
+    "name": "hpicfVirtualNetworkNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.107.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VIRTUAL-NETWORK-MIB",
+        "object": "hpicfVirtualNetworkIcmpErrorRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-VIRTUAL-NETWORK-MIB",
+      "Source digest sha256:61d8ce2daa12aa6a2a9588a864d4eed028b99ff0c1ce550c788100e05decb3e2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-VIRTUAL-NETWORK-MIB"
+  }
+}

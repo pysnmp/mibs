@@ -1,0 +1,169 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIntServCapability": {
+    "name": "ciscoIntServCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity"
+  },
+  "ciscoIntServCapabilityVismV3R00": {
+    "name": "ciscoIntServCapabilityVismV3R00",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release 3.00",
+    "capabilities": [
+      {
+        "module": "INT-SERV-MIB",
+        "includes": [
+          "intSrvIfAttribGroup",
+          "intSrvFlowsGroup",
+          "intSrvGenObjectsGroup"
+        ],
+        "variations": [
+          {
+            "object": "intSrvIfAttribFlows",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvIfAttribPropagationDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvIfAttribStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowType",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowSenderAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowDestAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowSenderAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowDestPort",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowPort",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowFlowId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowIfAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowRate",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowBurst",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowQueue",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowMinTU",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowMaxTU",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowBestEffort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowPoliced",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowDiscard",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowService",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowOrder",
+            "access": "not-implemented"
+          },
+          {
+            "object": "intSrvFlowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "intSrvFlowNewIndex",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-INT-SERV-CAPABILITY",
+      "Source digest sha256:86c3a18a4244f28c8552f54a8e142abbcc8e166060873a54aa7f8a497673b1c5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-INT-SERV-CAPABILITY"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSrpCapability": {
+    "name": "ciscoSrpCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity"
+  },
+  "ciscoSrpCapabilityV12R00": {
+    "name": "ciscoSrpCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0",
+    "capabilities": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "includes": [
+          "srpIfGroup",
+          "srpMACSideGroup",
+          "srpRingTopologyMapGroup"
+        ],
+        "variations": [
+          {
+            "object": "srpIpsLockedOut",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SRP-CAPABILITY",
+      "Source digest sha256:3a50dfb91486939de333096fe8cf3011c60dbb5b34a63bc626d67f9837483ac5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SRP-CAPABILITY"
+  }
+}

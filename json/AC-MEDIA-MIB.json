@@ -1,0 +1,5027 @@
+{
+  "imports": {
+    "class": "imports",
+    "AUDIOCODES-TYPES-MIB": [
+      "acBoardMibs",
+      "acGeneric",
+      "acProducts",
+      "acRegistrations",
+      "audioCodes"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "acMedia": {
+    "name": "acMedia",
+    "oid": "1.3.6.1.4.1.5003.9.10.4",
+    "class": "moduleidentity"
+  },
+  "acMediaConfiguration": {
+    "name": "acMediaConfiguration",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1",
+    "class": "objectidentity"
+  },
+  "acMediaDSPConfig": {
+    "name": "acMediaDSPConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1",
+    "class": "objectidentity"
+  },
+  "acMediaDSPConfigVersionTemplateNumber": {
+    "name": "acMediaDSPConfigVersionTemplateNumber",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaDspTable": {
+    "name": "acMediaDspTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acMediaDspEntry": {
+    "name": "acMediaDspEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-MEDIA-MIB",
+        "object": "acMediaDspIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acMediaDspIndex": {
+    "name": "acMediaDspIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acMediaDspRowStatus": {
+    "name": "acMediaDspRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acMediaDspTemplateNumber": {
+    "name": "acMediaDspTemplateNumber",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acMediaDspResourcesPercentage": {
+    "name": "acMediaDspResourcesPercentage",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acMediaVoiceConfig": {
+    "name": "acMediaVoiceConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2",
+    "class": "objectidentity"
+  },
+  "acVoice": {
+    "name": "acVoice",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "acVoicePayloadFormat": {
+    "name": "acVoicePayloadFormat",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voicePayloadFormatRTP": 0,
+          "voicePayloadFormatATM": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceVolume": {
+    "name": "acVoiceVolume",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceInputGain": {
+    "name": "acVoiceInputGain",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceTestMode": {
+    "name": "acVoiceTestMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coderLoopback": 0,
+          "pCMLoopback": 1,
+          "toneInjection": 2,
+          "noLoopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceTTYTransportType": {
+    "name": "acVoiceTTYTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "inband-Relay": 2,
+          "bypass": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceEnableMediaSecurity": {
+    "name": "acVoiceEnableMediaSecurity",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAriaProtocolSupport": {
+    "name": "acVoiceAriaProtocolSupport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRate": {
+    "name": "acVoiceCoderRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20",
+    "class": "objectidentity"
+  },
+  "acVoiceCoderRateEVRC": {
+    "name": "acVoiceCoderRateEVRC",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "variableRate": 0,
+          "ac1kbps": 1,
+          "ac4kbps": 2,
+          "ac8kbps": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateQCELP8": {
+    "name": "acVoiceCoderRateQCELP8",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "variableRate": 0,
+          "ac1kbps": 1,
+          "ac2kbps": 2,
+          "ac4kbps": 3,
+          "ac8kbps": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateQCELP13": {
+    "name": "acVoiceCoderRateQCELP13",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "variableRate": 0,
+          "ac1kbps": 1,
+          "ac3kbps": 2,
+          "ac7kbps": 3,
+          "ac13kbps": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateG729EVMaxBitRate": {
+    "name": "acVoiceCoderRateG729EVMaxBitRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g729EV-RATE-8-KBPS": 0,
+          "g729EV-RATE-12-KBPS": 1,
+          "g729EV-RATE-14-KBPS": 2,
+          "g729EV-RATE-16-KBPS": 3,
+          "g729EV-RATE-18-KBPS": 4,
+          "g729EV-RATE-20-KBPS": 5,
+          "g729EV-RATE-22-KBPS": 6,
+          "g729EV-RATE-24-KBPS": 7,
+          "g729EV-RATE-26-KBPS": 8,
+          "g729EV-RATE-28-KBPS": 9,
+          "g729EV-RATE-30-KBPS": 10,
+          "g729EV-RATE-32-KBPS": 11,
+          "g729EV-RATE-UNDEFINED": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateG729EVLocalMBS": {
+    "name": "acVoiceCoderRateG729EVLocalMBS",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g729EV-RATE-8-KBPS": 0,
+          "g729EV-RATE-12-KBPS": 1,
+          "g729EV-RATE-14-KBPS": 2,
+          "g729EV-RATE-16-KBPS": 3,
+          "g729EV-RATE-18-KBPS": 4,
+          "g729EV-RATE-20-KBPS": 5,
+          "g729EV-RATE-22-KBPS": 6,
+          "g729EV-RATE-24-KBPS": 7,
+          "g729EV-RATE-26-KBPS": 8,
+          "g729EV-RATE-28-KBPS": 9,
+          "g729EV-RATE-30-KBPS": 10,
+          "g729EV-RATE-32-KBPS": 11,
+          "g729EV-RATE-UNDEFINED": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateG729EVReceiveMBS": {
+    "name": "acVoiceCoderRateG729EVReceiveMBS",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g729EV-RATE-8-KBPS": 0,
+          "g729EV-RATE-12-KBPS": 1,
+          "g729EV-RATE-14-KBPS": 2,
+          "g729EV-RATE-16-KBPS": 3,
+          "g729EV-RATE-18-KBPS": 4,
+          "g729EV-RATE-20-KBPS": 5,
+          "g729EV-RATE-22-KBPS": 6,
+          "g729EV-RATE-24-KBPS": 7,
+          "g729EV-RATE-26-KBPS": 8,
+          "g729EV-RATE-28-KBPS": 9,
+          "g729EV-RATE-30-KBPS": 10,
+          "g729EV-RATE-32-KBPS": 11,
+          "g729EV-RATE-UNDEFINED": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateMsRtaForwardErrorCorrectionEnable": {
+    "name": "acVoiceCoderRateMsRtaForwardErrorCorrectionEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateMsRtaTxBitRate": {
+    "name": "acVoiceCoderRateMsRtaTxBitRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateSilkTxInbandFEC": {
+    "name": "acVoiceCoderRateSilkTxInbandFEC",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateSilkMaxAverageBitRate": {
+    "name": "acVoiceCoderRateSilkMaxAverageBitRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateSpeexNBBitRate": {
+    "name": "acVoiceCoderRateSpeexNBBitRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cE-SPEEX-NB-RATE-2-15-KBPS": 1,
+          "cE-SPEEX-NB-RATE-5-95-KBPS": 2,
+          "cE-SPEEX-NB-RATE-8-00-KBPS": 3,
+          "cE-SPEEX-NB-RATE-11-0-KBPS": 4,
+          "cE-SPEEX-NB-RATE-15-0-KBPS": 5,
+          "cE-SPEEX-NB-RATE-18-2-KBPS": 6,
+          "cE-SPEEX-NB-RATE-24-6-KBPS": 7,
+          "cE-SPEEX-NB-RATE-3-95-KBPS": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceCoderRateSpeexWBBitRate": {
+    "name": "acVoiceCoderRateSpeexWBBitRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.1.20.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cE-SPEEX-WB-RATE-3-95-KBPS": 0,
+          "cE-SPEEX-WB-RATE-5-75-KBPS": 1,
+          "cE-SPEEX-WB-RATE-7-75-KBPS": 2,
+          "cE-SPEEX-WB-RATE-9-80-KBPS": 3,
+          "cE-SPEEX-WB-RATE-12-8-KBPS": 4,
+          "cE-SPEEX-WB-RATE-16-8-KBPS": 5,
+          "cE-SPEEX-WB-RATE-20-6-KBPS": 6,
+          "cE-SPEEX-WB-RATE-23-8-KBPS": 7,
+          "cE-SPEEX-WB-RATE-27-8-KBPS": 8,
+          "cE-SPEEX-WB-RATE-34-2-KBPS": 9,
+          "cE-SPEEX-WB-RATE-42-2-KBPS": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGC": {
+    "name": "acVoiceAGC",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "acVoiceAGCEnable": {
+    "name": "acVoiceAGCEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCGainSlope": {
+    "name": "acVoiceAGCGainSlope",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCRedirection": {
+    "name": "acVoiceAGCRedirection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCTargetEnergy": {
+    "name": "acVoiceAGCTargetEnergy",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCMinGain": {
+    "name": "acVoiceAGCMinGain",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCMaxGain": {
+    "name": "acVoiceAGCMaxGain",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceAGCDisableFastAdaptation": {
+    "name": "acVoiceAGCDisableFastAdaptation",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceEC": {
+    "name": "acVoiceEC",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3",
+    "class": "objectidentity"
+  },
+  "acVoiceECEnable": {
+    "name": "acVoiceECEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceECMaxLength": {
+    "name": "acVoiceECMaxLength",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eCLengthDefault": 0,
+          "eCLength15MSec": 1,
+          "eCLength20MSec": 2,
+          "eCLength25MSec": 3,
+          "eCLength32MSec": 4,
+          "eCLength35MSec": 5,
+          "eCLength40MSec": 6,
+          "eCLength45MSec": 7,
+          "eCLength50MSec": 8,
+          "eCLength55MSec": 9,
+          "eCLength60MSec": 10,
+          "eCLength64MSec": 11,
+          "eCLength128MSec": 22
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceECHybridLoss": {
+    "name": "acVoiceECHybridLoss",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eCHybridLoss6DBM": 0,
+          "eCHybridLoss0DBM": 2,
+          "eCHybridLoss3DBM": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceECToneDetector": {
+    "name": "acVoiceECToneDetector",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceECComfortNoiseGeneration": {
+    "name": "acVoiceECComfortNoiseGeneration",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceSC": {
+    "name": "acVoiceSC",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.4",
+    "class": "objectidentity"
+  },
+  "acVoiceSCMode": {
+    "name": "acVoiceSCMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sILENCE-COMPRESION-DISABLE": 0,
+          "sILENCE-COMPRESION-ENABLE": 1,
+          "sILENCE-COMPRESION-ENABLE-NOISE-ADAPTATION-DISABLE": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceSCVBRCoderDTXMin": {
+    "name": "acVoiceSCVBRCoderDTXMin",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceSCVBRCoderDTXMax": {
+    "name": "acVoiceSCVBRCoderDTXMax",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVoiceSCVBRCoderHangover": {
+    "name": "acVoiceSCVBRCoderHangover",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaFaxModemConfig": {
+    "name": "acMediaFaxModemConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3",
+    "class": "objectidentity"
+  },
+  "acFaxModem": {
+    "name": "acFaxModem",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1",
+    "class": "objectidentity"
+  },
+  "acFMCommon": {
+    "name": "acFMCommon",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "acFMCommonRelayVolume": {
+    "name": "acFMCommonRelayVolume",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -18,
+            "max": -3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMCommonV34Transport": {
+    "name": "acFMCommonV34Transport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3,
+          "ansMute": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMCommonEnableInbandNetworkDetection": {
+    "name": "acFMCommonEnableInbandNetworkDetection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMCommonCEDTransferMode": {
+    "name": "acFMCommonCEDTransferMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "usingFaxRelayOrVBD": 0,
+          "voiceModeOrVBD": 1,
+          "rFC4733BlockingRTPVBD": 2,
+          "rFC4733AlongWithRTPVBD": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypass": {
+    "name": "acFMBypass",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "acFMBypassCoderType": {
+    "name": "acFMBypassCoderType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711Alaw-64": 0,
+          "g711Mulaw": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypassPacketizationPeriod": {
+    "name": "acFMBypassPacketizationPeriod",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypassBasicPacketInterval": {
+    "name": "acFMBypassBasicPacketInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pACKET-INTERVAL-DEFAULT": 0,
+          "pACKET-INTERVAL-5-MSEC": 1,
+          "pACKET-INTERVAL-10-MSEC": 2,
+          "pACKET-INTERVAL-20-MSEC": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypassDJBufMinDelay": {
+    "name": "acFMBypassDJBufMinDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypassFaxBypassOutputGain": {
+    "name": "acFMBypassFaxBypassOutputGain",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -31,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMBypassModemBypassOutputGain": {
+    "name": "acFMBypassModemBypassOutputGain",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -31,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMNSE": {
+    "name": "acFMNSE",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "acFMNSEPayloadType": {
+    "name": "acFMNSEPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFMNSEMode": {
+    "name": "acFMNSEMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFax": {
+    "name": "acFax",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2",
+    "class": "objectidentity"
+  },
+  "acFaxTransportMode": {
+    "name": "acFaxTransportMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxBypassPayloadType": {
+    "name": "acFaxBypassPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxRelayECMEnable": {
+    "name": "acFaxRelayECMEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxRelayMaxRate": {
+    "name": "acFaxRelayMaxRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acRate2400bps": 0,
+          "acRate4800bps": 1,
+          "acRate7200bps": 2,
+          "acRate9600bps": 3,
+          "acRate12000bps": 4,
+          "acRate14400bps": 5,
+          "acRate16800bps": 6,
+          "acRate19200b": 7,
+          "acRate21600bps": 8,
+          "acRate24000bps": 9,
+          "acRate26400bps": 10,
+          "acRate28800bps": 11,
+          "acRate31200bps": 12,
+          "acRate33600bps": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxRelayRedundancyDepth": {
+    "name": "acFaxRelayRedundancyDepth",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxEnhancedRelayRedundancyDepth": {
+    "name": "acFaxEnhancedRelayRedundancyDepth",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxCNGDetectorMode": {
+    "name": "acFaxCNGDetectorMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cNG-DETECTOR-MODE-DISABLE": 0,
+          "cNG-DETECTOR-MODE-RELAY": 1,
+          "cNG-DETECTOR-MODE-EVENT-ONLY": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxV34TransportMethod": {
+    "name": "acFaxV34TransportMethod",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acFaxT38Version": {
+    "name": "acFaxT38Version",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t38Version0": 0,
+          "t38Version3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModem": {
+    "name": "acModem",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3",
+    "class": "objectidentity"
+  },
+  "acModemV22Transport": {
+    "name": "acModemV22Transport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModemV23Transport": {
+    "name": "acModemV23Transport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModemV32Transport": {
+    "name": "acModemV32Transport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3,
+          "ansMute": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModemBypassPayloadType": {
+    "name": "acModemBypassPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModemBellTransportType": {
+    "name": "acModemBellTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acModemV21Transport": {
+    "name": "acModemV21Transport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "relayEnable": 1,
+          "byPassEnable": 2,
+          "eventsOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "acModemEnableV150ModemRelaySupport": {
+    "name": "acModemEnableV150ModemRelaySupport",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "acV150dot1": {
+    "name": "acV150dot1",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4",
+    "class": "objectidentity"
+  },
+  "acV150dot1AllocationProfile": {
+    "name": "acV150dot1AllocationProfile",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SSEPayloadTypeRx": {
+    "name": "acV150dot1SSEPayloadTypeRx",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SSEPayloadTypeTx": {
+    "name": "acV150dot1SSEPayloadTypeTx",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SSERedundancyDepth": {
+    "name": "acV150dot1SSERedundancyDepth",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTPayloadTypeRx": {
+    "name": "acV150dot1SPRTPayloadTypeRx",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTPayloadTypeTx": {
+    "name": "acV150dot1SPRTPayloadTypeTx",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTTransportChannel0MaxPayloadSize": {
+    "name": "acV150dot1SPRTTransportChannel0MaxPayloadSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 140,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTTransportChannel2MaxPayloadSize": {
+    "name": "acV150dot1SPRTTransportChannel2MaxPayloadSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 132,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTTransportChannel2MaxWindowSize": {
+    "name": "acV150dot1SPRTTransportChannel2MaxWindowSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acV150dot1SPRTTransportChannel3MaxPayloadSize": {
+    "name": "acV150dot1SPRTTransportChannel3MaxPayloadSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.3.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 140,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaRtpRtcpConfig": {
+    "name": "acMediaRtpRtcpConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4",
+    "class": "objectidentity"
+  },
+  "acRtpRtcp": {
+    "name": "acRtpRtcp",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1",
+    "class": "objectidentity"
+  },
+  "acRtpRtcpBrokenConnectionEventTimeout": {
+    "name": "acRtpRtcpBrokenConnectionEventTimeout",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 2684354
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRtcpBrokenConnectionEventActivationMode": {
+    "name": "acRtpRtcpBrokenConnectionEventActivationMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "afterFirstIncomingRTPPacket": 0,
+          "onRTPStreamActivation": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRtcpBasicRTPPacketInterval": {
+    "name": "acRtpRtcpBasicRTPPacketInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pACKET-INTERVAL-DEFAULT": 0,
+          "pACKET-INTERVAL-5-MSEC": 1,
+          "pACKET-INTERVAL-10-MSEC": 2,
+          "pACKET-INTERVAL-20-MSEC": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRtcpConnectionEstablishNotificationMode": {
+    "name": "acRtpRtcpConnectionEstablishNotificationMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "afterBrokenConnection": 0,
+          "uponFirstRTPFrameDetection": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRtcpEnableMediaUDPChecksum": {
+    "name": "acRtpRtcpEnableMediaUDPChecksum",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtp": {
+    "name": "acRtp",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2",
+    "class": "objectidentity"
+  },
+  "acRtpBaseUDPPort": {
+    "name": "acRtpBaseUDPPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpComfortNoiseEnable": {
+    "name": "acRtpComfortNoiseEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpEnableRFC2658Interleaving": {
+    "name": "acRtpEnableRFC2658Interleaving",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withOut-RFC2658Interleaving-And-TOC": 0,
+          "including-RFC2658Interleaving-And-TOC": 1,
+          "including-TOC-Only": 2,
+          "interleave-Bundling": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "acRtpRxTxMode": {
+    "name": "acRtpRxTxMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rTPTxRx": 0,
+          "rTPTxOnly": 1,
+          "rTPRxOnly": 2,
+          "rTPUnactive": 3,
+          "rTPRxRFC2833Tx": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRFC2833TxPayloadType": {
+    "name": "acRtpRFC2833TxPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRFC2833RxPayloadType": {
+    "name": "acRtpRFC2833RxPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRedundancyPayloadType": {
+    "name": "acRtpRedundancyPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpRedundancyDepth": {
+    "name": "acRtpRedundancyDepth",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpPacketizationFactor": {
+    "name": "acRtpPacketizationFactor",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpNoOpPayloadType": {
+    "name": "acRtpNoOpPayloadType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 96,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpNoOpEnable": {
+    "name": "acRtpNoOpEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpNoOpInterval": {
+    "name": "acRtpNoOpInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpVBRCoderHeaderFormat": {
+    "name": "acRtpVBRCoderHeaderFormat",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withOut-RFC2658Interleaving-And-TOC": 0,
+          "including-RFC2658Interleaving-And-TOC": 1,
+          "including-TOC-Only": 2,
+          "interleave-Bundling": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMRCoderHeaderFormat": {
+    "name": "acRtpAMRCoderHeaderFormat",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cE-AMR-DEFAULT-FORMAT": 0,
+          "cE-AMR-RFC-3267-BUNDLING": 1,
+          "cE-AMR-RFC-3267-INTERLEAVING": 2,
+          "cE-AMR-IF2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMRFECRedundancyDepth": {
+    "name": "acRtpAMRFECRedundancyDepth",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cE-AMR-FEC-REDUNDANCY-LEVEL-NONE": 0,
+          "cE-AMR-FEC-REDUNDANCY-LEVEL-1": 1,
+          "cE-AMR-FEC-REDUNDANCY-LEVEL-2": 2,
+          "cE-AMR-FEC-REDUNDANCY-LEVEL-3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMRFECNumOfMngtPolicyEntries": {
+    "name": "acRtpAMRFECNumOfMngtPolicyEntries",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMRFECDelayHysteresis": {
+    "name": "acRtpAMRFECDelayHysteresis",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMRFECDelayThreshold": {
+    "name": "acRtpAMRFECDelayThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpQcelpCoderHeaderFormat": {
+    "name": "acRtpQcelpCoderHeaderFormat",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "parameter-Is-Not-Used": -1,
+          "including-RFC2658Interleaving-And-TOC": 1,
+          "including-TOC-Only": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtpAMROctetAlignedEnable": {
+    "name": "acRtpAMROctetAlignedEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAMRFECCodecPolicies": {
+    "name": "acAMRFECCodecPolicies",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21",
+    "class": "objectidentity"
+  },
+  "acAMRFECCodecPoliciesTable": {
+    "name": "acAMRFECCodecPoliciesTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesEntry": {
+    "name": "acAMRFECCodecPoliciesEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-MEDIA-MIB",
+        "object": "acAMRFECCodecPoliciesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesIndex": {
+    "name": "acAMRFECCodecPoliciesIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesRowStatus": {
+    "name": "acAMRFECCodecPoliciesRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesRate": {
+    "name": "acAMRFECCodecPoliciesRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesRedundancyLevel": {
+    "name": "acAMRFECCodecPoliciesRedundancyLevel",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesThreshold": {
+    "name": "acAMRFECCodecPoliciesThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acAMRFECCodecPoliciesHysteresis": {
+    "name": "acAMRFECCodecPoliciesHysteresis",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.2.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acRtcp": {
+    "name": "acRtcp",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.3",
+    "class": "objectidentity"
+  },
+  "acRtcpDisableIntervalRandomization": {
+    "name": "acRtcpDisableIntervalRandomization",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtcpXr": {
+    "name": "acRtcpXr",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4",
+    "class": "objectidentity"
+  },
+  "acRtcpXrBurstThreshold": {
+    "name": "acRtcpXrBurstThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtcpXrDelayThreshold": {
+    "name": "acRtcpXrDelayThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtcpXrEndOofCallRvalDelayThreshold": {
+    "name": "acRtcpXrEndOofCallRvalDelayThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtcpXrGMin": {
+    "name": "acRtcpXrGMin",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acRtcpXrEnable": {
+    "name": "acRtcpXrEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "enableOnlyCalculation": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoRtpRtcp": {
+    "name": "acVideoRtpRtcp",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.5",
+    "class": "objectidentity"
+  },
+  "acVideoRtpRtcpDisableRtcpIntervalRandomization": {
+    "name": "acVideoRtpRtcpDisableRtcpIntervalRandomization",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoRtpRtcpMeanTxInterval": {
+    "name": "acVideoRtpRtcpMeanTxInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoRtpRtcpBrokenConnectionActivationMode": {
+    "name": "acVideoRtpRtcpBrokenConnectionActivationMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "afterFirstIncomingRtpPacket": 0,
+          "onRtpStreamActivation": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoRtpRtcpBrokenConnectionEventTimeout": {
+    "name": "acVideoRtpRtcpBrokenConnectionEventTimeout",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaIBSConfig": {
+    "name": "acMediaIBSConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5",
+    "class": "objectidentity"
+  },
+  "acIBS": {
+    "name": "acIBS",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1",
+    "class": "objectidentity"
+  },
+  "acIBSAnalogSignalTransportType": {
+    "name": "acIBSAnalogSignalTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 0,
+          "transfer": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDTMFVolume": {
+    "name": "acIBSDTMFVolume",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -31,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDTMFTransportType": {
+    "name": "acIBSDTMFTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acMuteDTMF": 0,
+          "acTransparentDTMF": 2,
+          "acRFC2833RelayDTMF": 3,
+          "acRFC2833RelayDecoderMute": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSMFTransportType": {
+    "name": "acIBSMFTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acMuteMF": 0,
+          "acTransparentMF": 2,
+          "acRFC2833RalayMF": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSTrunkTestingTonesEnable": {
+    "name": "acIBSTrunkTestingTonesEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disables": 0,
+          "enables": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSCASRelayTransportMode": {
+    "name": "acIBSCASRelayTransportMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cASEventsOnly": 0,
+          "cASRFC2833Relay": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSRxDtmfHangOverTime": {
+    "name": "acIBSRxDtmfHangOverTime",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSTxDtmfHangOverTime": {
+    "name": "acIBSTxDtmfHangOverTime",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDTMFTwistControl": {
+    "name": "acIBSDTMFTwistControl",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSNTEMaxDuration": {
+    "name": "acIBSNTEMaxDuration",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectors": {
+    "name": "acIBSDetectors",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2",
+    "class": "objectidentity"
+  },
+  "acIBSDetectorsMFR1Enable": {
+    "name": "acIBSDetectorsMFR1Enable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsMFR2ForwardEnable": {
+    "name": "acIBSDetectorsMFR2ForwardEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsMFR2BackwardEnable": {
+    "name": "acIBSDetectorsMFR2BackwardEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsR1LineEnable": {
+    "name": "acIBSDetectorsR1LineEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsR2LineEnable": {
+    "name": "acIBSDetectorsR2LineEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsAC15Enable": {
+    "name": "acIBSDetectorsAC15Enable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsDTMFEnable": {
+    "name": "acIBSDetectorsDTMFEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsCallProgressEnable": {
+    "name": "acIBSDetectorsCallProgressEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsUserDefinedToneEnable": {
+    "name": "acIBSDetectorsUserDefinedToneEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsDetectionRedirection": {
+    "name": "acIBSDetectorsDetectionRedirection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcm": 0,
+          "network": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsSS4Enable": {
+    "name": "acIBSDetectorsSS4Enable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsMFSS5Enable": {
+    "name": "acIBSDetectorsMFSS5Enable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsSS5Enable": {
+    "name": "acIBSDetectorsSS5Enable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsSITEnable": {
+    "name": "acIBSDetectorsSITEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsCOTEnable": {
+    "name": "acIBSDetectorsCOTEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsR1DetectionStandard": {
+    "name": "acIBSDetectorsR1DetectionStandard",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mfR1DetectionStandardItu": 0,
+          "mfR1DetectionStandardR15": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsUDTDetectorFrequencyDeviation": {
+    "name": "acIBSDetectorsUDTDetectorFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIBSDetectorsCPTDetectorFrequencyDeviation": {
+    "name": "acIBSDetectorsCPTDetectorFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.5.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaConfig": {
+    "name": "acIPMediaConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6",
+    "class": "objectidentity"
+  },
+  "acIPMedia": {
+    "name": "acIPMedia",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.1",
+    "class": "objectidentity"
+  },
+  "acIPMediaDSPDetectorsEnable": {
+    "name": "acIPMediaDSPDetectorsEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaEnableMCApplication": {
+    "name": "acIPMediaEnableMCApplication",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMAnswerDetector": {
+    "name": "acIPMAnswerDetector",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2",
+    "class": "objectidentity"
+  },
+  "acIPMAnswerDetectorEnable": {
+    "name": "acIPMAnswerDetectorEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMAnswerDetectorActivityDelay": {
+    "name": "acIPMAnswerDetectorActivityDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMAnswerDetectorSilenceTime": {
+    "name": "acIPMAnswerDetectorSilenceTime",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMAnswerDetectorRedirection": {
+    "name": "acIPMAnswerDetectorRedirection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speechPCMSideDetected": 0,
+          "speechIPSideDetected": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMAnswerDetectorSensitivity": {
+    "name": "acIPMAnswerDetectorSensitivity",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMEnergyDetector": {
+    "name": "acIPMEnergyDetector",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.3",
+    "class": "objectidentity"
+  },
+  "acIPMEnergyDetectorEnable": {
+    "name": "acIPMEnergyDetectorEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMEnergyDetectorQualityFactor": {
+    "name": "acIPMEnergyDetectorQualityFactor",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMEnergyDetectorThreshold": {
+    "name": "acIPMEnergyDetectorThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMEnergyDetectorEnergyRedirection": {
+    "name": "acIPMEnergyDetectorEnergyRedirection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tDM": 0,
+          "network": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaPatternDetector": {
+    "name": "acIPMediaPatternDetector",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.4",
+    "class": "objectidentity"
+  },
+  "acIPMediaPatternDetectorEnable": {
+    "name": "acIPMediaPatternDetectorEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaPatternDetectorDetectionThreshold": {
+    "name": "acIPMediaPatternDetectorDetectionThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMD": {
+    "name": "acIPMediaAMD",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5",
+    "class": "objectidentity"
+  },
+  "acIPMediaAMDDetectionDirection": {
+    "name": "acIPMediaAMDDetectionDirection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acAmdTdmDetection": 0,
+          "acAmdNetworkDetection": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDSensitivity": {
+    "name": "acIPMediaAMDSensitivity",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDDetectionSensitivityHighResolution": {
+    "name": "acIPMediaAMDDetectionSensitivityHighResolution",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDSensitivityResolution": {
+    "name": "acIPMediaAMDSensitivityResolution",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDBeepDetectionTimeout": {
+    "name": "acIPMediaAMDBeepDetectionTimeout",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1638
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDBeepDetectionSensitivity": {
+    "name": "acIPMediaAMDBeepDetectionSensitivity",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDSensitivityParameterSuit": {
+    "name": "acIPMediaAMDSensitivityParameterSuit",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaAMDSensitivityLevel": {
+    "name": "acIPMediaAMDSensitivityLevel",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMConference": {
+    "name": "acIPMConference",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.6",
+    "class": "objectidentity"
+  },
+  "acIPMConferenceGASNMinInterval": {
+    "name": "acIPMConferenceGASNMinInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMConferenceEnergythreshold": {
+    "name": "acIPMConferenceEnergythreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMConferenceEnableHDConference": {
+    "name": "acIPMConferenceEnableHDConference",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConference": {
+    "name": "acIPMVideoConference",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7",
+    "class": "objectidentity"
+  },
+  "acIPMVideoConferenceSwitchingInterval": {
+    "name": "acIPMVideoConferenceSwitchingInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConferenceEnableActiveSpeakerHighlight": {
+    "name": "acIPMVideoConferenceEnableActiveSpeakerHighlight",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConferenceParticipantType": {
+    "name": "acIPMVideoConferenceParticipantType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConferenceParticipantTriggerMode": {
+    "name": "acIPMVideoConferenceParticipantTriggerMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "triggerMode-Speaker": 0,
+          "triggerMode-Timer": 1,
+          "triggerMode-Fixed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConferenceParticipantLayout": {
+    "name": "acIPMVideoConferenceParticipantLayout",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layout-1XUSER": 0,
+          "layout-2x2-USERS": 1,
+          "layout-3x3-USERS": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMVideoConferenceEnableConferenceParticipantSelfView": {
+    "name": "acIPMVideoConferenceEnableConferenceParticipantSelfView",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.6.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaCallerIDConfig": {
+    "name": "acMediaCallerIDConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7",
+    "class": "objectidentity"
+  },
+  "acCallerID": {
+    "name": "acCallerID",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1",
+    "class": "objectidentity"
+  },
+  "acCallerIDTypes": {
+    "name": "acCallerIDTypes",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bellcore": 0,
+          "eTSI": 1,
+          "nTT": 2,
+          "bT": 4,
+          "dTMF-Based-ETSI": 16,
+          "denmark": 17,
+          "indian": 18,
+          "brazilian": 19
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acCallerIDTransportType": {
+    "name": "acCallerIDTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "callerID-DISABLE": 0,
+          "callerID-RELAY": 1,
+          "callerID-MUTE": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acCallerIDDTMFBasedMaxDigits": {
+    "name": "acCallerIDDTMFBasedMaxDigits",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acCallerIDDTMFBasedMinDigits": {
+    "name": "acCallerIDDTMFBasedMinDigits",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acCallerIDNTTDIDSignallingForm": {
+    "name": "acCallerIDNTTDIDSignallingForm",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nttDidFskSignalling": 0,
+          "nttDidDtmfBasedSignalling": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaNetworkConfig": {
+    "name": "acMediaNetworkConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8",
+    "class": "objectidentity"
+  },
+  "acMediaNetwork": {
+    "name": "acMediaNetwork",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1",
+    "class": "objectidentity"
+  },
+  "acMediaNetworkDisableNAT": {
+    "name": "acMediaNetworkDisableNAT",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaNetworkRtpIpTos": {
+    "name": "acMediaNetworkRtpIpTos",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "acMediaNetworkRtpIpPrecedence": {
+    "name": "acMediaNetworkRtpIpPrecedence",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "acMediaNetworkIPDiffServ": {
+    "name": "acMediaNetworkIPDiffServ",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "acMediaNetworkInboundLatchMode": {
+    "name": "acMediaNetworkInboundLatchMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.8.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 0,
+          "dynamic": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaJBConfig": {
+    "name": "acMediaJBConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9",
+    "class": "objectidentity"
+  },
+  "acJitterBuffer": {
+    "name": "acJitterBuffer",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.1",
+    "class": "objectidentity"
+  },
+  "acJitterBufferMinDelay": {
+    "name": "acJitterBufferMinDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acJitterBufferOptFactor": {
+    "name": "acJitterBufferOptFactor",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoJitterBuffer": {
+    "name": "acVideoJitterBuffer",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.2",
+    "class": "objectidentity"
+  },
+  "acVideoJitterBufferMinDelay": {
+    "name": "acVideoJitterBufferMinDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoJitterBufferMaxDelay": {
+    "name": "acVideoJitterBufferMaxDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acVideoJitterBufferDJBOptimizationFactor": {
+    "name": "acVideoJitterBufferDJBOptimizationFactor",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaStatus": {
+    "name": "acMediaStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2",
+    "class": "objectidentity"
+  },
+  "acMediaAggregation": {
+    "name": "acMediaAggregation",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.10",
+    "class": "objectidentity"
+  },
+  "acMediaAggregationRemoteBaseUDPPort": {
+    "name": "acMediaAggregationRemoteBaseUDPPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaAggregationL1L1ComplexRxUDPPort": {
+    "name": "acMediaAggregationL1L1ComplexRxUDPPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaAggregationL1L1ComplexTxUDPPort": {
+    "name": "acMediaAggregationL1L1ComplexTxUDPPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPLegs": {
+    "name": "acIPLegs",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1",
+    "class": "objectidentity"
+  },
+  "acIPLegsTable": {
+    "name": "acIPLegsTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acIPLegsEntry": {
+    "name": "acIPLegsEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-MEDIA-MIB",
+        "object": "acIPLegsLegIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acIPLegsLegIndex": {
+    "name": "acIPLegsLegIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acIPLegsCallIndex": {
+    "name": "acIPLegsCallIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsRTPActive": {
+    "name": "acIPLegsRTPActive",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsCoderType": {
+    "name": "acIPLegsCoderType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acG711Alaw-64": 0,
+          "acG711Mulaw": 1,
+          "acG726-16": 2,
+          "acG726-24": 3,
+          "acG726-32": 4,
+          "acG726-40": 5,
+          "acG727-16": 6,
+          "acG727-24-16": 7,
+          "acG727-24": 8,
+          "acG727-32-16": 9,
+          "acG727-32-24": 10,
+          "acG727-32": 11,
+          "acG727-40-16": 12,
+          "acG727-40-24": 13,
+          "acG727-40-32": 14,
+          "acG723Low": 15,
+          "acG723High": 16,
+          "acG729": 17,
+          "acGSM610": 18,
+          "vacGSM610MS": 20,
+          "acGSM-EFR": 21,
+          "acTransparent": 22,
+          "acG728": 23,
+          "acNetCoder-4-8": 25,
+          "acNetCoder-5-6": 26,
+          "acNetCoder-6-4": 27,
+          "acNetCoder-7-2": 28,
+          "acNetCoder-8": 29,
+          "acNetCoder-8-8": 30,
+          "acNetCoder-9": 31,
+          "acEVRC": 32,
+          "acEVRC-TFO": 33,
+          "acQCELP-8": 34,
+          "acQCELP-8-TFO": 35,
+          "acQCELP-13": 36,
+          "acQCELP-13-TFO": 37,
+          "acEVRC-TTY": 38,
+          "acNoCoder": 40,
+          "acModemAnswer": 41,
+          "acModemCall": 42,
+          "acVoxADPCM": 43,
+          "acG711Alaw-5-5": 45,
+          "acG711Mulaw-5-5": 46,
+          "acG726-32-5-5": 47,
+          "acG729E": 48,
+          "acLinearPCM": 49,
+          "acAMR-4-7": 50,
+          "acAMR-5-15": 51,
+          "acAMR-5-9": 52,
+          "acAMR-6-7": 53,
+          "acAMR-7-4": 54,
+          "acAMR-7-95": 55,
+          "acAMR-10-2": 56,
+          "acAMR-12-2": 57,
+          "acEVRC-B": 58,
+          "acEVRC-TFOV": 60,
+          "acQCELP-8-TFOV": 61,
+          "acQCELP-13-TFOV": 62,
+          "acILBC-15": 63,
+          "acILBC-13": 64,
+          "acBV-16": 65,
+          "acAMRWB-6-6": 66,
+          "acAMRWB-8-85": 67,
+          "acAMRWB-12-65": 68,
+          "acAMRWB-14-25": 69,
+          "acAMRWB-15-85": 70,
+          "acAMRWB-18-25": 71,
+          "acAMRWB-19-85": 72,
+          "acAMRWB-23-05": 73,
+          "acAMRWB-23-85": 74,
+          "acG722-48K": 75,
+          "acG722-56K": 76,
+          "acG722-64K": 77,
+          "acDPNSSCoder": 78,
+          "acEG711Alaw-10ms": 80,
+          "acEG711Alaw-20ms": 81,
+          "acEG711Alaw-30ms": 82,
+          "acEG711Mulaw-10ms": 83,
+          "acEG711Mulaw-20ms": 84,
+          "acEG711Mulaw-30ms": 85
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsSilenceCompression": {
+    "name": "acIPLegsSilenceCompression",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsDTMFDetection": {
+    "name": "acIPLegsDTMFDetection",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsLocalRTPPort": {
+    "name": "acIPLegsLocalRTPPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsRemoteRTPAddress": {
+    "name": "acIPLegsRemoteRTPAddress",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsFaxTransportType": {
+    "name": "acIPLegsFaxTransportType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 0,
+          "relay": 1,
+          "bypass": 2,
+          "withevents": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsRxPackets": {
+    "name": "acIPLegsRxPackets",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsTxPackets": {
+    "name": "acIPLegsTxPackets",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsRxBytes": {
+    "name": "acIPLegsRxBytes",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsTxBytes": {
+    "name": "acIPLegsTxBytes",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsJitter": {
+    "name": "acIPLegsJitter",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsPacketLoss": {
+    "name": "acIPLegsPacketLoss",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsSSRCOfSender": {
+    "name": "acIPLegsSSRCOfSender",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsDSPDevice": {
+    "name": "acIPLegsDSPDevice",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPLegsLegName": {
+    "name": "acIPLegsLegName",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acStreamingCache": {
+    "name": "acStreamingCache",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.11",
+    "class": "objectidentity"
+  },
+  "acStreamingCacheSize": {
+    "name": "acStreamingCacheSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acStreamingCacheRefreshTime": {
+    "name": "acStreamingCacheRefreshTime",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acStreamingCacheClearService": {
+    "name": "acStreamingCacheClearService",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfig": {
+    "name": "acMediaVideoConfig",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12",
+    "class": "objectidentity"
+  },
+  "acMediaVideoConfigEncoderIntraInterval": {
+    "name": "acMediaVideoConfigEncoderIntraInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigMaxPacketSize": {
+    "name": "acMediaVideoConfigMaxPacketSize",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigTargetBitrate": {
+    "name": "acMediaVideoConfigTargetBitrate",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigQualityParameterForRateControl": {
+    "name": "acMediaVideoConfigQualityParameterForRateControl",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigRateControlType": {
+    "name": "acMediaVideoConfigRateControlType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ceVideoConstantBitRate": 0,
+          "ceVideoVaribleBitRate": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigEnableReSyncHeader": {
+    "name": "acMediaVideoConfigEnableReSyncHeader",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acMediaVideoConfigEnableAudioVideoSynchronization": {
+    "name": "acMediaVideoConfigEnableAudioVideoSynchronization",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaChannels": {
+    "name": "acIPMediaChannels",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13",
+    "class": "objectidentity"
+  },
+  "acIPMediaChannelsEnable": {
+    "name": "acIPMediaChannelsEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesTable": {
+    "name": "acIPMediaChannelsResourcesTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesEntry": {
+    "name": "acIPMediaChannelsResourcesEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-MEDIA-MIB",
+        "object": "acIPMediaChannelsResourcesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesIndex": {
+    "name": "acIPMediaChannelsResourcesIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesRowStatus": {
+    "name": "acIPMediaChannelsResourcesRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesAction": {
+    "name": "acIPMediaChannelsResourcesAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesActionRes": {
+    "name": "acIPMediaChannelsResourcesActionRes",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesModuleID": {
+    "name": "acIPMediaChannelsResourcesModuleID",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acIPMediaChannelsResourcesDSPChannelsReserved": {
+    "name": "acIPMediaChannelsResourcesDSPChannelsReserved",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.13.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressor": {
+    "name": "acAcousticEchoSuppressor",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14",
+    "class": "objectidentity"
+  },
+  "acAcousticEchoSuppressorEnable": {
+    "name": "acAcousticEchoSuppressorEnable",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressorEchoCancellerType": {
+    "name": "acAcousticEchoSuppressorEchoCancellerType",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lineEchoCanceller": 0,
+          "acousticEchoSuppressorNetwork": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressorAttenuationIntensity": {
+    "name": "acAcousticEchoSuppressorAttenuationIntensity",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressorMaxERLThreshold": {
+    "name": "acAcousticEchoSuppressorMaxERLThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressorMinReferenceDelay": {
+    "name": "acAcousticEchoSuppressorMinReferenceDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acAcousticEchoSuppressorMaxReferenceDelay": {
+    "name": "acAcousticEchoSuppressorMaxReferenceDelay",
+    "oid": "1.3.6.1.4.1.5003.9.10.4.1.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AC-MEDIA-MIB",
+      "Source digest sha256:c00ca61eadbf538eaaeae3e3f887a193e0777ea273c62f0de187b2958a145980",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AC-MEDIA-MIB"
+  }
+}

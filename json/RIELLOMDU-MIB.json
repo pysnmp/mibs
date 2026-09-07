@@ -1,0 +1,499 @@
+{
+  "imports": {
+    "class": "imports",
+    "RIELLO-MIB": [
+      "rielloMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mduMIB": {
+    "name": "mduMIB",
+    "oid": "1.3.6.1.4.1.5491.11",
+    "class": "objectidentity"
+  },
+  "mduIdent": {
+    "name": "mduIdent",
+    "oid": "1.3.6.1.4.1.5491.11.1",
+    "class": "objectidentity"
+  },
+  "mduIdentManufacturer": {
+    "name": "mduIdentManufacturer",
+    "oid": "1.3.6.1.4.1.5491.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentModel": {
+    "name": "mduIdentModel",
+    "oid": "1.3.6.1.4.1.5491.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentSoftwareVersion": {
+    "name": "mduIdentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.5491.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentIOConfiguration": {
+    "name": "mduIdentIOConfiguration",
+    "oid": "1.3.6.1.4.1.5491.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentInputSockets": {
+    "name": "mduIdentInputSockets",
+    "oid": "1.3.6.1.4.1.5491.11.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentOutputSockets": {
+    "name": "mduIdentOutputSockets",
+    "oid": "1.3.6.1.4.1.5491.11.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentNominalCurrent": {
+    "name": "mduIdentNominalCurrent",
+    "oid": "1.3.6.1.4.1.5491.11.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentNominalVoltage": {
+    "name": "mduIdentNominalVoltage",
+    "oid": "1.3.6.1.4.1.5491.11.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduIdentNominalFrequency": {
+    "name": "mduIdentNominalFrequency",
+    "oid": "1.3.6.1.4.1.5491.11.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduStatus": {
+    "name": "mduStatus",
+    "oid": "1.3.6.1.4.1.5491.11.2",
+    "class": "objectidentity"
+  },
+  "mduLineAFrequency": {
+    "name": "mduLineAFrequency",
+    "oid": "1.3.6.1.4.1.5491.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduLineAVoltage": {
+    "name": "mduLineAVoltage",
+    "oid": "1.3.6.1.4.1.5491.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduLineACurrent": {
+    "name": "mduLineACurrent",
+    "oid": "1.3.6.1.4.1.5491.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduOutput": {
+    "name": "mduOutput",
+    "oid": "1.3.6.1.4.1.5491.11.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mduOutputSockets": {
+    "name": "mduOutputSockets",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIELLOMDU-MIB",
+        "object": "mduOutputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mduOutputLineIndex": {
+    "name": "mduOutputLineIndex",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mduOutputCurrent": {
+    "name": "mduOutputCurrent",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduOutputDisabled": {
+    "name": "mduOutputDisabled",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduOutputOverload": {
+    "name": "mduOutputOverload",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduOutputStatus": {
+    "name": "mduOutputStatus",
+    "oid": "1.3.6.1.4.1.5491.11.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "shutdownActive": 2,
+          "shutdownImminent": 3,
+          "restoreActive": 4,
+          "overload": 5,
+          "locked": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduLowInputVoltage": {
+    "name": "mduLowInputVoltage",
+    "oid": "1.3.6.1.4.1.5491.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduHighInputVoltage": {
+    "name": "mduHighInputVoltage",
+    "oid": "1.3.6.1.4.1.5491.11.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduLowInputCurrent": {
+    "name": "mduLowInputCurrent",
+    "oid": "1.3.6.1.4.1.5491.11.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduHighInputCurrent": {
+    "name": "mduHighInputCurrent",
+    "oid": "1.3.6.1.4.1.5491.11.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduPowerFailAux1": {
+    "name": "mduPowerFailAux1",
+    "oid": "1.3.6.1.4.1.5491.11.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduPowerFailAux2": {
+    "name": "mduPowerFailAux2",
+    "oid": "1.3.6.1.4.1.5491.11.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduManualBypass": {
+    "name": "mduManualBypass",
+    "oid": "1.3.6.1.4.1.5491.11.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduTemperature": {
+    "name": "mduTemperature",
+    "oid": "1.3.6.1.4.1.5491.11.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduCommand": {
+    "name": "mduCommand",
+    "oid": "1.3.6.1.4.1.5491.11.3",
+    "class": "objectidentity"
+  },
+  "mduCommandCode": {
+    "name": "mduCommandCode",
+    "oid": "1.3.6.1.4.1.5491.11.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "restore": 2,
+          "commandDelete": 3,
+          "testPanel": 22
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mduShutdownDelay": {
+    "name": "mduShutdownDelay",
+    "oid": "1.3.6.1.4.1.5491.11.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mduRestoreDelay": {
+    "name": "mduRestoreDelay",
+    "oid": "1.3.6.1.4.1.5491.11.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mduOutputSocketApplyCommand": {
+    "name": "mduOutputSocketApplyCommand",
+    "oid": "1.3.6.1.4.1.5491.11.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mduCommandResult": {
+    "name": "mduCommandResult",
+    "oid": "1.3.6.1.4.1.5491.11.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mduTraps": {
+    "name": "mduTraps",
+    "oid": "1.3.6.1.4.1.5491.11.4",
+    "class": "objectidentity"
+  },
+  "mduNormal": {
+    "name": "mduNormal",
+    "oid": "1.3.6.1.4.1.5491.11.4.0.1",
+    "class": "notificationtype"
+  },
+  "mduAnomaly": {
+    "name": "mduAnomaly",
+    "oid": "1.3.6.1.4.1.5491.11.4.0.2",
+    "class": "notificationtype"
+  },
+  "mduFault": {
+    "name": "mduFault",
+    "oid": "1.3.6.1.4.1.5491.11.4.0.3",
+    "class": "notificationtype"
+  },
+  "mduLock": {
+    "name": "mduLock",
+    "oid": "1.3.6.1.4.1.5491.11.4.0.4",
+    "class": "notificationtype"
+  },
+  "mduManualBypassEnabled": {
+    "name": "mduManualBypassEnabled",
+    "oid": "1.3.6.1.4.1.5491.11.4.0.5",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RIELLOMDU-MIB",
+      "Source digest sha256:57f7174784b849370a24a437330b9108543f8c6646ad6754fde6f9c7b21bc812",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RIELLOMDU-MIB"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoPBridgeCapability": {
+    "name": "ciscoPBridgeCapability",
+    "oid": "1.3.6.1.4.1.9.7.385",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPBridgeCapCatOSV08R0301": {
+    "name": "ciscoPBridgeCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.385.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "P-BRIDGE-MIB",
+        "includes": [
+          "pBridgeDefaultPriorityGroup",
+          "pBridgePriorityGroup",
+          "pBridgePortGarpGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1dPortNumTrafficClasses",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dPortGarpJoinTime",
+            "syntax": {
+              "type": "TimeInterval",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 107374181
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot1dPortGarpLeaveTime",
+            "syntax": {
+              "type": "TimeInterval",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 3,
+                    "max": 214748363
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dot1dPortGarpLeaveAllTime",
+            "syntax": {
+              "type": "TimeInterval",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 4,
+                    "max": 214748364
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-P-BRIDGE-CAPABILITY",
+      "Source digest sha256:eb2340db95230c4c43e6ad43f8fadee9d06378f679aa0391bcc7276090b0dce2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-P-BRIDGE-CAPABILITY"
+  }
+}

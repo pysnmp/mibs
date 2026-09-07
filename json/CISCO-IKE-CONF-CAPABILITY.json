@@ -1,0 +1,64 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCicIkeCfgCapability": {
+    "name": "ciscoCicIkeCfgCapability",
+    "oid": "1.3.6.1.4.1.9.7.489",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "cCicIkeCfgCapSanOSV30R1MDS9000": {
+    "name": "cCicIkeCfgCapSanOSV30R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.489.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.0(1) on Cisco MDS 9000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IKE-CONFIGURATION-MIB",
+        "includes": [
+          "cicIkeCfgOperGroup",
+          "cicIkeCfgIdentitiesGroup",
+          "cicIkeCfgPskAuthGroup",
+          "cicIkeCfgPolicyGroup",
+          "cicIkeCfgOptionalPolicyGroup",
+          "cicIkeCfgFailureRecoveryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IKE-CONF-CAPABILITY",
+      "Source digest sha256:c3e8af941b55a47a1b0ab76019faf345b59ed4eb6eb165e33d9e2adac41f3fda",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IKE-CONF-CAPABILITY"
+  }
+}

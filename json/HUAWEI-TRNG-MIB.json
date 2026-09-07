@@ -1,0 +1,500 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwTRNG": {
+    "name": "hwTRNG",
+    "oid": "1.3.6.1.4.1.2011.5.25.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-22 00:00",
+        "description": "V1.01, modified the description of hwTimerangePeriodicEndTimes. modified the description of hwTrngCreateTimerangeTable, hwTrngAbsoluteTable and hwTrngPeriodicTable . modified the errors of the MIB file. modified the description of leaves. modified the datatype definition and the format of the MIB script."
+      },
+      {
+        "revision": "2003-04-11 00:00",
+        "description": "V1.00, initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwTRNGMibObjects": {
+    "name": "hwTRNGMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1",
+    "class": "objectidentity"
+  },
+  "hwTrngCreateTimerangeTable": {
+    "name": "hwTrngCreateTimerangeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngCreateTimerangeEntry": {
+    "name": "hwTrngCreateTimerangeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrngIndex": {
+    "name": "hwTrngIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngName": {
+    "name": "hwTrngName",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTrngValidFlag": {
+    "name": "hwTrngValidFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTrngCreateRowStatus": {
+    "name": "hwTrngCreateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTrngAbsoluteTable": {
+    "name": "hwTrngAbsoluteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngAbsoluteEntry": {
+    "name": "hwTrngAbsoluteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngAbsoluteNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngAbsoluteSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrngAbsoluteNameIndex": {
+    "name": "hwTrngAbsoluteNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngAbsoluteSubIndex": {
+    "name": "hwTrngAbsoluteSubIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTimerangeAbsoluteStartTime": {
+    "name": "hwTimerangeAbsoluteStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTimerangeAbsoluteEndTime": {
+    "name": "hwTimerangeAbsoluteEndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTimerangeAbsolueRowStatus": {
+    "name": "hwTimerangeAbsolueRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTrngPeriodicTable": {
+    "name": "hwTrngPeriodicTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngPeriodicEntry": {
+    "name": "hwTrngPeriodicEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicNameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrngPeriodicNameIndex": {
+    "name": "hwTrngPeriodicNameIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngPeriodicSubIndex": {
+    "name": "hwTrngPeriodicSubIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrngPeriodicDayofWeek": {
+    "name": "hwTrngPeriodicDayofWeek",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTimerangePeriodicStartTime": {
+    "name": "hwTimerangePeriodicStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTimerangePeriodicEndTime": {
+    "name": "hwTimerangePeriodicEndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTimerangePeriodicRowStatus": {
+    "name": "hwTimerangePeriodicRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwTRNGMibConformance": {
+    "name": "hwTRNGMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3",
+    "class": "objectidentity"
+  },
+  "hwTRNGMibCompliances": {
+    "name": "hwTRNGMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.1",
+    "class": "objectidentity"
+  },
+  "hwTRNGMibCompliance": {
+    "name": "hwTRNGMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTRNGGroup",
+        "module": "HUAWEI-TRNG-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngCreateRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsolueRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "hwTRNGMibGroups": {
+    "name": "hwTRNGMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.2",
+    "class": "objectidentity"
+  },
+  "hwTRNGGroup": {
+    "name": "hwTRNGGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngName"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngValidFlag"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngCreateRowStatus"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsoluteStartTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsoluteEndTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsolueRowStatus"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicDayofWeek"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicStartTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicEndTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-TRNG-MIB",
+      "Source digest sha256:c381bc15a2be7b6113095397356d57b51e25aaa542af01fe38d1f04fdb09cb84",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-TRNG-MIB"
+  }
+}

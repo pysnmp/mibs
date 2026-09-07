@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dkt": {
+    "name": "dkt",
+    "oid": "1.3.6.1.4.1.27304",
+    "class": "moduleidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DKT-MIB",
+      "Source digest sha256:a9088a4c89263a893d79831d6664451ca6598877ec49cb224a2676b5253486e3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DKT-MIB"
+  }
+}

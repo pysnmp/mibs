@@ -1,0 +1,427 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoL2ControlCapability": {
+    "name": "ciscoL2ControlCapability",
+    "oid": "1.3.6.1.4.1.9.7.397",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-16 00:00",
+        "description": "Added clcCapabilityV6R0002U0102PN3K agent capability statement."
+      },
+      {
+        "revision": "2007-06-30 00:00",
+        "description": "Added clcCapabilityV12R0233SXHPCat6K agent capability statement."
+      },
+      {
+        "revision": "2007-02-28 00:00",
+        "description": "Added clcCapabilityCatOSV08R0601 agent capability statement and added VARIATIONS of clcMacLimitExceededActionDefault to clcCapabilityV12R0217aSXCat6K."
+      },
+      {
+        "revision": "2004-11-01 00:00",
+        "description": "clcVlanMacAddressLimitGroup is supported in clcCapabilityV12R0217aSXCat6K capability statement."
+      },
+      {
+        "revision": "2004-03-29 00:00",
+        "description": "Added clcCapabilityCatOSV08R0301 agent capability statement."
+      },
+      {
+        "revision": "2003-10-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "clcCapabilityV12R0217aSXCat6K": {
+    "name": "clcCapabilityV12R0217aSXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.397.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17a)SX on Catalyst 6000/6500\n                      and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "includes": [
+          "clcMacAddressLimitGroup",
+          "clcVlanMacAddressLimitGroup",
+          "clcVlanMacLimitNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "clcMacLimitExceededActionDefault",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2,
+                  "shutdown": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "clcCapabilityCatOSV08R0301": {
+    "name": "clcCapabilityCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.397.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "includes": [
+          "clcUnicastFloodGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "clcCapabilityCatOSV08R0601": {
+    "name": "clcCapabilityCatOSV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.397.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500\n                      and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "includes": [
+          "clcMacAddressLimitGroup",
+          "clcVlanMacAddressLimitGroup",
+          "clcVlanMacLimitNotifsGroup",
+          "clcUnicastFloodGroup",
+          "clcMacAddressLimitIntervalGroup",
+          "clcMacAddressLimitGroup1",
+          "clcVlanMacAddressLimitGroup1",
+          "clcVlanMacLimitEnableGroup",
+          "clcVlanMacLimitNotifControlGroup",
+          "clcVlanMacLimitNotifControlGroup1",
+          "clcVlanMacLimitNotifsGroup1",
+          "clcIfMacAddressLimitGroup",
+          "clcIfMacLimitEnableGroup",
+          "clcIfMacLimitNotifControlGroup",
+          "clcIfMacLimitNotifsGroup",
+          "clcIfVlanMacAddressLimitGroup",
+          "clcIfVlanMacLimitEnableGroup",
+          "clcIfVlanMacLimitNotifControlGroup",
+          "clcIfVlanMacLimitNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "clcMaxMacLimitDefault",
+            "access": "read-only"
+          },
+          {
+            "object": "clcMacLimitExceededActionDefault",
+            "access": "read-only"
+          },
+          {
+            "object": "clcMacLimitExceedNotifOption",
+            "access": "read-only"
+          },
+          {
+            "object": "clcMacLimitHighDefault",
+            "access": "read-only"
+          },
+          {
+            "object": "clcMacLimitHighExceedActionDef",
+            "access": "read-only"
+          },
+          {
+            "object": "clcMacLimitInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 5,
+                    "max": 3600
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcVlanMaxMacLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcVlanMacLimitExceededAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "clcVlanMacLimitHigh",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcVlanMacLimitHighExceedAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2,
+                  "shutdown": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "clcIfMacLimitLow",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcIfMacLimitLowExceedAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "clcIfMacLimitHigh",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcIfMacLimitHighExceedAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2,
+                  "shutdown": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "clcIfVlanMacLimitLow",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcIfVlanMacLimitLowExceedAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "clcIfVlanMacLimitHigh",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 5,
+                    "max": 32000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "clcIfVlanMacLimitHiExceedAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2,
+                  "shutdown": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "clcCapabilityV12R0233SXHPCat6K": {
+    "name": "clcCapabilityV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.397.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                       series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "includes": [
+          "clcMacAddressLimitGroup",
+          "clcVlanMacAddressLimitGroup",
+          "clcVlanMacLimitNotifsGroup",
+          "clcUnicastFloodGroup"
+        ],
+        "variations": [
+          {
+            "object": "clcMacLimitExceededActionDefault",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "warning": 1,
+                  "limit": 2,
+                  "shutdown": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "clcCapabilityV6R0002U0102PN3K": {
+    "name": "clcCapabilityV6R0002U0102PN3K",
+    "oid": "1.3.6.1.4.1.9.7.397.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.0(2)U1(2) on Nexus 3000\n                       series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "includes": [
+          "clcMacAddressStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-L2-CONTROL-CAPABILITY",
+      "Source digest sha256:b7eb0c04bcee8a59d0fee693629f3940e81c7608f07e74eb85b326c87793715d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-L2-CONTROL-CAPABILITY"
+  }
+}

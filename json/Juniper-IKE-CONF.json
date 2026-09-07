@@ -1,0 +1,84 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniIkeAgent": {
+    "name": "juniIkeAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.66",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-23 15:21",
+        "description": "Replaced the juniIkeSaTable with the juniIkeSa2Table."
+      },
+      {
+        "revision": "2003-10-23 20:17",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniIkeAgentV1": {
+    "name": "juniIkeAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.66.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the IKE component of the JUNOSe SNMP agent.  This version\n        of the IKE component was supported in JUNOSe 5.3 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IKE-MIB",
+        "includes": [
+          "juniIkePolicyRuleGroup",
+          "juniIkeIpv4PreSharedKeyGroup",
+          "juniIkeFqdnPreSharedKeyGroup",
+          "juniIkeSaGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIkeAgentV2": {
+    "name": "juniIkeAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.66.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the IKE component of the JUNOSe SNMP agent.  This version\n        of the IKE component is supported in JUNOSe 6.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-IKE-MIB",
+        "includes": [
+          "juniIkePolicyRuleGroup",
+          "juniIkeIpv4PreSharedKeyGroup",
+          "juniIkeFqdnPreSharedKeyGroup",
+          "juniIkeSa2Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-IKE-CONF",
+      "Source digest sha256:3f712e491de35ad9f02cba90e3785572fa9e3727e87ea7d2ef545f864320e89c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-IKE-CONF"
+  }
+}

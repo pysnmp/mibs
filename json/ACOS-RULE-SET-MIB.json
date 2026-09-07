@@ -1,0 +1,570 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruleSetModule": {
+    "name": "ruleSetModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470",
+    "class": "moduleidentity"
+  },
+  "ruleSet": {
+    "name": "ruleSet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1",
+    "class": "objectidentity"
+  },
+  "ruleSetStatsTable": {
+    "name": "ruleSetStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruleSetStatsEntry": {
+    "name": "ruleSetStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruleSetStatsSlotId": {
+    "name": "ruleSetStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetStatsName": {
+    "name": "ruleSetStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetStatsUnmatchedDrops": {
+    "name": "ruleSetStatsUnmatchedDrops",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetStatsPermit": {
+    "name": "ruleSetStatsPermit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetStatsDeny": {
+    "name": "ruleSetStatsDeny",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetStatsReset": {
+    "name": "ruleSetStatsReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTable": {
+    "name": "ruleSetOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruleSetOperEntry": {
+    "name": "ruleSetOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruleSetOperSlotId": {
+    "name": "ruleSetOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperName": {
+    "name": "ruleSetOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyStatus": {
+    "name": "ruleSetOperPolicyStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyUnmatchedDrop": {
+    "name": "ruleSetOperPolicyUnmatchedDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyPermit": {
+    "name": "ruleSetOperPolicyPermit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyDeny": {
+    "name": "ruleSetOperPolicyDeny",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyReset": {
+    "name": "ruleSetOperPolicyReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperPolicyRuleCount": {
+    "name": "ruleSetOperPolicyRuleCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalHit": {
+    "name": "ruleSetOperTotalHit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalPermitBytes": {
+    "name": "ruleSetOperTotalPermitBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalDenyBytes": {
+    "name": "ruleSetOperTotalDenyBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalResetBytes": {
+    "name": "ruleSetOperTotalResetBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalBytes": {
+    "name": "ruleSetOperTotalBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalPermitPackets": {
+    "name": "ruleSetOperTotalPermitPackets",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalDenyPackets": {
+    "name": "ruleSetOperTotalDenyPackets",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalResetPackets": {
+    "name": "ruleSetOperTotalResetPackets",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalPackets": {
+    "name": "ruleSetOperTotalPackets",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalActiveTcp": {
+    "name": "ruleSetOperTotalActiveTcp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalActiveUdp": {
+    "name": "ruleSetOperTotalActiveUdp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalActiveIcmp": {
+    "name": "ruleSetOperTotalActiveIcmp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTotalActiveOthers": {
+    "name": "ruleSetOperTotalActiveOthers",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperShowTotalStats": {
+    "name": "ruleSetOperShowTotalStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperTopnRules": {
+    "name": "ruleSetOperTopnRules",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsTable": {
+    "name": "ruleSetOperRuleStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsEntry": {
+    "name": "ruleSetOperRuleStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetOperRuleStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetOperRuleStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULE-SET-MIB",
+        "object": "ruleSetOperRuleStatsRuleStatsListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsSlotId": {
+    "name": "ruleSetOperRuleStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsName": {
+    "name": "ruleSetOperRuleStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsRuleStatsListId": {
+    "name": "ruleSetOperRuleStatsRuleStatsListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsRuleName": {
+    "name": "ruleSetOperRuleStatsRuleName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsRuleHitcount": {
+    "name": "ruleSetOperRuleStatsRuleHitcount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsRuleAction": {
+    "name": "ruleSetOperRuleStatsRuleAction",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruleSetOperRuleStatsRuleStatus": {
+    "name": "ruleSetOperRuleStatsRuleStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.470.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-RULE-SET-MIB",
+      "Source digest sha256:249edb55e3c5aa23626e6a695b26a866548a45144b3c242cff78f43e9f615151",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-RULE-SET-MIB"
+  }
+}

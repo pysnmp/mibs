@@ -1,0 +1,175 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cSpCapability": {
+    "name": "cSpCapability",
+    "oid": "1.3.6.1.4.1.9.7.189",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-06-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cSpCapabilityV12R021MB1": {
+    "name": "cSpCapabilityV12R021MB1",
+    "oid": "1.3.6.1.4.1.9.7.189.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(1)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-SP-MIB",
+        "includes": [
+          "ciscoSpSwitchGroup",
+          "ciscoSpLinksetGroup",
+          "ciscoSpLinkGroup",
+          "ciscoSpRouteGroup",
+          "ciscoSpAccessListGroup",
+          "ciscoSpAccountingGroup",
+          "ciscoSpNotificationsEnableGroup"
+        ],
+        "variations": [
+          {
+            "object": "cSpLinkXmitQueueDepthHigh",
+            "access": "read-only"
+          },
+          {
+            "object": "cSpLinkQ752T1E2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E3",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E4",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E5",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E7",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E8",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E9",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T1E11",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E5",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E7",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E9",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E15",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E16",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T2E18",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E7",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E10L1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E10L2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E10L3",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E11L1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E11L2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cSpLinkQ752T3E11L3",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SP-CAPABILITY",
+      "Source digest sha256:2547c18af7f94bb7eeae9eba118332b3da18a9538ab03196fa1d4086251c88a8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SP-CAPABILITY"
+  }
+}

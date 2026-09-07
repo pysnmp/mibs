@@ -1,0 +1,62 @@
+#
+# PySNMP MIB module CISCO-MRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-MRP-MIB
+# Source digest sha256:1c8cc63e96b261f7e5daf0b8603b84eb42238dd8985f1e6e9a31564053ce5981
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoMrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 850))
+ciscoMrpMIB.setRevisions(('2017-09-12 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoMrpMIB.setRevisionsDescriptions(('Latest version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoMrpMIB.setLastUpdated('2017-09-12 00:00')
+if mibBuilder.loadTexts: ciscoMrpMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoMrpMIB.setContactInfo('Cisco Systems\n            Customer Service\n\n\n            Postal: 170 W Tasman Drive\n\n            San Jose, CA  95134\n\n            USA\n\n\n            Tel: +1 800 553-NETS\n\n\n            E-mail: cs-snmp@cisco.com')
+if mibBuilder.loadTexts: ciscoMrpMIB.setDescription('The CISCO-MRP-MIB is used to monitor the Media Redundancy\n        Protocol (MRP) domains and notifying their state change. MRP is\n        a recovery protocol based on a ring topology, and the redundant\n        interconnection of MRP rings/domains.')
+ciscoMrpMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 850, 0))
+ciscoMrpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 850, 1))
+ciscoMrpMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 850, 2))
+ciscoMrpDomainTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ciscoMrpDomainTable.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainTable.setDescription('Every entry in this table contains information about a Media\n        Redundancy Protocol (MRP) domain.')
+ciscoMrpDomainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-MRP-MIB", "ciscoMrpDomainIndex"))
+if mibBuilder.loadTexts: ciscoMrpDomainEntry.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainEntry.setDescription('An entry in the mrpDomainTable.')
+ciscoMrpDomainIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1, 1, 1), Unsigned32()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ciscoMrpDomainIndex.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainIndex.setDescription('The index of the entry')
+ciscoMrpDomainID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMrpDomainID.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainID.setDescription('Universally unique identifier belongs to the MRP domain which\n        represents a ring. The IEC 61158-5-10 defines the structure of\n        the UUID as a data type numeric identifier 1025.')
+ciscoMrpDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMrpDomainName.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainName.setDescription('A logical name for the MRP domain to ease the management of MRP\n        domains.')
+ciscoMrpDomainState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 850, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMrpDomainState.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpDomainState.setDescription('Operational status of the MRP entity.\n        undefined(0)  Value is not valid. All higher bits are invalid\n        and shall be reset.\n        ringOpen(1)  MRP ring redundancy lost. All higher bits are\n        invalid and shall be reset.\n        ringclose(2)  MRP ring redundancy achieved. All higher bits are\n        invalid and shall be reset.')
+ciscoMrpRingOpen = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 850, 0, 1)).setObjects(("CISCO-MRP-MIB", "ciscoMrpDomainID"), ("CISCO-MRP-MIB", "ciscoMrpDomainName"), ("CISCO-MRP-MIB", "ciscoMrpDomainState"))
+if mibBuilder.loadTexts: ciscoMrpRingOpen.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpRingOpen.setDescription('A ciscoMrpRingOpen trap signifies that a specific MRP ring is\n        open.')
+ciscoMrpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 850, 2, 1))
+ciscoMrpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 850, 2, 2))
+ciscoMrpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 850, 2, 1, 1)).setObjects(("CISCO-MRP-MIB", "ciscoMrpMIBMainObjectGroup"), ("CISCO-MRP-MIB", "ciscoMrpMIBNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMrpMIBCompliance = ciscoMrpMIBCompliance.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpMIBCompliance.setDescription('Cisco MRP MIB compliance object.')
+ciscoMrpMIBMainObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 850, 2, 2, 1)).setObjects(("CISCO-MRP-MIB", "ciscoMrpDomainID"), ("CISCO-MRP-MIB", "ciscoMrpDomainName"), ("CISCO-MRP-MIB", "ciscoMrpDomainState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMrpMIBMainObjectGroup = ciscoMrpMIBMainObjectGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpMIBMainObjectGroup.setDescription('A collection of objects required for monitoring of MRP domain.')
+ciscoMrpMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 850, 2, 2, 2)).setObjects(("CISCO-MRP-MIB", "ciscoMrpRingOpen"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMrpMIBNotificationGroup = ciscoMrpMIBNotificationGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoMrpMIBNotificationGroup.setDescription('A notification which indicates specific ring open.')
+mibBuilder.exportSymbols("CISCO-MRP-MIB", PYSNMP_MODULE_ID=ciscoMrpMIB, ciscoMrpDomainEntry=ciscoMrpDomainEntry, ciscoMrpDomainID=ciscoMrpDomainID, ciscoMrpDomainIndex=ciscoMrpDomainIndex, ciscoMrpDomainName=ciscoMrpDomainName, ciscoMrpDomainState=ciscoMrpDomainState, ciscoMrpDomainTable=ciscoMrpDomainTable, ciscoMrpMIB=ciscoMrpMIB, ciscoMrpMIBCompliance=ciscoMrpMIBCompliance, ciscoMrpMIBCompliances=ciscoMrpMIBCompliances, ciscoMrpMIBConform=ciscoMrpMIBConform, ciscoMrpMIBGroups=ciscoMrpMIBGroups, ciscoMrpMIBMainObjectGroup=ciscoMrpMIBMainObjectGroup, ciscoMrpMIBNotificationGroup=ciscoMrpMIBNotificationGroup, ciscoMrpMIBNotifs=ciscoMrpMIBNotifs, ciscoMrpMIBObjects=ciscoMrpMIBObjects, ciscoMrpRingOpen=ciscoMrpRingOpen)

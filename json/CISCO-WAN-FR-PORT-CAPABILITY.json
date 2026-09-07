@@ -1,0 +1,147 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWanAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanFrPortCapability": {
+    "name": "ciscoWanFrPortCapability",
+    "oid": "1.3.6.1.4.1.351.160.359",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-27 00:00",
+        "description": "Initial version of this MIB Module."
+      }
+    ]
+  },
+  "cwFrPortCapabilityFrsm12V3R00": {
+    "name": "cwFrPortCapabilityFrsm12V3R00",
+    "oid": "1.3.6.1.4.1.351.160.359.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-AXIPOP-MIB",
+        "includes": [
+          "ciscoWanFrPortConfGroup",
+          "ciscoWanFrPortSigLMIGroup",
+          "ciscoWanFrPortResPartGroup",
+          "ciscoWanFrPortStateGroup",
+          "ciscoWanFrPortCntGroup",
+          "ciscoWanFrPortLMICntGroup"
+        ],
+        "variations": [
+          {
+            "object": "portDs0Speed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unUsed": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "portFlagsBetweenFrames",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 8
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "portAdmin",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "portType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "frame-relay": 1,
+                  "frame-forward": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "portBERTEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portEnhancedSIW",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portM32EgrQueueThresh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtPortFramesDiscXceedQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtPortBytesDiscXceedQDepth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtFramesAbort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "xmtBufNotAvailable",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-FR-PORT-CAPABILITY",
+      "Source digest sha256:6099611452f8beae7362f8dd60026878feb32082347619a755c3d7b67a94a2f2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-FR-PORT-CAPABILITY"
+  }
+}

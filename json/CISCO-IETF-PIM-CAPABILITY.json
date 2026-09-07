@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfPimCapability": {
+    "name": "ciscoIetfPimCapability",
+    "oid": "1.3.6.1.4.1.9.7.441",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIetfPimCapV320CRS1": {
+    "name": "cIetfPimCapV320CRS1",
+    "oid": "1.3.6.1.4.1.9.7.441.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-PIM-MIB",
+        "includes": [
+          "cPimNotificationGroup",
+          "cPimV2MIBGroup",
+          "cPimDenseV2MIBGroup",
+          "cPimAssertGroup"
+        ],
+        "variations": [
+          {
+            "object": "cPimJoinPruneInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cPimIfCBSRPreference",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cPimRPMapTable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cPimComponentTable",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-PIM-CAPABILITY",
+      "Source digest sha256:38a07c1d3529f9064177ddb4ac000a5759323792b3243de429f8c6a5d928d35f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-PIM-CAPABILITY"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "extremeVC": {
+    "name": "extremeVC",
+    "oid": "1.3.6.1.4.1.1916.1.5",
+    "class": "moduleidentity"
+  },
+  "extremeVCLinkTable": {
+    "name": "extremeVCLinkTable",
+    "oid": "1.3.6.1.4.1.1916.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "extremeVCLinkEntry": {
+    "name": "extremeVCLinkEntry",
+    "oid": "1.3.6.1.4.1.1916.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "extremeVCLinkValid": {
+    "name": "extremeVCLinkValid",
+    "oid": "1.3.6.1.4.1.1916.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "extremeVCLinkDeviceId": {
+    "name": "extremeVCLinkDeviceId",
+    "oid": "1.3.6.1.4.1.1916.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "extremeVCLinkPortIndex": {
+    "name": "extremeVCLinkPortIndex",
+    "oid": "1.3.6.1.4.1.1916.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-VC-MIB"
+  }
+}

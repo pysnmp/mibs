@@ -1,0 +1,922 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "Unsigned64"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsConditionRemoteInvRslt",
+      "CucsFsmCompletion",
+      "CucsFsmFlags",
+      "CucsFsmFsmStageStatus",
+      "CucsMorefAdminState",
+      "CucsMorefImportRootFsmCurrentFsm",
+      "CucsMorefImportRootFsmStageName",
+      "CucsMorefImportRootFsmTaskItem"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "cucsMorefObjects": {
+    "name": "cucsMorefObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92",
+    "class": "moduleidentity"
+  },
+  "cucsMorefFruRefTable": {
+    "name": "cucsMorefFruRefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefFruRefEntry": {
+    "name": "cucsMorefFruRefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefFruRefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefFruRefInstanceId": {
+    "name": "cucsMorefFruRefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefFruRefDn": {
+    "name": "cucsMorefFruRefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefFruRefRn": {
+    "name": "cucsMorefFruRefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefFruRefClassName": {
+    "name": "cucsMorefFruRefClassName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefFruRefModel": {
+    "name": "cucsMorefFruRefModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefFruRefSerial": {
+    "name": "cucsMorefFruRefSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefFruRefVendor": {
+    "name": "cucsMorefFruRefVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootTable": {
+    "name": "cucsMorefImportRootTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootEntry": {
+    "name": "cucsMorefImportRootEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefImportRootInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefImportRootInstanceId": {
+    "name": "cucsMorefImportRootInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootDn": {
+    "name": "cucsMorefImportRootDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootRn": {
+    "name": "cucsMorefImportRootRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmDescr": {
+    "name": "cucsMorefImportRootFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmPrev": {
+    "name": "cucsMorefImportRootFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmProgr": {
+    "name": "cucsMorefImportRootFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtInvErrCode": {
+    "name": "cucsMorefImportRootFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtInvErrDescr": {
+    "name": "cucsMorefImportRootFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtInvRslt": {
+    "name": "cucsMorefImportRootFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageDescr": {
+    "name": "cucsMorefImportRootFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStamp": {
+    "name": "cucsMorefImportRootFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStatus": {
+    "name": "cucsMorefImportRootFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTry": {
+    "name": "cucsMorefImportRootFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTable": {
+    "name": "cucsMorefImportRootFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmEntry": {
+    "name": "cucsMorefImportRootFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefImportRootFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmInstanceId": {
+    "name": "cucsMorefImportRootFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmDn": {
+    "name": "cucsMorefImportRootFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRn": {
+    "name": "cucsMorefImportRootFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmCompletionTime": {
+    "name": "cucsMorefImportRootFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmCurrentFsm": {
+    "name": "cucsMorefImportRootFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMorefImportRootFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmDescrData": {
+    "name": "cucsMorefImportRootFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmFsmStatus": {
+    "name": "cucsMorefImportRootFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmProgress": {
+    "name": "cucsMorefImportRootFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtErrCode": {
+    "name": "cucsMorefImportRootFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtErrDescr": {
+    "name": "cucsMorefImportRootFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmRmtRslt": {
+    "name": "cucsMorefImportRootFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageTable": {
+    "name": "cucsMorefImportRootFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageEntry": {
+    "name": "cucsMorefImportRootFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefImportRootFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageInstanceId": {
+    "name": "cucsMorefImportRootFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageDn": {
+    "name": "cucsMorefImportRootFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageRn": {
+    "name": "cucsMorefImportRootFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageDescrData": {
+    "name": "cucsMorefImportRootFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageLastUpdateTime": {
+    "name": "cucsMorefImportRootFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageName": {
+    "name": "cucsMorefImportRootFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMorefImportRootFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageOrder": {
+    "name": "cucsMorefImportRootFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageRetry": {
+    "name": "cucsMorefImportRootFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmStageStageStatus": {
+    "name": "cucsMorefImportRootFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskTable": {
+    "name": "cucsMorefImportRootFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskEntry": {
+    "name": "cucsMorefImportRootFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefImportRootFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskInstanceId": {
+    "name": "cucsMorefImportRootFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskDn": {
+    "name": "cucsMorefImportRootFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskRn": {
+    "name": "cucsMorefImportRootFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskCompletion": {
+    "name": "cucsMorefImportRootFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskFlags": {
+    "name": "cucsMorefImportRootFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskItem": {
+    "name": "cucsMorefImportRootFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMorefImportRootFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefImportRootFsmTaskSeqId": {
+    "name": "cucsMorefImportRootFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefPropTable": {
+    "name": "cucsMorefPropTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefPropEntry": {
+    "name": "cucsMorefPropEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefPropInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefPropInstanceId": {
+    "name": "cucsMorefPropInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefPropDn": {
+    "name": "cucsMorefPropDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefPropRn": {
+    "name": "cucsMorefPropRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefPropAdminState": {
+    "name": "cucsMorefPropAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMorefAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefPropName": {
+    "name": "cucsMorefPropName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefPropValue": {
+    "name": "cucsMorefPropValue",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefRefTable": {
+    "name": "cucsMorefRefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefRefEntry": {
+    "name": "cucsMorefRefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+        "object": "cucsMorefRefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMorefRefInstanceId": {
+    "name": "cucsMorefRefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMorefRefDn": {
+    "name": "cucsMorefRefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefRefRn": {
+    "name": "cucsMorefRefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMorefRefMoRn": {
+    "name": "cucsMorefRefMoRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.92.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-UNIFIED-COMPUTING-MOREF-MIB",
+      "Source digest sha256:3485622c5b504b14cbf643c40afb54f62159ec9c159bc1e6cde917c60bdd33c4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-MOREF-MIB"
+  }
+}

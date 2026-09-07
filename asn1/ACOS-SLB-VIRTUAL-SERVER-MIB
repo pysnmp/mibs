@@ -1,0 +1,3497 @@
+ACOS-SLB-VIRTUAL-SERVER-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbVirtualServerModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbVirtualServerModule OID for ACOS"
+				::=  {  acosSchema 321 }
+
+virtualServer		 OBJECT IDENTIFIER ::= { slbVirtualServerModule 1}
+
+virtualServerOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VirtualServerOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Create a Virtual Server from object 'slb.virtual-server'"
+	::= {virtualServer 2}
+
+virtualServerOperEntry OBJECT-TYPE
+	SYNTAX VirtualServerOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The virtualServerOper entry"
+	INDEX {
+		virtualServerOperSlotId,
+		virtualServerOperName
+	}
+	::= { virtualServerOperTable 1 }
+
+VirtualServerOperEntry ::=
+	SEQUENCE {
+		virtualServerOperSlotId Integer32,
+		virtualServerOperName DisplayString,
+		virtualServerOperMac	 DisplayString,
+		virtualServerOperState	 DisplayString,
+		virtualServerOperCurrConnRate	 Integer32,
+		virtualServerOperConnRateUnit	 DisplayString,
+		virtualServerOperCurrIcmpRate	 Integer32,
+		virtualServerOperIcmpLockupTimeLeft	 Integer32,
+		virtualServerOperIcmpRateOverLimitDrop	 Integer32,
+		virtualServerOperCurrIcmpv6Rate	 Integer32,
+		virtualServerOperIcmpv6LockupTimeLeft	 Integer32,
+		virtualServerOperIcmpv6RateOverLimitDrop	 Integer32,
+		virtualServerOperMigrationStatus	 DisplayString,
+		virtualServerOperPeakConn	 Integer32,
+		virtualServerOperIpAddress	 DisplayString,
+		virtualServerOperIpv6Address	 DisplayString,
+		virtualServerOperCurrConnOverflow	 Integer32,
+		virtualServerOperIpOnlyLbFwdBytes	 Integer32,
+		virtualServerOperIpOnlyLbRevBytes	 Integer32,
+		virtualServerOperIpOnlyLbFwdPkts	 Integer32,
+		virtualServerOperIpOnlyLbRevPkts	 Integer32
+	}
+
+virtualServerOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { virtualServerOperEntry 1 }
+
+virtualServerOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { virtualServerOperEntry 2 }
+
+virtualServerOperMac OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mac"
+	::= { virtualServerOperEntry 3 }
+
+virtualServerOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { virtualServerOperEntry 4 }
+
+virtualServerOperCurrConnRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-conn-rate"
+	::= { virtualServerOperEntry 5 }
+
+virtualServerOperConnRateUnit OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn-rate-unit"
+	::= { virtualServerOperEntry 6 }
+
+virtualServerOperCurrIcmpRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-icmp-rate"
+	::= { virtualServerOperEntry 7 }
+
+virtualServerOperIcmpLockupTimeLeft OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-lockup-time-left"
+	::= { virtualServerOperEntry 8 }
+
+virtualServerOperIcmpRateOverLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-rate-over-limit-drop"
+	::= { virtualServerOperEntry 9 }
+
+virtualServerOperCurrIcmpv6Rate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-icmpv6-rate"
+	::= { virtualServerOperEntry 10 }
+
+virtualServerOperIcmpv6LockupTimeLeft OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-lockup-time-left"
+	::= { virtualServerOperEntry 11 }
+
+virtualServerOperIcmpv6RateOverLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-rate-over-limit-drop"
+	::= { virtualServerOperEntry 12 }
+
+virtualServerOperMigrationStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "migration-status"
+	::= { virtualServerOperEntry 13 }
+
+virtualServerOperPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak-conn"
+	::= { virtualServerOperEntry 14 }
+
+virtualServerOperIpAddress OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-address"
+	::= { virtualServerOperEntry 15 }
+
+virtualServerOperIpv6Address OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-address"
+	::= { virtualServerOperEntry 16 }
+
+virtualServerOperCurrConnOverflow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-conn-overflow"
+	::= { virtualServerOperEntry 17 }
+
+virtualServerOperIpOnlyLbFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_bytes"
+	::= { virtualServerOperEntry 18 }
+
+virtualServerOperIpOnlyLbRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_bytes"
+	::= { virtualServerOperEntry 19 }
+
+virtualServerOperIpOnlyLbFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_pkts"
+	::= { virtualServerOperEntry 20 }
+
+virtualServerOperIpOnlyLbRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_pkts"
+	::= { virtualServerOperEntry 21 }
+
+migrateVip		 OBJECT IDENTIFIER ::= { virtualServer 3}
+
+migrateVipOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MigrateVipOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Migrate this virtual server from object 'slb.virtual-server.migrate-vip'"
+	::= {migrateVip 2}
+
+migrateVipOperEntry OBJECT-TYPE
+	SYNTAX MigrateVipOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The migrateVipOper entry"
+	INDEX {
+		migrateVipOperSlotId,
+		migrateVipOperName
+	}
+	::= { migrateVipOperTable 1 }
+
+MigrateVipOperEntry ::=
+	SEQUENCE {
+		migrateVipOperSlotId Integer32,
+		migrateVipOperName DisplayString,
+		migrateVipOperState	 DisplayString
+	}
+
+migrateVipOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { migrateVipOperEntry 1 }
+
+migrateVipOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { migrateVipOperEntry 2 }
+
+migrateVipOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { migrateVipOperEntry 3 }
+
+port		 OBJECT IDENTIFIER ::= { virtualServer 4}
+
+portStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Virtual Port from object 'slb.virtual-server.port'"
+	::= {port 1}
+
+portStatsEntry OBJECT-TYPE
+	SYNTAX PortStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portStats stats entry"
+	INDEX {
+		portStatsSlotId,
+		portStatsName,
+		portStatsPort,
+		portStatsProtocol
+	}
+	::= { portStatsTable 1 }
+
+PortStatsEntry ::=
+	SEQUENCE {
+		portStatsSlotId Integer32,
+		portStatsName DisplayString,
+		portStatsPort Integer32,
+		portStatsProtocol DisplayString,
+		portStatsCurrConn	 CounterBasedGauge64,
+		portStatsTotalL4Conn	 CounterBasedGauge64,
+		portStatsTotalL7Conn	 CounterBasedGauge64,
+		portStatsTotalTcpConn	 CounterBasedGauge64,
+		portStatsTotalConn	 CounterBasedGauge64,
+		portStatsTotalFwdBytes	 CounterBasedGauge64,
+		portStatsTotalFwdPkts	 CounterBasedGauge64,
+		portStatsTotalRevBytes	 CounterBasedGauge64,
+		portStatsTotalRevPkts	 CounterBasedGauge64,
+		portStatsTotalDnsPkts	 CounterBasedGauge64,
+		portStatsTotalMfDnsPkts	 CounterBasedGauge64,
+		portStatsEsTotalFailureActions	 CounterBasedGauge64,
+		portStatsCompressionBytesBefore	 CounterBasedGauge64,
+		portStatsCompressionBytesAfter	 CounterBasedGauge64,
+		portStatsCompressionHit	 CounterBasedGauge64,
+		portStatsCompressionMiss	 CounterBasedGauge64,
+		portStatsCompressionMissNoClient	 CounterBasedGauge64,
+		portStatsCompressionMissTemplateExclusion	 CounterBasedGauge64,
+		portStatsCurrReq	 CounterBasedGauge64,
+		portStatsTotalReq	 CounterBasedGauge64,
+		portStatsTotalReqSucc	 CounterBasedGauge64,
+		portStatsPeakConn	 CounterBasedGauge64,
+		portStatsCurrConnRate	 CounterBasedGauge64,
+		portStatsLastRspTime	 CounterBasedGauge64,
+		portStatsFastestRspTime	 CounterBasedGauge64,
+		portStatsSlowestRspTime	 CounterBasedGauge64,
+		portStatsLocPermit	 CounterBasedGauge64,
+		portStatsLocDeny	 CounterBasedGauge64,
+		portStatsLocConn	 CounterBasedGauge64,
+		portStatsCurrSslConn	 CounterBasedGauge64,
+		portStatsTotalSslConn	 CounterBasedGauge64,
+		portStatsBackendTimeToFirstByte	 CounterBasedGauge64,
+		portStatsBackendTimeToLastByte	 CounterBasedGauge64,
+		portStatsInLatency	 CounterBasedGauge64,
+		portStatsOutLatency	 CounterBasedGauge64,
+		portStatsTotalFwdBytesOut	 CounterBasedGauge64,
+		portStatsTotalFwdPktsOut	 CounterBasedGauge64,
+		portStatsTotalRevBytesOut	 CounterBasedGauge64,
+		portStatsTotalRevPktsOut	 CounterBasedGauge64,
+		portStatsCurrReqRate	 CounterBasedGauge64,
+		portStatsCurrResp	 CounterBasedGauge64,
+		portStatsTotalResp	 CounterBasedGauge64,
+		portStatsTotalRespSucc	 CounterBasedGauge64,
+		portStatsCurrRespRate	 CounterBasedGauge64,
+		portStatsDnsrrlTotalAllowed	 CounterBasedGauge64,
+		portStatsDnsrrlTotalDropped	 CounterBasedGauge64,
+		portStatsDnsrrlTotalSlipped	 CounterBasedGauge64,
+		portStatsDnsrrlBadFqdn	 CounterBasedGauge64,
+		portStatsThroughputBitsPerSec	 CounterBasedGauge64,
+		portStatsDynamicMemoryAlloc	 CounterBasedGauge64,
+		portStatsDynamicMemoryFree	 CounterBasedGauge64,
+		portStatsDynamicMemory	 CounterBasedGauge64,
+		portStatsIpOnlyLbFwdBytes	 CounterBasedGauge64,
+		portStatsIpOnlyLbRevBytes	 CounterBasedGauge64,
+		portStatsIpOnlyLbFwdPkts	 CounterBasedGauge64,
+		portStatsIpOnlyLbRevPkts	 CounterBasedGauge64,
+		portStatsTotalDnsFilterTypeDrop	 CounterBasedGauge64,
+		portStatsTotalDnsFilterClassDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeADrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeAaaaDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeCnameDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeMxDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeNsDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeSrvDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypePtrDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeSoaDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeTxtDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeAnyDrop	 CounterBasedGauge64,
+		portStatsDnsFilterTypeOthersDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassInternetDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassChaosDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassHesiodDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassNoneDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassAnyDrop	 CounterBasedGauge64,
+		portStatsDnsFilterClassOthersDrop	 CounterBasedGauge64,
+		portStatsDnsRpzActionDrop	 CounterBasedGauge64,
+		portStatsDnsRpzActionPassThru	 CounterBasedGauge64,
+		portStatsDnsRpzActionTcpOnly	 CounterBasedGauge64,
+		portStatsDnsRpzActionNxdomain	 CounterBasedGauge64,
+		portStatsDnsRpzActionNodata	 CounterBasedGauge64,
+		portStatsDnsRpzActionLocalData	 CounterBasedGauge64,
+		portStatsDnsRpzTriggerClientIp	 CounterBasedGauge64,
+		portStatsDnsRpzTriggerRespIp	 CounterBasedGauge64,
+		portStatsDnsRpzTriggerNsIp	 CounterBasedGauge64,
+		portStatsDnsRpzTriggerQname	 CounterBasedGauge64,
+		portStatsDnsRpzTriggerNsName	 CounterBasedGauge64,
+		portStatsCompressionBytesBeforeBr	 CounterBasedGauge64,
+		portStatsCompressionBytesAfterBr	 CounterBasedGauge64,
+		portStatsCompressionBytesBeforeTotal	 CounterBasedGauge64,
+		portStatsCompressionBytesAfterTotal	 CounterBasedGauge64,
+		portStatsCompressionHitBr	 CounterBasedGauge64,
+		portStatsCompressionMissBr	 CounterBasedGauge64,
+		portStatsCompressionHitTotal	 CounterBasedGauge64,
+		portStatsCompressionMissTotal	 CounterBasedGauge64,
+		portStatsDnsrrlTotalTc	 CounterBasedGauge64,
+		portStatsHttp1ClientIdleTimeout	 CounterBasedGauge64,
+		portStatsHttp2ClientIdleTimeout	 CounterBasedGauge64
+	}
+
+portStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portStatsEntry 1 }
+
+portStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portStatsEntry 2 }
+
+portStatsPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portStatsEntry 3 }
+
+portStatsProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portStatsEntry 4 }
+
+portStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn"
+	::= { portStatsEntry 5 }
+
+portStatsTotalL4Conn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_l4_conn"
+	::= { portStatsEntry 6 }
+
+portStatsTotalL7Conn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_l7_conn"
+	::= { portStatsEntry 7 }
+
+portStatsTotalTcpConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_tcp_conn"
+	::= { portStatsEntry 8 }
+
+portStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_conn"
+	::= { portStatsEntry 9 }
+
+portStatsTotalFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes"
+	::= { portStatsEntry 10 }
+
+portStatsTotalFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts"
+	::= { portStatsEntry 11 }
+
+portStatsTotalRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes"
+	::= { portStatsEntry 12 }
+
+portStatsTotalRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts"
+	::= { portStatsEntry 13 }
+
+portStatsTotalDnsPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_dns_pkts"
+	::= { portStatsEntry 14 }
+
+portStatsTotalMfDnsPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_mf_dns_pkts"
+	::= { portStatsEntry 15 }
+
+portStatsEsTotalFailureActions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_total_failure_actions"
+	::= { portStatsEntry 16 }
+
+portStatsCompressionBytesBefore OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_before"
+	::= { portStatsEntry 17 }
+
+portStatsCompressionBytesAfter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_after"
+	::= { portStatsEntry 18 }
+
+portStatsCompressionHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_hit"
+	::= { portStatsEntry 19 }
+
+portStatsCompressionMiss OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_miss"
+	::= { portStatsEntry 20 }
+
+portStatsCompressionMissNoClient OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_miss_no_client"
+	::= { portStatsEntry 21 }
+
+portStatsCompressionMissTemplateExclusion OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_miss_template_exclusion"
+	::= { portStatsEntry 22 }
+
+portStatsCurrReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_req"
+	::= { portStatsEntry 23 }
+
+portStatsTotalReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req"
+	::= { portStatsEntry 24 }
+
+portStatsTotalReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req_succ"
+	::= { portStatsEntry 25 }
+
+portStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak_conn"
+	::= { portStatsEntry 26 }
+
+portStatsCurrConnRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_rate"
+	::= { portStatsEntry 27 }
+
+portStatsLastRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_rsp_time"
+	::= { portStatsEntry 28 }
+
+portStatsFastestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fastest_rsp_time"
+	::= { portStatsEntry 29 }
+
+portStatsSlowestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slowest_rsp_time"
+	::= { portStatsEntry 30 }
+
+portStatsLocPermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_permit"
+	::= { portStatsEntry 31 }
+
+portStatsLocDeny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_deny"
+	::= { portStatsEntry 32 }
+
+portStatsLocConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_conn"
+	::= { portStatsEntry 33 }
+
+portStatsCurrSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_ssl_conn"
+	::= { portStatsEntry 34 }
+
+portStatsTotalSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_ssl_conn"
+	::= { portStatsEntry 35 }
+
+portStatsBackendTimeToFirstByte OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "backend-time-to-first-byte"
+	::= { portStatsEntry 36 }
+
+portStatsBackendTimeToLastByte OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "backend-time-to-last-byte"
+	::= { portStatsEntry 37 }
+
+portStatsInLatency OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "in-latency"
+	::= { portStatsEntry 38 }
+
+portStatsOutLatency OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out-latency"
+	::= { portStatsEntry 39 }
+
+portStatsTotalFwdBytesOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes_out"
+	::= { portStatsEntry 40 }
+
+portStatsTotalFwdPktsOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts_out"
+	::= { portStatsEntry 41 }
+
+portStatsTotalRevBytesOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes_out"
+	::= { portStatsEntry 42 }
+
+portStatsTotalRevPktsOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_out"
+	::= { portStatsEntry 43 }
+
+portStatsCurrReqRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_req_rate"
+	::= { portStatsEntry 44 }
+
+portStatsCurrResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_resp"
+	::= { portStatsEntry 45 }
+
+portStatsTotalResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_resp"
+	::= { portStatsEntry 46 }
+
+portStatsTotalRespSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_resp_succ"
+	::= { portStatsEntry 47 }
+
+portStatsCurrRespRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_resp_rate"
+	::= { portStatsEntry 48 }
+
+portStatsDnsrrlTotalAllowed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnsrrl_total_allowed"
+	::= { portStatsEntry 49 }
+
+portStatsDnsrrlTotalDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnsrrl_total_dropped"
+	::= { portStatsEntry 50 }
+
+portStatsDnsrrlTotalSlipped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnsrrl_total_slipped"
+	::= { portStatsEntry 51 }
+
+portStatsDnsrrlBadFqdn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnsrrl_bad_fqdn"
+	::= { portStatsEntry 52 }
+
+portStatsThroughputBitsPerSec OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "throughput-bits-per-sec"
+	::= { portStatsEntry 53 }
+
+portStatsDynamicMemoryAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic-memory-alloc"
+	::= { portStatsEntry 54 }
+
+portStatsDynamicMemoryFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic-memory-free"
+	::= { portStatsEntry 55 }
+
+portStatsDynamicMemory OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic-memory"
+	::= { portStatsEntry 56 }
+
+portStatsIpOnlyLbFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_bytes"
+	::= { portStatsEntry 57 }
+
+portStatsIpOnlyLbRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_bytes"
+	::= { portStatsEntry 58 }
+
+portStatsIpOnlyLbFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_pkts"
+	::= { portStatsEntry 59 }
+
+portStatsIpOnlyLbRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_pkts"
+	::= { portStatsEntry 60 }
+
+portStatsTotalDnsFilterTypeDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_dns_filter_type_drop"
+	::= { portStatsEntry 61 }
+
+portStatsTotalDnsFilterClassDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_dns_filter_class_drop"
+	::= { portStatsEntry 62 }
+
+portStatsDnsFilterTypeADrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_a_drop"
+	::= { portStatsEntry 63 }
+
+portStatsDnsFilterTypeAaaaDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_aaaa_drop"
+	::= { portStatsEntry 64 }
+
+portStatsDnsFilterTypeCnameDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_cname_drop"
+	::= { portStatsEntry 65 }
+
+portStatsDnsFilterTypeMxDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_mx_drop"
+	::= { portStatsEntry 66 }
+
+portStatsDnsFilterTypeNsDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_ns_drop"
+	::= { portStatsEntry 67 }
+
+portStatsDnsFilterTypeSrvDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_srv_drop"
+	::= { portStatsEntry 68 }
+
+portStatsDnsFilterTypePtrDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_ptr_drop"
+	::= { portStatsEntry 69 }
+
+portStatsDnsFilterTypeSoaDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_soa_drop"
+	::= { portStatsEntry 70 }
+
+portStatsDnsFilterTypeTxtDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_txt_drop"
+	::= { portStatsEntry 71 }
+
+portStatsDnsFilterTypeAnyDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_any_drop"
+	::= { portStatsEntry 72 }
+
+portStatsDnsFilterTypeOthersDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_type_others_drop"
+	::= { portStatsEntry 73 }
+
+portStatsDnsFilterClassInternetDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_internet_drop"
+	::= { portStatsEntry 74 }
+
+portStatsDnsFilterClassChaosDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_chaos_drop"
+	::= { portStatsEntry 75 }
+
+portStatsDnsFilterClassHesiodDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_hesiod_drop"
+	::= { portStatsEntry 76 }
+
+portStatsDnsFilterClassNoneDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_none_drop"
+	::= { portStatsEntry 77 }
+
+portStatsDnsFilterClassAnyDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_any_drop"
+	::= { portStatsEntry 78 }
+
+portStatsDnsFilterClassOthersDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_filter_class_others_drop"
+	::= { portStatsEntry 79 }
+
+portStatsDnsRpzActionDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_drop"
+	::= { portStatsEntry 80 }
+
+portStatsDnsRpzActionPassThru OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_pass_thru"
+	::= { portStatsEntry 81 }
+
+portStatsDnsRpzActionTcpOnly OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_tcp_only"
+	::= { portStatsEntry 82 }
+
+portStatsDnsRpzActionNxdomain OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_nxdomain"
+	::= { portStatsEntry 83 }
+
+portStatsDnsRpzActionNodata OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_nodata"
+	::= { portStatsEntry 84 }
+
+portStatsDnsRpzActionLocalData OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_action_local_data"
+	::= { portStatsEntry 85 }
+
+portStatsDnsRpzTriggerClientIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_trigger_client_ip"
+	::= { portStatsEntry 86 }
+
+portStatsDnsRpzTriggerRespIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_trigger_resp_ip"
+	::= { portStatsEntry 87 }
+
+portStatsDnsRpzTriggerNsIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_trigger_ns_ip"
+	::= { portStatsEntry 88 }
+
+portStatsDnsRpzTriggerQname OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_trigger_qname"
+	::= { portStatsEntry 89 }
+
+portStatsDnsRpzTriggerNsName OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_rpz_trigger_ns_name"
+	::= { portStatsEntry 90 }
+
+portStatsCompressionBytesBeforeBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_before_br"
+	::= { portStatsEntry 91 }
+
+portStatsCompressionBytesAfterBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_after_br"
+	::= { portStatsEntry 92 }
+
+portStatsCompressionBytesBeforeTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_before_total"
+	::= { portStatsEntry 93 }
+
+portStatsCompressionBytesAfterTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_bytes_after_total"
+	::= { portStatsEntry 94 }
+
+portStatsCompressionHitBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_hit_br"
+	::= { portStatsEntry 95 }
+
+portStatsCompressionMissBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_miss_br"
+	::= { portStatsEntry 96 }
+
+portStatsCompressionHitTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_hit_total"
+	::= { portStatsEntry 97 }
+
+portStatsCompressionMissTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_miss_total"
+	::= { portStatsEntry 98 }
+
+portStatsDnsrrlTotalTc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnsrrl_total_tc"
+	::= { portStatsEntry 99 }
+
+portStatsHttp1ClientIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http1_client_idle_timeout"
+	::= { portStatsEntry 100 }
+
+portStatsHttp2ClientIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http2_client_idle_timeout"
+	::= { portStatsEntry 101 }
+
+portOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Virtual Port from object 'slb.virtual-server.port'"
+	::= {port 2}
+
+portOperEntry OBJECT-TYPE
+	SYNTAX PortOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOper entry"
+	INDEX {
+		portOperSlotId,
+		portOperName,
+		portOperPort,
+		portOperProtocol
+	}
+	::= { portOperTable 1 }
+
+PortOperEntry ::=
+	SEQUENCE {
+		portOperSlotId Integer32,
+		portOperName DisplayString,
+		portOperPort Integer32,
+		portOperProtocol DisplayString,
+		portOperState	 DisplayString,
+		portOperRealCurrConn	 Integer32,
+		portOperIntCurrConn	 Integer32,
+		portOperCurrConnOverflow	 Integer32,
+		portOperPrintExtendedStats	 Integer32,
+		portOperLocList	 DisplayString,
+		portOperGeoLocation	 DisplayString,
+		portOperLevelStr	 DisplayString,
+		portOperGroupId	 Integer32,
+		portOperLocMaxDepth	 Integer32,
+		portOperLocSuccess	 Integer32,
+		portOperLocError	 Integer32,
+		portOperLocOverride	 Integer32,
+		portOperLocLast	 DisplayString,
+		portOperCpuCount	 Integer32,
+		portOperHttpHostHits	 DisplayString,
+		portOperHttpUrlHits	 DisplayString,
+		portOperHttpVport	 DisplayString,
+		portOperClearCurrConn	 DisplayString
+	}
+
+portOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portOperEntry 1 }
+
+portOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portOperEntry 2 }
+
+portOperPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portOperEntry 3 }
+
+portOperProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portOperEntry 4 }
+
+portOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { portOperEntry 5 }
+
+portOperRealCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "real_curr_conn"
+	::= { portOperEntry 6 }
+
+portOperIntCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "int_curr_conn"
+	::= { portOperEntry 7 }
+
+portOperCurrConnOverflow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_overflow"
+	::= { portOperEntry 8 }
+
+portOperPrintExtendedStats OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "print_extended_stats"
+	::= { portOperEntry 9 }
+
+portOperLocList OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_list"
+	::= { portOperEntry 10 }
+
+portOperGeoLocation OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "geo_location"
+	::= { portOperEntry 11 }
+
+portOperLevelStr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "level_str"
+	::= { portOperEntry 12 }
+
+portOperGroupId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "group_id"
+	::= { portOperEntry 13 }
+
+portOperLocMaxDepth OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_max_depth"
+	::= { portOperEntry 14 }
+
+portOperLocSuccess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_success"
+	::= { portOperEntry 15 }
+
+portOperLocError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_error"
+	::= { portOperEntry 16 }
+
+portOperLocOverride OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_override"
+	::= { portOperEntry 17 }
+
+portOperLocLast OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "loc_last"
+	::= { portOperEntry 18 }
+
+portOperCpuCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-count"
+	::= { portOperEntry 19 }
+
+portOperHttpHostHits OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_host_hits"
+	::= { portOperEntry 20 }
+
+portOperHttpUrlHits OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_url_hits"
+	::= { portOperEntry 21 }
+
+portOperHttpVport OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_vport"
+	::= { portOperEntry 22 }
+
+portOperClearCurrConn OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "clear_curr_conn"
+	::= { portOperEntry 23 }
+
+portOperHttpHitsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperHttpHitsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Virtual Port from object 'slb.virtual-server.port'"
+	::= {port 3}
+
+portOperHttpHitsListEntry OBJECT-TYPE
+	SYNTAX PortOperHttpHitsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperHttpHitsList entry:http-hits-list"
+	INDEX {
+		portOperHttpHitsListSlotId,
+		portOperHttpHitsListName,
+		portOperHttpHitsListPort,
+		portOperHttpHitsListProtocol,
+		portOperHttpHitsListHttpHitsListListId
+	}
+	::= { portOperHttpHitsListTable 1}
+
+PortOperHttpHitsListEntry ::=
+	SEQUENCE {
+		portOperHttpHitsListSlotId Integer32,
+		portOperHttpHitsListName DisplayString,
+		portOperHttpHitsListPort Integer32,
+		portOperHttpHitsListProtocol DisplayString,
+		portOperHttpHitsListHttpHitsListListId Integer32,
+		portOperHttpHitsListName1	DisplayString,
+		portOperHttpHitsListHitsCount	Integer32
+	}
+
+portOperHttpHitsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperHttpHitsListEntry 1}
+
+portOperHttpHitsListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperHttpHitsListEntry 2}
+
+portOperHttpHitsListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperHttpHitsListEntry 3}
+
+portOperHttpHitsListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperHttpHitsListEntry 4}
+
+portOperHttpHitsListHttpHitsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperHttpHitsListEntry 5}
+
+portOperHttpHitsListName1 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperHttpHitsListEntry 6}
+
+portOperHttpHitsListHitsCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hits-count"
+	::= { portOperHttpHitsListEntry 7}
+
+portOperHttpVportCpuListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperHttpVportCpuListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Virtual Port from object 'slb.virtual-server.port'"
+	::= {port 4}
+
+portOperHttpVportCpuListEntry OBJECT-TYPE
+	SYNTAX PortOperHttpVportCpuListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperHttpVportCpuList entry:http-vport-cpu-list"
+	INDEX {
+		portOperHttpVportCpuListSlotId,
+		portOperHttpVportCpuListName,
+		portOperHttpVportCpuListPort,
+		portOperHttpVportCpuListProtocol,
+		portOperHttpVportCpuListHttpVportCpuListListId
+	}
+	::= { portOperHttpVportCpuListTable 1}
+
+PortOperHttpVportCpuListEntry ::=
+	SEQUENCE {
+		portOperHttpVportCpuListSlotId Integer32,
+		portOperHttpVportCpuListName DisplayString,
+		portOperHttpVportCpuListPort Integer32,
+		portOperHttpVportCpuListProtocol DisplayString,
+		portOperHttpVportCpuListHttpVportCpuListListId Integer32,
+		portOperHttpVportCpuListStatus200	Integer32,
+		portOperHttpVportCpuListStatus201	Integer32,
+		portOperHttpVportCpuListStatus202	Integer32,
+		portOperHttpVportCpuListStatus203	Integer32,
+		portOperHttpVportCpuListStatus204	Integer32,
+		portOperHttpVportCpuListStatus205	Integer32,
+		portOperHttpVportCpuListStatus206	Integer32,
+		portOperHttpVportCpuListStatus207	Integer32,
+		portOperHttpVportCpuListStatus100	Integer32,
+		portOperHttpVportCpuListStatus101	Integer32,
+		portOperHttpVportCpuListStatus102	Integer32,
+		portOperHttpVportCpuListStatus300	Integer32,
+		portOperHttpVportCpuListStatus301	Integer32,
+		portOperHttpVportCpuListStatus302	Integer32,
+		portOperHttpVportCpuListStatus303	Integer32,
+		portOperHttpVportCpuListStatus304	Integer32,
+		portOperHttpVportCpuListStatus305	Integer32,
+		portOperHttpVportCpuListStatus306	Integer32,
+		portOperHttpVportCpuListStatus307	Integer32,
+		portOperHttpVportCpuListStatus400	Integer32,
+		portOperHttpVportCpuListStatus401	Integer32,
+		portOperHttpVportCpuListStatus402	Integer32,
+		portOperHttpVportCpuListStatus403	Integer32,
+		portOperHttpVportCpuListStatus404	Integer32,
+		portOperHttpVportCpuListStatus405	Integer32,
+		portOperHttpVportCpuListStatus406	Integer32,
+		portOperHttpVportCpuListStatus407	Integer32,
+		portOperHttpVportCpuListStatus408	Integer32,
+		portOperHttpVportCpuListStatus409	Integer32,
+		portOperHttpVportCpuListStatus410	Integer32,
+		portOperHttpVportCpuListStatus411	Integer32,
+		portOperHttpVportCpuListStatus412	Integer32,
+		portOperHttpVportCpuListStatus413	Integer32,
+		portOperHttpVportCpuListStatus414	Integer32,
+		portOperHttpVportCpuListStatus415	Integer32,
+		portOperHttpVportCpuListStatus416	Integer32,
+		portOperHttpVportCpuListStatus417	Integer32,
+		portOperHttpVportCpuListStatus418	Integer32,
+		portOperHttpVportCpuListStatus422	Integer32,
+		portOperHttpVportCpuListStatus423	Integer32,
+		portOperHttpVportCpuListStatus424	Integer32,
+		portOperHttpVportCpuListStatus425	Integer32,
+		portOperHttpVportCpuListStatus426	Integer32,
+		portOperHttpVportCpuListStatus449	Integer32,
+		portOperHttpVportCpuListStatus450	Integer32,
+		portOperHttpVportCpuListStatus500	Integer32,
+		portOperHttpVportCpuListStatus501	Integer32,
+		portOperHttpVportCpuListStatus502	Integer32,
+		portOperHttpVportCpuListStatus503	Integer32,
+		portOperHttpVportCpuListStatus504	Integer32,
+		portOperHttpVportCpuListStatus504Ax	Integer32,
+		portOperHttpVportCpuListStatus505	Integer32,
+		portOperHttpVportCpuListStatus506	Integer32,
+		portOperHttpVportCpuListStatus507	Integer32,
+		portOperHttpVportCpuListStatus508	Integer32,
+		portOperHttpVportCpuListStatus509	Integer32,
+		portOperHttpVportCpuListStatus510	Integer32,
+		portOperHttpVportCpuListStatus1xx	Integer32,
+		portOperHttpVportCpuListStatus2xx	Integer32,
+		portOperHttpVportCpuListStatus3xx	Integer32,
+		portOperHttpVportCpuListStatus4xx	Integer32,
+		portOperHttpVportCpuListStatus5xx	Integer32,
+		portOperHttpVportCpuListStatus6xx	Integer32,
+		portOperHttpVportCpuListStatusUnknown	Integer32,
+		portOperHttpVportCpuListWsHandshakeRequest	Integer32,
+		portOperHttpVportCpuListWsHandshakeSuccess	Integer32,
+		portOperHttpVportCpuListWsClientSwitch	Integer32,
+		portOperHttpVportCpuListWsServerSwitch	Integer32,
+		portOperHttpVportCpuListREQ10u	Integer32,
+		portOperHttpVportCpuListREQ20u	Integer32,
+		portOperHttpVportCpuListREQ50u	Integer32,
+		portOperHttpVportCpuListREQ100u	Integer32,
+		portOperHttpVportCpuListREQ200u	Integer32,
+		portOperHttpVportCpuListREQ500u	Integer32,
+		portOperHttpVportCpuListREQ1m	Integer32,
+		portOperHttpVportCpuListREQ2m	Integer32,
+		portOperHttpVportCpuListREQ5m	Integer32,
+		portOperHttpVportCpuListREQ10m	Integer32,
+		portOperHttpVportCpuListREQ20m	Integer32,
+		portOperHttpVportCpuListREQ50m	Integer32,
+		portOperHttpVportCpuListREQ100m	Integer32,
+		portOperHttpVportCpuListREQ200m	Integer32,
+		portOperHttpVportCpuListREQ500m	Integer32,
+		portOperHttpVportCpuListREQ1s	Integer32,
+		portOperHttpVportCpuListREQ2s	Integer32,
+		portOperHttpVportCpuListREQ5s	Integer32,
+		portOperHttpVportCpuListREQOVER5s	Integer32,
+		portOperHttpVportCpuListCurrHttp2Conn	Integer32,
+		portOperHttpVportCpuListTotalHttp2Conn	Integer32,
+		portOperHttpVportCpuListPeakHttp2Conn	Integer32,
+		portOperHttpVportCpuListTotalHttp2Bytes	Integer32,
+		portOperHttpVportCpuListHttp2ControlBytes	Integer32,
+		portOperHttpVportCpuListHttp2HeaderBytes	Integer32,
+		portOperHttpVportCpuListHttp2DataBytes	Integer32,
+		portOperHttpVportCpuListHttp2ResetReceived	Integer32,
+		portOperHttpVportCpuListHttp2ResetSent	Integer32,
+		portOperHttpVportCpuListHttp2GoawayReceived	Integer32,
+		portOperHttpVportCpuListHttp2GoawaySent	Integer32,
+		portOperHttpVportCpuListStreamClosed	Integer32,
+		portOperHttpVportCpuListTransactionLimited	Integer32,
+		portOperHttpVportCpuListJsiRequests	Integer32,
+		portOperHttpVportCpuListJsiResponses	Integer32,
+		portOperHttpVportCpuListJsiPriRequests	Integer32,
+		portOperHttpVportCpuListJsiApiRequests	Integer32,
+		portOperHttpVportCpuListJsiApiResponses	Integer32,
+		portOperHttpVportCpuListJsiApiNoAuthHdr	Integer32,
+		portOperHttpVportCpuListJsiApiNoToken	Integer32,
+		portOperHttpVportCpuListJsiSkipNoFi	Integer32,
+		portOperHttpVportCpuListJsiSkipNoUa	Integer32,
+		portOperHttpVportCpuListJsiSkipNotBrowser	Integer32,
+		portOperHttpVportCpuListJsiHashAddFails	Integer32,
+		portOperHttpVportCpuListJsiHashLookupFails	Integer32,
+		portOperHttpVportCpuListHeaderLengthLong	Integer32,
+		portOperHttpVportCpuListReqGet	Integer32,
+		portOperHttpVportCpuListReqHead	Integer32,
+		portOperHttpVportCpuListReqPut	Integer32,
+		portOperHttpVportCpuListReqPost	Integer32,
+		portOperHttpVportCpuListReqTrace	Integer32,
+		portOperHttpVportCpuListReqOptions	Integer32,
+		portOperHttpVportCpuListReqConnect	Integer32,
+		portOperHttpVportCpuListReqDelete	Integer32,
+		portOperHttpVportCpuListReqUnknown	Integer32,
+		portOperHttpVportCpuListReqTrack	Integer32,
+		portOperHttpVportCpuListRspSz1k	Integer32,
+		portOperHttpVportCpuListRspSz2k	Integer32,
+		portOperHttpVportCpuListRspSz4k	Integer32,
+		portOperHttpVportCpuListRspSz8k	Integer32,
+		portOperHttpVportCpuListRspSz16k	Integer32,
+		portOperHttpVportCpuListRspSz32k	Integer32,
+		portOperHttpVportCpuListRspSz64k	Integer32,
+		portOperHttpVportCpuListRspSz256k	Integer32,
+		portOperHttpVportCpuListRspSzGt256k	Integer32,
+		portOperHttpVportCpuListChunkSz512	Integer32,
+		portOperHttpVportCpuListChunkSz1k	Integer32,
+		portOperHttpVportCpuListChunkSz2k	Integer32,
+		portOperHttpVportCpuListChunkSz4k	Integer32,
+		portOperHttpVportCpuListChunkSzGt4k	Integer32,
+		portOperHttpVportCpuListReqSz1k	Integer32,
+		portOperHttpVportCpuListReqSz2k	Integer32,
+		portOperHttpVportCpuListReqSz4k	Integer32,
+		portOperHttpVportCpuListReqSz8k	Integer32,
+		portOperHttpVportCpuListReqSz16k	Integer32,
+		portOperHttpVportCpuListReqSz32k	Integer32,
+		portOperHttpVportCpuListReqSz64k	Integer32,
+		portOperHttpVportCpuListReqSz256k	Integer32,
+		portOperHttpVportCpuListReqSzGt256k	Integer32,
+		portOperHttpVportCpuListReqContentLen	Integer32,
+		portOperHttpVportCpuListRspChunk	Integer32,
+		portOperHttpVportCpuListDohReq	Integer32,
+		portOperHttpVportCpuListDohReqGet	Integer32,
+		portOperHttpVportCpuListDohReqPost	Integer32,
+		portOperHttpVportCpuListDohNonDohReq	Integer32,
+		portOperHttpVportCpuListDohNonDohReqGet	Integer32,
+		portOperHttpVportCpuListDohNonDohReqPost	Integer32,
+		portOperHttpVportCpuListDohResp	Integer32,
+		portOperHttpVportCpuListDohTcResp	Integer32,
+		portOperHttpVportCpuListDohUdpDnsReq	Integer32,
+		portOperHttpVportCpuListDohUdpDnsResp	Integer32,
+		portOperHttpVportCpuListDohTcpDnsReq	Integer32,
+		portOperHttpVportCpuListDohTcpDnsResp	Integer32,
+		portOperHttpVportCpuListDohReqSendFailed	Integer32,
+		portOperHttpVportCpuListDohRespSendFailed	Integer32,
+		portOperHttpVportCpuListDohMallocFail	Integer32,
+		portOperHttpVportCpuListDohReqUdpRetry	Integer32,
+		portOperHttpVportCpuListDohReqUdpRetryFail	Integer32,
+		portOperHttpVportCpuListDohReqTcpRetry	Integer32,
+		portOperHttpVportCpuListDohReqTcpRetryFail	Integer32,
+		portOperHttpVportCpuListDohSnatFailed	Integer32,
+		portOperHttpVportCpuListDohPathNotFound	Integer32,
+		portOperHttpVportCpuListDohGetDnsArgFailed	Integer32,
+		portOperHttpVportCpuListDohGetBase64DecodeFailed	Integer32,
+		portOperHttpVportCpuListDohPostContentTypeMismatch	Integer32,
+		portOperHttpVportCpuListDohPostPayloadNotFound	Integer32,
+		portOperHttpVportCpuListDohPostPayloadExtractFailed	Integer32,
+		portOperHttpVportCpuListDohNonDohMethod	Integer32,
+		portOperHttpVportCpuListDohTcpSendFailed	Integer32,
+		portOperHttpVportCpuListDohUdpSendFailed	Integer32,
+		portOperHttpVportCpuListDohQueryTimeOut	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeA	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeAaaa	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeNs	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeCname	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeAny	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeSrv	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeMx	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeSoa	Integer32,
+		portOperHttpVportCpuListDohDnsQueryTypeOthers	Integer32,
+		portOperHttpVportCpuListDohRespSetupFailed	Integer32,
+		portOperHttpVportCpuListDohRespHeaderAllocFailed	Integer32,
+		portOperHttpVportCpuListDohRespQueFailed	Integer32,
+		portOperHttpVportCpuListDohRespUdpFrags	Integer32,
+		portOperHttpVportCpuListDohRespTcpFrags	Integer32,
+		portOperHttpVportCpuListDohServSelFailed	Integer32,
+		portOperHttpVportCpuListDohRetryWTcp	Integer32,
+		portOperHttpVportCpuListDohGetUriTooLong	Integer32,
+		portOperHttpVportCpuListDohPostPayloadTooLarge	Integer32,
+		portOperHttpVportCpuListDohDnsMalformedQuery	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeErrFormat	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeErrServer	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeErrName	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeErrType	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeRefuse	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeYxdomain	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeYxrrset	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeNxrrset	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeNotauth	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeNotzone	Integer32,
+		portOperHttpVportCpuListDohDnsRespRcodeOther	Integer32
+	}
+
+portOperHttpVportCpuListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperHttpVportCpuListEntry 1}
+
+portOperHttpVportCpuListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperHttpVportCpuListEntry 2}
+
+portOperHttpVportCpuListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperHttpVportCpuListEntry 3}
+
+portOperHttpVportCpuListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperHttpVportCpuListEntry 4}
+
+portOperHttpVportCpuListHttpVportCpuListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperHttpVportCpuListEntry 5}
+
+portOperHttpVportCpuListStatus200 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_200"
+	::= { portOperHttpVportCpuListEntry 6}
+
+portOperHttpVportCpuListStatus201 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_201"
+	::= { portOperHttpVportCpuListEntry 7}
+
+portOperHttpVportCpuListStatus202 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_202"
+	::= { portOperHttpVportCpuListEntry 8}
+
+portOperHttpVportCpuListStatus203 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_203"
+	::= { portOperHttpVportCpuListEntry 9}
+
+portOperHttpVportCpuListStatus204 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_204"
+	::= { portOperHttpVportCpuListEntry 10}
+
+portOperHttpVportCpuListStatus205 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_205"
+	::= { portOperHttpVportCpuListEntry 11}
+
+portOperHttpVportCpuListStatus206 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_206"
+	::= { portOperHttpVportCpuListEntry 12}
+
+portOperHttpVportCpuListStatus207 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_207"
+	::= { portOperHttpVportCpuListEntry 13}
+
+portOperHttpVportCpuListStatus100 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_100"
+	::= { portOperHttpVportCpuListEntry 14}
+
+portOperHttpVportCpuListStatus101 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_101"
+	::= { portOperHttpVportCpuListEntry 15}
+
+portOperHttpVportCpuListStatus102 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_102"
+	::= { portOperHttpVportCpuListEntry 16}
+
+portOperHttpVportCpuListStatus300 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_300"
+	::= { portOperHttpVportCpuListEntry 17}
+
+portOperHttpVportCpuListStatus301 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_301"
+	::= { portOperHttpVportCpuListEntry 18}
+
+portOperHttpVportCpuListStatus302 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_302"
+	::= { portOperHttpVportCpuListEntry 19}
+
+portOperHttpVportCpuListStatus303 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_303"
+	::= { portOperHttpVportCpuListEntry 20}
+
+portOperHttpVportCpuListStatus304 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_304"
+	::= { portOperHttpVportCpuListEntry 21}
+
+portOperHttpVportCpuListStatus305 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_305"
+	::= { portOperHttpVportCpuListEntry 22}
+
+portOperHttpVportCpuListStatus306 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_306"
+	::= { portOperHttpVportCpuListEntry 23}
+
+portOperHttpVportCpuListStatus307 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_307"
+	::= { portOperHttpVportCpuListEntry 24}
+
+portOperHttpVportCpuListStatus400 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_400"
+	::= { portOperHttpVportCpuListEntry 25}
+
+portOperHttpVportCpuListStatus401 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_401"
+	::= { portOperHttpVportCpuListEntry 26}
+
+portOperHttpVportCpuListStatus402 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_402"
+	::= { portOperHttpVportCpuListEntry 27}
+
+portOperHttpVportCpuListStatus403 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_403"
+	::= { portOperHttpVportCpuListEntry 28}
+
+portOperHttpVportCpuListStatus404 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_404"
+	::= { portOperHttpVportCpuListEntry 29}
+
+portOperHttpVportCpuListStatus405 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_405"
+	::= { portOperHttpVportCpuListEntry 30}
+
+portOperHttpVportCpuListStatus406 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_406"
+	::= { portOperHttpVportCpuListEntry 31}
+
+portOperHttpVportCpuListStatus407 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_407"
+	::= { portOperHttpVportCpuListEntry 32}
+
+portOperHttpVportCpuListStatus408 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_408"
+	::= { portOperHttpVportCpuListEntry 33}
+
+portOperHttpVportCpuListStatus409 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_409"
+	::= { portOperHttpVportCpuListEntry 34}
+
+portOperHttpVportCpuListStatus410 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_410"
+	::= { portOperHttpVportCpuListEntry 35}
+
+portOperHttpVportCpuListStatus411 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_411"
+	::= { portOperHttpVportCpuListEntry 36}
+
+portOperHttpVportCpuListStatus412 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_412"
+	::= { portOperHttpVportCpuListEntry 37}
+
+portOperHttpVportCpuListStatus413 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_413"
+	::= { portOperHttpVportCpuListEntry 38}
+
+portOperHttpVportCpuListStatus414 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_414"
+	::= { portOperHttpVportCpuListEntry 39}
+
+portOperHttpVportCpuListStatus415 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_415"
+	::= { portOperHttpVportCpuListEntry 40}
+
+portOperHttpVportCpuListStatus416 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_416"
+	::= { portOperHttpVportCpuListEntry 41}
+
+portOperHttpVportCpuListStatus417 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_417"
+	::= { portOperHttpVportCpuListEntry 42}
+
+portOperHttpVportCpuListStatus418 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_418"
+	::= { portOperHttpVportCpuListEntry 43}
+
+portOperHttpVportCpuListStatus422 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_422"
+	::= { portOperHttpVportCpuListEntry 44}
+
+portOperHttpVportCpuListStatus423 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_423"
+	::= { portOperHttpVportCpuListEntry 45}
+
+portOperHttpVportCpuListStatus424 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_424"
+	::= { portOperHttpVportCpuListEntry 46}
+
+portOperHttpVportCpuListStatus425 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_425"
+	::= { portOperHttpVportCpuListEntry 47}
+
+portOperHttpVportCpuListStatus426 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_426"
+	::= { portOperHttpVportCpuListEntry 48}
+
+portOperHttpVportCpuListStatus449 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_449"
+	::= { portOperHttpVportCpuListEntry 49}
+
+portOperHttpVportCpuListStatus450 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_450"
+	::= { portOperHttpVportCpuListEntry 50}
+
+portOperHttpVportCpuListStatus500 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_500"
+	::= { portOperHttpVportCpuListEntry 51}
+
+portOperHttpVportCpuListStatus501 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_501"
+	::= { portOperHttpVportCpuListEntry 52}
+
+portOperHttpVportCpuListStatus502 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_502"
+	::= { portOperHttpVportCpuListEntry 53}
+
+portOperHttpVportCpuListStatus503 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_503"
+	::= { portOperHttpVportCpuListEntry 54}
+
+portOperHttpVportCpuListStatus504 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_504"
+	::= { portOperHttpVportCpuListEntry 55}
+
+portOperHttpVportCpuListStatus504Ax OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_504_ax"
+	::= { portOperHttpVportCpuListEntry 56}
+
+portOperHttpVportCpuListStatus505 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_505"
+	::= { portOperHttpVportCpuListEntry 57}
+
+portOperHttpVportCpuListStatus506 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_506"
+	::= { portOperHttpVportCpuListEntry 58}
+
+portOperHttpVportCpuListStatus507 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_507"
+	::= { portOperHttpVportCpuListEntry 59}
+
+portOperHttpVportCpuListStatus508 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_508"
+	::= { portOperHttpVportCpuListEntry 60}
+
+portOperHttpVportCpuListStatus509 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_509"
+	::= { portOperHttpVportCpuListEntry 61}
+
+portOperHttpVportCpuListStatus510 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_510"
+	::= { portOperHttpVportCpuListEntry 62}
+
+portOperHttpVportCpuListStatus1xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_1xx"
+	::= { portOperHttpVportCpuListEntry 63}
+
+portOperHttpVportCpuListStatus2xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_2xx"
+	::= { portOperHttpVportCpuListEntry 64}
+
+portOperHttpVportCpuListStatus3xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_3xx"
+	::= { portOperHttpVportCpuListEntry 65}
+
+portOperHttpVportCpuListStatus4xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_4xx"
+	::= { portOperHttpVportCpuListEntry 66}
+
+portOperHttpVportCpuListStatus5xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_5xx"
+	::= { portOperHttpVportCpuListEntry 67}
+
+portOperHttpVportCpuListStatus6xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_6xx"
+	::= { portOperHttpVportCpuListEntry 68}
+
+portOperHttpVportCpuListStatusUnknown OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status_unknown"
+	::= { portOperHttpVportCpuListEntry 69}
+
+portOperHttpVportCpuListWsHandshakeRequest OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_handshake_request"
+	::= { portOperHttpVportCpuListEntry 70}
+
+portOperHttpVportCpuListWsHandshakeSuccess OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_handshake_success"
+	::= { portOperHttpVportCpuListEntry 71}
+
+portOperHttpVportCpuListWsClientSwitch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_client_switch"
+	::= { portOperHttpVportCpuListEntry 72}
+
+portOperHttpVportCpuListWsServerSwitch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_server_switch"
+	::= { portOperHttpVportCpuListEntry 73}
+
+portOperHttpVportCpuListREQ10u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_10u"
+	::= { portOperHttpVportCpuListEntry 74}
+
+portOperHttpVportCpuListREQ20u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_20u"
+	::= { portOperHttpVportCpuListEntry 75}
+
+portOperHttpVportCpuListREQ50u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_50u"
+	::= { portOperHttpVportCpuListEntry 76}
+
+portOperHttpVportCpuListREQ100u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_100u"
+	::= { portOperHttpVportCpuListEntry 77}
+
+portOperHttpVportCpuListREQ200u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_200u"
+	::= { portOperHttpVportCpuListEntry 78}
+
+portOperHttpVportCpuListREQ500u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_500u"
+	::= { portOperHttpVportCpuListEntry 79}
+
+portOperHttpVportCpuListREQ1m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_1m"
+	::= { portOperHttpVportCpuListEntry 80}
+
+portOperHttpVportCpuListREQ2m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_2m"
+	::= { portOperHttpVportCpuListEntry 81}
+
+portOperHttpVportCpuListREQ5m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_5m"
+	::= { portOperHttpVportCpuListEntry 82}
+
+portOperHttpVportCpuListREQ10m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_10m"
+	::= { portOperHttpVportCpuListEntry 83}
+
+portOperHttpVportCpuListREQ20m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_20m"
+	::= { portOperHttpVportCpuListEntry 84}
+
+portOperHttpVportCpuListREQ50m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_50m"
+	::= { portOperHttpVportCpuListEntry 85}
+
+portOperHttpVportCpuListREQ100m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_100m"
+	::= { portOperHttpVportCpuListEntry 86}
+
+portOperHttpVportCpuListREQ200m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_200m"
+	::= { portOperHttpVportCpuListEntry 87}
+
+portOperHttpVportCpuListREQ500m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_500m"
+	::= { portOperHttpVportCpuListEntry 88}
+
+portOperHttpVportCpuListREQ1s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_1s"
+	::= { portOperHttpVportCpuListEntry 89}
+
+portOperHttpVportCpuListREQ2s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_2s"
+	::= { portOperHttpVportCpuListEntry 90}
+
+portOperHttpVportCpuListREQ5s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_5s"
+	::= { portOperHttpVportCpuListEntry 91}
+
+portOperHttpVportCpuListREQOVER5s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"REQ_OVER_5s"
+	::= { portOperHttpVportCpuListEntry 92}
+
+portOperHttpVportCpuListCurrHttp2Conn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"curr_http2_conn"
+	::= { portOperHttpVportCpuListEntry 93}
+
+portOperHttpVportCpuListTotalHttp2Conn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total_http2_conn"
+	::= { portOperHttpVportCpuListEntry 94}
+
+portOperHttpVportCpuListPeakHttp2Conn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"peak_http2_conn"
+	::= { portOperHttpVportCpuListEntry 95}
+
+portOperHttpVportCpuListTotalHttp2Bytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total_http2_bytes"
+	::= { portOperHttpVportCpuListEntry 96}
+
+portOperHttpVportCpuListHttp2ControlBytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_control_bytes"
+	::= { portOperHttpVportCpuListEntry 97}
+
+portOperHttpVportCpuListHttp2HeaderBytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_header_bytes"
+	::= { portOperHttpVportCpuListEntry 98}
+
+portOperHttpVportCpuListHttp2DataBytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_data_bytes"
+	::= { portOperHttpVportCpuListEntry 99}
+
+portOperHttpVportCpuListHttp2ResetReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_reset_received"
+	::= { portOperHttpVportCpuListEntry 100}
+
+portOperHttpVportCpuListHttp2ResetSent OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_reset_sent"
+	::= { portOperHttpVportCpuListEntry 101}
+
+portOperHttpVportCpuListHttp2GoawayReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_goaway_received"
+	::= { portOperHttpVportCpuListEntry 102}
+
+portOperHttpVportCpuListHttp2GoawaySent OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_goaway_sent"
+	::= { portOperHttpVportCpuListEntry 103}
+
+portOperHttpVportCpuListStreamClosed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"stream_closed"
+	::= { portOperHttpVportCpuListEntry 104}
+
+portOperHttpVportCpuListTransactionLimited OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"transaction_limited"
+	::= { portOperHttpVportCpuListEntry 105}
+
+portOperHttpVportCpuListJsiRequests OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_requests"
+	::= { portOperHttpVportCpuListEntry 106}
+
+portOperHttpVportCpuListJsiResponses OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_responses"
+	::= { portOperHttpVportCpuListEntry 107}
+
+portOperHttpVportCpuListJsiPriRequests OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_pri_requests"
+	::= { portOperHttpVportCpuListEntry 108}
+
+portOperHttpVportCpuListJsiApiRequests OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_api_requests"
+	::= { portOperHttpVportCpuListEntry 109}
+
+portOperHttpVportCpuListJsiApiResponses OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_api_responses"
+	::= { portOperHttpVportCpuListEntry 110}
+
+portOperHttpVportCpuListJsiApiNoAuthHdr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_api_no_auth_hdr"
+	::= { portOperHttpVportCpuListEntry 111}
+
+portOperHttpVportCpuListJsiApiNoToken OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_api_no_token"
+	::= { portOperHttpVportCpuListEntry 112}
+
+portOperHttpVportCpuListJsiSkipNoFi OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_skip_no_fi"
+	::= { portOperHttpVportCpuListEntry 113}
+
+portOperHttpVportCpuListJsiSkipNoUa OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_skip_no_ua"
+	::= { portOperHttpVportCpuListEntry 114}
+
+portOperHttpVportCpuListJsiSkipNotBrowser OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_skip_not_browser"
+	::= { portOperHttpVportCpuListEntry 115}
+
+portOperHttpVportCpuListJsiHashAddFails OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_hash_add_fails"
+	::= { portOperHttpVportCpuListEntry 116}
+
+portOperHttpVportCpuListJsiHashLookupFails OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"jsi_hash_lookup_fails"
+	::= { portOperHttpVportCpuListEntry 117}
+
+portOperHttpVportCpuListHeaderLengthLong OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"header_length_long"
+	::= { portOperHttpVportCpuListEntry 118}
+
+portOperHttpVportCpuListReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_get"
+	::= { portOperHttpVportCpuListEntry 119}
+
+portOperHttpVportCpuListReqHead OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_head"
+	::= { portOperHttpVportCpuListEntry 120}
+
+portOperHttpVportCpuListReqPut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_put"
+	::= { portOperHttpVportCpuListEntry 121}
+
+portOperHttpVportCpuListReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_post"
+	::= { portOperHttpVportCpuListEntry 122}
+
+portOperHttpVportCpuListReqTrace OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_trace"
+	::= { portOperHttpVportCpuListEntry 123}
+
+portOperHttpVportCpuListReqOptions OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_options"
+	::= { portOperHttpVportCpuListEntry 124}
+
+portOperHttpVportCpuListReqConnect OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_connect"
+	::= { portOperHttpVportCpuListEntry 125}
+
+portOperHttpVportCpuListReqDelete OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_delete"
+	::= { portOperHttpVportCpuListEntry 126}
+
+portOperHttpVportCpuListReqUnknown OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_unknown"
+	::= { portOperHttpVportCpuListEntry 127}
+
+portOperHttpVportCpuListReqTrack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_track"
+	::= { portOperHttpVportCpuListEntry 128}
+
+portOperHttpVportCpuListRspSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_1k"
+	::= { portOperHttpVportCpuListEntry 129}
+
+portOperHttpVportCpuListRspSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_2k"
+	::= { portOperHttpVportCpuListEntry 130}
+
+portOperHttpVportCpuListRspSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_4k"
+	::= { portOperHttpVportCpuListEntry 131}
+
+portOperHttpVportCpuListRspSz8k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_8k"
+	::= { portOperHttpVportCpuListEntry 132}
+
+portOperHttpVportCpuListRspSz16k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_16k"
+	::= { portOperHttpVportCpuListEntry 133}
+
+portOperHttpVportCpuListRspSz32k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_32k"
+	::= { portOperHttpVportCpuListEntry 134}
+
+portOperHttpVportCpuListRspSz64k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_64k"
+	::= { portOperHttpVportCpuListEntry 135}
+
+portOperHttpVportCpuListRspSz256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_256k"
+	::= { portOperHttpVportCpuListEntry 136}
+
+portOperHttpVportCpuListRspSzGt256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_gt_256k"
+	::= { portOperHttpVportCpuListEntry 137}
+
+portOperHttpVportCpuListChunkSz512 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_512"
+	::= { portOperHttpVportCpuListEntry 138}
+
+portOperHttpVportCpuListChunkSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_1k"
+	::= { portOperHttpVportCpuListEntry 139}
+
+portOperHttpVportCpuListChunkSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_2k"
+	::= { portOperHttpVportCpuListEntry 140}
+
+portOperHttpVportCpuListChunkSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_4k"
+	::= { portOperHttpVportCpuListEntry 141}
+
+portOperHttpVportCpuListChunkSzGt4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_gt_4k"
+	::= { portOperHttpVportCpuListEntry 142}
+
+portOperHttpVportCpuListReqSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_1k"
+	::= { portOperHttpVportCpuListEntry 143}
+
+portOperHttpVportCpuListReqSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_2k"
+	::= { portOperHttpVportCpuListEntry 144}
+
+portOperHttpVportCpuListReqSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_4k"
+	::= { portOperHttpVportCpuListEntry 145}
+
+portOperHttpVportCpuListReqSz8k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_8k"
+	::= { portOperHttpVportCpuListEntry 146}
+
+portOperHttpVportCpuListReqSz16k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_16k"
+	::= { portOperHttpVportCpuListEntry 147}
+
+portOperHttpVportCpuListReqSz32k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_32k"
+	::= { portOperHttpVportCpuListEntry 148}
+
+portOperHttpVportCpuListReqSz64k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_64k"
+	::= { portOperHttpVportCpuListEntry 149}
+
+portOperHttpVportCpuListReqSz256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_256k"
+	::= { portOperHttpVportCpuListEntry 150}
+
+portOperHttpVportCpuListReqSzGt256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_gt_256k"
+	::= { portOperHttpVportCpuListEntry 151}
+
+portOperHttpVportCpuListReqContentLen OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_content_len"
+	::= { portOperHttpVportCpuListEntry 152}
+
+portOperHttpVportCpuListRspChunk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_chunk"
+	::= { portOperHttpVportCpuListEntry 153}
+
+portOperHttpVportCpuListDohReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req"
+	::= { portOperHttpVportCpuListEntry 154}
+
+portOperHttpVportCpuListDohReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_get"
+	::= { portOperHttpVportCpuListEntry 155}
+
+portOperHttpVportCpuListDohReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_post"
+	::= { portOperHttpVportCpuListEntry 156}
+
+portOperHttpVportCpuListDohNonDohReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req"
+	::= { portOperHttpVportCpuListEntry 157}
+
+portOperHttpVportCpuListDohNonDohReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req_get"
+	::= { portOperHttpVportCpuListEntry 158}
+
+portOperHttpVportCpuListDohNonDohReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req_post"
+	::= { portOperHttpVportCpuListEntry 159}
+
+portOperHttpVportCpuListDohResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp"
+	::= { portOperHttpVportCpuListEntry 160}
+
+portOperHttpVportCpuListDohTcResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tc_resp"
+	::= { portOperHttpVportCpuListEntry 161}
+
+portOperHttpVportCpuListDohUdpDnsReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_dns_req"
+	::= { portOperHttpVportCpuListEntry 162}
+
+portOperHttpVportCpuListDohUdpDnsResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_dns_resp"
+	::= { portOperHttpVportCpuListEntry 163}
+
+portOperHttpVportCpuListDohTcpDnsReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_dns_req"
+	::= { portOperHttpVportCpuListEntry 164}
+
+portOperHttpVportCpuListDohTcpDnsResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_dns_resp"
+	::= { portOperHttpVportCpuListEntry 165}
+
+portOperHttpVportCpuListDohReqSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_send_failed"
+	::= { portOperHttpVportCpuListEntry 166}
+
+portOperHttpVportCpuListDohRespSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_send_failed"
+	::= { portOperHttpVportCpuListEntry 167}
+
+portOperHttpVportCpuListDohMallocFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_malloc_fail"
+	::= { portOperHttpVportCpuListEntry 168}
+
+portOperHttpVportCpuListDohReqUdpRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_udp_retry"
+	::= { portOperHttpVportCpuListEntry 169}
+
+portOperHttpVportCpuListDohReqUdpRetryFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_udp_retry_fail"
+	::= { portOperHttpVportCpuListEntry 170}
+
+portOperHttpVportCpuListDohReqTcpRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_tcp_retry"
+	::= { portOperHttpVportCpuListEntry 171}
+
+portOperHttpVportCpuListDohReqTcpRetryFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_tcp_retry_fail"
+	::= { portOperHttpVportCpuListEntry 172}
+
+portOperHttpVportCpuListDohSnatFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_snat_failed"
+	::= { portOperHttpVportCpuListEntry 173}
+
+portOperHttpVportCpuListDohPathNotFound OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_path_not_found"
+	::= { portOperHttpVportCpuListEntry 174}
+
+portOperHttpVportCpuListDohGetDnsArgFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_dns_arg_failed"
+	::= { portOperHttpVportCpuListEntry 175}
+
+portOperHttpVportCpuListDohGetBase64DecodeFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_base64_decode_failed"
+	::= { portOperHttpVportCpuListEntry 176}
+
+portOperHttpVportCpuListDohPostContentTypeMismatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_content_type_mismatch"
+	::= { portOperHttpVportCpuListEntry 177}
+
+portOperHttpVportCpuListDohPostPayloadNotFound OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_not_found"
+	::= { portOperHttpVportCpuListEntry 178}
+
+portOperHttpVportCpuListDohPostPayloadExtractFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_extract_failed"
+	::= { portOperHttpVportCpuListEntry 179}
+
+portOperHttpVportCpuListDohNonDohMethod OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_method"
+	::= { portOperHttpVportCpuListEntry 180}
+
+portOperHttpVportCpuListDohTcpSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_send_failed"
+	::= { portOperHttpVportCpuListEntry 181}
+
+portOperHttpVportCpuListDohUdpSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_send_failed"
+	::= { portOperHttpVportCpuListEntry 182}
+
+portOperHttpVportCpuListDohQueryTimeOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_query_time_out"
+	::= { portOperHttpVportCpuListEntry 183}
+
+portOperHttpVportCpuListDohDnsQueryTypeA OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_a"
+	::= { portOperHttpVportCpuListEntry 184}
+
+portOperHttpVportCpuListDohDnsQueryTypeAaaa OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_aaaa"
+	::= { portOperHttpVportCpuListEntry 185}
+
+portOperHttpVportCpuListDohDnsQueryTypeNs OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_ns"
+	::= { portOperHttpVportCpuListEntry 186}
+
+portOperHttpVportCpuListDohDnsQueryTypeCname OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_cname"
+	::= { portOperHttpVportCpuListEntry 187}
+
+portOperHttpVportCpuListDohDnsQueryTypeAny OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_any"
+	::= { portOperHttpVportCpuListEntry 188}
+
+portOperHttpVportCpuListDohDnsQueryTypeSrv OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_srv"
+	::= { portOperHttpVportCpuListEntry 189}
+
+portOperHttpVportCpuListDohDnsQueryTypeMx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_mx"
+	::= { portOperHttpVportCpuListEntry 190}
+
+portOperHttpVportCpuListDohDnsQueryTypeSoa OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_soa"
+	::= { portOperHttpVportCpuListEntry 191}
+
+portOperHttpVportCpuListDohDnsQueryTypeOthers OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_others"
+	::= { portOperHttpVportCpuListEntry 192}
+
+portOperHttpVportCpuListDohRespSetupFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_setup_failed"
+	::= { portOperHttpVportCpuListEntry 193}
+
+portOperHttpVportCpuListDohRespHeaderAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_header_alloc_failed"
+	::= { portOperHttpVportCpuListEntry 194}
+
+portOperHttpVportCpuListDohRespQueFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_que_failed"
+	::= { portOperHttpVportCpuListEntry 195}
+
+portOperHttpVportCpuListDohRespUdpFrags OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_udp_frags"
+	::= { portOperHttpVportCpuListEntry 196}
+
+portOperHttpVportCpuListDohRespTcpFrags OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_tcp_frags"
+	::= { portOperHttpVportCpuListEntry 197}
+
+portOperHttpVportCpuListDohServSelFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_serv_sel_failed"
+	::= { portOperHttpVportCpuListEntry 198}
+
+portOperHttpVportCpuListDohRetryWTcp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_retry_w_tcp"
+	::= { portOperHttpVportCpuListEntry 199}
+
+portOperHttpVportCpuListDohGetUriTooLong OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_uri_too_long"
+	::= { portOperHttpVportCpuListEntry 200}
+
+portOperHttpVportCpuListDohPostPayloadTooLarge OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_too_large"
+	::= { portOperHttpVportCpuListEntry 201}
+
+portOperHttpVportCpuListDohDnsMalformedQuery OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_malformed_query"
+	::= { portOperHttpVportCpuListEntry 202}
+
+portOperHttpVportCpuListDohDnsRespRcodeErrFormat OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_format"
+	::= { portOperHttpVportCpuListEntry 203}
+
+portOperHttpVportCpuListDohDnsRespRcodeErrServer OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_server"
+	::= { portOperHttpVportCpuListEntry 204}
+
+portOperHttpVportCpuListDohDnsRespRcodeErrName OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_name"
+	::= { portOperHttpVportCpuListEntry 205}
+
+portOperHttpVportCpuListDohDnsRespRcodeErrType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_type"
+	::= { portOperHttpVportCpuListEntry 206}
+
+portOperHttpVportCpuListDohDnsRespRcodeRefuse OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_refuse"
+	::= { portOperHttpVportCpuListEntry 207}
+
+portOperHttpVportCpuListDohDnsRespRcodeYxdomain OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_yxdomain"
+	::= { portOperHttpVportCpuListEntry 208}
+
+portOperHttpVportCpuListDohDnsRespRcodeYxrrset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_yxrrset"
+	::= { portOperHttpVportCpuListEntry 209}
+
+portOperHttpVportCpuListDohDnsRespRcodeNxrrset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_nxrrset"
+	::= { portOperHttpVportCpuListEntry 210}
+
+portOperHttpVportCpuListDohDnsRespRcodeNotauth OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_notauth"
+	::= { portOperHttpVportCpuListEntry 211}
+
+portOperHttpVportCpuListDohDnsRespRcodeNotzone OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_notzone"
+	::= { portOperHttpVportCpuListEntry 212}
+
+portOperHttpVportCpuListDohDnsRespRcodeOther OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_other"
+	::= { portOperHttpVportCpuListEntry 213}
+
+END
+

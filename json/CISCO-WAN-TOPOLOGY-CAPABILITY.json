@@ -1,0 +1,384 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanTopologyCapability": {
+    "name": "ciscoWanTopologyCapability",
+    "oid": "1.3.6.1.4.1.9.7.254",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-15 00:00",
+        "description": "- Added ciscoWanTopologyV4R0000 capability for release 4.0.00."
+      },
+      {
+        "revision": "2002-10-31 00:00",
+        "description": "- Replace the objects cwtLanIP and cwtAtmIP in ciscoWanTopologyCapabilityV3R00 with objects cwtPrimIPIfType, cwtPrimIPIfName, cwtPrimIPAddrType, cwtPrimIP, cwtSecIPIfType, cwtSecIPIfName, cwtSecIPAddrType, cwtSecIP. - Added ciscoWanTopologyV3R0020 capability for release 3.0.20."
+      },
+      {
+        "revision": "2001-10-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWanTopologyCapabilityV3R00": {
+    "name": "ciscoWanTopologyCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.254.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 and BPX-SES Release 3.00",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "includes": [
+          "cwtSystemMIBGroups",
+          "cwtNodalMIBGroups"
+        ],
+        "variations": [
+          {
+            "object": "cwtGatewayNodeFlag",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSysObjId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtDBLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtNodeInfoTimeOutFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanTopologyCapabilityV3R0020": {
+    "name": "ciscoWanTopologyCapabilityV3R0020",
+    "oid": "1.3.6.1.4.1.9.7.254.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 and BPX-SES Release 3.0.20",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "includes": [
+          "cwtSystemMIBGroups",
+          "cwtNodalMIBGroups",
+          "cwtFeederMIBGroups"
+        ],
+        "variations": [
+          {
+            "object": "cwtGatewayNodeFlag",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSysObjId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtDBLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtNodeInfoTimeOutFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cwtFeederRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanTopologyCapabilityV4R0000": {
+    "name": "ciscoWanTopologyCapabilityV4R0000",
+    "oid": "1.3.6.1.4.1.9.7.254.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 and BPX-SES Release 4.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "includes": [
+          "cwtSystemMIBGroups",
+          "cwtNodalMIBGroups",
+          "cwtFeederMIBGroups",
+          "cwtLinkMIBGroups"
+        ],
+        "variations": [
+          {
+            "object": "cwtGatewayNodeFlag",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtNodeName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtPrimIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPIfName",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIPAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSecIP",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtSysObjId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtDBLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtNodeInfoTimeOutFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cwtFeederRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cwtLinkLocalNodeId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkRemoteNodeId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkLocalIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkRemoteIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkLocalPhysicalId",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkRemotePhysicalId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtLinkInfoTimeOutFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwtLinkOutsideLink",
+            "access": "read-only"
+          },
+          {
+            "object": "cwtLinkRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-TOPOLOGY-CAPABILITY",
+      "Source digest sha256:3c9fee74799b752defddf45f1cae20324c9ec5d845e10cf605fb6492dfdd1979",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-TOPOLOGY-CAPABILITY"
+  }
+}

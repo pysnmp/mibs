@@ -1,0 +1,1419 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELLEMC-OS10-SMI-MIB": [
+      "os10"
+    ],
+    "DELLEMC-OS10-TC-MIB": [
+      "Os10CardOperStatus",
+      "Os10ChassisDefType",
+      "Os10CmnOperStatus",
+      "Os10DeviceType",
+      "Os10SystemCardType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "os10ChassisMib": {
+    "name": "os10ChassisMib",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-21 12:00",
+        "description": "Modified as per current yang model and removed confirmation information"
+      },
+      {
+        "revision": "2017-01-25 12:00",
+        "description": "First draft revision of Dell EMC Networking OS10 chassis MIB."
+      }
+    ]
+  },
+  "os10SysObject": {
+    "name": "os10SysObject",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1",
+    "class": "objectidentity"
+  },
+  "os10ChassisObject": {
+    "name": "os10ChassisObject",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1",
+    "class": "objectidentity"
+  },
+  "os10SystemComponent": {
+    "name": "os10SystemComponent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2",
+    "class": "objectidentity"
+  },
+  "os10AlmObjects": {
+    "name": "os10AlmObjects",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3",
+    "class": "objectidentity"
+  },
+  "os10NumChassis": {
+    "name": "os10NumChassis",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10MaxNumChassis": {
+    "name": "os10MaxNumChassis",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisTable": {
+    "name": "os10ChassisTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10ChassisEntry": {
+    "name": "os10ChassisEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10ChassisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10ChassisIndex": {
+    "name": "os10ChassisIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10ChassisType": {
+    "name": "os10ChassisType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10ChassisDefType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisMacAddr": {
+    "name": "os10ChassisMacAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisPartNum": {
+    "name": "os10ChassisPartNum",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisPPID": {
+    "name": "os10ChassisPPID",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisHwRev": {
+    "name": "os10ChassisHwRev",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisServiceTag": {
+    "name": "os10ChassisServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisExpServiceCode": {
+    "name": "os10ChassisExpServiceCode",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisNumFanTrays": {
+    "name": "os10ChassisNumFanTrays",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisNumPowerSupplies": {
+    "name": "os10ChassisNumPowerSupplies",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisTemp": {
+    "name": "os10ChassisTemp",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisProductBase": {
+    "name": "os10ChassisProductBase",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisProductSN": {
+    "name": "os10ChassisProductSN",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10ChassisProductPN": {
+    "name": "os10ChassisProductPN",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardTable": {
+    "name": "os10CardTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10CardEntry": {
+    "name": "os10CardEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10ChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10CardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10CardIndex": {
+    "name": "os10CardIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10CardType": {
+    "name": "os10CardType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10SystemCardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardDescription": {
+    "name": "os10CardDescription",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardStatus": {
+    "name": "os10CardStatus",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10CardOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardTemp": {
+    "name": "os10CardTemp",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardPartNum": {
+    "name": "os10CardPartNum",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardPPID": {
+    "name": "os10CardPPID",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardHwRev": {
+    "name": "os10CardHwRev",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardServiceTag": {
+    "name": "os10CardServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10CardExpServiceCode": {
+    "name": "os10CardExpServiceCode",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyTable": {
+    "name": "os10PowerSupplyTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10PowerSupplyEntry": {
+    "name": "os10PowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10PowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10PowerSupplyIndex": {
+    "name": "os10PowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10PowerSupplyDevice": {
+    "name": "os10PowerSupplyDevice",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyDeviceIndex": {
+    "name": "os10PowerSupplyDeviceIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyOperStatus": {
+    "name": "os10PowerSupplyOperStatus",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10CmnOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyType": {
+    "name": "os10PowerSupplyType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ac": 2,
+          "dc": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyPPID": {
+    "name": "os10PowerSupplyPPID",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyServiceTag": {
+    "name": "os10PowerSupplyServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10PowerSupplyExpServiceCode": {
+    "name": "os10PowerSupplyExpServiceCode",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayTable": {
+    "name": "os10FanTrayTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10FanTrayEntry": {
+    "name": "os10FanTrayEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10FanTrayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10FanTrayIndex": {
+    "name": "os10FanTrayIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10FanTrayDevice": {
+    "name": "os10FanTrayDevice",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayDeviceIndex": {
+    "name": "os10FanTrayDeviceIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayOperStatus": {
+    "name": "os10FanTrayOperStatus",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10CmnOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayPPID": {
+    "name": "os10FanTrayPPID",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayServiceTag": {
+    "name": "os10FanTrayServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTrayExpServiceCode": {
+    "name": "os10FanTrayExpServiceCode",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanTable": {
+    "name": "os10FanTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10FanEntry": {
+    "name": "os10FanEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10FanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10FanIndex": {
+    "name": "os10FanIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10FanDevice": {
+    "name": "os10FanDevice",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanDeviceIndex": {
+    "name": "os10FanDeviceIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanEntity": {
+    "name": "os10FanEntity",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psu": 1,
+          "fanTray": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanEntitySlot": {
+    "name": "os10FanEntitySlot",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanId": {
+    "name": "os10FanId",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10FanOperStatus": {
+    "name": "os10FanOperStatus",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10CmnOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10AlmMibNotifications": {
+    "name": "os10AlmMibNotifications",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1",
+    "class": "objectidentity"
+  },
+  "os10AlmVariable": {
+    "name": "os10AlmVariable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2",
+    "class": "objectidentity"
+  },
+  "os10AlmVarInteger": {
+    "name": "os10AlmVarInteger",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "os10AlmVarString": {
+    "name": "os10AlmVarString",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "os10AlmVarChassisId": {
+    "name": "os10AlmVarChassisId",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "os10AlmVarSlot": {
+    "name": "os10AlmVarSlot",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "os10AlmVarPort": {
+    "name": "os10AlmVarPort",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "os10AlmMinorTempHigh": {
+    "name": "os10AlmMinorTempHigh",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMinorTempClr": {
+    "name": "os10AlmMinorTempClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMajorTempHigh": {
+    "name": "os10AlmMajorTempHigh",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMajorTempClr": {
+    "name": "os10AlmMajorTempClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmPowerSupplyDown": {
+    "name": "os10AlmPowerSupplyDown",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmPowerSupplyClr": {
+    "name": "os10AlmPowerSupplyClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMajorPowerSupply": {
+    "name": "os10AlmMajorPowerSupply",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMajorPowerSupplyClr": {
+    "name": "os10AlmMajorPowerSupplyClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMinorPowerSupply": {
+    "name": "os10AlmMinorPowerSupply",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMinorPowerSupplyClr": {
+    "name": "os10AlmMinorPowerSupplyClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmFanTrayDown": {
+    "name": "os10AlmFanTrayDown",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmFanTrayClr": {
+    "name": "os10AlmFanTrayClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMinorFanTray": {
+    "name": "os10AlmMinorFanTray",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "os10AlmMinorFanTrayClr": {
+    "name": "os10AlmMinorFanTrayClr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.4.1.3.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarInteger"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarString"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarChassisId"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarSlot"
+      },
+      {
+        "module": "DELLEMC-OS10-CHASSIS-MIB",
+        "object": "os10AlmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DELLEMC-OS10-CHASSIS-MIB",
+      "Source digest sha256:577a32194849f4d0a5f5feefd02e499fae0230ebe896a76028d6a87e9bc50c77",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DELLEMC-OS10-CHASSIS-MIB"
+  }
+}

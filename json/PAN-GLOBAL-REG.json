@@ -1,0 +1,83 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "panGlobalRegModule": {
+    "name": "panGlobalRegModule",
+    "oid": "1.3.6.1.4.1.25461.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-09 16:10",
+        "description": " Rev 1.0 Initial version of MIB module PAN-GLOBAL-REG."
+      }
+    ]
+  },
+  "panRoot": {
+    "name": "panRoot",
+    "oid": "1.3.6.1.4.1.25461",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panReg": {
+    "name": "panReg",
+    "oid": "1.3.6.1.4.1.25461.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panModules": {
+    "name": "panModules",
+    "oid": "1.3.6.1.4.1.25461.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panMibs": {
+    "name": "panMibs",
+    "oid": "1.3.6.1.4.1.25461.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonMib": {
+    "name": "panCommonMib",
+    "oid": "1.3.6.1.4.1.25461.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panSpecificMib": {
+    "name": "panSpecificMib",
+    "oid": "1.3.6.1.4.1.25461.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panProductsMibs": {
+    "name": "panProductsMibs",
+    "oid": "1.3.6.1.4.1.25461.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PAN-GLOBAL-REG",
+      "Source digest sha256:524f7088cb3546ba51678dfe75d948e0a0a931cdba3944e71991e3ab607a7517",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PAN-GLOBAL-REG"
+  }
+}

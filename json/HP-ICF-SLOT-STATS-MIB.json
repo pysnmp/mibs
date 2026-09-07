@@ -1,0 +1,248 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitchStatistics"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfSlotStatsMIB": {
+    "name": "hpicfSlotStatsMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-05 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "hpicfSlotStatsObjects": {
+    "name": "hpicfSlotStatsObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1",
+    "class": "objectidentity"
+  },
+  "hpicfSlotStatsConformance": {
+    "name": "hpicfSlotStatsConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2",
+    "class": "objectidentity"
+  },
+  "hpicfSlotStatsModuleCpuStatTable": {
+    "name": "hpicfSlotStatsModuleCpuStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleCpuStatEntry": {
+    "name": "hpicfSlotStatsModuleCpuStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleHwModel": {
+    "name": "hpicfSlotStatsModuleHwModel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleSerialNum": {
+    "name": "hpicfSlotStatsModuleSerialNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleCpuStatCurrentPercent": {
+    "name": "hpicfSlotStatsModuleCpuStatCurrentPercent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleCpuStatAveragePercent": {
+    "name": "hpicfSlotStatsModuleCpuStatAveragePercent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSlotStatsModuleCpuStatUpdateFrequency": {
+    "name": "hpicfSlotStatsModuleCpuStatUpdateFrequency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSlotStatsGroups": {
+    "name": "hpicfSlotStatsGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfSlotStatsCompliances": {
+    "name": "hpicfSlotStatsCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfSlotStatsGroup": {
+    "name": "hpicfSlotStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleHwModel"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleSerialNum"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleCpuStatCurrentPercent"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleCpuStatAveragePercent"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleCpuStatUpdateFrequency"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSlotStatsFullCompliance1": {
+    "name": "hpicfSlotStatsFullCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSlotStatsGroup",
+        "module": "HP-ICF-SLOT-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfModuleSlotStatsReadOnlyCompliance1": {
+    "name": "hpicfModuleSlotStatsReadOnlyCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.20.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSlotStatsGroup",
+        "module": "HP-ICF-SLOT-STATS-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleHwModel",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleSerialNum",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleCpuStatCurrentPercent",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SLOT-STATS-MIB",
+        "object": "hpicfSlotStatsModuleCpuStatAveragePercent",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SLOT-STATS-MIB",
+      "Source digest sha256:b457e8d57da3fcb07242c0695a963997c3206f82443359f174f31dbc6b3f1ca5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SLOT-STATS-MIB"
+  }
+}

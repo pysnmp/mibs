@@ -1,0 +1,187 @@
+--------------------------------------------------------------------------------
+--ACMEPACKET-OCAO-MIB:  Acme Packet OCAO MIB file
+--
+--June 2015
+--
+--Copyright (c) by Oracle Communications
+--All rights reserved.
+--------------------------------------------------------------------------------
+--This MIB provides a means to gather information about the
+--Oracle Communication Application Orchestrator information
+--
+
+APOCAO-MIB DEFINITIONS ::= BEGIN
+
+    IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, Integer32
+        FROM SNMPv2-SMI
+    OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    DisplayString, TruthValue 
+  	FROM SNMPv2-TC
+    acmepacketMgmt
+        FROM ACMEPACKET-SMI
+    apEMSModule
+        FROM APEMS-MIB;
+
+    apOCAOModule MODULE-IDENTITY
+        LAST-UPDATED	    "201507100000Z"
+        ORGANIZATION     "Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:	Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:	support@oracle.com" 
+        DESCRIPTION     "The MIB for Oracle Communication Application Orchestrator (OCAO)"
+        REVISION        "201503200900Z"
+        DESCRIPTION     "Updated contact info"
+        REVISION        "201507100000Z"
+        DESCRIPTION     "Add new traps: apOCAONFcDeploymentFailure, 
+                         apOCAONFcDeploymentFailureClear, 
+                         apOCAONFcDUAvailabilityFailure, 
+                         apOCAONFcDUAvailabilityFailureClear"
+        ::= { apEMSModule 7 }
+
+    apOCAOMIBObjects OBJECT IDENTIFIER ::= { apOCAOModule 1 }
+
+    apOCAONotificationObjects OBJECT IDENTIFIER ::= { apOCAOModule 2 }	 
+
+    apOCAOSourceServerAddress OBJECT-TYPE
+	SYNTAX                DisplayString
+	MAX-ACCESS            accessible-for-notify
+	STATUS                current
+	DESCRIPTION           "The address of the Oracle Communication Application Orchestrator (OCAO)" 
+	::= { apOCAONotificationObjects 1 }
+
+    apOCAOSourceServerName   OBJECT-TYPE
+	SYNTAX                DisplayString
+	MAX-ACCESS            accessible-for-notify
+	STATUS                current
+	DESCRIPTION           "The name (if available) of the Oracle Communication Application Orchestrator (OCAO)"
+	::= { apOCAONotificationObjects 2 }
+
+    apOCAOFailureReason     OBJECT-TYPE
+	SYNTAX     	     	DisplayString (SIZE (1..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS	   		current
+	DESCRIPTION          "The reason for failure."
+	::= { apOCAONotificationObjects 3 }
+    
+    apOCAONFName            OBJECT-TYPE
+    	SYNTAX     	     	DisplayString (SIZE (1..255))
+    	MAX-ACCESS		accessible-for-notify
+    	STATUS	   		current
+    	DESCRIPTION          "The name of the Network Function"
+	::= { apOCAONotificationObjects 4 }
+
+    apOCAONFcGroupName       OBJECT-TYPE
+    	SYNTAX     	     	DisplayString (SIZE (1..255))
+    	MAX-ACCESS		accessible-for-notify
+    	STATUS	   		current
+    	DESCRIPTION          "The name of the Network Function component group"
+	::= { apOCAONotificationObjects 5 }
+    
+    apOCAODUName            OBJECT-TYPE
+    	SYNTAX     	     	DisplayString (SIZE (1..255))
+    	MAX-ACCESS		accessible-for-notify
+    	STATUS	   		current
+    	DESCRIPTION          "The name of the Deployment Unit"
+	::= { apOCAONotificationObjects 6 }
+		
+    apOCAONotifications OBJECT IDENTIFIER ::= { apOCAOModule 3 }
+   
+    apOCAONFcDeploymentStatusNotificationsPrefix
+        OBJECT IDENTIFIER ::= { apOCAONotifications 1 }
+                
+    apOCAONFcDeploymentStatusNotifications
+        OBJECT IDENTIFIER ::= { apOCAONFcDeploymentStatusNotificationsPrefix 0 }
+
+    apOCAONFcDeploymentFailure NOTIFICATION-TYPE
+        OBJECTS {
+             apOCAOSourceServerAddress,
+             apOCAONFName,       
+	      apOCAONFcGroupName,
+             apOCAODUName,
+             apOCAOFailureReason
+       }
+	STATUS current
+        DESCRIPTION
+            "The notification will be generated when a deployment of Network Function component fails."
+       ::= { apOCAONFcDeploymentStatusNotifications 1 }
+
+    apOCAONFcDeploymentFailureClear NOTIFICATION-TYPE
+        OBJECTS {
+            apOCAOSourceServerAddress,
+            apOCAONFName,
+	     apOCAONFcGroupName,
+            apOCAODUName            
+	 }
+	STATUS current
+	DESCRIPTION
+            "The notification will be generated to clear a prior apOCAONFcDeploymentFailure notification."
+       ::= { apOCAONFcDeploymentStatusNotifications 2 }
+
+    apOCAOCapacityPlannerNotificationsPrefix
+        OBJECT IDENTIFIER ::= { apOCAONotifications 2 }
+                
+    apOCAOCapacityPlannerNotifications
+        OBJECT IDENTIFIER ::= { apOCAOCapacityPlannerNotificationsPrefix 0 }
+
+    apOCAONFcDUAvailabilityFailure NOTIFICATION-TYPE
+        OBJECTS {
+            apOCAOSourceServerAddress,
+            apOCAONFName,
+	     apOCAONFcGroupName,
+            apOCAOFailureReason
+        }
+	 STATUS current
+        DESCRIPTION
+            "The notification will be generated when scale out operation fails due to lack of a available Deployment Unit for the Network Function component group."
+        ::= { apOCAOCapacityPlannerNotifications 1 }
+
+    apOCAONFcDUAvailabilityFailureClear NOTIFICATION-TYPE
+        OBJECTS {
+            apOCAOSourceServerAddress,
+            apOCAONFName,
+	     apOCAONFcGroupName          
+	 }
+	 STATUS current
+	 DESCRIPTION
+            "The notification will be generated to clear a prior apOCAONFcDUAvailabilityFailure notification."
+        ::= { apOCAOCapacityPlannerNotifications 2 }
+
+    apOCAOModuleConformance OBJECT IDENTIFIER ::= { apOCAOModule 4 }
+
+    apOCAOGroups OBJECT IDENTIFIER ::= { apOCAOModuleConformance 1 }
+    
+    apOCAONotificationsGroups OBJECT IDENTIFIER ::= { apOCAOModuleConformance 2 }
+    
+    apOCAONotificationObjectsGroups OBJECT IDENTIFIER ::= { apOCAOModuleConformance 3 }
+
+    apOCAODeploymentStatusNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+           apOCAONFcDeploymentFailure,
+           apOCAONFcDeploymentFailureClear,
+           apOCAONFcDUAvailabilityFailure,
+           apOCAONFcDUAvailabilityFailureClear
+        }
+        STATUS current
+        DESCRIPTION "Deployment status notifications generated by OCAO Server"
+        ::= { apOCAONotificationsGroups 1 }
+  
+    apOCAODeploymentStatusObjectsGroup OBJECT-GROUP
+         OBJECTS {
+            apOCAONFName,
+  	     apOCAONFcGroupName,
+            apOCAODUName,
+            apOCAOFailureReason              
+        }
+        STATUS current
+        DESCRIPTION "Objects for deployment status notifications."
+        ::= { apOCAONotificationObjectsGroups 1 }
+
+END

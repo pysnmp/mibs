@@ -1,0 +1,1206 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEnhancedWredMIB": {
+    "name": "ciscoEnhancedWredMIB",
+    "oid": "1.3.6.1.4.1.9.9.222",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-12-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEnhancedWredMIBObjects": {
+    "name": "ciscoEnhancedWredMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.222.1",
+    "class": "objectidentity"
+  },
+  "cewredTx": {
+    "name": "cewredTx",
+    "oid": "1.3.6.1.4.1.9.9.222.1.1",
+    "class": "objectidentity"
+  },
+  "cewredRx": {
+    "name": "cewredRx",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2",
+    "class": "objectidentity"
+  },
+  "cewredConfig": {
+    "name": "cewredConfig",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3",
+    "class": "objectidentity"
+  },
+  "cewredQueue": {
+    "name": "cewredQueue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4",
+    "class": "objectidentity"
+  },
+  "cewredStat": {
+    "name": "cewredStat",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5",
+    "class": "objectidentity"
+  },
+  "CewredQueueNumber": {
+    "name": "CewredQueueNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CewredRedMechanism": {
+    "name": "CewredRedMechanism",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "precedence": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CewredRedProfile": {
+    "name": "CewredRedProfile",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CewredIndex": {
+    "name": "CewredIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cewredTxTable": {
+    "name": "cewredTxTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredTxEntry": {
+    "name": "cewredTxEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredTxValue": {
+    "name": "cewredTxValue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredTxRowStatus": {
+    "name": "cewredTxRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxIfTable": {
+    "name": "cewredRxIfTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredRxIfEntry": {
+    "name": "cewredRxIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredRxIfValue": {
+    "name": "cewredRxIfValue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxIfRowStatus": {
+    "name": "cewredRxIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxTable": {
+    "name": "cewredRxTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredRxEntry": {
+    "name": "cewredRxEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxSourceId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxDestId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredRxSourceId": {
+    "name": "cewredRxSourceId",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredRxDestId": {
+    "name": "cewredRxDestId",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredRxValue": {
+    "name": "cewredRxValue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxRowStatus": {
+    "name": "cewredRxRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxMulticastTable": {
+    "name": "cewredRxMulticastTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredRxMulticastEntry": {
+    "name": "cewredRxMulticastEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredRxMulticastValue": {
+    "name": "cewredRxMulticastValue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredRxMulticastRowStatus": {
+    "name": "cewredRxMulticastRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigGlobTable": {
+    "name": "cewredConfigGlobTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredConfigGlobEntry": {
+    "name": "cewredConfigGlobEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredConfigGlobIndex": {
+    "name": "cewredConfigGlobIndex",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredConfigGlobCosGroupName": {
+    "name": "cewredConfigGlobCosGroupName",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigGlobQueueWeight": {
+    "name": "cewredConfigGlobQueueWeight",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigGlobDscpPrec": {
+    "name": "cewredConfigGlobDscpPrec",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredRedMechanism",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigGlobRowStatus": {
+    "name": "cewredConfigGlobRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedTable": {
+    "name": "cewredConfigRedTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredConfigRedEntry": {
+    "name": "cewredConfigRedEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredConfigRedValue": {
+    "name": "cewredConfigRedValue",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredConfigRedQueueNumber": {
+    "name": "cewredConfigRedQueueNumber",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedProfile": {
+    "name": "cewredConfigRedProfile",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredRedProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedMinThreshold": {
+    "name": "cewredConfigRedMinThreshold",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedMaxThreshold": {
+    "name": "cewredConfigRedMaxThreshold",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedPktsDropFract": {
+    "name": "cewredConfigRedPktsDropFract",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredConfigRedRowStatus": {
+    "name": "cewredConfigRedRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.222.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cewredQueueParamTable": {
+    "name": "cewredQueueParamTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredQueueParamEntry": {
+    "name": "cewredQueueParamEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredQueueParamNumber": {
+    "name": "cewredQueueParamNumber",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredQueueParamWeight": {
+    "name": "cewredQueueParamWeight",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cewredQueueParamAverage": {
+    "name": "cewredQueueParamAverage",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredQueueParamMaxAverage": {
+    "name": "cewredQueueParamMaxAverage",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cewredQueueParamDepth": {
+    "name": "cewredQueueParamDepth",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredQueueParamMaxDepth": {
+    "name": "cewredQueueParamMaxDepth",
+    "oid": "1.3.6.1.4.1.9.9.222.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cewredStatTable": {
+    "name": "cewredStatTable",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredStatEntry": {
+    "name": "cewredStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatRedProfile",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cewredStatRedProfile": {
+    "name": "cewredStatRedProfile",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CewredRedProfile",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cewredStatSwitchedPkts": {
+    "name": "cewredStatSwitchedPkts",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredStatRandomFilteredPkts": {
+    "name": "cewredStatRandomFilteredPkts",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredStatMaxFilteredPkts": {
+    "name": "cewredStatMaxFilteredPkts",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredStatSwitchedPkts64": {
+    "name": "cewredStatSwitchedPkts64",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredStatRandomFilteredPkts64": {
+    "name": "cewredStatRandomFilteredPkts64",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredStatMaxFilteredPkts64": {
+    "name": "cewredStatMaxFilteredPkts64",
+    "oid": "1.3.6.1.4.1.9.9.222.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cewredMIBNotifications": {
+    "name": "cewredMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.222.0",
+    "class": "objectidentity"
+  },
+  "cewredMIBConformance": {
+    "name": "cewredMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.222.3",
+    "class": "objectidentity"
+  },
+  "cewredMIBCompliances": {
+    "name": "cewredMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.222.3.1",
+    "class": "objectidentity"
+  },
+  "cewredMIBGroups": {
+    "name": "cewredMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2",
+    "class": "objectidentity"
+  },
+  "cewredMIBCompliance": {
+    "name": "cewredMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.222.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEnhancedWredGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredDrrQueueGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredStatCountGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredCosQueueGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredTxInfoGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredRxIfInfoGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredRxInfoGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      },
+      {
+        "object": "ciscoEnhancedWredRxMcInfoGroup",
+        "module": "CISCO-ENHANCED-WRED-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredTxValue",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredTxRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxIfValue",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxIfRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxValue",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxMulticastValue",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxMulticastRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobQueueWeight",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobCosGroupName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobDscpPrec",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedQueueNumber",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedProfile",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedMinThreshold",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedMaxThreshold",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedPktsDropFract",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamWeight",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamMaxAverage",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamMaxDepth",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredGroup": {
+    "name": "ciscoEnhancedWredGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobQueueWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobDscpPrec"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedMinThreshold"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedMaxThreshold"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedPktsDropFract"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamAverage"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatRandomFilteredPkts"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatMaxFilteredPkts"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatRandomFilteredPkts64"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatMaxFilteredPkts64"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredDrrQueueGroup": {
+    "name": "ciscoEnhancedWredDrrQueueGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedQueueNumber"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamMaxAverage"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamDepth"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredQueueParamMaxDepth"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredStatCountGroup": {
+    "name": "ciscoEnhancedWredStatCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatSwitchedPkts"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredStatSwitchedPkts64"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredCosQueueGroup": {
+    "name": "ciscoEnhancedWredCosQueueGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigGlobCosGroupName"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredConfigRedProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredTxInfoGroup": {
+    "name": "ciscoEnhancedWredTxInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredTxValue"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredTxRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredRxIfInfoGroup": {
+    "name": "ciscoEnhancedWredRxIfInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxIfValue"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredRxInfoGroup": {
+    "name": "ciscoEnhancedWredRxInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxValue"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedWredRxMcInfoGroup": {
+    "name": "ciscoEnhancedWredRxMcInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.222.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxMulticastValue"
+      },
+      {
+        "module": "CISCO-ENHANCED-WRED-MIB",
+        "object": "cewredRxMulticastRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENHANCED-WRED-MIB",
+      "Source digest sha256:24e7287ef359159c8d9630e8d8b1fa47d5e88e1eccc3324b4b0f45ec64ca11d6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENHANCED-WRED-MIB"
+  }
+}

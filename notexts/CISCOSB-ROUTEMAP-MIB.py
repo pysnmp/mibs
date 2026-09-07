@@ -1,0 +1,45 @@
+#
+# PySNMP MIB module CISCOSB-ROUTEMAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCOSB-ROUTEMAP-MIB
+# Source digest sha256:dde2ad2b7df11a28abbc1e7f39e319a08f18daa7e064968d8a911835b68102b8
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+InterfaceIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "InterfaceIndexOrZero")
+InetAddress, InetAddressIPv6, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressIPv6", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rlRouteMap = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227))
+rlRouteMap.setRevisions(('1970-01-01 00:00',))
+if mibBuilder.loadTexts: rlRouteMap.setLastUpdated('1970-01-01 00:00')
+if mibBuilder.loadTexts: rlRouteMap.setOrganization('Cisco Systems, Inc.')
+class RlRouteMapInetType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("ipv4", 1), ("ipv6", 2))
+
+rlRouteMapPbrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlRouteMapPbrTable.setStatus('current')
+rlRouteMapPbrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCOSB-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapName"), (0, "CISCOSB-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapSectionId"), (0, "CISCOSB-ROUTEMAP-MIB", "rlRouteMapPbrInetType"))
+if mibBuilder.loadTexts: rlRouteMapPbrEntry.setStatus('current')
+rlRouteMapPbrRouteMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlRouteMapPbrRouteMapName.setStatus('current')
+rlRouteMapPbrRouteMapSectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlRouteMapPbrRouteMapSectionId.setStatus('current')
+rlRouteMapPbrInetType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 3), RlRouteMapInetType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrInetType.setStatus('current')
+rlRouteMapPbrMatchAccessListName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 4), DisplayString().clone('')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrMatchAccessListName.setStatus('current')
+rlRouteMapPbrActionNexthopInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 5), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopInetAddressType.setStatus('current')
+rlRouteMapPbrActionNexthopInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 6), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopInetAddress.setStatus('current')
+rlRouteMapPbrActionNexthopIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopIfIndex.setStatus('current')
+rlRouteMapPbrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 227, 1, 1, 8), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlRouteMapPbrRowStatus.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-ROUTEMAP-MIB", PYSNMP_MODULE_ID=rlRouteMap, RlRouteMapInetType=RlRouteMapInetType, rlRouteMap=rlRouteMap, rlRouteMapPbrActionNexthopIfIndex=rlRouteMapPbrActionNexthopIfIndex, rlRouteMapPbrActionNexthopInetAddress=rlRouteMapPbrActionNexthopInetAddress, rlRouteMapPbrActionNexthopInetAddressType=rlRouteMapPbrActionNexthopInetAddressType, rlRouteMapPbrEntry=rlRouteMapPbrEntry, rlRouteMapPbrInetType=rlRouteMapPbrInetType, rlRouteMapPbrMatchAccessListName=rlRouteMapPbrMatchAccessListName, rlRouteMapPbrRouteMapName=rlRouteMapPbrRouteMapName, rlRouteMapPbrRouteMapSectionId=rlRouteMapPbrRouteMapSectionId, rlRouteMapPbrRowStatus=rlRouteMapPbrRowStatus, rlRouteMapPbrTable=rlRouteMapPbrTable)

@@ -1,0 +1,399 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "webCategoryStatisticsModule": {
+    "name": "webCategoryStatisticsModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280",
+    "class": "moduleidentity"
+  },
+  "statistics": {
+    "name": "statistics",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1",
+    "class": "objectidentity"
+  },
+  "statisticsStatsTable": {
+    "name": "statisticsStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statisticsStatsEntry": {
+    "name": "statisticsStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-WEBCATEGORY-STATISTICS-MIB",
+        "object": "statisticsStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statisticsStatsSlotId": {
+    "name": "statisticsStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsDbLookup": {
+    "name": "statisticsStatsDbLookup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsCloudCacheLookup": {
+    "name": "statisticsStatsCloudCacheLookup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsCloudLookup": {
+    "name": "statisticsStatsCloudLookup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsRtuLookup": {
+    "name": "statisticsStatsRtuLookup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsLookupLatency": {
+    "name": "statisticsStatsLookupLatency",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsDbMem": {
+    "name": "statisticsStatsDbMem",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsRtuCacheMem": {
+    "name": "statisticsStatsRtuCacheMem",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsStatsLookupCacheMem": {
+    "name": "statisticsStatsLookupCacheMem",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperTable": {
+    "name": "statisticsOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statisticsOperEntry": {
+    "name": "statisticsOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-WEBCATEGORY-STATISTICS-MIB",
+        "object": "statisticsOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statisticsOperSlotId": {
+    "name": "statisticsOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperNumDplaneThreads": {
+    "name": "statisticsOperNumDplaneThreads",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperNumLookupThreads": {
+    "name": "statisticsOperNumLookupThreads",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperTotalReqQueue": {
+    "name": "statisticsOperTotalReqQueue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperTotalReqDropped": {
+    "name": "statisticsOperTotalReqDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperTotalReqProcessed": {
+    "name": "statisticsOperTotalReqProcessed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperTotalReqLookupProcessed": {
+    "name": "statisticsOperTotalReqLookupProcessed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperClearCache": {
+    "name": "statisticsOperClearCache",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListTable": {
+    "name": "statisticsOperPerCpuListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListEntry": {
+    "name": "statisticsOperPerCpuListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-WEBCATEGORY-STATISTICS-MIB",
+        "object": "statisticsOperPerCpuListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-WEBCATEGORY-STATISTICS-MIB",
+        "object": "statisticsOperPerCpuListPerCpuListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statisticsOperPerCpuListSlotId": {
+    "name": "statisticsOperPerCpuListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListPerCpuListListId": {
+    "name": "statisticsOperPerCpuListPerCpuListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListReqQueue": {
+    "name": "statisticsOperPerCpuListReqQueue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListReqDropped": {
+    "name": "statisticsOperPerCpuListReqDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListReqProcessed": {
+    "name": "statisticsOperPerCpuListReqProcessed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperPerCpuListReqLookupProcessed": {
+    "name": "statisticsOperPerCpuListReqLookupProcessed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.280.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-WEBCATEGORY-STATISTICS-MIB",
+      "Source digest sha256:d930c1534088a2fe788334e62cd67681d3edaa3f34275a739ee61a847b56c848",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-WEBCATEGORY-STATISTICS-MIB"
+  }
+}

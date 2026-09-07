@@ -1,0 +1,340 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwCableDiagMIB": {
+    "name": "dlinkSwCableDiagMIB",
+    "oid": "1.3.6.1.4.1.171.14.58",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-18 00:00",
+        "description": " This is the first version of this MIB file. "
+      }
+    ]
+  },
+  "DlinkCableDiagStatus": {
+    "name": "DlinkCableDiagStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ok": 1,
+          "open": 2,
+          "short": 3,
+          "openOrShort": 4,
+          "crosstalk": 5,
+          "unKnown": 6,
+          "noCable": 7,
+          "shutdown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dCableDiagNotifications": {
+    "name": "dCableDiagNotifications",
+    "oid": "1.3.6.1.4.1.171.14.58.0",
+    "class": "objectidentity"
+  },
+  "dCableDiagObjects": {
+    "name": "dCableDiagObjects",
+    "oid": "1.3.6.1.4.1.171.14.58.1",
+    "class": "objectidentity"
+  },
+  "dCableDiagConformance": {
+    "name": "dCableDiagConformance",
+    "oid": "1.3.6.1.4.1.171.14.58.2",
+    "class": "objectidentity"
+  },
+  "dCableDiagIfTable": {
+    "name": "dCableDiagIfTable",
+    "oid": "1.3.6.1.4.1.171.14.58.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dCableDiagIfEntry": {
+    "name": "dCableDiagIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.58.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dCableDiagIfAction": {
+    "name": "dCableDiagIfAction",
+    "oid": "1.3.6.1.4.1.171.14.58.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "test": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dCableDiagResultTable": {
+    "name": "dCableDiagResultTable",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dCableDiagResultEntry": {
+    "name": "dCableDiagResultEntry",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dCableDiagResultPair1Status": {
+    "name": "dCableDiagResultPair1Status",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkCableDiagStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair2Status": {
+    "name": "dCableDiagResultPair2Status",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkCableDiagStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair3Status": {
+    "name": "dCableDiagResultPair3Status",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkCableDiagStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair4Status": {
+    "name": "dCableDiagResultPair4Status",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkCableDiagStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair1Length": {
+    "name": "dCableDiagResultPair1Length",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair2Length": {
+    "name": "dCableDiagResultPair2Length",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair3Length": {
+    "name": "dCableDiagResultPair3Length",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultPair4Length": {
+    "name": "dCableDiagResultPair4Length",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagResultStatus": {
+    "name": "dCableDiagResultStatus",
+    "oid": "1.3.6.1.4.1.171.14.58.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRun": 0,
+          "processing": 1,
+          "lastTestOk": 2,
+          "lastTestFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dCableDiagCompliances": {
+    "name": "dCableDiagCompliances",
+    "oid": "1.3.6.1.4.1.171.14.58.2.1",
+    "class": "objectidentity"
+  },
+  "dCableDiagCompliance": {
+    "name": "dCableDiagCompliance",
+    "oid": "1.3.6.1.4.1.171.14.58.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dCableDiagBasicGroup",
+        "module": "DLINKSW-CABLE-DIAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dCableDiagGroups": {
+    "name": "dCableDiagGroups",
+    "oid": "1.3.6.1.4.1.171.14.58.2.1.2",
+    "class": "objectidentity"
+  },
+  "dCableDiagBasicGroup": {
+    "name": "dCableDiagBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.58.2.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagIfAction"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair1Status"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair2Status"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair3Status"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair4Status"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair1Length"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair2Length"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair3Length"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultPair4Length"
+      },
+      {
+        "module": "DLINKSW-CABLE-DIAG-MIB",
+        "object": "dCableDiagResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-CABLE-DIAG-MIB",
+      "Source digest sha256:50d2fc77c094dc5a832ab63aace4aad0d067fe35673d42f49c6a1baaf3a2162e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-CABLE-DIAG-MIB"
+  }
+}

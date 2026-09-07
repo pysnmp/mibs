@@ -1,0 +1,139 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "directory": {
+    "name": "directory",
+    "oid": "1.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "mgmt": {
+    "name": "mgmt",
+    "oid": "1.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "experimental": {
+    "name": "experimental",
+    "oid": "1.3.6.1.3",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "ObjectName": {
+    "name": "ObjectName",
+    "class": "type",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    }
+  },
+  "IpAddress": {
+    "name": "IpAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    }
+  },
+  "Counter": {
+    "name": "Counter",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "Gauge": {
+    "name": "Gauge",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "TimeTicks": {
+    "name": "TimeTicks",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "Opaque": {
+    "name": "Opaque",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RFC1155-SMI",
+      "Source digest sha256:52571cd797c200de80e807464ceaa27ad22b14e0ee5954c5a85f3d2859ece028",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RFC1155-SMI"
+  }
+}

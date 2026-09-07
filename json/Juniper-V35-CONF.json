@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniV35Agent": {
+    "name": "juniV35Agent",
+    "oid": "1.3.6.1.4.1.4874.5.2.54",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-01-25 21:43",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniV35AgentV1": {
+    "name": "juniV35AgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.54.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the X.21/V.35 component of the JUNOSe SNMP agent.  This\n        version of the X.21/V.35 component is supported in JUNOSe 4.0 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-V35-MIB",
+        "includes": [
+          "juniV35Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-V35-CONF",
+      "Source digest sha256:d54ae2fc841da992aeb5ba7db86f7810d39d768556ef8a30bbf332c02fcf462e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-V35-CONF"
+  }
+}

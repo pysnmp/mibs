@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPrivateVlanCapability": {
+    "name": "ciscoPrivateVlanCapability",
+    "oid": "1.3.6.1.4.1.9.7.402",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cPrivateVlanCapV12R0111ECat6K": {
+    "name": "cPrivateVlanCapV12R0111ECat6K",
+    "oid": "1.3.6.1.4.1.9.7.402.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11E) on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "includes": [
+          "cpvlanVlanGroup",
+          "cpvlanPrivatePortGroup",
+          "cpvlanPromPortGroup",
+          "cpvlanPromPort4kGroup",
+          "cpvlanPortModeGroup",
+          "cpvlanSVIMappingGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpvlanVlanPrivateVlanType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "primary": 2,
+                  "isolated": 3,
+                  "community": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cPrivateVlanCapCatOSV08R0101": {
+    "name": "cPrivateVlanCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.402.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "includes": [
+          "cpvlanVlanGroup",
+          "cpvlanPrivatePortGroup",
+          "cpvlanPromPortGroup",
+          "cpvlanPromPort4kGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PRIVATE-VLAN-CAPABILITY",
+      "Source digest sha256:49611618c76469737ea6206fe548fb0b087ba46a9545c6a8ce83593053e96c8e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PRIVATE-VLAN-CAPABILITY"
+  }
+}

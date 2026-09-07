@@ -1,0 +1,59 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniDhcpv6Agent": {
+    "name": "juniDhcpv6Agent",
+    "oid": "1.3.6.1.4.1.4874.5.2.64",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-05-08 17:55",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDhcpv6AgentV1": {
+    "name": "juniDhcpv6AgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.64.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the DHCPv6 component of the Juniper JUNOSe SNMP agent.\n        This version of the DHCPv6 component is supported in JUNOSe 5.1 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-DHCPv6-MIB",
+        "includes": [
+          "juniDhcpv6LocalServerGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-DHCPv6-CONF",
+      "Source digest sha256:21350acb7754a2b89cb98da128497a83507dc57195862cf04b6155cb628ef4c7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-DHCPv6-CONF"
+  }
+}

@@ -1,0 +1,864 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "avtech": {
+    "name": "avtech",
+    "oid": "1.3.6.1.4.1.20916",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.20916.1",
+    "class": "objectidentity"
+  },
+  "roomalert7e": {
+    "name": "roomalert7e",
+    "oid": "1.3.6.1.4.1.20916.1.2",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.20916.1.2.1",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.20916.1.2.2",
+    "class": "objectidentity"
+  },
+  "thresholds": {
+    "name": "thresholds",
+    "oid": "1.3.6.1.4.1.20916.1.2.3",
+    "class": "objectidentity"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "tempreading1c": {
+    "name": "tempreading1c",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading2c": {
+    "name": "tempreading2c",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading3c": {
+    "name": "tempreading3c",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading4c": {
+    "name": "tempreading4c",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading1f": {
+    "name": "tempreading1f",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading2f": {
+    "name": "tempreading2f",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading3f": {
+    "name": "tempreading3f",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempreading4f": {
+    "name": "tempreading4f",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch1": {
+    "name": "switch1",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch2": {
+    "name": "switch2",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch3": {
+    "name": "switch3",
+    "oid": "1.3.6.1.4.1.20916.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmtemp1": {
+    "name": "alarmtemp1",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmtemp2": {
+    "name": "alarmtemp2",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmtemp3": {
+    "name": "alarmtemp3",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmtemp4": {
+    "name": "alarmtemp4",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmswitch1": {
+    "name": "alarmswitch1",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmswitch2": {
+    "name": "alarmswitch2",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmswitch3": {
+    "name": "alarmswitch3",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmmessage": {
+    "name": "alarmmessage",
+    "oid": "1.3.6.1.4.1.20916.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upperlimit1": {
+    "name": "upperlimit1",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowerlimit1": {
+    "name": "lowerlimit1",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upperlimit2": {
+    "name": "upperlimit2",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowerlimit2": {
+    "name": "lowerlimit2",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upperlimit3": {
+    "name": "upperlimit3",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowerlimit3": {
+    "name": "lowerlimit3",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upperlimit4": {
+    "name": "upperlimit4",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowerlimit4": {
+    "name": "lowerlimit4",
+    "oid": "1.3.6.1.4.1.20916.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmstart1_7e": {
+    "name": "alarmstart1_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading1c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading1f"
+      }
+    ]
+  },
+  "room_alert_7e_snmp_trap": {
+    "name": "room_alert_7e_snmp_trap",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      }
+    ]
+  },
+  "alarmstart2_7e": {
+    "name": "alarmstart2_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading2c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading2f"
+      }
+    ]
+  },
+  "alarmclear2_7e": {
+    "name": "alarmclear2_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading2c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading2f"
+      }
+    ]
+  },
+  "alarmstart3_7e": {
+    "name": "alarmstart3_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading3c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading3f"
+      }
+    ]
+  },
+  "alarmclear3_7e": {
+    "name": "alarmclear3_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading3c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading3f"
+      }
+    ]
+  },
+  "alarmstart4_7e": {
+    "name": "alarmstart4_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading4c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading4f"
+      }
+    ]
+  },
+  "alarmclear4_7e": {
+    "name": "alarmclear4_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading4c"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "tempreading4f"
+      }
+    ]
+  },
+  "alarmstart5_7e": {
+    "name": "alarmstart5_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch1"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch1"
+      }
+    ]
+  },
+  "alarmclear5_7e": {
+    "name": "alarmclear5_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch1"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch1"
+      }
+    ]
+  },
+  "alarmstart6_7e": {
+    "name": "alarmstart6_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch2"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch2"
+      }
+    ]
+  },
+  "alarmclear6_7e": {
+    "name": "alarmclear6_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch2"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch2"
+      }
+    ]
+  },
+  "alarmstart7_7e": {
+    "name": "alarmstart7_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch3"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch3"
+      }
+    ]
+  },
+  "alarmclear7_7e": {
+    "name": "alarmclear7_7e",
+    "oid": "1.3.6.1.4.1.20916.1.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "alarmmessage"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch3"
+      },
+      {
+        "module": "ROOMALERT7E-MIB",
+        "object": "switch3"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ROOMALERT7E-MIB",
+      "Source digest sha256:3e126e9fb5fa1a4af21040de784a23a7aa09f4b480577e6e2ab66a3003f57908",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ROOMALERT7E-MIB"
+  }
+}

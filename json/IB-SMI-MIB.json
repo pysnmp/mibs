@@ -1,0 +1,606 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Opaque",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "infoblox": {
+    "name": "infoblox",
+    "oid": "1.3.6.1.4.1.7779",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-24 00:00",
+        "description": "Added oid for IB-FLEX and copyright update"
+      },
+      {
+        "revision": "2015-05-19 00:00",
+        "description": "Added definitions for Opaque Float"
+      },
+      {
+        "revision": "2013-10-03 00:00",
+        "description": "Added definitions for OM-license models, updated street-address and copyright update"
+      },
+      {
+        "revision": "2013-08-12 00:00",
+        "description": "Added new products and copyright update"
+      },
+      {
+        "revision": "2012-03-27 00:00",
+        "description": "Updated REVISION for new product update and copyright update"
+      },
+      {
+        "revision": "2008-01-14 00:00",
+        "description": "Updated copyright and CONTACT_INFO"
+      },
+      {
+        "revision": "2005-01-10 00:00",
+        "description": "Added copyright"
+      },
+      {
+        "revision": "2004-05-21 00:00",
+        "description": "Creation of the MIB file"
+      }
+    ]
+  },
+  "infobloxProducts": {
+    "name": "infobloxProducts",
+    "oid": "1.3.6.1.4.1.7779.1",
+    "class": "objectidentity"
+  },
+  "ibDefault": {
+    "name": "ibDefault",
+    "oid": "1.3.6.1.4.1.7779.1.1000",
+    "class": "objectidentity"
+  },
+  "ibRsp2": {
+    "name": "ibRsp2",
+    "oid": "1.3.6.1.4.1.7779.1.1001",
+    "class": "objectidentity"
+  },
+  "ibCisco": {
+    "name": "ibCisco",
+    "oid": "1.3.6.1.4.1.7779.1.1002",
+    "class": "objectidentity"
+  },
+  "ibVm": {
+    "name": "ibVm",
+    "oid": "1.3.6.1.4.1.7779.1.1003",
+    "class": "objectidentity"
+  },
+  "ibVnios": {
+    "name": "ibVnios",
+    "oid": "1.3.6.1.4.1.7779.1.1004",
+    "class": "objectidentity"
+  },
+  "ib1000": {
+    "name": "ib1000",
+    "oid": "1.3.6.1.4.1.7779.1.1101",
+    "class": "objectidentity"
+  },
+  "ib1200": {
+    "name": "ib1200",
+    "oid": "1.3.6.1.4.1.7779.1.1102",
+    "class": "objectidentity"
+  },
+  "ib500": {
+    "name": "ib500",
+    "oid": "1.3.6.1.4.1.7779.1.1103",
+    "class": "objectidentity"
+  },
+  "ib550": {
+    "name": "ib550",
+    "oid": "1.3.6.1.4.1.7779.1.1201",
+    "class": "objectidentity"
+  },
+  "ib1050": {
+    "name": "ib1050",
+    "oid": "1.3.6.1.4.1.7779.1.1202",
+    "class": "objectidentity"
+  },
+  "ib1550": {
+    "name": "ib1550",
+    "oid": "1.3.6.1.4.1.7779.1.1203",
+    "class": "objectidentity"
+  },
+  "ib1552": {
+    "name": "ib1552",
+    "oid": "1.3.6.1.4.1.7779.1.1204",
+    "class": "objectidentity"
+  },
+  "ib2000": {
+    "name": "ib2000",
+    "oid": "1.3.6.1.4.1.7779.1.1205",
+    "class": "objectidentity"
+  },
+  "ib250": {
+    "name": "ib250",
+    "oid": "1.3.6.1.4.1.7779.1.1206",
+    "class": "objectidentity"
+  },
+  "ib1220": {
+    "name": "ib1220",
+    "oid": "1.3.6.1.4.1.7779.1.1207",
+    "class": "objectidentity"
+  },
+  "ib550a": {
+    "name": "ib550a",
+    "oid": "1.3.6.1.4.1.7779.1.1301",
+    "class": "objectidentity"
+  },
+  "ib1050a": {
+    "name": "ib1050a",
+    "oid": "1.3.6.1.4.1.7779.1.1302",
+    "class": "objectidentity"
+  },
+  "ib1550a": {
+    "name": "ib1550a",
+    "oid": "1.3.6.1.4.1.7779.1.1303",
+    "class": "objectidentity"
+  },
+  "ib1552a": {
+    "name": "ib1552a",
+    "oid": "1.3.6.1.4.1.7779.1.1304",
+    "class": "objectidentity"
+  },
+  "ib1852a": {
+    "name": "ib1852a",
+    "oid": "1.3.6.1.4.1.7779.1.1305",
+    "class": "objectidentity"
+  },
+  "ib250a": {
+    "name": "ib250a",
+    "oid": "1.3.6.1.4.1.7779.1.1306",
+    "class": "objectidentity"
+  },
+  "ib2000a": {
+    "name": "ib2000a",
+    "oid": "1.3.6.1.4.1.7779.1.1307",
+    "class": "objectidentity"
+  },
+  "ib810": {
+    "name": "ib810",
+    "oid": "1.3.6.1.4.1.7779.1.1401",
+    "class": "objectidentity"
+  },
+  "ib820": {
+    "name": "ib820",
+    "oid": "1.3.6.1.4.1.7779.1.1402",
+    "class": "objectidentity"
+  },
+  "ib1410": {
+    "name": "ib1410",
+    "oid": "1.3.6.1.4.1.7779.1.1403",
+    "class": "objectidentity"
+  },
+  "ib1420": {
+    "name": "ib1420",
+    "oid": "1.3.6.1.4.1.7779.1.1404",
+    "class": "objectidentity"
+  },
+  "ib1400": {
+    "name": "ib1400",
+    "oid": "1.3.6.1.4.1.7779.1.1405",
+    "class": "objectidentity"
+  },
+  "ib800": {
+    "name": "ib800",
+    "oid": "1.3.6.1.4.1.7779.1.1406",
+    "class": "objectidentity"
+  },
+  "pt1400": {
+    "name": "pt1400",
+    "oid": "1.3.6.1.4.1.7779.1.1407",
+    "class": "objectidentity"
+  },
+  "ib2200": {
+    "name": "ib2200",
+    "oid": "1.3.6.1.4.1.7779.1.1411",
+    "class": "objectidentity"
+  },
+  "ib2210": {
+    "name": "ib2210",
+    "oid": "1.3.6.1.4.1.7779.1.1412",
+    "class": "objectidentity"
+  },
+  "ib2220": {
+    "name": "ib2220",
+    "oid": "1.3.6.1.4.1.7779.1.1413",
+    "class": "objectidentity"
+  },
+  "pt2200": {
+    "name": "pt2200",
+    "oid": "1.3.6.1.4.1.7779.1.1414",
+    "class": "objectidentity"
+  },
+  "ib4010": {
+    "name": "ib4010",
+    "oid": "1.3.6.1.4.1.7779.1.1421",
+    "class": "objectidentity"
+  },
+  "ib4030": {
+    "name": "ib4030",
+    "oid": "1.3.6.1.4.1.7779.1.1422",
+    "class": "objectidentity"
+  },
+  "ib4000": {
+    "name": "ib4000",
+    "oid": "1.3.6.1.4.1.7779.1.1423",
+    "class": "objectidentity"
+  },
+  "pt4000": {
+    "name": "pt4000",
+    "oid": "1.3.6.1.4.1.7779.1.1424",
+    "class": "objectidentity"
+  },
+  "ib4020": {
+    "name": "ib4020",
+    "oid": "1.3.6.1.4.1.7779.1.1425",
+    "class": "objectidentity"
+  },
+  "ib100": {
+    "name": "ib100",
+    "oid": "1.3.6.1.4.1.7779.1.1431",
+    "class": "objectidentity"
+  },
+  "nd800": {
+    "name": "nd800",
+    "oid": "1.3.6.1.4.1.7779.1.1441",
+    "class": "objectidentity"
+  },
+  "nd1400": {
+    "name": "nd1400",
+    "oid": "1.3.6.1.4.1.7779.1.1442",
+    "class": "objectidentity"
+  },
+  "nd2200": {
+    "name": "nd2200",
+    "oid": "1.3.6.1.4.1.7779.1.1443",
+    "class": "objectidentity"
+  },
+  "nd4000": {
+    "name": "nd4000",
+    "oid": "1.3.6.1.4.1.7779.1.1444",
+    "class": "objectidentity"
+  },
+  "ib815": {
+    "name": "ib815",
+    "oid": "1.3.6.1.4.1.7779.1.1501",
+    "class": "objectidentity"
+  },
+  "ib825": {
+    "name": "ib825",
+    "oid": "1.3.6.1.4.1.7779.1.1502",
+    "class": "objectidentity"
+  },
+  "ib1415": {
+    "name": "ib1415",
+    "oid": "1.3.6.1.4.1.7779.1.1503",
+    "class": "objectidentity"
+  },
+  "ib1425": {
+    "name": "ib1425",
+    "oid": "1.3.6.1.4.1.7779.1.1504",
+    "class": "objectidentity"
+  },
+  "ib1405": {
+    "name": "ib1405",
+    "oid": "1.3.6.1.4.1.7779.1.1505",
+    "class": "objectidentity"
+  },
+  "ib805": {
+    "name": "ib805",
+    "oid": "1.3.6.1.4.1.7779.1.1506",
+    "class": "objectidentity"
+  },
+  "pt1405": {
+    "name": "pt1405",
+    "oid": "1.3.6.1.4.1.7779.1.1507",
+    "class": "objectidentity"
+  },
+  "ib2205": {
+    "name": "ib2205",
+    "oid": "1.3.6.1.4.1.7779.1.1511",
+    "class": "objectidentity"
+  },
+  "ib2215": {
+    "name": "ib2215",
+    "oid": "1.3.6.1.4.1.7779.1.1512",
+    "class": "objectidentity"
+  },
+  "ib2225": {
+    "name": "ib2225",
+    "oid": "1.3.6.1.4.1.7779.1.1513",
+    "class": "objectidentity"
+  },
+  "pt2205": {
+    "name": "pt2205",
+    "oid": "1.3.6.1.4.1.7779.1.1514",
+    "class": "objectidentity"
+  },
+  "ib4015": {
+    "name": "ib4015",
+    "oid": "1.3.6.1.4.1.7779.1.1521",
+    "class": "objectidentity"
+  },
+  "ib4035": {
+    "name": "ib4035",
+    "oid": "1.3.6.1.4.1.7779.1.1522",
+    "class": "objectidentity"
+  },
+  "ib4005": {
+    "name": "ib4005",
+    "oid": "1.3.6.1.4.1.7779.1.1523",
+    "class": "objectidentity"
+  },
+  "pt4005": {
+    "name": "pt4005",
+    "oid": "1.3.6.1.4.1.7779.1.1524",
+    "class": "objectidentity"
+  },
+  "ib4025": {
+    "name": "ib4025",
+    "oid": "1.3.6.1.4.1.7779.1.1525",
+    "class": "objectidentity"
+  },
+  "nd805": {
+    "name": "nd805",
+    "oid": "1.3.6.1.4.1.7779.1.1541",
+    "class": "objectidentity"
+  },
+  "nd1405": {
+    "name": "nd1405",
+    "oid": "1.3.6.1.4.1.7779.1.1542",
+    "class": "objectidentity"
+  },
+  "nd2205": {
+    "name": "nd2205",
+    "oid": "1.3.6.1.4.1.7779.1.1543",
+    "class": "objectidentity"
+  },
+  "nd4005": {
+    "name": "nd4005",
+    "oid": "1.3.6.1.4.1.7779.1.1544",
+    "class": "objectidentity"
+  },
+  "ibflex": {
+    "name": "ibflex",
+    "oid": "1.3.6.1.4.1.7779.1.1551",
+    "class": "objectidentity"
+  },
+  "ib906": {
+    "name": "ib906",
+    "oid": "1.3.6.1.4.1.7779.1.1601",
+    "class": "objectidentity"
+  },
+  "ib1506": {
+    "name": "ib1506",
+    "oid": "1.3.6.1.4.1.7779.1.1602",
+    "class": "objectidentity"
+  },
+  "ib1606": {
+    "name": "ib1606",
+    "oid": "1.3.6.1.4.1.7779.1.1603",
+    "class": "objectidentity"
+  },
+  "ib2306": {
+    "name": "ib2306",
+    "oid": "1.3.6.1.4.1.7779.1.1604",
+    "class": "objectidentity"
+  },
+  "ib4106": {
+    "name": "ib4106",
+    "oid": "1.3.6.1.4.1.7779.1.1605",
+    "class": "objectidentity"
+  },
+  "ib_926": {
+    "name": "ib_926",
+    "oid": "1.3.6.1.4.1.7779.1.1606",
+    "class": "objectidentity"
+  },
+  "nd_906": {
+    "name": "nd_906",
+    "oid": "1.3.6.1.4.1.7779.1.1607",
+    "class": "objectidentity"
+  },
+  "ib_1516": {
+    "name": "ib_1516",
+    "oid": "1.3.6.1.4.1.7779.1.1608",
+    "class": "objectidentity"
+  },
+  "ib_1526": {
+    "name": "ib_1526",
+    "oid": "1.3.6.1.4.1.7779.1.1609",
+    "class": "objectidentity"
+  },
+  "nd_1606": {
+    "name": "nd_1606",
+    "oid": "1.3.6.1.4.1.7779.1.1610",
+    "class": "objectidentity"
+  },
+  "ib_2326": {
+    "name": "ib_2326",
+    "oid": "1.3.6.1.4.1.7779.1.1611",
+    "class": "objectidentity"
+  },
+  "nd_2306": {
+    "name": "nd_2306",
+    "oid": "1.3.6.1.4.1.7779.1.1612",
+    "class": "objectidentity"
+  },
+  "ib_4126": {
+    "name": "ib_4126",
+    "oid": "1.3.6.1.4.1.7779.1.1613",
+    "class": "objectidentity"
+  },
+  "nd_4106": {
+    "name": "nd_4106",
+    "oid": "1.3.6.1.4.1.7779.1.1614",
+    "class": "objectidentity"
+  },
+  "tr_5005": {
+    "name": "tr_5005",
+    "oid": "1.3.6.1.4.1.7779.1.1615",
+    "class": "objectidentity"
+  },
+  "ibSNMP": {
+    "name": "ibSNMP",
+    "oid": "1.3.6.1.4.1.7779.3",
+    "class": "objectidentity"
+  },
+  "ibProduct": {
+    "name": "ibProduct",
+    "oid": "1.3.6.1.4.1.7779.3.1",
+    "class": "objectidentity"
+  },
+  "ibOne": {
+    "name": "ibOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1",
+    "class": "objectidentity"
+  },
+  "ibTrapOne": {
+    "name": "ibTrapOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "ibPlatformOne": {
+    "name": "ibPlatformOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "ibDNSOne": {
+    "name": "ibDNSOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.3",
+    "class": "objectidentity"
+  },
+  "ibDHCPOne": {
+    "name": "ibDHCPOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "ibDataplaneOne": {
+    "name": "ibDataplaneOne",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.5",
+    "class": "objectidentity"
+  },
+  "ibDNSServ": {
+    "name": "ibDNSServ",
+    "oid": "1.3.6.1.4.1.32",
+    "class": "objectidentity"
+  },
+  "ibDHCPServ": {
+    "name": "ibDHCPServ",
+    "oid": "1.3.6.1.4.1.9999",
+    "class": "objectidentity"
+  },
+  "IbString": {
+    "name": "IbString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "displayhint": "300a",
+    "status": "current"
+  },
+  "IbNode": {
+    "name": "IbNode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IbIpAddr": {
+    "name": "IbIpAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IbIpv6Addr": {
+    "name": "IbIpv6Addr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 46
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IbFloat": {
+    "name": "IbFloat",
+    "class": "textualconvention",
+    "type": {
+      "type": "Opaque",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IB-SMI-MIB",
+      "Source digest sha256:87cc359679d1e06500ff5327c24bc0862aac114b4e384ea9c5e34f1ce90d238b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IB-SMI-MIB"
+  }
+}

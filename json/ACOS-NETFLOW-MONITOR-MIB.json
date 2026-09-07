@@ -1,0 +1,1881 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netflowMonitorModule": {
+    "name": "netflowMonitorModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437",
+    "class": "moduleidentity"
+  },
+  "monitor": {
+    "name": "monitor",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1",
+    "class": "objectidentity"
+  },
+  "monitorStatsTable": {
+    "name": "monitorStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monitorStatsEntry": {
+    "name": "monitorStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-NETFLOW-MONITOR-MIB",
+        "object": "monitorStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-NETFLOW-MONITOR-MIB",
+        "object": "monitorStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monitorStatsSlotId": {
+    "name": "monitorStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsName": {
+    "name": "monitorStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPacketsSent": {
+    "name": "monitorStatsPacketsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsBytesSent": {
+    "name": "monitorStatsBytesSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNat44RecordsSent": {
+    "name": "monitorStatsNat44RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNat44RecordsSentFailure": {
+    "name": "monitorStatsNat44RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNat64RecordsSent": {
+    "name": "monitorStatsNat64RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNat64RecordsSentFailure": {
+    "name": "monitorStatsNat64RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDsliteRecordsSent": {
+    "name": "monitorStatsDsliteRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDsliteRecordsSentFailure": {
+    "name": "monitorStatsDsliteRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventNat44RecordsSent": {
+    "name": "monitorStatsSessionEventNat44RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventNat44RecordsSentFailure": {
+    "name": "monitorStatsSessionEventNat44RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventNat64RecordsSent": {
+    "name": "monitorStatsSessionEventNat64RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventNat64RecordsSentFailure": {
+    "name": "monitorStatsSessionEventNat64RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventDsliteRecordsSent": {
+    "name": "monitorStatsSessionEventDsliteRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventDsliteRecordsSentFailure": {
+    "name": "monitorStatsSessionEventDsliteRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventFw4RecordsSent": {
+    "name": "monitorStatsSessionEventFw4RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventFw4RecordsSentFailure": {
+    "name": "monitorStatsSessionEventFw4RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventFw6RecordsSent": {
+    "name": "monitorStatsSessionEventFw6RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsSessionEventFw6RecordsSentFailure": {
+    "name": "monitorStatsSessionEventFw6RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingNat44RecordsSent": {
+    "name": "monitorStatsPortMappingNat44RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingNat44RecordsSentFailure": {
+    "name": "monitorStatsPortMappingNat44RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingNat64RecordsSent": {
+    "name": "monitorStatsPortMappingNat64RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingNat64RecordsSentFailure": {
+    "name": "monitorStatsPortMappingNat64RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingDsliteRecordsSent": {
+    "name": "monitorStatsPortMappingDsliteRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortMappingDsliteRecordsSentFailure": {
+    "name": "monitorStatsPortMappingDsliteRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNetflowV5RecordsSent": {
+    "name": "monitorStatsNetflowV5RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNetflowV5RecordsSentFailure": {
+    "name": "monitorStatsNetflowV5RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNetflowV5ExtRecordsSent": {
+    "name": "monitorStatsNetflowV5ExtRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsNetflowV5ExtRecordsSentFailure": {
+    "name": "monitorStatsNetflowV5ExtRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingNat44RecordsSent": {
+    "name": "monitorStatsPortBatchingNat44RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingNat44RecordsSentFailure": {
+    "name": "monitorStatsPortBatchingNat44RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingNat64RecordsSent": {
+    "name": "monitorStatsPortBatchingNat64RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingNat64RecordsSentFailure": {
+    "name": "monitorStatsPortBatchingNat64RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingDsliteRecordsSent": {
+    "name": "monitorStatsPortBatchingDsliteRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingDsliteRecordsSentFailure": {
+    "name": "monitorStatsPortBatchingDsliteRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2Nat44RecordsSent": {
+    "name": "monitorStatsPortBatchingV2Nat44RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2Nat44RecordsSentFailure": {
+    "name": "monitorStatsPortBatchingV2Nat44RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2Nat64RecordsSent": {
+    "name": "monitorStatsPortBatchingV2Nat64RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2Nat64RecordsSentFailure": {
+    "name": "monitorStatsPortBatchingV2Nat64RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2DsliteRecordsSent": {
+    "name": "monitorStatsPortBatchingV2DsliteRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsPortBatchingV2DsliteRecordsSentFailure": {
+    "name": "monitorStatsPortBatchingV2DsliteRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat44CreationRecordsSent": {
+    "name": "monitorStatsCustomSessionEventNat44CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat44CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventNat44CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat64CreationRecordsSent": {
+    "name": "monitorStatsCustomSessionEventNat64CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat64CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventNat64CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventDsliteCreationRecordsSent": {
+    "name": "monitorStatsCustomSessionEventDsliteCreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventDsliteCreationRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventDsliteCreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat44DeletionRecordsSent": {
+    "name": "monitorStatsCustomSessionEventNat44DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat44DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventNat44DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat64DeletionRecordsSent": {
+    "name": "monitorStatsCustomSessionEventNat64DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventNat64DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventNat64DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventDsliteDeletionRecordsSent": {
+    "name": "monitorStatsCustomSessionEventDsliteDeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventDsliteDeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventDsliteDeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw4CreationRecordsSent": {
+    "name": "monitorStatsCustomSessionEventFw4CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw4CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventFw4CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw6CreationRecordsSent": {
+    "name": "monitorStatsCustomSessionEventFw6CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw6CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventFw6CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw4DeletionRecordsSent": {
+    "name": "monitorStatsCustomSessionEventFw4DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw4DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventFw4DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw6DeletionRecordsSent": {
+    "name": "monitorStatsCustomSessionEventFw6DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomSessionEventFw6DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomSessionEventFw6DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomDenyResetEventFw4RecordsSent": {
+    "name": "monitorStatsCustomDenyResetEventFw4RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomDenyResetEventFw4RecordsSentFailure": {
+    "name": "monitorStatsCustomDenyResetEventFw4RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomDenyResetEventFw6RecordsSent": {
+    "name": "monitorStatsCustomDenyResetEventFw6RecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomDenyResetEventFw6RecordsSentFailure": {
+    "name": "monitorStatsCustomDenyResetEventFw6RecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat44CreationRecordsSent": {
+    "name": "monitorStatsCustomPortMappingNat44CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat44CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingNat44CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat64CreationRecordsSent": {
+    "name": "monitorStatsCustomPortMappingNat64CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat64CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingNat64CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingDsliteCreationRecordsSent": {
+    "name": "monitorStatsCustomPortMappingDsliteCreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingDsliteCreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingDsliteCreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat44DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortMappingNat44DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat44DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingNat44DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat64DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortMappingNat64DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingNat64DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingNat64DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingDsliteDeletionRecordsSent": {
+    "name": "monitorStatsCustomPortMappingDsliteDeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortMappingDsliteDeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortMappingDsliteDeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat44CreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingNat44CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat44CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingNat44CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat64CreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingNat64CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat64CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingNat64CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingDsliteCreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingDsliteCreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingDsliteCreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingDsliteCreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat44DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingNat44DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat44DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingNat44DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat64DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingNat64DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingNat64DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingNat64DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingDsliteDeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingDsliteDeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingDsliteDeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingDsliteDeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat44CreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2Nat44CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat44CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2Nat44CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat64CreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2Nat64CreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat64CreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2Nat64CreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2DsliteCreationRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2DsliteCreationRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2DsliteCreationRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2DsliteCreationRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSent": {
+    "name": "monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSentFailure": {
+    "name": "monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsReducedLogsByDestination": {
+    "name": "monitorStatsReducedLogsByDestination",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpCTunnelEventRecordsSent": {
+    "name": "monitorStatsCustomGtpCTunnelEventRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpCTunnelEventRecordsSentFailure": {
+    "name": "monitorStatsCustomGtpCTunnelEventRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpUTunnelEventRecordsSent": {
+    "name": "monitorStatsCustomGtpUTunnelEventRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpUTunnelEventRecordsSentFailure": {
+    "name": "monitorStatsCustomGtpUTunnelEventRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpDenyEventRecordsSent": {
+    "name": "monitorStatsCustomGtpDenyEventRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpDenyEventRecordsSentFailure": {
+    "name": "monitorStatsCustomGtpDenyEventRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpInfoEventRecordsSent": {
+    "name": "monitorStatsCustomGtpInfoEventRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpInfoEventRecordsSentFailure": {
+    "name": "monitorStatsCustomGtpInfoEventRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwIddosEntryCreatedRecordsSent": {
+    "name": "monitorStatsCustomFwIddosEntryCreatedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwIddosEntryCreatedRecordsSentFailure": {
+    "name": "monitorStatsCustomFwIddosEntryCreatedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwIddosEntryDeletedRecordsSent": {
+    "name": "monitorStatsCustomFwIddosEntryDeletedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwIddosEntryDeletedRecordsSentFailure": {
+    "name": "monitorStatsCustomFwIddosEntryDeletedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwSesnLimitExceededRecordsSent": {
+    "name": "monitorStatsCustomFwSesnLimitExceededRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomFwSesnLimitExceededRecordsSentFailure": {
+    "name": "monitorStatsCustomFwSesnLimitExceededRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL3EntryCreatedRecordsSent": {
+    "name": "monitorStatsCustomNatIddosL3EntryCreatedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL3EntryCreatedRecordsSentFailure": {
+    "name": "monitorStatsCustomNatIddosL3EntryCreatedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL3EntryDeletedRecordsSent": {
+    "name": "monitorStatsCustomNatIddosL3EntryDeletedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL3EntryDeletedRecordsSentFailure": {
+    "name": "monitorStatsCustomNatIddosL3EntryDeletedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL4EntryCreatedRecordsSent": {
+    "name": "monitorStatsCustomNatIddosL4EntryCreatedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL4EntryCreatedRecordsSentFailure": {
+    "name": "monitorStatsCustomNatIddosL4EntryCreatedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL4EntryDeletedRecordsSent": {
+    "name": "monitorStatsCustomNatIddosL4EntryDeletedRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomNatIddosL4EntryDeletedRecordsSentFailure": {
+    "name": "monitorStatsCustomNatIddosL4EntryDeletedRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpRateLimitPeriodicRecordsSent": {
+    "name": "monitorStatsCustomGtpRateLimitPeriodicRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsCustomGtpRateLimitPeriodicRecordsSentFailure": {
+    "name": "monitorStatsCustomGtpRateLimitPeriodicRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDdosGeneralStatRecordsSent": {
+    "name": "monitorStatsDdosGeneralStatRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDdosGeneralStatRecordsSentFailure": {
+    "name": "monitorStatsDdosGeneralStatRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDdosHttpStatRecordsSent": {
+    "name": "monitorStatsDdosHttpStatRecordsSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorStatsDdosHttpStatRecordsSentFailure": {
+    "name": "monitorStatsDdosHttpStatRecordsSentFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.1.1.131",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperTable": {
+    "name": "monitorOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monitorOperEntry": {
+    "name": "monitorOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-NETFLOW-MONITOR-MIB",
+        "object": "monitorOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-NETFLOW-MONITOR-MIB",
+        "object": "monitorOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monitorOperSlotId": {
+    "name": "monitorOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperName": {
+    "name": "monitorOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperProtocol": {
+    "name": "monitorOperProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperStatus": {
+    "name": "monitorOperStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperFilter": {
+    "name": "monitorOperFilter",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperDestination": {
+    "name": "monitorOperDestination",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperSourceIpUseMgmt": {
+    "name": "monitorOperSourceIpUseMgmt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperSourceIpAddr": {
+    "name": "monitorOperSourceIpAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperFlowTimeout": {
+    "name": "monitorOperFlowTimeout",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperCounterPollingInterval": {
+    "name": "monitorOperCounterPollingInterval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperResendTemplatePerRecords": {
+    "name": "monitorOperResendTemplatePerRecords",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorOperResendTemplateTimeout": {
+    "name": "monitorOperResendTemplateTimeout",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disableLogByDestination": {
+    "name": "disableLogByDestination",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.3",
+    "class": "objectidentity"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.3.2",
+    "class": "objectidentity"
+  },
+  "ip6": {
+    "name": "ip6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.3.3",
+    "class": "objectidentity"
+  },
+  "record": {
+    "name": "record",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.4",
+    "class": "objectidentity"
+  },
+  "customRecord": {
+    "name": "customRecord",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.5",
+    "class": "objectidentity"
+  },
+  "destination": {
+    "name": "destination",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.6",
+    "class": "objectidentity"
+  },
+  "sourceAddress": {
+    "name": "sourceAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.7",
+    "class": "objectidentity"
+  },
+  "resendTemplate": {
+    "name": "resendTemplate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.8",
+    "class": "objectidentity"
+  },
+  "sample": {
+    "name": "sample",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.9",
+    "class": "objectidentity"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.9.2",
+    "class": "objectidentity"
+  },
+  "ve": {
+    "name": "ve",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.9.3",
+    "class": "objectidentity"
+  },
+  "natPool": {
+    "name": "natPool",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.437.1.9.4",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-NETFLOW-MONITOR-MIB",
+      "Source digest sha256:7a430baff2d6d0f1e272e0d9a680ed98eabb935ab0a53431004df99df71e649c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-NETFLOW-MONITOR-MIB"
+  }
+}

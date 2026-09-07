@@ -1,0 +1,292 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibm2212": {
+    "name": "ibm2212",
+    "oid": "1.3.6.1.4.1.2.6.149",
+    "class": "objectidentity"
+  },
+  "ibm2212admin": {
+    "name": "ibm2212admin",
+    "oid": "1.3.6.1.4.1.2.6.149.1",
+    "class": "objectidentity"
+  },
+  "ibm2212system": {
+    "name": "ibm2212system",
+    "oid": "1.3.6.1.4.1.2.6.149.2",
+    "class": "objectidentity"
+  },
+  "ibm2212hardware": {
+    "name": "ibm2212hardware",
+    "oid": "1.3.6.1.4.1.2.6.149.3",
+    "class": "objectidentity"
+  },
+  "ibm2212routing": {
+    "name": "ibm2212routing",
+    "oid": "1.3.6.1.4.1.2.6.149.4",
+    "class": "objectidentity"
+  },
+  "ibm2212switching": {
+    "name": "ibm2212switching",
+    "oid": "1.3.6.1.4.1.2.6.149.5",
+    "class": "objectidentity"
+  },
+  "ibm2212adminproducts": {
+    "name": "ibm2212adminproducts",
+    "oid": "1.3.6.1.4.1.2.6.149.1.1",
+    "class": "objectidentity"
+  },
+  "ibm2212adminOID": {
+    "name": "ibm2212adminOID",
+    "oid": "1.3.6.1.4.1.2.6.149.1.2",
+    "class": "objectidentity"
+  },
+  "ibm2212adminDebug": {
+    "name": "ibm2212adminDebug",
+    "oid": "1.3.6.1.4.1.2.6.149.1.3",
+    "class": "objectidentity"
+  },
+  "ibm2212systemInfo": {
+    "name": "ibm2212systemInfo",
+    "oid": "1.3.6.1.4.1.2.6.149.2.1",
+    "class": "objectidentity"
+  },
+  "ibm2212cfgInfo": {
+    "name": "ibm2212cfgInfo",
+    "oid": "1.3.6.1.4.1.2.6.149.2.2",
+    "class": "objectidentity"
+  },
+  "ibm2212hardwareGeneral": {
+    "name": "ibm2212hardwareGeneral",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1",
+    "class": "objectidentity"
+  },
+  "ibm2212EnetChipSet": {
+    "name": "ibm2212EnetChipSet",
+    "oid": "1.3.6.1.4.1.2.6.149.1.2.1",
+    "class": "objectidentity"
+  },
+  "enetChipSetUnknown": {
+    "name": "enetChipSetUnknown",
+    "oid": "1.3.6.1.4.1.2.6.149.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "enetChipSetAMD": {
+    "name": "enetChipSetAMD",
+    "oid": "1.3.6.1.4.1.2.6.149.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "ibm2212AdapTable": {
+    "name": "ibm2212AdapTable",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibm2212AdapEntry": {
+    "name": "ibm2212AdapEntry",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM2212-MIB",
+        "object": "ibm2212AdapSlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibm2212AdapSlotNum": {
+    "name": "ibm2212AdapSlotNum",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm2212AdapType": {
+    "name": "ibm2212AdapType",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "not-present": 2,
+          "eth-fast-1port": 3,
+          "token-ring-1port": 4,
+          "eth-fast-2port": 5,
+          "token-ring-2port": 6,
+          "serial-4port-shallow": 7,
+          "isdn-bri-u-2port": 8,
+          "isdn-bri-st-2port": 9,
+          "isdn-pri-t1j1-1port": 10,
+          "isdn-pri-e1-1port": 11,
+          "compression-encryption": 12,
+          "serial-4port-deep": 13,
+          "isdn-pri-t1j1-2port": 14,
+          "isdn-pri-e1-2port": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm2212AdapOperStatus": {
+    "name": "ibm2212AdapOperStatus",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "not-present": 2,
+          "enable-pending": 3,
+          "enabled": 4,
+          "unknown-device": 5,
+          "hardware-error": 6,
+          "not-powered": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm2212GraphicTable": {
+    "name": "ibm2212GraphicTable",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibm2212GraphicEntry": {
+    "name": "ibm2212GraphicEntry",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM2212-MIB",
+        "object": "ibm2212GraphicSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "IBM2212-MIB",
+        "object": "ibm2212GraphicPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibm2212GraphicSlotNum": {
+    "name": "ibm2212GraphicSlotNum",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm2212GraphicPortNum": {
+    "name": "ibm2212GraphicPortNum",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibm2212GraphicifIndex": {
+    "name": "ibm2212GraphicifIndex",
+    "oid": "1.3.6.1.4.1.2.6.149.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IBM2212-MIB",
+      "Source digest sha256:c8f66e1e8c2cabeedacec2c24f8bc701fb260c9552eb24697bb4591df7ae0017",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IBM2212-MIB"
+  }
+}

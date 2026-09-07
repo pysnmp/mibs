@@ -1,0 +1,686 @@
+{
+  "imports": {
+    "class": "imports",
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "ZYXEL-ES-SMI": [
+      "esConformance",
+      "esMgmt"
+    ]
+  },
+  "esSysInfo": {
+    "name": "esSysInfo",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1",
+    "class": "moduleidentity"
+  },
+  "esSysMgmt": {
+    "name": "esSysMgmt",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2",
+    "class": "objectidentity"
+  },
+  "SwPlatform": {
+    "name": "SwPlatform",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "zynos": 2,
+          "zld": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sysSwPlatform": {
+    "name": "sysSwPlatform",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPlatform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwMajorVersion": {
+    "name": "sysSwMajorVersion",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwMinorVersion": {
+    "name": "sysSwMinorVersion",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwModel": {
+    "name": "sysSwModel",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwPatchNumber": {
+    "name": "sysSwPatchNumber",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwVersionString": {
+    "name": "sysSwVersionString",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwDay": {
+    "name": "sysSwDay",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwMonth": {
+    "name": "sysSwMonth",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwYear": {
+    "name": "sysSwYear",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysProductFamily": {
+    "name": "sysProductFamily",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysProductModel": {
+    "name": "sysProductModel",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysProductSerialNumber": {
+    "name": "sysProductSerialNumber",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHwMajorVersion": {
+    "name": "sysHwMajorVersion",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHwMinorVersion": {
+    "name": "sysHwMinorVersion",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHwVersionString": {
+    "name": "sysHwVersionString",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCountryCode": {
+    "name": "sysCountryCode",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCurrentDateTime": {
+    "name": "sysCurrentDateTime",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sysCurrentTime": {
+    "name": "sysCurrentTime",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sysActiveSessionNum": {
+    "name": "sysActiveSessionNum",
+    "oid": "1.3.6.1.4.1.890.1.15.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "MgmtAlarmStatus": {
+    "name": "MgmtAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sysAlarmDetected": 0,
+        "sysTemperatureError": 1,
+        "sysFanRPMError": 2,
+        "sysVoltageRangeError": 3
+      }
+    },
+    "status": "current"
+  },
+  "sysMgmtReboot": {
+    "name": "sysMgmtReboot",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 0,
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMgmtConfigSave": {
+    "name": "sysMgmtConfigSave",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 0,
+          "save": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMgmtRestoreDefaultConfig": {
+    "name": "sysMgmtRestoreDefaultConfig",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 0,
+          "restore": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMgmtCPUUsage": {
+    "name": "sysMgmtCPUUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtMemUsage": {
+    "name": "sysMgmtMemUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtFlashUsage": {
+    "name": "sysMgmtFlashUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtCPU5SecUsage": {
+    "name": "sysMgmtCPU5SecUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtCPU1MinUsage": {
+    "name": "sysMgmtCPU1MinUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtCPU5MinUsage": {
+    "name": "sysMgmtCPU5MinUsage",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMgmtBootupConfigIndex": {
+    "name": "sysMgmtBootupConfigIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMgmtBootupImageIndex": {
+    "name": "sysMgmtBootupImageIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMgmtAlarmStatus": {
+    "name": "sysMgmtAlarmStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MgmtAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "sysMgmtVLANControl": {
+    "name": "sysMgmtVLANControl",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "sysMgmtVLANID": {
+    "name": "sysMgmtVLANID",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "sys8021QControl": {
+    "name": "sys8021QControl",
+    "oid": "1.3.6.1.4.1.890.1.15.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "esBasicCompliances": {
+    "name": "esBasicCompliances",
+    "oid": "1.3.6.1.4.1.890.1.15.2.1",
+    "class": "objectidentity"
+  },
+  "esBasicGroups": {
+    "name": "esBasicGroups",
+    "oid": "1.3.6.1.4.1.890.1.15.2.2",
+    "class": "objectidentity"
+  },
+  "esBasicCompliance": {
+    "name": "esBasicCompliance",
+    "oid": "1.3.6.1.4.1.890.1.15.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "esSysInfoGroup",
+        "module": "ZYXEL-ES-COMMON"
+      },
+      {
+        "object": "esSysMgmtGroup",
+        "module": "ZYXEL-ES-COMMON"
+      }
+    ],
+    "status": "current"
+  },
+  "esSysInfoGroup": {
+    "name": "esSysInfoGroup",
+    "oid": "1.3.6.1.4.1.890.1.15.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwPlatform"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwMajorVersion"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwMinorVersion"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwModel"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwPatchNumber"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwVersionString"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwDay"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwMonth"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysSwYear"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysProductFamily"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysProductModel"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysProductSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "esSysMgmtGroup": {
+    "name": "esSysMgmtGroup",
+    "oid": "1.3.6.1.4.1.890.1.15.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysMgmtReboot"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysMgmtConfigSave"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysMgmtRestoreDefaultConfig"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysMgmtCPUUsage"
+      },
+      {
+        "module": "ZYXEL-ES-COMMON",
+        "object": "sysMgmtMemUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ZYXEL-ES-COMMON",
+      "Source digest sha256:dc948a5e96c7d65e56e232ed89206b5f6ffdd9bacaaa7af8acc2e96a8d4a4bf6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ZYXEL-ES-COMMON"
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceCasModuleMIB": {
+    "name": "ciscoVoiceCasModuleMIB",
+    "oid": "1.3.6.1.4.1.9.9.389",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-15 00:00",
+        "description": "Initial version of the MIB"
+      }
+    ]
+  },
+  "ciscoVoiceCasModuleNotifs": {
+    "name": "ciscoVoiceCasModuleNotifs",
+    "oid": "1.3.6.1.4.1.9.9.389.0",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceCasModuleObjects": {
+    "name": "ciscoVoiceCasModuleObjects",
+    "oid": "1.3.6.1.4.1.9.9.389.1",
+    "class": "objectidentity"
+  },
+  "cvcmCasConfig": {
+    "name": "cvcmCasConfig",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1",
+    "class": "objectidentity"
+  },
+  "CvcmCasPatternBitPosition": {
+    "name": "CvcmCasPatternBitPosition",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dBit": 0,
+        "cBit": 1,
+        "bBit": 2,
+        "aBit": 3
+      }
+    },
+    "status": "current"
+  },
+  "CvcmCasBitAction": {
+    "name": "CvcmCasBitAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "casBitNoAction": 1,
+          "casBitSetToZero": 2,
+          "casBitSetToOne": 3,
+          "casBitInvertBit": 4,
+          "casBitInvertABit": 5,
+          "casBitInvertBBit": 6,
+          "casBitInvertCBit": 7,
+          "casBitInvertDBit": 8,
+          "casBitABit": 9,
+          "casBitBBit": 10,
+          "casBitCBit": 11,
+          "casBitDBit": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cvcmABCDBitTemplateConfigTable": {
+    "name": "cvcmABCDBitTemplateConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcmABCDBitTemplateConfigEntry": {
+    "name": "cvcmABCDBitTemplateConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmABCDPatternIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvcmModuleIndex": {
+    "name": "cvcmModuleIndex",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcmCasTemplateIndex": {
+    "name": "cvcmCasTemplateIndex",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcmABCDPatternIndex": {
+    "name": "cvcmABCDPatternIndex",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcmModulePhysicalIndex": {
+    "name": "cvcmModulePhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvcmCasTemplateName": {
+    "name": "cvcmCasTemplateName",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmABCDIncomingPattern": {
+    "name": "cvcmABCDIncomingPattern",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasPatternBitPosition",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmABCDOutgoingPattern": {
+    "name": "cvcmABCDOutgoingPattern",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasPatternBitPosition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvcmCasABitAction": {
+    "name": "cvcmCasABitAction",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasBitAction",
+      "class": "type"
+    },
+    "default": {
+      "value": "casBitABit",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmCasBBitAction": {
+    "name": "cvcmCasBBitAction",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasBitAction",
+      "class": "type"
+    },
+    "default": {
+      "value": "casBitBBit",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmCasCBitAction": {
+    "name": "cvcmCasCBitAction",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasBitAction",
+      "class": "type"
+    },
+    "default": {
+      "value": "casBitCBit",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmCasDBitAction": {
+    "name": "cvcmCasDBitAction",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcmCasBitAction",
+      "class": "type"
+    },
+    "default": {
+      "value": "casBitDBit",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmCasBitRowStatus": {
+    "name": "cvcmCasBitRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.389.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcmMIBConformance": {
+    "name": "cvcmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.389.2",
+    "class": "objectidentity"
+  },
+  "cvcmMIBGroups": {
+    "name": "cvcmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.389.2.1",
+    "class": "objectidentity"
+  },
+  "cvcmMIBCompliances": {
+    "name": "cvcmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.389.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceCasModuleMIBCompliance": {
+    "name": "ciscoVoiceCasModuleMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.389.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvcmCasBitGroup",
+        "module": "CISCO-VOICE-CAS-MODULE-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasBitRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "cvcmCasBitGroup": {
+    "name": "cvcmCasBitGroup",
+    "oid": "1.3.6.1.4.1.9.9.389.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmModulePhysicalIndex"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasTemplateName"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmABCDIncomingPattern"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmABCDOutgoingPattern"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasABitAction"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasBBitAction"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasCBitAction"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasDBitAction"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasBitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-CAS-MODULE-MIB",
+      "Source digest sha256:dec0323657edf8a220ced6188f7cf142b1533773a5a6b32bea8ce514c96741b1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-CAS-MODULE-MIB"
+  }
+}

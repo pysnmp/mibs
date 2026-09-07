@@ -1,0 +1,71 @@
+#
+# PySNMP MIB module CISCO-ETHERLIKE-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-ETHERLIKE-EXT-MIB
+# Source digest sha256:5306c99a91e5840090e1c12acf7012b4ebbc25345aa412a2e6aef34c855a244d
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+dot3StatsIndex, = mibBuilder.importSymbols("EtherLike-MIB", "dot3StatsIndex")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoEtherExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 645))
+ciscoEtherExtMIB.setRevisions(('2010-06-04 00:00', '2008-10-15 00:00', '2008-01-09 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoEtherExtMIB.setRevisionsDescriptions(('Added a new table ceeSubInterfaceTable under new OID subtree\n        ceeSubIf.\n\n        Added a new group ciscoEtherExtSubIfGroup.\n\n        Added a new Compliance ceeEtherExtMIBComplianceR01, which\n        deprecates ceeEtherExtMIBCompliance.', 'Updated ceeDot3PauseExtAdminMode DESCRIPTION with\n        correct dot3PauseOperMode values.', 'Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoEtherExtMIB.setLastUpdated('2010-06-04 00:00')
+if mibBuilder.loadTexts: ciscoEtherExtMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoEtherExtMIB.setContactInfo('Cisco Systems\n            Customer Service\n\n            Postal: 170 W Tasman Drive\n            San Jose, CA 95134\n            USA\n\n            Tel: +1 800 553-NETS\n\n            E-mail: cs-lan-switch-snmp@cisco.com')
+if mibBuilder.loadTexts: ciscoEtherExtMIB.setDescription('The MIB module to describe generic objects for\n        ethernet-like network interfaces. \n\n        This MIB provides ethernet-like network interfaces \n        information that are either excluded by EtherLike-MIB \n        or specific to Cisco products.')
+ciscoEtherExtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 0))
+ciscoEtherExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 1))
+ciscoEtherExtMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 2))
+ceeDot3PauseExt = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 1))
+ceeSubIf = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 2))
+ceeDot3PauseExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ceeDot3PauseExtTable.setStatus('current')
+if mibBuilder.loadTexts: ceeDot3PauseExtTable.setDescription('A list of additional descriptive and status\n        information about the MAC Control PAUSE \n        function on the ethernet-like interfaces \n        attached to a particular system, in extension to\n        dot3PauseTable in EtherLike-MIB. There will be \n        one row in this table for each ethernet-like \n        interface in the system which supports the MAC \n        Control PAUSE function.')
+ceeDot3PauseExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "EtherLike-MIB", "dot3StatsIndex"))
+if mibBuilder.loadTexts: ceeDot3PauseExtEntry.setStatus('current')
+if mibBuilder.loadTexts: ceeDot3PauseExtEntry.setDescription('An entry in the table, containing additional\n        information about the MAC Control PAUSE function \n        on a single ethernet-like interface, in extension \n        to dot3PauseEntry in Etherlike-MIB.')
+ceeDot3PauseExtAdminMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("txDesired", 0), ("rxDesired", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ceeDot3PauseExtAdminMode.setStatus('current')
+if mibBuilder.loadTexts: ceeDot3PauseExtAdminMode.setDescription("Indicates preference to send or process pause\n        frames on this interface.\n        txDesired(0)  -  indicates preference to send pause \n                         frames, but autonegotiates flow \n                         control. This bit can only be \n                         turned on when the corresponding \n                         instance of dot3PauseAdminMode \n                         has the value of 'enabledXmit' or \n                         'enabledXmitAndRcv'.\n        rxDesired(1)  -  indicates preference to process \n                         pause frames, but autonegotiates \n                         flow control. This bit can only be \n                         turned on when the corresponding \n                         instance of dot3PauseAdminMode \n                         has the value of 'enabledRcv' or \n                         'enabledXmitAndRcv'.")
+ceeDot3PauseExtOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 1, 1, 1, 2), Bits().clone(namedValues=NamedValues(("txDisagree", 0), ("rxDisagree", 1), ("txDesired", 2), ("rxDesired", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ceeDot3PauseExtOperMode.setStatus('current')
+if mibBuilder.loadTexts: ceeDot3PauseExtOperMode.setDescription('Provides additional information about the flow\n        control operational status on this interface.\n        txDisagree(0) - the transmit pause function on \n                        this interface is disabled due to \n                        disagreement from the far end on \n                        negotiation.\n        rxDisagree(1) - the receive pause function on  \n                        this interface is disabled due to \n                        disagreement from the far end on \n                        negotiation.\n        txDesired(2)  - the transmit pause function on \n                        this interface is desired.\n        rxDesired(3)  - the receive pause function on  \n                        this interface is desired.')
+ceeSubInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 2, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: ceeSubInterfaceTable.setStatus('current')
+if mibBuilder.loadTexts: ceeSubInterfaceTable.setDescription('This table provides the subinterface related information\n        associated to the Ethernet-like interfaces.\n\n        The subinterface is a division of one physical interface into\n        multiple logical interfaces. As an example of what a typical\n        subinterface setup might look like on a device, a single\n        Ethernet port such as GigabitEthernet0/0 would be subdivided\n        into Gi0/0.1, Gi0/0.2, Gi0/0.3 and so on, each one performing as\n        if it were a separate interface.')
+ceeSubInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 2, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ceeSubInterfaceEntry.setStatus('current')
+if mibBuilder.loadTexts: ceeSubInterfaceEntry.setDescription("This table contains a row for each Ethernet-like interface\n        by it's ifTable ifIndex in the system, which supports the\n        sub-interface.\n\n        An entry is created by an agent, when it detects a\n        Ethernet-like interface is created in ifTable and it \n        can support sub-interface.\n\n        An entry is deleted by an agent, when the ifTable entry\n        associated to the Ethernet-like interface is deleted.\n        Typically, when the card is removed from the device.")
+ceeSubInterfaceCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 645, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('subifs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ceeSubInterfaceCount.setStatus('current')
+if mibBuilder.loadTexts: ceeSubInterfaceCount.setDescription('This object represents the number of subinterfaces\n        created on a Ethernet-like interface.')
+ceeEtherExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 1))
+ceeEtherExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 2))
+ceeEtherExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 1, 1)).setObjects(("CISCO-ETHERLIKE-EXT-MIB", "ciscoEtherExtPauseGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ceeEtherExtMIBCompliance = ceeEtherExtMIBCompliance.setStatus('deprecated')
+if mibBuilder.loadTexts: ceeEtherExtMIBCompliance.setDescription('The compliance statement for CISCO-ETHERLIKE-EXT-MIB.')
+ceeEtherExtMIBComplianceR01 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 1, 2)).setObjects(("CISCO-ETHERLIKE-EXT-MIB", "ciscoEtherExtPauseGroup"), ("CISCO-ETHERLIKE-EXT-MIB", "ciscoEtherExtSubIfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ceeEtherExtMIBComplianceR01 = ceeEtherExtMIBComplianceR01.setStatus('current')
+if mibBuilder.loadTexts: ceeEtherExtMIBComplianceR01.setDescription('The compliance statement for CISCO-ETHERLIKE-EXT-MIB.\n        This deprecates ceeEtherExtMIBCompliance.')
+ciscoEtherExtPauseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 2, 1)).setObjects(("CISCO-ETHERLIKE-EXT-MIB", "ceeDot3PauseExtAdminMode"), ("CISCO-ETHERLIKE-EXT-MIB", "ceeDot3PauseExtOperMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEtherExtPauseGroup = ciscoEtherExtPauseGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoEtherExtPauseGroup.setDescription('A collection of objects providing the additional information\n        for the control of the MAC Control PAUSE function on \n        ethernet-like network interfaces.')
+ciscoEtherExtSubIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 645, 2, 2, 2)).setObjects(("CISCO-ETHERLIKE-EXT-MIB", "ceeSubInterfaceCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEtherExtSubIfGroup = ciscoEtherExtSubIfGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoEtherExtSubIfGroup.setDescription('A collection of objects providing the Ethernet-like\n        subinterface information.')
+mibBuilder.exportSymbols("CISCO-ETHERLIKE-EXT-MIB", PYSNMP_MODULE_ID=ciscoEtherExtMIB, ceeDot3PauseExt=ceeDot3PauseExt, ceeDot3PauseExtAdminMode=ceeDot3PauseExtAdminMode, ceeDot3PauseExtEntry=ceeDot3PauseExtEntry, ceeDot3PauseExtOperMode=ceeDot3PauseExtOperMode, ceeDot3PauseExtTable=ceeDot3PauseExtTable, ceeEtherExtMIBCompliance=ceeEtherExtMIBCompliance, ceeEtherExtMIBComplianceR01=ceeEtherExtMIBComplianceR01, ceeEtherExtMIBCompliances=ceeEtherExtMIBCompliances, ceeEtherExtMIBGroups=ceeEtherExtMIBGroups, ceeSubIf=ceeSubIf, ceeSubInterfaceCount=ceeSubInterfaceCount, ceeSubInterfaceEntry=ceeSubInterfaceEntry, ceeSubInterfaceTable=ceeSubInterfaceTable, ciscoEtherExtMIB=ciscoEtherExtMIB, ciscoEtherExtMIBConform=ciscoEtherExtMIBConform, ciscoEtherExtMIBNotifs=ciscoEtherExtMIBNotifs, ciscoEtherExtMIBObjects=ciscoEtherExtMIBObjects, ciscoEtherExtPauseGroup=ciscoEtherExtPauseGroup, ciscoEtherExtSubIfGroup=ciscoEtherExtSubIfGroup)

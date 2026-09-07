@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "slRadiusMIB": {
+    "name": "slRadiusMIB",
+    "oid": "1.3.6.1.4.1.4515.1.3.23",
+    "class": "moduleidentity"
+  },
+  "slRadiusClientMIBObjects": {
+    "name": "slRadiusClientMIBObjects",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1",
+    "class": "objectidentity"
+  },
+  "slRadiusClient": {
+    "name": "slRadiusClient",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1",
+    "class": "objectidentity"
+  },
+  "slRadiusTraps": {
+    "name": "slRadiusTraps",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.2",
+    "class": "objectidentity"
+  },
+  "SharedSecret": {
+    "name": "SharedSecret",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "slRadiusEnabled": {
+    "name": "slRadiusEnabled",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRadiusServerTable": {
+    "name": "slRadiusServerTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slRadiusServerEntry": {
+    "name": "slRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-RADIUS-MIB",
+        "object": "slRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slRadiusServerIndex": {
+    "name": "slRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slRadiusServerAddress": {
+    "name": "slRadiusServerAddress",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRadiusServerPort": {
+    "name": "slRadiusServerPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRadiusServerAdminStatus": {
+    "name": "slRadiusServerAdminStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRadiusTimeout": {
+    "name": "slRadiusTimeout",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRadiusSharedSecret": {
+    "name": "slRadiusSharedSecret",
+    "oid": "1.3.6.1.4.1.4515.1.3.23.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SharedSecret",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-RADIUS-MIB",
+      "Source digest sha256:5a313dac2ef87293f16dee73fe0ab7f9d595952dff16e7e703411e6d19bfea17",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-RADIUS-MIB"
+  }
+}

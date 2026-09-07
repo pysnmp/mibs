@@ -1,0 +1,189 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctINBinfo2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctInbUtil": {
+    "name": "ctInbUtil",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1",
+    "class": "objectidentity"
+  },
+  "ctInbUtilInterval": {
+    "name": "ctInbUtilInterval",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctInbUtilTable": {
+    "name": "ctInbUtilTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctInbUtilEntry": {
+    "name": "ctInbUtilEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTINB2-MIB",
+        "object": "ctInbUtilSrcSlot",
+        "implied": 0
+      },
+      {
+        "module": "CTINB2-MIB",
+        "object": "ctInbUtilDestSlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctInbUtilSrcSlot": {
+    "name": "ctInbUtilSrcSlot",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilDestSlot": {
+    "name": "ctInbUtilDestSlot",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilHiByteCountA": {
+    "name": "ctInbUtilHiByteCountA",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilLoByteCountA": {
+    "name": "ctInbUtilLoByteCountA",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilHiByteCountB": {
+    "name": "ctInbUtilHiByteCountB",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilLoByteCountB": {
+    "name": "ctInbUtilLoByteCountB",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilAbsoluteA": {
+    "name": "ctInbUtilAbsoluteA",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilAbsoluteB": {
+    "name": "ctInbUtilAbsoluteB",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctInbUtilAbsoluteTotal": {
+    "name": "ctInbUtilAbsoluteTotal",
+    "oid": "1.3.6.1.4.1.52.4.1.2.12.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTINB2-MIB",
+      "Source digest sha256:bcbe1c7af11c6ccf8d330d98234b5597763805ce2e8f5b234161bfefd686bc33",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTINB2-MIB"
+  }
+}

@@ -1,0 +1,494 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfAtmDxi": {
+    "name": "hpnicfAtmDxi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-14 15:18",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfAtmDxiScalarGroup": {
+    "name": "hpnicfAtmDxiScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.1",
+    "class": "objectidentity"
+  },
+  "hpnicfAtmDxiConfMode": {
+    "name": "hpnicfAtmDxiConfMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1a": 1,
+          "mode1b": 2,
+          "mode2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfAtmDxiIfObjects": {
+    "name": "hpnicfAtmDxiIfObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2",
+    "class": "objectidentity"
+  },
+  "hpnicfAtmDxiPvcTable": {
+    "name": "hpnicfAtmDxiPvcTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcEntry": {
+    "name": "hpnicfAtmDxiPvcEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcVpi": {
+    "name": "hpnicfAtmDxiPvcVpi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcVci": {
+    "name": "hpnicfAtmDxiPvcVci",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcDFA": {
+    "name": "hpnicfAtmDxiPvcDFA",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcEncType": {
+    "name": "hpnicfAtmDxiPvcEncType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snap": 1,
+          "nlpid": 2,
+          "mux": 3
+        }
+      }
+    },
+    "default": {
+      "value": "snap",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcMapCount": {
+    "name": "hpnicfAtmDxiPvcMapCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiPvcRowStatus": {
+    "name": "hpnicfAtmDxiPvcRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapTable": {
+    "name": "hpnicfAtmDxiMapTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapEntry": {
+    "name": "hpnicfAtmDxiMapEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapPeerIpType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapPeerIp",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapPvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapPvcVci",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapPeerIpType": {
+    "name": "hpnicfAtmDxiMapPeerIpType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapPeerIp": {
+    "name": "hpnicfAtmDxiMapPeerIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapPvcVpi": {
+    "name": "hpnicfAtmDxiMapPvcVpi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapPvcVci": {
+    "name": "hpnicfAtmDxiMapPvcVci",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapType": {
+    "name": "hpnicfAtmDxiMapType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "address": 1,
+          "inarp": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapInarpTime": {
+    "name": "hpnicfAtmDxiMapInarpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapBroEnable": {
+    "name": "hpnicfAtmDxiMapBroEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiMapRowStatus": {
+    "name": "hpnicfAtmDxiMapRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfAtmDxiConformance": {
+    "name": "hpnicfAtmDxiConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3",
+    "class": "objectidentity"
+  },
+  "hpnicfAtmDxiCompliances": {
+    "name": "hpnicfAtmDxiCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfAtmDxiCompliance": {
+    "name": "hpnicfAtmDxiCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfPVCMAPGroup",
+        "module": "HPN-ICF-ATM-DXI-MIB"
+      },
+      {
+        "object": "hpnicfAtmDxiGeneralGroup",
+        "module": "HPN-ICF-ATM-DXI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAtmDxiGroup": {
+    "name": "hpnicfAtmDxiGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfPVCMAPGroup": {
+    "name": "hpnicfPVCMAPGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcDFA"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcEncType"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcMapCount"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiPvcRowStatus"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapBroEnable"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapInarpTime"
+      },
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAtmDxiGeneralGroup": {
+    "name": "hpnicfAtmDxiGeneralGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.49.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-ATM-DXI-MIB",
+        "object": "hpnicfAtmDxiConfMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-ATM-DXI-MIB",
+      "Source digest sha256:fbab3f9bd4b6e4af22bfd7782d8080900382f823762abaee9be04b095e47aebd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-ATM-DXI-MIB"
+  }
+}

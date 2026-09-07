@@ -1,0 +1,652 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "RMON-MIB": [
+      "OwnerString",
+      "rmon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "interfaceTopNMIB": {
+    "name": "interfaceTopNMIB",
+    "oid": "1.3.6.1.2.1.16.27",
+    "class": "moduleidentity"
+  },
+  "interfaceTopNObjects": {
+    "name": "interfaceTopNObjects",
+    "oid": "1.3.6.1.2.1.16.27.1",
+    "class": "objectidentity"
+  },
+  "interfaceTopNNotifications": {
+    "name": "interfaceTopNNotifications",
+    "oid": "1.3.6.1.2.1.16.27.2",
+    "class": "objectidentity"
+  },
+  "interfaceTopNConformance": {
+    "name": "interfaceTopNConformance",
+    "oid": "1.3.6.1.2.1.16.27.3",
+    "class": "objectidentity"
+  },
+  "interfaceTopNCaps": {
+    "name": "interfaceTopNCaps",
+    "oid": "1.3.6.1.2.1.16.27.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ifInOctets": 0,
+        "ifInUcastPkts": 1,
+        "ifInNUcastPkts": 2,
+        "ifInDiscards": 3,
+        "ifInErrors": 4,
+        "ifInUnknownProtos": 5,
+        "ifOutOctets": 6,
+        "ifOutUcastPkts": 7,
+        "ifOutNUcastPkts": 8,
+        "ifOutDiscards": 9,
+        "ifOutErrors": 10,
+        "ifInMulticastPkts": 11,
+        "ifInBroadcastPkts": 12,
+        "ifOutMulticastPkts": 13,
+        "ifOutBroadcastPkts": 14,
+        "ifHCInOctets": 15,
+        "ifHCInUcastPkts": 16,
+        "ifHCInMulticastPkts": 17,
+        "ifHCInBroadcastPkts": 18,
+        "ifHCOutOctets": 19,
+        "ifHCOutUcastPkts": 20,
+        "ifHCOutMulticastPkts": 21,
+        "ifHCOutBroadcastPkts": 22,
+        "dot3StatsAlignmentErrors": 23,
+        "dot3StatsFCSErrors": 24,
+        "dot3StatsSingleCollisionFrames": 25,
+        "dot3StatsMultipleCollisionFrames": 26,
+        "dot3StatsSQETestErrors": 27,
+        "dot3StatsDeferredTransmissions": 28,
+        "dot3StatsLateCollisions": 29,
+        "dot3StatsExcessiveCollisions": 30,
+        "dot3StatsInternalMacTxErrors": 31,
+        "dot3StatsCarrierSenseErrors": 32,
+        "dot3StatsFrameTooLongs": 33,
+        "dot3StatsInternalMacRxErrors": 34,
+        "dot3StatsSymbolErrors": 35,
+        "dot3InPauseFrames": 36,
+        "dot3OutPauseFrames": 37,
+        "dot5StatsLineErrors": 38,
+        "dot5StatsBurstErrors": 39,
+        "dot5StatsACErrors": 40,
+        "dot5StatsAbortTransErrors": 41,
+        "dot5StatsInternalErrors": 42,
+        "dot5StatsLostFrameErrors": 43,
+        "dot5StatsReceiveCongestions": 44,
+        "dot5StatsFrameCopiedErrors": 45,
+        "dot5StatsTokenErrors": 46,
+        "dot5StatsSoftErrors": 47,
+        "dot5StatsHardErrors": 48,
+        "dot5StatsSignalLoss": 49,
+        "dot5StatsTransmitBeacons": 50,
+        "dot5StatsRecoverys": 51,
+        "dot5StatsLobeWires": 52,
+        "dot5StatsRemoves": 53,
+        "dot5StatsSingles": 54,
+        "dot5StatsFreqErrors": 55,
+        "etherStatsDropEvents": 56,
+        "etherStatsOctets": 57,
+        "etherStatsPkts": 58,
+        "etherStatsBroadcastPkts": 59,
+        "etherStatsMulticastPkts": 60,
+        "etherStatsCRCAlignErrors": 61,
+        "etherStatsUndersizePkts": 62,
+        "etherStatsOversizePkts": 63,
+        "etherStatsFragments": 64,
+        "etherStatsJabbers": 65,
+        "etherStatsCollisions": 66,
+        "etherStatsPkts64Octets": 67,
+        "etherStatsPkts65to127Octets": 68,
+        "etherStatsPkts128to255Octets": 69,
+        "etherStatsPkts256to511Octets": 70,
+        "etherStatsPkts512to1023Octets": 71,
+        "etherStatsPkts1024to1518Octets": 72,
+        "dot1dTpPortInFrames": 73,
+        "dot1dTpPortOutFrames": 74,
+        "dot1dTpPortInDiscards": 75
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNControlTable": {
+    "name": "interfaceTopNControlTable",
+    "oid": "1.3.6.1.2.1.16.27.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceTopNControlEntry": {
+    "name": "interfaceTopNControlEntry",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceTopNControlIndex": {
+    "name": "interfaceTopNControlIndex",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceTopNObjectVariable": {
+    "name": "interfaceTopNObjectVariable",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifInOctets": 0,
+          "ifInUcastPkts": 1,
+          "ifInNUcastPkts": 2,
+          "ifInDiscards": 3,
+          "ifInErrors": 4,
+          "ifInUnknownProtos": 5,
+          "ifOutOctets": 6,
+          "ifOutUcastPkts": 7,
+          "ifOutNUcastPkts": 8,
+          "ifOutDiscards": 9,
+          "ifOutErrors": 10,
+          "ifInMulticastPkts": 11,
+          "ifInBroadcastPkts": 12,
+          "ifOutMulticastPkts": 13,
+          "ifOutBroadcastPkts": 14,
+          "ifHCInOctets": 15,
+          "ifHCInUcastPkts": 16,
+          "ifHCInMulticastPkts": 17,
+          "ifHCInBroadcastPkts": 18,
+          "ifHCOutOctets": 19,
+          "ifHCOutUcastPkts": 20,
+          "ifHCOutMulticastPkts": 21,
+          "ifHCOutBroadcastPkts": 22,
+          "dot3StatsAlignmentErrors": 23,
+          "dot3StatsFCSErrors": 24,
+          "dot3StatsSingleCollisionFrames": 25,
+          "dot3StatsMultipleCollisionFrames": 26,
+          "dot3StatsSQETestErrors": 27,
+          "dot3StatsDeferredTransmissions": 28,
+          "dot3StatsLateCollisions": 29,
+          "dot3StatsExcessiveCollisions": 30,
+          "dot3StatsInternalMacTxErrors": 31,
+          "dot3StatsCarrierSenseErrors": 32,
+          "dot3StatsFrameTooLongs": 33,
+          "dot3StatsInternalMacRxErrors": 34,
+          "dot3StatsSymbolErrors": 35,
+          "dot3InPauseFrames": 36,
+          "dot3OutPauseFrames": 37,
+          "dot5StatsLineErrors": 38,
+          "dot5StatsBurstErrors": 39,
+          "dot5StatsACErrors": 40,
+          "dot5StatsAbortTransErrors": 41,
+          "dot5StatsInternalErrors": 42,
+          "dot5StatsLostFrameErrors": 43,
+          "dot5StatsReceiveCongestions": 44,
+          "dot5StatsFrameCopiedErrors": 45,
+          "dot5StatsTokenErrors": 46,
+          "dot5StatsSoftErrors": 47,
+          "dot5StatsHardErrors": 48,
+          "dot5StatsSignalLoss": 49,
+          "dot5StatsTransmitBeacons": 50,
+          "dot5StatsRecoverys": 51,
+          "dot5StatsLobeWires": 52,
+          "dot5StatsRemoves": 53,
+          "dot5StatsSingles": 54,
+          "dot5StatsFreqErrors": 55,
+          "etherStatsDropEvents": 56,
+          "etherStatsOctets": 57,
+          "etherStatsPkts": 58,
+          "etherStatsBroadcastPkts": 59,
+          "etherStatsMulticastPkts": 60,
+          "etherStatsCRCAlignErrors": 61,
+          "etherStatsUndersizePkts": 62,
+          "etherStatsOversizePkts": 63,
+          "etherStatsFragments": 64,
+          "etherStatsJabbers": 65,
+          "etherStatsCollisions": 66,
+          "etherStatsPkts64Octets": 67,
+          "etherStatsPkts65to127Octets": 68,
+          "etherStatsPkts128to255Octets": 69,
+          "etherStatsPkts256to511Octets": 70,
+          "etherStatsPkts512to1023Octets": 71,
+          "etherStatsPkts1024to1518Octets": 72,
+          "dot1dTpPortInFrames": 73,
+          "dot1dTpPortOutFrames": 74,
+          "dot1dTpPortInDiscards": 75
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNObjectSampleType": {
+    "name": "interfaceTopNObjectSampleType",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2,
+          "bandwidthPercentage": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNNormalizationReq": {
+    "name": "interfaceTopNNormalizationReq",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNNormalizationFactor": {
+    "name": "interfaceTopNNormalizationFactor",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNTimeRemaining": {
+    "name": "interfaceTopNTimeRemaining",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNDuration": {
+    "name": "interfaceTopNDuration",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNRequestedSize": {
+    "name": "interfaceTopNRequestedSize",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNGrantedSize": {
+    "name": "interfaceTopNGrantedSize",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNStartTime": {
+    "name": "interfaceTopNStartTime",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNOwner": {
+    "name": "interfaceTopNOwner",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNLastCompletionTime": {
+    "name": "interfaceTopNLastCompletionTime",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNRowStatus": {
+    "name": "interfaceTopNRowStatus",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNTable": {
+    "name": "interfaceTopNTable",
+    "oid": "1.3.6.1.2.1.16.27.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceTopNEntry": {
+    "name": "interfaceTopNEntry",
+    "oid": "1.3.6.1.2.1.16.27.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceTopNIndex": {
+    "name": "interfaceTopNIndex",
+    "oid": "1.3.6.1.2.1.16.27.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceTopNDataSourceIndex": {
+    "name": "interfaceTopNDataSourceIndex",
+    "oid": "1.3.6.1.2.1.16.27.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNValue": {
+    "name": "interfaceTopNValue",
+    "oid": "1.3.6.1.2.1.16.27.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNValue64": {
+    "name": "interfaceTopNValue64",
+    "oid": "1.3.6.1.2.1.16.27.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTopNCompliances": {
+    "name": "interfaceTopNCompliances",
+    "oid": "1.3.6.1.2.1.16.27.3.1",
+    "class": "objectidentity"
+  },
+  "interfaceTopNGroups": {
+    "name": "interfaceTopNGroups",
+    "oid": "1.3.6.1.2.1.16.27.3.2",
+    "class": "objectidentity"
+  },
+  "interfaceTopNCompliance": {
+    "name": "interfaceTopNCompliance",
+    "oid": "1.3.6.1.2.1.16.27.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "interfaceTopNGroup",
+        "module": "INTERFACETOPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceTopNGroup": {
+    "name": "interfaceTopNGroup",
+    "oid": "1.3.6.1.2.1.16.27.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNCaps"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNObjectVariable"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNObjectSampleType"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNNormalizationReq"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNNormalizationFactor"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNTimeRemaining"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNDuration"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNRequestedSize"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNGrantedSize"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNStartTime"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNOwner"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNLastCompletionTime"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNRowStatus"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNDataSourceIndex"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNValue"
+      },
+      {
+        "module": "INTERFACETOPN-MIB",
+        "object": "interfaceTopNValue64"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source INTERFACETOPN-MIB",
+      "Source digest sha256:07103b4eb312cb04432ddb53f11b4c6327f6c8ca38a35ddd58f457a0cedec836",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "INTERFACETOPN-MIB"
+  }
+}

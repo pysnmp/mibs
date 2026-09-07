@@ -1,0 +1,192 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARISTA-SMI-MIB": [
+      "aristaMibs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "aristaGeneralMib": {
+    "name": "aristaGeneralMib",
+    "oid": "1.3.6.1.4.1.30065.3.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-11-06 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "aristaGeneralMibNotifications": {
+    "name": "aristaGeneralMibNotifications",
+    "oid": "1.3.6.1.4.1.30065.3.24.0",
+    "class": "objectidentity"
+  },
+  "aristaGeneralMibObjects": {
+    "name": "aristaGeneralMibObjects",
+    "oid": "1.3.6.1.4.1.30065.3.24.1",
+    "class": "objectidentity"
+  },
+  "aristaGeneralMibConformance": {
+    "name": "aristaGeneralMibConformance",
+    "oid": "1.3.6.1.4.1.30065.3.24.2",
+    "class": "objectidentity"
+  },
+  "aristaReloadCauseTable": {
+    "name": "aristaReloadCauseTable",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaReloadCauseEntry": {
+    "name": "aristaReloadCauseEntry",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARISTA-GENERAL-MIB",
+        "object": "aristaReloadUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARISTA-GENERAL-MIB",
+        "object": "aristaReloadIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARISTA-GENERAL-MIB",
+        "object": "aristaReloadCauseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aristaReloadUnitIndex": {
+    "name": "aristaReloadUnitIndex",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaReloadIndex": {
+    "name": "aristaReloadIndex",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaReloadCauseIndex": {
+    "name": "aristaReloadCauseIndex",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaReloadCauseDescription": {
+    "name": "aristaReloadCauseDescription",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaReloadTime": {
+    "name": "aristaReloadTime",
+    "oid": "1.3.6.1.4.1.30065.3.24.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaGeneralMibCompliances": {
+    "name": "aristaGeneralMibCompliances",
+    "oid": "1.3.6.1.4.1.30065.3.24.2.1",
+    "class": "objectidentity"
+  },
+  "aristaGeneralMibGroups": {
+    "name": "aristaGeneralMibGroups",
+    "oid": "1.3.6.1.4.1.30065.3.24.2.2",
+    "class": "objectidentity"
+  },
+  "aristaGeneralMibCompliance": {
+    "name": "aristaGeneralMibCompliance",
+    "oid": "1.3.6.1.4.1.30065.3.24.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aristaGeneralMibGroup",
+        "module": "ARISTA-GENERAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aristaGeneralMibGroup": {
+    "name": "aristaGeneralMibGroup",
+    "oid": "1.3.6.1.4.1.30065.3.24.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARISTA-GENERAL-MIB",
+        "object": "aristaReloadCauseDescription"
+      },
+      {
+        "module": "ARISTA-GENERAL-MIB",
+        "object": "aristaReloadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARISTA-GENERAL-MIB",
+      "Source digest sha256:49d1f7803683053d01118d28fc54f59c7b7fa21f66dc45b4da943fb984ba55c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARISTA-GENERAL-MIB"
+  }
+}

@@ -1,0 +1,1670 @@
+ACOS-VRRPA-STATE-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpAStateModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpAStateModule OID for ACOS"
+				::=  {  acosSchema 4 }
+
+state		 OBJECT IDENTIFIER ::= { vrrpAStateModule 1}
+
+stateStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF StateStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "HA VRRP-A Global Commands from object 'vrrp-a.state'"
+	::= {state 1}
+
+stateStatsEntry OBJECT-TYPE
+	SYNTAX StateStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The stateStats stats entry"
+	INDEX {
+		stateStatsSlotId
+	}
+	::= { stateStatsTable 1 }
+
+StateStatsEntry ::=
+	SEQUENCE {
+		stateStatsSlotId Integer32,
+		stateStatsSyncPktTxCounter	 CounterBasedGauge64,
+		stateStatsSyncPktRcvCounter	 CounterBasedGauge64,
+		stateStatsSyncRxCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxDelCounter	 CounterBasedGauge64,
+		stateStatsSyncRxUpdateAgeCounter	 CounterBasedGauge64,
+		stateStatsSyncTxCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncTxDelCounter	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateAgeCounter	 CounterBasedGauge64,
+		stateStatsSyncRxPersistCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxPersistDelCounter	 CounterBasedGauge64,
+		stateStatsSyncRxPersistUpdateAgeCounter	 CounterBasedGauge64,
+		stateStatsSyncTxPersistCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncTxPersistDelCounter	 CounterBasedGauge64,
+		stateStatsSyncTxPersistUpdateAgeCounter	 CounterBasedGauge64,
+		stateStatsQueryPktTxCounter	 CounterBasedGauge64,
+		stateStatsQueryPktRcvCounter	 CounterBasedGauge64,
+		stateStatsSyncTxSmpRadiusTableCounter	 CounterBasedGauge64,
+		stateStatsSyncRxSmpRadiusTableCounter	 CounterBasedGauge64,
+		stateStatsQueryTxMaxPacked	 CounterBasedGauge64,
+		stateStatsQueryTxMinPacked	 CounterBasedGauge64,
+		stateStatsQueryPktInvalidIdxCounter	 CounterBasedGauge64,
+		stateStatsQueryTxGetBuffFailed	 CounterBasedGauge64,
+		stateStatsQueryRxZeroInfoCounter	 CounterBasedGauge64,
+		stateStatsQueryRxFullInfoCounter	 CounterBasedGauge64,
+		stateStatsQueryRxUnkCounter	 CounterBasedGauge64,
+		stateStatsSyncPktInvalidIdxCounter	 CounterBasedGauge64,
+		stateStatsSyncTxGetBuffFailed	 CounterBasedGauge64,
+		stateStatsSyncTxTotalInfoCounter	 CounterBasedGauge64,
+		stateStatsSyncTxCreateExtBitCounter	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateSeqnosCounter	 CounterBasedGauge64,
+		stateStatsSyncTxMinPacked	 CounterBasedGauge64,
+		stateStatsSyncTxMaxPacked	 CounterBasedGauge64,
+		stateStatsSyncRxLenInvalid	 CounterBasedGauge64,
+		stateStatsSyncPersistRxLenInvalid	 CounterBasedGauge64,
+		stateStatsSyncPersistRxProtoNotSupported	 CounterBasedGauge64,
+		stateStatsSyncPersistRxTypeInvalid	 CounterBasedGauge64,
+		stateStatsSyncPersistRxCannotProcessMandatory	 CounterBasedGauge64,
+		stateStatsSyncPersistRxExtBitProcessError	 CounterBasedGauge64,
+		stateStatsSyncPersistRxNoSuchVport	 CounterBasedGauge64,
+		stateStatsSyncPersistRxVporttypeNotSupported	 CounterBasedGauge64,
+		stateStatsSyncPersistRxNoSuchRport	 CounterBasedGauge64,
+		stateStatsSyncPersistRxNoSuchSgGroup	 CounterBasedGauge64,
+		stateStatsSyncPersistRxNoSgGroupInfo	 CounterBasedGauge64,
+		stateStatsSyncPersistRxConnGetFailed	 CounterBasedGauge64,
+		stateStatsSyncRxNoSuchVport	 CounterBasedGauge64,
+		stateStatsSyncRxNoSuchRport	 CounterBasedGauge64,
+		stateStatsSyncRxCannotProcessMandatory	 CounterBasedGauge64,
+		stateStatsSyncRxExtBitProcessError	 CounterBasedGauge64,
+		stateStatsSyncRxCreateExtBitCounter	 CounterBasedGauge64,
+		stateStatsSyncRxConnExists	 CounterBasedGauge64,
+		stateStatsSyncRxConnGetFailed	 CounterBasedGauge64,
+		stateStatsSyncRxProtoNotSupported	 CounterBasedGauge64,
+		stateStatsSyncRxNoDstForVportInline	 CounterBasedGauge64,
+		stateStatsSyncRxNoSuchNatPool	 CounterBasedGauge64,
+		stateStatsSyncRxNoSuchSgNode	 CounterBasedGauge64,
+		stateStatsSyncRxDelNoSuchSession	 CounterBasedGauge64,
+		stateStatsSyncRxTypeInvalid	 CounterBasedGauge64,
+		stateStatsSyncRxZeroInfoCounter	 CounterBasedGauge64,
+		stateStatsSyncRxDcmsgCounter	 CounterBasedGauge64,
+		stateStatsSyncRxTotalInfoCounter	 CounterBasedGauge64,
+		stateStatsSyncRxUpdateSeqnosCounter	 CounterBasedGauge64,
+		stateStatsSyncRxUnkCounter	 CounterBasedGauge64,
+		stateStatsSyncRxApptypeNotSupported	 CounterBasedGauge64,
+		stateStatsSyncQueryDcmsgCounter	 CounterBasedGauge64,
+		stateStatsSyncGetBuffFailedRt	 CounterBasedGauge64,
+		stateStatsSyncGetBuffFailedPort	 CounterBasedGauge64,
+		stateStatsSyncRxLsnCreateSby	 CounterBasedGauge64,
+		stateStatsSyncRxNatCreateSby	 CounterBasedGauge64,
+		stateStatsSyncRxNatAllocSby	 CounterBasedGauge64,
+		stateStatsSyncRxInsertTuple	 CounterBasedGauge64,
+		stateStatsSyncRxSfw	 CounterBasedGauge64,
+		stateStatsSyncRxCreateStaticSby	 CounterBasedGauge64,
+		stateStatsSyncRxExtPptp	 CounterBasedGauge64,
+		stateStatsSyncRxExtRtsp	 CounterBasedGauge64,
+		stateStatsSyncRxReserveHa	 CounterBasedGauge64,
+		stateStatsSyncRxSeqDeltas	 CounterBasedGauge64,
+		stateStatsSyncRxFtpControl	 CounterBasedGauge64,
+		stateStatsSyncRxExtLsnAcl	 CounterBasedGauge64,
+		stateStatsSyncRxExtLsnAcIdleTimeout	 CounterBasedGauge64,
+		stateStatsSyncRxExtSipAlg	 CounterBasedGauge64,
+		stateStatsSyncRxExtH323Alg	 CounterBasedGauge64,
+		stateStatsSyncRxExtNatMac	 CounterBasedGauge64,
+		stateStatsSyncTxLsnFullcone	 CounterBasedGauge64,
+		stateStatsSyncRxLsnFullcone	 CounterBasedGauge64,
+		stateStatsSyncErrLsnFullcone	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateSctpConnAddr	 CounterBasedGauge64,
+		stateStatsSyncRxUpdateSctpConnAddr	 CounterBasedGauge64,
+		stateStatsSyncRxExtNatAlgTcpInfo	 CounterBasedGauge64,
+		stateStatsSyncRxExtDcfwRuleId	 CounterBasedGauge64,
+		stateStatsSyncRxExtDcfwLog	 CounterBasedGauge64,
+		stateStatsSyncRxEstabCounter	 CounterBasedGauge64,
+		stateStatsSyncTxEstabCounter	 CounterBasedGauge64,
+		stateStatsSyncRxZoneFailureCounter	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwHttpLogging	 CounterBasedGauge64,
+		stateStatsSyncRxExtDcfwRuleIdleTimeout	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpInfo	 CounterBasedGauge64,
+		stateStatsSyncRxNotExpectSyncPkt	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwApps	 CounterBasedGauge64,
+		stateStatsSyncTxMonEntity	 CounterBasedGauge64,
+		stateStatsSyncRxMonEntity	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpLogInfo	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpUInfo	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpExtInfo	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpLogExtInfo	 CounterBasedGauge64,
+		stateStatsSyncRxDdosDropCounter	 CounterBasedGauge64,
+		stateStatsSyncRxInvalidSyncPacketCounter	 CounterBasedGauge64,
+		stateStatsSyncPktEmptyBuffCounter	 CounterBasedGauge64,
+		stateStatsSyncPktNoSendingVgrpCounter	 CounterBasedGauge64,
+		stateStatsSyncPktNoReceivingVgrpCounter	 CounterBasedGauge64,
+		stateStatsQueryPktNoReceivingIpCounter	 CounterBasedGauge64,
+		stateStatsSyncPktFailedBuffCopyCounter	 CounterBasedGauge64,
+		stateStatsSyncRxBadProtocolCounter	 CounterBasedGauge64,
+		stateStatsSyncRxNoVgrpCounter	 CounterBasedGauge64,
+		stateStatsSyncRxByInactivePeerCounter	 CounterBasedGauge64,
+		stateStatsSyncRxTableEntryUpdateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxTableEntryCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxTableEntryDelCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexUpdateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexDelCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexFragCounter	 CounterBasedGauge64,
+		stateStatsQueryRxInvalidPartitionCounter	 CounterBasedGauge64,
+		stateStatsQueryRxInvalidHaGroupCounter	 CounterBasedGauge64,
+		stateStatsQueryRxInvalidSyncVersionCounter	 CounterBasedGauge64,
+		stateStatsQueryRxInvalidMsgDirCounter	 CounterBasedGauge64,
+		stateStatsSyncRxOutOfOrderPktCounter	 CounterBasedGauge64,
+		stateStatsSyncRxUnreachedPktCounter	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwGtpEchoExtInfo	 CounterBasedGauge64,
+		stateStatsSyncRxSmpCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxSmpDeleteCounter	 CounterBasedGauge64,
+		stateStatsSyncRxSmpUpdateCounter	 CounterBasedGauge64,
+		stateStatsSyncTxSmpCreateCounter	 CounterBasedGauge64,
+		stateStatsSyncTxSmpDeleteCounter	 CounterBasedGauge64,
+		stateStatsSyncTxSmpUpdateCounter	 CounterBasedGauge64,
+		stateStatsSyncRxSmpClearCounter	 CounterBasedGauge64,
+		stateStatsSyncTxSmpClearCounter	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwSoShadowExtInfo	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryAddCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryAddCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryAppendCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryAppendCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryDeleteCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryDeleteCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryIncrCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryIncrCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryLookupCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryLookupCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryLifetimeCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryLifetimeCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryReplaceCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryReplaceCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntrySetCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntrySetCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryTimeoutCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryTimeoutCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryFastsyncCounter	 CounterBasedGauge64,
+		stateStatsSyncRxAflexTableEntryFastsyncCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryErrorCounter	 CounterBasedGauge64,
+		stateStatsSyncTxAflexTableEntryNotEligibleCounter	 CounterBasedGauge64,
+		stateStatsSyncRxExtFwLimitEntry	 CounterBasedGauge64,
+		stateStatsSyncTxFwSetDscpCounter	 CounterBasedGauge64,
+		stateStatsSyncRxFwSetDscpCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncTxCreateCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncRxCreateCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncTxDelCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncRxDelCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncTxFragCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncRxFragCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncTxErrorCounter	 CounterBasedGauge64,
+		stateStatsDnsCacheSyncRxErrorCounter	 CounterBasedGauge64,
+		stateStatsSyncRxDcmsgCounterInterPu	 CounterBasedGauge64,
+		stateStatsSyncRxDropSyncPackets	 CounterBasedGauge64,
+		stateStatsSyncPktRcvDcMsgDir	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateMiscBearer	 CounterBasedGauge64,
+		stateStatsSyncTxCreateCounterAct	 CounterBasedGauge64,
+		stateStatsSyncTxDelCounterAct	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateAgeCounterAct	 CounterBasedGauge64,
+		stateStatsSyncTxUpdateMiscCounterAct	 CounterBasedGauge64,
+		stateStatsQueryPktRxError	 CounterBasedGauge64
+	}
+
+stateStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { stateStatsEntry 1 }
+
+stateStatsSyncPktTxCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_tx_counter"
+	::= { stateStatsEntry 2 }
+
+stateStatsSyncPktRcvCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_rcv_counter"
+	::= { stateStatsEntry 3 }
+
+stateStatsSyncRxCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_create_counter"
+	::= { stateStatsEntry 4 }
+
+stateStatsSyncRxDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_del_counter"
+	::= { stateStatsEntry 5 }
+
+stateStatsSyncRxUpdateAgeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_update_age_counter"
+	::= { stateStatsEntry 6 }
+
+stateStatsSyncTxCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_create_counter"
+	::= { stateStatsEntry 7 }
+
+stateStatsSyncTxDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_del_counter"
+	::= { stateStatsEntry 8 }
+
+stateStatsSyncTxUpdateAgeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_age_counter"
+	::= { stateStatsEntry 9 }
+
+stateStatsSyncRxPersistCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_persist_create_counter"
+	::= { stateStatsEntry 10 }
+
+stateStatsSyncRxPersistDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_persist_del_counter"
+	::= { stateStatsEntry 11 }
+
+stateStatsSyncRxPersistUpdateAgeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_persist_update_age_counter"
+	::= { stateStatsEntry 12 }
+
+stateStatsSyncTxPersistCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_persist_create_counter"
+	::= { stateStatsEntry 13 }
+
+stateStatsSyncTxPersistDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_persist_del_counter"
+	::= { stateStatsEntry 14 }
+
+stateStatsSyncTxPersistUpdateAgeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_persist_update_age_counter"
+	::= { stateStatsEntry 15 }
+
+stateStatsQueryPktTxCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_pkt_tx_counter"
+	::= { stateStatsEntry 16 }
+
+stateStatsQueryPktRcvCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_pkt_rcv_counter"
+	::= { stateStatsEntry 17 }
+
+stateStatsSyncTxSmpRadiusTableCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_smp_radius_table_counter"
+	::= { stateStatsEntry 18 }
+
+stateStatsSyncRxSmpRadiusTableCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_smp_radius_table_counter"
+	::= { stateStatsEntry 19 }
+
+stateStatsQueryTxMaxPacked OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_tx_max_packed"
+	::= { stateStatsEntry 20 }
+
+stateStatsQueryTxMinPacked OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_tx_min_packed"
+	::= { stateStatsEntry 21 }
+
+stateStatsQueryPktInvalidIdxCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_pkt_invalid_idx_counter"
+	::= { stateStatsEntry 22 }
+
+stateStatsQueryTxGetBuffFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_tx_get_buff_failed"
+	::= { stateStatsEntry 23 }
+
+stateStatsQueryRxZeroInfoCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_zero_info_counter"
+	::= { stateStatsEntry 24 }
+
+stateStatsQueryRxFullInfoCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_full_info_counter"
+	::= { stateStatsEntry 25 }
+
+stateStatsQueryRxUnkCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_unk_counter"
+	::= { stateStatsEntry 26 }
+
+stateStatsSyncPktInvalidIdxCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_invalid_idx_counter"
+	::= { stateStatsEntry 27 }
+
+stateStatsSyncTxGetBuffFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_get_buff_failed"
+	::= { stateStatsEntry 28 }
+
+stateStatsSyncTxTotalInfoCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_total_info_counter"
+	::= { stateStatsEntry 29 }
+
+stateStatsSyncTxCreateExtBitCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_create_ext_bit_counter"
+	::= { stateStatsEntry 30 }
+
+stateStatsSyncTxUpdateSeqnosCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_seqnos_counter"
+	::= { stateStatsEntry 31 }
+
+stateStatsSyncTxMinPacked OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_min_packed"
+	::= { stateStatsEntry 32 }
+
+stateStatsSyncTxMaxPacked OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_max_packed"
+	::= { stateStatsEntry 33 }
+
+stateStatsSyncRxLenInvalid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_len_invalid"
+	::= { stateStatsEntry 34 }
+
+stateStatsSyncPersistRxLenInvalid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_len_invalid"
+	::= { stateStatsEntry 35 }
+
+stateStatsSyncPersistRxProtoNotSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_proto_not_supported"
+	::= { stateStatsEntry 36 }
+
+stateStatsSyncPersistRxTypeInvalid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_type_invalid"
+	::= { stateStatsEntry 37 }
+
+stateStatsSyncPersistRxCannotProcessMandatory OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_cannot_process_mandatory"
+	::= { stateStatsEntry 38 }
+
+stateStatsSyncPersistRxExtBitProcessError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_ext_bit_process_error"
+	::= { stateStatsEntry 39 }
+
+stateStatsSyncPersistRxNoSuchVport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_no_such_vport"
+	::= { stateStatsEntry 40 }
+
+stateStatsSyncPersistRxVporttypeNotSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_vporttype_not_supported"
+	::= { stateStatsEntry 41 }
+
+stateStatsSyncPersistRxNoSuchRport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_no_such_rport"
+	::= { stateStatsEntry 42 }
+
+stateStatsSyncPersistRxNoSuchSgGroup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_no_such_sg_group"
+	::= { stateStatsEntry 43 }
+
+stateStatsSyncPersistRxNoSgGroupInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_no_sg_group_info"
+	::= { stateStatsEntry 44 }
+
+stateStatsSyncPersistRxConnGetFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_persist_rx_conn_get_failed"
+	::= { stateStatsEntry 45 }
+
+stateStatsSyncRxNoSuchVport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_such_vport"
+	::= { stateStatsEntry 46 }
+
+stateStatsSyncRxNoSuchRport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_such_rport"
+	::= { stateStatsEntry 47 }
+
+stateStatsSyncRxCannotProcessMandatory OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_cannot_process_mandatory"
+	::= { stateStatsEntry 48 }
+
+stateStatsSyncRxExtBitProcessError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_bit_process_error"
+	::= { stateStatsEntry 49 }
+
+stateStatsSyncRxCreateExtBitCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_create_ext_bit_counter"
+	::= { stateStatsEntry 50 }
+
+stateStatsSyncRxConnExists OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_conn_exists"
+	::= { stateStatsEntry 51 }
+
+stateStatsSyncRxConnGetFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_conn_get_failed"
+	::= { stateStatsEntry 52 }
+
+stateStatsSyncRxProtoNotSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_proto_not_supported"
+	::= { stateStatsEntry 53 }
+
+stateStatsSyncRxNoDstForVportInline OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_dst_for_vport_inline"
+	::= { stateStatsEntry 54 }
+
+stateStatsSyncRxNoSuchNatPool OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_such_nat_pool"
+	::= { stateStatsEntry 55 }
+
+stateStatsSyncRxNoSuchSgNode OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_such_sg_node"
+	::= { stateStatsEntry 56 }
+
+stateStatsSyncRxDelNoSuchSession OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_del_no_such_session"
+	::= { stateStatsEntry 57 }
+
+stateStatsSyncRxTypeInvalid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_type_invalid"
+	::= { stateStatsEntry 58 }
+
+stateStatsSyncRxZeroInfoCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_zero_info_counter"
+	::= { stateStatsEntry 59 }
+
+stateStatsSyncRxDcmsgCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_dcmsg_counter"
+	::= { stateStatsEntry 60 }
+
+stateStatsSyncRxTotalInfoCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_total_info_counter"
+	::= { stateStatsEntry 61 }
+
+stateStatsSyncRxUpdateSeqnosCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_update_seqnos_counter"
+	::= { stateStatsEntry 62 }
+
+stateStatsSyncRxUnkCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_unk_counter"
+	::= { stateStatsEntry 63 }
+
+stateStatsSyncRxApptypeNotSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_apptype_not_supported"
+	::= { stateStatsEntry 64 }
+
+stateStatsSyncQueryDcmsgCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_query_dcmsg_counter"
+	::= { stateStatsEntry 65 }
+
+stateStatsSyncGetBuffFailedRt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_get_buff_failed_rt"
+	::= { stateStatsEntry 66 }
+
+stateStatsSyncGetBuffFailedPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_get_buff_failed_port"
+	::= { stateStatsEntry 67 }
+
+stateStatsSyncRxLsnCreateSby OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_lsn_create_sby"
+	::= { stateStatsEntry 68 }
+
+stateStatsSyncRxNatCreateSby OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_nat_create_sby"
+	::= { stateStatsEntry 69 }
+
+stateStatsSyncRxNatAllocSby OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_nat_alloc_sby"
+	::= { stateStatsEntry 70 }
+
+stateStatsSyncRxInsertTuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_insert_tuple"
+	::= { stateStatsEntry 71 }
+
+stateStatsSyncRxSfw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_sfw"
+	::= { stateStatsEntry 72 }
+
+stateStatsSyncRxCreateStaticSby OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_create_static_sby"
+	::= { stateStatsEntry 73 }
+
+stateStatsSyncRxExtPptp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_pptp"
+	::= { stateStatsEntry 74 }
+
+stateStatsSyncRxExtRtsp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_rtsp"
+	::= { stateStatsEntry 75 }
+
+stateStatsSyncRxReserveHa OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_reserve_ha"
+	::= { stateStatsEntry 76 }
+
+stateStatsSyncRxSeqDeltas OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_seq_deltas"
+	::= { stateStatsEntry 77 }
+
+stateStatsSyncRxFtpControl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ftp_control"
+	::= { stateStatsEntry 78 }
+
+stateStatsSyncRxExtLsnAcl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_lsn_acl"
+	::= { stateStatsEntry 79 }
+
+stateStatsSyncRxExtLsnAcIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_lsn_ac_idle_timeout"
+	::= { stateStatsEntry 80 }
+
+stateStatsSyncRxExtSipAlg OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_sip_alg"
+	::= { stateStatsEntry 81 }
+
+stateStatsSyncRxExtH323Alg OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_h323_alg"
+	::= { stateStatsEntry 82 }
+
+stateStatsSyncRxExtNatMac OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_nat_mac"
+	::= { stateStatsEntry 83 }
+
+stateStatsSyncTxLsnFullcone OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_lsn_fullcone"
+	::= { stateStatsEntry 84 }
+
+stateStatsSyncRxLsnFullcone OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_lsn_fullcone"
+	::= { stateStatsEntry 85 }
+
+stateStatsSyncErrLsnFullcone OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_err_lsn_fullcone"
+	::= { stateStatsEntry 86 }
+
+stateStatsSyncTxUpdateSctpConnAddr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_sctp_conn_addr"
+	::= { stateStatsEntry 87 }
+
+stateStatsSyncRxUpdateSctpConnAddr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_update_sctp_conn_addr"
+	::= { stateStatsEntry 88 }
+
+stateStatsSyncRxExtNatAlgTcpInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_nat_alg_tcp_info"
+	::= { stateStatsEntry 89 }
+
+stateStatsSyncRxExtDcfwRuleId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_dcfw_rule_id"
+	::= { stateStatsEntry 90 }
+
+stateStatsSyncRxExtDcfwLog OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_dcfw_log"
+	::= { stateStatsEntry 91 }
+
+stateStatsSyncRxEstabCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_estab_counter"
+	::= { stateStatsEntry 92 }
+
+stateStatsSyncTxEstabCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_estab_counter"
+	::= { stateStatsEntry 93 }
+
+stateStatsSyncRxZoneFailureCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_zone_failure_counter"
+	::= { stateStatsEntry 94 }
+
+stateStatsSyncRxExtFwHttpLogging OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_http_logging"
+	::= { stateStatsEntry 95 }
+
+stateStatsSyncRxExtDcfwRuleIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_dcfw_rule_idle_timeout"
+	::= { stateStatsEntry 96 }
+
+stateStatsSyncRxExtFwGtpInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_info"
+	::= { stateStatsEntry 97 }
+
+stateStatsSyncRxNotExpectSyncPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_not_expect_sync_pkt"
+	::= { stateStatsEntry 98 }
+
+stateStatsSyncRxExtFwApps OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_apps"
+	::= { stateStatsEntry 99 }
+
+stateStatsSyncTxMonEntity OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_mon_entity"
+	::= { stateStatsEntry 100 }
+
+stateStatsSyncRxMonEntity OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_mon_entity"
+	::= { stateStatsEntry 101 }
+
+stateStatsSyncRxExtFwGtpLogInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_log_info"
+	::= { stateStatsEntry 102 }
+
+stateStatsSyncRxExtFwGtpUInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_u_info"
+	::= { stateStatsEntry 103 }
+
+stateStatsSyncRxExtFwGtpExtInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_ext_info"
+	::= { stateStatsEntry 104 }
+
+stateStatsSyncRxExtFwGtpLogExtInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_log_ext_info"
+	::= { stateStatsEntry 105 }
+
+stateStatsSyncRxDdosDropCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ddos_drop_counter"
+	::= { stateStatsEntry 106 }
+
+stateStatsSyncRxInvalidSyncPacketCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_invalid_sync_packet_counter"
+	::= { stateStatsEntry 107 }
+
+stateStatsSyncPktEmptyBuffCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_empty_buff_counter"
+	::= { stateStatsEntry 108 }
+
+stateStatsSyncPktNoSendingVgrpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_no_sending_vgrp_counter"
+	::= { stateStatsEntry 109 }
+
+stateStatsSyncPktNoReceivingVgrpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_no_receiving_vgrp_counter"
+	::= { stateStatsEntry 110 }
+
+stateStatsQueryPktNoReceivingIpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_pkt_no_receiving_ip_counter"
+	::= { stateStatsEntry 111 }
+
+stateStatsSyncPktFailedBuffCopyCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_failed_buff_copy_counter"
+	::= { stateStatsEntry 112 }
+
+stateStatsSyncRxBadProtocolCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_bad_protocol_counter"
+	::= { stateStatsEntry 113 }
+
+stateStatsSyncRxNoVgrpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_no_vgrp_counter"
+	::= { stateStatsEntry 114 }
+
+stateStatsSyncRxByInactivePeerCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_by_inactive_peer_counter"
+	::= { stateStatsEntry 115 }
+
+stateStatsSyncRxTableEntryUpdateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_table_entry_update_counter"
+	::= { stateStatsEntry 116 }
+
+stateStatsSyncRxTableEntryCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_table_entry_create_counter"
+	::= { stateStatsEntry 117 }
+
+stateStatsSyncRxTableEntryDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_table_entry_del_counter"
+	::= { stateStatsEntry 118 }
+
+stateStatsSyncRxAflexUpdateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_update_counter"
+	::= { stateStatsEntry 119 }
+
+stateStatsSyncRxAflexCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_create_counter"
+	::= { stateStatsEntry 120 }
+
+stateStatsSyncRxAflexDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_del_counter"
+	::= { stateStatsEntry 121 }
+
+stateStatsSyncRxAflexFragCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_frag_counter"
+	::= { stateStatsEntry 122 }
+
+stateStatsQueryRxInvalidPartitionCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_invalid_partition_counter"
+	::= { stateStatsEntry 123 }
+
+stateStatsQueryRxInvalidHaGroupCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_invalid_ha_group_counter"
+	::= { stateStatsEntry 124 }
+
+stateStatsQueryRxInvalidSyncVersionCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_invalid_sync_version_counter"
+	::= { stateStatsEntry 125 }
+
+stateStatsQueryRxInvalidMsgDirCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_rx_invalid_msg_dir_counter"
+	::= { stateStatsEntry 126 }
+
+stateStatsSyncRxOutOfOrderPktCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_out_of_order_pkt_counter"
+	::= { stateStatsEntry 127 }
+
+stateStatsSyncRxUnreachedPktCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_unreached_pkt_counter"
+	::= { stateStatsEntry 128 }
+
+stateStatsSyncRxExtFwGtpEchoExtInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_gtp_echo_ext_info"
+	::= { stateStatsEntry 129 }
+
+stateStatsSyncRxSmpCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_smp_create_counter"
+	::= { stateStatsEntry 130 }
+
+stateStatsSyncRxSmpDeleteCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_smp_delete_counter"
+	::= { stateStatsEntry 131 }
+
+stateStatsSyncRxSmpUpdateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_smp_update_counter"
+	::= { stateStatsEntry 132 }
+
+stateStatsSyncTxSmpCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_smp_create_counter"
+	::= { stateStatsEntry 133 }
+
+stateStatsSyncTxSmpDeleteCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_smp_delete_counter"
+	::= { stateStatsEntry 134 }
+
+stateStatsSyncTxSmpUpdateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_smp_update_counter"
+	::= { stateStatsEntry 135 }
+
+stateStatsSyncRxSmpClearCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_smp_clear_counter"
+	::= { stateStatsEntry 136 }
+
+stateStatsSyncTxSmpClearCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_smp_clear_counter"
+	::= { stateStatsEntry 137 }
+
+stateStatsSyncRxExtFwSoShadowExtInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_so_shadow_ext_info"
+	::= { stateStatsEntry 138 }
+
+stateStatsSyncTxAflexTableEntryAddCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_add_counter"
+	::= { stateStatsEntry 139 }
+
+stateStatsSyncRxAflexTableEntryAddCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_add_counter"
+	::= { stateStatsEntry 140 }
+
+stateStatsSyncTxAflexTableEntryAppendCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_append_counter"
+	::= { stateStatsEntry 141 }
+
+stateStatsSyncRxAflexTableEntryAppendCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_append_counter"
+	::= { stateStatsEntry 142 }
+
+stateStatsSyncTxAflexTableEntryDeleteCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_delete_counter"
+	::= { stateStatsEntry 143 }
+
+stateStatsSyncRxAflexTableEntryDeleteCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_delete_counter"
+	::= { stateStatsEntry 144 }
+
+stateStatsSyncTxAflexTableEntryIncrCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_incr_counter"
+	::= { stateStatsEntry 145 }
+
+stateStatsSyncRxAflexTableEntryIncrCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_incr_counter"
+	::= { stateStatsEntry 146 }
+
+stateStatsSyncTxAflexTableEntryLookupCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_lookup_counter"
+	::= { stateStatsEntry 147 }
+
+stateStatsSyncRxAflexTableEntryLookupCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_lookup_counter"
+	::= { stateStatsEntry 148 }
+
+stateStatsSyncTxAflexTableEntryLifetimeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_lifetime_counter"
+	::= { stateStatsEntry 149 }
+
+stateStatsSyncRxAflexTableEntryLifetimeCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_lifetime_counter"
+	::= { stateStatsEntry 150 }
+
+stateStatsSyncTxAflexTableEntryReplaceCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_replace_counter"
+	::= { stateStatsEntry 151 }
+
+stateStatsSyncRxAflexTableEntryReplaceCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_replace_counter"
+	::= { stateStatsEntry 152 }
+
+stateStatsSyncTxAflexTableEntrySetCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_set_counter"
+	::= { stateStatsEntry 153 }
+
+stateStatsSyncRxAflexTableEntrySetCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_set_counter"
+	::= { stateStatsEntry 154 }
+
+stateStatsSyncTxAflexTableEntryTimeoutCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_timeout_counter"
+	::= { stateStatsEntry 155 }
+
+stateStatsSyncRxAflexTableEntryTimeoutCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_timeout_counter"
+	::= { stateStatsEntry 156 }
+
+stateStatsSyncTxAflexTableEntryFastsyncCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_fastsync_counter"
+	::= { stateStatsEntry 157 }
+
+stateStatsSyncRxAflexTableEntryFastsyncCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_aflex_table_entry_fastsync_counter"
+	::= { stateStatsEntry 158 }
+
+stateStatsSyncTxAflexTableEntryErrorCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_error_counter"
+	::= { stateStatsEntry 159 }
+
+stateStatsSyncTxAflexTableEntryNotEligibleCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_aflex_table_entry_not_eligible_counter"
+	::= { stateStatsEntry 160 }
+
+stateStatsSyncRxExtFwLimitEntry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_ext_fw_limit_entry"
+	::= { stateStatsEntry 161 }
+
+stateStatsSyncTxFwSetDscpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_fw_set_dscp_counter"
+	::= { stateStatsEntry 162 }
+
+stateStatsSyncRxFwSetDscpCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_fw_set_dscp_counter"
+	::= { stateStatsEntry 163 }
+
+stateStatsDnsCacheSyncTxCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_tx_create_counter"
+	::= { stateStatsEntry 164 }
+
+stateStatsDnsCacheSyncRxCreateCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_rx_create_counter"
+	::= { stateStatsEntry 165 }
+
+stateStatsDnsCacheSyncTxDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_tx_del_counter"
+	::= { stateStatsEntry 166 }
+
+stateStatsDnsCacheSyncRxDelCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_rx_del_counter"
+	::= { stateStatsEntry 167 }
+
+stateStatsDnsCacheSyncTxFragCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_tx_frag_counter"
+	::= { stateStatsEntry 168 }
+
+stateStatsDnsCacheSyncRxFragCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_rx_frag_counter"
+	::= { stateStatsEntry 169 }
+
+stateStatsDnsCacheSyncTxErrorCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_tx_error_counter"
+	::= { stateStatsEntry 170 }
+
+stateStatsDnsCacheSyncRxErrorCounter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_cache_sync_rx_error_counter"
+	::= { stateStatsEntry 171 }
+
+stateStatsSyncRxDcmsgCounterInterPu OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_dcmsg_counter_inter_pu"
+	::= { stateStatsEntry 172 }
+
+stateStatsSyncRxDropSyncPackets OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_rx_drop_sync_packets"
+	::= { stateStatsEntry 173 }
+
+stateStatsSyncPktRcvDcMsgDir OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_pkt_rcv_dc_msg_dir"
+	::= { stateStatsEntry 174 }
+
+stateStatsSyncTxUpdateMiscBearer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_misc_bearer"
+	::= { stateStatsEntry 175 }
+
+stateStatsSyncTxCreateCounterAct OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_create_counter_act"
+	::= { stateStatsEntry 176 }
+
+stateStatsSyncTxDelCounterAct OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_del_counter_act"
+	::= { stateStatsEntry 177 }
+
+stateStatsSyncTxUpdateAgeCounterAct OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_age_counter_act"
+	::= { stateStatsEntry 178 }
+
+stateStatsSyncTxUpdateMiscCounterAct OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sync_tx_update_misc_counter_act"
+	::= { stateStatsEntry 179 }
+
+stateStatsQueryPktRxError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query_pkt_rx_error"
+	::= { stateStatsEntry 180 }
+
+END
+

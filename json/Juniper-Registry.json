@@ -1,0 +1,121 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-UNI-SMI": [
+      "juniperUniAdmin"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniAdmin": {
+    "name": "juniAdmin",
+    "oid": "1.3.6.1.4.1.4874.4.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-23 11:58",
+        "description": "Updated for the second generation E-series products."
+      },
+      {
+        "revision": "2003-12-17 19:25",
+        "description": "Added support for the second generation E-series products."
+      },
+      {
+        "revision": "2003-12-17 17:22",
+        "description": "Added 1G flash card."
+      },
+      {
+        "revision": "2002-11-13 20:38",
+        "description": "Replaced Unisphere names with Juniper names. Added 512M flash card."
+      },
+      {
+        "revision": "2001-06-01 21:18",
+        "description": "Initial version of this SNMP management information module."
+      }
+    ]
+  },
+  "juniRegistry": {
+    "name": "juniRegistry",
+    "oid": "1.3.6.1.4.1.4874.4.2.1",
+    "class": "objectidentity"
+  },
+  "juniErxRegistry": {
+    "name": "juniErxRegistry",
+    "oid": "1.3.6.1.4.1.4874.4.2.2",
+    "class": "objectidentity"
+  },
+  "juniES2Registry": {
+    "name": "juniES2Registry",
+    "oid": "1.3.6.1.4.1.4874.4.2.3",
+    "class": "objectidentity"
+  },
+  "juniEntPhysicalType": {
+    "name": "juniEntPhysicalType",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1",
+    "class": "objectidentity"
+  },
+  "juniPcmciaFlashCard": {
+    "name": "juniPcmciaFlashCard",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juni85MegT2FlashCard": {
+    "name": "juni85MegT2FlashCard",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juni220MegT2FlashCard": {
+    "name": "juni220MegT2FlashCard",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juni512MegT2FlashCard": {
+    "name": "juni512MegT2FlashCard",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juni1GigT2FlashCard": {
+    "name": "juni1GigT2FlashCard",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniTraceRouteImplementationTypes": {
+    "name": "juniTraceRouteImplementationTypes",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniTraceRouteUsingIcmpProbe": {
+    "name": "juniTraceRouteUsingIcmpProbe",
+    "oid": "1.3.6.1.4.1.4874.4.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Registry",
+      "Source digest sha256:5ec1b002ea591f36403fdfecc670857ff9f56eeab9edad846d063bf79b34646a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Registry"
+  }
+}

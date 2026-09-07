@@ -1,0 +1,47 @@
+#
+# PySNMP MIB module LINKSYS-BANNER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source LINKSYS-BANNER-MIB
+# Source digest sha256:73225ca1f5951fe20252004e8ececd8a4a194874a351a0f538d075394b173f28
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+rnd, = mibBuilder.importSymbols("LINKSYS-MIB", "rnd")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rlBanner = ModuleIdentity((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133))
+rlBanner.setRevisions(('2007-12-16 00:00',))
+if mibBuilder.loadTexts: rlBanner.setLastUpdated('2008-03-16 00:00')
+if mibBuilder.loadTexts: rlBanner.setOrganization('Linksys LLC.')
+class BannerMessageType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("rlBannerMOTD", 1), ("rlBannerLogin", 2), ("rlBannerExec", 3))
+
+rlBannerMessageTable = MibTable((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlBannerMessageTable.setStatus('current')
+rlBannerMessageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "LINKSYS-BANNER-MIB", "rlBannerMessageType"), (0, "LINKSYS-BANNER-MIB", "rlBannerMessageIndex"))
+if mibBuilder.loadTexts: rlBannerMessageEntry.setStatus('current')
+rlBannerMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 1, 1, 1), BannerMessageType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlBannerMessageType.setStatus('current')
+rlBannerMessageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 13))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlBannerMessageIndex.setStatus('current')
+rlBannerMessageText = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 1, 1, 3), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlBannerMessageText.setStatus('current')
+rlBannerManageTable = MibTable((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlBannerManageTable.setStatus('current')
+rlBannerManageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "LINKSYS-BANNER-MIB", "rlBannerMessageType"))
+if mibBuilder.loadTexts: rlBannerManageEntry.setStatus('current')
+rlBannerManageSSH = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlBannerManageSSH.setStatus('current')
+rlBannerManageTelnet = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlBannerManageTelnet.setStatus('current')
+rlBannerManageConsole = MibTableColumn((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 2, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlBannerManageConsole.setStatus('current')
+rlBannerMessageClear = MibScalar((1, 3, 6, 1, 4, 1, 3955, 1000, 201, 133, 3), BannerMessageType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlBannerMessageClear.setStatus('current')
+mibBuilder.exportSymbols("LINKSYS-BANNER-MIB", BannerMessageType=BannerMessageType, PYSNMP_MODULE_ID=rlBanner, rlBanner=rlBanner, rlBannerManageConsole=rlBannerManageConsole, rlBannerManageEntry=rlBannerManageEntry, rlBannerManageSSH=rlBannerManageSSH, rlBannerManageTable=rlBannerManageTable, rlBannerManageTelnet=rlBannerManageTelnet, rlBannerMessageClear=rlBannerMessageClear, rlBannerMessageEntry=rlBannerMessageEntry, rlBannerMessageIndex=rlBannerMessageIndex, rlBannerMessageTable=rlBannerMessageTable, rlBannerMessageText=rlBannerMessageText, rlBannerMessageType=rlBannerMessageType)

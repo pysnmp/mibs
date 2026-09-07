@@ -1,0 +1,352 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCapwapScheduledWlanMIB": {
+    "name": "ciscoCapwapScheduledWlanMIB",
+    "oid": "1.3.6.1.4.1.9.9.864",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-04-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappScheduledWlanMIBNotifs": {
+    "name": "ciscoLwappScheduledWlanMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.864.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappScheduledWlanMIBObjects": {
+    "name": "ciscoLwappScheduledWlanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.864.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappScheduledWlanConform": {
+    "name": "ciscoLwappScheduledWlanConform",
+    "oid": "1.3.6.1.4.1.9.9.864.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappScheduledWlanConfig": {
+    "name": "ciscoLwappScheduledWlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1",
+    "class": "objectidentity"
+  },
+  "cLCalendarProfileConfigTable": {
+    "name": "cLCalendarProfileConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileConfigEntry": {
+    "name": "cLCalendarProfileConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLCalendarProfileName": {
+    "name": "cLCalendarProfileName",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileRowStatus": {
+    "name": "cLCalendarProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLCalendarProfileStartTime": {
+    "name": "cLCalendarProfileStartTime",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCalendarProfileEndTime": {
+    "name": "cLCalendarProfileEndTime",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCalendarProfileRecurrence": {
+    "name": "cLCalendarProfileRecurrence",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daily": 0,
+          "weekly": 1,
+          "monthly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCalendarProfileWeeklyConfigTable": {
+    "name": "cLCalendarProfileWeeklyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileWeeklyConfigEntry": {
+    "name": "cLCalendarProfileWeeklyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileWeeklyProfileDay",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLCalendarProfileWeeklyProfileDay": {
+    "name": "cLCalendarProfileWeeklyProfileDay",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6,
+          "sunday": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileWeeklyProfileRowStatus": {
+    "name": "cLCalendarProfileWeeklyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLCalendarProfileMonthlyConfigTable": {
+    "name": "cLCalendarProfileMonthlyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileMonthlyConfigEntry": {
+    "name": "cLCalendarProfileMonthlyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileMonthlyProfileDate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLCalendarProfileMonthlyProfileDate": {
+    "name": "cLCalendarProfileMonthlyProfileDate",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCalendarProfileMonthlyProfileRowStatus": {
+    "name": "cLCalendarProfileMonthlyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.864.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappScheduledWlanCompliances": {
+    "name": "ciscoLwappScheduledWlanCompliances",
+    "oid": "1.3.6.1.4.1.9.9.864.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappScheduledWlanGroups": {
+    "name": "ciscoLwappScheduledWlanGroups",
+    "oid": "1.3.6.1.4.1.9.9.864.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappScheduledWlanCompliance": {
+    "name": "ciscoLwappScheduledWlanCompliance",
+    "oid": "1.3.6.1.4.1.9.9.864.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappScheduledWlanConfigGroup",
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappScheduledWlanConfigGroup": {
+    "name": "ciscoLwappScheduledWlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.864.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileStartTime"
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileEndTime"
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileRecurrence"
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileWeeklyProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+        "object": "cLCalendarProfileMonthlyProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-SCHEDULED-WLAN-MIB",
+      "Source digest sha256:aad5cb4a43d09ae0d24787a8b80f3ad0e5f51ba708619d6910dc45999b9561f2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-SCHEDULED-WLAN-MIB"
+  }
+}

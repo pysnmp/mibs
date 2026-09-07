@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfDhcpSrvCapability": {
+    "name": "ciscoIetfDhcpSrvCapability",
+    "oid": "1.3.6.1.4.1.9.7.439",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-14 12:00",
+        "description": "Added capability definition ciscoIetfDhcpServerCapabilityV12R02SRC for 12.2SRC."
+      },
+      {
+        "revision": "2005-05-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIetfDhcpServerCapabilityV62R00": {
+    "name": "ciscoIetfDhcpServerCapabilityV62R00",
+    "oid": "1.3.6.1.4.1.9.7.439.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CNS Network Registrar 6.2",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "includes": [
+          "cDhcpv4SrvSystemObjects",
+          "cDhcpv4CounterObjects"
+        ],
+        "variations": [
+          {
+            "object": "cBootpCountRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpCountInvalids",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpCountReplies",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpCountDropUnknownClients",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpCountDropNotServingSubnet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4CountInvalids",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4CountDropUnknownClient",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4CountDropNotServingSubnet",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIetfDhcpServerCapabilityV12R02SRC": {
+    "name": "ciscoIetfDhcpServerCapabilityV12R02SRC",
+    "oid": "1.3.6.1.4.1.9.7.439.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2SRC",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-DHCP-SERVER-MIB",
+        "includes": [
+          "cDhcpv4SrvSystemObjects",
+          "cBootpHCCountersGroup",
+          "cDhcpv4HCCounterObjects",
+          "cDhcpv4ServerSharedNetObjects",
+          "cDhcpv4ServerSubnetObjects",
+          "cDhcpv4ServerNotifyObjectsGroup",
+          "cDhcpv4ServerNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cBootpHCCountInvalids",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpHCCountDropUnknownClients",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cBootpHCCountDropNotServingSubnet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4HCCountForcedRenews",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4CountDropUnknownClient",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4CountDropNotServingSubnet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDhcpv4ServerSharedNetFreeAddrLowThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cDhcpv4ServerSharedNetFreeAddrHighThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cDhcpv4ServerSubnetFreeAddrLowThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cDhcpv4ServerSubnetFreeAddrHighThreshold",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-DHCP-SERVER-CAPABILITY",
+      "Source digest sha256:7ca524bda214e9d6d6a3e8896db5c6309cbb7a924d6cbe4a55781267a80c0ee9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-DHCP-SERVER-CAPABILITY"
+  }
+}

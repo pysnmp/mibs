@@ -1,0 +1,553 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "system"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "avtech": {
+    "name": "avtech",
+    "oid": "1.3.6.1.4.1.20916",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.20916.1",
+    "class": "objectidentity"
+  },
+  "roomalert3S": {
+    "name": "roomalert3S",
+    "oid": "1.3.6.1.4.1.20916.1.13",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.20916.1.13.1",
+    "class": "objectidentity"
+  },
+  "internal": {
+    "name": "internal",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.1",
+    "class": "objectidentity"
+  },
+  "digital": {
+    "name": "digital",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.3",
+    "class": "objectidentity"
+  },
+  "labels": {
+    "name": "labels",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4",
+    "class": "objectidentity"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.1.1",
+    "class": "objectidentity"
+  },
+  "digital_sen1": {
+    "name": "digital_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.20916.1.13.2",
+    "class": "objectidentity"
+  },
+  "externalrelays": {
+    "name": "externalrelays",
+    "oid": "1.3.6.1.4.1.20916.1.13.3",
+    "class": "objectidentity"
+  },
+  "externalrelay1": {
+    "name": "externalrelay1",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1",
+    "class": "objectidentity"
+  },
+  "int_labels": {
+    "name": "int_labels",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.1",
+    "class": "objectidentity"
+  },
+  "digital_labels": {
+    "name": "digital_labels",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.2",
+    "class": "objectidentity"
+  },
+  "switch_labels": {
+    "name": "switch_labels",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.3",
+    "class": "objectidentity"
+  },
+  "external_relay_labels": {
+    "name": "external_relay_labels",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.6",
+    "class": "objectidentity"
+  },
+  "internal_tempf": {
+    "name": "internal_tempf",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "internal_tempc": {
+    "name": "internal_tempc",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_1": {
+    "name": "digital_sen1_1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_2": {
+    "name": "digital_sen1_2",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_3": {
+    "name": "digital_sen1_3",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_4": {
+    "name": "digital_sen1_4",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_5": {
+    "name": "digital_sen1_5",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_6": {
+    "name": "digital_sen1_6",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_7": {
+    "name": "digital_sen1_7",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digital_sen1_8": {
+    "name": "digital_sen1_8",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "switch_sen1": {
+    "name": "switch_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmmessage": {
+    "name": "alarmmessage",
+    "oid": "1.3.6.1.4.1.20916.1.13.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROOMALERT3S-MIB",
+        "object": "alarmmessage"
+      }
+    ],
+    "status": "current"
+  },
+  "externalrelay1_element_one": {
+    "name": "externalrelay1_element_one",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_two": {
+    "name": "externalrelay1_element_two",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_three": {
+    "name": "externalrelay1_element_three",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_four": {
+    "name": "externalrelay1_element_four",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_five": {
+    "name": "externalrelay1_element_five",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_six": {
+    "name": "externalrelay1_element_six",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_seven": {
+    "name": "externalrelay1_element_seven",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalrelay1_element_eight": {
+    "name": "externalrelay1_element_eight",
+    "oid": "1.3.6.1.4.1.20916.1.13.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "labels_digital_sen1": {
+    "name": "labels_digital_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "labels_switch_sen1": {
+    "name": "labels_switch_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "labels_internal_sen1": {
+    "name": "labels_internal_sen1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "external_relay_labels1": {
+    "name": "external_relay_labels1",
+    "oid": "1.3.6.1.4.1.20916.1.13.1.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ROOMALERT3S-MIB",
+      "Source digest sha256:b20a519a2f88ff1aedf5c122fc1547c7eb0f9dac6e100b8798dc4ec7c291e9e1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ROOMALERT3S-MIB"
+  }
+}

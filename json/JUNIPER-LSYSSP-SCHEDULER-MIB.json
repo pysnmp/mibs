@@ -1,0 +1,247 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB": [
+      "jnxLsysSpScheduler"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpSchedulerMIB": {
+    "name": "jnxLsysSpSchedulerMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1",
+    "class": "moduleidentity"
+  },
+  "jnxLsysSpSchedulerObjects": {
+    "name": "jnxLsysSpSchedulerObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpSchedulerSummary": {
+    "name": "jnxLsysSpSchedulerSummary",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpSchedulerTable": {
+    "name": "jnxLsysSpSchedulerTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerEntry": {
+    "name": "jnxLsysSpSchedulerEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LSYSSP-SCHEDULER-MIB",
+        "object": "jnxLsysSpSchedulerLsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerLsysName": {
+    "name": "jnxLsysSpSchedulerLsysName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerProfileName": {
+    "name": "jnxLsysSpSchedulerProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerUsage": {
+    "name": "jnxLsysSpSchedulerUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerReserved": {
+    "name": "jnxLsysSpSchedulerReserved",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerMaximum": {
+    "name": "jnxLsysSpSchedulerMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerUsedAmount": {
+    "name": "jnxLsysSpSchedulerUsedAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerMaxQuota": {
+    "name": "jnxLsysSpSchedulerMaxQuota",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerAvailableAmount": {
+    "name": "jnxLsysSpSchedulerAvailableAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerHeaviestUsage": {
+    "name": "jnxLsysSpSchedulerHeaviestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerHeaviestUser": {
+    "name": "jnxLsysSpSchedulerHeaviestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerLightestUsage": {
+    "name": "jnxLsysSpSchedulerLightestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpSchedulerLightestUser": {
+    "name": "jnxLsysSpSchedulerLightestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-LSYSSP-SCHEDULER-MIB",
+      "Source digest sha256:eb092718f03cba37e0dead0c4723708a4154a2e33067c16b541eb9b34cffedd0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-LSYSSP-SCHEDULER-MIB"
+  }
+}

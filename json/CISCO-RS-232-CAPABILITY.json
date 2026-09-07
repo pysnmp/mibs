@@ -1,0 +1,218 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRS232Capability": {
+    "name": "ciscoRS232Capability",
+    "oid": "1.3.6.1.4.1.9.7.115",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-05-16 00:00",
+        "description": "Added ciscoRS232CapabilityV2R00 capability for MGX8850 and BPX SES products."
+      },
+      {
+        "revision": "1994-08-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRS232CapabilityV10R02": {
+    "name": "ciscoRS232CapabilityV10R02",
+    "oid": "1.3.6.1.4.1.9.7.115.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "RS-232-MIB",
+        "includes": [
+          "rs232Group",
+          "rs232AsyncGroup"
+        ],
+        "variations": [
+          {
+            "object": "rs232PortType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "rs232": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232PortInFlowType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "ctsRts": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232PortOutFlowType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "ctsRts": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232AsyncPortStopBits",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "one": 1,
+                  "two": 2,
+                  "oneAndHalf": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232InSigChanges",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rs232OutSigChanges",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRS232CapabilityV2R00": {
+    "name": "ciscoRS232CapabilityV2R00",
+    "oid": "1.3.6.1.4.1.9.7.115.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.0,\n                BPX SES Release 1.00",
+    "capabilities": [
+      {
+        "module": "RS-232-MIB",
+        "includes": [
+          "rs232Group",
+          "rs232AsyncGroup"
+        ],
+        "variations": [
+          {
+            "object": "rs232PortType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "rs232": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232PortInSigNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rs232PortOutSigNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rs232PortInFlowType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ctsRts": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232PortOutFlowType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ctsRts": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232AsyncPortStopBits",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "one": 1,
+                  "two": 2,
+                  "oneAndHalf": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "rs232AsyncPortAutobaud",
+            "access": "read-only"
+          },
+          {
+            "object": "rs232AsyncPortParityErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rs232AsyncPortFramingErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rs232AsyncPortOverrunErrs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RS-232-CAPABILITY",
+      "Source digest sha256:7ceafb2c6bfc8a3d8f1f2e81609729a6b8c6a9e757e106f1b360562e67538da1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RS-232-CAPABILITY"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pbi": {
+    "name": "pbi",
+    "oid": "1.3.6.1.4.1.1070",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-13 10:23",
+        "description": ""
+      }
+    ]
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "mg": {
+    "name": "mg",
+    "oid": "1.3.6.1.4.1.1070.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PBI-MAIN-MIB",
+      "Source digest sha256:b096339709321cb601a8174bc800cb55e2a6eadc007e056fd72f077188097b2e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PBI-MAIN-MIB"
+  }
+}

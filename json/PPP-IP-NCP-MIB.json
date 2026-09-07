@@ -1,0 +1,221 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PPP-LCP-MIB": [
+      "ppp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pppIp": {
+    "name": "pppIp",
+    "oid": "1.3.6.1.2.1.10.23.3",
+    "class": "objectidentity"
+  },
+  "pppIpTable": {
+    "name": "pppIpTable",
+    "oid": "1.3.6.1.2.1.10.23.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppIpEntry": {
+    "name": "pppIpEntry",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppIpOperStatus": {
+    "name": "pppIpOperStatus",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "not-opened": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppIpLocalToRemoteCompressionProtocol": {
+    "name": "pppIpLocalToRemoteCompressionProtocol",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vj-tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppIpRemoteToLocalCompressionProtocol": {
+    "name": "pppIpRemoteToLocalCompressionProtocol",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vj-tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppIpRemoteMaxSlotId": {
+    "name": "pppIpRemoteMaxSlotId",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppIpLocalMaxSlotId": {
+    "name": "pppIpLocalMaxSlotId",
+    "oid": "1.3.6.1.2.1.10.23.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppIpConfigTable": {
+    "name": "pppIpConfigTable",
+    "oid": "1.3.6.1.2.1.10.23.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppIpConfigEntry": {
+    "name": "pppIpConfigEntry",
+    "oid": "1.3.6.1.2.1.10.23.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppIpConfigAdminStatus": {
+    "name": "pppIpConfigAdminStatus",
+    "oid": "1.3.6.1.2.1.10.23.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppIpConfigCompression": {
+    "name": "pppIpConfigCompression",
+    "oid": "1.3.6.1.2.1.10.23.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vj-tcp": 2
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PPP-IP-NCP-MIB",
+      "Source digest sha256:7cff9845df0a1901e1d2dcfa186ffcdb429fc03bd9acb7da0f0e935b6fa778f7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PPP-IP-NCP-MIB"
+  }
+}

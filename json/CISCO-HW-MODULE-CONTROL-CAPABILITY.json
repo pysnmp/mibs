@@ -1,0 +1,101 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoHwModuleControlCapability": {
+    "name": "ciscoHwModuleControlCapability",
+    "oid": "1.3.6.1.4.1.9.7.588",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Added capability statement chmcCapV15R0001SY1PCat6K."
+      },
+      {
+        "revision": "2011-09-27 00:00",
+        "description": "Added capability statement chmcCapV15R0001SYPCat6K."
+      },
+      {
+        "revision": "2010-03-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "chmcCapV12R0233SXI4PCat6K": {
+    "name": "chmcCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.588.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-HW-MODULE-CONTROL-MIB",
+        "includes": [
+          "ciscoHmcMIBOversubBaseGroup",
+          "ciscoHmcMIBOversubPgClearBlkGrp"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "chmcCapV15R0001SYPCat6K": {
+    "name": "chmcCapV15R0001SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.588.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-HW-MODULE-CONTROL-MIB",
+        "includes": [
+          "ciscoHmcMIBOversubBaseGroup",
+          "ciscoHmcMIBOversubPgClearBlkGrp"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "chmcCapV15R0001SY1PCat6K": {
+    "name": "chmcCapV15R0001SY1PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.588.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY1 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-HW-MODULE-CONTROL-MIB",
+        "includes": [
+          "ciscoHmcMIBOversubBaseGroup",
+          "ciscoHmcMIBOversubPgClearBlkGrp",
+          "ciscoHmcMIBOperModeGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-HW-MODULE-CONTROL-CAPABILITY",
+      "Source digest sha256:019b5138544594b6cd759378e09b59c955c8c7d06117c2fbd7c60f5109b75ee5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-HW-MODULE-CONTROL-CAPABILITY"
+  }
+}

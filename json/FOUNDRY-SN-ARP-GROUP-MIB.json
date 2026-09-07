@@ -1,0 +1,133 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-SN-ROOT-MIB": [
+      "snSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snArpInfo": {
+    "name": "snArpInfo",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-02 00:00",
+        "description": "Changed the ORGANIZATION, CONTACT-INFO and DESCRIPTION fields."
+      }
+    ]
+  },
+  "snArpStats": {
+    "name": "snArpStats",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1",
+    "class": "objectidentity"
+  },
+  "snArpStatsTotalReceived": {
+    "name": "snArpStatsTotalReceived",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsRequestReceived": {
+    "name": "snArpStatsRequestReceived",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsRequestSent": {
+    "name": "snArpStatsRequestSent",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsRepliesSent": {
+    "name": "snArpStatsRepliesSent",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsPendingDrop": {
+    "name": "snArpStatsPendingDrop",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsInvalidSource": {
+    "name": "snArpStatsInvalidSource",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snArpStatsInvalidDestination": {
+    "name": "snArpStatsInvalidDestination",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.22.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FOUNDRY-SN-ARP-GROUP-MIB",
+      "Source digest sha256:c4871452f54ec6301dd94c1c67c1f132a7a0b0e7aec5d03c8e47afaa04887b44",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FOUNDRY-SN-ARP-GROUP-MIB"
+  }
+}

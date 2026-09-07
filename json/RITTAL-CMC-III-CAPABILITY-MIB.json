@@ -1,0 +1,723 @@
+{
+  "imports": {
+    "class": "imports",
+    "RITTAL-CMC-III-MIB": [
+      "cmcIII"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmcIIICapability": {
+    "name": "cmcIIICapability",
+    "oid": "1.3.6.1.4.1.2606.7.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-27 00:00",
+        "description": "Added cmcIIIPuCapsV104 and cmcIIIPduCapsV104."
+      },
+      {
+        "revision": "2014-10-06 00:00",
+        "description": "Added variations of not supported functions of PDU."
+      },
+      {
+        "revision": "2013-03-30 00:00",
+        "description": "Added cmcIIIPuCapsV103."
+      },
+      {
+        "revision": "2012-08-30 00:00",
+        "description": "Added cmcIIIPduiCapsV102 and use new object group definitions."
+      },
+      {
+        "revision": "2011-09-01 00:00",
+        "description": "The initial version (obsolete)."
+      }
+    ]
+  },
+  "cmcIIIPuCapsV102": {
+    "name": "cmcIIIPuCapsV102",
+    "oid": "1.3.6.1.4.1.2606.7.8.30102",
+    "class": "agentcapabilities",
+    "productrelease": "V1.02",
+    "capabilities": [
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityGeneralGroup",
+          "entityLogical2Group",
+          "entityLogicalGroup",
+          "entityMappingGroup",
+          "entityNotificationsGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityPhysicalGroup"
+        ]
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "includes": [
+          "entitySensorValueGroup"
+        ]
+      },
+      {
+        "module": "ENTITY-STATE-MIB",
+        "includes": [
+          "entStateGroup",
+          "entStateNotificationsGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrStorageGroup",
+          "hrSystemGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifCounterDiscontinuityGroup",
+          "ifFixedLengthGroup",
+          "ifGeneralGroup",
+          "ifGeneralInformationGroup",
+          "ifHCFixedLengthGroup",
+          "ifHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifPacketGroup",
+          "ifVHCPacketGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "ipForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "icmpGroup",
+          "icmpStatsGroup",
+          "ipAddressGroup",
+          "ipGroup",
+          "ipLastChangeGroup",
+          "ipNetToPhysicalGroup",
+          "ipSystemStatsGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup"
+        ]
+      },
+      {
+        "module": "IPV6-MIB",
+        "includes": [
+          "ipv6GeneralGroup"
+        ]
+      },
+      {
+        "module": "NOTIFICATION-LOG-MIB",
+        "includes": [
+          "notificationLogConfigGroup",
+          "notificationLogStatsGroup"
+        ]
+      },
+      {
+        "module": "PTOPO-MIB",
+        "includes": [
+          "ptopoConfigGroup",
+          "ptopoDataGroup",
+          "ptopoGeneralGroup"
+        ]
+      },
+      {
+        "module": "RITTAL-CMC-III-MIB",
+        "includes": [
+          "cmcIIIControlMibGroup",
+          "cmcIIIDeviceMibGroup",
+          "cmcIIIInfoMibGroup",
+          "cmcIIILdapMibGroup",
+          "cmcIIINotificationGroup",
+          "cmcIIINtpMibGroup",
+          "cmcIIIRelayMibGroup",
+          "cmcIIISetupMibGroup",
+          "cmcIIISmsMibGroup",
+          "cmcIIISmtpMibGroup",
+          "cmcIIISyslogMibGroup",
+          "cmcIIITrapGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmcIIITrapReceiverStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISmtpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIISmsStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup",
+          "snmpTargetCommandResponderGroup",
+          "snmpTargetResponseGroup"
+        ]
+      },
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "includes": [
+          "vacmBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpCommunityGroup",
+          "snmpGroup",
+          "snmpObsoleteGroup",
+          "snmpSetGroup",
+          "systemGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmcIIIPuCapsV103": {
+    "name": "cmcIIIPuCapsV103",
+    "oid": "1.3.6.1.4.1.2606.7.8.30103",
+    "class": "agentcapabilities",
+    "productrelease": "V1.03",
+    "capabilities": [
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityGeneralGroup",
+          "entityLogical2Group",
+          "entityLogicalGroup",
+          "entityMappingGroup",
+          "entityNotificationsGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityPhysicalGroup"
+        ]
+      },
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "includes": [
+          "entitySensorValueGroup"
+        ]
+      },
+      {
+        "module": "ENTITY-STATE-MIB",
+        "includes": [
+          "entStateGroup",
+          "entStateNotificationsGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrStorageGroup",
+          "hrSystemGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifCounterDiscontinuityGroup",
+          "ifFixedLengthGroup",
+          "ifGeneralGroup",
+          "ifGeneralInformationGroup",
+          "ifHCFixedLengthGroup",
+          "ifHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifPacketGroup",
+          "ifVHCPacketGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "ipForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "icmpGroup",
+          "icmpStatsGroup",
+          "ipAddressGroup",
+          "ipGroup",
+          "ipLastChangeGroup",
+          "ipNetToPhysicalGroup",
+          "ipSystemStatsGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup"
+        ]
+      },
+      {
+        "module": "IPV6-MIB",
+        "includes": [
+          "ipv6GeneralGroup"
+        ]
+      },
+      {
+        "module": "NOTIFICATION-LOG-MIB",
+        "includes": [
+          "notificationLogConfigGroup",
+          "notificationLogStatsGroup"
+        ]
+      },
+      {
+        "module": "PTOPO-MIB",
+        "includes": [
+          "ptopoConfigGroup",
+          "ptopoDataGroup",
+          "ptopoGeneralGroup"
+        ]
+      },
+      {
+        "module": "RITTAL-CMC-III-MIB",
+        "includes": [
+          "cmcIIIControlMibGroup",
+          "cmcIIIDeviceMibGroup",
+          "cmcIIIDrcMibGroup",
+          "cmcIIIInfoMibGroup",
+          "cmcIIILdapMibGroup",
+          "cmcIIIModbusMibGroup",
+          "cmcIIINotificationGroup",
+          "cmcIIINtpMibGroup",
+          "cmcIIIRelayMibGroup",
+          "cmcIIISetupMibGroup",
+          "cmcIIIShutdownMibGroup",
+          "cmcIIISmsMibGroup",
+          "cmcIIISmtpMibGroup",
+          "cmcIIISyslogMibGroup",
+          "cmcIIITrapGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmcIIITrapReceiverStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISmtpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIISmsStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup",
+          "snmpTargetCommandResponderGroup",
+          "snmpTargetResponseGroup"
+        ]
+      },
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "includes": [
+          "vacmBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpCommunityGroup",
+          "snmpGroup",
+          "snmpObsoleteGroup",
+          "snmpSetGroup",
+          "systemGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmcIIIPuCapsV104": {
+    "name": "cmcIIIPuCapsV104",
+    "oid": "1.3.6.1.4.1.2606.7.8.30104",
+    "class": "agentcapabilities",
+    "productrelease": "V1.04",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifCounterDiscontinuityGroup",
+          "ifFixedLengthGroup",
+          "ifGeneralGroup",
+          "ifGeneralInformationGroup",
+          "ifHCFixedLengthGroup",
+          "ifHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifPacketGroup",
+          "ifVHCPacketGroup"
+        ]
+      },
+      {
+        "module": "NOTIFICATION-LOG-MIB",
+        "includes": [
+          "notificationLogConfigGroup",
+          "notificationLogStatsGroup"
+        ]
+      },
+      {
+        "module": "PTOPO-MIB",
+        "includes": [
+          "ptopoConfigGroup",
+          "ptopoDataGroup",
+          "ptopoGeneralGroup"
+        ]
+      },
+      {
+        "module": "RITTAL-CMC-III-MIB",
+        "includes": [
+          "cmcIIIControlMibGroup",
+          "cmcIIIDeviceMibGroup",
+          "cmcIIIDrcMibGroup",
+          "cmcIIIFileMibGroup",
+          "cmcIIIInfoMibGroup",
+          "cmcIIILdapMibGroup",
+          "cmcIIINotificationGroup",
+          "cmcIIINtpMibGroup",
+          "cmcIIISetupMibGroup",
+          "cmcIIISmtpMibGroup",
+          "cmcIIISyslogMibGroup",
+          "cmcIIITrapGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmcIIITrapReceiverStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISmtpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIIRadiusAuth",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISmsQueue",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-COMMUNITY-MIB",
+        "includes": [
+          "snmpCommunityGroup"
+        ]
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup",
+          "snmpNotifyFilterGroup"
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup",
+          "snmpTargetCommandResponderGroup",
+          "snmpTargetResponseGroup"
+        ]
+      },
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "includes": [
+          "vacmBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpCommunityGroup",
+          "snmpGroup",
+          "snmpObsoleteGroup",
+          "snmpSetGroup",
+          "systemGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmcIIIPduCapsV104": {
+    "name": "cmcIIIPduCapsV104",
+    "oid": "1.3.6.1.4.1.2606.7.8.34104",
+    "class": "agentcapabilities",
+    "productrelease": "V1.04",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifCounterDiscontinuityGroup",
+          "ifFixedLengthGroup",
+          "ifGeneralGroup",
+          "ifGeneralInformationGroup",
+          "ifHCFixedLengthGroup",
+          "ifHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifPacketGroup",
+          "ifVHCPacketGroup"
+        ]
+      },
+      {
+        "module": "NOTIFICATION-LOG-MIB",
+        "includes": [
+          "notificationLogConfigGroup",
+          "notificationLogStatsGroup"
+        ]
+      },
+      {
+        "module": "PTOPO-MIB",
+        "includes": [
+          "ptopoConfigGroup",
+          "ptopoDataGroup",
+          "ptopoGeneralGroup"
+        ]
+      },
+      {
+        "module": "RITTAL-CMC-III-MIB",
+        "includes": [
+          "cmcIIIControlMibGroup",
+          "cmcIIIDeviceMibGroup",
+          "cmcIIIDrcMibGroup",
+          "cmcIIIFileMibGroup",
+          "cmcIIIInfoMibGroup",
+          "cmcIIILdapMibGroup",
+          "cmcIIINotificationGroup",
+          "cmcIIINtpMibGroup",
+          "cmcIIISetupMibGroup",
+          "cmcIIISmtpMibGroup",
+          "cmcIIISyslogMibGroup",
+          "cmcIIITrapGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmcIIITrapReceiverStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISmtpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIIRadiusAuth",
+            "access": "read-write"
+          },
+          {
+            "object": "cmcIIISetBeeper",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIIQuitRelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIILogicRelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIIFunctionRelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIIUnitMsgRelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cmcIIISmsQueue",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-COMMUNITY-MIB",
+        "includes": [
+          "snmpCommunityGroup"
+        ]
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup",
+          "snmpNotifyFilterGroup"
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup",
+          "snmpTargetCommandResponderGroup",
+          "snmpTargetResponseGroup"
+        ]
+      },
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "includes": [
+          "vacmBasicGroup"
+        ]
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpCommunityGroup",
+          "snmpGroup",
+          "snmpObsoleteGroup",
+          "snmpSetGroup",
+          "systemGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RITTAL-CMC-III-CAPABILITY-MIB",
+      "Source digest sha256:9466ae6e79a410287d7a0bb6ef08b1d29f11e223a40eeae7e61b0a431018b3e9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RITTAL-CMC-III-CAPABILITY-MIB"
+  }
+}

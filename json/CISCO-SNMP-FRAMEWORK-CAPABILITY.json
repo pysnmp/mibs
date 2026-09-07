@@ -1,0 +1,148 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSnmpFrameworkCapability": {
+    "name": "ciscoSnmpFrameworkCapability",
+    "oid": "1.3.6.1.4.1.9.7.315",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-12 00:00",
+        "description": "Added capability statement cSnmpFrameworkCapc4710aceVA1R700 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-05-27 00:00",
+        "description": "Added capability statement cSnmpFrameworkCapACSWV03R000 for Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2003-09-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cSnmpFrameworkCapCatOSV05R0401": {
+    "name": "cSnmpFrameworkCapCatOSV05R0401",
+    "oid": "1.3.6.1.4.1.9.7.315.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 5.4(1).",
+    "capabilities": [
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpEngineMaxMessageSize",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 484,
+                    "max": 1300
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cSnmpFrameworkCapACSWV03R000": {
+    "name": "cSnmpFrameworkCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.315.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0\n                          for Application Control Engine (ACE) \n                          Service Module.",
+    "capabilities": [
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpEngineMaxMessageSize",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 484,
+                    "max": 1500
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cSnmpFrameworkCapc4710aceVA1R700": {
+    "name": "cSnmpFrameworkCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.315.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                         for ACE 4710 Application Control Engine \n                         Appliance",
+    "capabilities": [
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpEngineMaxMessageSize",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 484,
+                    "max": 1500
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SNMP-FRAMEWORK-CAPABILITY",
+      "Source digest sha256:31489bf4589205ef74014787b048f202443db505b1aa61ccd2d48471fd003978",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SNMP-FRAMEWORK-CAPABILITY"
+  }
+}

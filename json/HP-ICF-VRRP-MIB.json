@@ -1,0 +1,275 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "VRRP-MIB": [
+      "vrrpAssoIpAddrEntry",
+      "vrrpOperEntry"
+    ]
+  },
+  "hpicfVrrpMIB": {
+    "name": "hpicfVrrpMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-22 00:00",
+        "description": "Added hpicfVrrpVrPreemptDelayTime to the hpicfVrrpOperEntry object."
+      },
+      {
+        "revision": "2005-07-14 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfVrrpOperations": {
+    "name": "hpicfVrrpOperations",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpConformance": {
+    "name": "hpicfVrrpConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.2",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpAdminStatus": {
+    "name": "hpicfVrrpAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpOperTable": {
+    "name": "hpicfVrrpOperTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpOperEntry": {
+    "name": "hpicfVrrpOperEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfVrrpOperEntry",
+      "module": "HP-ICF-VRRP-MIB",
+      "object": "vrrpOperEntry"
+    },
+    "status": "current"
+  },
+  "hpicfVrrpVrMode": {
+    "name": "hpicfVrrpVrMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "owner": 1,
+          "backup": 2,
+          "uninitialized": 3
+        }
+      }
+    },
+    "default": {
+      "value": "uninitialized",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpVrMasterPreempt": {
+    "name": "hpicfVrrpVrMasterPreempt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpVrTransferControl": {
+    "name": "hpicfVrrpVrTransferControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpVrPreemptDelayTime": {
+    "name": "hpicfVrrpVrPreemptDelayTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpAssoIpAddrTable": {
+    "name": "hpicfVrrpAssoIpAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpAssoIpAddrEntry": {
+    "name": "hpicfVrrpAssoIpAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfVrrpAssoIpAddrEntry",
+      "module": "HP-ICF-VRRP-MIB",
+      "object": "vrrpAssoIpAddrEntry"
+    },
+    "status": "current"
+  },
+  "hpicfVrrpAssoIpMask": {
+    "name": "hpicfVrrpAssoIpMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "value": "00000000",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpMIBCompliances": {
+    "name": "hpicfVrrpMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpMIBGroups": {
+    "name": "hpicfVrrpMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpMIBCompliance": {
+    "name": "hpicfVrrpMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfVrrpOperGroup",
+        "module": "HP-ICF-VRRP-MIB"
+      },
+      {
+        "object": "hpicfVrrpOperGroup",
+        "module": "HP-ICF-VRRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVrrpOperGroup": {
+    "name": "hpicfVrrpOperGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.31.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpAdminStatus"
+      },
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpVrMode"
+      },
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpVrMasterPreempt"
+      },
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpVrTransferControl"
+      },
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpVrPreemptDelayTime"
+      },
+      {
+        "module": "HP-ICF-VRRP-MIB",
+        "object": "hpicfVrrpAssoIpMask"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-VRRP-MIB",
+      "Source digest sha256:027b1b22b4aecbfa837d9801bba6d50ecdc7676ee9847aeaced04651c87d218b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-VRRP-MIB"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "RMON-MIB": [
+      "eventDescription",
+      "eventIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredMgmdRmonTrapMIB": {
+    "name": "arubaWiredMgmdRmonTrapMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-11-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "arubaWiredMgmdRmonTrapNotifications": {
+    "name": "arubaWiredMgmdRmonTrapNotifications",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.4.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredMgmdRmonTrapEvent": {
+    "name": "arubaWiredMgmdRmonTrapEvent",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.4.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RMON-MIB",
+        "object": "eventIndex"
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "eventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARUBAWIRED-MGMD-RMON-TRAP-MIB",
+      "Source digest sha256:65de27dd71131d7633337d1b9354045434ff9988c8dbacdb1d84aa70558e1c93",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARUBAWIRED-MGMD-RMON-TRAP-MIB"
+  }
+}

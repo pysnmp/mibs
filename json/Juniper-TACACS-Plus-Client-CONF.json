@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniTacacsPlusClientAgent": {
+    "name": "juniTacacsPlusClientAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-02 17:31",
+        "description": "Defined juniTacacsPlusClientHostConfigGroup2"
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-04-08 14:37",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniTacacsPlusClientAgentV1": {
+    "name": "juniTacacsPlusClientAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.57.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the TACACS+ Client component of the JUNOSe SNMP agent.\n        This version of the TACACS+ Client component is supported in JUNOSe 4.1\n        through JUNOSe 5.2.",
+    "capabilities": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "includes": [
+          "juniTacacsPlusClientCommonGroup",
+          "juniTacacsPlusClientHostConfigGroup",
+          "juniTacacsPlusClientHostStatsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTacacsPlusClientAgentV2": {
+    "name": "juniTacacsPlusClientAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.57.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Tacacs Plus Client component of the JUNOSe SNMP agent.\n        This version of the Tacacs Plus Client component is supported in JUNOSe\n        5.3 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "includes": [
+          "juniTacacsPlusClientCommonGroup",
+          "juniTacacsPlusClientHostConfigGroup",
+          "juniTacacsPlusClientHostStatsGroup",
+          "juniTacacsPlusClientHostConfigGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-TACACS-Plus-Client-CONF",
+      "Source digest sha256:447b6a79efb7682dd2c89d9488168720976dcfb17446a01db454b883855b2d6d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-TACACS-Plus-Client-CONF"
+  }
+}

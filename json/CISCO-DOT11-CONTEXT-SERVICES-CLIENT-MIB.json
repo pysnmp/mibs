@@ -1,0 +1,233 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoDot11CscMIB": {
+    "name": "ciscoDot11CscMIB",
+    "oid": "1.3.6.1.4.1.9.10.109",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-02 00:00",
+        "description": "The definition of the object cDot11CscParentWdsAddress has been modified to return a specific error value on certain conditions. "
+      },
+      {
+        "revision": "2003-05-06 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoDot11CscMIBObjects": {
+    "name": "ciscoDot11CscMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.109.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CscMIBConformance": {
+    "name": "ciscoDot11CscMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.109.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CscConfigGlobal": {
+    "name": "ciscoDot11CscConfigGlobal",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1",
+    "class": "objectidentity"
+  },
+  "cDot11CscAddressType": {
+    "name": "cDot11CscAddressType",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscParentWdsAddress": {
+    "name": "cDot11CscParentWdsAddress",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscRootNodeAddress": {
+    "name": "cDot11CscRootNodeAddress",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscMnAuthenticatorAddress": {
+    "name": "cDot11CscMnAuthenticatorAddress",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscOperMode": {
+    "name": "cDot11CscOperMode",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infrastructure": 1,
+          "distributed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscMnInactivityTime": {
+    "name": "cDot11CscMnInactivityTime",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscRegistrationLifeTime": {
+    "name": "cDot11CscRegistrationLifeTime",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CscStateTransitions": {
+    "name": "cDot11CscStateTransitions",
+    "oid": "1.3.6.1.4.1.9.10.109.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDot11CscMIBCompliances": {
+    "name": "ciscoDot11CscMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.109.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CscMIBGroups": {
+    "name": "ciscoDot11CscMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.109.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CscMIBCompliance": {
+    "name": "ciscoDot11CscMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.109.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11CscConfigGlobalGroup",
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11CscConfigGlobalGroup": {
+    "name": "ciscoDot11CscConfigGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.10.109.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscAddressType"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscParentWdsAddress"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscRootNodeAddress"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscMnAuthenticatorAddress"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscOperMode"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscMnInactivityTime"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscRegistrationLifeTime"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+        "object": "cDot11CscStateTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB",
+      "Source digest sha256:8eb8ea845d3b63b55c74f673335dac23e14ec68a4e45fdb9749a341ede917993",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB"
+  }
+}

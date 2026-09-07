@@ -1,0 +1,196 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alVersionMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsVersion",
+      "alVersionGroup"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaVersionStatsMibModule": {
+    "name": "altigaVersionStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.6.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "alStatsVersionGlobal": {
+    "name": "alStatsVersionGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "alVersionMajor": {
+    "name": "alVersionMajor",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionMinor": {
+    "name": "alVersionMinor",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionInt": {
+    "name": "alVersionInt",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionString": {
+    "name": "alVersionString",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionLong": {
+    "name": "alVersionLong",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionShort": {
+    "name": "alVersionShort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alVersionBoot": {
+    "name": "alVersionBoot",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaVersionStatsMibConformance": {
+    "name": "altigaVersionStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.6.2.1",
+    "class": "objectidentity"
+  },
+  "altigaVersionStatsMibCompliances": {
+    "name": "altigaVersionStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.6.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaVersionStatsMibCompliance": {
+    "name": "altigaVersionStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.6.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaVersionStatsGroup",
+        "module": "ALTIGA-VERSION-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaVersionStatsGroup": {
+    "name": "altigaVersionStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionMajor"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionMinor"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionInt"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionString"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionLong"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionShort"
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "object": "alVersionBoot"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALTIGA-VERSION-STATS-MIB",
+      "Source digest sha256:dd1e4bdad193ec138a356b483d0035a6bfda2b62af0f151fc9e59dbf1891ee3b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALTIGA-VERSION-STATS-MIB"
+  }
+}

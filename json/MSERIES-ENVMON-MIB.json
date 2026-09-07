@@ -1,0 +1,166 @@
+{
+  "imports": {
+    "class": "imports",
+    "MSERIES-MIB": [
+      "mseries"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "smartEnvMon": {
+    "name": "smartEnvMon",
+    "oid": "1.3.6.1.4.1.30826.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-15 10:34",
+        "description": "The initial revision of the MSERIES Enviroment Monitor MIB."
+      }
+    ]
+  },
+  "smartEnvMonObjects": {
+    "name": "smartEnvMonObjects",
+    "oid": "1.3.6.1.4.1.30826.1.4.1",
+    "class": "objectidentity"
+  },
+  "smartEnvMonMIBConformance": {
+    "name": "smartEnvMonMIBConformance",
+    "oid": "1.3.6.1.4.1.30826.1.4.2",
+    "class": "objectidentity"
+  },
+  "smartEnvMonGroups": {
+    "name": "smartEnvMonGroups",
+    "oid": "1.3.6.1.4.1.30826.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "smartEnvMonCompliances": {
+    "name": "smartEnvMonCompliances",
+    "oid": "1.3.6.1.4.1.30826.1.4.2.2",
+    "class": "objectidentity"
+  },
+  "smartEnvMonTemperatureTable": {
+    "name": "smartEnvMonTemperatureTable",
+    "oid": "1.3.6.1.4.1.30826.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smartEnvMonTemperatureEntry": {
+    "name": "smartEnvMonTemperatureEntry",
+    "oid": "1.3.6.1.4.1.30826.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSERIES-ENVMON-MIB",
+        "object": "smartEnvMonTemperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smartEnvMonTemperatureIndex": {
+    "name": "smartEnvMonTemperatureIndex",
+    "oid": "1.3.6.1.4.1.30826.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartEnvMonTemperatureDescr": {
+    "name": "smartEnvMonTemperatureDescr",
+    "oid": "1.3.6.1.4.1.30826.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartEnvMonTemperatureValue": {
+    "name": "smartEnvMonTemperatureValue",
+    "oid": "1.3.6.1.4.1.30826.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartEnvMonTemperatureGroupV1": {
+    "name": "smartEnvMonTemperatureGroupV1",
+    "oid": "1.3.6.1.4.1.30826.1.4.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSERIES-ENVMON-MIB",
+        "object": "smartEnvMonTemperatureIndex"
+      },
+      {
+        "module": "MSERIES-ENVMON-MIB",
+        "object": "smartEnvMonTemperatureDescr"
+      },
+      {
+        "module": "MSERIES-ENVMON-MIB",
+        "object": "smartEnvMonTemperatureValue"
+      }
+    ],
+    "status": "current"
+  },
+  "smartEnvMonBasicComplV1": {
+    "name": "smartEnvMonBasicComplV1",
+    "oid": "1.3.6.1.4.1.30826.1.4.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "smartEnvMonTemperatureGroupV1",
+        "module": "MSERIES-ENVMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MSERIES-ENVMON-MIB",
+      "Source digest sha256:20ea93c66e6b081723b77b6ed73546c435e491bb3eb30013a8ea64df392be9b3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MSERIES-ENVMON-MIB"
+  }
+}

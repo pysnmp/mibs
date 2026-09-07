@@ -1,0 +1,218 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenSetting",
+      "netscreenSettingMibModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenSetGenMibModule": {
+    "name": "netscreenSetGenMibModule",
+    "oid": "1.3.6.1.4.1.3224.7.0.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-12 00:00",
+        "description": "This module defines the object that are used to monitor all the configuration info"
+      },
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Correct spelling mistake"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "No Comment"
+      },
+      {
+        "revision": "2001-05-27 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsSetGeneral": {
+    "name": "nsSetGeneral",
+    "oid": "1.3.6.1.4.1.3224.7.1",
+    "class": "objectidentity"
+  },
+  "nsSetGenSysIp": {
+    "name": "nsSetGenSysIp",
+    "oid": "1.3.6.1.4.1.3224.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "nsSetGenHostName": {
+    "name": "nsSetGenHostName",
+    "oid": "1.3.6.1.4.1.3224.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenDomain": {
+    "name": "nsSetGenDomain",
+    "oid": "1.3.6.1.4.1.3224.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenOpMode": {
+    "name": "nsSetGenOpMode",
+    "oid": "1.3.6.1.4.1.3224.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenSwVer": {
+    "name": "nsSetGenSwVer",
+    "oid": "1.3.6.1.4.1.3224.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenLicInfo": {
+    "name": "nsSetGenLicInfo",
+    "oid": "1.3.6.1.4.1.3224.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenSCSAdminEnable": {
+    "name": "nsSetGenSCSAdminEnable",
+    "oid": "1.3.6.1.4.1.3224.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSetGenDropSelfLogPac": {
+    "name": "nsSetGenDropSelfLogPac",
+    "oid": "1.3.6.1.4.1.3224.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NETSCREEN-SET-GEN-MIB",
+      "Source digest sha256:d6206e1d932a91be80ac7cac205d6a57c1c9700b4bcd39161a09d93546dafed8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NETSCREEN-SET-GEN-MIB"
+  }
+}

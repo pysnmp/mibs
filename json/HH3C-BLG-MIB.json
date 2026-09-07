@@ -1,0 +1,168 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cBlg": {
+    "name": "hh3cBlg",
+    "oid": "1.3.6.1.4.1.25506.2.108",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-15 11:11",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "CounterClear": {
+    "name": "CounterClear",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "nouse": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cBlgObjects": {
+    "name": "hh3cBlgObjects",
+    "oid": "1.3.6.1.4.1.25506.2.108.1",
+    "class": "objectidentity"
+  },
+  "hh3cBlgStatsTable": {
+    "name": "hh3cBlgStatsTable",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cBlgStatsEntry": {
+    "name": "hh3cBlgStatsEntry",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-BLG-MIB",
+        "object": "hh3cBlgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBlgIndex": {
+    "name": "hh3cBlgIndex",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cBlgGroupTxPacketCount": {
+    "name": "hh3cBlgGroupTxPacketCount",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cBlgGroupRxPacketCount": {
+    "name": "hh3cBlgGroupRxPacketCount",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cBlgGroupTxByteCount": {
+    "name": "hh3cBlgGroupTxByteCount",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cBlgGroupRxByteCount": {
+    "name": "hh3cBlgGroupRxByteCount",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cBlgGroupCountClear": {
+    "name": "hh3cBlgGroupCountClear",
+    "oid": "1.3.6.1.4.1.25506.2.108.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-BLG-MIB",
+      "Source digest sha256:8c21116155f1d7a661ce89b32ed69f2dd2d20a6ad1e0292a31852f094a0c2e83",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-BLG-MIB"
+  }
+}

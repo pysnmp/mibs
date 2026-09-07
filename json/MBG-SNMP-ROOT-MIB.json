@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mbgSnmpRoot": {
+    "name": "mbgSnmpRoot",
+    "oid": "1.3.6.1.4.1.5597",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-25 07:45",
+        "description": " Rev 1.01 25 January 2012 7:45 UTC Philipp Rahns Changed MIB module name"
+      },
+      {
+        "revision": "2011-10-14 06:30",
+        "description": " Rev 1.00 14 October 2011 6:30 UTC Philipp Rahns Initial revision"
+      }
+    ]
+  },
+  "MeinbergSwitch": {
+    "name": "MeinbergSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MBG-SNMP-ROOT-MIB",
+      "Source digest sha256:fee17ee531e44e374d8cceea1476099ae79bcac8a9c62356b0f905c2bc501e4d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MBG-SNMP-ROOT-MIB"
+  }
+}

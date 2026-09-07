@@ -1,0 +1,73 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxJunosSpace",
+      "jnxMobileGatewayMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxMobileGatewayPgwGgsn": {
+    "name": "jnxMobileGatewayPgwGgsn",
+    "oid": "1.3.6.1.4.1.2636.3.66.1",
+    "class": "objectidentity"
+  },
+  "jnxMobileGatewaySgw": {
+    "name": "jnxMobileGatewaySgw",
+    "oid": "1.3.6.1.4.1.2636.3.66.2",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobility": {
+    "name": "jnxJunosSpaceMobility",
+    "oid": "1.3.6.1.4.1.2636.1.3.2",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobilityNotifications": {
+    "name": "jnxJunosSpaceMobilityNotifications",
+    "oid": "1.3.6.1.4.1.2636.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobilityObjects": {
+    "name": "jnxJunosSpaceMobilityObjects",
+    "oid": "1.3.6.1.4.1.2636.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobilityMCM": {
+    "name": "jnxJunosSpaceMobilityMCM",
+    "oid": "1.3.6.1.4.1.2636.1.3.2.3",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobilityMTM": {
+    "name": "jnxJunosSpaceMobilityMTM",
+    "oid": "1.3.6.1.4.1.2636.1.3.2.4",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpaceMobilityNotificationvars": {
+    "name": "jnxJunosSpaceMobilityNotificationvars",
+    "oid": "1.3.6.1.4.1.2636.1.3.2.2.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-MBG-SMI",
+      "Source digest sha256:a57dae20a8f20d199b1dda80e480f44b2ec2b356b9c85ff9e4511616ed38ccff",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-MBG-SMI"
+  }
+}

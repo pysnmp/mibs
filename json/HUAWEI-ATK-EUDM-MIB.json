@@ -1,0 +1,431 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwATKEudm": {
+    "name": "hwATKEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2",
+    "class": "moduleidentity"
+  },
+  "hwATK": {
+    "name": "hwATK",
+    "oid": "1.3.6.1.4.1.2011.5.25.10",
+    "class": "objectidentity"
+  },
+  "hwAtkZoneMibObjects": {
+    "name": "hwAtkZoneMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1",
+    "class": "objectidentity"
+  },
+  "hwAtkSynFloodZoneTable": {
+    "name": "hwAtkSynFloodZoneTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkSynFloodZoneEntry": {
+    "name": "hwAtkSynFloodZoneEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkSynFloodZoneID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtkSynFloodZoneID": {
+    "name": "hwAtkSynFloodZoneID",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkZoneSynFloodSynSpeed": {
+    "name": "hwAtkZoneSynFloodSynSpeed",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneSynFloodHalfMax": {
+    "name": "hwAtkZoneSynFloodHalfMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneSynFloodHalfAge": {
+    "name": "hwAtkZoneSynFloodHalfAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneSynFloodProxy": {
+    "name": "hwAtkZoneSynFloodProxy",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneSynFloodStatus": {
+    "name": "hwAtkZoneSynFloodStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkUdpFloodZoneTable": {
+    "name": "hwAtkUdpFloodZoneTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkUdpFloodZoneEntry": {
+    "name": "hwAtkUdpFloodZoneEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkUdpFloodZoneID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtkUdpFloodZoneID": {
+    "name": "hwAtkUdpFloodZoneID",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkZoneUdpFloodSpeed": {
+    "name": "hwAtkZoneUdpFloodSpeed",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneUdpFloodStatus": {
+    "name": "hwAtkZoneUdpFloodStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodZoneTable": {
+    "name": "hwAtkIcmpFloodZoneTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodZoneEntry": {
+    "name": "hwAtkIcmpFloodZoneEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkIcmpFloodZoneID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtkIcmpFloodZoneID": {
+    "name": "hwAtkIcmpFloodZoneID",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAtkZoneIcmpFloodSpeed": {
+    "name": "hwAtkZoneIcmpFloodSpeed",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkZoneIcmpFloodStatus": {
+    "name": "hwAtkZoneIcmpFloodStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAtkEudmConformance": {
+    "name": "hwAtkEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2",
+    "class": "objectidentity"
+  },
+  "hwAtkEudmCompliance": {
+    "name": "hwAtkEudmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwAtkEudmMibGroups": {
+    "name": "hwAtkEudmMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2",
+    "class": "objectidentity"
+  },
+  "hwAtkEudmSynFloodGroup": {
+    "name": "hwAtkEudmSynFloodGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodSynSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodHalfMax"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodHalfAge"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodProxy"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtkEudmUdpFloodGroup": {
+    "name": "hwAtkEudmUdpFloodGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneUdpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneUdpFloodStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAtkEudmIcmpFloodGroup": {
+    "name": "hwAtkEudmIcmpFloodGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneIcmpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneIcmpFloodStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-ATK-EUDM-MIB",
+      "Source digest sha256:6b0aa62080feebca19073e79aa898a72018d94fb49c97b4bb10d033543b2e70a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-ATK-EUDM-MIB"
+  }
+}

@@ -1,0 +1,776 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruleSetRulesByZoneModule": {
+    "name": "ruleSetRulesByZoneModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472",
+    "class": "moduleidentity"
+  },
+  "rulesByZone": {
+    "name": "rulesByZone",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1",
+    "class": "objectidentity"
+  },
+  "rulesByZoneStatsTable": {
+    "name": "rulesByZoneStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneStatsEntry": {
+    "name": "rulesByZoneStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneStatsSlotId": {
+    "name": "rulesByZoneStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneStatsName": {
+    "name": "rulesByZoneStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneStatsDummy": {
+    "name": "rulesByZoneStatsDummy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListTable": {
+    "name": "rulesByZoneOperGroupListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListEntry": {
+    "name": "rulesByZoneOperGroupListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListGroupListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListSlotId": {
+    "name": "rulesByZoneOperGroupListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListName": {
+    "name": "rulesByZoneOperGroupListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListGroupListListId": {
+    "name": "rulesByZoneOperGroupListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListFrom": {
+    "name": "rulesByZoneOperGroupListFrom",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListTo": {
+    "name": "rulesByZoneOperGroupListTo",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListTable": {
+    "name": "rulesByZoneOperGroupListRuleListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListEntry": {
+    "name": "rulesByZoneOperGroupListRuleListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListGroupListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListRuleListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSlotId": {
+    "name": "rulesByZoneOperGroupListRuleListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListName": {
+    "name": "rulesByZoneOperGroupListRuleListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListGroupListListId": {
+    "name": "rulesByZoneOperGroupListRuleListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListRuleListListId": {
+    "name": "rulesByZoneOperGroupListRuleListRuleListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListName1": {
+    "name": "rulesByZoneOperGroupListRuleListName1",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListAction": {
+    "name": "rulesByZoneOperGroupListRuleListAction",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListTable": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListEntry": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSourceListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSourceListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSourceListGroupListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSourceListRuleListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListSourceListSourceListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListSlotId": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListName": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListGroupListListId": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListRuleListListId": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListRuleListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListSourceListListId": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListSourceListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListSourceListSource": {
+    "name": "rulesByZoneOperGroupListRuleListSourceListSource",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListTable": {
+    "name": "rulesByZoneOperGroupListRuleListDestListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListEntry": {
+    "name": "rulesByZoneOperGroupListRuleListDestListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDestListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDestListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDestListGroupListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDestListRuleListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDestListDestListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListSlotId": {
+    "name": "rulesByZoneOperGroupListRuleListDestListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListName": {
+    "name": "rulesByZoneOperGroupListRuleListDestListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListGroupListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDestListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListRuleListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDestListRuleListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListDestListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDestListDestListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDestListDest": {
+    "name": "rulesByZoneOperGroupListRuleListDestListDest",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListTable": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListEntry": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListServiceListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListServiceListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListServiceListGroupListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListServiceListRuleListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListServiceListServiceListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListSlotId": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListName": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListGroupListListId": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListRuleListListId": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListRuleListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListServiceListListId": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListServiceListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListServiceListService": {
+    "name": "rulesByZoneOperGroupListRuleListServiceListService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListTable": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListEntry": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDscpListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDscpListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDscpListGroupListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDscpListRuleListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-RULESET-RULES-BY-ZONE-MIB",
+        "object": "rulesByZoneOperGroupListRuleListDscpListDscpListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListSlotId": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListName": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListGroupListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListGroupListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListRuleListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListRuleListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListDscpListListId": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListDscpListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rulesByZoneOperGroupListRuleListDscpListDscp": {
+    "name": "rulesByZoneOperGroupListRuleListDscpListDscp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.472.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-RULESET-RULES-BY-ZONE-MIB",
+      "Source digest sha256:14bacd54685e38bb4d7c27cada60646b7818b29223c13543a97dd0889113f51e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-RULESET-RULES-BY-ZONE-MIB"
+  }
+}

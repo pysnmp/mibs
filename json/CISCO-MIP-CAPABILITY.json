@@ -1,0 +1,472 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMIPCapability": {
+    "name": "ciscoMIPCapability",
+    "oid": "1.3.6.1.4.1.9.7.203",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-24 00:00",
+        "description": "Added ciscoMIPCapabilityV12R0304T : - faVJCompressionUnavailable not supported"
+      },
+      {
+        "revision": "2002-10-08 00:00",
+        "description": "Added ciscoMIPCapabilityV12R0204T : - mnSystem, mnDiscovery and mnRegistration added to groups supported. - mnRegRequestsWithDirectedBroadcast is not implemented."
+      },
+      {
+        "revision": "2000-11-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMIPCapabilityV12R02": {
+    "name": "ciscoMIPCapabilityV12R02",
+    "oid": "1.3.6.1.4.1.9.7.203.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "MIP-MIB",
+        "includes": [
+          "mipSystemGroup",
+          "mipSecAssociationGroup",
+          "mipSecViolationGroup",
+          "maAdvertisementGroup",
+          "faSystemGroup",
+          "faRegistrationGroup",
+          "haRegistrationGroup",
+          "haRegNodeCountersGroup",
+          "mipSecNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "mipSecAlgorithmType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "md5": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecAlgorithmMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "prefixSuffix": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecKey",
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecReplayMethod",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "timestamps": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxRegLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvPrefixLengthInclusion",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvAddress",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMinInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxAdvLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvResponseSolicitationOnly",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notInService": 2,
+                  "notReady": 3
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "faCOAStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notReady": 3,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "faIsBusy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "faRegistrationRequired",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMIPCapabilityV12R0204T": {
+    "name": "ciscoMIPCapabilityV12R0204T",
+    "oid": "1.3.6.1.4.1.9.7.203.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)T",
+    "capabilities": [
+      {
+        "module": "MIP-MIB",
+        "includes": [
+          "mipSystemGroup",
+          "mipSecAssociationGroup",
+          "mipSecViolationGroup",
+          "mnSystemGroup",
+          "mnDiscoveryGroup",
+          "mnRegistrationGroup",
+          "maAdvertisementGroup",
+          "faSystemGroup",
+          "faRegistrationGroup",
+          "haRegistrationGroup",
+          "haRegNodeCountersGroup",
+          "mipSecNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "mipSecAlgorithmType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "md5": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecAlgorithmMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "prefixSuffix": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecKey",
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecReplayMethod",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "timestamps": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxRegLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvPrefixLengthInclusion",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvAddress",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMinInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxAdvLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvResponseSolicitationOnly",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notInService": 2,
+                  "notReady": 3
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "faCOAStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notReady": 3,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "faIsBusy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "faRegistrationRequired",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mnRegRequestsWithDirectedBroadcast",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMIPCapabilityV12R0304T": {
+    "name": "ciscoMIPCapabilityV12R0304T",
+    "oid": "1.3.6.1.4.1.9.7.203.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3(4)T",
+    "capabilities": [
+      {
+        "module": "MIP-MIB",
+        "includes": [
+          "mipSystemGroup",
+          "mipSecAssociationGroup",
+          "mipSecViolationGroup",
+          "mnSystemGroup",
+          "mnDiscoveryGroup",
+          "mnRegistrationGroup",
+          "maAdvertisementGroup",
+          "faSystemGroup",
+          "faRegistrationGroup",
+          "haRegistrationGroup",
+          "haRegNodeCountersGroup",
+          "mipSecNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "mipSecAlgorithmType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "md5": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecAlgorithmMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "prefixSuffix": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecKey",
+            "access": "read-write"
+          },
+          {
+            "object": "mipSecReplayMethod",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "timestamps": 2
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxRegLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvPrefixLengthInclusion",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvAddress",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMinInterval",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvMaxAdvLifetime",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvResponseSolicitationOnly",
+            "access": "read-write"
+          },
+          {
+            "object": "maAdvStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notInService": 2,
+                  "notReady": 3
+                }
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "faCOAStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notReady": 3,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "faIsBusy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "faRegistrationRequired",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mnRegRequestsWithDirectedBroadcast",
+            "access": "not-implemented"
+          },
+          {
+            "object": "faVJCompressionUnavailable",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MIP-CAPABILITY",
+      "Source digest sha256:452d8bd09889c6dba4804bf1d8b00a921512bbbb47ff7c296eb5c4613be7e1d4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MIP-CAPABILITY"
+  }
+}

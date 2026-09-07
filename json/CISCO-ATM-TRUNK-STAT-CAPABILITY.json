@@ -1,0 +1,145 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmTrunkStatCapability": {
+    "name": "ciscoAtmTrunkStatCapability",
+    "oid": "1.3.6.1.4.1.9.7.420",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-19 00:00",
+        "description": "New capabilities for Cisco VISM Release 3.3.25"
+      },
+      {
+        "revision": "2004-11-17 00:00",
+        "description": "Updated CANA ID."
+      },
+      {
+        "revision": "2004-06-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cAtmTrunkStatCapVISM33": {
+    "name": "cAtmTrunkStatCapVISM33",
+    "oid": "1.3.6.1.4.1.9.7.420.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco VISM Release 3.3.",
+    "capabilities": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "includes": [
+          "catsPvcStatGroup",
+          "catsAal2PvcStatGroup",
+          "catsAal5PvcStatGroup",
+          "catsCidHistoryStatGroup"
+        ],
+        "variations": [
+          {
+            "object": "catsAal2PvcCrcErrors",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkStatCapVISM3325": {
+    "name": "cAtmTrunkStatCapVISM3325",
+    "oid": "1.3.6.1.4.1.9.7.420.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco VISM Release 3.3.25.",
+    "capabilities": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "includes": [
+          "catsPvcStatGroup",
+          "catsAal2PvcStatGroup",
+          "catsAal5PvcStatGroup",
+          "catsCidHistoryStatGroup"
+        ],
+        "variations": [
+          {
+            "object": "catsAal2PvcCrcErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "catsPvcVci",
+            "syntax": {
+              "type": "AtmVcIdentifier",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 131,
+                    "max": 510
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "catsAal2PvcVci",
+            "syntax": {
+              "type": "AtmVcIdentifier",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 131,
+                    "max": 510
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "catsAal5PvcVci",
+            "syntax": {
+              "type": "AtmVcIdentifier",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 131,
+                    "max": 510
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ATM-TRUNK-STAT-CAPABILITY",
+      "Source digest sha256:58cb2963423f7911ba0605834dc054957a3b6210f27d922959e1eaf3e02497af",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ATM-TRUNK-STAT-CAPABILITY"
+  }
+}

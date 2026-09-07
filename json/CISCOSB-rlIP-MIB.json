@@ -1,0 +1,329 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetVersion",
+      "InetZoneIndex"
+    ],
+    "IP-MIB": [
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "mib-2",
+      "zeroDotZero"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "RowPointer",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "rlIp": {
+    "name": "rlIp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-16 12:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "RlIpAddressOriginTC": {
+    "name": "RlIpAddressOriginTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "manual": 2,
+          "dhcp": 4,
+          "linklayer": 5,
+          "random": 6,
+          "autoConfig": 7,
+          "eui64": 8,
+          "tunnelIsatap": 9,
+          "tunnel6to4": 10,
+          "generalPrefix": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlIpAddressTable": {
+    "name": "rlIpAddressTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressEntry": {
+    "name": "rlIpAddressEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-rlIP-MIB",
+        "object": "rlIpAddressAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-rlIP-MIB",
+        "object": "rlIpAddressAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-rlIP-MIB",
+        "object": "rlIpAddressOrigin",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-rlIP-MIB",
+        "object": "rlIpAddressGeneralPrefixName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpAddressAddrType": {
+    "name": "rlIpAddressAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressAddr": {
+    "name": "rlIpAddressAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressOrigin": {
+    "name": "rlIpAddressOrigin",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpAddressOriginTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressGeneralPrefixName": {
+    "name": "rlIpAddressGeneralPrefixName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressIfIndex": {
+    "name": "rlIpAddressIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressExtdType": {
+    "name": "rlIpAddressExtdType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "anycast": 2,
+          "broadcast": 3,
+          "multicast": 4
+        }
+      }
+    },
+    "default": {
+      "value": "unicast",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressPrefix": {
+    "name": "rlIpAddressPrefix",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": "(0, 0)",
+      "format": "oid"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpAddressStatus": {
+    "name": "rlIpAddressStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressStatusTC",
+      "class": "type"
+    },
+    "default": {
+      "value": "preferred",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressCreated": {
+    "name": "rlIpAddressCreated",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpAddressLastChanged": {
+    "name": "rlIpAddressLastChanged",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpAddressRowStatus": {
+    "name": "rlIpAddressRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressStorageType": {
+    "name": "rlIpAddressStorageType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "volatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressExtdPrefixLength": {
+    "name": "rlIpAddressExtdPrefixLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "default": {
+      "value": 64,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressCompleteAddr": {
+    "name": "rlIpAddressCompleteAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.250.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOSB-rlIP-MIB",
+      "Source digest sha256:fba36f2cc83f8758078fd136aab0f1a43415f92cc02c799b364ea9dc6036bc14",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOSB-rlIP-MIB"
+  }
+}

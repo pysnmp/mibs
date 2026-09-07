@@ -1,0 +1,2445 @@
+{
+  "imports": {
+    "class": "imports",
+    "AE-ALARM-TABLE-MIB": [
+      "pSeries"
+    ],
+    "AE-TC": [
+      "AePwe3AggInstance",
+      "AePwe3BundleInstance",
+      "AePwe3T1Instance",
+      "AeThresholdCrossingIndex",
+      "AeThresholdCrossingPointer",
+      "PerfCurrentCount",
+      "PerfInvalidFlag"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "aePmModule": {
+    "name": "aePmModule",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-01-15 00:00",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "aePmTCModule": {
+    "name": "aePmTCModule",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1",
+    "class": "objectidentity"
+  },
+  "aePwe3PmModule": {
+    "name": "aePwe3PmModule",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2",
+    "class": "objectidentity"
+  },
+  "aeThresholdCrossingTable": {
+    "name": "aeThresholdCrossingTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aeThresholdCrossingEntry": {
+    "name": "aeThresholdCrossingEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aeThresholdCrossingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aeThresholdCrossingIndex": {
+    "name": "aeThresholdCrossingIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue1": {
+    "name": "aeThresholdCrossingValue1",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue2": {
+    "name": "aeThresholdCrossingValue2",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue3": {
+    "name": "aeThresholdCrossingValue3",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue4": {
+    "name": "aeThresholdCrossingValue4",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue5": {
+    "name": "aeThresholdCrossingValue5",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue6": {
+    "name": "aeThresholdCrossingValue6",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue7": {
+    "name": "aeThresholdCrossingValue7",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue8": {
+    "name": "aeThresholdCrossingValue8",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue9": {
+    "name": "aeThresholdCrossingValue9",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue10": {
+    "name": "aeThresholdCrossingValue10",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue11": {
+    "name": "aeThresholdCrossingValue11",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue12": {
+    "name": "aeThresholdCrossingValue12",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue13": {
+    "name": "aeThresholdCrossingValue13",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue14": {
+    "name": "aeThresholdCrossingValue14",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue15": {
+    "name": "aeThresholdCrossingValue15",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingValue16": {
+    "name": "aeThresholdCrossingValue16",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeThresholdCrossingRowStatus": {
+    "name": "aeThresholdCrossingRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15Table": {
+    "name": "aePwe3BunCurrent15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15Entry": {
+    "name": "aePwe3BunCurrent15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunCurrent15Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunCurrent15Bundle",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3BunCurrent15Port": {
+    "name": "aePwe3BunCurrent15Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15Bundle": {
+    "name": "aePwe3BunCurrent15Bundle",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3BundleInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15RxPacket": {
+    "name": "aePwe3BunCurrent15RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15TxPacket": {
+    "name": "aePwe3BunCurrent15TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15LostPacket": {
+    "name": "aePwe3BunCurrent15LostPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15DiscardPacket": {
+    "name": "aePwe3BunCurrent15DiscardPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15ReorderPacket": {
+    "name": "aePwe3BunCurrent15ReorderPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15JumpedPacket": {
+    "name": "aePwe3BunCurrent15JumpedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15MalformedSec": {
+    "name": "aePwe3BunCurrent15MalformedSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15TxRbitSec": {
+    "name": "aePwe3BunCurrent15TxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15TxLbitSec": {
+    "name": "aePwe3BunCurrent15TxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15RxRbitSec": {
+    "name": "aePwe3BunCurrent15RxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15RxLbitSec": {
+    "name": "aePwe3BunCurrent15RxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15JitterBufferUnderrun": {
+    "name": "aePwe3BunCurrent15JitterBufferUnderrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15JitterBufferOverrun": {
+    "name": "aePwe3BunCurrent15JitterBufferOverrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15ES": {
+    "name": "aePwe3BunCurrent15ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15UAS": {
+    "name": "aePwe3BunCurrent15UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15ValidData": {
+    "name": "aePwe3BunCurrent15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent15ThresholdCrossingPointer": {
+    "name": "aePwe3BunCurrent15ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3BunInterval15Table": {
+    "name": "aePwe3BunInterval15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3BunInterval15Entry": {
+    "name": "aePwe3BunInterval15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval15Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval15Bundle",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval15Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3BunInterval15Port": {
+    "name": "aePwe3BunInterval15Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15Bundle": {
+    "name": "aePwe3BunInterval15Bundle",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3BundleInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15Interval": {
+    "name": "aePwe3BunInterval15Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15RxPacket": {
+    "name": "aePwe3BunInterval15RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15TxPacket": {
+    "name": "aePwe3BunInterval15TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15LostPacket": {
+    "name": "aePwe3BunInterval15LostPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15DiscardPacket": {
+    "name": "aePwe3BunInterval15DiscardPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15ReorderPacket": {
+    "name": "aePwe3BunInterval15ReorderPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15JumpedPacket": {
+    "name": "aePwe3BunInterval15JumpedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15MalformedSec": {
+    "name": "aePwe3BunInterval15MalformedSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15TxRbitSec": {
+    "name": "aePwe3BunInterval15TxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15TxLbitSec": {
+    "name": "aePwe3BunInterval15TxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15RxRbitSec": {
+    "name": "aePwe3BunInterval15RxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15RxLbitSec": {
+    "name": "aePwe3BunInterval15RxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15JitterBufferUnderrun": {
+    "name": "aePwe3BunInterval15JitterBufferUnderrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15JitterBufferOverrun": {
+    "name": "aePwe3BunInterval15JitterBufferOverrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15ES": {
+    "name": "aePwe3BunInterval15ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15UAS": {
+    "name": "aePwe3BunInterval15UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval15ValidData": {
+    "name": "aePwe3BunInterval15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24Table": {
+    "name": "aePwe3BunCurrent24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24Entry": {
+    "name": "aePwe3BunCurrent24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunCurrent24Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunCurrent24Bundle",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3BunCurrent24Port": {
+    "name": "aePwe3BunCurrent24Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24Bundle": {
+    "name": "aePwe3BunCurrent24Bundle",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3BundleInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24RxPacket": {
+    "name": "aePwe3BunCurrent24RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24TxPacket": {
+    "name": "aePwe3BunCurrent24TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24LostPacket": {
+    "name": "aePwe3BunCurrent24LostPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24DiscardPacket": {
+    "name": "aePwe3BunCurrent24DiscardPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24ReorderPacket": {
+    "name": "aePwe3BunCurrent24ReorderPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24JumpedPacket": {
+    "name": "aePwe3BunCurrent24JumpedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24MalformedSec": {
+    "name": "aePwe3BunCurrent24MalformedSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24TxRbitSec": {
+    "name": "aePwe3BunCurrent24TxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24TxLbitSec": {
+    "name": "aePwe3BunCurrent24TxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24RxRbitSec": {
+    "name": "aePwe3BunCurrent24RxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24RxLbitSec": {
+    "name": "aePwe3BunCurrent24RxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24JitterBufferUnderrun": {
+    "name": "aePwe3BunCurrent24JitterBufferUnderrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24JitterBufferOverrun": {
+    "name": "aePwe3BunCurrent24JitterBufferOverrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24ES": {
+    "name": "aePwe3BunCurrent24ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24UAS": {
+    "name": "aePwe3BunCurrent24UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24ValidData": {
+    "name": "aePwe3BunCurrent24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunCurrent24ThresholdCrossingPointer": {
+    "name": "aePwe3BunCurrent24ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3BunInterval24Table": {
+    "name": "aePwe3BunInterval24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3BunInterval24Entry": {
+    "name": "aePwe3BunInterval24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval24Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval24Bundle",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3BunInterval24Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3BunInterval24Port": {
+    "name": "aePwe3BunInterval24Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24Bundle": {
+    "name": "aePwe3BunInterval24Bundle",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3BundleInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24Interval": {
+    "name": "aePwe3BunInterval24Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24RxPacket": {
+    "name": "aePwe3BunInterval24RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24TxPacket": {
+    "name": "aePwe3BunInterval24TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24LostPacket": {
+    "name": "aePwe3BunInterval24LostPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24DiscardPacket": {
+    "name": "aePwe3BunInterval24DiscardPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24ReorderPacket": {
+    "name": "aePwe3BunInterval24ReorderPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24JumpedPacket": {
+    "name": "aePwe3BunInterval24JumpedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24MalformedSec": {
+    "name": "aePwe3BunInterval24MalformedSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24TxRbitSec": {
+    "name": "aePwe3BunInterval24TxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24TxLbitSec": {
+    "name": "aePwe3BunInterval24TxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24RxRbitSec": {
+    "name": "aePwe3BunInterval24RxRbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24RxLbitSec": {
+    "name": "aePwe3BunInterval24RxLbitSec",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24JitterBufferUnderrun": {
+    "name": "aePwe3BunInterval24JitterBufferUnderrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24JitterBufferOverrun": {
+    "name": "aePwe3BunInterval24JitterBufferOverrun",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24ES": {
+    "name": "aePwe3BunInterval24ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24UAS": {
+    "name": "aePwe3BunInterval24UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3BunInterval24ValidData": {
+    "name": "aePwe3BunInterval24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15Table": {
+    "name": "aePwe3T1Current15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3T1Current15Entry": {
+    "name": "aePwe3T1Current15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Current15Port",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3T1Current15Port": {
+    "name": "aePwe3T1Current15Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15LCV": {
+    "name": "aePwe3T1Current15LCV",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15ES": {
+    "name": "aePwe3T1Current15ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15SES": {
+    "name": "aePwe3T1Current15SES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15UAS": {
+    "name": "aePwe3T1Current15UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15CSS": {
+    "name": "aePwe3T1Current15CSS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15ValidData": {
+    "name": "aePwe3T1Current15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current15ThresholdCrossingPointer": {
+    "name": "aePwe3T1Current15ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3T1Interval15Table": {
+    "name": "aePwe3T1Interval15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3T1Interval15Entry": {
+    "name": "aePwe3T1Interval15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Interval15Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Interval15Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3T1Interval15Port": {
+    "name": "aePwe3T1Interval15Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15Interval": {
+    "name": "aePwe3T1Interval15Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15LCV": {
+    "name": "aePwe3T1Interval15LCV",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15ES": {
+    "name": "aePwe3T1Interval15ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15SES": {
+    "name": "aePwe3T1Interval15SES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15UAS": {
+    "name": "aePwe3T1Interval15UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15CSS": {
+    "name": "aePwe3T1Interval15CSS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval15ValidData": {
+    "name": "aePwe3T1Interval15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24Table": {
+    "name": "aePwe3T1Current24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3T1Current24Entry": {
+    "name": "aePwe3T1Current24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Current24Port",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3T1Current24Port": {
+    "name": "aePwe3T1Current24Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24LCV": {
+    "name": "aePwe3T1Current24LCV",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24ES": {
+    "name": "aePwe3T1Current24ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24SES": {
+    "name": "aePwe3T1Current24SES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24UAS": {
+    "name": "aePwe3T1Current24UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24CSS": {
+    "name": "aePwe3T1Current24CSS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24ValidData": {
+    "name": "aePwe3T1Current24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Current24ThresholdCrossingPointer": {
+    "name": "aePwe3T1Current24ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3T1Interval24Table": {
+    "name": "aePwe3T1Interval24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3T1Interval24Entry": {
+    "name": "aePwe3T1Interval24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Interval24Port",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3T1Interval24Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3T1Interval24Port": {
+    "name": "aePwe3T1Interval24Port",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3T1Instance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24Interval": {
+    "name": "aePwe3T1Interval24Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24LCV": {
+    "name": "aePwe3T1Interval24LCV",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24ES": {
+    "name": "aePwe3T1Interval24ES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24SES": {
+    "name": "aePwe3T1Interval24SES",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24UAS": {
+    "name": "aePwe3T1Interval24UAS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24CSS": {
+    "name": "aePwe3T1Interval24CSS",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3T1Interval24ValidData": {
+    "name": "aePwe3T1Interval24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15Table": {
+    "name": "aePwe3AggCurrent15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15Entry": {
+    "name": "aePwe3AggCurrent15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggCurrent15Instance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3AggCurrent15Instance": {
+    "name": "aePwe3AggCurrent15Instance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3AggInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15RxPacket": {
+    "name": "aePwe3AggCurrent15RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15RxByte": {
+    "name": "aePwe3AggCurrent15RxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15TxPacket": {
+    "name": "aePwe3AggCurrent15TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15TxByte": {
+    "name": "aePwe3AggCurrent15TxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15ClassifiedPacket": {
+    "name": "aePwe3AggCurrent15ClassifiedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15ValidData": {
+    "name": "aePwe3AggCurrent15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent15ThresholdCrossingPointer": {
+    "name": "aePwe3AggCurrent15ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3AggInterval15Table": {
+    "name": "aePwe3AggInterval15Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3AggInterval15Entry": {
+    "name": "aePwe3AggInterval15Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggInterval15Instance",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggInterval15Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3AggInterval15Instance": {
+    "name": "aePwe3AggInterval15Instance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3AggInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15Interval": {
+    "name": "aePwe3AggInterval15Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15RxPacket": {
+    "name": "aePwe3AggInterval15RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15RxByte": {
+    "name": "aePwe3AggInterval15RxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15TxPacket": {
+    "name": "aePwe3AggInterval15TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15TxByte": {
+    "name": "aePwe3AggInterval15TxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15ClassifiedPacket": {
+    "name": "aePwe3AggInterval15ClassifiedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval15ValidData": {
+    "name": "aePwe3AggInterval15ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24Table": {
+    "name": "aePwe3AggCurrent24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24Entry": {
+    "name": "aePwe3AggCurrent24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggCurrent24Instance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3AggCurrent24Instance": {
+    "name": "aePwe3AggCurrent24Instance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3AggInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24RxPacket": {
+    "name": "aePwe3AggCurrent24RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24RxByte": {
+    "name": "aePwe3AggCurrent24RxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24TxPacket": {
+    "name": "aePwe3AggCurrent24TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24TxByte": {
+    "name": "aePwe3AggCurrent24TxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24ClassifiedPacket": {
+    "name": "aePwe3AggCurrent24ClassifiedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24ValidData": {
+    "name": "aePwe3AggCurrent24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggCurrent24ThresholdCrossingPointer": {
+    "name": "aePwe3AggCurrent24ThresholdCrossingPointer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeThresholdCrossingPointer",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aePwe3AggInterval24Table": {
+    "name": "aePwe3AggInterval24Table",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aePwe3AggInterval24Entry": {
+    "name": "aePwe3AggInterval24Entry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggInterval24Instance",
+        "implied": 0
+      },
+      {
+        "module": "AE-PM-TABLE-MIB",
+        "object": "aePwe3AggInterval24Interval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aePwe3AggInterval24Instance": {
+    "name": "aePwe3AggInterval24Instance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AePwe3AggInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24Interval": {
+    "name": "aePwe3AggInterval24Interval",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24RxPacket": {
+    "name": "aePwe3AggInterval24RxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24RxByte": {
+    "name": "aePwe3AggInterval24RxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24TxPacket": {
+    "name": "aePwe3AggInterval24TxPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24TxByte": {
+    "name": "aePwe3AggInterval24TxByte",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24ClassifiedPacket": {
+    "name": "aePwe3AggInterval24ClassifiedPacket",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aePwe3AggInterval24ValidData": {
+    "name": "aePwe3AggInterval24ValidData",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.5.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfInvalidFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AE-PM-TABLE-MIB",
+      "Source digest sha256:dcac69c844a2e6762f9fd791e44f49cb9990bf4bcec3dae15785b881cc79bf40",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AE-PM-TABLE-MIB"
+  }
+}

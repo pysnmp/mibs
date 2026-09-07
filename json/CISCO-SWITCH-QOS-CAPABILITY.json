@@ -1,0 +1,1027 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchQosCapability": {
+    "name": "ciscoSwitchQosCapability",
+    "oid": "1.3.6.1.4.1.9.7.541",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-03 00:00",
+        "description": "Add ciscoSwitchQosCapNxOSV06R0210PN7K agent capability statement."
+      },
+      {
+        "revision": "2014-04-03 00:00",
+        "description": "Add ciscoSwitchQosCapV06R0002U0201PN3K agent capability statement."
+      },
+      {
+        "revision": "2013-10-16 00:00",
+        "description": "Add ciscoSwitchQosCapV5R0003U0501gPN3K and ciscoSwitchQosCapV6R0002U0101PN3K agent capability statement."
+      },
+      {
+        "revision": "2011-09-26 00:00",
+        "description": "Add ciscoSwitchQosCapV15R0001SYPCat6k agent capability statement."
+      },
+      {
+        "revision": "2010-11-17 00:00",
+        "description": "Add ciscoSwitchQosCapV12R0250SYPCat6k agent capability statement."
+      },
+      {
+        "revision": "2010-03-19 00:00",
+        "description": "Add ciscoSwitchQosCapV12R0233SXI4PCat6k agent capability statement."
+      },
+      {
+        "revision": "2008-06-04 00:00",
+        "description": "Add ciscoSwitchQosCapV12R0233SXIPCat6k agent capability statement."
+      },
+      {
+        "revision": "2007-06-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchQosCapV12R0233SXHPCat6k": {
+    "name": "ciscoSwitchQosCapV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.541.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfConfigGroup",
+          "ciscoSwitchQosIfStatsGroup",
+          "ciscoSwitchQosModuleStatsGroup",
+          "ciscoSwitchQosPortQueueingGroup",
+          "ciscoSwitchQosRedirectPolicingGroup",
+          "ciscoSwitchQosDscpRewriteGroup",
+          "ciscoSwitchQosMappingGroup",
+          "ciscoSwitchQosMutationGroup",
+          "ciscoSwitchQosIfCosToQueueGroup",
+          "ciscoSwitchQosIfDropConfigGroup",
+          "ciscoSwitchQosIfQueueGroup",
+          "ciscoSwitchQosMarkingStatsGroup",
+          "ciscoSwitchQosIfModeConfigGroup",
+          "ciscoSwitchQosIfCCGroup"
+        ],
+        "variations": [
+          {
+            "object": "csqDscpRewriteEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPoliceRedirectedTrafficEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPortQueueingModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqMarkingStatisticsEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIpPrecToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingNormalBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingMaxBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationToCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationToDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationToExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfExpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDefaultCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfTrustState",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropAlgorithm",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMinWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMaxWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueWrrWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSizeWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfVlanBasedQosModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConsistencyCheckEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV12R0233SXIPCat6k": {
+    "name": "ciscoSwitchQosCapV12R0233SXIPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.541.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfConfigGroup",
+          "ciscoSwitchQosIfStatsGroup",
+          "ciscoSwitchQosModuleStatsGroup",
+          "ciscoSwitchQosPortQueueingGroup",
+          "ciscoSwitchQosRedirectPolicingGroup",
+          "ciscoSwitchQosDscpRewriteGroup",
+          "ciscoSwitchQosMappingGroup",
+          "ciscoSwitchQosMutationGroup",
+          "ciscoSwitchQosIfCosToQueueGroup",
+          "ciscoSwitchQosIfDropConfigGroup",
+          "ciscoSwitchQosIfQueueGroup",
+          "ciscoSwitchQosMarkingStatsGroup",
+          "ciscoSwitchQosIfModeConfigGroup",
+          "ciscoSwitchQosIfCCGroup",
+          "ciscoSwitchQosPolicerUsageGroup"
+        ],
+        "variations": [
+          {
+            "object": "csqDscpRewriteEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPoliceRedirectedTrafficEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPortQueueingModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqMarkingStatisticsEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIpPrecToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingNormalBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingMaxBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationToCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationToDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationToExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfExpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDefaultCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfTrustState",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropAlgorithm",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMinWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMaxWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueWrrWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSizeWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfVlanBasedQosModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConsistencyCheckEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV12R0233SXI4PCat6k": {
+    "name": "ciscoSwitchQosCapV12R0233SXI4PCat6k",
+    "oid": "1.3.6.1.4.1.9.7.541.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfConfigGroup",
+          "ciscoSwitchQosIfStatsGroup",
+          "ciscoSwitchQosModuleStatsGroup",
+          "ciscoSwitchQosPortQueueingGroup",
+          "ciscoSwitchQosRedirectPolicingGroup",
+          "ciscoSwitchQosDscpRewriteGroup",
+          "ciscoSwitchQosMappingGroup",
+          "ciscoSwitchQosMutationGroup",
+          "ciscoSwitchQosIfCosToQueueGroup",
+          "ciscoSwitchQosIfDropConfigGroup",
+          "ciscoSwitchQosIfQueueGroup",
+          "ciscoSwitchQosMarkingStatsGroup",
+          "ciscoSwitchQosIfModeConfigGroup",
+          "ciscoSwitchQosIfCCGroup",
+          "ciscoSwitchQosPolicerUsageGroup",
+          "ciscoSwitchQosIfDscpAssignGroup"
+        ],
+        "variations": [
+          {
+            "object": "csqDscpRewriteEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPoliceRedirectedTrafficEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPortQueueingModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqMarkingStatisticsEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIpPrecToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingNormalBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingMaxBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationToCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationToDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationToExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfExpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDefaultCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfTrustState",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropAlgorithm",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMinWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMaxWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueWrrWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSizeWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfVlanBasedQosModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConsistencyCheckEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueThresholdNumber",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV12R0250SYPCat6k": {
+    "name": "ciscoSwitchQosCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.541.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfConfigGroup",
+          "ciscoSwitchQosIfStatsGroup",
+          "ciscoSwitchQosModuleStatsGroup",
+          "ciscoSwitchQosPortQueueingGroup",
+          "ciscoSwitchQosRedirectPolicingGroup",
+          "ciscoSwitchQosDscpRewriteGroup",
+          "ciscoSwitchQosMappingGroup",
+          "ciscoSwitchQosMutationGroup",
+          "ciscoSwitchQosIfCosToQueueGroup",
+          "ciscoSwitchQosIfDropConfigGroup",
+          "ciscoSwitchQosIfQueueGroup",
+          "ciscoSwitchQosMarkingStatsGroup",
+          "ciscoSwitchQosIfModeConfigGroup",
+          "ciscoSwitchQosIfCCGroup",
+          "ciscoSwitchQosPolicerUsageGroup",
+          "ciscoSwitchQosIfDscpAssignGroup",
+          "ciscoSwitchQosModuleStatsExtGroup",
+          "ciscoSwitchQosIfStatsExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "csqDscpRewriteEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPoliceRedirectedTrafficEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPortQueueingModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqMarkingStatisticsEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIpPrecToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingNormalBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingMaxBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationToCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationToDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationToExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfExpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDefaultCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfTrustState",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropAlgorithm",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMinWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMaxWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueWrrWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSizeWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfVlanBasedQosModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConsistencyCheckEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueThresholdNumber",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV15R0001SYPCat6k": {
+    "name": "ciscoSwitchQosCapV15R0001SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.541.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfConfigGroup",
+          "ciscoSwitchQosIfStatsGroup",
+          "ciscoSwitchQosModuleStatsGroup",
+          "ciscoSwitchQosPortQueueingGroup",
+          "ciscoSwitchQosRedirectPolicingGroup",
+          "ciscoSwitchQosDscpRewriteGroup",
+          "ciscoSwitchQosMappingGroup",
+          "ciscoSwitchQosMutationGroup",
+          "ciscoSwitchQosIfCosToQueueGroup",
+          "ciscoSwitchQosIfDropConfigGroup",
+          "ciscoSwitchQosIfQueueGroup",
+          "ciscoSwitchQosMarkingStatsGroup",
+          "ciscoSwitchQosIfModeConfigGroup",
+          "ciscoSwitchQosIfCCGroup",
+          "ciscoSwitchQosPolicerUsageGroup",
+          "ciscoSwitchQosIfDscpAssignGroup",
+          "ciscoSwitchQosModuleStatsExtGroup",
+          "ciscoSwitchQosIfStatsExtGroup",
+          "ciscoSwitchQosModuleClassChangedGroup",
+          "ciscoSwitchQosTenGOnlyModeGroup",
+          "ciscoSwitchQosIfQueueModeGroup",
+          "ciscoSwitchQosIfQueueSchedulingGroup",
+          "ciscoSwitchQosIfQueueingGroup",
+          "ciscoSwitchQosIfLanQueuingGroup",
+          "ciscoSwitchQosIfQueueBufferGroup"
+        ],
+        "variations": [
+          {
+            "object": "csqDscpRewriteEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPoliceRedirectedTrafficEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqPortQueueingModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqMarkingStatisticsEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIpPrecToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpToDscpDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingNormalBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMappingMaxBurstDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqCosMutationToCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqDscpMutationToDscp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqExpMutationToExp",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfExpMutationMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfMutationRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDefaultCos",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfTrustState",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfCosToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropAlgorithm",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigDropThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMinWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigMaxWredThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueWrrWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSizeWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfVlanBasedQosModeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConsistencyCheckEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueQueueNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDscpToQueueThresholdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "csqTenGOnlyMode",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfConfigQueueMode",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueClassMapName",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfIngressPolicyMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfEgressPolicyMap",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfDropConfigQueueBuffer",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueClassMapName",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueScheduling",
+            "access": "read-only"
+          },
+          {
+            "object": "csqIfQueueSrrWeight",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV5R0003U0501gPN3K": {
+    "name": "ciscoSwitchQosCapV5R0003U0501gPN3K",
+    "oid": "1.3.6.1.4.1.9.7.541.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 5.0(3)U5(1g) on Nexus 3000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfQosGroupInfoGroup",
+          "ciscoSwitchQosIfQosGroupStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV6R0002U0101PN3K": {
+    "name": "ciscoSwitchQosCapV6R0002U0101PN3K",
+    "oid": "1.3.6.1.4.1.9.7.541.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.0(2)U1(1) on Nexus 3000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfQosGroupInfoGroup",
+          "ciscoSwitchQosIfQosGroupStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapV06R0002U0201PN3K": {
+    "name": "ciscoSwitchQosCapV06R0002U0201PN3K",
+    "oid": "1.3.6.1.4.1.9.7.541.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.0(2)U2(1) on Nexus 3000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfQosGroupInfoGroup",
+          "ciscoSwitchQosIfQosGroupStatsGroup",
+          "ciscoSwitchQosIfPriGrpInBufUsageGroup",
+          "ciscoSwitchQosServicePoolUsageGroup",
+          "ciscoSwitchQosServicePoolCellSizeGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosCapNxOSV06R0210PN7K": {
+    "name": "ciscoSwitchQosCapNxOSV06R0210PN7K",
+    "oid": "1.3.6.1.4.1.9.7.541.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(10) on Nexus 7000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "includes": [
+          "ciscoSwitchQosIfQosGroupInfoGroup",
+          "ciscoSwitchQosIfQosGroupStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SWITCH-QOS-CAPABILITY",
+      "Source digest sha256:cf6a264d64f2a58a1333cae510950900683c874da6edfc79512183b9dfbaac0e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SWITCH-QOS-CAPABILITY"
+  }
+}

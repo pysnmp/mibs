@@ -1,0 +1,456 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoBertCapability": {
+    "name": "ciscoBertCapability",
+    "oid": "1.3.6.1.4.1.9.7.274",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-07 00:00",
+        "description": "Modify ciscoBertCapabilityV5R015 for VXSM release 5.0.15."
+      },
+      {
+        "revision": "2003-12-22 00:00",
+        "description": "Modify ciscoBertCapabilityV5R00 for VXSM release 5.0.0."
+      },
+      {
+        "revision": "2003-09-19 00:00",
+        "description": "Added ciscoBertCapabilityV5R00 for VXSM release 5.0.0."
+      },
+      {
+        "revision": "2002-10-30 00:00",
+        "description": "Added cbRowStatus support description."
+      },
+      {
+        "revision": "2002-06-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoBertAxsmeCapabilityV3R00": {
+    "name": "ciscoBertAxsmeCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.274.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-BERT-MIB",
+        "includes": [
+          "ciscoBertConfigGroup",
+          "ciscoBertStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cbUserPattern",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbLoopback",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbLoopbackCode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "lineLoopbackESF": 13
+                }
+              }
+            }
+          },
+          {
+            "object": "cbErrorInsertionRate",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "noError": 1,
+                  "oneInHundred": 3,
+                  "oneInThousand": 4,
+                  "oneInTenThousand": 5,
+                  "oneInHundredThousand": 6,
+                  "oneInMillion": 7,
+                  "oneInTenMillion": 8
+                }
+              }
+            }
+          },
+          {
+            "object": "cbDuration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbDS0DPCodeIteration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTxBitCountLower",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTxBitCountUpper",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbHCTxBitCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbHCRxBitCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbHCRxBitErrCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSyncLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbPatternLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbFrameLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbEFSsCounts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBertCapabilityV5R00": {
+    "name": "ciscoBertCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.274.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0",
+    "capabilities": [
+      {
+        "module": "CISCO-BERT-MIB",
+        "includes": [
+          "ciscoBertConfigGroup",
+          "ciscoBertStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cbConfEntry",
+            "creationrequires": [
+              "cbTestPattern"
+            ]
+          },
+          {
+            "object": "cbUserPattern",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbBertTxPatternInv",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbBertRxPatternInv",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSingleBitErrorInsert",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbFailedReason",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbStartDateAndTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbDS0DPCodeIteration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTestPattern",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "allZeros": 1,
+                  "allOnes": 2,
+                  "altOneZero": 3,
+                  "doubleAltOnesZeros": 4,
+                  "oneIn4": 5,
+                  "oneIn8": 6,
+                  "oneIn16": 7,
+                  "threeIn24": 8,
+                  "twoE9MinusOne": 18,
+                  "twoE11MinusOne": 20,
+                  "twoE15MinusOne": 21,
+                  "twoE20MinusOne": 24,
+                  "twoE20MinusOneQRSS": 25,
+                  "twoE23MinusOne": 28
+                }
+              }
+            }
+          },
+          {
+            "object": "cbOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "success": 1,
+                  "inSync": 2,
+                  "outOfSync": 3,
+                  "bertFailed": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cbDuration",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 10,
+                    "max": 86400
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cbTxBitCountLower",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTxBitCountUpper",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSyncLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbPatternLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbFrameLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbEFSsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbErrorInjectCounts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBertCapabilityV5R015": {
+    "name": "ciscoBertCapabilityV5R015",
+    "oid": "1.3.6.1.4.1.9.7.274.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.15",
+    "capabilities": [
+      {
+        "module": "CISCO-BERT-MIB",
+        "includes": [
+          "ciscoBertConfigGroup",
+          "ciscoBertStatsGroup",
+          "ciscoBertConfigGroupDs1"
+        ],
+        "variations": [
+          {
+            "object": "cbConfEntry",
+            "creationrequires": [
+              "cbTestPattern"
+            ]
+          },
+          {
+            "object": "cbUserPattern",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbBertTxPatternInv",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbBertRxPatternInv",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSingleBitErrorInsert",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbFailedReason",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbStartDateAndTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbDS0DPCodeIteration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTestPattern",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "allZeros": 1,
+                  "allOnes": 2,
+                  "altOneZero": 3,
+                  "doubleAltOnesZeros": 4,
+                  "oneIn4": 5,
+                  "oneIn8": 6,
+                  "oneIn16": 7,
+                  "threeIn24": 8,
+                  "twoE9MinusOne": 18,
+                  "twoE11MinusOne": 20,
+                  "twoE15MinusOne": 21,
+                  "twoE20MinusOne": 24,
+                  "twoE20MinusOneQRSS": 25,
+                  "twoE23MinusOne": 28
+                }
+              }
+            }
+          },
+          {
+            "object": "cbOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "success": 1,
+                  "inSync": 2,
+                  "outOfSync": 3,
+                  "bertFailed": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cbDuration",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 10,
+                    "max": 86400
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cbTxBitCountLower",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbTxBitCountUpper",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSyncLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbPatternLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbFrameLossCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbSESsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbEFSsCounts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cbErrorInjectCounts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-BERT-CAPABILITY",
+      "Source digest sha256:d5a0de63d1ae5b4d41015d11563be5783202a83803bec36a64f7e334e4f508f5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-BERT-CAPABILITY"
+  }
+}

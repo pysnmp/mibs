@@ -1,0 +1,3687 @@
+{
+  "imports": {
+    "class": "imports",
+    "BINTEC-MIB": [
+      "Date",
+      "HexValue",
+      "bibo",
+      "bintec",
+      "sys"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "enterprises",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "biboMIB": {
+    "name": "biboMIB",
+    "oid": "1.3.6.1.4.1.272.250",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-04-28 00:00",
+        "description": "First version conforming to SMIv2."
+      }
+    ]
+  },
+  "admin": {
+    "name": "admin",
+    "oid": "1.3.6.1.4.1.272.4.1",
+    "class": "objectidentity"
+  },
+  "biboAdmIpAddr": {
+    "name": "biboAdmIpAddr",
+    "oid": "1.3.6.1.4.1.272.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTrapHostTable": {
+    "name": "biboAdmTrapHostTable",
+    "oid": "1.3.6.1.4.1.272.4.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmTrapHostEntry": {
+    "name": "biboAdmTrapHostEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmTrapHostAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmTrapHostAddr": {
+    "name": "biboAdmTrapHostAddr",
+    "oid": "1.3.6.1.4.1.272.4.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTrapHostStatus": {
+    "name": "biboAdmTrapHostStatus",
+    "oid": "1.3.6.1.4.1.272.4.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "delete": 2
+        }
+      }
+    },
+    "default": {
+      "value": "valid",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSyslogMaxEntries": {
+    "name": "biboAdmSyslogMaxEntries",
+    "oid": "1.3.6.1.4.1.272.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSyslogTable": {
+    "name": "biboAdmSyslogTable",
+    "oid": "1.3.6.1.4.1.272.4.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmLogHostTable": {
+    "name": "biboAdmLogHostTable",
+    "oid": "1.3.6.1.4.1.272.4.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmLogHostEntry": {
+    "name": "biboAdmLogHostEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmLogHostAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmLogHostAddr": {
+    "name": "biboAdmLogHostAddr",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLogHostLevel": {
+    "name": "biboAdmLogHostLevel",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emerg": 1,
+          "alert": 2,
+          "crit": 3,
+          "err": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8,
+          "delete": 9
+        }
+      }
+    },
+    "default": {
+      "value": "info",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLogHostFacility": {
+    "name": "biboAdmLogHostFacility",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local0": 1,
+          "local1": 2,
+          "local2": 3,
+          "local3": 4,
+          "local4": 5,
+          "local5": 6,
+          "local6": 7,
+          "local7": 8
+        }
+      }
+    },
+    "default": {
+      "value": "local0",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLogHostType": {
+    "name": "biboAdmLogHostType",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "acct": 2,
+          "all": 3
+        }
+      }
+    },
+    "default": {
+      "value": "all",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLogHostTimestamp": {
+    "name": "biboAdmLogHostTimestamp",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "time": 2,
+          "all": 3
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLogHostMethod": {
+    "name": "biboAdmLogHostMethod",
+    "oid": "1.3.6.1.4.1.272.4.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "default": {
+      "value": "udp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigTable": {
+    "name": "biboAdmConfigTable",
+    "oid": "1.3.6.1.4.1.272.4.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmConfigEntry": {
+    "name": "biboAdmConfigEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmConfigCmd",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmConfigDirTable": {
+    "name": "biboAdmConfigDirTable",
+    "oid": "1.3.6.1.4.1.272.4.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmConfigDirEntry": {
+    "name": "biboAdmConfigDirEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmConfigDirName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmConfigCmd": {
+    "name": "biboAdmConfigCmd",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "save": 1,
+          "load": 2,
+          "put": 3,
+          "get": 4,
+          "state": 5,
+          "delete": 6,
+          "move": 7,
+          "copy": 8,
+          "reboot": 9,
+          "reorg": 10,
+          "unload": 11,
+          "put-all": 12,
+          "get-all": 13,
+          "load-keep-certs": 14,
+          "load-from-default": 15
+        }
+      }
+    },
+    "default": {
+      "value": "save",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigObject": {
+    "name": "biboAdmConfigObject",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigPath": {
+    "name": "biboAdmConfigPath",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigPathNew": {
+    "name": "biboAdmConfigPathNew",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigHost": {
+    "name": "biboAdmConfigHost",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigState": {
+    "name": "biboAdmConfigState",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "todo": 1,
+          "running": 2,
+          "done": 3,
+          "error": 4,
+          "delayed": 5,
+          "stopped": 6
+        }
+      }
+    },
+    "default": {
+      "value": "todo",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmConfigFile": {
+    "name": "biboAdmConfigFile",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigTimeout": {
+    "name": "biboAdmConfigTimeout",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigHostUrl": {
+    "name": "biboAdmConfigHostUrl",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigCertIndex": {
+    "name": "biboAdmConfigCertIndex",
+    "oid": "1.3.6.1.4.1.272.4.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConfigDirName": {
+    "name": "biboAdmConfigDirName",
+    "oid": "1.3.6.1.4.1.272.4.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmConfigDirCount": {
+    "name": "biboAdmConfigDirCount",
+    "oid": "1.3.6.1.4.1.272.4.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmConfigDirContent": {
+    "name": "biboAdmConfigDirContent",
+    "oid": "1.3.6.1.4.1.272.4.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmConfigDirSaveDate": {
+    "name": "biboAdmConfigDirSaveDate",
+    "oid": "1.3.6.1.4.1.272.4.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmBoardTable": {
+    "name": "biboAdmBoardTable",
+    "oid": "1.3.6.1.4.1.272.4.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmBoardEntry": {
+    "name": "biboAdmBoardEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboABrdSlot",
+        "implied": 0
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboABrdUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboABrdSlot": {
+    "name": "biboABrdSlot",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdType": {
+    "name": "biboABrdType",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdHWRelease": {
+    "name": "biboABrdHWRelease",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdFWRelease": {
+    "name": "biboABrdFWRelease",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdPartNo": {
+    "name": "biboABrdPartNo",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdConnector": {
+    "name": "biboABrdConnector",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "rj45": 2,
+          "bnc": 3,
+          "subd15": 4,
+          "rj45-10mbit-hdup": 5,
+          "rj45-10mbit-fdup": 6,
+          "rj45-100mbit-hdup": 7,
+          "rj45-100mbit-fdup": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "biboABrdUnit": {
+    "name": "biboABrdUnit",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdSerialNo": {
+    "name": "biboABrdSerialNo",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboABrdCategory": {
+    "name": "biboABrdCategory",
+    "oid": "1.3.6.1.4.1.272.4.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system-board": 1,
+          "ethernet": 2,
+          "isdn-bri": 3,
+          "isdn-pmx": 4,
+          "pots": 5,
+          "dsl": 6,
+          "wlan": 7,
+          "tty": 8,
+          "dsp": 9,
+          "usb": 10,
+          "crypt": 11,
+          "mobile": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmUsrTrapTable": {
+    "name": "biboAdmUsrTrapTable",
+    "oid": "1.3.6.1.4.1.272.4.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmUsrTrapEntry": {
+    "name": "biboAdmUsrTrapEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboATrpObj",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboATrpObj": {
+    "name": "biboATrpObj",
+    "oid": "1.3.6.1.4.1.272.4.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboATrpStatus": {
+    "name": "biboATrpStatus",
+    "oid": "1.3.6.1.4.1.272.4.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "delete": 2
+        }
+      }
+    },
+    "default": {
+      "value": "valid",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmDomainName": {
+    "name": "biboAdmDomainName",
+    "oid": "1.3.6.1.4.1.272.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmNameServer": {
+    "name": "biboAdmNameServer",
+    "oid": "1.3.6.1.4.1.272.4.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmNameServ2": {
+    "name": "biboAdmNameServ2",
+    "oid": "1.3.6.1.4.1.272.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmBridgeEnable": {
+    "name": "biboAdmBridgeEnable",
+    "oid": "1.3.6.1.4.1.272.4.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "biboAdmCapiTcpPort": {
+    "name": "biboAdmCapiTcpPort",
+    "oid": "1.3.6.1.4.1.272.4.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 2662,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTraceTcpPort": {
+    "name": "biboAdmTraceTcpPort",
+    "oid": "1.3.6.1.4.1.272.4.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 7000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmRipUdpPort": {
+    "name": "biboAdmRipUdpPort",
+    "oid": "1.3.6.1.4.1.272.4.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 520,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSWVersion": {
+    "name": "biboAdmSWVersion",
+    "oid": "1.3.6.1.4.1.272.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmTimeServer": {
+    "name": "biboAdmTimeServer",
+    "oid": "1.3.6.1.4.1.272.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmTimeOffset": {
+    "name": "biboAdmTimeOffset",
+    "oid": "1.3.6.1.4.1.272.4.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmConsoleSyslog": {
+    "name": "biboAdmConsoleSyslog",
+    "oid": "1.3.6.1.4.1.272.4.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSyslogTableLevel": {
+    "name": "biboAdmSyslogTableLevel",
+    "oid": "1.3.6.1.4.1.272.4.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emerg": 1,
+          "alert": 2,
+          "crit": 3,
+          "err": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8
+        }
+      }
+    },
+    "default": {
+      "value": "info",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSystemId": {
+    "name": "biboAdmSystemId",
+    "oid": "1.3.6.1.4.1.272.4.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoTable": {
+    "name": "biboAdmLicInfoTable",
+    "oid": "1.3.6.1.4.1.272.4.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmLicInfoEntry": {
+    "name": "biboAdmLicInfoEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmLicInfoType",
+        "implied": 0
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmLicInfoStatus",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmLicInfoType": {
+    "name": "biboAdmLicInfoType",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "capi": 2,
+          "bridge": 3,
+          "x25": 4,
+          "ipx": 5,
+          "stac": 6,
+          "frame-relay": 7,
+          "tapi": 8,
+          "ospf": 9,
+          "extended-lan": 10,
+          "tunneling": 11,
+          "taf": 12,
+          "extended-wan": 13,
+          "leased-line": 14,
+          "lcr": 15,
+          "app-power-phone": 17,
+          "app-operator-desk": 18,
+          "app-voice-mail-server": 19,
+          "app-accounting-tool": 20,
+          "app-intelligent-voice": 21,
+          "app-6": 22,
+          "e25": 29,
+          "ipsec": 33,
+          "ipseccb-ipxfer": 34,
+          "bgp": 35,
+          "uefs": 36,
+          "siplan": 37,
+          "siptrunk": 38,
+          "pim": 39,
+          "call-by-call": 40,
+          "fax": 41,
+          "sipout": 42,
+          "brrp": 43,
+          "wlan-controller": 44,
+          "terminal-option": 45,
+          "data-encr-accel": 46,
+          "voice-mail-system": 47,
+          "pptp": 48,
+          "ethernet": 128,
+          "bri": 129,
+          "g703": 130,
+          "pri": 131,
+          "modem": 132,
+          "g7032pri": 133,
+          "slots": 134,
+          "e3": 135,
+          "serial": 136,
+          "shdsl": 137,
+          "vdsl": 138
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoStatus": {
+    "name": "biboAdmLicInfoStatus",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "builtin": 1,
+          "valid-license": 2,
+          "invalid-license": 3,
+          "no-license": 4,
+          "erase-internal": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoId": {
+    "name": "biboAdmLicInfoId",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoSlot": {
+    "name": "biboAdmLicInfoSlot",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoMaxLic": {
+    "name": "biboAdmLicInfoMaxLic",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoInUse": {
+    "name": "biboAdmLicInfoInUse",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoHwSerial": {
+    "name": "biboAdmLicInfoHwSerial",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoUnit": {
+    "name": "biboAdmLicInfoUnit",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoLimit": {
+    "name": "biboAdmLicInfoLimit",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmLicInfoFree": {
+    "name": "biboAdmLicInfoFree",
+    "oid": "1.3.6.1.4.1.272.4.1.32.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmBootpRelayServer": {
+    "name": "biboAdmBootpRelayServer",
+    "oid": "1.3.6.1.4.1.272.4.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmRadiusServer": {
+    "name": "biboAdmRadiusServer",
+    "oid": "1.3.6.1.4.1.272.4.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmLocalPPPIdent": {
+    "name": "biboAdmLocalPPPIdent",
+    "oid": "1.3.6.1.4.1.272.4.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmHttpTcpPort": {
+    "name": "biboAdmHttpTcpPort",
+    "oid": "1.3.6.1.4.1.272.4.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 80,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTapiTcpPort": {
+    "name": "biboAdmTapiTcpPort",
+    "oid": "1.3.6.1.4.1.272.4.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 2663,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTimeProtocol": {
+    "name": "biboAdmTimeProtocol",
+    "oid": "1.3.6.1.4.1.272.4.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "time-udp": 2,
+          "time-tcp": 3,
+          "time-sntp": 4,
+          "isdn": 5
+        }
+      }
+    },
+    "default": {
+      "value": "time-udp",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmTimeUpdate": {
+    "name": "biboAdmTimeUpdate",
+    "oid": "1.3.6.1.4.1.272.4.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 24,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmWINS1": {
+    "name": "biboAdmWINS1",
+    "oid": "1.3.6.1.4.1.272.4.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmWINS2": {
+    "name": "biboAdmWINS2",
+    "oid": "1.3.6.1.4.1.272.4.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "admin_2": {
+    "name": "admin_2",
+    "oid": "1.3.6.1.4.1.272.4.22",
+    "class": "objectidentity"
+  },
+  "biboAdmCardTable": {
+    "name": "biboAdmCardTable",
+    "oid": "1.3.6.1.4.1.272.4.1.42",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmCardEntry": {
+    "name": "biboAdmCardEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboACrdSlot": {
+    "name": "biboACrdSlot",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdType": {
+    "name": "biboACrdType",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdState": {
+    "name": "biboACrdState",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "running": 2,
+          "fail": 3,
+          "stopped": 4,
+          "stopping": 5,
+          "starting": 6
+        }
+      }
+    },
+    "default": {
+      "value": "down",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdCpldVersion": {
+    "name": "biboACrdCpldVersion",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdFpgaVersion": {
+    "name": "biboACrdFpgaVersion",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdTemp": {
+    "name": "biboACrdTemp",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdTempAlarmThreshold": {
+    "name": "biboACrdTempAlarmThreshold",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboACrdTempAlarmTrap": {
+    "name": "biboACrdTempAlarmTrap",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "critical": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboACrdAdmin": {
+    "name": "biboACrdAdmin",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "reconfig": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboACrdTempAlarmThresholdCriticalLow": {
+    "name": "biboACrdTempAlarmThresholdCriticalLow",
+    "oid": "1.3.6.1.4.1.272.4.1.42.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTraps": {
+    "name": "biboAdmTraps",
+    "oid": "1.3.6.1.4.1.272.4.1.43",
+    "class": "objectidentity"
+  },
+  "biboAdmTrapACrdTempCritical": {
+    "name": "biboAdmTrapACrdTempCritical",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTempAlarmThreshold"
+      }
+    ]
+  },
+  "biboAdmTrapACrdTempOk": {
+    "name": "biboAdmTrapACrdTempOk",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTempAlarmThreshold"
+      }
+    ]
+  },
+  "biboAdmTrapACrdDown": {
+    "name": "biboAdmTrapACrdDown",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      }
+    ]
+  },
+  "biboAdmTrapACrdRunning": {
+    "name": "biboAdmTrapACrdRunning",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      }
+    ]
+  },
+  "biboAdmTrapACrdFailed": {
+    "name": "biboAdmTrapACrdFailed",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      }
+    ]
+  },
+  "biboAdmTrapACrdStopped": {
+    "name": "biboAdmTrapACrdStopped",
+    "oid": "1.3.6.1.4.1.272.4.1.43.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdSlot"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdType"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdState"
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboACrdTemp"
+      }
+    ]
+  },
+  "biboAdmExtendedBanner": {
+    "name": "biboAdmExtendedBanner",
+    "oid": "1.3.6.1.4.1.272.4.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmBootpRelayServ2": {
+    "name": "biboAdmBootpRelayServ2",
+    "oid": "1.3.6.1.4.1.272.4.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTimedBootPolicy": {
+    "name": "biboAdmTimedBootPolicy",
+    "oid": "1.3.6.1.4.1.272.4.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "aggressive": 2,
+          "endless": 3
+        }
+      }
+    },
+    "default": {
+      "value": "endless",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmAcctlogFormat": {
+    "name": "biboAdmAcctlogFormat",
+    "oid": "1.3.6.1.4.1.272.4.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "INET: %d %t %a %c %i:%r/%f -> %I:%R/%F %p %o %P %O [%s]",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmAcctlogMaxEntries": {
+    "name": "biboAdmAcctlogMaxEntries",
+    "oid": "1.3.6.1.4.1.272.4.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmAcctlogTable": {
+    "name": "biboAdmAcctlogTable",
+    "oid": "1.3.6.1.4.1.272.4.1.51",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "biboAdmAcctlogEntry": {
+    "name": "biboAdmAcctlogEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.51.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmAcctlogLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmAcctlogTimeStamp": {
+    "name": "biboAdmAcctlogTimeStamp",
+    "oid": "1.3.6.1.4.1.272.4.1.51.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmAcctlogLevel": {
+    "name": "biboAdmAcctlogLevel",
+    "oid": "1.3.6.1.4.1.272.4.1.51.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emerg": 1,
+          "alert": 2,
+          "crit": 3,
+          "err": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8
+        }
+      }
+    },
+    "default": {
+      "value": "info",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmAcctlogMessage": {
+    "name": "biboAdmAcctlogMessage",
+    "oid": "1.3.6.1.4.1.272.4.1.51.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmAcctlogSubject": {
+    "name": "biboAdmAcctlogSubject",
+    "oid": "1.3.6.1.4.1.272.4.1.51.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 1,
+          "isdn": 2,
+          "inet": 3,
+          "x25": 4,
+          "ipx": 5,
+          "capi": 6,
+          "ppp": 7,
+          "bridge": 8,
+          "config": 9,
+          "snmp": 10,
+          "x21": 11,
+          "token": 12,
+          "ether": 13,
+          "radius": 14,
+          "tapi": 15,
+          "ospf": 16,
+          "fr": 17,
+          "modem": 18,
+          "rip": 19,
+          "atm": 20,
+          "pabx": 21,
+          "ipsec": 22,
+          "tty": 23,
+          "bgp": 24,
+          "tacacs": 25,
+          "brrp": 26,
+          "mps": 27,
+          "voip": 28,
+          "tr069": 29,
+          "wlan": 30,
+          "usb": 31,
+          "http": 32,
+          "inet6": 33,
+          "wlc": 34,
+          "ldap": 35,
+          "osp": 36,
+          "wtp": 37,
+          "tremp": 38,
+          "presence": 39
+        }
+      }
+    },
+    "default": {
+      "value": "acct",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmSyslogEntry": {
+    "name": "biboAdmSyslogEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmSyslogTimeStamp",
+        "implied": 0
+      },
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "biboAdmSyslogLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "biboAdmSyslogTimeStamp": {
+    "name": "biboAdmSyslogTimeStamp",
+    "oid": "1.3.6.1.4.1.272.4.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmSyslogLevel": {
+    "name": "biboAdmSyslogLevel",
+    "oid": "1.3.6.1.4.1.272.4.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emerg": 1,
+          "alert": 2,
+          "crit": 3,
+          "err": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8
+        }
+      }
+    },
+    "default": {
+      "value": "emerg",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmSyslogMessage": {
+    "name": "biboAdmSyslogMessage",
+    "oid": "1.3.6.1.4.1.272.4.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmSyslogSubject": {
+    "name": "biboAdmSyslogSubject",
+    "oid": "1.3.6.1.4.1.272.4.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 1,
+          "isdn": 2,
+          "inet": 3,
+          "x25": 4,
+          "ipx": 5,
+          "capi": 6,
+          "ppp": 7,
+          "bridge": 8,
+          "config": 9,
+          "snmp": 10,
+          "x21": 11,
+          "token": 12,
+          "ether": 13,
+          "radius": 14,
+          "tapi": 15,
+          "ospf": 16,
+          "fr": 17,
+          "modem": 18,
+          "rip": 19,
+          "atm": 20,
+          "pabx": 21,
+          "ipsec": 22,
+          "tty": 23,
+          "bgp": 24,
+          "tacacs": 25,
+          "brrp": 26,
+          "mps": 27,
+          "voip": 28,
+          "tr069": 29,
+          "wlan": 30,
+          "usb": 31,
+          "http": 32,
+          "inet6": 33,
+          "wlc": 34,
+          "ldap": 35,
+          "osp": 36,
+          "wtp": 37,
+          "tremp": 38,
+          "presence": 39
+        }
+      }
+    },
+    "default": {
+      "value": "acct",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmTimeSource": {
+    "name": "biboAdmTimeSource",
+    "oid": "1.3.6.1.4.1.272.4.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rtc": 2,
+          "manual": 3,
+          "isdn": 4,
+          "server": 5,
+          "gps": 6
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmIsdnTimeUpdate": {
+    "name": "biboAdmIsdnTimeUpdate",
+    "oid": "1.3.6.1.4.1.272.4.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "convert": 3
+        }
+      }
+    },
+    "default": {
+      "value": "convert",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSyslogTcpRetries": {
+    "name": "biboAdmSyslogTcpRetries",
+    "oid": "1.3.6.1.4.1.272.4.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmSWVersionOS": {
+    "name": "biboAdmSWVersionOS",
+    "oid": "1.3.6.1.4.1.272.4.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmSWVersionOEM": {
+    "name": "biboAdmSWVersionOEM",
+    "oid": "1.3.6.1.4.1.272.4.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboAdmStartMode": {
+    "name": "biboAdmStartMode",
+    "oid": "1.3.6.1.4.1.272.4.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "service": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extadmin": {
+    "name": "extadmin",
+    "oid": "1.3.6.1.4.1.272.4.22.1",
+    "class": "objectidentity"
+  },
+  "biboExtAdmMonAddress": {
+    "name": "biboExtAdmMonAddress",
+    "oid": "1.3.6.1.4.1.272.4.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "value": "ffffffff",
+      "format": "hex"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmMonPort": {
+    "name": "biboExtAdmMonPort",
+    "oid": "1.3.6.1.4.1.272.4.22.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2107,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmMonType": {
+    "name": "biboExtAdmMonType",
+    "oid": "1.3.6.1.4.1.272.4.22.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "physical": 2,
+          "physical-virt": 3
+        }
+      }
+    },
+    "default": {
+      "value": "off",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmMonUpdate": {
+    "name": "biboExtAdmMonUpdate",
+    "oid": "1.3.6.1.4.1.272.4.22.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmProcRouted": {
+    "name": "biboExtAdmProcRouted",
+    "oid": "1.3.6.1.4.1.272.4.22.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmProcWatchDog": {
+    "name": "biboExtAdmProcWatchDog",
+    "oid": "1.3.6.1.4.1.272.4.22.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmProcSSHd": {
+    "name": "biboExtAdmProcSSHd",
+    "oid": "1.3.6.1.4.1.272.4.22.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmScheduleInterval": {
+    "name": "biboExtAdmScheduleInterval",
+    "oid": "1.3.6.1.4.1.272.4.22.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmUpdatePath": {
+    "name": "biboExtAdmUpdatePath",
+    "oid": "1.3.6.1.4.1.272.4.22.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "http://system-update.eu/",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmBackRtVerify": {
+    "name": "biboExtAdmBackRtVerify",
+    "oid": "1.3.6.1.4.1.272.4.22.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "interface-dependent": 2,
+          "never": 3
+        }
+      }
+    },
+    "default": {
+      "value": "interface-dependent",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmRerouteViaDefault": {
+    "name": "biboExtAdmRerouteViaDefault",
+    "oid": "1.3.6.1.4.1.272.4.22.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmGUILanguage": {
+    "name": "biboExtAdmGUILanguage",
+    "oid": "1.3.6.1.4.1.272.4.22.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "eng",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmIpLogging": {
+    "name": "biboExtAdmIpLogging",
+    "oid": "1.3.6.1.4.1.272.4.22.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nat": 0,
+        "tcppr": 1,
+        "dns": 2,
+        "ips": 3,
+        "acl": 4
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "nat": 0,
+          "tcppr": 1,
+          "dns": 2,
+          "ips": 3,
+          "acl": 4
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmRadiusNasId": {
+    "name": "biboExtAdmRadiusNasId",
+    "oid": "1.3.6.1.4.1.272.4.22.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmConfigSaveDate": {
+    "name": "biboExtAdmConfigSaveDate",
+    "oid": "1.3.6.1.4.1.272.4.22.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biboExtAdmSnmpShellPrompt": {
+    "name": "biboExtAdmSnmpShellPrompt",
+    "oid": "1.3.6.1.4.1.272.4.22.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "\\h:\\T(%n)> ",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmMinArpLifeTime": {
+    "name": "biboExtAdmMinArpLifeTime",
+    "oid": "1.3.6.1.4.1.272.4.22.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboExtAdmInitialGUIView": {
+    "name": "biboExtAdmInitialGUIView",
+    "oid": "1.3.6.1.4.1.272.4.22.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full-access": 1,
+          "user": 2,
+          "initial-operation": 3
+        }
+      }
+    },
+    "default": {
+      "value": "initial-operation",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timeServerTable": {
+    "name": "timeServerTable",
+    "oid": "1.3.6.1.4.1.272.4.1.54",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timeServerEntry": {
+    "name": "timeServerEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.54.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "timeSrvPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timeSrvPriority": {
+    "name": "timeSrvPriority",
+    "oid": "1.3.6.1.4.1.272.4.1.54.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timeSrvProtocol": {
+    "name": "timeSrvProtocol",
+    "oid": "1.3.6.1.4.1.272.4.1.54.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "time-udp": 2,
+          "time-tcp": 3,
+          "sntp": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "default": {
+      "value": "sntp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timeSrvAddress": {
+    "name": "timeSrvAddress",
+    "oid": "1.3.6.1.4.1.272.4.1.54.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmNTPServer": {
+    "name": "biboAdmNTPServer",
+    "oid": "1.3.6.1.4.1.272.4.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "clientdepend": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "biboAdmTimeZone": {
+    "name": "biboAdmTimeZone",
+    "oid": "1.3.6.1.4.1.272.4.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timeZoneTable": {
+    "name": "timeZoneTable",
+    "oid": "1.3.6.1.4.1.272.4.1.61",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timeZoneEntry": {
+    "name": "timeZoneEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.61.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "timeZoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timeZoneIndex": {
+    "name": "timeZoneIndex",
+    "oid": "1.3.6.1.4.1.272.4.1.61.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeZoneName": {
+    "name": "timeZoneName",
+    "oid": "1.3.6.1.4.1.272.4.1.61.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeZoneAlias": {
+    "name": "timeZoneAlias",
+    "oid": "1.3.6.1.4.1.272.4.1.61.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeZoneOffset": {
+    "name": "timeZoneOffset",
+    "oid": "1.3.6.1.4.1.272.4.1.61.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpServerTable": {
+    "name": "ntpServerTable",
+    "oid": "1.3.6.1.4.1.272.4.1.64",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpServerEntry": {
+    "name": "ntpServerEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.64.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "ntpServerPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ntpServerPriority": {
+    "name": "ntpServerPriority",
+    "oid": "1.3.6.1.4.1.272.4.1.64.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpServerAddress": {
+    "name": "ntpServerAddress",
+    "oid": "1.3.6.1.4.1.272.4.1.64.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysStat": {
+    "name": "sysStat",
+    "oid": "1.3.6.1.4.1.272.4.17.500",
+    "class": "objectidentity"
+  },
+  "sysStatBootConfig": {
+    "name": "sysStatBootConfig",
+    "oid": "1.3.6.1.4.1.272.4.17.500.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootfac": 2,
+          "default": 3,
+          "boot": 4
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysStatFunctionState": {
+    "name": "sysStatFunctionState",
+    "oid": "1.3.6.1.4.1.272.4.17.500.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysStatOperationMode": {
+    "name": "sysStatOperationMode",
+    "oid": "1.3.6.1.4.1.272.4.17.500.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 0,
+          "mgw": 1,
+          "pbx": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysStatConfigConvert": {
+    "name": "sysStatConfigConvert",
+    "oid": "1.3.6.1.4.1.272.4.17.500.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "start": 2
+        }
+      }
+    },
+    "default": {
+      "value": "idle",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysStatConfigConvertState": {
+    "name": "sysStatConfigConvertState",
+    "oid": "1.3.6.1.4.1.272.4.17.500.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "progress": 2,
+          "done": 3,
+          "failed": 4
+        }
+      }
+    },
+    "default": {
+      "value": "idle",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "traceBuffers": {
+    "name": "traceBuffers",
+    "oid": "1.3.6.1.4.1.272.4.1.65",
+    "class": "objectidentity"
+  },
+  "trcBufAdmin": {
+    "name": "trcBufAdmin",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1",
+    "class": "objectidentity"
+  },
+  "trcBufTable": {
+    "name": "trcBufTable",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trcBufEntry": {
+    "name": "trcBufEntry",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "trcBufIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trcBufIndex": {
+    "name": "trcBufIndex",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufDevice": {
+    "name": "trcBufDevice",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufMode": {
+    "name": "trcBufMode",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single-shot": 1,
+          "continuous": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufDataMode": {
+    "name": "trcBufDataMode",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytestream": 1,
+          "message": 2,
+          "message-per-session": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufSize": {
+    "name": "trcBufSize",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufDataSize": {
+    "name": "trcBufDataSize",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufDate": {
+    "name": "trcBufDate",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufDescr": {
+    "name": "trcBufDescr",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufID": {
+    "name": "trcBufID",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufOperation": {
+    "name": "trcBufOperation",
+    "oid": "1.3.6.1.4.1.272.4.1.65.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "idle": 2,
+          "read": 3,
+          "write": 4,
+          "read-write": 5,
+          "closed": 6
+        }
+      }
+    },
+    "default": {
+      "value": "unused",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufOper": {
+    "name": "trcBufOper",
+    "oid": "1.3.6.1.4.1.272.4.1.65.2",
+    "class": "objectidentity"
+  },
+  "trcBufStatNBufs": {
+    "name": "trcBufStatNBufs",
+    "oid": "1.3.6.1.4.1.272.4.1.65.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufStat": {
+    "name": "trcBufStat",
+    "oid": "1.3.6.1.4.1.272.4.1.65.3",
+    "class": "objectidentity"
+  },
+  "trcBufStatNUnused": {
+    "name": "trcBufStatNUnused",
+    "oid": "1.3.6.1.4.1.272.4.1.65.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufStatNOpen": {
+    "name": "trcBufStatNOpen",
+    "oid": "1.3.6.1.4.1.272.4.1.65.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trcBufStatNFull": {
+    "name": "trcBufStatNFull",
+    "oid": "1.3.6.1.4.1.272.4.1.65.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrv": {
+    "name": "chkUpdSrv",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22",
+    "class": "objectidentity"
+  },
+  "chkUpdSrvAdmin": {
+    "name": "chkUpdSrvAdmin",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1",
+    "class": "objectidentity"
+  },
+  "chkUpdSrvAdminStatus": {
+    "name": "chkUpdSrvAdminStatus",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "ondemand": 2,
+          "periodic": 3,
+          "checknow": 4
+        }
+      }
+    },
+    "default": {
+      "value": "periodic",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chkUpdSrvAdminInterval": {
+    "name": "chkUpdSrvAdminInterval",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 168,
+      "format": "decimal"
+    },
+    "units": "h",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chkUpdSrvAdminURL": {
+    "name": "chkUpdSrvAdminURL",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chkUpdSrvAdminOperURL": {
+    "name": "chkUpdSrvAdminOperURL",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminDefaultDigestType": {
+    "name": "chkUpdSrvAdminDefaultDigestType",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc32": 1,
+          "sha256": 2,
+          "signature": 3,
+          "none": 16
+        }
+      }
+    },
+    "default": {
+      "value": "sha256",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chkUpdSrvAdminOperStatus": {
+    "name": "chkUpdSrvAdminOperStatus",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "idle": 2,
+          "checking": 3
+        }
+      }
+    },
+    "default": {
+      "value": "idle",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminLastSuccessfulCheckTime": {
+    "name": "chkUpdSrvAdminLastSuccessfulCheckTime",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminLastFailedCheckTime": {
+    "name": "chkUpdSrvAdminLastFailedCheckTime",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Date",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminLastFailedCheckInfo": {
+    "name": "chkUpdSrvAdminLastFailedCheckInfo",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminActiveProductClass": {
+    "name": "chkUpdSrvAdminActiveProductClass",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminAlternativeProductClass": {
+    "name": "chkUpdSrvAdminAlternativeProductClass",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvAdminLastFailedTries": {
+    "name": "chkUpdSrvAdminLastFailedTries",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvTable": {
+    "name": "chkUpdSrvTable",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chkUpdSrvEntry": {
+    "name": "chkUpdSrvEntry",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BIANCA-BRICK-MIB",
+        "object": "chkUpdSrvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chkUpdSrvIndex": {
+    "name": "chkUpdSrvIndex",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvProductClass": {
+    "name": "chkUpdSrvProductClass",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileType": {
+    "name": "chkUpdSrvFileType",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blup": 1,
+          "boss": 2,
+          "logic": 3,
+          "bootmon": 4,
+          "adsl": 5,
+          "vdsl": 6,
+          "gphy": 7,
+          "systelarchive": 20,
+          "voicemailarchive": 21,
+          "guixlation": 30,
+          "thirdparty": 50
+        }
+      }
+    },
+    "default": {
+      "value": "blup",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileDescr": {
+    "name": "chkUpdSrvFileDescr",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileVersion": {
+    "name": "chkUpdSrvFileVersion",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileDigestType": {
+    "name": "chkUpdSrvFileDigestType",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc32": 1,
+          "sha256": 2,
+          "signature": 3,
+          "none": 16
+        }
+      }
+    },
+    "default": {
+      "value": "sha256",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileDigestValue": {
+    "name": "chkUpdSrvFileDigestValue",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvDownloadLink": {
+    "name": "chkUpdSrvDownloadLink",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvRelNoteLink": {
+    "name": "chkUpdSrvRelNoteLink",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chkUpdSrvFileUpdatable": {
+    "name": "chkUpdSrvFileUpdatable",
+    "oid": "1.3.6.1.4.1.272.4.22.1.22.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BIANCA-BRICK-MIB",
+      "Source digest sha256:7e018cc23b5462b154fde22f59551407d12ca3ad218c3278f1059ed0f7bf0152",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BIANCA-BRICK-MIB"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "imports": {
+    "class": "imports",
+    "RADLAN-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlSNMP": {
+    "name": "rlSNMP",
+    "oid": "1.3.6.1.4.1.89.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1904-10-20 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rlSNMPv3": {
+    "name": "rlSNMPv3",
+    "oid": "1.3.6.1.4.1.89.98.1",
+    "class": "objectidentity"
+  },
+  "rlTargetParamsTestingLevel": {
+    "name": "rlTargetParamsTestingLevel",
+    "oid": "1.3.6.1.4.1.89.98.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlNotifyFilterTestingLevel": {
+    "name": "rlNotifyFilterTestingLevel",
+    "oid": "1.3.6.1.4.1.89.98.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSnmpEngineID": {
+    "name": "rlSnmpEngineID",
+    "oid": "1.3.6.1.4.1.89.98.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "0000000001",
+      "format": "hex"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSNMPDomains": {
+    "name": "rlSNMPDomains",
+    "oid": "1.3.6.1.4.1.89.98.2",
+    "class": "objectidentity"
+  },
+  "rlSnmpUDPMridDomain": {
+    "name": "rlSnmpUDPMridDomain",
+    "oid": "1.3.6.1.4.1.89.98.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "RlSnmpUDPMridAddress": {
+    "name": "RlSnmpUDPMridAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d/2d/2d",
+    "status": "current"
+  },
+  "rlSnmpRequestMridTable": {
+    "name": "rlSnmpRequestMridTable",
+    "oid": "1.3.6.1.4.1.89.98.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSnmpRequestMridEntry": {
+    "name": "rlSnmpRequestMridEntry",
+    "oid": "1.3.6.1.4.1.89.98.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-SNMP-MIB",
+        "object": "rlSnmpRequestManagedMrid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSnmpRequestManagedMrid": {
+    "name": "rlSnmpRequestManagedMrid",
+    "oid": "1.3.6.1.4.1.89.98.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSnmpRequestMridStatus": {
+    "name": "rlSnmpRequestMridStatus",
+    "oid": "1.3.6.1.4.1.89.98.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RADLAN-SNMP-MIB",
+      "Source digest sha256:22b3419d6d84ffbdfd840e70d5db1dfb8fbd9d570384d455372f96e2c181a748",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RADLAN-SNMP-MIB"
+  }
+}

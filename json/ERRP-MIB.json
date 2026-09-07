@@ -1,0 +1,740 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "errpMib": {
+    "name": "errpMib",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1910-12-14 00:00",
+        "description": "Draft 1"
+      }
+    ]
+  },
+  "errpMIBObjects": {
+    "name": "errpMIBObjects",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1",
+    "class": "objectidentity"
+  },
+  "errp": {
+    "name": "errp",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1",
+    "class": "objectidentity"
+  },
+  "errpOnoff": {
+    "name": "errpOnoff",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpHealthTime": {
+    "name": "errpHealthTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpHealthTimeout": {
+    "name": "errpHealthTimeout",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpMajorFaultTime": {
+    "name": "errpMajorFaultTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpPrefwdTimeout": {
+    "name": "errpPrefwdTimeout",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpDomainTable": {
+    "name": "errpDomainTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errpDomainEntry": {
+    "name": "errpDomainEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpDomainId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "errpDomainId": {
+    "name": "errpDomainId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpMVlanId": {
+    "name": "errpMVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpWorkMode": {
+    "name": "errpWorkMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "huaWei": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpDomainRowStatus": {
+    "name": "errpDomainRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpRingTable": {
+    "name": "errpRingTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errpRingEntry": {
+    "name": "errpRingEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpDomainId",
+        "implied": 0
+      },
+      {
+        "module": "ERRP-MIB",
+        "object": "errpRingId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "errpRingId": {
+    "name": "errpRingId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpRingLevel": {
+    "name": "errpRingLevel",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpBrdgRole": {
+    "name": "errpBrdgRole",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "trans": 2,
+          "edge": 3,
+          "assEdge": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpPriComPortId": {
+    "name": "errpPriComPortId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpSecEdgePortId": {
+    "name": "errpSecEdgePortId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpRingRowStatus": {
+    "name": "errpRingRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpNodeState": {
+    "name": "errpNodeState",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "begin": 0,
+          "health": 1,
+          "fault": 2,
+          "linkUp": 3,
+          "linkDown": 4,
+          "preforwarding": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpPriComPortState": {
+    "name": "errpPriComPortState",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "forwarding": 1,
+          "blocking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpSecEdgePortState": {
+    "name": "errpSecEdgePortState",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "forwarding": 1,
+          "blocking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpQuerySolicit": {
+    "name": "errpQuerySolicit",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errpRingStatsTable": {
+    "name": "errpRingStatsTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errpRingStatsEntry": {
+    "name": "errpRingStatsEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpDomainId",
+        "implied": 0
+      },
+      {
+        "module": "ERRP-MIB",
+        "object": "errpRingId",
+        "implied": 0
+      },
+      {
+        "module": "ERRP-MIB",
+        "object": "errpRingPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "errpRingPortId": {
+    "name": "errpRingPortId",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpHealthTx": {
+    "name": "errpHealthTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpHealthRx": {
+    "name": "errpHealthRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpCommonFlushTx": {
+    "name": "errpCommonFlushTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpCommonFlushRx": {
+    "name": "errpCommonFlushRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpCompleteFlushTx": {
+    "name": "errpCompleteFlushTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpCompleteFlushRx": {
+    "name": "errpCompleteFlushRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpLinkDownTx": {
+    "name": "errpLinkDownTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpLinkDownRx": {
+    "name": "errpLinkDownRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpLinkUpTx": {
+    "name": "errpLinkUpTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpLinkUpRx": {
+    "name": "errpLinkUpRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpEdgeHelloTx": {
+    "name": "errpEdgeHelloTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpEdgeHelloRx": {
+    "name": "errpEdgeHelloRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpMajorFaultTx": {
+    "name": "errpMajorFaultTx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpMajorFaultRx": {
+    "name": "errpMajorFaultRx",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errpTrap": {
+    "name": "errpTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.9",
+    "class": "objectidentity"
+  },
+  "errpRingNodeStateChange": {
+    "name": "errpRingNodeStateChange",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.9.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpNodeState"
+      }
+    ],
+    "status": "current"
+  },
+  "errpPriComPortStateChange": {
+    "name": "errpPriComPortStateChange",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.9.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpPriComPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "errpSecEdgePortStateChange": {
+    "name": "errpSecEdgePortStateChange",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.7.1.1.9.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERRP-MIB",
+        "object": "errpSecEdgePortState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ERRP-MIB",
+      "Source digest sha256:7b22d05d51a0cc8f5f3d4b6ba6e6f16c17132dbd72fbb1e77f499ea828cfc4a9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ERRP-MIB"
+  }
+}

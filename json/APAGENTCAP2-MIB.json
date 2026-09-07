@@ -1,0 +1,180 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mib-2",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "apAgentCap2Module": {
+    "name": "apAgentCap2Module",
+    "oid": "1.3.6.1.4.1.9148.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-10-26 00:00",
+        "description": "Added apStirCap"
+      },
+      {
+        "revision": "2021-07-06 00:00",
+        "description": "Added apStirCap2"
+      },
+      {
+        "revision": "2022-02-16 00:00",
+        "description": "Added new capability objects apSipMSRPKPIStatsCap for MSRP statistics."
+      },
+      {
+        "revision": "2022-03-24 00:00",
+        "description": "Added apNSEPRealmKPIStatsCap and apSmgmtNSEPOutboundSession."
+      }
+    ]
+  },
+  "apIPForwardMibCapabilities": {
+    "name": "apIPForwardMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.2.1",
+    "class": "objectidentity"
+  },
+  "apIpForwardCap": {
+    "name": "apIpForwardCap",
+    "oid": "1.3.6.1.4.1.9148.2.2.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup",
+          "ipForwardCidrRouteGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsStirMibCapabilities": {
+    "name": "apAppsStirMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.2.2",
+    "class": "objectidentity"
+  },
+  "apStirCap": {
+    "name": "apStirCap",
+    "oid": "1.3.6.1.4.1.9148.2.2.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsStirServerStatsGroup",
+          "apAppsStirNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apStirCap2": {
+    "name": "apStirCap2",
+    "oid": "1.3.6.1.4.1.9148.2.2.2.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsStirAgentStatsGroup",
+          "apAppsStirSipInterfaceStatsGroup",
+          "apAppsStirRealmStatsGroup",
+          "apAppsStirSystemStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apMSRPKPIMibCapabilities": {
+    "name": "apMSRPKPIMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.2.3",
+    "class": "objectidentity"
+  },
+  "apMSRPKPIStatsCap": {
+    "name": "apMSRPKPIStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.2.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsMSRPKPISystemStatsGroup",
+          "apAppsMSRPKPIRealmStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apNSEPRealmKPIMibCapabilities": {
+    "name": "apNSEPRealmKPIMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.2.4",
+    "class": "objectidentity"
+  },
+  "apNSEPRealmKPIStatsCap": {
+    "name": "apNSEPRealmKPIStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.2.4.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apNSEPRealmStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apNSEPOutboundSessionMibCapabilities": {
+    "name": "apNSEPOutboundSessionMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.2.5",
+    "class": "objectidentity"
+  },
+  "apSmgmtNSEPOutboundSession": {
+    "name": "apSmgmtNSEPOutboundSession",
+    "oid": "1.3.6.1.4.1.9148.2.2.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtNSEPOutboundStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source APAGENTCAP2-MIB",
+      "Source digest sha256:73bd9dc5b56e71320862ed998b413f306fdd0934fecf3bdf1a0e1c6f5a7f4b50",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "APAGENTCAP2-MIB"
+  }
+}

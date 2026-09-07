@@ -1,0 +1,67 @@
+#
+# PySNMP MIB module CISCO-DDP-IAPP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-DDP-IAPP-MIB
+# Source digest sha256:e878ff96274f35ec782adc544ab870bc0eed1b783d335e9a79f18f7eff9a195e
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CiscoPort, = mibBuilder.importSymbols("CISCO-TC", "CiscoPort")
+InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, MacAddress, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention", "TruthValue")
+ciscoDdpIappMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 277))
+ciscoDdpIappMIB.setRevisions(('2002-07-31 00:00', '2002-07-17 00:00', '2002-03-19 00:00', '2002-03-07 00:00', '2001-09-28 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoDdpIappMIB.setRevisionsDescriptions(('Correct DEFVAL for cDdpIappMcastIpAddr.', 'Removed cDdpIappP802dot1XVersion, added\n                cDdpIappLastRogueApMacAddr, cDdpIappLastRogueApNotif,\n                and cDdpIappRogueApNotifEnabled objects. Changed\n                cDdpIappPort object to read-only access.', 'Changing the description for cDdpIappPort to be a\n                UDP port and Email contact address.', 'Changing DEFVALs for cDdpIappMcastIpAddr and \n                cDdpIappPort.', 'Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoDdpIappMIB.setLastUpdated('2002-07-31 00:00')
+if mibBuilder.loadTexts: ciscoDdpIappMIB.setOrganization('Cisco System Inc.')
+if mibBuilder.loadTexts: ciscoDdpIappMIB.setContactInfo('       Cisco Systems\n                        Customer Service\n\n                Postal: 170 West Tasman Drive,\n                        San Jose CA 95134-1706.\n                        USA\n\n                   Tel: +1 800 553-NETS\n\n                E-mail: cs-dot11@cisco.com')
+if mibBuilder.loadTexts: ciscoDdpIappMIB.setDescription('This MIB module describes the management support for\n                the Inter-Access Point Protocol (IAPP).  IAPP is a \n                Cisco propriety Data Delivery Protocol (DDP), and the\n                protocol defines the function and frame formats for \n                communication between IEEE 802.11 Standard wireless \n                LAN stations, i.e. access point (AP), work-group \n                bridge, and repeater.  The IAPP supports wireless \n                station LAN attachment, client roaming, association\n                management, and diagnostic services.')
+ciscoDdpIappMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 0))
+ciscoDdpIappMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 1))
+ciscoDdpIappMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 2))
+cDdpIappGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 1))
+cDdpIappRogueApInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 2))
+cDdpIappMcastIpAddrType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 1, 1), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cDdpIappMcastIpAddrType.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappMcastIpAddrType.setDescription('Represents the type of address stored in\n                cDdpIappMcastIpAddr.')
+cDdpIappMcastIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 1, 2), InetAddress().clone(hexValue="e0000128")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cDdpIappMcastIpAddr.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappMcastIpAddr.setDescription('Multicast IP network address over which applicable \n                 IAPP packets are exchanged between stations.')
+cDdpIappPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 1, 3), CiscoPort().clone(2887)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cDdpIappPort.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappPort.setDescription('UPD port identifier through which applicable IAPP\n                 packets are exchanged between stations.')
+cDdpIappRogueApNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cDdpIappRogueApNotifEnabled.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappRogueApNotifEnabled.setDescription('Indicates whether rogue access point notifications\n                including cDdpIappLastRogueApNotif notification \n                will or will not be sent by the agent when a rogue\n                access point is detected.  If it is true(1), \n                notifications will be sent.  If it is false(2), \n                notifications will not be sent.')
+cDdpIappLastRogueApMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 277, 1, 2, 1), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cDdpIappLastRogueApMacAddr.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappLastRogueApMacAddr.setDescription('This is the MAC address of the last detected rogue\n                access point for this device.  The value is zero if \n                there has not been any rogue access point detected \n                since system reload.')
+cDdpIappLastRogueApNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 277, 0, 1)).setObjects(("CISCO-DDP-IAPP-MIB", "cDdpIappLastRogueApMacAddr"))
+if mibBuilder.loadTexts: cDdpIappLastRogueApNotif.setStatus('current')
+if mibBuilder.loadTexts: cDdpIappLastRogueApNotif.setDescription('This notification will be sent when a rogue \n                access point is detected, that is the object value\n                of cDdpIappLastRogueApMacAddr had changed. The \n                cDdpIappLastRogueApMacAddr specify the latest \n                rogue access point MAC address.  The sending\n                of notifications can be enabled or disabled\n                via the cDdpIappRogueApNotifEnabled object.')
+ciscoDdpIappMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 1))
+ciscoDdpIappMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 2))
+ciscoDdpIappCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 1, 1)).setObjects(("CISCO-DDP-IAPP-MIB", "ciscoDdpIappConfigGroup"), ("CISCO-DDP-IAPP-MIB", "ciscoDdpIappRogueApInfoGroup"), ("CISCO-DDP-IAPP-MIB", "ciscoDdpIappNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDdpIappCompliance = ciscoDdpIappCompliance.setStatus('current')
+if mibBuilder.loadTexts: ciscoDdpIappCompliance.setDescription('The compliance statement for entities implementing\n                the CISCO-DDP-IAPP-MIB.')
+ciscoDdpIappConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 2, 1)).setObjects(("CISCO-DDP-IAPP-MIB", "cDdpIappMcastIpAddrType"), ("CISCO-DDP-IAPP-MIB", "cDdpIappMcastIpAddr"), ("CISCO-DDP-IAPP-MIB", "cDdpIappPort"), ("CISCO-DDP-IAPP-MIB", "cDdpIappRogueApNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDdpIappConfigGroup = ciscoDdpIappConfigGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoDdpIappConfigGroup.setDescription('Configurations to support operation of the IAPP \n                protocols and subsystem.')
+ciscoDdpIappRogueApInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 2, 2)).setObjects(("CISCO-DDP-IAPP-MIB", "cDdpIappLastRogueApMacAddr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDdpIappRogueApInfoGroup = ciscoDdpIappRogueApInfoGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoDdpIappRogueApInfoGroup.setDescription('Rogue AP information from the operation of the \n                IAPP subsystem.')
+ciscoDdpIappNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 277, 2, 2, 3)).setObjects(("CISCO-DDP-IAPP-MIB", "cDdpIappLastRogueApNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDdpIappNotificationGroup = ciscoDdpIappNotificationGroup.setStatus('current')
+if mibBuilder.loadTexts: ciscoDdpIappNotificationGroup.setDescription('This is the notification group for the\n                CISCO-DDP-IAPP-MIB.')
+mibBuilder.exportSymbols("CISCO-DDP-IAPP-MIB", PYSNMP_MODULE_ID=ciscoDdpIappMIB, cDdpIappGlobalConfig=cDdpIappGlobalConfig, cDdpIappLastRogueApMacAddr=cDdpIappLastRogueApMacAddr, cDdpIappLastRogueApNotif=cDdpIappLastRogueApNotif, cDdpIappMcastIpAddr=cDdpIappMcastIpAddr, cDdpIappMcastIpAddrType=cDdpIappMcastIpAddrType, cDdpIappPort=cDdpIappPort, cDdpIappRogueApInfo=cDdpIappRogueApInfo, cDdpIappRogueApNotifEnabled=cDdpIappRogueApNotifEnabled, ciscoDdpIappCompliance=ciscoDdpIappCompliance, ciscoDdpIappConfigGroup=ciscoDdpIappConfigGroup, ciscoDdpIappMIB=ciscoDdpIappMIB, ciscoDdpIappMIBCompliances=ciscoDdpIappMIBCompliances, ciscoDdpIappMIBConformance=ciscoDdpIappMIBConformance, ciscoDdpIappMIBGroups=ciscoDdpIappMIBGroups, ciscoDdpIappMIBNotifications=ciscoDdpIappMIBNotifications, ciscoDdpIappMIBObjects=ciscoDdpIappMIBObjects, ciscoDdpIappNotificationGroup=ciscoDdpIappNotificationGroup, ciscoDdpIappRogueApInfoGroup=ciscoDdpIappRogueApInfoGroup)

@@ -1,0 +1,65 @@
+#
+# PySNMP MIB module CISCO-MGX82XX-CARD-FEATURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-MGX82XX-CARD-FEATURE-MIB
+# Source digest sha256:fcdd75a25d153f0c36a3d30c5e75eb616cdb5e71e0a8ae7d6f0a1b1b5d38d939
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+cardSpecific, = mibBuilder.importSymbols("BASIS-MIB", "cardSpecific")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoMgx82xxCardFeatureMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 74))
+ciscoMgx82xxCardFeatureMIB.setRevisions(('2003-05-05 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setRevisionsDescriptions(('Initial version of the MIB.\n\n        The content of this MIB was originally available\n        in CISCO-WAN-AXIPOP-MIB defined using SMIv1.\n        The applicable objects from CISCO-WAN-AXIPOP-MIB\n        are defined using SMIv2 in this MIB. Also the\n        descriptions of some of the objects have been \n        modified.',))
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setLastUpdated('2003-05-05 00:00')
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setContactInfo('       Cisco Systems\n                        Customer Service\n\n                Postal: 170 W Tasman Drive\n                        San Jose, CA  95134\n                        USA\n\n                        Tel: +1 800 553-NETS\n\n                E-mail: cs-wanatm@cisco.com')
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setDescription('The MIB module which describes the features\n        supported in MGX82XX products.\n        This MIB Module provides the features supported\n        in Controller Cards in MGX8250 and MGX8220.\n  \n        Terminologies used:\n\n        PXM : Processor Switch Module. This is controller\n              card in MGX8250.\n        ASC : AXIS Shelf Controller. This is controller\n              card in MGX8220.\n        VSI : Virtual Switch Interface, a hardware-independent \n              switch control protocol. This allows a Switch to be\n              controlled by a multiple controllers such as PNNI, MPLS.\n              These control planes can be internal or external to the\n              switch.The VSI interface defines the messages and associated\n              functions which allow communication between the controller\n              and the switch.This interface is expected to support all\n              types of connections (voice,data,frame relay,ATM) for PVCs,\n              SPVCs and SVCs.\n \n         Controller - Software ( and possibly hardware) which manages\n                      topology and network resources and performs VSI \n                      Master function. This performs source routing \n                      for end-to-end SVCs, including general call \n                      acceptance GCAC,setup calls with other controllers.\n                      PNNI and MPLS are examples of controllers.')
+ascFeatures = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 5))
+pxmFeatures = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 15))
+coreCardCommands = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 20))
+vsiControllersAllowed = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vsiControllersAllowed.setStatus('current')
+if mibBuilder.loadTexts: vsiControllersAllowed.setDescription('This respesents bit map of the VSI Controllers\n        supported. \n        The bit positions are :\n\n        BIT  0 - PAR(Portable AutoRoute Controller)\n        BIT  1 - PNNI(Private network to network Interface)\n        BIT  2 - TAG(Tag Switching or MPLS Controller)\n        (e.g. A value of 1 in BIT 0 indicates the presence of PAR )\n        Remaining bits are set to 0.')
+apsCardAttributes = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apsCardAttributes.setStatus('current')
+if mibBuilder.loadTexts: apsCardAttributes.setDescription('This respesents bit map of the APS card attributes\n        supported. \n        The bit position supported are:\n          BITs 0, 1     - unused\n          BIT  2        - APS standard protocol configured\n                         (1 = TRUE ; 0 = FALSE)\n          BIT  3, 4 ,5  - unused\n          BIT  6        - Card HW supports APS 1+1 on two cards\n                          (1 = TRUE ; 0 = FALSE)\n          BIT  7        - Card FW supports APS \n                          (1 = TRUE ; 0 = FALSE)\n          Remaining bits are set to 0.')
+trkCACEnable = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: trkCACEnable.setStatus('current')
+if mibBuilder.loadTexts: trkCACEnable.setDescription('This MIB variable allows to add a new connection on \n        the feeder trunk even if it is over-subscribed.')
+pxmCardCacMode = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pcrBasedCac", 1), ("scrBasedCac", 2))).clone('pcrBasedCac')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmCardCacMode.setStatus('current')
+if mibBuilder.loadTexts: pxmCardCacMode.setDescription('This object identifies the CAC mode set on a card.\n\n        If this is set to pcrBasedCAC(1) then the CAC calculations\n        will be done based on PCR on the connection. \n\n        If this set to scrBasedCAC(2) then the CAC calculations \n        are done based on the scr of the connections. \n        This will be applicable only if CAC is enabled\n        (i.e trkCACEnable is set to enable(2)).')
+redundancyAllowed = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("redNotAllowed", 1), ("redAllowed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyAllowed.setStatus('current')
+if mibBuilder.loadTexts: redundancyAllowed.setDescription('This object identifies whether redundancy \n        is allowed in  MGX82XX shelf.')
+switchCoreCard = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 20, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noAction", 1), ("doswitchcc", 2), ("instswitchcc", 3), ("fallbackswitchcc", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchCoreCard.setStatus('current')
+if mibBuilder.loadTexts: switchCoreCard.setDescription('This object is  used for performing switchover of\n        core card set. The core card set includes Controller Card\n        and Service Redundancy Module(SRM).\n\n        The possible values are :\n         noAction        (1): No operation\n         doswitchcc      (2): Perform switchover operation\n         instswitchcc    (3): Perform switchover operation\n         fallbackswitchcc(4): ')
+cmCardFeatureMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2))
+cmCardFeatureMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1))
+cmCardFeatureMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 2))
+cmCardFeatureCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 2, 1)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmPxmCardFeatureGroup"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmAscCardFeatureGroup"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmCoreCardFeatureGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmCardFeatureCompliance = cmCardFeatureCompliance.setStatus('current')
+if mibBuilder.loadTexts: cmCardFeatureCompliance.setDescription('The compliance statement for objects related\n        to Frame Relay Ports.')
+cmPxmCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 1)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "vsiControllersAllowed"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "apsCardAttributes"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "trkCACEnable"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "pxmCardCacMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmPxmCardFeatureGroup = cmPxmCardFeatureGroup.setStatus('current')
+if mibBuilder.loadTexts: cmPxmCardFeatureGroup.setDescription('The collection of objects which are used to represent\n          Processor Module(PXM) Features.')
+cmAscCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 2)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "redundancyAllowed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmAscCardFeatureGroup = cmAscCardFeatureGroup.setStatus('current')
+if mibBuilder.loadTexts: cmAscCardFeatureGroup.setDescription('The collection of objects which are used to represent\n          Axis Shelf Controller(ASC) Features.')
+cmCoreCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 3)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "switchCoreCard"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmCoreCardFeatureGroup = cmCoreCardFeatureGroup.setStatus('current')
+if mibBuilder.loadTexts: cmCoreCardFeatureGroup.setDescription('The collection of objects which are used to represent\n         core card related objects.')
+mibBuilder.exportSymbols("CISCO-MGX82XX-CARD-FEATURE-MIB", PYSNMP_MODULE_ID=ciscoMgx82xxCardFeatureMIB, apsCardAttributes=apsCardAttributes, ascFeatures=ascFeatures, ciscoMgx82xxCardFeatureMIB=ciscoMgx82xxCardFeatureMIB, cmAscCardFeatureGroup=cmAscCardFeatureGroup, cmCardFeatureCompliance=cmCardFeatureCompliance, cmCardFeatureMIBCompliances=cmCardFeatureMIBCompliances, cmCardFeatureMIBConformance=cmCardFeatureMIBConformance, cmCardFeatureMIBGroups=cmCardFeatureMIBGroups, cmCoreCardFeatureGroup=cmCoreCardFeatureGroup, cmPxmCardFeatureGroup=cmPxmCardFeatureGroup, coreCardCommands=coreCardCommands, pxmCardCacMode=pxmCardCacMode, pxmFeatures=pxmFeatures, redundancyAllowed=redundancyAllowed, switchCoreCard=switchCoreCard, trkCACEnable=trkCACEnable, vsiControllersAllowed=vsiControllersAllowed)

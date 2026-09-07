@@ -1,0 +1,93 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fourRFRootModule": {
+    "name": "fourRFRootModule",
+    "oid": "1.3.6.1.4.1.14817.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-30 00:00",
+        "description": "Second draft"
+      },
+      {
+        "revision": "2004-02-13 00:00",
+        "description": "First draft"
+      }
+    ]
+  },
+  "fourRFRoot": {
+    "name": "fourRFRoot",
+    "oid": "1.3.6.1.4.1.14817",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFRegistrations": {
+    "name": "fourRFRegistrations",
+    "oid": "1.3.6.1.4.1.14817.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFModules": {
+    "name": "fourRFModules",
+    "oid": "1.3.6.1.4.1.14817.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFGeneric": {
+    "name": "fourRFGeneric",
+    "oid": "1.3.6.1.4.1.14817.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFProducts": {
+    "name": "fourRFProducts",
+    "oid": "1.3.6.1.4.1.14817.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFCapabilities": {
+    "name": "fourRFCapabilities",
+    "oid": "1.3.6.1.4.1.14817.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFRequirements": {
+    "name": "fourRFRequirements",
+    "oid": "1.3.6.1.4.1.14817.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFExperimental": {
+    "name": "fourRFExperimental",
+    "oid": "1.3.6.1.4.1.14817.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MIB-4RF",
+      "Source digest sha256:51a370026d541b2c5ac0c935c50d544767daa491741de381ec046545c28ddfad",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MIB-4RF"
+  }
+}

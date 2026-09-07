@@ -1,0 +1,173 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityProvMIB": {
+    "name": "ciscoEntityProvMIB",
+    "oid": "1.3.6.1.4.1.9.9.139",
+    "class": "moduleidentity"
+  },
+  "ciscoEntityProvMIBObjects": {
+    "name": "ciscoEntityProvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.139.1",
+    "class": "objectidentity"
+  },
+  "ceProvContainerTable": {
+    "name": "ceProvContainerTable",
+    "oid": "1.3.6.1.4.1.9.9.139.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceProvContainerEntry": {
+    "name": "ceProvContainerEntry",
+    "oid": "1.3.6.1.4.1.9.9.139.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceProvContainerStatus": {
+    "name": "ceProvContainerStatus",
+    "oid": "1.3.6.1.4.1.9.9.139.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unequipped": 1,
+          "provisioned": 2,
+          "mismatched": 3,
+          "invalid": 4,
+          "equipped": 5,
+          "failed": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceProvContainerEquipped": {
+    "name": "ceProvContainerEquipped",
+    "oid": "1.3.6.1.4.1.9.9.139.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceProvContainerDetected": {
+    "name": "ceProvContainerDetected",
+    "oid": "1.3.6.1.4.1.9.9.139.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceProvMIBNotificationsPrefix": {
+    "name": "ceProvMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.139.2",
+    "class": "objectidentity"
+  },
+  "ceProvMIBNotifications": {
+    "name": "ceProvMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.139.2.0",
+    "class": "objectidentity"
+  },
+  "ceProvMIBConformance": {
+    "name": "ceProvMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.139.3",
+    "class": "objectidentity"
+  },
+  "ceProvMIBCompliances": {
+    "name": "ceProvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.139.3.1",
+    "class": "objectidentity"
+  },
+  "ceProvMIBGroups": {
+    "name": "ceProvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.139.3.2",
+    "class": "objectidentity"
+  },
+  "ceProvMIBCompliance": {
+    "name": "ceProvMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.139.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceProvContainerGroup",
+        "module": "CISCO-ENTITY-PROVISIONING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ceProvContainerGroup": {
+    "name": "ceProvContainerGroup",
+    "oid": "1.3.6.1.4.1.9.9.139.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PROVISIONING-MIB",
+        "object": "ceProvContainerStatus"
+      },
+      {
+        "module": "CISCO-ENTITY-PROVISIONING-MIB",
+        "object": "ceProvContainerEquipped"
+      },
+      {
+        "module": "CISCO-ENTITY-PROVISIONING-MIB",
+        "object": "ceProvContainerDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENTITY-PROVISIONING-MIB",
+      "Source digest sha256:e4dbd5f62a0a4edb5a169f3738552df6722bd262a6abc8d06b7ad6f7cb7853ed",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENTITY-PROVISIONING-MIB"
+  }
+}

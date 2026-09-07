@@ -1,0 +1,184 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SL-NE-MIB": [
+      "slService"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "slRetimer": {
+    "name": "slRetimer",
+    "oid": "1.3.6.1.4.1.4515.1.1.14",
+    "class": "moduleidentity"
+  },
+  "slRetimerConfig": {
+    "name": "slRetimerConfig",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.1",
+    "class": "objectidentity"
+  },
+  "slRetimerStat": {
+    "name": "slRetimerStat",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.2",
+    "class": "objectidentity"
+  },
+  "slRetimerPm": {
+    "name": "slRetimerPm",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3",
+    "class": "objectidentity"
+  },
+  "slRetimerTraps": {
+    "name": "slRetimerTraps",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.7",
+    "class": "objectidentity"
+  },
+  "slRetimerConfigTable": {
+    "name": "slRetimerConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slRetimerConfigEntry": {
+    "name": "slRetimerConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-RETIMER-MIB",
+        "object": "slRetimerLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slRetimerLineIndex": {
+    "name": "slRetimerLineIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slRetimerResetPmCounters": {
+    "name": "slRetimerResetPmCounters",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slRetimerCurrentTable": {
+    "name": "slRetimerCurrentTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slRetimerCurrentEntry": {
+    "name": "slRetimerCurrentEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-RETIMER-MIB",
+        "object": "slRetimerCurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slRetimerCurrentIndex": {
+    "name": "slRetimerCurrentIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slRetimerCurrentRxRllES": {
+    "name": "slRetimerCurrentRxRllES",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slRetimerCurrentRxK285ES": {
+    "name": "slRetimerCurrentRxK285ES",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slRetimerStatusChange": {
+    "name": "slRetimerStatusChange",
+    "oid": "1.3.6.1.4.1.4515.1.1.14.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-RETIMER-MIB",
+        "object": "slRetimerLineIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-RETIMER-MIB",
+      "Source digest sha256:1d09a135331e7dffb62a1f6e23e681c1ffa7f5266ab9ff6ef7050919269357c8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-RETIMER-MIB"
+  }
+}

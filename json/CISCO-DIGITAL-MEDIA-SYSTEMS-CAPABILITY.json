@@ -1,0 +1,85 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDigitalMediaSystemsCapability": {
+    "name": "ciscoDigitalMediaSystemsCapability",
+    "oid": "1.3.6.1.4.1.9.7.570",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDigitalMediaSystemsCapabilityV5R00": {
+    "name": "ciscoDigitalMediaSystemsCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.570.1",
+    "class": "agentcapabilities",
+    "productrelease": "DMS Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "includes": [
+          "ciscoDmsSystemGroup",
+          "ciscoDmsFeatureGroup",
+          "ciscoDmsInventoryGroup",
+          "ciscoDmsEventGroup",
+          "ciscoDmsNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdmsAdministrator",
+            "access": "read-only"
+          },
+          {
+            "object": "cdmsLastLicenseUpdate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdmsNumMediaIngestionDevices",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdmsInventoryElementMetadata",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdmsInventoryElementState",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DIGITAL-MEDIA-SYSTEMS-CAPABILITY",
+      "Source digest sha256:3f76b4424c7e0afd40fc50a6964e4550928677c15200200a2452ac223a90c36b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-CAPABILITY"
+  }
+}

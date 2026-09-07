@@ -1,0 +1,162 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniLocalAddressServerAgent": {
+    "name": "juniLocalAddressServerAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-11 21:35",
+        "description": "Added support for rsAddressSharedPoolTable, update agent to version 6."
+      },
+      {
+        "revision": "2003-11-04 18:30",
+        "description": "Juniper-ADDRESS-POOL-MIB: Added support for address pool aliases."
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Juniper-ADDRESS-POOL-MIB: Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-05-06 19:20",
+        "description": "Juniper-ADDRESS-POOL-MIB: Added support for address pools with multiple address ranges."
+      },
+      {
+        "revision": "2001-05-02 13:22",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniLocalAddressServerAgentV1": {
+    "name": "juniLocalAddressServerAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component was supported\n        in JUNOSe 1.3 thru 3.1 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLocalAddressServerAgentV2": {
+    "name": "juniLocalAddressServerAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component was supported\n        in JUNOSe 3.2 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup2",
+          "juniAddressPoolTrapGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLocalAddressServerAgentV3": {
+    "name": "juniLocalAddressServerAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component was supported\n        in JUNOSe 3.3 thru 5.2 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup3",
+          "juniAddressPoolDeprecatedGroup",
+          "juniAddressPoolTrapGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLocalAddressServerAgentV4": {
+    "name": "juniLocalAddressServerAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component is supported\n        in JUNOSe 5.3 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup3",
+          "juniAddressPoolDeprecatedGroup",
+          "juniAddressPoolTrapGroup",
+          "juniAddressAliasGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLocalAddressServerAgentV5": {
+    "name": "juniLocalAddressServerAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component is supported\n        in JUNOSe 6.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup4",
+          "juniAddressPoolDeprecatedGroup",
+          "juniAddressPoolTrapGroup",
+          "juniAddressAliasGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLocalAddressServerAgentV6": {
+    "name": "juniLocalAddressServerAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.25.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the Local Address Server component of the JUNOSe SNMP\n        agent.  This version of the Local Address Server component is supported\n        in JUNOSe 7.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-ADDRESS-POOL-MIB",
+        "includes": [
+          "juniAddressPoolGroup5",
+          "juniAddressPoolDeprecatedGroup",
+          "juniAddressPoolTrapGroup",
+          "juniAddressAliasGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Local-Address-Server-CONF",
+      "Source digest sha256:11fb36e9f385466b109a97f5561903249585c9ed3820b85ac5babc8117eefb41",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Local-Address-Server-CONF"
+  }
+}

@@ -1,0 +1,1878 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoStpExtensionsCapability": {
+    "name": "ciscoStpExtensionsCapability",
+    "oid": "1.3.6.1.4.1.9.7.360",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-27 00:00",
+        "description": "Added capability statement cstpxCapNxOSV05R0201PN7k."
+      },
+      {
+        "revision": "2013-09-30 00:00",
+        "description": "Added capability statement cstpxCapV15R0102SYPCat6k and cstpxCapV15R0102SYPCat6kSup2T. Added VARIATION clause on stpxFastStartPortMode to the following capability statements: cstpxCapCatOSV08R0101 cstpxCapV12R0113E cstpxCapV12R0214SX cstpxCapCatOSV08R0301 cstpxCapV12R0217bSXACat6k cstpxCapCatOSV08R0401 cstpxCapV12R0218SXEPCat6k cstpxCapCatOSV08R0501 cstpxCapV12R0218SXFPCat6k cstpxCapV15R0001SYPCat6kSup2T"
+      },
+      {
+        "revision": "2011-09-30 00:00",
+        "description": "Added capability statement cstpxCapV15R0001SYPCat6kSup2T."
+      },
+      {
+        "revision": "2007-02-23 00:00",
+        "description": "Added VARIATION clause for stpxUplinkStationLearningGenRate in agent capability statements of cstpxCapV12R0113E, cstpxCapV12R0214SX, cstpxCapV12R0217bSXACat6k, cstpxCapV12R0218SXEPCat6k, and cstpxCapV12R0218SXFPCat6k."
+      },
+      {
+        "revision": "2005-09-15 00:00",
+        "description": "Added cstpxCapV12R0218SXFPCat6k for Cisco IOS 12.2(18)SXF."
+      },
+      {
+        "revision": "2005-06-15 00:00",
+        "description": "Added cstpxCapCatOSV08R0501 for Cisco CatOS 8.5(1)."
+      },
+      {
+        "revision": "2004-11-20 00:00",
+        "description": "Added cstpxCapV12R0218SXEPCat6k for Cisco IOS 12.2(18)SXE."
+      },
+      {
+        "revision": "2004-06-02 00:00",
+        "description": "Added cstpxCapCatOSV08R0401 for Cisco CatOS 8.4(1)."
+      },
+      {
+        "revision": "2004-04-02 00:00",
+        "description": "Added cstpxCapV12R0217bSXACat6k for Cisco IOS 12.2(17b)SXA."
+      },
+      {
+        "revision": "2004-01-21 00:00",
+        "description": "Added cstpxCapCatOSV08R0301 for Cisco CatOS 8.3(1)."
+      },
+      {
+        "revision": "2003-09-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cstpxCapCatOSV08R0101": {
+    "name": "cstpxCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.360.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxPreferredVlansGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpx4kVlanGroup",
+          "stpxSpanningTreeGroup",
+          "stpxMISTPGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxMISTPGroup2",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxBpduSkewingGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxPreferredMSTInstancesGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV12R0113E": {
+    "name": "cstpxCapV12R0113E",
+    "oid": "1.3.6.1.4.1.9.7.360.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(13)E on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV12R0214SX": {
+    "name": "cstpxCapV12R0214SX",
+    "oid": "1.3.6.1.4.1.9.7.360.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(14)SX on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapCatOSV08R0301": {
+    "name": "cstpxCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.360.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxPreferredVlansGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpx4kVlanGroup",
+          "stpxSpanningTreeGroup",
+          "stpxMISTPGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxMISTPGroup2",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxBpduSkewingGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxMSTGroup3",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTPortHelloTimeGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminHelloTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV12R0217bSXACat6k": {
+    "name": "cstpxCapV12R0217bSXACat6k",
+    "oid": "1.3.6.1.4.1.9.7.360.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17b)SXA on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapCatOSV08R0401": {
+    "name": "cstpxCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.360.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxPreferredVlansGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpx4kVlanGroup",
+          "stpxSpanningTreeGroup",
+          "stpxMISTPGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxMISTPGroup2",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxBpduSkewingGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxMSTGroup3",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTPortHelloTimeGroup",
+          "stpxSMSTInstanceCISTGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminHelloTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV12R0218SXEPCat6k": {
+    "name": "cstpxCapV12R0218SXEPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.360.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXE on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxPathCostOperModeGroup"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapCatOSV08R0501": {
+    "name": "cstpxCapCatOSV08R0501",
+    "oid": "1.3.6.1.4.1.9.7.360.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxPreferredVlansGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpx4kVlanGroup",
+          "stpxSpanningTreeGroup",
+          "stpxMISTPGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxMISTPGroup2",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxBpduSkewingGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxMSTGroup3",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTPortHelloTimeGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxRSTPTransmitHoldCountGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminHelloTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 100,
+                    "max": 1000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxRSTPTransmitHoldCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "preStandard": 1,
+                  "auto": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 40
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV12R0218SXFPCat6k": {
+    "name": "cstpxCapV12R0218SXFPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.360.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXF on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxRSTPTransmitHoldCountGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxRSTPTransmitHoldCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "preStandard": 1,
+                  "auto": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV15R0001SYPCat6kSup2T": {
+    "name": "cstpxCapV15R0001SYPCat6kSup2T",
+    "oid": "1.3.6.1.4.1.9.7.360.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                    series devices with Supervisor 2T present.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxRSTPTransmitHoldCountGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxRSTPTransmitHoldCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "preStandard": 1,
+                  "auto": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV15R0102SYPCat6k": {
+    "name": "cstpxCapV15R0102SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.360.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(2)SY on Catalyst 6000/6500 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxRSTPTransmitHoldCountGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pvstPlus": 1,
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxRSTPTransmitHoldCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "preStandard": 1,
+                  "auto": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4,
+                  "network": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapV15R0102SYPCat6kSup2T": {
+    "name": "cstpxCapV15R0102SYPCat6kSup2T",
+    "oid": "1.3.6.1.4.1.9.7.360.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(2)SY on Catalyst 6000/6500\n                    series devices with Supervisor 2T present.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxUplinkGroup",
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxBackboneGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopGuardGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxFastStartGroup",
+          "stpxFastStartGroup2",
+          "stpxLoopGuardGroup2",
+          "stpxMSTGroup",
+          "stpxFastStartGroup3",
+          "stpxUplinkGroup2",
+          "stpxBackboneGroup2",
+          "stpxMSTGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxExtendedSysIDGroup",
+          "stpxNotificationEnableGroup",
+          "stpxFastStartOperModeGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTInstanceEditGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxRSTPTransmitHoldCountGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxUplinkStationLearningGenRate",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 3200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSpanningTreeType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "mst": 4,
+                  "rapidPvstPlus": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "released": 1,
+                  "acquiredBySnmp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "acquire": 2,
+                  "commit": 4,
+                  "rollBack": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxNotificationEnable",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "newRoot": 0,
+                "topologyChange": 1,
+                "inconsistency": 2,
+                "rootInconsistency": 3,
+                "loopInconsistency": 4
+              }
+            }
+          },
+          {
+            "object": "stpxRSTPTransmitHoldCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 20
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "preStandard": 1,
+                  "auto": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "stpxFastStartPortMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enable": 1,
+                  "disable": 2,
+                  "enableForTrunk": 3,
+                  "default": 4,
+                  "network": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cstpxCapNxOSV05R0201PN7k": {
+    "name": "cstpxCapNxOSV05R0201PN7k",
+    "oid": "1.3.6.1.4.1.9.7.360.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 5.2(1) on Nexus 7000\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "includes": [
+          "stpxSstpGroup",
+          "stpxNotificationsGroup",
+          "stpxRootGuardGroup",
+          "stpxRootInconsistencyNotificationsGroup",
+          "stpxSpanningTreeGroup",
+          "stpxLongPathCostModeGroup",
+          "stpxPVSTVlanGroup",
+          "stpxLoopInconsistencyNotificationsGroup",
+          "stpxLoopGuardGroup2",
+          "stpxRSTPGroup",
+          "stpxRPVSTGroup",
+          "stpxPathCostOperModeGroup",
+          "stpxSMSTGroup",
+          "stpxSMSTInstanceGroup",
+          "stpxSMSTPortStatusGroup",
+          "stpxSMSTInstanceCISTGroup",
+          "stpxSMSTPortMSTModeGroup",
+          "stpxSMSTMaxHopCountGroup",
+          "stpxSMSTConfigDigestGroup",
+          "stpxMSTGroup4"
+        ],
+        "variations": [
+          {
+            "object": "stpxSpanningTreeType",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxMSTRegionEditBufferStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxMSTRegionEditBufferOperation",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxSMSTRegionEditRevision",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxSMSTPortAdminMSTMode",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxSMSTMaxHopCount",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxLongStpPortPathCost",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxRSTPPortProtocolMigration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxMSTRegionEditName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stpxPVSTVlanEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxRootGuardConfigEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxSpanningTreePathCostMode",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxLoopGuardConfigMode",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxLoopGuardGlobalDefaultMode",
+            "access": "read-only"
+          },
+          {
+            "object": "stpxRSTPPortAdminLinkType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-STP-EXTENSIONS-CAPABILITY",
+      "Source digest sha256:71796380d01634005cb9729a35a7398626b811a53ec17dafe1b268c188596395",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-STP-EXTENSIONS-CAPABILITY"
+  }
+}

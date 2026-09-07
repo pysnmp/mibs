@@ -1,0 +1,361 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwNATEudm": {
+    "name": "hwNATEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2",
+    "class": "moduleidentity"
+  },
+  "NatType": {
+    "name": "NatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pat": 1,
+          "nat": 2,
+          "easyIP": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwNAT": {
+    "name": "hwNAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.7",
+    "class": "objectidentity"
+  },
+  "hwNatEudmMibObjects": {
+    "name": "hwNatEudmMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1",
+    "class": "objectidentity"
+  },
+  "hwNatEudmOutboundTable": {
+    "name": "hwNatEudmOutboundTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmOutboundEntry": {
+    "name": "hwNatEudmOutboundEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundNatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwNatEudmOutboundNatID": {
+    "name": "hwNatEudmOutboundNatID",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmOutboundType": {
+    "name": "hwNatEudmOutboundType",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmOutboundAclNumber": {
+    "name": "hwNatEudmOutboundAclNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 3999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmOutboundPoolIndex": {
+    "name": "hwNatEudmOutboundPoolIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmOutboundEasyIpIfIndex": {
+    "name": "hwNatEudmOutboundEasyIpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmOutboundRefCount": {
+    "name": "hwNatEudmOutboundRefCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNatEudmOutboundRowstatus": {
+    "name": "hwNatEudmOutboundRowstatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyTable": {
+    "name": "hwNatEudmZoneApplyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyEntry": {
+    "name": "hwNatEudmZoneApplyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyZoneID1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyZoneID2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyNatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyZoneID1": {
+    "name": "hwNatEudmZoneApplyZoneID1",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyZoneID2": {
+    "name": "hwNatEudmZoneApplyZoneID2",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyNatID": {
+    "name": "hwNatEudmZoneApplyNatID",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyRowstatus": {
+    "name": "hwNatEudmZoneApplyRowstatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwNatEudmConformance": {
+    "name": "hwNatEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2",
+    "class": "objectidentity"
+  },
+  "hwNatEudmGroups": {
+    "name": "hwNatEudmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwNatEudmCfgGroup": {
+    "name": "hwNatEudmCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundRefCount"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyRowstatus"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundType"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundAclNumber"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundPoolIndex"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundEasyIpIfIndex"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundRowstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-NAT-EUDM-MIB",
+      "Source digest sha256:84bb6122d176452cac9f1cacb38c924e0b39efa58f08e1f6c24425b90e7119d8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-NAT-EUDM-MIB"
+  }
+}

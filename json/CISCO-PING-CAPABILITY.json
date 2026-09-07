@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPingCapability": {
+    "name": "ciscoPingCapability",
+    "oid": "1.3.6.1.4.1.9.7.36",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-15 00:00",
+        "description": "Add VARIATION for notification ciscoPingCompletion in ciscoPingCapabilityCatOSV08R0301."
+      },
+      {
+        "revision": "2004-06-14 00:00",
+        "description": "Fix the typo in the supporting for the CatOS platform for this MIB module."
+      },
+      {
+        "revision": "2004-01-19 00:00",
+        "description": "Add supporting for the CatOS platform for this MIB module."
+      },
+      {
+        "revision": "1994-08-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPingCapabilityV10R02": {
+    "name": "ciscoPingCapabilityV10R02",
+    "oid": "1.3.6.1.4.1.9.7.36.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "CISCO-PING-MIB",
+        "includes": [
+          "ciscoPingMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPingCapabilityCatOSV08R0301": {
+    "name": "ciscoPingCapabilityCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.36.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-PING-MIB",
+        "includes": [
+          "ciscoPingMIBGroupVpn"
+        ],
+        "variations": [
+          {
+            "object": "ciscoPingVrfName",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PING-CAPABILITY",
+      "Source digest sha256:2ac4be49275655dc2f76f0d9149abf24974dd6786da0c375229c0a0454b8e84c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PING-CAPABILITY"
+  }
+}

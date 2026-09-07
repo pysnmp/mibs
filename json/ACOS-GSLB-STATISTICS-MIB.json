@@ -1,0 +1,96 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gslbStatisticsModule": {
+    "name": "gslbStatisticsModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422",
+    "class": "moduleidentity"
+  },
+  "statistics": {
+    "name": "statistics",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422.1",
+    "class": "objectidentity"
+  },
+  "statisticsOperTable": {
+    "name": "statisticsOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statisticsOperEntry": {
+    "name": "statisticsOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-STATISTICS-MIB",
+        "object": "statisticsOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statisticsOperSlotId": {
+    "name": "statisticsOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statisticsOperCurrSslCtx": {
+    "name": "statisticsOperCurrSslCtx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.422.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-GSLB-STATISTICS-MIB",
+      "Source digest sha256:0943d074fa4a4be5a76aae952f05aa4ccd2583214c31fa164bcc9739a941a78c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-GSLB-STATISTICS-MIB"
+  }
+}

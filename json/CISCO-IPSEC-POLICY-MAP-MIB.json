@@ -1,0 +1,288 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpSecPolMapMIB": {
+    "name": "ciscoIpSecPolMapMIB",
+    "oid": "1.3.6.1.4.1.9.9.172",
+    "class": "moduleidentity"
+  },
+  "ciscoIpSecPolMapMIBObjects": {
+    "name": "ciscoIpSecPolMapMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.172.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpSecPolMapMIBNotifPrefix": {
+    "name": "ciscoIpSecPolMapMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.172.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpSecPolMapMIBConformance": {
+    "name": "ciscoIpSecPolMapMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.172.3",
+    "class": "objectidentity"
+  },
+  "ipSecPhaseOnePolMap": {
+    "name": "ipSecPhaseOnePolMap",
+    "oid": "1.3.6.1.4.1.9.9.172.1.1",
+    "class": "objectidentity"
+  },
+  "ipSecPhaseTwoPolMap": {
+    "name": "ipSecPhaseTwoPolMap",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2",
+    "class": "objectidentity"
+  },
+  "ikePolMapTable": {
+    "name": "ikePolMapTable",
+    "oid": "1.3.6.1.4.1.9.9.172.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ikePolMapEntry": {
+    "name": "ikePolMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.172.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ikePolMapTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ikePolMapTunIndex": {
+    "name": "ikePolMapTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.172.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ikePolMapPolicyNum": {
+    "name": "ikePolMapPolicyNum",
+    "oid": "1.3.6.1.4.1.9.9.172.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipSecPolMapTable": {
+    "name": "ipSecPolMapTable",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipSecPolMapEntry": {
+    "name": "ipSecPolMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ipSecPolMapTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipSecPolMapTunIndex": {
+    "name": "ipSecPolMapTunIndex",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipSecPolMapCryptoMapName": {
+    "name": "ipSecPolMapCryptoMapName",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipSecPolMapCryptoMapNum": {
+    "name": "ipSecPolMapCryptoMapNum",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipSecPolMapAclString": {
+    "name": "ipSecPolMapAclString",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipSecPolMapAceString": {
+    "name": "ipSecPolMapAceString",
+    "oid": "1.3.6.1.4.1.9.9.172.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipSecPolMapMIBGroups": {
+    "name": "ipSecPolMapMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.172.3.1",
+    "class": "objectidentity"
+  },
+  "ipSecPolMapMIBCompliances": {
+    "name": "ipSecPolMapMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.172.3.2",
+    "class": "objectidentity"
+  },
+  "ipSecPolMapMIBCompliance": {
+    "name": "ipSecPolMapMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.172.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipSecPhaseOnePolMapGroup",
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB"
+      },
+      {
+        "object": "ipSecPhaseTwoPolMapGroup",
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ipSecPhaseOnePolMapGroup": {
+    "name": "ipSecPhaseOnePolMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.172.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ikePolMapPolicyNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ipSecPhaseTwoPolMapGroup": {
+    "name": "ipSecPhaseTwoPolMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.172.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ipSecPolMapCryptoMapName"
+      },
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ipSecPolMapCryptoMapNum"
+      },
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ipSecPolMapAclString"
+      },
+      {
+        "module": "CISCO-IPSEC-POLICY-MAP-MIB",
+        "object": "ipSecPolMapAceString"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IPSEC-POLICY-MAP-MIB",
+      "Source digest sha256:608586fd6d3faf63e1fc0afdd35b74d4177cc7c085de87dbcb7d01c8b64ea184",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IPSEC-POLICY-MAP-MIB"
+  }
+}

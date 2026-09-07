@@ -1,0 +1,311 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1SnmpAgt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1SNMPAgentMIB": {
+    "name": "alcatelIND1SNMPAgentMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1SNMPAgentMIBObjects": {
+    "name": "alcatelIND1SNMPAgentMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SNMPAgentMIBConformance": {
+    "name": "alcatelIND1SNMPAgentMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SNMPAgentMIBGroups": {
+    "name": "alcatelIND1SNMPAgentMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SNMPAgentMIBCompliances": {
+    "name": "alcatelIND1SNMPAgentMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "snmpAgtConfig": {
+    "name": "snmpAgtConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "SnmpAgtSecurityLevel": {
+    "name": "SnmpAgtSecurityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSec": 1,
+          "authSet": 2,
+          "authAll": 3,
+          "privSet": 4,
+          "privAll": 5,
+          "trapOnly": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "snmpAgtSecurityLevel": {
+    "name": "snmpAgtSecurityLevel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAgtSecurityLevel",
+      "class": "type"
+    },
+    "default": {
+      "value": "noSec",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAgtCommunityMode": {
+    "name": "snmpAgtCommunityMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAgtCtlFiles": {
+    "name": "snmpAgtCtlFiles",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "snmpAgtSourceIpConfig": {
+    "name": "snmpAgtSourceIpConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "noLoopback0": 2,
+          "ipInterface": 3
+        }
+      }
+    },
+    "default": {
+      "value": "default",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpAgtSourceIp": {
+    "name": "snmpAgtSourceIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1SNMPAgentMIBCompliance": {
+    "name": "alcatelIND1SNMPAgentMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpAgtConfigGroup",
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB"
+      },
+      {
+        "object": "snmpAgtCtlFilesGroup",
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpAgtConfigGroup": {
+    "name": "snmpAgtConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtSecurityLevel"
+      },
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtCommunityMode"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpAgtCtlFilesGroup": {
+    "name": "snmpAgtCtlFilesGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtSourceIpConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtSourceIp"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpAgtViewMIB": {
+    "name": "snmpAgtViewMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "snmpAgtViewTable": {
+    "name": "snmpAgtViewTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpAgtViewEntry": {
+    "name": "snmpAgtViewEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtViewName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SNMP-AGENT-MIB",
+        "object": "snmpAgtViewTableID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snmpAgtViewName": {
+    "name": "snmpAgtViewName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpAgtViewTableID": {
+    "name": "snmpAgtViewTableID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpAgtViewType": {
+    "name": "snmpAgtViewType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.1.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-SNMP-AGENT-MIB",
+      "Source digest sha256:8f8fe0ffd1015f7a185022744c09b327b0265dd5cc80dd4326ce66d2f550c3eb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-SNMP-AGENT-MIB"
+  }
+}

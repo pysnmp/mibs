@@ -1,0 +1,196 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "cienaCesSwXgradeMIB": {
+    "name": "cienaCesSwXgradeMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2012-07-24 00:00",
+        "description": "Added a new enumeration value to OID cienaCesSwXgradeOp."
+      },
+      {
+        "revision": "2010-05-10 00:00",
+        "description": "Initial creation. This module defines the software xgrade related notifications."
+      }
+    ]
+  },
+  "cienaCesSwXgradeMIBObjects": {
+    "name": "cienaCesSwXgradeMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgrade": {
+    "name": "cienaCesSwXgrade",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeMIBNotificationPrefix": {
+    "name": "cienaCesSwXgradeMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.13",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeMIBNotifications": {
+    "name": "cienaCesSwXgradeMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.13.0",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeMIBConformance": {
+    "name": "cienaCesSwXgradeMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.3",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeMIBCompliances": {
+    "name": "cienaCesSwXgradeMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeMIBGroups": {
+    "name": "cienaCesSwXgradeMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSwXgradeGracefulUpgrade": {
+    "name": "cienaCesSwXgradeGracefulUpgrade",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSwXgradeOp": {
+    "name": "cienaCesSwXgradeOp",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "download": 1,
+          "install": 2,
+          "activate": 3,
+          "protect": 4,
+          "validate": 5,
+          "revert": 6,
+          "configure": 7,
+          "run": 8,
+          "remove": 9
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSwXgradeStatus": {
+    "name": "cienaCesSwXgradeStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.13.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failed": 2,
+          "unknown": 3,
+          "processing": 4,
+          "invalidCfgRule": 5,
+          "invalidFileName": 6,
+          "fileSystemError": 7,
+          "cannotResolveHostName": 8,
+          "tftpClientTimeout": 9,
+          "tftpServerError": 10,
+          "tftpBadTag": 11,
+          "tftpBadValue": 12,
+          "networkError": 13,
+          "platformTypeNotSupported": 14,
+          "swMgrBusy": 15,
+          "needBackupSw": 16,
+          "internalError": 17,
+          "fileNotExist": 18,
+          "missingAttribute": 19,
+          "invalidXgradeOp": 20,
+          "noDefaultTftpConfigured": 21,
+          "completedWithFailures": 22
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSwXgradeCompletion": {
+    "name": "cienaCesSwXgradeCompletion",
+    "oid": "1.3.6.1.4.1.1271.2.2.13.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SW-XGRADE-MIB",
+        "object": "cienaCesSwXgradeOp"
+      },
+      {
+        "module": "CIENA-CES-SW-XGRADE-MIB",
+        "object": "cienaCesSwXgradeStatus"
+      },
+      {
+        "module": "CIENA-CES-SW-XGRADE-MIB",
+        "object": "cienaCesSwXgradeGracefulUpgrade"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-CES-SW-XGRADE-MIB",
+      "Source digest sha256:5ccea1f2e6f24fd2d6e8d8e405332bbb10ff92e263c6ceb4fa722f419c3e698b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-CES-SW-XGRADE-MIB"
+  }
+}

@@ -1,0 +1,1157 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalContainedIn",
+      "entPhysicalDescr",
+      "entPhysicalIndex",
+      "entPhysicalName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ]
+  },
+  "ubiEntityMIB": {
+    "name": "ubiEntityMIB",
+    "oid": "1.3.6.1.4.1.7800.100.3",
+    "class": "moduleidentity"
+  },
+  "ModuleOperType": {
+    "name": "ModuleOperType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiSensorDataType": {
+    "name": "UbiSensorDataType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "volts": 3,
+          "amperes": 4,
+          "celsius": 5,
+          "dBm": 6,
+          "percentRH": 8,
+          "rpm": 9,
+          "cmm": 10,
+          "truthvalue": 11,
+          "specialEnum": 12,
+          "watts": 13,
+          "hertz": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiSensorDataScale": {
+    "name": "UbiSensorDataScale",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yocto": 1,
+          "zepto": 2,
+          "atto": 3,
+          "femto": 4,
+          "pico": 5,
+          "nano": 6,
+          "micro": 7,
+          "milli": 8,
+          "units": 9,
+          "kilo": 10,
+          "mega": 11,
+          "giga": 12,
+          "tera": 13,
+          "exa": 14,
+          "peta": 15,
+          "zetta": 16,
+          "yotta": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiSensorPrecision": {
+    "name": "UbiSensorPrecision",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -8,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UbiSensorValue_cisco": {
+    "name": "UbiSensorValue_cisco",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000000,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UbiSensorValue": {
+    "name": "UbiSensorValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "UbiTcIdentifier": {
+    "name": "UbiTcIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "gbic": 2,
+          "module": 3,
+          "sfp": 4,
+          "xbi": 5,
+          "xenpak": 6,
+          "xfp": 7,
+          "xff": 8,
+          "xfp_e": 9,
+          "xpak": 10,
+          "x2": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiTcEncodingType": {
+    "name": "UbiTcEncodingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "enc_64b": 2,
+          "enc_4b5b": 3,
+          "enc_8b10b": 4,
+          "enc_sonet": 5,
+          "enc_nrz": 6,
+          "enc_rz": 7,
+          "enc_manchester": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiTcConnectorType": {
+    "name": "UbiTcConnectorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "sc": 2,
+          "fiber_style1_copper": 3,
+          "fiber_stype2_copper": 4,
+          "bnc_tnc": 5,
+          "fiber_coaxial": 6,
+          "fiberjack": 7,
+          "lc": 8,
+          "mt_rj": 9,
+          "sg": 10,
+          "optical_pigtail": 11,
+          "hssdc2": 12,
+          "copper_pigtail": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ubiEntityMIBObjects": {
+    "name": "ubiEntityMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.3.1",
+    "class": "objectidentity"
+  },
+  "ubiEntityMIBNotificationPrefix": {
+    "name": "ubiEntityMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.3.2",
+    "class": "objectidentity"
+  },
+  "ubiEntityMIBConformance": {
+    "name": "ubiEntityMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.3.3",
+    "class": "objectidentity"
+  },
+  "ubiEntityNotificationEnables": {
+    "name": "ubiEntityNotificationEnables",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.1",
+    "class": "objectidentity"
+  },
+  "ubiExtSlot": {
+    "name": "ubiExtSlot",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.4",
+    "class": "objectidentity"
+  },
+  "ubiTransceiver": {
+    "name": "ubiTransceiver",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5",
+    "class": "objectidentity"
+  },
+  "ubiFruNotifications": {
+    "name": "ubiFruNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.3.2.0",
+    "class": "objectidentity"
+  },
+  "ubiEntitySensorNotifications": {
+    "name": "ubiEntitySensorNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.3.2.1",
+    "class": "objectidentity"
+  },
+  "ubiFRUControlEnabled": {
+    "name": "ubiFRUControlEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntSensorThresholdNotificationEnabled": {
+    "name": "ubiEntSensorThresholdNotificationEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiModuleTable": {
+    "name": "ubiModuleTable",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiModuleEntry": {
+    "name": "ubiModuleEntry",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiModuleId": {
+    "name": "ubiModuleId",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleType": {
+    "name": "ubiModuleType",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleOperStatus": {
+    "name": "ubiModuleOperStatus",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleStatusLastChangeTime": {
+    "name": "ubiModuleStatusLastChangeTime",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleSerialNumber": {
+    "name": "ubiModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleSlotNumber": {
+    "name": "ubiModuleSlotNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModulePortNumber": {
+    "name": "ubiModulePortNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiModuleAction": {
+    "name": "ubiModuleAction",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSlotTable": {
+    "name": "ubiSlotTable",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSlotEntry": {
+    "name": "ubiSlotEntry",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSlotModuleId": {
+    "name": "ubiSlotModuleId",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSlotId": {
+    "name": "ubiSlotId",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSlotType": {
+    "name": "ubiSlotType",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSlotOperStatus": {
+    "name": "ubiSlotOperStatus",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSlotPortNumber": {
+    "name": "ubiSlotPortNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSlotSerialNumber": {
+    "name": "ubiSlotSerialNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIEEE1588SlotOperStatus": {
+    "name": "ubiIEEE1588SlotOperStatus",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equip": 1,
+          "unequip": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMngSlotOperStatus": {
+    "name": "ubiMngSlotOperStatus",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equip": 1,
+          "unequip": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTransceiverMonitoring": {
+    "name": "ubiTransceiverMonitoring",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntitySensorTable": {
+    "name": "ubiEntitySensorTable",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiEntitySensorEntry": {
+    "name": "ubiEntitySensorEntry",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntSensorType": {
+    "name": "ubiEntSensorType",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorDataType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiEntSensorScale": {
+    "name": "ubiEntSensorScale",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorDataScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiEntSensorValue": {
+    "name": "ubiEntSensorValue",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiEntSensorEventStatus": {
+    "name": "ubiEntSensorEventStatus",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "normal": 1,
+          "highAlarm": 2,
+          "highWarning": 3,
+          "lowWarning": 4,
+          "lowAlarm": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiEntSensorEventUpdateTime": {
+    "name": "ubiEntSensorEventUpdateTime",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiEntSensorAlarmHighThreshold": {
+    "name": "ubiEntSensorAlarmHighThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntSensorWarningHighThreshold": {
+    "name": "ubiEntSensorWarningHighThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntSensorWarningLowThreshold": {
+    "name": "ubiEntSensorWarningLowThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntSensorAlarmLowThreshold": {
+    "name": "ubiEntSensorAlarmLowThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEntSensorName": {
+    "name": "ubiEntSensorName",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTransceiverInfoTable": {
+    "name": "ubiTransceiverInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiTransceiverInfoEntry": {
+    "name": "ubiTransceiverInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiTcIdentifier": {
+    "name": "ubiTcIdentifier",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiTcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorOUI": {
+    "name": "ubiTcVendorOUI",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorName": {
+    "name": "ubiTcVendorName",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorPartNumber": {
+    "name": "ubiTcVendorPartNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorRevisionLevel": {
+    "name": "ubiTcVendorRevisionLevel",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorSerialNumber": {
+    "name": "ubiTcVendorSerialNumber",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcVendorManufacturingDate": {
+    "name": "ubiTcVendorManufacturingDate",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcWaveLength": {
+    "name": "ubiTcWaveLength",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Nanometer",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcConnector": {
+    "name": "ubiTcConnector",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiTcConnectorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTcLength": {
+    "name": "ubiTcLength",
+    "oid": "1.3.6.1.4.1.7800.100.3.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Meter",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiFRUInserted": {
+    "name": "ubiFRUInserted",
+    "oid": "1.3.6.1.4.1.7800.100.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiFRURemoved": {
+    "name": "ubiFRURemoved",
+    "oid": "1.3.6.1.4.1.7800.100.3.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntSensorThreshold": {
+    "name": "ubiEntSensorThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.3.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorEventStatus"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorValue"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorAlarmHighThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorWarningHighThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorWarningLowThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorAlarmLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntityMIBCompliances": {
+    "name": "ubiEntityMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.1",
+    "class": "objectidentity"
+  },
+  "ubiEntityMIBGroups": {
+    "name": "ubiEntityMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2",
+    "class": "objectidentity"
+  },
+  "ubiEntityMIBCompliance": {
+    "name": "ubiEntityMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiEntityMIBModuleGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBSlotGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBNotificationGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntiryMIBIEEE1588SlotGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBTransceiverGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBModuleGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBSlotGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBNotificationGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntiryMIBIEEE1588SlotGroup",
+        "module": "UBQS-ENTITY-MIB"
+      },
+      {
+        "object": "ubiEntityMIBTransceiverGroup",
+        "module": "UBQS-ENTITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntityMIBModuleGroup": {
+    "name": "ubiEntityMIBModuleGroup",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityModuleAdminStatus"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityModuleOperStatus"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityModuleStatusLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntitySlotGroup": {
+    "name": "ubiEntitySlotGroup",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntitySlotOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntityMIBNotificationGroup": {
+    "name": "ubiEntityMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityEnableFruControlNotification"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityFRUInserted"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntityFRURemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntiryMIBIEEE1588SlotGroup": {
+    "name": "ubiEntiryMIBIEEE1588SlotGroup",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiIEEE1588SlotOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEntityMIBTransceiverGroup": {
+    "name": "ubiEntityMIBTransceiverGroup",
+    "oid": "1.3.6.1.4.1.7800.100.3.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorType"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorScale"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorValue"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorEventStatus"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorEventUpdateTime"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorAlarmHighThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorWarningHighThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorWarningLowThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiEntSensorAlarmLowThreshold"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcIdentifier"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorOUI"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorName"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorPartNumber"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorRevisionLevel"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorSerialNumber"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcVendorManufacturingDate"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcWaveLength"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcConnector"
+      },
+      {
+        "module": "UBQS-ENTITY-MIB",
+        "object": "ubiTcLength"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-ENTITY-MIB",
+      "Source digest sha256:b702449479c93d244612a6b5c4e2829b0192c27013e1835d5994e6f0bc5000eb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-ENTITY-MIB"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "imports": {
+    "class": "imports",
+    "FIREBRICK-MIB": [
+      "firebrickNewStyle"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fbIPsecMib": {
+    "name": "fbIPsecMib",
+    "oid": "1.3.6.1.4.1.24693.100.500",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-06-16 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "fbIPsecGeneral": {
+    "name": "fbIPsecGeneral",
+    "oid": "1.3.6.1.4.1.24693.100.500.1",
+    "class": "objectidentity"
+  },
+  "fbIPsecEstablished": {
+    "name": "fbIPsecEstablished",
+    "oid": "1.3.6.1.4.1.24693.100.500.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecHalfOpen": {
+    "name": "fbIPsecHalfOpen",
+    "oid": "1.3.6.1.4.1.24693.100.500.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionTable": {
+    "name": "fbIPsecConnectionTable",
+    "oid": "1.3.6.1.4.1.24693.100.500.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbIPsecConnectionEntry": {
+    "name": "fbIPsecConnectionEntry",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIREBRICK-IPSEC-MIB",
+        "object": "fbIPsecConnectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fbIPsecConnectionIndex": {
+    "name": "fbIPsecConnectionIndex",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbIPsecConnectionName": {
+    "name": "fbIPsecConnectionName",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionState": {
+    "name": "fbIPsecConnectionState",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionUptime": {
+    "name": "fbIPsecConnectionUptime",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionLocalID": {
+    "name": "fbIPsecConnectionLocalID",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionPeerID": {
+    "name": "fbIPsecConnectionPeerID",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbIPsecConnectionPeerAddress": {
+    "name": "fbIPsecConnectionPeerAddress",
+    "oid": "1.3.6.1.4.1.24693.100.500.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FIREBRICK-IPSEC-MIB",
+      "Source digest sha256:4b8e1be103bf4765a1809efa379b08e7c4a27da3bc09e28c03457a8d0889c966",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FIREBRICK-IPSEC-MIB"
+  }
+}

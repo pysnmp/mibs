@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfAdmin"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfTextualConventions": {
+    "name": "hpicfTextualConventions",
+    "oid": "1.3.6.1.4.1.11.2.14.10.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-18 23:05",
+        "description": "Added gigabitEthernetESP and tenGigabitEthernetCX type for HpSwitchPortType."
+      },
+      {
+        "revision": "2000-11-03 07:17",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "ConfigStatus": {
+    "name": "ConfigStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpSwitchPortType": {
+    "name": "HpSwitchPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "unknown": 3,
+          "ethernetCsmacd": 6,
+          "iso88023Csmacd": 7,
+          "fddi": 15,
+          "atm": 37,
+          "propMultiplexor": 54,
+          "ieee80212": 55,
+          "fastEther": 62,
+          "fastEtherFX": 69,
+          "fastEtherFX-sfp": 70,
+          "gigabitEthernetSX": 117,
+          "gigabitEthernetLX": 118,
+          "gigabitEthernetT": 119,
+          "gigabitEthernetStk": 120,
+          "gigabitEthernetLH": 121,
+          "tenGbE-CX4": 122,
+          "gigabitEthernetESP": 123,
+          "tenGbE-SR": 124,
+          "tenGbE-ER": 125,
+          "tenGbE-LR": 126,
+          "gigabitEthernetT-sfp": 127
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-TC",
+      "Source digest sha256:52c1de3b59084fc073c8c1df7e319b94d53b329b07405666c7eb71405a669672",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-TC"
+  }
+}

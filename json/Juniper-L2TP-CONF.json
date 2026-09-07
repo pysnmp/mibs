@@ -1,0 +1,354 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniL2tpAgent": {
+    "name": "juniL2tpAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-16 15:58",
+        "description": "A new object was added to the status group and a new object was added to the configuration group."
+      },
+      {
+        "revision": "2005-07-28 22:00",
+        "description": "New objects were added to the configuration and status groups."
+      },
+      {
+        "revision": "2005-02-17 02:24",
+        "description": "A new object was added to the status group and a new object was added to the configuration group."
+      },
+      {
+        "revision": "2004-09-02 23:47",
+        "description": "A new object was added to the configuration group."
+      },
+      {
+        "revision": "2004-05-04 14:31",
+        "description": "A new object was added to the configuration group."
+      },
+      {
+        "revision": "2004-03-08 18:04",
+        "description": "A new object was added to the configuration group."
+      },
+      {
+        "revision": "2004-03-08 18:04",
+        "description": "New objects were added to the configuration group."
+      },
+      {
+        "revision": "2003-02-13 21:12",
+        "description": "Replaced Unisphere names with Juniper names. New objects were added to the configuration group."
+      },
+      {
+        "revision": "2003-02-12 21:03",
+        "description": "New objects were added to the configuration group."
+      },
+      {
+        "revision": "2003-02-07 22:26",
+        "description": "Added juniL2tpSysConfigDisableCallingNumberAvp."
+      },
+      {
+        "revision": "2001-10-17 16:03",
+        "description": "New objects were added to the configuration group."
+      },
+      {
+        "revision": "2001-10-17 14:21",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniL2tpAgentV1": {
+    "name": "juniL2tpAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 2.x system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup",
+          "juniL2tpStatusGroup",
+          "juniL2tpStatGroup",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV2": {
+    "name": "juniL2tpAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 3.0 and 3.1 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV3": {
+    "name": "juniL2tpAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 3.2 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup2",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV4": {
+    "name": "juniL2tpAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 3.3 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup3",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV5": {
+    "name": "juniL2tpAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 3.4 thru 4.0 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup4",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV6": {
+    "name": "juniL2tpAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 4.1 and subsequent 4.x\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup5",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV7": {
+    "name": "juniL2tpAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 5.0 system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup6",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV8": {
+    "name": "juniL2tpAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component was supported in JUNOSe 5.1 and 5.1 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup7",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV9": {
+    "name": "juniL2tpAgentV9",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.9",
+    "class": "agentcapabilities",
+    "productrelease": "Version 9 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component is supported in JUNOSe 5.3 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup8",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV10": {
+    "name": "juniL2tpAgentV10",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.10",
+    "class": "agentcapabilities",
+    "productrelease": "Version 10 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component is supported in JUNOSe 6.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup9",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV11": {
+    "name": "juniL2tpAgentV11",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.11",
+    "class": "agentcapabilities",
+    "productrelease": "Version 11 of the L2TP component of the JUNOSe SNMP agent.  This version\n        of the L2TP component is supported in JUNOSe 7.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup10",
+          "juniL2tpStatusGroup2",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV12": {
+    "name": "juniL2tpAgentV12",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.12",
+    "class": "agentcapabilities",
+    "productrelease": "Version 12 of the L2TP component of the JUNOSe SNMP agent.  This\n        version of the L2TP component is supported in JUNOSe 7.1 and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup11",
+          "juniL2tpStatusGroup3",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpAgentV13": {
+    "name": "juniL2tpAgentV13",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.13",
+    "class": "agentcapabilities",
+    "productrelease": "Version 13 of the L2TP component of the JUNOSe SNMP agent.  This\n        version of the L2TP component is supported in JUNOSe Kyoto and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup12",
+          "juniL2tpStatusGroup4",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpAgentV14": {
+    "name": "juniL2tpAgentV14",
+    "oid": "1.3.6.1.4.1.4874.5.2.24.14",
+    "class": "agentcapabilities",
+    "productrelease": "Version 14 of the L2TP component of the JUNOSe SNMP agent.  This\n        version of the L2TP component is supported in JUNOSe 8.0 and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "includes": [
+          "juniL2tpConfigGroup13",
+          "juniL2tpStatusGroup5",
+          "juniL2tpStatGroup2",
+          "juniL2tpMapGroup",
+          "juniL2tpUdpIpGroup1"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-L2TP-CONF",
+      "Source digest sha256:7df6cdec1096db00b80757c469b41b3e74376b9eb70b80e64973e038e7853611",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-L2TP-CONF"
+  }
+}

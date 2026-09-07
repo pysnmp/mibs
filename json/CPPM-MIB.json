@@ -1,0 +1,2246 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "clearpass"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cppmMIB": {
+    "name": "cppmMIB",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1906-11-27 20:30",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "cppmServerInfoGroup": {
+    "name": "cppmServerInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1",
+    "class": "objectidentity"
+  },
+  "cppmProcInfoGroup": {
+    "name": "cppmProcInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "cppmNetworkInfoGroup": {
+    "name": "cppmNetworkInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3",
+    "class": "objectidentity"
+  },
+  "cppmTraps": {
+    "name": "cppmTraps",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200",
+    "class": "objectidentity"
+  },
+  "cppmSystemTable": {
+    "name": "cppmSystemTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cppmSystemTableEntry": {
+    "name": "cppmSystemTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmSystemIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cppmSystemModel": {
+    "name": "cppmSystemModel",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemSerialNumber": {
+    "name": "cppmSystemSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemVersion": {
+    "name": "cppmSystemVersion",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemHostname": {
+    "name": "cppmSystemHostname",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmClusterNodeType": {
+    "name": "cppmClusterNodeType",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmZoneName": {
+    "name": "cppmZoneName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNumClusterNodes": {
+    "name": "cppmNumClusterNodes",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNwMgmtPortIPAddress": {
+    "name": "cppmNwMgmtPortIPAddress",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNwMgmtPortMACAddress": {
+    "name": "cppmNwMgmtPortMACAddress",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNwDataPortIPAddress": {
+    "name": "cppmNwDataPortIPAddress",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNwDataPortMACAddress": {
+    "name": "cppmNwDataPortMACAddress",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemMemoryTotal": {
+    "name": "cppmSystemMemoryTotal",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemMemoryFree": {
+    "name": "cppmSystemMemoryFree",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemDiskSpaceTotal": {
+    "name": "cppmSystemDiskSpaceTotal",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemDiskSpaceFree": {
+    "name": "cppmSystemDiskSpaceFree",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemNumCPUs": {
+    "name": "cppmSystemNumCPUs",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemUptime": {
+    "name": "cppmSystemUptime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmSystemIdx": {
+    "name": "cppmSystemIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cppmHardwareFanStatus": {
+    "name": "cppmHardwareFanStatus",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmHardwarePowerStatus": {
+    "name": "cppmHardwarePowerStatus",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmHardwarePowerStatusDetails": {
+    "name": "cppmHardwarePowerStatusDetails",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmHardwareDiskStatus": {
+    "name": "cppmHardwareDiskStatus",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusServerTable": {
+    "name": "radiusServerTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusServerTableEntry": {
+    "name": "radiusServerTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmSystemHostname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radPolicyEvalTime": {
+    "name": "radPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthRequestTime": {
+    "name": "radAuthRequestTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radServerCounterSuccess": {
+    "name": "radServerCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radServerCounterFailure": {
+    "name": "radServerCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radServerCounterCount": {
+    "name": "radServerCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusServerAuthTable": {
+    "name": "radiusServerAuthTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusServerAuthTableEntry": {
+    "name": "radiusServerAuthTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "radAuthSourceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radAuthSourceIdx": {
+    "name": "radAuthSourceIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthSourceName": {
+    "name": "radAuthSourceName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthCounterSuccess": {
+    "name": "radAuthCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthCounterFailure": {
+    "name": "radAuthCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthCounterCount": {
+    "name": "radAuthCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radAuthCounterTime": {
+    "name": "radAuthCounterTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyServerTable": {
+    "name": "policyServerTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyServerTableEntry": {
+    "name": "policyServerTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmSystemHostname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "psServicePolicyEvalCount": {
+    "name": "psServicePolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psRolemappingPolicyEvalCount": {
+    "name": "psRolemappingPolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psPosturePolicyEvalCount": {
+    "name": "psPosturePolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAuditPolicyEvalCount": {
+    "name": "psAuditPolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psRestrictionPolicyEvalCount": {
+    "name": "psRestrictionPolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psEnforcementPolicyEvalCount": {
+    "name": "psEnforcementPolicyEvalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psServicePolicyEvalTime": {
+    "name": "psServicePolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psRolemappingPolicyEvalTime": {
+    "name": "psRolemappingPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psPosturePolicyEvalTime": {
+    "name": "psPosturePolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAuditPolicyEvalTime": {
+    "name": "psAuditPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psRestrictionPolicyEvalTime": {
+    "name": "psRestrictionPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psEnforcementPolicyEvalTime": {
+    "name": "psEnforcementPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psSessionlogTime": {
+    "name": "psSessionlogTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAuthCounterSuccess": {
+    "name": "psAuthCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAuthCounterFailure": {
+    "name": "psAuthCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAuthCounterTotal": {
+    "name": "psAuthCounterTotal",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dailySuccessAuthCount": {
+    "name": "dailySuccessAuthCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dailyFailedAuthCount": {
+    "name": "dailyFailedAuthCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dailyTotalAuthCount": {
+    "name": "dailyTotalAuthCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyServerProtoTable": {
+    "name": "policyServerProtoTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyServerProtoTableEntry": {
+    "name": "policyServerProtoTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "psProtocolIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "psProtocolIdx": {
+    "name": "psProtocolIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psProtocolName": {
+    "name": "psProtocolName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psPolicyEvalTime": {
+    "name": "psPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyServerAutzTable": {
+    "name": "policyServerAutzTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyServerAutzTableEntry": {
+    "name": "policyServerAutzTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "psAutzSourceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "psAutzSourceIdx": {
+    "name": "psAutzSourceIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAutzSourceName": {
+    "name": "psAutzSourceName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAutzCounterSuccess": {
+    "name": "psAutzCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAutzCounterFailure": {
+    "name": "psAutzCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAutzCounterCount": {
+    "name": "psAutzCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psAutzCounterTime": {
+    "name": "psAutzCounterTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webAuthProtoTable": {
+    "name": "webAuthProtoTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webAuthProtoTableEntry": {
+    "name": "webAuthProtoTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "waProtocolIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "waProtocolIdx": {
+    "name": "waProtocolIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waProtocolName": {
+    "name": "waProtocolName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waAuthCounterSuccess": {
+    "name": "waAuthCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waAuthCounterFailure": {
+    "name": "waAuthCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waAuthCounterCount": {
+    "name": "waAuthCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waAuthCounterTime": {
+    "name": "waAuthCounterTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waAuthCounterAuthTime": {
+    "name": "waAuthCounterAuthTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waServicePolicyEvalTime": {
+    "name": "waServicePolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "waPolicyEvalTime": {
+    "name": "waPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacacsAuthTable": {
+    "name": "tacacsAuthTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tacacsAuthTableEntry": {
+    "name": "tacacsAuthTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmSystemHostname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tacAuthCounterSuccess": {
+    "name": "tacAuthCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAuthCounterFailure": {
+    "name": "tacAuthCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAuthCounterCount": {
+    "name": "tacAuthCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAuthCounterTime": {
+    "name": "tacAuthCounterTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAuthCounterAuthTime": {
+    "name": "tacAuthCounterAuthTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacServicePolicyEvalTime": {
+    "name": "tacServicePolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacPolicyEvalTime": {
+    "name": "tacPolicyEvalTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacacsAutzTable": {
+    "name": "tacacsAutzTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tacacsAutzTableEntry": {
+    "name": "tacacsAutzTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmSystemHostname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tacAutzCounterSuccess": {
+    "name": "tacAutzCounterSuccess",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAutzCounterFailure": {
+    "name": "tacAutzCounterFailure",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAutzCounterCount": {
+    "name": "tacAutzCounterCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tacAutzCounterTime": {
+    "name": "tacAutzCounterTime",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "networkTrafficTable": {
+    "name": "networkTrafficTable",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "networkTrafficTableEntry": {
+    "name": "networkTrafficTableEntry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPPM-MIB",
+        "object": "nwAppIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nwAppIdx": {
+    "name": "nwAppIdx",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwAppName": {
+    "name": "nwAppName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwAppPort": {
+    "name": "nwAppPort",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nwTrafficTotal": {
+    "name": "nwTrafficTotal",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clearpassTrapObjectsGroup": {
+    "name": "clearpassTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100",
+    "class": "objectidentity"
+  },
+  "cppmNodeName": {
+    "name": "cppmNodeName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNodeIp": {
+    "name": "cppmNodeIp",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmClusterServerIp": {
+    "name": "cppmClusterServerIp",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNodeApplicationName": {
+    "name": "cppmNodeApplicationName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmNodeCertApplicationName": {
+    "name": "cppmNodeCertApplicationName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmLicenseDaysRemaining": {
+    "name": "cppmLicenseDaysRemaining",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmActivationDaysRemaining": {
+    "name": "cppmActivationDaysRemaining",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmCertDaysRemaining": {
+    "name": "cppmCertDaysRemaining",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmDiskSpaceRemaining": {
+    "name": "cppmDiskSpaceRemaining",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmMemoryRemaining": {
+    "name": "cppmMemoryRemaining",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmClusterOutOfSyncMinutes": {
+    "name": "cppmClusterOutOfSyncMinutes",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmClusterLicenseTotalCount": {
+    "name": "cppmClusterLicenseTotalCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmClusterLicenseUsageCount": {
+    "name": "cppmClusterLicenseUsageCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmResourceUnit": {
+    "name": "cppmResourceUnit",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmImageFile": {
+    "name": "cppmImageFile",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmImageInstallStatus": {
+    "name": "cppmImageInstallStatus",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmServiceName": {
+    "name": "cppmServiceName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmServiceStatus": {
+    "name": "cppmServiceStatus",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmLicenseApplicationName": {
+    "name": "cppmLicenseApplicationName",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmLicenseOverrunDailyCount": {
+    "name": "cppmLicenseOverrunDailyCount",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmTrapMessage": {
+    "name": "cppmTrapMessage",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmCPUAverageLoad": {
+    "name": "cppmCPUAverageLoad",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.100.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cppmLicenseExpiry": {
+    "name": "cppmLicenseExpiry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmLicenseDaysRemaining"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmNodeApplicationName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmActivationExpiry": {
+    "name": "cppmActivationExpiry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmActivationDaysRemaining"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmNodeApplicationName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmNodeCertExpiry": {
+    "name": "cppmNodeCertExpiry",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmNodeCertApplicationName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmCertDaysRemaining"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmLowDiskSpace": {
+    "name": "cppmLowDiskSpace",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmDiskSpaceRemaining"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmResourceUnit"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmLowMemory": {
+    "name": "cppmLowMemory",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmMemoryRemaining"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmResourceUnit"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterNodeAddNotification": {
+    "name": "cppmClusterNodeAddNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterServerIp"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterNodeDelNotification": {
+    "name": "cppmClusterNodeDelNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterServerIp"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterNodePromNotification": {
+    "name": "cppmClusterNodePromNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterServerIp"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterNodeDbldNotification": {
+    "name": "cppmClusterNodeDbldNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterServerIp"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterNodeNSyncNotification": {
+    "name": "cppmClusterNodeNSyncNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterServerIp"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterOutOfSyncMinutes"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterPwdChangeNotification": {
+    "name": "cppmClusterPwdChangeNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmConfigReset": {
+    "name": "cppmConfigReset",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmConfigRestore": {
+    "name": "cppmConfigRestore",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmUpdateNotification": {
+    "name": "cppmUpdateNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1014",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmImageFile"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmImageInstallStatus"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmUpgradeNotification": {
+    "name": "cppmUpgradeNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmImageFile"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmImageInstallStatus"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterLicenseUsage": {
+    "name": "cppmClusterLicenseUsage",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmNodeApplicationName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterLicenseTotalCount"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmClusterLicenseUsageCount"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmServiceStopNotification": {
+    "name": "cppmServiceStopNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceStatus"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmServiceStartNotification": {
+    "name": "cppmServiceStartNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1018",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceStatus"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmServiceRestartNotification": {
+    "name": "cppmServiceRestartNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1019",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmServiceStatus"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmHighCPULoadNotification": {
+    "name": "cppmHighCPULoadNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1021",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmCPUAverageLoad"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmCoreDumpNotification": {
+    "name": "cppmCoreDumpNotification",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1022",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cppmClusterLicenseOverrun": {
+    "name": "cppmClusterLicenseOverrun",
+    "oid": "1.3.6.1.4.1.14823.1.6.1.1.200.1023",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmLicenseApplicationName"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmLicenseOverrunDailyCount"
+      },
+      {
+        "module": "CPPM-MIB",
+        "object": "cppmTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CPPM-MIB",
+      "Source digest sha256:9bbcc35a08651a047a84ad778351433fc997c8daf11ea5ce1d7e4bbef79c81a9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CPPM-MIB"
+  }
+}

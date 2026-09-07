@@ -1,0 +1,331 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwTimeRangeMIB": {
+    "name": "dlinkSwTimeRangeMIB",
+    "oid": "1.3.6.1.4.1.171.14.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-22 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dTimeRangeMIBNotifications": {
+    "name": "dTimeRangeMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.50.0",
+    "class": "objectidentity"
+  },
+  "dTimeRangeMIBObjects": {
+    "name": "dTimeRangeMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.50.1",
+    "class": "objectidentity"
+  },
+  "dTimeRangeMIBConformance": {
+    "name": "dTimeRangeMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.50.2",
+    "class": "objectidentity"
+  },
+  "dTimeRangeProfileTable": {
+    "name": "dTimeRangeProfileTable",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileEntry": {
+    "name": "dTimeRangeProfileEntry",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfilePeriodType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileStartDayOfWeek",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileStartHour",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileStartMinute",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileEndDayOfWeek",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileEndHour",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileEndMinute",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeRangeProfileName": {
+    "name": "dTimeRangeProfileName",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfilePeriodType": {
+    "name": "dTimeRangeProfilePeriodType",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daily": 1,
+          "weekly": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileStartDayOfWeek": {
+    "name": "dTimeRangeProfileStartDayOfWeek",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7,
+          "notApplicable": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileStartHour": {
+    "name": "dTimeRangeProfileStartHour",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileStartMinute": {
+    "name": "dTimeRangeProfileStartMinute",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileEndDayOfWeek": {
+    "name": "dTimeRangeProfileEndDayOfWeek",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7,
+          "notApplicable": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileEndHour": {
+    "name": "dTimeRangeProfileEndHour",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileEndMinute": {
+    "name": "dTimeRangeProfileEndMinute",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeRangeProfileRowStatus": {
+    "name": "dTimeRangeProfileRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.50.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dTimeRangeCompliances": {
+    "name": "dTimeRangeCompliances",
+    "oid": "1.3.6.1.4.1.171.14.50.2.1",
+    "class": "objectidentity"
+  },
+  "dTimeRangeCompliance": {
+    "name": "dTimeRangeCompliance",
+    "oid": "1.3.6.1.4.1.171.14.50.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dTimeRangeProfileCfgGroup",
+        "module": "DLINKSW-TIME-RANGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeRangeGroups": {
+    "name": "dTimeRangeGroups",
+    "oid": "1.3.6.1.4.1.171.14.50.2.2",
+    "class": "objectidentity"
+  },
+  "dTimeRangeProfileCfgGroup": {
+    "name": "dTimeRangeProfileCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.50.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TIME-RANGE-MIB",
+        "object": "dTimeRangeProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-TIME-RANGE-MIB",
+      "Source digest sha256:d7da39c65f904e67b27ea83fb8191f2c4faca2d9f7b33aafbde8c8aac02e984a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-TIME-RANGE-MIB"
+  }
+}

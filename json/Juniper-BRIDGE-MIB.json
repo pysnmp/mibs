@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniNextIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniBridgeMIB": {
+    "name": "juniBridgeMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.63",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-04 20:39",
+        "description": "Import MacAddress from SNMPv2-TC."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniBridgeIfLayer": {
+    "name": "juniBridgeIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1",
+    "class": "objectidentity"
+  },
+  "juniBridgeAgeLayer": {
+    "name": "juniBridgeAgeLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.2",
+    "class": "objectidentity"
+  },
+  "juniBridgeMiscCounters": {
+    "name": "juniBridgeMiscCounters",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.3",
+    "class": "objectidentity"
+  },
+  "juniBridgeIfNextIfIndex": {
+    "name": "juniBridgeIfNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniBridgeIfTable": {
+    "name": "juniBridgeIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniBridgeIfEntry": {
+    "name": "juniBridgeIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniBridgeIfIndex": {
+    "name": "juniBridgeIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniBridgeIfRowStatus": {
+    "name": "juniBridgeIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniBridgeIfLowerIfIndex": {
+    "name": "juniBridgeIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniBridgeSPolicyIndex": {
+    "name": "juniBridgeSPolicyIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniBridgeIfMaxLearnCount": {
+    "name": "juniBridgeIfMaxLearnCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniBridgeAgeTable": {
+    "name": "juniBridgeAgeTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniBridgeAgeEntry": {
+    "name": "juniBridgeAgeEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniBridgeMacAddress": {
+    "name": "juniBridgeMacAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniBridgeAge": {
+    "name": "juniBridgeAge",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniBridgeDupMacCounter": {
+    "name": "juniBridgeDupMacCounter",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniBridgeConformance": {
+    "name": "juniBridgeConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.4",
+    "class": "objectidentity"
+  },
+  "juniBridgeCompliances": {
+    "name": "juniBridgeCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.4.1",
+    "class": "objectidentity"
+  },
+  "juniBridgeGroups": {
+    "name": "juniBridgeGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.4.2",
+    "class": "objectidentity"
+  },
+  "juniBridgeCompliance": {
+    "name": "juniBridgeCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniBridgeGroup",
+        "module": "Juniper-BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniBridgeGroup": {
+    "name": "juniBridgeGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.63.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeIfNextIfIndex"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeIfRowStatus"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeSPolicyIndex"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeIfMaxLearnCount"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeAge"
+      },
+      {
+        "module": "Juniper-BRIDGE-MIB",
+        "object": "juniBridgeDupMacCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-BRIDGE-MIB",
+      "Source digest sha256:622b6dada198c6cb8a1db71d8a893ef30f657254bf6e9ef3b4200f83e91c93f7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-BRIDGE-MIB"
+  }
+}

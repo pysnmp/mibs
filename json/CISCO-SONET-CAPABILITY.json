@@ -1,0 +1,263 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSonetCapability": {
+    "name": "ciscoSonetCapability",
+    "oid": "1.3.6.1.4.1.9.7.266",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-19 00:00",
+        "description": "Added ciscoSonetCapabilityV5R00."
+      },
+      {
+        "revision": "2003-03-11 00:00",
+        "description": "Added ciscoSonetCapabilityV4R00 for modules: 10 Gig. ATM Switch Service Module(AXSM-XG), AXSM Service Module Enhanced(AXSM-E) and Processor Switch Module Enhanced(PXM1E) controller card."
+      },
+      {
+        "revision": "2002-03-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSonetCapabilityAxsmV2R0100": {
+    "name": "ciscoSonetCapabilityAxsmV2R0100",
+    "oid": "1.3.6.1.4.1.9.7.266.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.00",
+    "capabilities": [
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetPathStuff2",
+          "sonetFarEndLineStuff2",
+          "sonetFarEndPathStuff2"
+        ],
+        "variations": [
+          {
+            "object": "sonetPathCurrentWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLoopbackConfig",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetCapabilitySrmeV3R00": {
+    "name": "ciscoSonetCapabilitySrmeV3R00",
+    "oid": "1.3.6.1.4.1.9.7.266.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.00",
+    "capabilities": [
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetPathStuff2"
+        ],
+        "variations": [
+          {
+            "object": "sonetPathCurrentWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLoopbackConfig",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetCapabilityV4R00": {
+    "name": "ciscoSonetCapabilityV4R00",
+    "oid": "1.3.6.1.4.1.9.7.266.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8950  and MGX8850 Release 4.0.00",
+    "capabilities": [
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetPathStuff2",
+          "sonetFarEndLineStuff2",
+          "sonetFarEndPathStuff2"
+        ],
+        "variations": [
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLoopbackConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "sonetPathCurrentWidth",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetCapabilityV5R00": {
+    "name": "ciscoSonetCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.266.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetPathStuff2"
+        ]
+      },
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetPathStuff2",
+          "sonetFarEndLineStuff2",
+          "sonetFarEndPathStuff2"
+        ],
+        "variations": [
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLoopbackConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetSESthresholdSet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetPathCurrentWidth",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sts1": 1
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SONET-CAPABILITY",
+      "Source digest sha256:f516dea0e1f32f64ea8b90f967305c41b607b8113320ae7e77be92c8c16ff849",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SONET-CAPABILITY"
+  }
+}

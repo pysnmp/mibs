@@ -1,0 +1,6321 @@
+--   ***********************************************************************
+-- File SA_Europe_DCM_SMIv2.mib
+-- 
+-- Copyright (c) 2002-2006 by Scientific-Atlanta Europe nv
+-- 
+-- This document (SNMP MIB file) is the intellectual property of 
+-- Scientific Atlanta Europe nv and contains confidential information. 
+-- All reproduction and communication to third parties is strictly
+-- prohibited without prior consent of Scientific-Atlanta Europe nv.
+-- 
+-- ***********************************************************************
+
+	SAEUROPE-DCM-MIB DEFINITIONS ::= BEGIN
+ 
+		IMPORTS
+			tsProcessorsMIBGroups, tsProcessors			
+				FROM SAEUROPE-ROOT-MIB			
+			OBJECT-GROUP, MODULE-COMPLIANCE			
+				FROM SNMPv2-CONF			
+			IpAddress, Integer32, Unsigned32, Counter64, OBJECT-TYPE, 
+			MODULE-IDENTITY			
+				FROM SNMPv2-SMI			
+			RowStatus, TruthValue, DisplayString			
+				FROM SNMPv2-TC;
+	
+	
+		saEuropeDcmModule MODULE-IDENTITY 
+			LAST-UPDATED "201206141300Z"		-- June 14, 2012 at 13:00 GMT
+			ORGANIZATION 
+				"Synamedia"
+			CONTACT-INFO 
+				"https://www.synamedia.com/video-professional-services/"
+			DESCRIPTION 
+				"MIB for the DCM device.
+				In all the tables in this MIB, UNDO is not guaranteed to work on a row destruction.
+				i.e. if you destroy a row and simultaneously do something else that fails, it is not guaranteed
+				that the row will be restored, and if it is restored, it might have changed."
+			REVISION "200602161440Z"		-- February 16, 2006 at 14:40 GMT
+			DESCRIPTION 
+				"V01.00.00
+				Initial version of the DCM MIB."
+			REVISION "200610111458Z"		-- October 11, 2006 at 14:58 GMT
+			DESCRIPTION 
+				"V01.00.01
+				Added dcmConfigInputTsTable, such that (board, port, UDP, IP) can
+				be converted into an input TS index with a single SNMP GETNEXT."
+			REVISION "200612041300Z"		-- December 04, 2006 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.02
+				Added dcmTrGroupPortNumber to the index of the dcmTrGroupTable."
+			REVISION "200612211300Z"		-- December 21, 2006 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.03
+				dcmTrGroupType is now read-create
+				ColumnNumbers now follow each other (various tables)
+				Fixed range of transrater group id's, Ts index"
+			REVISION "200701051300Z"		-- January 5, 2007 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.04
+				various changes to dpi table, improved documentation"
+			REVISION "200705241300Z"		-- May 24, 2007 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.05
+				support two new DPI modes"
+			REVISION "200711131300Z"		-- November 13, 2007 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.06, DCM 5.0 release
+				support for AutoPass feature"
+			REVISION "200801141300Z"		-- January 14, 2008 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.07, DCM 5.1 release
+				support for Fec Encoding on GbE OutputTs"
+			REVISION "200901131300Z"		-- January 13, 2009 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.08, DCM 6.9 release
+				support for Transparent loopthrough and ASI input bandwidth limitations"
+			REVISION "200910131300Z"		-- October 13, 2009 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.09, DCM 8.0 release
+				support for triggering service backup (per board or per TS) and device backup"
+			REVISION "201001151300Z"		-- January 15, 2010 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.09, DCM 8.1 release
+				support for service backup and ts backup"
+			REVISION "201105271300Z"		-- May 27, 2011 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.10, DCM 9.0 release
+				support for IPGW"
+			REVISION "201203021300Z"		-- March 3, 2012 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.11, DCM 10.10 release
+				support for 4 IPGW boards"
+			REVISION "201206141300Z"		-- June 14, 2012 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.12, DCM 10.20 release
+				Extended support for service backup (MFP,TC,DVBS2)"
+			REVISION "201307121300Z"		-- July 12, 2013 at 13:00 GMT
+			DESCRIPTION 
+				"V01.00.13, DCM 13.0 release
+				support for GbE port mode"
+			::= { tsProcessors 1 }
+
+		
+	
+	
+--
+-- Node definitions
+--
+	
+		dcmMibGroups OBJECT IDENTIFIER ::= { tsProcessorsMIBGroups 1 }
+
+		
+--  ************************************************************************
+-- 
+-- Module compliance
+-- 
+-- ************************************************************************
+		saEuropeDcmModuleCompliance MODULE-COMPLIANCE
+			STATUS current
+			DESCRIPTION 
+				"The compliance statement for entities which
+				implement the SA Europe DCM MIB"
+			MODULE -- this module
+				MANDATORY-GROUPS { dcmMandatoryGroup }
+			::= { dcmMibGroups 1 }
+
+		
+		dcmMandatoryGroup OBJECT-GROUP
+			OBJECTS { dcmInputTsBoard, dcmInputTsPort, dcmInputTsUdpPort, dcmInputTsIpAddress, dcmInputTsSrcIpAddress, 
+				dcmCfgInputTsIndex, dcmCfgInputTsSrcIpAddress, dcmCfgInputTsState, dcmOutputTsBoard, dcmOutputTsPort, 
+				dcmOutputTsUdpPort, dcmOutputTsIpAddress, dcmOutputTsTransportStreamId, dcmOutputTsOriginalNetworkId, dcmOutputTsStandard, 
+				dcmOutputTsActive, dcmOutputTsTransportStreamBitRate, dcmCfgOutputTsIndex, dcmCfgOutputTsTransportStreamId, dcmCfgOutputTsOriginalNetworkId, 
+				dcmCfgOutputTsStandard, dcmCfgOutputTsActive, dcmCfgOutputTsTransportStreamBitRate, dcmCfgOutputTsRowStatus, dcmTrGroupBitRate, 
+				dcmTrGroupType, dcmTrGroupRowStatus, dcmCfgSrvForceOutputServiceID, dcmCfgSrvOutputServiceID, dcmCfgSrvForceOutputServiceName, 
+				dcmCfgSrvOutputServiceName, dcmCfgSrvRowStatus, dcmCfgSrvState }
+			STATUS current
+			DESCRIPTION 
+				"Mandatory objects for all devices implementing the
+				SA Europe DCM MIB."
+			::= { dcmMibGroups 2 }
+
+		
+		dcmOptionalGroup OBJECT-GROUP
+			OBJECTS { dcmCfgInputTsRowStatus, dcmTrTsGroupId, dcmTrTsRowStatus, dcmTrSrvGroupId, dcmTrSrvTypeForService, 
+				dcmTrSrvLowerLimitServiceBitRate, dcmTrSrvUpperLimitServiceBitRate, dcmTrSrvPriority, dcmTrSrvRowStatus, dcmDpiPrimaryChannelName, 
+				dcmDpiPrimaryChannelMode, dcmDpiInputTsIndex, dcmDpiInputServiceId, dcmDpiManualTrigger, dcmDpiChannelStatus, 
+				dcmDpiRowStatus }
+			STATUS current
+			DESCRIPTION 
+				"Optional objects in the SA Europe DCM MIB."
+			::= { dcmMibGroups 3 }
+
+		
+		dcmIpgwGroup OBJECT-GROUP
+			OBJECTS { dcmIpgwSdiInConfigMaxAllowedVideoFormat, dcmIpgwSdiInConfigUserName, dcmIpgwSdiInFormatFramerate, dcmIpgwSdiInFormatVideoformat, dcmIpgwSdiInFormatAspectRatio, 
+				dcmIpgwSdiInFormatNbrOfLinesPerFrame, dcmIpgwSdiInFormatFrameBuildUp, dcmIpgwSdiInStatisticsReset, dcmIpgwSdiInStatisticsCrcErrors1Min, dcmIpgwSdiInStatisticsCrcErrors1Hour, 
+				dcmIpgwSdiInStatisticsCrcErrors1Day, dcmIpgwRtpInTSMaxAllowedVideoFormat, dcmIpgwRtpInTSUsername, dcmIpgwRtpInTSIpAddress, dcmIpgwRtpInTSUdpPort, 
+				dcmIpgwRtpInTSDejitter, dcmIpgwRtpInTSVideoOffset, dcmIpgwRtpInTSRowStatus, dcmIpgwRtpInJp2kEnableState, dcmIpgwRtpInStatisticsReset, 
+				dcmIpgwRtpInStatisticsValidPackets, dcmIpgwRtpInStatisticsMissingPackets, dcmIpgwRtpInStatisticsFixedPackets, dcmIpgwRtpInStatisticsDuplicatePackets, dcmIpgwRtpInStatisticsReorderedPackets, 
+				dcmIpgwRtpInStatisticsCrcReset, dcmIpgwRtpInStatisticsCrcErrors1min, dcmIpgwRtpInStatisticsCrcErrors1Hour, dcmIpgwRtpInStatisticsCrcErrors1Day, dcmIpgwRtpInFecConfigMode, 
+				dcmIpgwRtpInFecConfigColumnIpAddress, dcmIpgwRtpInFecConfigColumnUdpPort, dcmIpgwRtpInFecConfigRowIpAddress, dcmIpgwRtpInFecConfigRowUdpPort, dcmIpgwRtpInFecStatusColumnPresent, 
+				dcmIpgwRtpInFecStatusRowPresent, dcmIpgwRtpInFecStatusFecColumnDepth, dcmIpgwRtpInFecStatusFecRowLength, dcmIpgwRtpInFecStatusColumnOverhead, dcmIpgwRtpInFecStatusRowOverhead, 
+				dcmIpgwRtpInFecStatusTotalOverhead, dcmIpgwRtpInFecStatusLatency, dcmIpgwRtpInHitlessMode, dcmIpgwRtpInHitlessWindowPackets, dcmIpgwRtpInHitlessDelay, 
+				dcmIpgwRtpOutTSActive, dcmIpgwRtpOutTSGbePortType, dcmIpgwRtpOutTSRowStatus, dcmIpgwRtpOutJp2kEnableState, dcmIpgwRtpOutJp2kConfigVideoRate, 
+				dcmIpgwRtpOutJp2kConfigMaxStreamBitRate, dcmIpgwRtpOutJp2kConfigChromaWeight, dcmIpgwRtpOutJp2kConfigVitcEnable, dcmIpgwRtpOutJp2kConfigViiEnable, dcmIpgwRtpOutJp2kConfigAfdEnable, 
+				dcmIpgwRtpOutJp2kConfigTeletextBEnable, dcmIpgwRtpOutJp2kConfigCCEnable, dcmIpgwRtpOutJp2kConfigEncapsulationType, dcmIpgwRtpOutAdvancedVlanEnable, dcmIpgwRtpOutAdvancedVlanId, dcmIpgwRtpOutAdvancedVlanPriority, 
+				dcmIpgwRtpOutAdvancedTtl, dcmIpgwRtpOutAdvancedTos, dcmIpgwRtpOutAdvancedSourceIpAddress, dcmIpgwRtpOutAdvancedSourceUdpPort, dcmIpgwRtpOutFecMode, 
+				dcmIpgwRtpOutFecSendingArrangement, dcmIpgwRtpOutFecRowLength, dcmIpgwRtpOutFecColumnDepth, dcmIpgwRtpOutFecOverheadColumn, dcmIpgwRtpOutFecOverheadRow, 
+				dcmIpgwSdiOutTSSrcRef, dcmIpgwSdiOutTSSrcPort, dcmIpgwSdiOutTSSrcBoard, dcmIpgwRtpOutFecDestinationColIpAddressA, dcmIpgwRtpOutFecDestinationColUdpPortA, 
+				dcmIpgwRtpOutFecDestinationRowIpAddressA, dcmIpgwRtpOutFecDestinationRowUdpPortA, dcmIpgwRtpOutFecDestinationColIpAddressB, dcmIpgwRtpOutFecDestinationColUdpPortB, dcmIpgwRtpOutFecDestinationRowIpAddressB, 
+				dcmIpgwRtpOutFecDestinationRowUdpPortB, dcmIpgwRtpOutTSDestinationIpAddressA, dcmIpgwRtpOutTSDestinationUdpPortA, dcmIpgwRtpOutTSDestinationIpAddressB, dcmIpgwRtpOutTSDestinationUdpPortB, 
+				dcmIpgwRtpOutFecOverheadTotal, dcmIpgwSdiOutTSActive, dcmIpgwRtpOutTSSrcBoard, dcmIpgwRtpOutTSSrcPort, dcmIpgwRtpOutAdvancedUseSourceAddress, 
+				dcmIpgwRtpOutJp2kConfigTrans525F2Line, dcmIpgwRtpOutJp2kConfigTrans525F1Line, dcmIpgwRtpOutJp2kConfigTrans625F2Line, dcmIpgwRtpOutJp2kConfigTrans625F1Line, dcmIpgwRtpOutJp2kConfigVPSEnable, 
+				dcmIpgwRtpOutTSSrcRef, dcmIpgwRtpInStatisticsOutOfRangePackets, dcmIpgwRtpOutJp2kAudioPair2Enable, dcmIpgwRtpOutJp2kAudioPair1Enable, dcmIpgwRtpOutJp2kAudioPair1Present, 
+				dcmIpgwRtpOutJp2kAudioPair6Present, dcmIpgwRtpOutJp2kAudioPair7Enable, dcmIpgwRtpOutJp2kAudioPair7Present, dcmIpgwRtpOutJp2kAudioPair8Enable, dcmIpgwRtpOutJp2kAudioPair8Present, 
+				dcmIpgwRtpOutJp2kAudioPair4Enable, dcmIpgwRtpOutJp2kAudioPair4Present, dcmIpgwRtpOutJp2kAudioPair5Enable, dcmIpgwRtpOutJp2kAudioPair5Present, dcmIpgwAsiInConfigMaxAllowedVideoFormat, 
+				dcmIpgwAsiInConfigUserName, dcmIpgwAsiInConfigVideoOffset, dcmIpgwAsiInFormatFramerate, dcmIpgwAsiInFormatVideoformat, dcmIpgwAsiInFormatAspectRatio, 
+				dcmIpgwAsiInFormatNbrOfLinesPerFrame, dcmIpgwAsiInFormatFrameBuildUp, dcmIpgwAsiInStatisticsReset, dcmIpgwAsiInStatisticsCrcErrors1Min, dcmIpgwAsiInStatisticsCrcErrors1Hour, 
+				dcmIpgwAsiInStatisticsCrcErrors1Day, dcmIpgwAsiOutTSActive, dcmIpgwASIOutJp2kConfigVideoRate, dcmIpgwASIOutJp2kConfigMaxStreamBitRate, dcmIpgwASIOutJp2kConfigChromaWeight, 
+				dcmIpgwASIOutJp2kConfigVitcEnable, dcmIpgwASIOutJp2kConfigViiEnable, dcmIpgwASIOutJp2kConfigAfdEnable, dcmIpgwASIOutJp2kConfigTeletextBEnable, dcmIpgwASIOutJp2kConfigCCEnable, 
+				dcmIpgwASIOutJp2kConfigVPSEnable, dcmIpgwASIOutJp2kConfigTrans625F1Line, dcmIpgwASIOutJp2kConfigTrans625F2Line, dcmIpgwASIOutJp2kConfigTrans525F1Line, dcmIpgwASIOutJp2kConfigTrans525F2Line, 
+				dcmIpgwASIOutJp2kAudioPair1Enable, dcmIpgwASIOutJp2kAudioPair1Present, dcmIpgwASIOutJp2kAudioPair2Enable, dcmIpgwASIOutJp2kAudioPair2Present, dcmIpgwASIOutJp2kAudioPair3Enable, 
+				dcmIpgwASIOutJp2kAudioPair3Present, dcmIpgwASIOutJp2kAudioPair4Enable, dcmIpgwASIOutJp2kAudioPair4Present, dcmIpgwASIOutJp2kAudioPair5Enable, dcmIpgwASIOutJp2kAudioPair5Present, 
+				dcmIpgwASIOutJp2kAudioPair6Enable, dcmIpgwASIOutJp2kAudioPair6Present, dcmIpgwASIOutJp2kAudioPair7Enable, dcmIpgwASIOutJp2kAudioPair7Present, dcmIpgwASIOutJp2kAudioPair8Enable, 
+				dcmIpgwASIOutJp2kAudioPair8Present, dcmIpgwSystemGenlockEnableState, dcmIpgwRtpInFormatFramerate, dcmIpgwRtpInFormatVideoformat, dcmIpgwRtpInFormatAspectRatio, 
+				dcmIpgwRtpInFormatNbrOfLinesPerFrame, dcmIpgwRtpInFormatFrameBuildUp, dcmIpgwRtpOutJp2kAudioPair6Enable, dcmIpgwRtpOutJp2kAudioPair2Present, dcmIpgwRtpOutJp2kAudioPair3Enable, 
+				dcmIpgwRtpOutJp2kAudioPair3Present }
+			STATUS current
+			DESCRIPTION 
+				"Description."
+			::= { dcmMibGroups 4 }
+
+		
+		dcmMIB OBJECT IDENTIFIER ::= { tsProcessors 3 }
+
+		
+		dcmSettings OBJECT IDENTIFIER ::= { dcmMIB 1 }
+
+		
+		dcmMuxSettings OBJECT IDENTIFIER ::= { dcmSettings 1 }
+
+		
+--   ***********************************************************************
+-- 
+-- DCM Settings
+-- 
+-- ***********************************************************************
+-- input transport stream identification
+		dcmInputTransportStreamTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmInputTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"This table contains the transport streams present at the input
+				ports of the DCM."
+			::= { dcmMuxSettings 1 }
+
+		
+		dcmInputTransportStreamEntry OBJECT-TYPE
+			SYNTAX DcmInputTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of the dcmInputTransportStreamTable."
+			INDEX { dcmInputTsIndex }
+			::= { dcmInputTransportStreamTable 1 }
+
+		
+		DcmInputTransportStreamEntry ::=
+			SEQUENCE { 
+				dcmInputTsIndex
+					Integer32,
+				dcmInputTsBoard
+					Integer32,
+				dcmInputTsPort
+					Integer32,
+				dcmInputTsUdpPort
+					Integer32,
+				dcmInputTsIpAddress
+					IpAddress,
+				dcmInputTsSrcIpAddress
+					IpAddress
+			 }
+
+		dcmInputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the input transport stream."
+			::= { dcmInputTransportStreamEntry 1 }
+
+		
+		dcmInputTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the service is coming in."
+			::= { dcmInputTransportStreamEntry 2 }
+
+		
+		dcmInputTsPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Identification of the port where the service is coming in.
+				For ASI boards port numbers range from 1..10
+				For GbE boards port numbers can range from 1..4.
+				Only 1 and 3 can be used (2 and 4 are backup ports)"
+			::= { dcmInputTransportStreamEntry 3 }
+
+		
+		dcmInputTsUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"For an input TS on a GbE board, this is the identification of the
+				UDP port. For an input TS on an ASI board this object will be 0."
+			::= { dcmInputTransportStreamEntry 4 }
+
+		
+		dcmInputTsIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"For an input transport stream on a GbE board, this is the destination
+				(multicast) IP address of the stream containing the input
+				service. For an input TS on an ASI board this object will be 0.0.0.0."
+			::= { dcmInputTransportStreamEntry 5 }
+
+		
+		dcmInputTsSrcIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"For an input transport stream on a GbE board, this is the
+				source IP address of the stream containing the input
+				service. If the source IP address of a GbE input transport
+				stream is not known, or when the input transport stream
+				arrives on an ASI board, then the IP address 0.0.0.0 will
+				be returned."
+			::= { dcmInputTransportStreamEntry 6 }
+
+		
+--  input transport stream configuration
+		dcmConfigInputTsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmConfigInputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"This table contains the transport streams present at the input
+				ports of the DCM, and allows preconfiguration of input streams."
+			::= { dcmMuxSettings 2 }
+
+		
+		dcmConfigInputTsEntry OBJECT-TYPE
+			SYNTAX DcmConfigInputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of the dcmConfigInputTsTable."
+			INDEX { dcmCfgInputTsBoard, dcmCfgInputTsPort, dcmCfgInputTsUdpPort, dcmCfgInputTsIpAddress }
+			::= { dcmConfigInputTsTable 1 }
+
+		
+		DcmConfigInputTsEntry ::=
+			SEQUENCE { 
+				dcmCfgInputTsBoard
+					Integer32,
+				dcmCfgInputTsPort
+					Integer32,
+				dcmCfgInputTsUdpPort
+					Integer32,
+				dcmCfgInputTsIpAddress
+					IpAddress,
+				dcmCfgInputTsIndex
+					Integer32,
+				dcmCfgInputTsSrcIpAddress
+					IpAddress,
+				dcmCfgInputTsRowStatus
+					RowStatus,
+				dcmCfgInputTsState
+					INTEGER
+			 }
+
+		dcmCfgInputTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the service is coming in."
+			::= { dcmConfigInputTsEntry 1 }
+
+		
+		dcmCfgInputTsPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the port where the service is coming in.
+				For ASI boards port numbers range from 1..10
+				For GbE boards port numbers can range from 1..4.
+				Only 1 and 3 can be used (2 and 4 are backup ports)"
+			::= { dcmConfigInputTsEntry 2 }
+
+		
+		dcmCfgInputTsUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"For an input TS on a GbE board, this is the identification of the
+				UDP port. For an input TS on an ASI board, specify 0."
+			::= { dcmConfigInputTsEntry 3 }
+
+		
+		dcmCfgInputTsIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"For an input transport stream on a GbE board, this is the destination
+				(multicast) IP address of the stream containing the input
+				service. For an input TS on an ASI board, specify 0.0.0.0."
+			::= { dcmConfigInputTsEntry 4 }
+
+		
+		dcmCfgInputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Identification of the input transport stream."
+			::= { dcmConfigInputTsEntry 5 }
+
+		
+		dcmCfgInputTsSrcIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"For an input transport stream on a GbE board, this is the
+				source IP address of the stream containing the input
+				service(s). If the source IP address of a GbE input transport
+				stream is not known, or when the input transport stream
+				arrives on an ASI board, then the IP address 0.0.0.0 will
+				be returned."
+			::= { dcmConfigInputTsEntry 6 }
+
+		
+		dcmCfgInputTsRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column that allows to preconfigure an input transport stream.
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				"
+			::= { dcmConfigInputTsEntry 7 }
+
+		
+		dcmCfgInputTsState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				present(1),
+				notPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"State of the input transport stream, based on TS-Loss alarm."
+			::= { dcmConfigInputTsEntry 8 }
+
+		
+--  output transportstream identification
+		dcmOutputTransportStreamTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmOutputTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the output transport streams. This table contains both
+				actual and preconfigured transport streams."
+			::= { dcmMuxSettings 3 }
+
+		
+		dcmOutputTransportStreamEntry OBJECT-TYPE
+			SYNTAX DcmOutputTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of the dcmOutputTransportStreamTable."
+			INDEX { dcmOutputTsIndex }
+			::= { dcmOutputTransportStreamTable 1 }
+
+		
+		DcmOutputTransportStreamEntry ::=
+			SEQUENCE { 
+				dcmOutputTsIndex
+					Integer32,
+				dcmOutputTsBoard
+					Integer32,
+				dcmOutputTsPort
+					Integer32,
+				dcmOutputTsUdpPort
+					Integer32,
+				dcmOutputTsIpAddress
+					IpAddress,
+				dcmOutputTsTransportStreamId
+					Integer32,
+				dcmOutputTsOriginalNetworkId
+					Integer32,
+				dcmOutputTsStandard
+					INTEGER,
+				dcmOutputTsActive
+					INTEGER,
+				dcmOutputTsTransportStreamBitRate
+					Integer32
+			 }
+
+		dcmOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the outgoing transport stream."
+			::= { dcmOutputTransportStreamEntry 1 }
+
+		
+		dcmOutputTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where output transport stream is
+				located."
+			::= { dcmOutputTransportStreamEntry 2 }
+
+		
+		dcmOutputTsPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Identification of the outgoing port."
+			::= { dcmOutputTransportStreamEntry 3 }
+
+		
+		dcmOutputTsUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Destination UDP port in case of a GbE stream. This object will be 0
+				for ASI streams."
+			::= { dcmOutputTransportStreamEntry 4 }
+
+		
+		dcmOutputTsIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Destination IP address in case of a GbE stream. This object will be
+				0.0.0.0 for ASI streams."
+			::= { dcmOutputTransportStreamEntry 5 }
+
+		
+		dcmOutputTsTransportStreamId OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"For GbE transport streams, the transport stream ID (TSID) of the
+				output transport stream. For ASI transport streams there is no
+				instance of this object."
+			::= { dcmOutputTransportStreamEntry 6 }
+
+		
+		dcmOutputTsOriginalNetworkId OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"For GbE transport streams, the Original Network ID (ONID) of the
+				output transport stream. For ASI transport streams there is no
+				instance of this object."
+			::= { dcmOutputTransportStreamEntry 7 }
+
+		
+		dcmOutputTsStandard OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				transparent(1),
+				forceUpLink(5),
+				forceVideo(6),
+				forceAudio3(7)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Transport stream setting - PMT generation standard.
+				Values between transparent and forceUpLink result in undefined behaviour."
+			::= { dcmOutputTransportStreamEntry 8 }
+
+		
+		dcmOutputTsActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				active(1),
+				notActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Transport stream active or not."
+			::= { dcmOutputTransportStreamEntry 9 }
+
+		
+		dcmOutputTsTransportStreamBitRate OBJECT-TYPE
+			SYNTAX Integer32
+			UNITS "kbit/s"
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Transport stream bit rate."
+			::= { dcmOutputTransportStreamEntry 10 }
+
+		
+--  output transport stream configurations, indexed by board
+		dcmConfigOutputTsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmConfigOutputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the transport streams defined at the output ports of
+				the DCM device. This table contains both regular transport streams
+				and preconfigured transport streams."
+			::= { dcmMuxSettings 4 }
+
+		
+		dcmConfigOutputTsEntry OBJECT-TYPE
+			SYNTAX DcmConfigOutputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"."
+			INDEX { dcmCfgOutputTsBoard, dcmCfgOutputTsPort, dcmCfgOutputTsUdpPort, dcmCfgOutputTsIpAddress }
+			::= { dcmConfigOutputTsTable 1 }
+
+		
+		DcmConfigOutputTsEntry ::=
+			SEQUENCE { 
+				dcmCfgOutputTsBoard
+					Integer32,
+				dcmCfgOutputTsPort
+					Integer32,
+				dcmCfgOutputTsUdpPort
+					Integer32,
+				dcmCfgOutputTsIpAddress
+					IpAddress,
+				dcmCfgOutputTsIndex
+					Integer32,
+				dcmCfgOutputTsTransportStreamId
+					Integer32,
+				dcmCfgOutputTsOriginalNetworkId
+					Integer32,
+				dcmCfgOutputTsStandard
+					INTEGER,
+				dcmCfgOutputTsActive
+					INTEGER,
+				dcmCfgOutputTsTransportStreamBitRate
+					Integer32,
+				dcmCfgOutputTsRowStatus
+					RowStatus
+			 }
+
+		dcmCfgOutputTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where output transportstream is
+				located."
+			::= { dcmConfigOutputTsEntry 1 }
+
+		
+		dcmCfgOutputTsPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the outgoing port."
+			::= { dcmConfigOutputTsEntry 2 }
+
+		
+		dcmCfgOutputTsUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Destination UDP port in case of GbE stream, and 0 for an ASI
+				stream."
+			::= { dcmConfigOutputTsEntry 3 }
+
+		
+		dcmCfgOutputTsIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Destination IP address in case of GbE stream, and 0.0.0.0 for
+				an ASI stream."
+			::= { dcmConfigOutputTsEntry 4 }
+
+		
+		dcmCfgOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Transport stream index of the output transport stream
+				(dcmTsIndex)."
+			::= { dcmConfigOutputTsEntry 5 }
+
+		
+		dcmCfgOutputTsTransportStreamId OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"For GbE transpor streams, the transport stream ID (TSID) of the
+				output transport stream. For ASI transport streams there is no
+				instance of this object."
+			::= { dcmConfigOutputTsEntry 6 }
+
+		
+		dcmCfgOutputTsOriginalNetworkId OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"For GbE transport streams, the Original Network ID (ONID) of the
+				output transport stream. For ASI transport streams there is no
+				instance of this object."
+			::= { dcmConfigOutputTsEntry 7 }
+
+		
+		dcmCfgOutputTsStandard OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				transparent(1),
+				dvb(2),
+				atsc(3),
+				motorola(4),
+				forceUpLink(5),
+				forceVideo(6),
+				forceAudio3(7)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Transport stream setting - PMT generation standard."
+			::= { dcmConfigOutputTsEntry 8 }
+
+		
+		dcmCfgOutputTsActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				active(1),
+				notActive(2)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Transport stream active or not."
+			::= { dcmConfigOutputTsEntry 9 }
+
+		
+		dcmCfgOutputTsTransportStreamBitRate OBJECT-TYPE
+			SYNTAX Integer32
+			UNITS "kbit/s"
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Transport stream bit rate."
+			::= { dcmConfigOutputTsEntry 10 }
+
+		
+		dcmCfgOutputTsRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to create an outgoing transport stream.
+				Supports only one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				Current defaults for omitted columns in createAndGo:  40Mbit, notActive, transparent, ONID=TSID=1
+				But don't rely on these defaults.
+				"
+			::= { dcmConfigOutputTsEntry 11 }
+
+		
+--  service configurations
+		dcmConfigServiceTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmConfigServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the services routed from input to output. This table
+				contains one row for each service present at one of the DCM's
+				output ports. If the same services is passed two or more times to 
+				one output transport stream only the first is shown. In that case
+				it will not be possible to update the configuration for that service.
+				"
+			::= { dcmMuxSettings 5 }
+
+		
+		dcmConfigServiceEntry OBJECT-TYPE
+			SYNTAX DcmConfigServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmConfigServiceTable"
+			INDEX { dcmCfgSrvInputTsIndex, dcmCfgSrvInputServiceID, dcmCfgSrvOutputTsIndex }
+			::= { dcmConfigServiceTable 1 }
+
+		
+		DcmConfigServiceEntry ::=
+			SEQUENCE { 
+				dcmCfgSrvInputTsIndex
+					Integer32,
+				dcmCfgSrvInputServiceID
+					Integer32,
+				dcmCfgSrvOutputTsIndex
+					Integer32,
+				dcmCfgSrvForceOutputServiceID
+					TruthValue,
+				dcmCfgSrvOutputServiceID
+					Integer32,
+				dcmCfgSrvForceOutputServiceName
+					TruthValue,
+				dcmCfgSrvOutputServiceName
+					OCTET STRING,
+				dcmCfgSrvRowStatus
+					RowStatus,
+				dcmCfgSrvState
+					INTEGER
+			 }
+
+		dcmCfgSrvInputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the stream where the service is coming in."
+			::= { dcmConfigServiceEntry 1 }
+
+		
+		dcmCfgSrvInputServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The service ID (PAT programme number) of the input service."
+			::= { dcmConfigServiceEntry 2 }
+
+		
+		dcmCfgSrvOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the stream where the service is going to."
+			::= { dcmConfigServiceEntry 3 }
+
+		
+		dcmCfgSrvForceOutputServiceID OBJECT-TYPE
+			SYNTAX TruthValue
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Overrule the incoming service ID."
+			::= { dcmConfigServiceEntry 4 }
+
+		
+		dcmCfgSrvOutputServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Output service ID (PAT programme number) of the stream. Only settable if dcmCfgSrvForceOutputServiceID is true"
+			::= { dcmConfigServiceEntry 5 }
+
+		
+		dcmCfgSrvForceOutputServiceName OBJECT-TYPE
+			SYNTAX TruthValue
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Overrule the incoming service name."
+			::= { dcmConfigServiceEntry 6 }
+
+		
+		dcmCfgSrvOutputServiceName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Overrule the incoming service name. Only settable if dcmCfgSrvForceOutputServiceName is true. You can put here international characters and markup,
+				if you use the correct DVB SI bytes (charset and so on)"
+			::= { dcmConfigServiceEntry 7 }
+
+		
+		dcmCfgSrvRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to create a service configuration
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				Current defaults for omitted columns in createAndGo: both Force flags false 
+				But don't rely on these defaults.
+				"
+			::= { dcmConfigServiceEntry 8 }
+
+		
+		dcmCfgSrvState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				present(1),
+				notPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"State of the output service, based on Service-loss-at-output alarm."
+			::= { dcmConfigServiceEntry 9 }
+
+		
+--  configuration of AutoPass/MPTS pass through
+		dcmTsAutoPassTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmTsAutoPassEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the auto pass configuration. This in an output TS feature.
+				See the DCM manual for more info on the applications and limitations of this feature."
+			::= { dcmMuxSettings 6 }
+
+		
+		dcmTsAutoPassEntry OBJECT-TYPE
+			SYNTAX DcmTsAutoPassEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"
+				Conceptual row of the dcmTsAutoPassTable.
+				A number of auto pass rules can be defined for an output TS (MPTS pass through), 
+				by creating a row with index dcmOutputTsIndex,dcmInputTsIndex.  These rules 
+				specify from which input TS all Services, EMMs and/or unreferenced PIDs should 
+				be passed to an output TS.
+				Disclaimers:
+				1) Only one AutoPass input TS is supported for a specific output TS.  If rows 
+				are created with the same dcmOutputTsIndex, but with different dcmInputTsIndex, 
+				the behaviour is undefined.
+				2) If all three flags of a dcmTsAutoPassEntry are disabled, the behaviour is undefined. 
+				To remove the autopass settings for dcmTsAutoPassEntry, the row should be destroyed.
+				3) If dcmInputTsIndex does not exists, it is not guaranteed that an error is returned.
+				"
+			INDEX { dcmOutputTsIndex, dcmInputTsIndex }
+			::= { dcmTsAutoPassTable 1 }
+
+		
+		DcmTsAutoPassEntry ::=
+			SEQUENCE { 
+				dcmTsAutoPassNewServices
+					TruthValue,
+				dcmTsAutoPassNewEMMs
+					TruthValue,
+				dcmTsAutoPassUnreferencedPIDs
+					TruthValue,
+				dcmTsAutoPassRowStatus
+					RowStatus
+			 }
+
+		dcmTsAutoPassNewServices OBJECT-TYPE
+			SYNTAX TruthValue
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"If true, any service detected in the PAT of the Input Ts
+				will be automatically passed to this OutputTs.
+				If you clear this flag, any automatically passed service remains passed.
+				"
+			DEFVAL { true }
+			::= { dcmTsAutoPassEntry 1 }
+
+		
+		dcmTsAutoPassNewEMMs OBJECT-TYPE
+			SYNTAX TruthValue
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"If true, any emm detected in the CAT of the Input Ts  
+				will be automatically passed to this OutputTs.
+				If you clear this flag, any automatically passed emm remains passed.
+				"
+			DEFVAL { true }
+			::= { dcmTsAutoPassEntry 2 }
+
+		
+		dcmTsAutoPassUnreferencedPIDs OBJECT-TYPE
+			SYNTAX TruthValue
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"If true, any unreferenced pid detected in the Input Ts 
+				will be automatically passed to this OutputTs.
+				If you clear this flag, any automatically passed unreferenced pid disappears again.
+				"
+			DEFVAL { true }
+			::= { dcmTsAutoPassEntry 3 }
+
+		
+		dcmTsAutoPassRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to enable AutoPass.
+				Supports only one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				"
+			::= { dcmTsAutoPassEntry 4 }
+
+		
+--  configuration of Transparent Loopthrough
+		dcmConfigTransparentOutputTsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmConfigTransparentOutputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the transparent transport streams defined at the output
+				ports of the DCM device. This table contains both regular transparent 
+				transport streams and preconfigured transparent transport streams."
+			::= { dcmMuxSettings 7 }
+
+		
+		dcmConfigTransparentOutputTsEntry OBJECT-TYPE
+			SYNTAX DcmConfigTransparentOutputTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"."
+			INDEX { dcmCfgTransparentOutputTsBoard, dcmCfgTransparentOutputTsPort, dcmCfgTransparentOutputTsUdpPort, dcmCfgTransparentOutputTsIpAddress, dcmCfgTransparentSourceTsIndex
+				 }
+			::= { dcmConfigTransparentOutputTsTable 1 }
+
+		
+		DcmConfigTransparentOutputTsEntry ::=
+			SEQUENCE { 
+				dcmCfgTransparentOutputTsBoard
+					Integer32,
+				dcmCfgTransparentOutputTsPort
+					Integer32,
+				dcmCfgTransparentOutputTsUdpPort
+					Integer32,
+				dcmCfgTransparentOutputTsIpAddress
+					IpAddress,
+				dcmCfgTransparentSourceTsIndex
+					Integer32,
+				dcmCfgTransparentOutputTsIndex
+					Integer32,
+				dcmCfgTransparentOutputTsActive
+					INTEGER,
+				dcmCfgTransparentOutputTsRowStatus
+					RowStatus
+			 }
+
+		dcmCfgTransparentOutputTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where output transportstream is
+				located."
+			::= { dcmConfigTransparentOutputTsEntry 1 }
+
+		
+		dcmCfgTransparentOutputTsPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the outgoing port."
+			::= { dcmConfigTransparentOutputTsEntry 2 }
+
+		
+		dcmCfgTransparentOutputTsUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Destination UDP port in case of GbE stream, and 0 for an ASI
+				stream."
+			::= { dcmConfigTransparentOutputTsEntry 3 }
+
+		
+		dcmCfgTransparentOutputTsIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Destination IP address in case of GbE stream, and 0.0.0.0 for
+				an ASI stream."
+			::= { dcmConfigTransparentOutputTsEntry 4 }
+
+		
+		dcmCfgTransparentSourceTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Transport stream index of the source transport stream
+				(dcmTsIndex)."
+			::= { dcmConfigTransparentOutputTsEntry 5 }
+
+		
+		dcmCfgTransparentOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Transport stream index of the output transport stream
+				(dcmTsIndex)."
+			::= { dcmConfigTransparentOutputTsEntry 6 }
+
+		
+		dcmCfgTransparentOutputTsActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				active(1),
+				notActive(2)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Transport stream active or not."
+			::= { dcmConfigTransparentOutputTsEntry 7 }
+
+		
+		dcmCfgTransparentOutputTsRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to create an outgoing transport stream.
+				Supports only one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				"
+			::= { dcmConfigTransparentOutputTsEntry 8 }
+
+		
+		dcmServiceBackup OBJECT IDENTIFIER ::= { dcmMuxSettings 8 }
+
+		
+--  configuration of Service Backup (Per board)
+		dcmServiceBackupByBoardTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmServiceBackupByBoardEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Trigger service backup or revert to the main service for all services on a board.
+				It is not possible to read the status: it will always return 'unknown'."
+			::= { dcmServiceBackup 1 }
+
+		
+		dcmServiceBackupByBoardEntry OBJECT-TYPE
+			SYNTAX DcmServiceBackupByBoardEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"."
+			INDEX { dcmServiceBackupByBoardBoard }
+			::= { dcmServiceBackupByBoardTable 1 }
+
+		
+		DcmServiceBackupByBoardEntry ::=
+			SEQUENCE { 
+				dcmServiceBackupByBoardBoard
+					Integer32,
+				dcmServiceBackupByBoardStatus
+					INTEGER
+			 }
+
+		dcmServiceBackupByBoardBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where service backup can be activated or reverted."
+			::= { dcmServiceBackupByBoardEntry 1 }
+
+		
+		dcmServiceBackupByBoardStatus OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				unknown(1),
+				main(2),
+				backup(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"  Service backup mode.
+				"
+			::= { dcmServiceBackupByBoardEntry 2 }
+
+		
+--  configuration of Service Backup (Per TS)
+		dcmServiceBackupByTsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmServiceBackupByTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Trigger service backup or revert to the main service for all services in a TS.
+				It is not possible to read the status: it will always return 'unknown'."
+			::= { dcmServiceBackup 2 }
+
+		
+		dcmServiceBackupByTsEntry OBJECT-TYPE
+			SYNTAX DcmServiceBackupByTsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"."
+			INDEX { dcmServiceBackupByTsTsIndex }
+			::= { dcmServiceBackupByTsTable 1 }
+
+		
+		DcmServiceBackupByTsEntry ::=
+			SEQUENCE { 
+				dcmServiceBackupByTsTsIndex
+					Integer32,
+				dcmServiceBackupByTsStatus
+					INTEGER
+			 }
+
+		dcmServiceBackupByTsTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the TS where service backup can be activated or reverted."
+			::= { dcmServiceBackupByTsEntry 1 }
+
+		
+		dcmServiceBackupByTsStatus OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				unknown(1),
+				main(2),
+				backup(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"  Service backup mode.
+				"
+			::= { dcmServiceBackupByTsEntry 2 }
+
+		
+--  Input service backup settings
+		dcmServiceBackupSettingsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmServiceBackupSettingsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with settings for service backup."
+			::= { dcmServiceBackup 3 }
+
+		
+		dcmServiceBackupSettingsEntry OBJECT-TYPE
+			SYNTAX DcmServiceBackupSettingsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmServiceBackupSettingsTable"
+			INDEX { dcmSrvBuSettingsTsIndex, dcmSrvBuSettingsServiceID }
+			::= { dcmServiceBackupSettingsTable 1 }
+
+		
+		DcmServiceBackupSettingsEntry ::=
+			SEQUENCE { 
+				dcmSrvBuSettingsTsIndex
+					Integer32,
+				dcmSrvBuSettingsServiceID
+					Integer32,
+				dcmSrvBuSettingsBehavior
+					INTEGER,
+				dcmSrvBuSettingsToBackupDelay
+					Integer32,
+				dcmSrvBuSettingsToMainDelay
+					Integer32,
+				dcmSrvBuSettingsState
+					INTEGER
+			 }
+
+		dcmSrvBuSettingsTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transport stream of the output service."
+			::= { dcmServiceBackupSettingsEntry 1 }
+
+		
+		dcmSrvBuSettingsServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The service ID (PAT programme number) of the output service."
+			::= { dcmServiceBackupSettingsEntry 2 }
+
+		
+		dcmSrvBuSettingsBehavior OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				nonRevertive(1),
+				revertive(2),
+				floating(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Behavior of the backup:
+				- non revertive: when switched to lower priority backup service, 
+				                 manual switch is needed to return to higher priority input service.
+				- revertive: when switched to lower priority backup service, 
+				             return to higher priority input service when one is present.
+				- floating: when switched to lower priority backup service,
+				            return to higher priority input service when one is present and 
+				            the current active input service is not present."
+			::= { dcmServiceBackupSettingsEntry 3 }
+
+		
+		dcmSrvBuSettingsToBackupDelay OBJECT-TYPE
+			SYNTAX Integer32 (0..2147483647)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The delay in seconds before a lower priority backup service is chosen when
+				the active service is not present anymore."
+			::= { dcmServiceBackupSettingsEntry 4 }
+
+		
+		dcmSrvBuSettingsToMainDelay OBJECT-TYPE
+			SYNTAX Integer32 (0..2147483647)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The delay in seconds before a higher priority backup service is chosen when:
+				- revertive: a higher priority input service becomes present 
+				- floating: the active service is not present anymore 
+				            and a higher priority input service is present."
+			::= { dcmServiceBackupSettingsEntry 5 }
+
+		
+		dcmSrvBuSettingsState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				main(1),
+				backup(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Read out the current state and select main 
+				(selecting a backup service must be done in de backup service table,
+				 setting the value to backup will be ignored)."
+			::= { dcmServiceBackupSettingsEntry 6 }
+
+		
+--  Input service backup list
+		dcmServiceBackupServicesTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmServiceBackupServicesEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with list of backup services, the order of the list defines the priority:
+				when the main input service is not present anymore, the first backup service will 
+				be active when present.
+				Remark: because snmp does not have support for merged in services and alternate
+				        services, this table does not support back up for them.
+				At the moment of writing, the maximum backup services per output service
+				is 1."
+			::= { dcmServiceBackup 4 }
+
+		
+		dcmServiceBackupServicesEntry OBJECT-TYPE
+			SYNTAX DcmServiceBackupServicesEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmServiceBackupSettingsTable"
+			INDEX { dcmSrvBuOutputSrvTsIndex, dcmSrvBuOutputSrvServiceID, dcmSrvBuBuSrvTsIndex, dcmSrvBuBuSrvServiceID }
+			::= { dcmServiceBackupServicesTable 1 }
+
+		
+		DcmServiceBackupServicesEntry ::=
+			SEQUENCE { 
+				dcmSrvBuOutputSrvTsIndex
+					Integer32,
+				dcmSrvBuOutputSrvServiceID
+					Integer32,
+				dcmSrvBuBuSrvTsIndex
+					Integer32,
+				dcmSrvBuBuSrvServiceID
+					Integer32,
+				dcmSrvBuBuSrvState
+					INTEGER,
+				dcmSrvBuRowStatus
+					RowStatus
+			 }
+
+		dcmSrvBuOutputSrvTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transport stream of the output service."
+			::= { dcmServiceBackupServicesEntry 1 }
+
+		
+		dcmSrvBuOutputSrvServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The service ID (PAT programme number) of the output service."
+			::= { dcmServiceBackupServicesEntry 2 }
+
+		
+		dcmSrvBuBuSrvTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transport stream of the backup service."
+			::= { dcmServiceBackupServicesEntry 3 }
+
+		
+		dcmSrvBuBuSrvServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The service ID (PAT programme number) of the backup service."
+			::= { dcmServiceBackupServicesEntry 4 }
+
+		
+		dcmSrvBuBuSrvState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				active(1),
+				notActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Read out the current state and select the backup service by setting the
+				value to active (setting the value to notActive will be ignored)."
+			::= { dcmServiceBackupServicesEntry 5 }
+
+		
+		dcmSrvBuRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Adding a row creates a new backup service for the output service.
+				Deleting the row removes the backup service from the output service.
+				The only way to define a higher priority backup service is to delete
+				the lower priority backup services, add the new backup services and
+				add the lower priority backup services again."
+			::= { dcmServiceBackupServicesEntry 6 }
+
+		
+		dcmTsBackup OBJECT IDENTIFIER ::= { dcmMuxSettings 9 }
+
+		
+--  Input ts backup settings
+		dcmTsBackupSettingsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmTsBackupSettingsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with settings for ts backup."
+			::= { dcmTsBackup 1 }
+
+		
+		dcmTsBackupSettingsEntry OBJECT-TYPE
+			SYNTAX DcmTsBackupSettingsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmTsBackupSettingsTable"
+			INDEX { dcmTsBuSettingsTsIndex }
+			::= { dcmTsBackupSettingsTable 1 }
+
+		
+		DcmTsBackupSettingsEntry ::=
+			SEQUENCE { 
+				dcmTsBuSettingsTsIndex
+					Integer32,
+				dcmTsBuSettingsBuTsIndex
+					Integer32,
+				dcmTsBuSettingsBehavior
+					INTEGER,
+				dcmTsBuSettingsToBackupDelay
+					Integer32,
+				dcmTsBuSettingsToMainDelay
+					Integer32,
+				dcmTsBuSettingsState
+					INTEGER,
+				dcmTsBuSettingsRowStatus
+					RowStatus
+			 }
+
+		dcmTsBuSettingsTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the input transport stream that needs 
+				to be backed up."
+			::= { dcmTsBackupSettingsEntry 1 }
+
+		
+		dcmTsBuSettingsBuTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Identification of the backup transport stream."
+			::= { dcmTsBackupSettingsEntry 2 }
+
+		
+		dcmTsBuSettingsBehavior OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				nonRevertive(1),
+				revertive(2),
+        floating(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Behavior of the backup:
+				- non revertive: when switched to backup ts, 
+				                 manual switch is needed to return to main ts.
+				- revertive: when switched to backup ts, 
+				             return to main ts when it is present.
+        - floating: when switched to other active ts,
+ 	            return to original active ts when one is present and 
+ 	            the current active ts is not present."
+			::= { dcmTsBackupSettingsEntry 3 }
+
+		
+		dcmTsBuSettingsToBackupDelay OBJECT-TYPE
+			SYNTAX Integer32 (0..2147483647)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The delay in seconds before switching to backup when
+				the main ts is not present anymore."
+			::= { dcmTsBackupSettingsEntry 4 }
+
+		
+		dcmTsBuSettingsToMainDelay OBJECT-TYPE
+			SYNTAX Integer32 (0..2147483647)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The delay in seconds before switching back to main ts when:
+				- revertive: main ts becomes present."
+			::= { dcmTsBackupSettingsEntry 5 }
+
+		
+		dcmTsBuSettingsState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				main(1),
+				backup(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Read out the current state and select a new backup state."
+			::= { dcmTsBackupSettingsEntry 6 }
+
+		
+		dcmTsBuSettingsRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Adding a row defines a backup transport stream for 
+				a main transport stream.
+				Deleting a row indicates that the transport stream will not 
+				be backed up"
+			::= { dcmTsBackupSettingsEntry 7 }
+
+		
+--  Input service state
+		dcmInputServiceTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmInputServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with input service state"
+			::= { dcmMuxSettings 10 }
+
+		
+		dcmInputServiceEntry OBJECT-TYPE
+			SYNTAX DcmInputServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmInputServiceTable"
+			INDEX { dcmInputSrvTsIndex, dcmInputSrvServiceID }
+			::= { dcmInputServiceTable 1 }
+
+		
+		DcmInputServiceEntry ::=
+			SEQUENCE { 
+				dcmInputSrvTsIndex
+					Integer32,
+				dcmInputSrvServiceID
+					Integer32,
+				dcmInputSrvName
+					OCTET STRING,
+				dcmInputSrvState
+					INTEGER
+			 }
+
+		dcmInputSrvTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transport stream of the input service."
+			::= { dcmInputServiceEntry 1 }
+
+		
+		dcmInputSrvServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The service ID (PAT programme number) of the input service."
+			::= { dcmInputServiceEntry 2 }
+
+		
+		dcmInputSrvName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The name of the input service: 
+				extra information to find out the services at the input."
+			::= { dcmInputServiceEntry 3 }
+
+		
+		dcmInputSrvState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				present(1),
+				notPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"State of the input service, based on the Service-Loss alarm."
+			::= { dcmInputServiceEntry 4 }
+
+		
+--  Processing service mapping
+		dcmProcessingServiceTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmProcessingServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with mapping of internal reference to usertag of 
+				processing services (not at input/output, e.g. for transcoding)"
+			::= { dcmMuxSettings 11 }
+
+		
+		dcmProcessingServiceEntry OBJECT-TYPE
+			SYNTAX DcmProcessingServiceEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmProcessingServiceTable"
+			INDEX { dcmProcessingSrvTsIndex, dcmProcessingSrvServiceID }
+			::= { dcmProcessingServiceTable 1 }
+
+		
+		DcmProcessingServiceEntry ::=
+			SEQUENCE { 
+				dcmProcessingSrvTsIndex
+					Integer32,
+				dcmProcessingSrvServiceID
+					Integer32,
+				dcmProcessingSrvName
+					OCTET STRING,
+				dcmProcessingSrvState
+					INTEGER
+			 }
+
+		dcmProcessingSrvTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Internal Identification of the transport stream of the Processing service."
+			::= { dcmProcessingServiceEntry 1 }
+
+		
+		dcmProcessingSrvServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Internal service ID of the Processing service."
+			::= { dcmProcessingServiceEntry 2 }
+
+		
+		dcmProcessingSrvName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The usertag of the Processing service: 
+				external reference of the Processing service."
+			::= { dcmProcessingServiceEntry 3 }
+
+		
+		dcmProcessingSrvState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				present(1),
+				notPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"State of the Processing service, based on the Service-Loss alarm."
+			::= { dcmProcessingServiceEntry 4 }
+
+		
+--  DvbS2 Input stream mapping
+		dcmDvbS2InputStreamTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmDvbS2InputStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with DvbS2 input stream mapping (ISI to transport stream index)"
+			::= { dcmMuxSettings 12 }
+
+		
+		dcmDvbS2InputStreamEntry OBJECT-TYPE
+			SYNTAX DcmDvbS2InputStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmDvbS2InputStreamTable"
+			INDEX { dcmDvbS2InputStreamTsIndex }
+			::= { dcmDvbS2InputStreamTable 1 }
+
+		
+		DcmDvbS2InputStreamEntry ::=
+			SEQUENCE { 
+				dcmDvbS2InputStreamTsIndex
+					Integer32,
+				dcmDvbS2InputStreamISI
+					Integer32
+			 }
+
+		dcmDvbS2InputStreamTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transport stream of the DvbS2 input stream."
+			::= { dcmDvbS2InputStreamEntry 1 }
+
+ 		dcmDvbS2InputStreamISI OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Input Stream Identifier in a DvbS2 multistream (65535: no multistream)."
+			::= { dcmDvbS2InputStreamEntry 2 }
+
+		
+		dcmTrSettings OBJECT IDENTIFIER ::= { dcmSettings 2 }
+
+
+--  transrater group configurations
+		dcmTrGroupTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmTrGroupEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The transrater group table keeps an overview of all
+				defined transrater groups per board over a DCM."
+			::= { dcmTrSettings 1 }
+
+		
+		dcmTrGroupEntry OBJECT-TYPE
+			SYNTAX DcmTrGroupEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"A row of the table holds all the objects that characterize
+				an MPEG program stream."
+			INDEX { dcmTrGroupBoardNumber, dcmTrGroupPortNumber, dcmTrGroupId, dcmTrGroupOutputTs }
+			::= { dcmTrGroupTable 1 }
+
+		
+		DcmTrGroupEntry ::=
+			SEQUENCE { 
+				dcmTrGroupBoardNumber
+					Integer32,
+				dcmTrGroupPortNumber
+					Integer32,
+				dcmTrGroupId
+					Integer32,
+				dcmTrGroupOutputTs
+					Integer32,
+				dcmTrGroupBitRate
+					Integer32,
+				dcmTrGroupType
+					INTEGER,
+				dcmTrGroupRowStatus
+					RowStatus
+			 }
+
+		dcmTrGroupBoardNumber OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the (output) board where the transrater group is
+				associated to."
+			::= { dcmTrGroupEntry 1 }
+
+		
+		dcmTrGroupPortNumber OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the (output) port where the transrater group is
+				associated to."
+			::= { dcmTrGroupEntry 2 }
+
+		
+		dcmTrGroupId OBJECT-TYPE
+			SYNTAX Integer32 (2..501)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the transrater group given board and port."
+			::= { dcmTrGroupEntry 3 }
+
+		
+		dcmTrGroupOutputTs OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"For sPTS transrating groups, set this number to 999999999. For mPTS
+				and mPTSSelectiveService groups, this is the identification of
+				the output transport stream the transrater group is associated
+				to."
+			::= { dcmTrGroupEntry 4 }
+
+		
+		dcmTrGroupBitRate OBJECT-TYPE
+			SYNTAX Integer32
+			UNITS "kbit/s"
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Maximal transrater group bitrate"
+			::= { dcmTrGroupEntry 5 }
+
+		
+		dcmTrGroupType OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				sPTS(1),
+				mPTS(2),
+				mPTSSelectiveService(3)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Type of transrating group. A transrater group is of one of the
+				following types:
+				sPTS: A transrating group containing zero or more MPEG-2 transport
+				  streams. Each transport streams contains a single program
+				  (service).
+				mPTS: A transrating group containing exactly one MPEG-2 transport
+				  stream. The transport stream contains zero or more programs
+				  (services).
+				mPTSSelectiveService: A transrating group that contains zero or
+				  more programs (services). This group subordinates
+				  to a transport stream.
+				  "
+			::= { dcmTrGroupEntry 6 }
+
+		
+		dcmTrGroupRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"RowStatus to create a group
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))         
+				SNMP UNDO of a destroy might fail.
+				dcmTrGroupType is mandatory
+				Current defaults for omitted columns in createAndGo: bitrate=15Mbit
+				But don't rely on these defaults.
+				"
+			::= { dcmTrGroupEntry 7 }
+
+		
+--  transrater transport stream configurations
+		dcmTrTransportStreamTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmTrTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with assignments of output transport streams to transrating
+				groups."
+			::= { dcmTrSettings 2 }
+
+		
+		dcmTrTransportStreamEntry OBJECT-TYPE
+			SYNTAX DcmTrTransportStreamEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmTrTransportStreamTable"
+			INDEX { dcmTrTsOutputTsIndex }
+			::= { dcmTrTransportStreamTable 1 }
+
+		
+		DcmTrTransportStreamEntry ::=
+			SEQUENCE { 
+				dcmTrTsOutputTsIndex
+					Integer32,
+				dcmTrTsGroupId
+					Integer32,
+				dcmTrTsRowStatus
+					RowStatus
+			 }
+
+		dcmTrTsOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the output transport stream. See also
+				dcmTsIndex."
+			::= { dcmTrTransportStreamEntry 1 }
+
+		
+		dcmTrTsGroupId OBJECT-TYPE
+			SYNTAX Integer32 (2..501)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Identification of the transrater group."
+			::= { dcmTrTransportStreamEntry 2 }
+
+		
+		dcmTrTsRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to create a transport stream - group
+				configuration.
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				dcmTrTsGroupId is mandatory
+				"
+			::= { dcmTrTransportStreamEntry 3 }
+
+		
+--  transrater - service configuration
+		dcmTrServiceConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmTrServiceConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with assignments of output services to transrating groups."
+			::= { dcmTrSettings 3 }
+
+		
+		dcmTrServiceConfigEntry OBJECT-TYPE
+			SYNTAX DcmTrServiceConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmTrServiceConfigTable"
+			INDEX { dcmTrSrvOutputTsIndex, dcmTrSrvOutputServiceID }
+			::= { dcmTrServiceConfigTable 1 }
+
+		
+		DcmTrServiceConfigEntry ::=
+			SEQUENCE { 
+				dcmTrSrvOutputTsIndex
+					Integer32,
+				dcmTrSrvOutputServiceID
+					Integer32,
+				dcmTrSrvGroupId
+					Integer32,
+				dcmTrSrvTypeForService
+					INTEGER,
+				dcmTrSrvLowerLimitServiceBitRate
+					Integer32,
+				dcmTrSrvUpperLimitServiceBitRate
+					Integer32,
+				dcmTrSrvPriority
+					Integer32,
+				dcmTrSrvRowStatus
+					RowStatus
+			 }
+
+		dcmTrSrvOutputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the output transport stream. See also
+				dcmTsIndex."
+			::= { dcmTrServiceConfigEntry 1 }
+
+		
+		dcmTrSrvOutputServiceID OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the output service."
+			::= { dcmTrServiceConfigEntry 2 }
+
+		
+		dcmTrSrvGroupId OBJECT-TYPE
+			SYNTAX Integer32 (2..501)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Identification of the transrater group."
+			::= { dcmTrServiceConfigEntry 3 }
+
+		
+		dcmTrSrvTypeForService OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				passThrough(1),
+				statMuxed(2),
+				rateLimited(3)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Service is passed, statmuxed or rate limited."
+			::= { dcmTrServiceConfigEntry 4 }
+
+		
+		dcmTrSrvLowerLimitServiceBitRate OBJECT-TYPE
+			SYNTAX Integer32
+			UNITS "kbit/s"
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Lower bound on the transrating for that service. Lower and upper
+				bound are always equal for rate limited services."
+			::= { dcmTrServiceConfigEntry 5 }
+
+		
+		dcmTrSrvUpperLimitServiceBitRate OBJECT-TYPE
+			SYNTAX Integer32
+			UNITS "kbit/s"
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Upper bound on the transrating for that service. Lower and upper
+				bound are always equal for rate limited services."
+			::= { dcmTrServiceConfigEntry 6 }
+
+		
+		dcmTrSrvPriority OBJECT-TYPE
+			SYNTAX Integer32 (0..10)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Priority of the service for bitrate assignment -- the higher this
+				number the higher the priority for bitrate assignment."
+			::= { dcmTrServiceConfigEntry 7 }
+
+		
+		dcmTrSrvRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to create a service configuration.
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail
+				dcmTrSrvGroupId is mandatory.
+				Current defaults for omitted columns in createAndGo: passThrough, lower=.1Mbit, upper=15Mbit, priority=5 
+				But don't rely on these defaults.         
+				"
+			::= { dcmTrServiceConfigEntry 8 }
+
+		
+		dcmDpiSettings OBJECT IDENTIFIER ::= { dcmSettings 3 }
+
+		
+--  splicer - DPI related settings
+		dcmDpiChannelTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmDpiChannelEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with settings related to Digital Program Insertion (DPI),
+				also known as splicing."
+			::= { dcmDpiSettings 1 }
+
+		
+		dcmDpiChannelEntry OBJECT-TYPE
+			SYNTAX DcmDpiChannelEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of dcmDpiChannelTable"
+			INDEX { dcmCfgSrvOutputTsIndex, dcmCfgSrvOutputServiceID }
+			::= { dcmDpiChannelTable 1 }
+
+		
+		DcmDpiChannelEntry ::=
+			SEQUENCE { 
+				dcmDpiPrimaryChannelName
+					DisplayString,
+				dcmDpiPrimaryChannelMode
+					INTEGER,
+				dcmDpiInputTsIndex
+					Integer32,
+				dcmDpiInputServiceId
+					Integer32,
+				dcmDpiManualTrigger
+					INTEGER,
+				dcmDpiChannelStatus
+					INTEGER,
+				dcmDpiRowStatus
+					RowStatus
+			 }
+
+		dcmDpiPrimaryChannelName OBJECT-TYPE
+			SYNTAX DisplayString
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Name of the DPI primary channel (maximum 31 characters).
+				This name must be unique over the DCM"
+			::= { dcmDpiChannelEntry 1 }
+
+		
+		dcmDpiPrimaryChannelMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				off(1),
+				scte30(2),
+				scte35(3),
+				manual(4),
+				scte35custom(5),
+				manualcustom(6)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"How DPI is triggered:
+				- off, DPI is never triggered.
+				- scte30, DPI is triggered by an ad server.
+				- scte35, DPI is triggered by an SCTE35 digital cue tone.
+				- manual, DPI is triggered by an IDL call (e.g. using HTML GUI or dcmDpiManualTrigger).
+				- scte35custom: a scte35 variant not fully configurable using SNMP.
+				- manualcustom: a manual variant not fully configurable using SNMP."
+			::= { dcmDpiChannelEntry 2 }
+
+		
+		dcmDpiInputTsIndex OBJECT-TYPE
+			SYNTAX Integer32 (100000000..999999999)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Insertion channel: Reference to the input TS. 999999999 means undefined"
+			::= { dcmDpiChannelEntry 3 }
+
+		
+		dcmDpiInputServiceId OBJECT-TYPE
+			SYNTAX Integer32 (-1..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Insertion channel: Reference to the input service ID.
+				-1 means undefined"
+			::= { dcmDpiChannelEntry 4 }
+
+		
+		dcmDpiManualTrigger OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				undefined(1),
+				startSplice(2),
+				stopSplice(3)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"In case of manual splicing mode: trigger to start/stop splice.
+				This object may be set to either startSplice or stopSplice. When
+				performing an SNMP get on this object, the result will be the value
+				'undefined'."
+			::= { dcmDpiChannelEntry 5 }
+
+		
+		dcmDpiChannelStatus OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				primary(1),
+				ad(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Show the current status of the DPI Channel: Primary Channel or Insertion Channel (ad)"
+			::= { dcmDpiChannelEntry 6 }
+
+		
+		dcmDpiRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column to set up a splice.
+				SNMP UNDO of a destroy might fail
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				Current defaults for omitted columns in createAndGo: off, undefined insertion channel, (no manual trigger)
+				But don't rely on these defaults.         
+				"
+			::= { dcmDpiChannelEntry 7 }
+
+		
+--  dcmScrSettings   OBJECT IDENTIFIER  ::= { dcmSettings 4 }
+-- configuration of GbE specific Mux settings.
+		dcmGbeSettings OBJECT IDENTIFIER ::= { dcmSettings 5 }
+
+		
+--  configuration of Fec Encoding settings for an output Ts. GbE only.
+		dcmOutputTsFecTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmOutputTsFecEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the FEC Encoding settings specific for an Output TS. 
+				See 'Forward Error Correction' chapter in 'DCM Configuration Guide'
+				"
+			::= { dcmGbeSettings 1 }
+
+		
+		dcmOutputTsFecEntry OBJECT-TYPE
+			SYNTAX DcmOutputTsFecEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"
+				Conceptual row of the dcmOutputTsFecTable.
+				A row exists for every Output Ts on a GbE board, even when there is no FEC board present.
+				When no FEC board is present, the settings have no effect.
+				"
+			INDEX { dcmOutputTsIndex }
+			::= { dcmOutputTsFecTable 1 }
+
+		
+		DcmOutputTsFecEntry ::=
+			SEQUENCE { 
+				dcmOutputTsFecMode
+					INTEGER,
+				dcmOutputTsFecSendingArrangement
+					INTEGER,
+				dcmOutputTsFecRowL
+					Integer32,
+				dcmOutputTsFecColD
+					Integer32,
+				dcmOutputTsFecColIp
+					IpAddress,
+				dcmOutputTsFecColUdp
+					Integer32,
+				dcmOutputTsFecRowIp
+					IpAddress,
+				dcmOutputTsFecRowUdp
+					Integer32
+			 }
+
+		dcmOutputTsFecMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disabled(1),
+				fec1D(2),
+				fec2D(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"  Output mode for FEC encoder
+				"
+			::= { dcmOutputTsFecEntry 1 }
+
+		
+		dcmOutputTsFecSendingArrangement OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				pro-mpeg-cop3-annex-B(1),
+				pro-mpeg-cop3-annex-A(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				FEC linearity for encoder.
+				"
+			::= { dcmOutputTsFecEntry 2 }
+
+		
+		dcmOutputTsFecRowL OBJECT-TYPE
+			SYNTAX Integer32 (1..20)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				FEC Row Length (L value).
+				L x D must be <= 256.
+				L must be >=4 for Fec2D
+				D must be >L for Annex_A 
+				"
+			::= { dcmOutputTsFecEntry 3 }
+
+		
+		dcmOutputTsFecColD OBJECT-TYPE
+			SYNTAX Integer32 (4..20)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				FEC Column Depth (D value).
+				L x D must be <= 256
+				D must be >L for Annex_A 
+				"
+			::= { dcmOutputTsFecEntry 4 }
+
+		
+		dcmOutputTsFecColIp OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				Ip Address of the Column Fec Stream.
+				"
+			::= { dcmOutputTsFecEntry 5 }
+
+		
+		dcmOutputTsFecColUdp OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				Udp port of the Column Fec Stream
+				"
+			::= { dcmOutputTsFecEntry 6 }
+
+		
+		dcmOutputTsFecRowIp OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				Ip Address of the Row Fec Stream
+				Only applicable for 2D FEC
+				"
+			::= { dcmOutputTsFecEntry 7 }
+
+		
+		dcmOutputTsFecRowUdp OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"
+				Udp port of the Row Fec Stream
+				Only applicable for 2D FEC
+				"
+			::= { dcmOutputTsFecEntry 8 }
+
+		
+--  mode of GbE ports: pair or individual
+		dcmGbePortModeTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmGbePortModeEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"
+                Table of GbE Port mode per board
+                pair: only one of the ports of the pair is used (manual or automatic)
+                individual: ports are still accessed per pair, 
+                            but they are split up in an input and output port
+                "
+			::= { dcmGbeSettings 2 }
+
+		
+		dcmGbePortModeEntry OBJECT-TYPE
+			SYNTAX DcmGbePortModeEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"
+				Conceptual row of the dcmGbePortModeTable
+				A row exists for every GbE board
+				"
+			INDEX { dcmGbePortModeBoardNumber }
+			::= { dcmGbePortModeTable 1 }
+
+		
+		DcmGbePortModeEntry ::=
+			SEQUENCE { 
+                dcmGbePortModeBoardNumber
+                    Integer32,
+				dcmGbePortModeMode
+					INTEGER
+			 }
+
+		dcmGbePortModeBoardNumber OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the (GbE) board where the port mode is
+				configured."
+			::= { dcmGbePortModeEntry 1 }
+
+		dcmGbePortModeMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				pair(1),
+				individual(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"
+				Mode of the ports (see dcmGbePortModeTable)
+				"
+			::= { dcmGbePortModeEntry 2 }
+
+--  configuration of ASI specific Mux settings.
+		dcmAsiSettings OBJECT IDENTIFIER ::= { dcmSettings 6 }
+
+		
+--  configuration of Input bandwidth limitation for ASI ports
+		dcmConfigAsiInputBandwidthLimitTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmConfigAsiInputBandwidthLimitEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Table with the bandwidth limitation configuration. This in an ASI input TS feature.
+				See the DCM manual for more info on the applications and limitations of this feature."
+			::= { dcmAsiSettings 1 }
+
+		
+		dcmConfigAsiInputBandwidthLimitEntry OBJECT-TYPE
+			SYNTAX DcmConfigAsiInputBandwidthLimitEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Conceptual row of the dcmConfigAsiInputBandwidthLimitTable."
+			INDEX { dcmConfigAsiInputBandwidthLimitBoard, dcmConfigAsiInputBandwidthLimitPort }
+			::= { dcmConfigAsiInputBandwidthLimitTable 1 }
+
+		
+		DcmConfigAsiInputBandwidthLimitEntry ::=
+			SEQUENCE { 
+				dcmConfigAsiInputBandwidthLimitBoard
+					Integer32,
+				dcmConfigAsiInputBandwidthLimitPort
+					Integer32,
+				dcmConfigAsiInputBandwidthLimitStatus
+					INTEGER,
+				dcmConfigAsiInputBandwidthLimitBitrate
+					Integer32
+			 }
+
+		dcmConfigAsiInputBandwidthLimitBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The board number."
+			::= { dcmConfigAsiInputBandwidthLimitEntry 1 }
+
+		
+		dcmConfigAsiInputBandwidthLimitPort OBJECT-TYPE
+			SYNTAX Integer32 (1..10)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The port number."
+			::= { dcmConfigAsiInputBandwidthLimitEntry 2 }
+
+		
+		dcmConfigAsiInputBandwidthLimitStatus OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disabled(1),
+				enabled(2)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"If true the bitrate will be limited to dcmConfigAsiInputBandwidthLimitBitrate"
+			::= { dcmConfigAsiInputBandwidthLimitEntry 3 }
+
+		
+		dcmConfigAsiInputBandwidthLimitBitrate OBJECT-TYPE
+			SYNTAX Integer32 (0..213000)
+			UNITS "kbit/s"
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"The bitrate limit."
+			::= { dcmConfigAsiInputBandwidthLimitEntry 4 }
+
+		
+		dcmDeviceSettings OBJECT IDENTIFIER ::= { dcmSettings 7 }
+
+		
+--  configuration of Device Backup
+		dcmDeviceBackupSettings OBJECT IDENTIFIER ::= { dcmDeviceSettings 1 }
+
+		
+		dcmDeviceBackupActivateDevice OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eUnknown(1),
+				eActive(2),
+				eNotActive(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+                                "Instructs this device to gracefully become the active device.
+                                If the device is a main device then this will result in a manual restore operation.
+                                If the device is a backup device then this will result in a manual backup operation.
+                                Before DCM v10.10, this field was write-only, only accepting eActive (before eActivate)
+                                to activate the device and always returning eUnknown when being read.
+                                From DCM v10.10 on, this field still only accepts eActive to activate the device, but
+                                now returns the state (eActive or eNotActive) when being read."
+			::= { dcmDeviceBackupSettings 1 }
+
+		
+		dcmIpgwSettings OBJECT IDENTIFIER ::= { dcmSettings 8 }
+
+		
+		dcmIpgwSdiIn OBJECT IDENTIFIER ::= { dcmIpgwSettings 1 }
+
+		
+		dcmIpgwSdiInConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwSdiInConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSdiIn 1 }
+
+		
+		dcmIpgwSdiInConfigEntry OBJECT-TYPE
+			SYNTAX DcmIpgwSdiInConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwSdiInConfigBoard, dcmIpgwSdiInConfigPort, dcmIpgwSdiInConfigRef }
+			::= { dcmIpgwSdiInConfigTable 1 }
+
+		
+		DcmIpgwSdiInConfigEntry ::=
+			SEQUENCE { 
+				dcmIpgwSdiInConfigBoard
+					Integer32,
+				dcmIpgwSdiInConfigPort
+					Integer32,
+				dcmIpgwSdiInConfigRef
+					Integer32,
+				dcmIpgwSdiInConfigMaxAllowedVideoFormat
+					INTEGER,
+				dcmIpgwSdiInConfigUserName
+					OCTET STRING
+			 }
+
+		dcmIpgwSdiInConfigBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the SDI input port is located."
+			::= { dcmIpgwSdiInConfigEntry 1 }
+
+		
+		dcmIpgwSdiInConfigPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the SDI input port.
+				SDI port numbers range from 2..7
+				"
+			::= { dcmIpgwSdiInConfigEntry 2 }
+
+		
+		dcmIpgwSdiInConfigRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. A SDI port can only have 1 stream."
+			::= { dcmIpgwSdiInConfigEntry 3 }
+
+		
+		dcmIpgwSdiInConfigMaxAllowedVideoFormat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Maximum allowed bandwidth"
+			::= { dcmIpgwSdiInConfigEntry 4 }
+
+		
+		dcmIpgwSdiInConfigUserName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSdiInConfigEntry 5 }
+
+		
+		dcmIpgwSdiInFormatTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwSdiInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSdiIn 2 }
+
+		
+		dcmIpgwSdiInFormatEntry OBJECT-TYPE
+			SYNTAX DcmIpgwSdiInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwSdiInFormatBoard, dcmIpgwSdiInFormatPort, dcmIpgwSdiInFormatRef }
+			::= { dcmIpgwSdiInFormatTable 1 }
+
+		
+		DcmIpgwSdiInFormatEntry ::=
+			SEQUENCE { 
+				dcmIpgwSdiInFormatBoard
+					Integer32,
+				dcmIpgwSdiInFormatPort
+					Integer32,
+				dcmIpgwSdiInFormatRef
+					Integer32,
+				dcmIpgwSdiInFormatFramerate
+					INTEGER,
+				dcmIpgwSdiInFormatVideoformat
+					INTEGER,
+				dcmIpgwSdiInFormatAspectRatio
+					INTEGER,
+				dcmIpgwSdiInFormatNbrOfLinesPerFrame
+					Integer32,
+				dcmIpgwSdiInFormatFrameBuildUp
+					INTEGER
+			 }
+
+		dcmIpgwSdiInFormatBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the SDI input port is located."
+			::= { dcmIpgwSdiInFormatEntry 1 }
+
+		
+		dcmIpgwSdiInFormatPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the SDI input port.
+				SDI port numbers range from 2..7
+				"
+			::= { dcmIpgwSdiInFormatEntry 2 }
+
+		
+		dcmIpgwSdiInFormatRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. A SDI port can only have 1 stream."
+			::= { dcmIpgwSdiInFormatEntry 3 }
+
+		
+		dcmIpgwSdiInFormatFramerate OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e24fps(1),
+				e25fps(2),
+				e30fps(3),
+				e50fps(4),
+				e60fps(5),
+				e2997fps(6),
+				e5994fps(7)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received framerate"
+			::= { dcmIpgwSdiInFormatEntry 4 }
+
+		
+		dcmIpgwSdiInFormatVideoformat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received video format."
+			::= { dcmIpgwSdiInFormatEntry 5 }
+
+		
+		dcmIpgwSdiInFormatAspectRatio OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e4n3(1),
+				e16n9(2),
+				e14n9(3),
+				eNotAvailable(4)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received Aspect Ratio."
+			::= { dcmIpgwSdiInFormatEntry 6 }
+
+		
+		dcmIpgwSdiInFormatNbrOfLinesPerFrame OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received number of lines per frame."
+			::= { dcmIpgwSdiInFormatEntry 7 }
+
+		
+		dcmIpgwSdiInFormatFrameBuildUp OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eProgressive(1),
+				eInterlaced(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received Frame buildup.Progressive or Interlaced."
+			::= { dcmIpgwSdiInFormatEntry 8 }
+
+		
+		dcmIpgwSdiInStatisticsCrcTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwSdiInStatisticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSdiIn 3 }
+
+		
+		dcmIpgwSdiInStatisticsCrcEntry OBJECT-TYPE
+			SYNTAX DcmIpgwSdiInStatisticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwSdiInStatisticsBoard, dcmIpgwSdiInStatisticsPort, dcmIpgwSdiInStatisticsRef }
+			::= { dcmIpgwSdiInStatisticsCrcTable 1 }
+
+		
+		DcmIpgwSdiInStatisticsCrcEntry ::=
+			SEQUENCE { 
+				dcmIpgwSdiInStatisticsBoard
+					Integer32,
+				dcmIpgwSdiInStatisticsPort
+					Integer32,
+				dcmIpgwSdiInStatisticsRef
+					Integer32,
+				dcmIpgwSdiInStatisticsReset
+					INTEGER,
+				dcmIpgwSdiInStatisticsCrcErrors1Min
+					Unsigned32,
+				dcmIpgwSdiInStatisticsCrcErrors1Hour
+					Unsigned32,
+				dcmIpgwSdiInStatisticsCrcErrors1Day
+					Unsigned32
+			 }
+
+		dcmIpgwSdiInStatisticsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the SDI input port is located."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 1 }
+
+		
+		dcmIpgwSdiInStatisticsPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the SDI input port.
+				SDI port numbers range from 2..7
+				"
+			::= { dcmIpgwSdiInStatisticsCrcEntry 2 }
+
+		
+		dcmIpgwSdiInStatisticsRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. A SDI port can only have 1 stream."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 3 }
+
+		
+		dcmIpgwSdiInStatisticsReset OBJECT-TYPE
+			SYNTAX INTEGER { eReset(1) }
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Write-only value that resets all the CRC-counters."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 4 }
+
+		
+		dcmIpgwSdiInStatisticsCrcErrors1Min OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 min CRC counter."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 5 }
+
+		
+		dcmIpgwSdiInStatisticsCrcErrors1Hour OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 hour CRC counter."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 6 }
+
+		
+		dcmIpgwSdiInStatisticsCrcErrors1Day OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 day CRC counter."
+			::= { dcmIpgwSdiInStatisticsCrcEntry 7 }
+
+		
+		dcmIpgwSdiOut OBJECT IDENTIFIER ::= { dcmIpgwSettings 2 }
+
+		
+		dcmIpgwSdiOutTSTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwSdiOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSdiOut 1 }
+
+		
+		dcmIpgwSdiOutTSEntry OBJECT-TYPE
+			SYNTAX DcmIpgwSdiOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwSdiOutTSBoard, dcmIpgwSdiOutTSPort, dcmIpgwSdiOutTSRef }
+			::= { dcmIpgwSdiOutTSTable 1 }
+
+		
+		DcmIpgwSdiOutTSEntry ::=
+			SEQUENCE { 
+				dcmIpgwSdiOutTSBoard
+					Integer32,
+				dcmIpgwSdiOutTSPort
+					Integer32,
+				dcmIpgwSdiOutTSRef
+					Integer32,
+				dcmIpgwSdiOutTSSrcBoard
+					Integer32,
+				dcmIpgwSdiOutTSSrcPort
+					Integer32,
+				dcmIpgwSdiOutTSSrcRef
+					Integer32,
+				dcmIpgwSdiOutTSActive
+					INTEGER
+			 }
+
+		dcmIpgwSdiOutTSBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the SDI output port is located."
+			::= { dcmIpgwSdiOutTSEntry 1 }
+
+		
+		dcmIpgwSdiOutTSPort OBJECT-TYPE
+			SYNTAX Integer32 (2..8)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the SDI output port.
+				SDI port numbers range from 2..7
+				Monitor port is named 8"
+			::= { dcmIpgwSdiOutTSEntry 2 }
+
+		
+		dcmIpgwSdiOutTSRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port as a SDI port can only have 1 stream."
+			::= { dcmIpgwSdiOutTSEntry 3 }
+
+		
+		dcmIpgwSdiOutTSSrcBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Identification of the board from where the stream is routed from.
+				Must be the same board number as in dcmIpgwSdiOutTSSrcBoard.
+				
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the SDI Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref.
+				
+				
+				"
+			::= { dcmIpgwSdiOutTSEntry 4 }
+
+		
+		dcmIpgwSdiOutTSSrcPort OBJECT-TYPE
+			SYNTAX Integer32 (0 | 2..7 | 101..106)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Identification of the port from where the stream is routed from.
+				For GbE board the port number is 0.
+				For SDI ports, the port number is in range 2..7.
+				It is possible to route SDI output ports to the Monito port 8.
+				Port
+				
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the SDI Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref.
+				
+				"
+			::= { dcmIpgwSdiOutTSEntry 5 }
+
+		
+		dcmIpgwSdiOutTSSrcRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"If routed from the Gbe port, the Ref must also be given.
+				The Ref is listed in dcmIpgwRtpInTSRef. 
+				Not used is routed from a SDI port.
+				
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the SDI Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref.
+				"
+			::= { dcmIpgwSdiOutTSEntry 6 }
+
+		
+		dcmIpgwSdiOutTSActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Activate or Pause the output of the SDI Port"
+			::= { dcmIpgwSdiOutTSEntry 7 }
+
+		
+		dcmIpgwRtpIn OBJECT IDENTIFIER ::= { dcmIpgwSettings 3 }
+
+		
+		dcmIpgwRtpInTSTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 1 }
+
+		
+		dcmIpgwRtpInTSEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInTsBoard, dcmIpgwRtpInTSPort, dcmIpgwRtpInTSRef }
+			::= { dcmIpgwRtpInTSTable 1 }
+
+		
+		DcmIpgwRtpInTSEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInTsBoard
+					Integer32,
+				dcmIpgwRtpInTSPort
+					Integer32,
+				dcmIpgwRtpInTSRef
+					Integer32,
+				dcmIpgwRtpInTSMaxAllowedVideoFormat
+					INTEGER,
+				dcmIpgwRtpInTSUsername
+					OCTET STRING,
+				dcmIpgwRtpInTSIpAddress
+					IpAddress,
+				dcmIpgwRtpInTSUdpPort
+					Integer32,
+				dcmIpgwRtpInTSDejitter
+					Integer32,
+				dcmIpgwRtpInTSVideoOffset
+					Integer32,
+				dcmIpgwRtpInTSRowStatus
+					RowStatus
+			 }
+
+		dcmIpgwRtpInTsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInTSEntry 1 }
+
+		
+		dcmIpgwRtpInTSPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInTSEntry 2 }
+
+		
+		dcmIpgwRtpInTSRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference."
+			::= { dcmIpgwRtpInTSEntry 3 }
+
+		
+		dcmIpgwRtpInTSMaxAllowedVideoFormat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Maximum allowed bandwidth"
+			::= { dcmIpgwRtpInTSEntry 4 }
+
+		
+		dcmIpgwRtpInTSUsername OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"RTP input Stream Name. "
+			::= { dcmIpgwRtpInTSEntry 5 }
+
+		
+		dcmIpgwRtpInTSIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination (multicast) IP Address of the received RTP-Stream."
+			::= { dcmIpgwRtpInTSEntry 6 }
+
+		
+		dcmIpgwRtpInTSUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination UDP Port of the received RTP-Stream."
+			::= { dcmIpgwRtpInTSEntry 7 }
+
+		
+		dcmIpgwRtpInTSDejitter OBJECT-TYPE
+			SYNTAX Integer32 (1..200)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Dejitter in ms, range between 1 and 200 (default 25)
+				For uncompressed, the minimum value is 7."
+			::= { dcmIpgwRtpInTSEntry 8 }
+
+		
+		dcmIpgwRtpInTSVideoOffset OBJECT-TYPE
+			SYNTAX Integer32 (-10000..10000)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Video Phase Offset in ns."
+			::= { dcmIpgwRtpInTSEntry 9 }
+
+		
+		dcmIpgwRtpInTSRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column that allows to create a RTP input stream.
+				The dcmIpgwRtpInTsRef value will be given a new value by the IPGW.
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				"
+			::= { dcmIpgwRtpInTSEntry 10 }
+
+		
+		dcmIpgwRtpInFormatTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 2 }
+
+		
+		dcmIpgwRtpInFormatEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInFormatBoard, dcmIpgwRtpInFormatPort, dcmIpgwRtpInFormatRef }
+			::= { dcmIpgwRtpInFormatTable 1 }
+
+		
+		DcmIpgwRtpInFormatEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInFormatBoard
+					Integer32,
+				dcmIpgwRtpInFormatPort
+					Integer32,
+				dcmIpgwRtpInFormatRef
+					Integer32,
+				dcmIpgwRtpInFormatFramerate
+					INTEGER,
+				dcmIpgwRtpInFormatVideoformat
+					INTEGER,
+				dcmIpgwRtpInFormatAspectRatio
+					INTEGER,
+				dcmIpgwRtpInFormatNbrOfLinesPerFrame
+					Integer32,
+				dcmIpgwRtpInFormatFrameBuildUp
+					INTEGER
+			 }
+
+		dcmIpgwRtpInFormatBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInFormatEntry 1 }
+
+		
+		dcmIpgwRtpInFormatPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0.
+				"
+			::= { dcmIpgwRtpInFormatEntry 2 }
+
+		
+		dcmIpgwRtpInFormatRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInFormatEntry 3 }
+
+		
+		dcmIpgwRtpInFormatFramerate OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e24fps(1),
+				e25fps(2),
+				e30fps(3),
+				e50fps(4),
+				e60fps(5),
+				e2997fps(6),
+				e5994fps(7)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received framerate"
+			::= { dcmIpgwRtpInFormatEntry 4 }
+
+		
+		dcmIpgwRtpInFormatVideoformat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received video format."
+			::= { dcmIpgwRtpInFormatEntry 5 }
+
+		
+		dcmIpgwRtpInFormatAspectRatio OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e4n3(1),
+				e16n9(2),
+				e14n9(3),
+				eNotAvailable(4)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received Aspect Ratio."
+			::= { dcmIpgwRtpInFormatEntry 6 }
+
+		
+		dcmIpgwRtpInFormatNbrOfLinesPerFrame OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received number of lines per frame."
+			::= { dcmIpgwRtpInFormatEntry 7 }
+
+		
+		dcmIpgwRtpInFormatFrameBuildUp OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eProgressive(1),
+				eInterlaced(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received Frame buildup.Progressive or Interlaced."
+			::= { dcmIpgwRtpInFormatEntry 8 }
+
+		
+		dcmIpgwRtpInJp2kEnableTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInJp2kEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 3 }
+
+		
+		dcmIpgwRtpInJp2kEnableEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInJp2kEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInJp2kEnableBoard, dcmIpgwRtpInJp2kEnablePort, dcmIpgwRtpInJp2kEnableRef }
+			::= { dcmIpgwRtpInJp2kEnableTable 1 }
+
+		
+		DcmIpgwRtpInJp2kEnableEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInJp2kEnableBoard
+					Integer32,
+				dcmIpgwRtpInJp2kEnablePort
+					Integer32,
+				dcmIpgwRtpInJp2kEnableRef
+					Integer32,
+				dcmIpgwRtpInJp2kEnableState
+					INTEGER
+			 }
+
+		dcmIpgwRtpInJp2kEnableBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInJp2kEnableEntry 1 }
+
+		
+		dcmIpgwRtpInJp2kEnablePort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInJp2kEnableEntry 2 }
+
+		
+		dcmIpgwRtpInJp2kEnableRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef.
+				"
+			::= { dcmIpgwRtpInJp2kEnableEntry 3 }
+
+		
+		dcmIpgwRtpInJp2kEnableState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable or disable use of Jpeg2k compression for the Rtp-stream."
+			::= { dcmIpgwRtpInJp2kEnableEntry 4 }
+
+		
+		dcmIpgwRtpInStatisticsTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInStatisticsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 4 }
+
+		
+		dcmIpgwRtpInStatisticsEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInStatisticsEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInStatisticsBoard, dcmIpgwRtpInStatisticsPort, dcmIpgwRtpInStatisticsRef }
+			::= { dcmIpgwRtpInStatisticsTable 1 }
+
+		
+		DcmIpgwRtpInStatisticsEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInStatisticsBoard
+					Integer32,
+				dcmIpgwRtpInStatisticsPort
+					Integer32,
+				dcmIpgwRtpInStatisticsRef
+					Integer32,
+				dcmIpgwRtpInStatisticsReset
+					INTEGER,
+				dcmIpgwRtpInStatisticsValidPackets
+					Counter64,
+				dcmIpgwRtpInStatisticsMissingPackets
+					Counter64,
+				dcmIpgwRtpInStatisticsFixedPackets
+					Counter64,
+				dcmIpgwRtpInStatisticsDuplicatePackets
+					Counter64,
+				dcmIpgwRtpInStatisticsReorderedPackets
+					Counter64,
+				dcmIpgwRtpInStatisticsOutOfRangePackets
+					Counter64
+			 }
+
+		dcmIpgwRtpInStatisticsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInStatisticsEntry 1 }
+
+		
+		dcmIpgwRtpInStatisticsPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInStatisticsEntry 2 }
+
+		
+		dcmIpgwRtpInStatisticsRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInStatisticsEntry 3 }
+
+		
+		dcmIpgwRtpInStatisticsReset OBJECT-TYPE
+			SYNTAX INTEGER { eReset(1) }
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Write-only value that resets all the counters."
+			::= { dcmIpgwRtpInStatisticsEntry 4 }
+
+		
+		dcmIpgwRtpInStatisticsValidPackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Valid Packets counter."
+			::= { dcmIpgwRtpInStatisticsEntry 5 }
+
+		
+		dcmIpgwRtpInStatisticsMissingPackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Missing Packets counter."
+			::= { dcmIpgwRtpInStatisticsEntry 6 }
+
+		
+		dcmIpgwRtpInStatisticsFixedPackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Fixed Packets "
+			::= { dcmIpgwRtpInStatisticsEntry 7 }
+
+		
+		dcmIpgwRtpInStatisticsDuplicatePackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Duplicate Packets counter."
+			::= { dcmIpgwRtpInStatisticsEntry 8 }
+
+		
+		dcmIpgwRtpInStatisticsReorderedPackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Reordered Packets counter."
+			::= { dcmIpgwRtpInStatisticsEntry 9 }
+
+		
+		dcmIpgwRtpInStatisticsOutOfRangePackets OBJECT-TYPE
+			SYNTAX Counter64
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Out of Range Packets counter."
+			::= { dcmIpgwRtpInStatisticsEntry 10 }
+
+		
+		dcmIpgwRtpInStatitsticsCrcTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInStatitsticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 5 }
+
+		
+		dcmIpgwRtpInStatitsticsCrcEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInStatitsticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInStatitsticsCrcBoard, dcmIpgwRtpInStatitsticsCrcPort, dcmIpgwRtpInStatitsticsCrcRef }
+			::= { dcmIpgwRtpInStatitsticsCrcTable 1 }
+
+		
+		DcmIpgwRtpInStatitsticsCrcEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInStatitsticsCrcBoard
+					Integer32,
+				dcmIpgwRtpInStatitsticsCrcPort
+					Integer32,
+				dcmIpgwRtpInStatitsticsCrcRef
+					Integer32,
+				dcmIpgwRtpInStatisticsCrcReset
+					INTEGER,
+				dcmIpgwRtpInStatisticsCrcErrors1min
+					Unsigned32,
+				dcmIpgwRtpInStatisticsCrcErrors1Hour
+					Unsigned32,
+				dcmIpgwRtpInStatisticsCrcErrors1Day
+					Unsigned32
+			 }
+
+		dcmIpgwRtpInStatitsticsCrcBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 1 }
+
+		
+		dcmIpgwRtpInStatitsticsCrcPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 2 }
+
+		
+		dcmIpgwRtpInStatitsticsCrcRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 3 }
+
+		
+		dcmIpgwRtpInStatisticsCrcReset OBJECT-TYPE
+			SYNTAX INTEGER { eReset(1) }
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Write-only value that resets all the CRC-counters."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 4 }
+
+		
+		dcmIpgwRtpInStatisticsCrcErrors1min OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 min CRC counter."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 5 }
+
+		
+		dcmIpgwRtpInStatisticsCrcErrors1Hour OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 hour CRC counter."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 6 }
+
+		
+		dcmIpgwRtpInStatisticsCrcErrors1Day OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 day CRC counter."
+			::= { dcmIpgwRtpInStatitsticsCrcEntry 7 }
+
+		
+		dcmIpgwRtpInFecConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInFecConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 6 }
+
+		
+		dcmIpgwRtpInFecConfigEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInFecConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInFecConfigBoard, dcmIpgwRtpInFecConfigPort, dcmIpgwRtpInFecConfigRef }
+			::= { dcmIpgwRtpInFecConfigTable 1 }
+
+		
+		DcmIpgwRtpInFecConfigEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInFecConfigBoard
+					Integer32,
+				dcmIpgwRtpInFecConfigPort
+					Integer32,
+				dcmIpgwRtpInFecConfigRef
+					Integer32,
+				dcmIpgwRtpInFecConfigMode
+					INTEGER,
+				dcmIpgwRtpInFecConfigColumnIpAddress
+					IpAddress,
+				dcmIpgwRtpInFecConfigColumnUdpPort
+					Integer32,
+				dcmIpgwRtpInFecConfigRowIpAddress
+					IpAddress,
+				dcmIpgwRtpInFecConfigRowUdpPort
+					Integer32
+			 }
+
+		dcmIpgwRtpInFecConfigBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInFecConfigEntry 1 }
+
+		
+		dcmIpgwRtpInFecConfigPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allway 0."
+			::= { dcmIpgwRtpInFecConfigEntry 2 }
+
+		
+		dcmIpgwRtpInFecConfigRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInFecConfigEntry 3 }
+
+		
+		dcmIpgwRtpInFecConfigMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eDisable(1),
+				e1DMode(2),
+				e2DMode(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Mode."
+			::= { dcmIpgwRtpInFecConfigEntry 4 }
+
+		
+		dcmIpgwRtpInFecConfigColumnIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Destination IP Address."
+			::= { dcmIpgwRtpInFecConfigEntry 5 }
+
+		
+		dcmIpgwRtpInFecConfigColumnUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Destination UDP Port."
+			::= { dcmIpgwRtpInFecConfigEntry 6 }
+
+		
+		dcmIpgwRtpInFecConfigRowIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Destination IP Address."
+			::= { dcmIpgwRtpInFecConfigEntry 7 }
+
+		
+		dcmIpgwRtpInFecConfigRowUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Destination UDP Port."
+			::= { dcmIpgwRtpInFecConfigEntry 8 }
+
+		
+		dcmIpgwRtpInFecStatusTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInFecStatusEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 7 }
+
+		
+		dcmIpgwRtpInFecStatusEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInFecStatusEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInFecStatusBoard, dcmIpgwRtpInFecStatusPort, dcmIpgwRtpInFecStatusRef }
+			::= { dcmIpgwRtpInFecStatusTable 1 }
+
+		
+		DcmIpgwRtpInFecStatusEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInFecStatusBoard
+					Integer32,
+				dcmIpgwRtpInFecStatusPort
+					Integer32,
+				dcmIpgwRtpInFecStatusRef
+					Integer32,
+				dcmIpgwRtpInFecStatusColumnPresent
+					INTEGER,
+				dcmIpgwRtpInFecStatusRowPresent
+					INTEGER,
+				dcmIpgwRtpInFecStatusFecColumnDepth
+					Integer32,
+				dcmIpgwRtpInFecStatusFecRowLength
+					Integer32,
+				dcmIpgwRtpInFecStatusColumnOverhead
+					Integer32,
+				dcmIpgwRtpInFecStatusRowOverhead
+					Integer32,
+				dcmIpgwRtpInFecStatusTotalOverhead
+					Integer32,
+				dcmIpgwRtpInFecStatusLatency
+					Integer32
+			 }
+
+		dcmIpgwRtpInFecStatusBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInFecStatusEntry 1 }
+
+		
+		dcmIpgwRtpInFecStatusPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInFecStatusEntry 2 }
+
+		
+		dcmIpgwRtpInFecStatusRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInFecStatusEntry 3 }
+
+		
+		dcmIpgwRtpInFecStatusColumnPresent OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is FEC Coloumn Present."
+			::= { dcmIpgwRtpInFecStatusEntry 4 }
+
+		
+		dcmIpgwRtpInFecStatusRowPresent OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is FEC Row Present."
+			::= { dcmIpgwRtpInFecStatusEntry 5 }
+
+		
+		dcmIpgwRtpInFecStatusFecColumnDepth OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"FEC Column Depth."
+			::= { dcmIpgwRtpInFecStatusEntry 6 }
+
+		
+		dcmIpgwRtpInFecStatusFecRowLength OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"FEC Row Depth."
+			::= { dcmIpgwRtpInFecStatusEntry 7 }
+
+		
+		dcmIpgwRtpInFecStatusColumnOverhead OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Column FEC Stream Overhead in percentage fixed point 2 digit (x100)"
+			::= { dcmIpgwRtpInFecStatusEntry 8 }
+
+		
+		dcmIpgwRtpInFecStatusRowOverhead OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Row FEC Stream Overhead in percentage fixed point 2 digit (x100)"
+			::= { dcmIpgwRtpInFecStatusEntry 9 }
+
+		
+		dcmIpgwRtpInFecStatusTotalOverhead OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Total FEC Stream Overhead in percentage fixed point 2 digit (x100)"
+			::= { dcmIpgwRtpInFecStatusEntry 10 }
+
+		
+		dcmIpgwRtpInFecStatusLatency OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"FEC Stream Latency in ms fixed point 1 digit (x10)."
+			::= { dcmIpgwRtpInFecStatusEntry 11 }
+
+		
+		dcmIpgwRtpInHitlessTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpInHitlessEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpIn 8 }
+
+		
+		dcmIpgwRtpInHitlessEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpInHitlessEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpInHitlessBoard, dcmIpgwRtpInHitlessPort, dcmIpgwRtpInHitlessRef }
+			::= { dcmIpgwRtpInHitlessTable 1 }
+
+		
+		DcmIpgwRtpInHitlessEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpInHitlessBoard
+					Integer32,
+				dcmIpgwRtpInHitlessPort
+					Integer32,
+				dcmIpgwRtpInHitlessRef
+					Integer32,
+				dcmIpgwRtpInHitlessMode
+					INTEGER,
+				dcmIpgwRtpInHitlessWindowPackets
+					Integer32,
+				dcmIpgwRtpInHitlessDelay
+					Integer32
+			 }
+
+		dcmIpgwRtpInHitlessBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP input stream is located."
+			::= { dcmIpgwRtpInHitlessEntry 1 }
+
+		
+		dcmIpgwRtpInHitlessPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpInHitlessEntry 2 }
+
+		
+		dcmIpgwRtpInHitlessRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Input reference in dcmIpgwRtpInTSRef."
+			::= { dcmIpgwRtpInHitlessEntry 3 }
+
+		
+		dcmIpgwRtpInHitlessMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Hitless Switchover."
+			::= { dcmIpgwRtpInHitlessEntry 4 }
+
+		
+		dcmIpgwRtpInHitlessWindowPackets OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Write only. RTP Packets window."
+			::= { dcmIpgwRtpInHitlessEntry 5 }
+
+		
+		dcmIpgwRtpInHitlessDelay OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Hitless Buffer Delay in ms corresponding to RTP packet window."
+			::= { dcmIpgwRtpInHitlessEntry 6 }
+
+		
+		dcmIpgwRtpOut OBJECT IDENTIFIER ::= { dcmIpgwSettings 4 }
+
+		
+		dcmIpgwRtpOutTSTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOut 1 }
+
+		
+		dcmIpgwRtpOutTSEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutTSBoard, dcmIpgwRtpOutTSPort, dcmIpgwRtpOutTSRef }
+			::= { dcmIpgwRtpOutTSTable 1 }
+
+		
+		DcmIpgwRtpOutTSEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutTSBoard
+					Integer32,
+				dcmIpgwRtpOutTSPort
+					Integer32,
+				dcmIpgwRtpOutTSRef
+					Integer32,
+				dcmIpgwRtpOutTSSrcBoard
+					Integer32,
+				dcmIpgwRtpOutTSSrcPort
+					Integer32,
+				dcmIpgwRtpOutTSSrcRef
+					Integer32,
+				dcmIpgwRtpOutTSActive
+					INTEGER,
+				dcmIpgwRtpOutTSGbePortType
+					INTEGER,
+				dcmIpgwRtpOutTSDestinationIpAddressA
+					IpAddress,
+				dcmIpgwRtpOutTSDestinationUdpPortA
+					Integer32,
+				dcmIpgwRtpOutTSDestinationIpAddressB
+					IpAddress,
+				dcmIpgwRtpOutTSDestinationUdpPortB
+					Integer32,
+				dcmIpgwRtpOutTSRowStatus
+					RowStatus
+			 }
+
+		dcmIpgwRtpOutTSBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutTSEntry 1 }
+
+		
+		dcmIpgwRtpOutTSPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A. Allways 0."
+			::= { dcmIpgwRtpOutTSEntry 2 }
+
+		
+		dcmIpgwRtpOutTSRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Output reference."
+			::= { dcmIpgwRtpOutTSEntry 3 }
+
+		
+		dcmIpgwRtpOutTSSrcBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"The Board from where the stream is routed from.
+				Must be the same dcmIpgwRtpOutTSSrcBoard.
+				
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the RTP Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref."
+			::= { dcmIpgwRtpOutTSEntry 4 }
+
+		
+		dcmIpgwRtpOutTSSrcPort OBJECT-TYPE
+			SYNTAX Integer32 (0 | 2..7 | 101..106)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"The Port from where the stream is routed from.
+				2-7 if routing a SDI input stream.
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the RTP Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref."
+			::= { dcmIpgwRtpOutTSEntry 5 }
+
+		
+		dcmIpgwRtpOutTSSrcRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"If routed from the Gbe port, the Ref must also be given.
+				The Ref is listed in dcmIpgwRtpInTSRef. 
+				Not used if routed from a SDI port.
+				
+				If Board, Port, Ref is 0,0,0 it indicates that there is no Stream routed to the RTP Output port.
+				To delete a Route, write 0,0,0 to Board, Port, Ref."
+			::= { dcmIpgwRtpOutTSEntry 6 }
+
+		
+		dcmIpgwRtpOutTSActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Activate or Pause the output of the RTP Stream."
+			::= { dcmIpgwRtpOutTSEntry 7 }
+
+		
+		dcmIpgwRtpOutTSGbePortType OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePairType(1),
+				eIndividualType(2)
+				}
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Pair: All configuration values like: TTL, TOS, VLAN, srcAddr (source socket)
+				  and destination socket are the same for the two GbE ports. Values configured 
+				  for GbE0 are also used for GbE1.
+				Individual: All configuration values as mentioned above are individual 
+				  for for each GbE port.
+				"
+			::= { dcmIpgwRtpOutTSEntry 8 }
+
+		
+		dcmIpgwRtpOutTSDestinationIpAddressA OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is used on both the A and B port."
+			::= { dcmIpgwRtpOutTSEntry 9 }
+
+		
+		dcmIpgwRtpOutTSDestinationUdpPortA OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is used on both the A and B port."
+			::= { dcmIpgwRtpOutTSEntry 10 }
+
+		
+		dcmIpgwRtpOutTSDestinationIpAddressB OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is not used."
+			::= { dcmIpgwRtpOutTSEntry 11 }
+
+		
+		dcmIpgwRtpOutTSDestinationUdpPortB OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Destination UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is not used."
+			::= { dcmIpgwRtpOutTSEntry 12 }
+
+		
+		dcmIpgwRtpOutTSRowStatus OBJECT-TYPE
+			SYNTAX RowStatus
+			MAX-ACCESS read-create
+			STATUS current
+			DESCRIPTION
+				"Rowstatus column that allows to create a RTP output stream.
+				The dcmIpgwRtpOutTsRef value will be given a new value by the IPGW.
+				Can only support one-shot creation and deletion (createAndGo(4)/destroy(6))
+				SNMP UNDO of a destroy might fail.
+				"
+			::= { dcmIpgwRtpOutTSEntry 13 }
+
+		
+		dcmIpgwRtpOutJp2kEnableTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutJp2kEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOut 2 }
+
+		
+		dcmIpgwRtpOutJp2kEnableEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutJp2kEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutJp2kEnableBoard, dcmIpgwRtpOutJp2kEnablePort, dcmIpgwRtpOutJp2kEnableRef }
+			::= { dcmIpgwRtpOutJp2kEnableTable 1 }
+
+		
+		DcmIpgwRtpOutJp2kEnableEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutJp2kEnableBoard
+					Integer32,
+				dcmIpgwRtpOutJp2kEnablePort
+					Integer32,
+				dcmIpgwRtpOutJp2kEnableRef
+					Integer32,
+				dcmIpgwRtpOutJp2kEnableState
+					INTEGER
+			 }
+
+		dcmIpgwRtpOutJp2kEnableBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutJp2kEnableEntry 1 }
+
+		
+		dcmIpgwRtpOutJp2kEnablePort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A: Always 0."
+			::= { dcmIpgwRtpOutJp2kEnableEntry 2 }
+
+		
+		dcmIpgwRtpOutJp2kEnableRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp Output reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutJp2kEnableEntry 3 }
+
+		
+		dcmIpgwRtpOutJp2kEnableState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable or disable use of Jpeg2k compression for the Rtp-stream."
+			::= { dcmIpgwRtpOutJp2kEnableEntry 4 }
+
+		dcmIpgwRtpOutJp2k OBJECT IDENTIFIER ::= { dcmIpgwRtpOut 3 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutJp2kConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOutJp2k 1 }
+
+		
+		dcmIpgwRtpOutJp2kConfigEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutJp2kConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutJp2kConfigBoard, dcmIpgwRtpOutJp2kConfigPort, dcmIpgwRtpOutJp2kConfigRef }
+			::= { dcmIpgwRtpOutJp2kConfigTable 1 }
+
+		
+		DcmIpgwRtpOutJp2kConfigEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutJp2kConfigBoard
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigPort
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigRef
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigVideoRate
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigMaxStreamBitRate
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigChromaWeight
+					Integer32,
+				dcmIpgwRtpOutJp2kConfigVitcEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigViiEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigAfdEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigTeletextBEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigCCEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigVPSEnable
+					INTEGER,
+				dcmIpgwRtpOutJp2kConfigTrans625F1Line
+					OCTET STRING,
+				dcmIpgwRtpOutJp2kConfigTrans625F2Line
+					OCTET STRING,
+				dcmIpgwRtpOutJp2kConfigTrans525F1Line
+					OCTET STRING,
+				dcmIpgwRtpOutJp2kConfigTrans525F2Line
+					OCTET STRING,
+			  dcmIpgwRtpOutJp2kConfigEncapsulationType
+			    INTEGER
+			 }
+
+		dcmIpgwRtpOutJp2kConfigBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 1 }
+
+		
+		dcmIpgwRtpOutJp2kConfigPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A: Always 0."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 2 }
+
+		
+		dcmIpgwRtpOutJp2kConfigRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp output stream reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 3 }
+
+		
+		dcmIpgwRtpOutJp2kConfigVideoRate OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Actual encoded rate [bps]."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 4 }
+
+		
+		dcmIpgwRtpOutJp2kConfigMaxStreamBitRate OBJECT-TYPE
+			SYNTAX Integer32 (20000000..900000000)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Maximum bit rate of an JP2K output stream incl. audio, MXF, and RTP overhead [bps]"
+			::= { dcmIpgwRtpOutJp2kConfigEntry 5 }
+
+		
+		dcmIpgwRtpOutJp2kConfigChromaWeight OBJECT-TYPE
+			SYNTAX Integer32 (5..30)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Percentage of compressed bit rate used for chroma data."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 6 }
+
+		
+		dcmIpgwRtpOutJp2kConfigVitcEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable VITC."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 7 }
+
+		
+		dcmIpgwRtpOutJp2kConfigViiEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable VII."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 8 }
+
+		
+		dcmIpgwRtpOutJp2kConfigAfdEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable AFD."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 9 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTeletextBEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Teletext B."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 10 }
+
+		
+		dcmIpgwRtpOutJp2kConfigCCEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Close Caption."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 11 }
+
+		
+		dcmIpgwRtpOutJp2kConfigVPSEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Close Caption."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 12 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTrans625F1Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwRtpOutJp2kConfigEntry 13 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTrans625F2Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwRtpOutJp2kConfigEntry 14 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTrans525F1Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwRtpOutJp2kConfigEntry 15 }
+
+		
+		dcmIpgwRtpOutJp2kConfigTrans525F2Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwRtpOutJp2kConfigEntry 16 }
+
+		
+		dcmIpgwRtpOutJp2kConfigEncapsulationType OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eNative(1),
+				eSMPTE_2022_1-2(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Ecapsulation type for Jpeg2k compression for the Rtp-stream."
+			::= { dcmIpgwRtpOutJp2kConfigEntry 17 }
+		
+		dcmIpgwRtpOutJp2kAudioTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutJp2kAudioEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOutJp2k 2 }
+
+		
+		dcmIpgwRtpOutJp2kAudioEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutJp2kAudioEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutJp2kAudioBoard, dcmIpgwRtpOutJp2kAudioPort, dcmIpgwRtpOutJp2kAudioRef }
+			::= { dcmIpgwRtpOutJp2kAudioTable 1 }
+
+		
+		DcmIpgwRtpOutJp2kAudioEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutJp2kAudioBoard
+					Integer32,
+				dcmIpgwRtpOutJp2kAudioPort
+					Integer32,
+				dcmIpgwRtpOutJp2kAudioRef
+					Integer32,
+				dcmIpgwRtpOutJp2kAudioPair1Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair1Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair2Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair2Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair3Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair3Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair4Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair4Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair5Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair5Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair6Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair6Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair7Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair7Present
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair8Enable
+					INTEGER,
+				dcmIpgwRtpOutJp2kAudioPair8Present
+					INTEGER
+			 }
+
+		dcmIpgwRtpOutJp2kAudioBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 1 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A: Always 0."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 2 }
+
+		
+		dcmIpgwRtpOutJp2kAudioRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp output stream reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 3 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair1Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 4 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair1Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 5 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair2Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 6 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair2Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 7 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair3Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 8 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair3Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 9 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair4Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 10 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair4Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 11 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair5Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 12 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair5Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 13 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair6Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 14 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair6Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 15 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair7Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 16 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair7Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 17 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair8Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwRtpOutJp2kAudioEntry 18 }
+
+		
+		dcmIpgwRtpOutJp2kAudioPair8Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwRtpOutJp2kAudioEntry 19 }
+
+		
+		dcmIpgwRtpOutAdvancedTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutAdvancedEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOut 4 }
+
+		
+		dcmIpgwRtpOutAdvancedEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutAdvancedEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutAdvancedBoard, dcmIpgwRtpOutAdvancedPort, dcmIpgwRtpOutAdvancedRef }
+			::= { dcmIpgwRtpOutAdvancedTable 1 }
+
+		
+		DcmIpgwRtpOutAdvancedEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutAdvancedBoard
+					Integer32,
+				dcmIpgwRtpOutAdvancedPort
+					Integer32,
+				dcmIpgwRtpOutAdvancedRef
+					Integer32,
+				dcmIpgwRtpOutAdvancedVlanEnable
+					INTEGER,
+				dcmIpgwRtpOutAdvancedVlanId
+					Integer32,
+				dcmIpgwRtpOutAdvancedVlanPriority
+					Integer32,
+				dcmIpgwRtpOutAdvancedTtl
+					Integer32,
+				dcmIpgwRtpOutAdvancedTos
+					Integer32,
+				dcmIpgwRtpOutAdvancedUseSourceAddress
+					INTEGER,
+				dcmIpgwRtpOutAdvancedSourceIpAddress
+					IpAddress,
+				dcmIpgwRtpOutAdvancedSourceUdpPort
+					Integer32
+			 }
+
+		dcmIpgwRtpOutAdvancedBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutAdvancedEntry 1 }
+
+		
+		dcmIpgwRtpOutAdvancedPort OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A:  0 If dcmIpgwRtpOutTSGbePortType = eDualType.
+				Gbe A+B:0-1: If dcmIpgwRtpOutTSGbePortType = eIndividualType."
+			::= { dcmIpgwRtpOutAdvancedEntry 2 }
+
+		
+		dcmIpgwRtpOutAdvancedRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp output stream reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutAdvancedEntry 3 }
+
+		
+		dcmIpgwRtpOutAdvancedVlanEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eVlanOn(1),
+				eVlanOff(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOutAdvancedEntry 4 }
+
+		
+		dcmIpgwRtpOutAdvancedVlanId OBJECT-TYPE
+			SYNTAX Integer32 (0..4094)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Range: 0-4094 12 bit, 0x0FFF not allowed, 0=no vlan id, only priority (ieee 802.1Q)."
+			::= { dcmIpgwRtpOutAdvancedEntry 5 }
+
+		
+		dcmIpgwRtpOutAdvancedVlanPriority OBJECT-TYPE
+			SYNTAX Integer32 (0..7)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Range: 0-7  0=default 1=low 7=high (ieee 802.1D)"
+			::= { dcmIpgwRtpOutAdvancedEntry 6 }
+
+		
+		dcmIpgwRtpOutAdvancedTtl OBJECT-TYPE
+			SYNTAX Integer32 (1..255)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Time To Live value."
+			::= { dcmIpgwRtpOutAdvancedEntry 7 }
+
+		
+		dcmIpgwRtpOutAdvancedTos OBJECT-TYPE
+			SYNTAX Integer32 (0..255)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"TOS Value"
+			::= { dcmIpgwRtpOutAdvancedEntry 8 }
+
+		
+		dcmIpgwRtpOutAdvancedUseSourceAddress OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eUsePortIp(1),
+				eUseSourceIp(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"If this value is set to eUseSourceIp the IP address and UDP Port is used as source "
+			::= { dcmIpgwRtpOutAdvancedEntry 9 }
+
+		
+		dcmIpgwRtpOutAdvancedSourceIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Source IP Address."
+			::= { dcmIpgwRtpOutAdvancedEntry 10 }
+
+		
+		dcmIpgwRtpOutAdvancedSourceUdpPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Source UDP Port."
+			::= { dcmIpgwRtpOutAdvancedEntry 11 }
+
+		
+		dcmIpgwRtpOutFecTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutFecEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOut 5 }
+
+		
+		dcmIpgwRtpOutFecEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutFecEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutFecBoard, dcmIpgwRtpOutFecPort, dcmIpgwRtpOutFecRef }
+			::= { dcmIpgwRtpOutFecTable 1 }
+
+		
+		DcmIpgwRtpOutFecEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutFecBoard
+					Integer32,
+				dcmIpgwRtpOutFecPort
+					Integer32,
+				dcmIpgwRtpOutFecRef
+					Integer32,
+				dcmIpgwRtpOutFecMode
+					INTEGER,
+				dcmIpgwRtpOutFecSendingArrangement
+					INTEGER,
+				dcmIpgwRtpOutFecRowLength
+					Integer32,
+				dcmIpgwRtpOutFecColumnDepth
+					Integer32,
+				dcmIpgwRtpOutFecDestinationColIpAddressA
+					IpAddress,
+				dcmIpgwRtpOutFecDestinationColUdpPortA
+					Integer32,
+				dcmIpgwRtpOutFecDestinationRowIpAddressA
+					IpAddress,
+				dcmIpgwRtpOutFecDestinationRowUdpPortA
+					Integer32,
+				dcmIpgwRtpOutFecDestinationColIpAddressB
+					IpAddress,
+				dcmIpgwRtpOutFecDestinationColUdpPortB
+					Integer32,
+				dcmIpgwRtpOutFecDestinationRowIpAddressB
+					IpAddress,
+				dcmIpgwRtpOutFecDestinationRowUdpPortB
+					Integer32
+			 }
+
+		dcmIpgwRtpOutFecBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutFecEntry 1 }
+
+		
+		dcmIpgwRtpOutFecPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A: Always 0."
+			::= { dcmIpgwRtpOutFecEntry 2 }
+
+		
+		dcmIpgwRtpOutFecRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp output stream reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutFecEntry 3 }
+
+		
+		dcmIpgwRtpOutFecMode OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eDisable(1),
+				e1DMode(2),
+				e2DMode(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Mode."
+			::= { dcmIpgwRtpOutFecEntry 4 }
+
+		
+		dcmIpgwRtpOutFecSendingArrangement OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eProMpegCop3AnnexB(1),
+				eProMpegCop3AnnexA(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Sending Arrangement. Only eProMpegCop3AnnexB is supported."
+			::= { dcmIpgwRtpOutFecEntry 5 }
+
+		
+		dcmIpgwRtpOutFecRowLength OBJECT-TYPE
+			SYNTAX Integer32 (1..20)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Length (L value).
+				L x D must be <= 256.
+				L must be >=4 for Fec2D"
+			::= { dcmIpgwRtpOutFecEntry 6 }
+
+		
+		dcmIpgwRtpOutFecColumnDepth OBJECT-TYPE
+			SYNTAX Integer32 (4..20)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Depth (D value).
+				L x D must be <= 256"
+			::= { dcmIpgwRtpOutFecEntry 7 }
+
+		
+		dcmIpgwRtpOutFecDestinationColIpAddressA OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Desination  IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is used on both the A and B port."
+			::= { dcmIpgwRtpOutFecEntry 8 }
+
+		
+		dcmIpgwRtpOutFecDestinationColUdpPortA OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Desination  UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is used on both the A and B port."
+			::= { dcmIpgwRtpOutFecEntry 9 }
+
+		
+		dcmIpgwRtpOutFecDestinationRowIpAddressA OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Desination  IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is used on both the A and B port."
+			::= { dcmIpgwRtpOutFecEntry 10 }
+
+		
+		dcmIpgwRtpOutFecDestinationRowUdpPortA OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Desination UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is used on both the A and B port."
+			::= { dcmIpgwRtpOutFecEntry 11 }
+
+		
+		dcmIpgwRtpOutFecDestinationColIpAddressB OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Desination  IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is not used."
+			::= { dcmIpgwRtpOutFecEntry 12 }
+
+		
+		dcmIpgwRtpOutFecDestinationColUdpPortB OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Column Desination  UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is not used."
+			::= { dcmIpgwRtpOutFecEntry 13 }
+
+		
+		dcmIpgwRtpOutFecDestinationRowIpAddressB OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Desination  IP Address.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				address is not used."
+			::= { dcmIpgwRtpOutFecEntry 14 }
+
+		
+		dcmIpgwRtpOutFecDestinationRowUdpPortB OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"FEC Row Desination UDP Port.
+				If dcmIpgwRtpOutTSGbePortType is set ePairType this
+				udpport is not used."
+			::= { dcmIpgwRtpOutFecEntry 15 }
+
+		
+		dcmIpgwRtpOutFecOverheadTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwRtpOutFecOverheadEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwRtpOut 6 }
+
+		
+		dcmIpgwRtpOutFecOverheadEntry OBJECT-TYPE
+			SYNTAX DcmIpgwRtpOutFecOverheadEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwRtpOutFecOverheadBoard, dcmIpgwRtpOutFecOverheadPort, dcmIpgwRtpOutFecOverheadRef }
+			::= { dcmIpgwRtpOutFecOverheadTable 1 }
+
+		
+		DcmIpgwRtpOutFecOverheadEntry ::=
+			SEQUENCE { 
+				dcmIpgwRtpOutFecOverheadBoard
+					Integer32,
+				dcmIpgwRtpOutFecOverheadPort
+					Integer32,
+				dcmIpgwRtpOutFecOverheadRef
+					Integer32,
+				dcmIpgwRtpOutFecOverheadColumn
+					Integer32,
+				dcmIpgwRtpOutFecOverheadRow
+					Integer32,
+				dcmIpgwRtpOutFecOverheadTotal
+					Integer32
+			 }
+
+		dcmIpgwRtpOutFecOverheadBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the RTP output stream is located."
+			::= { dcmIpgwRtpOutFecOverheadEntry 1 }
+
+		
+		dcmIpgwRtpOutFecOverheadPort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Gbe A: Always 0."
+			::= { dcmIpgwRtpOutFecOverheadEntry 2 }
+
+		
+		dcmIpgwRtpOutFecOverheadRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"The Rtp output stream reference in dcmIpgwRtpOutTSRef."
+			::= { dcmIpgwRtpOutFecOverheadEntry 3 }
+
+		
+		dcmIpgwRtpOutFecOverheadColumn OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Column FEC Overhead in percentage fixed point 2 digit (x100), e.g. 10% -> 1000"
+			::= { dcmIpgwRtpOutFecOverheadEntry 4 }
+
+		
+		dcmIpgwRtpOutFecOverheadRow OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Row FEC Overhead in percentage fixed point 2 digit (x100), e.g. 10% -> 1000"
+			::= { dcmIpgwRtpOutFecOverheadEntry 5 }
+
+		
+		dcmIpgwRtpOutFecOverheadTotal OBJECT-TYPE
+			SYNTAX Integer32 (0..10000)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Total FEC Overhead in percentage fixed point 2 digit (x100), e.g. 10% -> 1000"
+			::= { dcmIpgwRtpOutFecOverheadEntry 6 }
+
+		
+		dcmIpgwAsiIn OBJECT IDENTIFIER ::= { dcmIpgwSettings 5 }
+
+		
+		dcmIpgwAsiInConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwAsiInConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwAsiIn 1 }
+
+		
+		dcmIpgwAsiInConfigEntry OBJECT-TYPE
+			SYNTAX DcmIpgwAsiInConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwAsiInConfigBoard, dcmIpgwAsiInConfigPort, dcmIpgwAsiInConfigRef }
+			::= { dcmIpgwAsiInConfigTable 1 }
+
+		
+		DcmIpgwAsiInConfigEntry ::=
+			SEQUENCE { 
+				dcmIpgwAsiInConfigBoard
+					Integer32,
+				dcmIpgwAsiInConfigPort
+					Integer32,
+				dcmIpgwAsiInConfigRef
+					Integer32,
+				dcmIpgwAsiInConfigMaxAllowedVideoFormat
+					INTEGER,
+				dcmIpgwAsiInConfigUserName
+					OCTET STRING,
+				dcmIpgwAsiInConfigVideoOffset
+					Integer32
+			 }
+
+		dcmIpgwAsiInConfigBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the ASI input port is located."
+			::= { dcmIpgwAsiInConfigEntry 1 }
+
+		
+		dcmIpgwAsiInConfigPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI input port.
+				ASI port numbers range from 2..4
+				"
+			::= { dcmIpgwAsiInConfigEntry 2 }
+
+		
+		dcmIpgwAsiInConfigRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwAsiInConfigEntry 3 }
+
+		
+		dcmIpgwAsiInConfigMaxAllowedVideoFormat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Maximum allowed bandwidth"
+			::= { dcmIpgwAsiInConfigEntry 4 }
+
+		
+		dcmIpgwAsiInConfigUserName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwAsiInConfigEntry 5 }
+
+		
+		dcmIpgwAsiInConfigVideoOffset OBJECT-TYPE
+			SYNTAX Integer32 (-10000..10000)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Video Phase Offset in ns."
+			::= { dcmIpgwAsiInConfigEntry 6 }
+
+		
+		dcmIpgwAsiInFormatTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwAsiInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwAsiIn 2 }
+
+		
+		dcmIpgwAsiInFormatEntry OBJECT-TYPE
+			SYNTAX DcmIpgwAsiInFormatEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwAsiInFormatBoard, dcmIpgwAsiInFormatPort, dcmIpgwAsiInFormatRef }
+			::= { dcmIpgwAsiInFormatTable 1 }
+
+		
+		DcmIpgwAsiInFormatEntry ::=
+			SEQUENCE { 
+				dcmIpgwAsiInFormatBoard
+					Integer32,
+				dcmIpgwAsiInFormatPort
+					Integer32,
+				dcmIpgwAsiInFormatRef
+					Integer32,
+				dcmIpgwAsiInFormatFramerate
+					INTEGER,
+				dcmIpgwAsiInFormatVideoformat
+					INTEGER,
+				dcmIpgwAsiInFormatAspectRatio
+					INTEGER,
+				dcmIpgwAsiInFormatNbrOfLinesPerFrame
+					Integer32,
+				dcmIpgwAsiInFormatFrameBuildUp
+					INTEGER
+			 }
+
+		dcmIpgwAsiInFormatBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the ASI input port is located."
+			::= { dcmIpgwAsiInFormatEntry 1 }
+
+		
+		dcmIpgwAsiInFormatPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI input port.
+				ASI port numbers range from 2..4
+				"
+			::= { dcmIpgwAsiInFormatEntry 2 }
+
+		
+		dcmIpgwAsiInFormatRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwAsiInFormatEntry 3 }
+
+		
+		dcmIpgwAsiInFormatFramerate OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e24fps(1),
+				e25fps(2),
+				e30fps(3),
+				e50fps(4),
+				e60fps(5),
+				e2997fps(6),
+				e5994fps(7)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received framerate"
+			::= { dcmIpgwAsiInFormatEntry 4 }
+
+		
+		dcmIpgwAsiInFormatVideoformat OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eSD(1),
+				eHD(2),
+				e3G(3)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received video format."
+			::= { dcmIpgwAsiInFormatEntry 5 }
+
+		
+		dcmIpgwAsiInFormatAspectRatio OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				e4n3(1),
+				e16n9(2),
+				e14n9(3),
+				eNotAvailable(4)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"The received Aspect Ratio."
+			::= { dcmIpgwAsiInFormatEntry 6 }
+
+		
+		dcmIpgwAsiInFormatNbrOfLinesPerFrame OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received number of lines per frame."
+			::= { dcmIpgwAsiInFormatEntry 7 }
+
+		
+		dcmIpgwAsiInFormatFrameBuildUp OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eProgressive(1),
+				eInterlaced(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Received Frame buildup.Progressive or Interlaced."
+			::= { dcmIpgwAsiInFormatEntry 8 }
+
+		
+		dcmIpgwAsiInStatisticsCrcTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwAsiInStatisticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwAsiIn 3 }
+
+		
+		dcmIpgwAsiInStatisticsCrcEntry OBJECT-TYPE
+			SYNTAX DcmIpgwAsiInStatisticsCrcEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwAsiInStatisticsBoard, dcmIpgwAsiInStatisticsPort, dcmIpgwAsiInStatisticsRef }
+			::= { dcmIpgwAsiInStatisticsCrcTable 1 }
+
+		
+		DcmIpgwAsiInStatisticsCrcEntry ::=
+			SEQUENCE { 
+				dcmIpgwAsiInStatisticsBoard
+					Integer32,
+				dcmIpgwAsiInStatisticsPort
+					Integer32,
+				dcmIpgwAsiInStatisticsRef
+					Integer32,
+				dcmIpgwAsiInStatisticsReset
+					INTEGER,
+				dcmIpgwAsiInStatisticsCrcErrors1Min
+					Unsigned32,
+				dcmIpgwAsiInStatisticsCrcErrors1Hour
+					Unsigned32,
+				dcmIpgwAsiInStatisticsCrcErrors1Day
+					Unsigned32
+			 }
+
+		dcmIpgwAsiInStatisticsBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the SDI input port is located."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 1 }
+
+		
+		dcmIpgwAsiInStatisticsPort OBJECT-TYPE
+			SYNTAX Integer32 (2..7)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI input port.
+				ASI port numbers range from 2..4
+				"
+			::= { dcmIpgwAsiInStatisticsCrcEntry 2 }
+
+		
+		dcmIpgwAsiInStatisticsRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 3 }
+
+		
+		dcmIpgwAsiInStatisticsReset OBJECT-TYPE
+			SYNTAX INTEGER { eReset(1) }
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Write-only value that resets all the CRC-counters."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 4 }
+
+		
+		dcmIpgwAsiInStatisticsCrcErrors1Min OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 min CRC counter."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 5 }
+
+		
+		dcmIpgwAsiInStatisticsCrcErrors1Hour OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 hour CRC counter."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 6 }
+
+		
+		dcmIpgwAsiInStatisticsCrcErrors1Day OBJECT-TYPE
+			SYNTAX Unsigned32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"1 day CRC counter."
+			::= { dcmIpgwAsiInStatisticsCrcEntry 7 }
+
+		
+		dcmIpgwAsiOut OBJECT IDENTIFIER ::= { dcmIpgwSettings 6 }
+
+		
+		dcmIpgwAsiOutTSTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwAsiOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwAsiOut 1 }
+
+		
+		dcmIpgwAsiOutTSEntry OBJECT-TYPE
+			SYNTAX DcmIpgwAsiOutTSEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwAsiOutTSBoard, dcmIpgwAsiOutTSPort, dcmIpgwAsiOutTSRef }
+			::= { dcmIpgwAsiOutTSTable 1 }
+
+		
+		DcmIpgwAsiOutTSEntry ::=
+			SEQUENCE { 
+				dcmIpgwAsiOutTSBoard
+					Integer32,
+				dcmIpgwAsiOutTSPort
+					Integer32,
+				dcmIpgwAsiOutTSRef
+					Integer32,
+				dcmIpgwAsiOutTSActive
+					INTEGER
+			 }
+
+		dcmIpgwAsiOutTSBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the ASI output port is located."
+			::= { dcmIpgwAsiOutTSEntry 1 }
+
+		
+		dcmIpgwAsiOutTSPort OBJECT-TYPE
+			SYNTAX Integer32 (2..8)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI output port.
+				SDI output ports numbers range from 5..7
+				Monitor port is named 8"
+			::= { dcmIpgwAsiOutTSEntry 2 }
+
+		
+		dcmIpgwAsiOutTSRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwAsiOutTSEntry 3 }
+
+		
+		dcmIpgwAsiOutTSActive OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Activate or Pause the output of the ASI Port"
+			::= { dcmIpgwAsiOutTSEntry 4 }
+
+		
+		dcmIpgwASIOutJp2k OBJECT IDENTIFIER ::= { dcmIpgwAsiOut 2 }
+
+		
+		dcmIpgwASIOutJp2kConfigTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwASIOutJp2kConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwASIOutJp2k 1 }
+
+		
+		dcmIpgwASIOutJp2kConfigEntry OBJECT-TYPE
+			SYNTAX DcmIpgwASIOutJp2kConfigEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwASIOutJp2kConfigBoard, dcmIpgwASIOutJp2kConfigPort, dcmIpgwASIOutJp2kConfigRef }
+			::= { dcmIpgwASIOutJp2kConfigTable 1 }
+
+		
+		DcmIpgwASIOutJp2kConfigEntry ::=
+			SEQUENCE { 
+				dcmIpgwASIOutJp2kConfigBoard
+					Integer32,
+				dcmIpgwASIOutJp2kConfigPort
+					Integer32,
+				dcmIpgwASIOutJp2kConfigRef
+					Integer32,
+				dcmIpgwASIOutJp2kConfigVideoRate
+					Integer32,
+				dcmIpgwASIOutJp2kConfigMaxStreamBitRate
+					Integer32,
+				dcmIpgwASIOutJp2kConfigChromaWeight
+					Integer32,
+				dcmIpgwASIOutJp2kConfigVitcEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigViiEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigAfdEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigTeletextBEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigCCEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigVPSEnable
+					INTEGER,
+				dcmIpgwASIOutJp2kConfigTrans625F1Line
+					OCTET STRING,
+				dcmIpgwASIOutJp2kConfigTrans625F2Line
+					OCTET STRING,
+				dcmIpgwASIOutJp2kConfigTrans525F1Line
+					OCTET STRING,
+				dcmIpgwASIOutJp2kConfigTrans525F2Line
+					OCTET STRING
+			 }
+
+		dcmIpgwASIOutJp2kConfigBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the ASI output port is located."
+			::= { dcmIpgwASIOutJp2kConfigEntry 1 }
+
+		
+		dcmIpgwASIOutJp2kConfigPort OBJECT-TYPE
+			SYNTAX Integer32 (5..8)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI output port.
+				SDI output ports numbers range from 5..7
+				Monitor port is named 8"
+			::= { dcmIpgwASIOutJp2kConfigEntry 2 }
+
+		
+		dcmIpgwASIOutJp2kConfigRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwASIOutJp2kConfigEntry 3 }
+
+		
+		dcmIpgwASIOutJp2kConfigVideoRate OBJECT-TYPE
+			SYNTAX Integer32
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Actual encoded rate [bps]."
+			::= { dcmIpgwASIOutJp2kConfigEntry 4 }
+
+		
+		dcmIpgwASIOutJp2kConfigMaxStreamBitRate OBJECT-TYPE
+			SYNTAX Integer32 (20..900)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Maximum bit rate of an JP2K output stream incl. audio, MXF, and RTP overhead [bps]"
+			::= { dcmIpgwASIOutJp2kConfigEntry 5 }
+
+		
+		dcmIpgwASIOutJp2kConfigChromaWeight OBJECT-TYPE
+			SYNTAX Integer32 (5..30)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Percentage of compressed bit rate used for chroma data."
+			::= { dcmIpgwASIOutJp2kConfigEntry 6 }
+
+		
+		dcmIpgwASIOutJp2kConfigVitcEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable VITC."
+			::= { dcmIpgwASIOutJp2kConfigEntry 7 }
+
+		
+		dcmIpgwASIOutJp2kConfigViiEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable VII."
+			::= { dcmIpgwASIOutJp2kConfigEntry 8 }
+
+		
+		dcmIpgwASIOutJp2kConfigAfdEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable AFD."
+			::= { dcmIpgwASIOutJp2kConfigEntry 9 }
+
+		
+		dcmIpgwASIOutJp2kConfigTeletextBEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Teletext B."
+			::= { dcmIpgwASIOutJp2kConfigEntry 10 }
+
+		
+		dcmIpgwASIOutJp2kConfigCCEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Close Caption."
+			::= { dcmIpgwASIOutJp2kConfigEntry 11 }
+
+		
+		dcmIpgwASIOutJp2kConfigVPSEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable Close Caption."
+			::= { dcmIpgwASIOutJp2kConfigEntry 12 }
+
+		
+		dcmIpgwASIOutJp2kConfigTrans625F1Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwASIOutJp2kConfigEntry 13 }
+
+		
+		dcmIpgwASIOutJp2kConfigTrans625F2Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwASIOutJp2kConfigEntry 14 }
+
+		
+		dcmIpgwASIOutJp2kConfigTrans525F1Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwASIOutJp2kConfigEntry 15 }
+
+		
+		dcmIpgwASIOutJp2kConfigTrans525F2Line OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The following lines is valid:
+				625 Field 1: 6-22
+				625 Field 2: 319-335
+				525 Field 1: 10-19
+				525 Field 2: 10-18
+				"
+			::= { dcmIpgwASIOutJp2kConfigEntry 16 }
+
+		
+		dcmIpgwASIOutJp2kAudioTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwASIOutJp2kAudioEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwASIOutJp2k 2 }
+
+		
+		dcmIpgwASIOutJp2kAudioEntry OBJECT-TYPE
+			SYNTAX DcmIpgwASIOutJp2kAudioEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwASIOutJp2kAudioBoard, dcmIpgwASIOutJp2kAudioPort, dcmIpgwASIOutJp2kAudioRef }
+			::= { dcmIpgwASIOutJp2kAudioTable 1 }
+
+		
+		DcmIpgwASIOutJp2kAudioEntry ::=
+			SEQUENCE { 
+				dcmIpgwASIOutJp2kAudioBoard
+					Integer32,
+				dcmIpgwASIOutJp2kAudioPort
+					Integer32,
+				dcmIpgwASIOutJp2kAudioRef
+					Integer32,
+				dcmIpgwASIOutJp2kAudioPair1Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair1Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair2Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair2Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair3Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair3Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair4Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair4Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair5Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair5Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair6Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair6Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair7Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair7Present
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair8Enable
+					INTEGER,
+				dcmIpgwASIOutJp2kAudioPair8Present
+					INTEGER
+			 }
+
+		dcmIpgwASIOutJp2kAudioBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the ASI output stream is located."
+			::= { dcmIpgwASIOutJp2kAudioEntry 1 }
+
+		
+		dcmIpgwASIOutJp2kAudioPort OBJECT-TYPE
+			SYNTAX Integer32 (5..8)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the ASI output port.
+				SDI output ports numbers range from 5..7
+				Monitor port is named 8"
+			::= { dcmIpgwASIOutJp2kAudioEntry 2 }
+
+		
+		dcmIpgwASIOutJp2kAudioRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Same as the Port. An ASI port can only have 1 stream."
+			::= { dcmIpgwASIOutJp2kAudioEntry 3 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair1Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 4 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair1Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 5 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair2Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 6 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair2Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 7 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair3Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 8 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair3Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 9 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair4Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 10 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair4Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 11 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair5Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 12 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair5Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 13 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair6Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 14 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair6Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 15 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair7Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 16 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair7Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 17 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair8Enable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eEnable(1),
+				eDisable(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable/Disable Audio pair on JP2K output."
+			::= { dcmIpgwASIOutJp2kAudioEntry 18 }
+
+		
+		dcmIpgwASIOutJp2kAudioPair8Present OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				ePresent(1),
+				eNotPresent(2)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"Is Audio pair is present in the stream"
+			::= { dcmIpgwASIOutJp2kAudioEntry 19 }
+
+		
+		dcmIpgwSystem OBJECT IDENTIFIER ::= { dcmIpgwSettings 7 }
+
+		
+		dcmIpgwSystemGenlockEnableTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF DcmIpgwSystemGenlockEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			::= { dcmIpgwSystem 1 }
+
+		
+		dcmIpgwSystemGenlockEnableEntry OBJECT-TYPE
+			SYNTAX DcmIpgwSystemGenlockEnableEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Description."
+			INDEX { dcmIpgwSystemGenlockEnableBoard, dcmIpgwSystemGenlockEnablePort, dcmIpgwSystemGenlockEnableRef }
+			::= { dcmIpgwSystemGenlockEnableTable 1 }
+
+		
+		DcmIpgwSystemGenlockEnableEntry ::=
+			SEQUENCE { 
+				dcmIpgwSystemGenlockEnableBoard
+					Integer32,
+				dcmIpgwSystemGenlockEnablePort
+					Integer32,
+				dcmIpgwSystemGenlockEnableRef
+					Integer32,
+				dcmIpgwSystemGenlockEnableState
+					INTEGER
+			 }
+
+		dcmIpgwSystemGenlockEnableBoard OBJECT-TYPE
+			SYNTAX Integer32 (1..4)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Identification of the board where the Genlock can be Enabled/Disabled."
+			::= { dcmIpgwSystemGenlockEnableEntry 1 }
+
+		
+		dcmIpgwSystemGenlockEnablePort OBJECT-TYPE
+			SYNTAX Integer32 (0)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Not Used."
+			::= { dcmIpgwSystemGenlockEnableEntry 2 }
+
+		
+		dcmIpgwSystemGenlockEnableRef OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				"Not used.
+				"
+			::= { dcmIpgwSystemGenlockEnableEntry 3 }
+
+		
+		dcmIpgwSystemGenlockEnableState OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				eActive(1),
+				eNotActive(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Enable or disable use of Genlock for the Board"
+			::= { dcmIpgwSystemGenlockEnableEntry 4 }
+
+		
+		dcmMibObjects OBJECT IDENTIFIER ::= { dcmMIB 2 }
+
+		
+--   ***********************************************************************
+-- 
+-- OIDs for use as the values of entPhysicalVendorType in the ENTITY-MIB.
+-- 
+-- ***********************************************************************
+		dcmPhysVendorType OBJECT IDENTIFIER ::= { dcmMibObjects 1 }
+
+		
+		dcmDevice OBJECT IDENTIFIER ::= { dcmPhysVendorType 1 }
+
+		
+		dcmIoBoard OBJECT IDENTIFIER ::= { dcmPhysVendorType 2 }
+
+		
+		dcm100BaseTPort OBJECT IDENTIFIER ::= { dcmPhysVendorType 3 }
+
+		
+		dcmGbePort OBJECT IDENTIFIER ::= { dcmPhysVendorType 4 }
+
+		
+		dcmAsiPort OBJECT IDENTIFIER ::= { dcmPhysVendorType 5 }
+
+		
+	
+	END
+
+

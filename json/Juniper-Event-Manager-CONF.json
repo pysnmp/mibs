@@ -1,0 +1,296 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniEventManagerAgent": {
+    "name": "juniEventManagerAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.62",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-30 14:43",
+        "description": "DISMAN-EVENT-MIB: Added support for existence and boolean triggers. Added support for multiple agent wildcarding. Added support for event Set capabilities. Juniper-DISMAN-EVENT-MIB: Initial release for the proprietary Event Manager MIB."
+      },
+      {
+        "revision": "2003-05-12 14:22",
+        "description": "The initial release of this management information module. DISMAN-EVENT-MIB: Added partial support for the draft-ietf-disman-event-mib-v2-01 version (enhancements to RFC 2981): Supports threshold triggers for absolute and delta sampling. Does not support existence or boolean triggers. Does not support wildcarding. Does not support event Set capabilities."
+      }
+    ]
+  },
+  "juniEventManagerAgentV1": {
+    "name": "juniEventManagerAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.62.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Event Manager component of the JUNOSe SNMP agent.\n        This version of the Event Manager component was supported in JUNOSe 5.1\n        and 5.2 system releases.",
+    "capabilities": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "includes": [
+          "dismanEventResourceGroup",
+          "dismanEventTriggerGroup",
+          "dismanEventEventGroup",
+          "dismanEventNotificationObjectGroup",
+          "dismanEventNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "mteTriggerComment",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerTest",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerValueIDWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerTargetTag",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerContextNameWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerDeltaDiscontinuityIDWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerExistenceTest",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerExistenceStartup",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerExistenceObjectsOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerExistenceObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerExistenceEventOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerExistenceEvent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanComparison",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanStartup",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanObjectsOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanObjects",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanEventOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerBooleanEvent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteTriggerThresholdObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerThresholdObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventComment",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventActions",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventNotificationObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventNotificationObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventSetObject",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteEventSetObjectWildcard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteEventSetValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteEventSetTargetTag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteEventSetContextName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mteEventSetContextNameWildcard",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEventManagerAgentV2": {
+    "name": "juniEventManagerAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.62.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Event Manager component of the JUNOSe SNMP agent.\n        This version of the Event Manager component is supported in JUNOSe 5.3\n        and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "includes": [
+          "dismanEventResourceGroup",
+          "dismanEventTriggerGroup",
+          "dismanEventEventGroup",
+          "dismanEventNotificationObjectGroup",
+          "dismanEventNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "mteTriggerComment",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerValueIDWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerTargetTag",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerDeltaDiscontinuityIDWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerExistenceObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerExistenceObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerBooleanObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerBooleanObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerThresholdObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteTriggerThresholdObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventComment",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventNotificationObjectsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventNotificationObjects",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventSetObjectWildcard",
+            "access": "read-only"
+          },
+          {
+            "object": "mteEventSetTargetTag",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-DISMAN-EVENT-MIB",
+        "includes": [
+          "juniMteTriggerTableGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Event-Manager-CONF",
+      "Source digest sha256:a7cb05e3e78b86e6c7d376643662b321782594a507cca08b1c46d627d4566be2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Event-Manager-CONF"
+  }
+}

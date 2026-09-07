@@ -1,0 +1,281 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfInstMonMIB": {
+    "name": "hpicfInstMonMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-23 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfInstMonObjects": {
+    "name": "hpicfInstMonObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1",
+    "class": "objectidentity"
+  },
+  "hpicfInstMonConformance": {
+    "name": "hpicfInstMonConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2",
+    "class": "objectidentity"
+  },
+  "hpicfInstMonGroups": {
+    "name": "hpicfInstMonGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfInstMonCompliances": {
+    "name": "hpicfInstMonCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfInstMonLogEnable": {
+    "name": "hpicfInstMonLogEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfInstMonTrapEnable": {
+    "name": "hpicfInstMonTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfInstMonParameterTable": {
+    "name": "hpicfInstMonParameterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstMonParameterEntry": {
+    "name": "hpicfInstMonParameterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonParameterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstMonInterfaceIndex": {
+    "name": "hpicfInstMonInterfaceIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstMonParameterIndex": {
+    "name": "hpicfInstMonParameterIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstMonParameterName": {
+    "name": "hpicfInstMonParameterName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstMonParameterThreshold": {
+    "name": "hpicfInstMonParameterThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfInstMonNotificationText": {
+    "name": "hpicfInstMonNotificationText",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstMonNotification": {
+    "name": "hpicfInstMonNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonNotificationText"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstMonNotificationGroup": {
+    "name": "hpicfInstMonNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstMonBaseGroup": {
+    "name": "hpicfInstMonBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonLogEnable"
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonTrapEnable"
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonInterfaceIndex"
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonParameterIndex"
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonParameterName"
+      },
+      {
+        "module": "HP-ICF-INST-MON",
+        "object": "hpicfInstMonParameterThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstMonBaseCompliance": {
+    "name": "hpicfInstMonBaseCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.35.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfInstMonBaseGroup",
+        "module": "HP-ICF-INST-MON"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-INST-MON",
+      "Source digest sha256:55cf77fda3b954667f5bde6b8338005081a992e2a0d46fce420ce2f555e446e0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-INST-MON"
+  }
+}

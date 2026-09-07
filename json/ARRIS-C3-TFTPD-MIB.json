@@ -1,0 +1,200 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-MIB": [
+      "cmtsC3"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "cmtsC3TFTPDMIB": {
+    "name": "cmtsC3TFTPDMIB",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9",
+    "class": "moduleidentity"
+  },
+  "dcxTFTPDObjects": {
+    "name": "dcxTFTPDObjects",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1",
+    "class": "objectidentity"
+  },
+  "dcxTFTPDServerState": {
+    "name": "dcxTFTPDServerState",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxTFTPDCurrentDirectory": {
+    "name": "dcxTFTPDCurrentDirectory",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxTFTPDIpVerification": {
+    "name": "dcxTFTPDIpVerification",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxTFTPDClearCache": {
+    "name": "dcxTFTPDClearCache",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dcxTFTPDReadRequests": {
+    "name": "dcxTFTPDReadRequests",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDReadRequestsDropped": {
+    "name": "dcxTFTPDReadRequestsDropped",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDReadRequestsFailed": {
+    "name": "dcxTFTPDReadRequestsFailed",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDReadBytes": {
+    "name": "dcxTFTPDReadBytes",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDWriteRequests": {
+    "name": "dcxTFTPDWriteRequests",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDWriteRequestsDropped": {
+    "name": "dcxTFTPDWriteRequestsDropped",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDWriteRequestsFailed": {
+    "name": "dcxTFTPDWriteRequestsFailed",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxTFTPDWriteBytes": {
+    "name": "dcxTFTPDWriteBytes",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.9.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARRIS-C3-TFTPD-MIB",
+      "Source digest sha256:fa2fb20f57d1feeaa260d06dd6f30bc28fa7a97c5f6bc3d3ea7051e53f109b35",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARRIS-C3-TFTPD-MIB"
+  }
+}

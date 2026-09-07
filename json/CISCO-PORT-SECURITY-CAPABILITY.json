@@ -1,0 +1,209 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPortSecurityCapability": {
+    "name": "ciscoPortSecurityCapability",
+    "oid": "1.3.6.1.4.1.9.7.393",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-14 00:00",
+        "description": "Added capability statement ciscoPSecureCapV12R0218SXFPCat6K."
+      },
+      {
+        "revision": "2004-03-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortSecurityC6kCapV08R0301": {
+    "name": "ciscoPortSecurityC6kCapV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.393.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) for Catalyst 6500.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "includes": [
+          "cpsGlobalGroup",
+          "cpsInterfaceGroup1",
+          "cpsIfVlanSecureMacAddrGroup",
+          "cpsExtInterfaceGroup",
+          "cpsUnicastFloodingInterfaceGroup",
+          "cpsShutdownTimeoutInterfaceGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpsGlobalSNMPNotifRate",
+            "access": "read-only"
+          },
+          {
+            "object": "cpsGlobalSNMPNotifControl",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPSecureCapV12R0218SXFPCat6K": {
+    "name": "ciscoPSecureCapV12R0218SXFPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.393.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXF on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-SECURITY-MIB",
+        "includes": [
+          "cpsGlobalGroup",
+          "cpsInterfaceGroup2",
+          "cpsIfVlanSecureMacAddrGroup",
+          "cpsExtInterfaceGroup",
+          "cpsNotificationGroup",
+          "cpsGlobalClearAddressGroup",
+          "cpsIfMultiVlanGroup",
+          "cpsIfVlanSecureNotificationGroup",
+          "cpsExtInterfaceGroup1"
+        ],
+        "variations": [
+          {
+            "object": "cpsGlobalSNMPNotifControl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cpsIfMaxSecureMacAddr",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 4096
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpsIfStaticMacAddrAgingEnable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cpsIfInvalidSrcRateLimitEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpsIfInvalidSrcRateLimitValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpsGlobalClearSecureMacAddresses",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "done": 0,
+                  "dynamic": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cpsIfClearSecureMacAddresses",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "done": 0,
+                  "dynamic": 1,
+                  "static": 2,
+                  "sticky": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cpsIfVlanSecureMacAddrRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cpsIfMultiVlanRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PORT-SECURITY-CAPABILITY",
+      "Source digest sha256:4edd9f005576d09c03c4ff3e6ac57d1c0e040ba5a3e1052849b27a34d16afc03",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PORT-SECURITY-CAPABILITY"
+  }
+}

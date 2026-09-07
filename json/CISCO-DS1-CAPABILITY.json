@@ -1,0 +1,1071 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDs1Capability": {
+    "name": "ciscoDs1Capability",
+    "oid": "1.3.6.1.4.1.9.7.273",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-31 00:00",
+        "description": "Added VARIATION for dsx1LineStatusChangeTrapEnable to agent capability statement ciscoDs1CapabilityMARsV12R5T and ciscoDs1CapabilityAS5xxxV12R5T"
+      },
+      {
+        "revision": "2007-09-10 00:00",
+        "description": "Added ciscoDs1CapabilityV5R500 for defining capability for VXSM support in MGX8880 release 5.5.0."
+      },
+      {
+        "revision": "2007-05-11 00:00",
+        "description": "Added ciscoDs1CapabilityMARsV12R5T for 2800, 3800, 3700 series routers and IAD2430 platforms. Added ciscoDs1CapabilityAS5xxxV12R5T for AS5xxx platforms."
+      },
+      {
+        "revision": "2006-06-16 00:00",
+        "description": "Added ciscoDs1CapabilityV5R310 for VXSM support in MGX8880 release 5.3.1."
+      },
+      {
+        "revision": "2005-07-11 00:00",
+        "description": "Added ciscoDs1CapabilityV5R100 for MPSM and VXSM support in MGX8880 release 5.1.0."
+      },
+      {
+        "revision": "2003-12-22 00:00",
+        "description": "ciscoDs1CapabilityV5R00 added for MPSM and VXSM support."
+      },
+      {
+        "revision": "2002-04-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDs1AxsmeCapabilityV3R00": {
+    "name": "ciscoDs1AxsmeCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.273.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1ESF": 2,
+                  "dsx1E1CRCMF": 7
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineCoding",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1B8ZS": 2,
+                  "dsx1HDB3": 3
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1NoLoop": 1,
+                  "dsx1LineLoop": 3,
+                  "dsx1InwardLoop": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R00": {
+    "name": "ciscoDs1CapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.273.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1NearEndOptionalConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineLength",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1ESF": 2,
+                  "dsx1D4": 3,
+                  "dsx1E1": 4,
+                  "dsx1E1CRC": 5,
+                  "dsx1E1MF": 6,
+                  "dsx1E1CRCMF": 7,
+                  "dsx1E1Q50": 12,
+                  "dsx1E1Q50CRC": 13
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SendCode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1SendNoCode": 1,
+                  "dsx1SendLineCode": 2,
+                  "dsx1SendResetCode": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1NoLoop": 1,
+                  "dsx1LineLoop": 3,
+                  "dsx1InwardLoop": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SignalMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "robbedBit": 2,
+                  "bitOriented": 3,
+                  "messageOriented": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1Fdl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "default": [
+              "enabled"
+            ]
+          },
+          {
+            "object": "dsx1Channelization",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabledDs0": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R100": {
+    "name": "ciscoDs1CapabilityV5R100",
+    "oid": "1.3.6.1.4.1.9.7.273.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.1.0",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1NearEndOptionalConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineLength",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1ESF": 2,
+                  "dsx1D4": 3,
+                  "dsx1E1": 4,
+                  "dsx1E1CRC": 5,
+                  "dsx1E1MF": 6,
+                  "dsx1E1CRCMF": 7,
+                  "dsx1E1Q50": 12,
+                  "dsx1E1Q50CRC": 13
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SendCode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1SendNoCode": 1,
+                  "dsx1SendLineCode": 2,
+                  "dsx1SendResetCode": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1NoLoop": 1,
+                  "dsx1LineLoop": 3,
+                  "dsx1InwardLoop": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SignalMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "robbedBit": 2,
+                  "bitOriented": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1Fdl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "default": [
+              "enabled"
+            ]
+          },
+          {
+            "object": "dsx1Channelization",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabledDs0": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R310": {
+    "name": "ciscoDs1CapabilityV5R310",
+    "oid": "1.3.6.1.4.1.9.7.273.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.3.1",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1NearEndOptionalConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineLength",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1ESF": 2,
+                  "dsx1D4": 3,
+                  "dsx1E1": 4,
+                  "dsx1E1CRC": 5,
+                  "dsx1E1MF": 6,
+                  "dsx1E1CRCMF": 7,
+                  "dsx1E1Q50": 12,
+                  "dsx1E1Q50CRC": 13
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SendCode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1SendNoCode": 1,
+                  "dsx1SendLineCode": 2,
+                  "dsx1SendResetCode": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1NoLoop": 1,
+                  "dsx1LineLoop": 3,
+                  "dsx1InwardLoop": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SignalMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "robbedBit": 2,
+                  "bitOriented": 3,
+                  "other": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1Fdl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "default": [
+              "enabled"
+            ]
+          },
+          {
+            "object": "dsx1Channelization",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabledDs0": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityMARsV12R5T": {
+    "name": "ciscoDs1CapabilityMARsV12R5T",
+    "oid": "1.3.6.1.4.1.9.7.273.6",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.5T for Cisco Access Routers and ISRs",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineType",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineBuildOut",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityAS5xxxV12R5T": {
+    "name": "ciscoDs1CapabilityAS5xxxV12R5T",
+    "oid": "1.3.6.1.4.1.9.7.273.7",
+    "class": "agentcapabilities",
+    "productrelease": "IOS 12.5T for Cisco Access Servers",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineType",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineBuildOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalValidData",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs1CapabilityV5R500": {
+    "name": "ciscoDs1CapabilityV5R500",
+    "oid": "1.3.6.1.4.1.9.7.273.8",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.5.0",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup",
+          "ds1NearEndOptionalConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1LineLength",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dsx1CircuitIdentifier",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "dsx1LineStatusLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1ESF": 2,
+                  "dsx1D4": 3,
+                  "dsx1E1": 4,
+                  "dsx1E1CRC": 5,
+                  "dsx1E1MF": 6,
+                  "dsx1E1CRCMF": 7,
+                  "dsx1E1Q50": 12,
+                  "dsx1E1Q50CRC": 13
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SendCode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1SendNoCode": 1,
+                  "dsx1SendLineCode": 2,
+                  "dsx1SendResetCode": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1LoopbackConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "dsx1NoLoop": 1,
+                  "dsx1LineLoop": 3,
+                  "dsx1InwardLoop": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1SignalMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "robbedBit": 2,
+                  "bitOriented": 3,
+                  "other": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "dsx1Fdl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1LineStatusChangeTrapEnable",
+            "default": [
+              "enabled"
+            ]
+          },
+          {
+            "object": "dsx1Channelization",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabledDs0": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DS1-CAPABILITY",
+      "Source digest sha256:2e70592bb64a6a220de9389c5a1d7ce4a909d906bae86b1e38beb8c82ac5ceb4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DS1-CAPABILITY"
+  }
+}

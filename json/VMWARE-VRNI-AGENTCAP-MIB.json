@@ -1,0 +1,293 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwareAgentCapabilities"
+    ]
+  },
+  "vmwVRNIAgentCapabilityMIB": {
+    "name": "vmwVRNIAgentCapabilityMIB",
+    "oid": "1.3.6.1.4.1.6876.70.125",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-05-20 00:00",
+        "description": "Notifications sent by VRNI as updated in 5.1 and 5.2 release"
+      },
+      {
+        "revision": "2019-08-19 00:00",
+        "description": "Notifications sent by VRNI as updated in 5.0 release"
+      },
+      {
+        "revision": "2019-06-06 00:00",
+        "description": "Notifications sent by VRNI as updated in 4.2 release"
+      },
+      {
+        "revision": "2019-03-22 00:00",
+        "description": "Notifications sent by VRNI as updated in 4.1 release"
+      },
+      {
+        "revision": "2018-12-04 00:00",
+        "description": "Notifications sent by VRNI as updated in 4.0 release"
+      },
+      {
+        "revision": "2018-09-12 00:00",
+        "description": "Notifications sent by VRNI as updated in 3.9 release"
+      },
+      {
+        "revision": "2017-10-13 00:00",
+        "description": "Change vmwVRNIAgentCapabilityMIB root oid to fix duplicate oid."
+      },
+      {
+        "revision": "2017-09-05 00:00",
+        "description": "Notifications send by VRNI as updated in 3.5 release"
+      },
+      {
+        "revision": "2017-06-01 00:00",
+        "description": "Notifications send by VRNI as updated in 3.4 release"
+      },
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Notifications send by VRNI as updated in 3.3 release"
+      },
+      {
+        "revision": "2016-11-22 00:01",
+        "description": "Describe SNMP agent capabilities for each VRNI appliance release."
+      }
+    ]
+  },
+  "vmwVRNICapability": {
+    "name": "vmwVRNICapability",
+    "oid": "1.3.6.1.4.1.6876.70.125.10",
+    "class": "objectidentity"
+  },
+  "vmwVRNIAgent2020v520": {
+    "name": "vmwVRNIAgent2020v520",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.16",
+    "class": "agentcapabilities",
+    "productrelease": "5.2.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5",
+          "vmwNetworkInsightNotificationGroup6",
+          "vmwNetworkInsightNotificationGroup7",
+          "vmwNetworkInsightNotificationGroup8",
+          "vmwNetworkInsightNotificationGroup9",
+          "vmwNetworkInsightNotificationGroup10"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2019v500": {
+    "name": "vmwVRNIAgent2019v500",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.15",
+    "class": "agentcapabilities",
+    "productrelease": "5.0.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5",
+          "vmwNetworkInsightNotificationGroup6",
+          "vmwNetworkInsightNotificationGroup7",
+          "vmwNetworkInsightNotificationGroup8",
+          "vmwNetworkInsightNotificationGroup9"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2019v420": {
+    "name": "vmwVRNIAgent2019v420",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.14",
+    "class": "agentcapabilities",
+    "productrelease": "4.2.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5",
+          "vmwNetworkInsightNotificationGroup6",
+          "vmwNetworkInsightNotificationGroup7",
+          "vmwNetworkInsightNotificationGroup8"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2019v410": {
+    "name": "vmwVRNIAgent2019v410",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.13",
+    "class": "agentcapabilities",
+    "productrelease": "4.1.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5",
+          "vmwNetworkInsightNotificationGroup6",
+          "vmwNetworkInsightNotificationGroup7"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2018v400": {
+    "name": "vmwVRNIAgent2018v400",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.12",
+    "class": "agentcapabilities",
+    "productrelease": "4.0.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5",
+          "vmwNetworkInsightNotificationGroup6"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2018v390": {
+    "name": "vmwVRNIAgent2018v390",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.11",
+    "class": "agentcapabilities",
+    "productrelease": "3.9.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationInfoGroup3",
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationGroup5"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2016v350": {
+    "name": "vmwVRNIAgent2016v350",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.9",
+    "class": "agentcapabilities",
+    "productrelease": "3.5.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationGroup4",
+          "vmwNetworkInsightNotificationInfoGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2017v340": {
+    "name": "vmwVRNIAgent2017v340",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.8",
+    "class": "agentcapabilities",
+    "productrelease": "3.4.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationGroup3",
+          "vmwNetworkInsightNotificationInfoGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2017v330": {
+    "name": "vmwVRNIAgent2017v330",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.7",
+    "class": "agentcapabilities",
+    "productrelease": "3.3.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightNotificationGroup1",
+          "vmwNetworkInsightNotificationGroup2",
+          "vmwNetworkInsightNotificationInfoGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwVRNIAgent2016v320": {
+    "name": "vmwVRNIAgent2016v320",
+    "oid": "1.3.6.1.4.1.6876.70.125.10.6",
+    "class": "agentcapabilities",
+    "productrelease": "3.2.0",
+    "capabilities": [
+      {
+        "module": "VMWARE-VRNI-MIB",
+        "includes": [
+          "vmwNetworkInsightMIBGroups"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VMWARE-VRNI-AGENTCAP-MIB",
+      "Source digest sha256:a6ad08104a16f903f55c3eb0a328bb71c752521684c3dfa7a3677a297a3544a0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VMWARE-VRNI-AGENTCAP-MIB"
+  }
+}

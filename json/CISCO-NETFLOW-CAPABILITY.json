@@ -1,0 +1,313 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NETFLOW-MIB": [
+      "NfTopFlowsSortTypes"
+    ],
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNetflowCapability": {
+    "name": "ciscoNetflowCapability",
+    "oid": "1.3.6.1.4.1.9.7.407",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-04 00:01",
+        "description": "Added capability statement ciscoNetflowCapV12R0250SYPCat6kPfc4."
+      },
+      {
+        "revision": "2007-08-24 00:00",
+        "description": "Added ciscoNetflowCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2004-06-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNetflowCapCatOSV08R0401": {
+    "name": "ciscoNetflowCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.407.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "includes": [
+          "cnfTopFlowsDataGroup1",
+          "cnfTopFlowsVlanGroup",
+          "cnfTopFlowsControlGroup2"
+        ],
+        "variations": [
+          {
+            "object": "cnfTopFlowsTopN",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 32
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsSortBy",
+            "syntax": {
+              "type": "NfTopFlowsSortTypes",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "byPackets": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsSrcAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsDstAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetflowCapV12R0233SXHPCat6K": {
+    "name": "ciscoNetflowCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.407.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "includes": [
+          "cnfCacheInfoGroup",
+          "cnfProtocolStatGroup",
+          "cnfExportInfoGroup",
+          "cnfExportStatisticsGroup",
+          "cnfExportTemplateGroup",
+          "cnfTopFlowsDataGroup1",
+          "cnfTopFlowsDataGroup2",
+          "cnfTopFlowsControlGroup1",
+          "cnfTopFlowsControlGroup2",
+          "cnfMcastNetflowControlGroup",
+          "cnfBridgedFlowStatsCtrlGroup",
+          "cnfTopFlowsReportGenerateGroup"
+        ],
+        "variations": [
+          {
+            "object": "cnfEIExportVersion",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "min": 5,
+                    "max": 5
+                  },
+                  {
+                    "min": 9,
+                    "max": 9
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfEICollectorAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTemplateExportVer9TplTimeout",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 600
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfTemplateExportVer9OptTimeout",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 600
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfTemplateExportVer9TplRefreshRate",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 3600
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfTemplateExportVer9OptRefreshRate",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 3600
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsReportSource",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "hardware": 2,
+                  "software": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsMatchSrcAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsMatchDstAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfTopFlowsMatchNhAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cnfCIMcastNetflowEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetflowCapV12R0250SYPCat6kPfc4": {
+    "name": "ciscoNetflowCapV12R0250SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.407.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500 \n                    series devices with PFC4 card.",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-NETFLOW-CAPABILITY",
+      "Source digest sha256:78627e5bb32cee64c494d950bfd1afd202cf1a702989200a01a20c2cd8cba899",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-NETFLOW-CAPABILITY"
+  }
+}

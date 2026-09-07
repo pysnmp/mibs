@@ -1,0 +1,1048 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "dasanMgmt"
+    ],
+    "DASAN-SWITCH-MIB": [
+      "dsPortModuleIndex",
+      "dsPortPortIndex",
+      "dsSwitchModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "dasanPonMIB": {
+    "name": "dasanPonMIB",
+    "oid": "1.3.6.1.4.1.6296.9.11",
+    "class": "moduleidentity"
+  },
+  "dasanEPonMIBObjects": {
+    "name": "dasanEPonMIBObjects",
+    "oid": "1.3.6.1.4.1.6296.9.11.2",
+    "class": "objectidentity"
+  },
+  "dsEPon": {
+    "name": "dsEPon",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1",
+    "class": "objectidentity"
+  },
+  "DsEPonSystemChannelStatusType": {
+    "name": "DsEPonSystemChannelStatusType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "inactive": 1,
+          "deny": 2,
+          "block": 3,
+          "active": 4,
+          "reset": 5
+        }
+      }
+    }
+  },
+  "DsEPonSystemRegModeType": {
+    "name": "DsEPonSystemRegModeType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "auto": 1,
+          "manual": 2,
+          "fixedOnu": 3
+        }
+      }
+    }
+  },
+  "DsEPonSystemPortStatusType": {
+    "name": "DsEPonSystemPortStatusType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "enable": 1,
+          "disable": 2,
+          "reset": 3
+        }
+      }
+    }
+  },
+  "DsEPonSystemChannelOpticModuleType": {
+    "name": "DsEPonSystemChannelOpticModuleType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "abnormal": 2
+        }
+      }
+    }
+  },
+  "DsEPonSystemPortRequestType": {
+    "name": "DsEPonSystemPortRequestType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "clearStatistics": 1
+        }
+      }
+    }
+  },
+  "DsEPonSystemChannelRowStatusType": {
+    "name": "DsEPonSystemChannelRowStatusType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "create": 1,
+          "destroy": 2,
+          "valid": 3
+        }
+      }
+    }
+  },
+  "dsEPonSystem": {
+    "name": "dsEPonSystem",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1",
+    "class": "objectidentity"
+  },
+  "dsEPonSystemInfo": {
+    "name": "dsEPonSystemInfo",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "dsEPonStatusReset": {
+    "name": "dsEPonStatusReset",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonSystemPort": {
+    "name": "dsEPonSystemPort",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "dsEPonSystemPortTable": {
+    "name": "dsEPonSystemPortTable",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsEPonSystemPortEntry": {
+    "name": "dsEPonSystemPortEntry",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonSystemPortRegMode": {
+    "name": "dsEPonSystemPortRegMode",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemRegModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonSystemPortStatus": {
+    "name": "dsEPonSystemPortStatus",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemPortStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonSystemPortRequest": {
+    "name": "dsEPonSystemPortRequest",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.2.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemPortRequestType",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannel": {
+    "name": "dsEPonSystemChannel",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "dsEPonSystemChannelTable": {
+    "name": "dsEPonSystemChannelTable",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsEPonSystemChannelEntry": {
+    "name": "dsEPonSystemChannelEntry",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonSystemChannelNodeIndex": {
+    "name": "dsEPonSystemChannelNodeIndex",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dsEPonSystemChannelPortIndex": {
+    "name": "dsEPonSystemChannelPortIndex",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dsEPonSystemChannelId": {
+    "name": "dsEPonSystemChannelId",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannelLlid": {
+    "name": "dsEPonSystemChannelLlid",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannelIpAddress": {
+    "name": "dsEPonSystemChannelIpAddress",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannelMacAddress": {
+    "name": "dsEPonSystemChannelMacAddress",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEponSystemChannelRegMode": {
+    "name": "dsEponSystemChannelRegMode",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemRegModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonSystemChannelStatus": {
+    "name": "dsEPonSystemChannelStatus",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemChannelStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonSystemChannelOpticModule": {
+    "name": "dsEPonSystemChannelOpticModule",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DsEPonSystemChannelOpticModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannelRtt": {
+    "name": "dsEPonSystemChannelRtt",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "meter",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonSystemChannelDescription": {
+    "name": "dsEPonSystemChannelDescription",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsEPonDeviceStatistics": {
+    "name": "dsEPonDeviceStatistics",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2",
+    "class": "objectidentity"
+  },
+  "dsEPonDeviceStatTable": {
+    "name": "dsEPonDeviceStatTable",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsEPonDeviceStatEntry": {
+    "name": "dsEPonDeviceStatEntry",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonDeviceInOctets": {
+    "name": "dsEPonDeviceInOctets",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInPkts": {
+    "name": "dsEPonDeviceInPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInPause": {
+    "name": "dsEPonDeviceInPause",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInErroredFrame": {
+    "name": "dsEPonDeviceInErroredFrame",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInUnicastPkts": {
+    "name": "dsEPonDeviceInUnicastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInBroadcastPkts": {
+    "name": "dsEPonDeviceInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceInMulticastPkts": {
+    "name": "dsEPonDeviceInMulticastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutOctets": {
+    "name": "dsEPonDeviceOutOctets",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutPkts": {
+    "name": "dsEPonDeviceOutPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutPause": {
+    "name": "dsEPonDeviceOutPause",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutDropped": {
+    "name": "dsEPonDeviceOutDropped",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutUnicastPkts": {
+    "name": "dsEPonDeviceOutUnicastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutBroadcastPkts": {
+    "name": "dsEPonDeviceOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceOutMulticastPkts": {
+    "name": "dsEPonDeviceOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonTable": {
+    "name": "dsEPonDeviceStatPonTable",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonEntry": {
+    "name": "dsEPonDeviceStatPonEntry",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "DASAN-SWITCH-MIB",
+        "object": "dsPortPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInOctets": {
+    "name": "dsEPonDeviceStatPonInOctets",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInPkts": {
+    "name": "dsEPonDeviceStatPonInPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInPause": {
+    "name": "dsEPonDeviceStatPonInPause",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInErroredFrame": {
+    "name": "dsEPonDeviceStatPonInErroredFrame",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInUnicastPkts": {
+    "name": "dsEPonDeviceStatPonInUnicastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInBroadcastPkts": {
+    "name": "dsEPonDeviceStatPonInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonInMulticastPkts": {
+    "name": "dsEPonDeviceStatPonInMulticastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutOctets": {
+    "name": "dsEPonDeviceStatPonOutOctets",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutPkts": {
+    "name": "dsEPonDeviceStatPonOutPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutPause": {
+    "name": "dsEPonDeviceStatPonOutPause",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutDropped": {
+    "name": "dsEPonDeviceStatPonOutDropped",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutUnicastPkts": {
+    "name": "dsEPonDeviceStatPonOutUnicastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutBroadcastPkts": {
+    "name": "dsEPonDeviceStatPonOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonDeviceStatPonOutMulticastPkts": {
+    "name": "dsEPonDeviceStatPonOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsEPonNotification": {
+    "name": "dsEPonNotification",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3",
+    "class": "objectidentity"
+  },
+  "dsEPonOnuRegistrationError": {
+    "name": "dsEPonOnuRegistrationError",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonBadEncryptionKey": {
+    "name": "dsEPonBadEncryptionKey",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonLlidMismatch": {
+    "name": "dsEPonLlidMismatch",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonTooManyOnuRegistering": {
+    "name": "dsEPonTooManyOnuRegistering",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonDyingGASP": {
+    "name": "dsEPonDyingGASP",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonOnuRegister": {
+    "name": "dsEPonOnuRegister",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonOnuDeregister": {
+    "name": "dsEPonOnuDeregister",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonLastOnuDeregister": {
+    "name": "dsEPonLastOnuDeregister",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonOltCableDown": {
+    "name": "dsEPonOltCableDown",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEPonOltRecoverCableDown": {
+    "name": "dsEPonOltRecoverCableDown",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEponOnuFristRegisteredOnAutoToManual": {
+    "name": "dsEponOnuFristRegisteredOnAutoToManual",
+    "oid": "1.3.6.1.4.1.6296.9.11.2.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelNodeIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelPortIndex"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelId"
+      },
+      {
+        "module": "DASAN-EPON-MIB",
+        "object": "dsEPonSystemChannelMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DASAN-EPON-MIB",
+      "Source digest sha256:8eccd54058b0848159317624a90f8674e328a67e2427c94078d1e4bf28e6b34a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DASAN-EPON-MIB"
+  }
+}

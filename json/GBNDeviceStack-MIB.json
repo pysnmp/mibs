@@ -1,0 +1,564 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnDevice"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "gbnDeviceStackMib": {
+    "name": "gbnDeviceStackMib",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "stackEnableRunning": {
+    "name": "stackEnableRunning",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackEnableConfig": {
+    "name": "stackEnableConfig",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackUnitMax": {
+    "name": "stackUnitMax",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkTable": {
+    "name": "stackPortVirtualLinkTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stackPortVirtualLinkEntry": {
+    "name": "stackPortVirtualLinkEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackPortVirtualLinkPhyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stackPortVirtualLinkPhyPort": {
+    "name": "stackPortVirtualLinkPhyPort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkDevice": {
+    "name": "stackPortVirtualLinkDevice",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkSlot": {
+    "name": "stackPortVirtualLinkSlot",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkPortNum": {
+    "name": "stackPortVirtualLinkPortNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkModeRunning": {
+    "name": "stackPortVirtualLinkModeRunning",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "virtuallink1": 1,
+          "virtuallink2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkModeConfig": {
+    "name": "stackPortVirtualLinkModeConfig",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "virtuallink1": 1,
+          "virtuallink2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackPortVirtualLinkLinkStatus": {
+    "name": "stackPortVirtualLinkLinkStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "linkup": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackPortVirtualLinkLinkSpeed": {
+    "name": "stackPortVirtualLinkLinkSpeed",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s10g": 0,
+          "s12g": 1,
+          "s1g": 2,
+          "s2-5g": 3,
+          "s5g": 4,
+          "s10m": 5,
+          "s100m": 6,
+          "unknow": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberTable": {
+    "name": "stackMemberTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stackMemberEntry": {
+    "name": "stackMemberEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackMemberUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stackMemberUnit": {
+    "name": "stackMemberUnit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberMode": {
+    "name": "stackMemberMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 0,
+          "master": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberNewUnit": {
+    "name": "stackMemberNewUnit",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackMemberPriorityRunning": {
+    "name": "stackMemberPriorityRunning",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberPriorityConfig": {
+    "name": "stackMemberPriorityConfig",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackMemberReboot": {
+    "name": "stackMemberReboot",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackMemberVirtualLink1Hop": {
+    "name": "stackMemberVirtualLink1Hop",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberVirtualLink2Hop": {
+    "name": "stackMemberVirtualLink2Hop",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackMemberMac": {
+    "name": "stackMemberMac",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stackLinkdownDelay": {
+    "name": "stackLinkdownDelay",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackHelloTimeOut": {
+    "name": "stackHelloTimeOut",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackLacpMadDomain": {
+    "name": "stackLacpMadDomain",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackLacpMadTable": {
+    "name": "stackLacpMadTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stackLacpMadEntry": {
+    "name": "stackLacpMadEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "lacpMadChannelGroup",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lacpMadChannelGroup": {
+    "name": "lacpMadChannelGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lacpMadEnable": {
+    "name": "lacpMadEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackMadExcludeTable": {
+    "name": "stackMadExcludeTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stackMadExcludeEntry": {
+    "name": "stackMadExcludeEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "madExcludePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "madExcludePort": {
+    "name": "madExcludePort",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macExcludeEnable": {
+    "name": "macExcludeEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stackTrap": {
+    "name": "stackTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.11",
+    "class": "objectidentity"
+  },
+  "stackPortVirtualLinkStateChange": {
+    "name": "stackPortVirtualLinkStateChange",
+    "oid": "1.3.6.1.4.1.13464.1.2.2.5.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackPortVirtualLinkDevice"
+      },
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackPortVirtualLinkSlot"
+      },
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackPortVirtualLinkPortNum"
+      },
+      {
+        "module": "GBNDeviceStack-MIB",
+        "object": "stackPortVirtualLinkLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNDeviceStack-MIB",
+      "Source digest sha256:57d0656387125ea1f30dbec4226cfa33bce4246047dd41bbaf46ecc854a55d17",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNDeviceStack-MIB"
+  }
+}

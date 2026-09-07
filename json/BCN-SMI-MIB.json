@@ -1,0 +1,73 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECATNETWORKS-MIB": [
+      "bluecatnetworks"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bcnSMI": {
+    "name": "bcnSMI",
+    "oid": "1.3.6.1.4.1.13315.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnProducts": {
+    "name": "bcnProducts",
+    "oid": "1.3.6.1.4.1.13315.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnMgmt": {
+    "name": "bcnMgmt",
+    "oid": "1.3.6.1.4.1.13315.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnServices": {
+    "name": "bcnServices",
+    "oid": "1.3.6.1.4.1.13315.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnModules": {
+    "name": "bcnModules",
+    "oid": "1.3.6.1.4.1.13315.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnExperimental": {
+    "name": "bcnExperimental",
+    "oid": "1.3.6.1.4.1.13315.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BCN-SMI-MIB",
+      "Source digest sha256:498f2321ea0535b017cca48ea4abb579219211951dc27016f159f33edac57e6c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BCN-SMI-MIB"
+  }
+}

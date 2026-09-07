@@ -1,0 +1,27 @@
+#
+# PySNMP MIB module TAIT-COMMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source TAIT-COMMON-MIB
+# Source digest sha256:e14e8ad0f1bf9208384194316c64608830e3651ce02293f30d0bb27eb6f6ce8f
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+taitCommonRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 1))
+taitCommonRegModule.setRevisions(('2012-02-20 12:00',))
+if mibBuilder.loadTexts: taitCommonRegModule.setLastUpdated('2012-02-20 12:00')
+if mibBuilder.loadTexts: taitCommonRegModule.setOrganization('www.taitradio.com')
+tait = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570))
+if mibBuilder.loadTexts: tait.setStatus('current')
+taitRegistrations = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570, 1))
+if mibBuilder.loadTexts: taitRegistrations.setStatus('current')
+taitModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1))
+if mibBuilder.loadTexts: taitModules.setStatus('current')
+taitGeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570, 2))
+if mibBuilder.loadTexts: taitGeneric.setStatus('current')
+taitProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570, 3))
+if mibBuilder.loadTexts: taitProducts.setStatus('current')
+mibBuilder.exportSymbols("TAIT-COMMON-MIB", PYSNMP_MODULE_ID=taitCommonRegModule, tait=tait, taitCommonRegModule=taitCommonRegModule, taitGeneric=taitGeneric, taitModules=taitModules, taitProducts=taitProducts, taitRegistrations=taitRegistrations)

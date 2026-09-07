@@ -1,0 +1,3511 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwMcast": {
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149",
+    "class": "objectidentity"
+  },
+  "hwMgmdStdMib": {
+    "name": "hwMgmdStdMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-02-11 00:00",
+        "description": "Modify the History."
+      },
+      {
+        "revision": "2021-10-27 00:00",
+        "description": "Modify the range of hwMgmdGmpBoardLimitCount."
+      },
+      {
+        "revision": "2021-10-19 00:00",
+        "description": "Delete SrcAddr and GrpAddr of hwMgmdGMPBoardLimit/hwMgmdGMPBoardLimitClear."
+      },
+      {
+        "revision": "2021-10-16 00:00",
+        "description": "1.Add hwMgmdBoardLimitThresholdExceed. 2.Add hwMgmdBoardLimitThresholdExceedClear. 3.Add hwMgmdGMPBoardLimit. 4.Add hwMgmdGMPBoardLimitClear. "
+      },
+      {
+        "revision": "2021-04-19 00:00",
+        "description": "Modify comment."
+      },
+      {
+        "revision": "2018-09-11 00:00",
+        "description": "1.Add hwMgmdIfThresholdExceed. 2.Add hwMgmdIfThresholdExceedClear. "
+      },
+      {
+        "revision": "2016-10-13 00:00",
+        "description": "1.Add hwMgmdRouterInterfaceTtlCheck. 2.Add hwMgmdHostInterfaceTtlCheck. 3.Add hwMgmdTtlCheck. "
+      },
+      {
+        "revision": "2016-07-09 00:00",
+        "description": "1.Add hwMgmdHostInterfaceTable. 2.Add hwMgmdHostRerouteDelayPeriod. 3.Add hwMgmdHostRerouteImmediate. "
+      },
+      {
+        "revision": "2014-07-09 00:00",
+        "description": "1.Add hwMgmdHostStarGThresholdExceed trap. 2.Add hwMgmdHostStarGThresholdExceedClear trap. 3.Add hwMgmdHostStarGExceed trap. 4.Add hwMgmdHostStarGExceedClear trap. 5.Add hwMgmdHostSGThreshodExceed trap. 6.Add hwMgmdHostSGThreshodExceedClear trap. 7.Add hwMgmdHostSGExceed trap. 8.Add hwMgmdHostSGExceedClear trap. "
+      },
+      {
+        "revision": "2014-07-01 00:00",
+        "description": "1.Correct trap name hwMgmdTotalLimitThreshodExceed to hwMgmdTotalLimitThresholdExceed and modify the description. 2.Correct trap name hwMgmdTotalLimitThreshodExceedClear to hwMgmdTotalLimitThresholdExceedClear and modify the description. "
+      },
+      {
+        "revision": "2014-06-20 00:00",
+        "description": "1.Add hwMgmdTotalLimitThreshodExceed trap. 2.Add hwMgmdTotalLimitThreshodExceedClear trap. "
+      },
+      {
+        "revision": "2013-08-28 00:00",
+        "description": "Modify import mibs"
+      },
+      {
+        "revision": "2007-04-16 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "HWMgmdCtlMsgState": {
+    "name": "HWMgmdCtlMsgState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2,
+          "ignore": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwMgmdMibObjects": {
+    "name": "hwMgmdMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1",
+    "class": "objectidentity"
+  },
+  "hwMgmdMibGeneralObjects": {
+    "name": "hwMgmdMibGeneralObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2",
+    "class": "objectidentity"
+  },
+  "hwMgmdMibNotifications": {
+    "name": "hwMgmdMibNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3",
+    "class": "objectidentity"
+  },
+  "hwMgmdRouterInterfaceTable": {
+    "name": "hwMgmdRouterInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceEntry": {
+    "name": "hwMgmdRouterInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceIfIndex": {
+    "name": "hwMgmdRouterInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQuerierType": {
+    "name": "hwMgmdRouterInterfaceQuerierType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQuerier": {
+    "name": "hwMgmdRouterInterfaceQuerier",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQueryInterval": {
+    "name": "hwMgmdRouterInterfaceQueryInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 125,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceStatus": {
+    "name": "hwMgmdRouterInterfaceStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceVersion": {
+    "name": "hwMgmdRouterInterfaceVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQueryMaxResponseTime": {
+    "name": "hwMgmdRouterInterfaceQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 100,
+      "format": "decimal"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQuerierUpTime": {
+    "name": "hwMgmdRouterInterfaceQuerierUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceQuerierExpiryTime": {
+    "name": "hwMgmdRouterInterfaceQuerierExpiryTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceWrongVersionQueries": {
+    "name": "hwMgmdRouterInterfaceWrongVersionQueries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceJoins": {
+    "name": "hwMgmdRouterInterfaceJoins",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceProxyIfIndex": {
+    "name": "hwMgmdRouterInterfaceProxyIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceGroups": {
+    "name": "hwMgmdRouterInterfaceGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceRobustness": {
+    "name": "hwMgmdRouterInterfaceRobustness",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceLastMembQueryIntvl": {
+    "name": "hwMgmdRouterInterfaceLastMembQueryIntvl",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceLastMembQueryCount": {
+    "name": "hwMgmdRouterInterfaceLastMembQueryCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceStartupQueryCount": {
+    "name": "hwMgmdRouterInterfaceStartupQueryCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceStartupQueryInterval": {
+    "name": "hwMgmdRouterInterfaceStartupQueryInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceTtlCheck": {
+    "name": "hwMgmdRouterInterfaceTtlCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheTable": {
+    "name": "hwMgmdRouterCacheTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheEntry": {
+    "name": "hwMgmdRouterCacheEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdRouterCacheAddressType": {
+    "name": "hwMgmdRouterCacheAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheAddress": {
+    "name": "hwMgmdRouterCacheAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheIfIndex": {
+    "name": "hwMgmdRouterCacheIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheLastReporter": {
+    "name": "hwMgmdRouterCacheLastReporter",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheUpTime": {
+    "name": "hwMgmdRouterCacheUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheExpiryTime": {
+    "name": "hwMgmdRouterCacheExpiryTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheExcludeModeExpiryTimer": {
+    "name": "hwMgmdRouterCacheExcludeModeExpiryTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheVersion1HostTimer": {
+    "name": "hwMgmdRouterCacheVersion1HostTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheVersion2HostTimer": {
+    "name": "hwMgmdRouterCacheVersion2HostTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheSourceFilterMode": {
+    "name": "hwMgmdRouterCacheSourceFilterMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheTable": {
+    "name": "hwMgmdInverseRouterCacheTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheEntry": {
+    "name": "hwMgmdInverseRouterCacheEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheIfIndex": {
+    "name": "hwMgmdInverseRouterCacheIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheAddressType": {
+    "name": "hwMgmdInverseRouterCacheAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheAddress": {
+    "name": "hwMgmdInverseRouterCacheAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListTable": {
+    "name": "hwMgmdRouterSrcListTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListEntry": {
+    "name": "hwMgmdRouterSrcListEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListAddressType": {
+    "name": "hwMgmdRouterSrcListAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListAddress": {
+    "name": "hwMgmdRouterSrcListAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListIfIndex": {
+    "name": "hwMgmdRouterSrcListIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListHostAddress": {
+    "name": "hwMgmdRouterSrcListHostAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListExpire": {
+    "name": "hwMgmdRouterSrcListExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountTable": {
+    "name": "hwMgmdCtlMsgCountTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountEntry": {
+    "name": "hwMgmdCtlMsgCountEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountQuerierType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountState",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountIfIndex": {
+    "name": "hwMgmdCtlMsgCountIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountQuerierType": {
+    "name": "hwMgmdCtlMsgCountQuerierType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountState": {
+    "name": "hwMgmdCtlMsgCountState",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWMgmdCtlMsgState",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountQuery": {
+    "name": "hwMgmdCtlMsgCountQuery",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountReportASM": {
+    "name": "hwMgmdCtlMsgCountReportASM",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountReportSSM": {
+    "name": "hwMgmdCtlMsgCountReportSSM",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountLeaveASM": {
+    "name": "hwMgmdCtlMsgCountLeaveASM",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountLeaveSSM": {
+    "name": "hwMgmdCtlMsgCountLeaveSSM",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountISIN": {
+    "name": "hwMgmdCtlMsgCountISIN",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountISEX": {
+    "name": "hwMgmdCtlMsgCountISEX",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountTOIN": {
+    "name": "hwMgmdCtlMsgCountTOIN",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountTOEX": {
+    "name": "hwMgmdCtlMsgCountTOEX",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountALLOW": {
+    "name": "hwMgmdCtlMsgCountALLOW",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountBLOCK": {
+    "name": "hwMgmdCtlMsgCountBLOCK",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountSrcRecTotal": {
+    "name": "hwMgmdCtlMsgCountSrcRecTotal",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountOthers": {
+    "name": "hwMgmdCtlMsgCountOthers",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceTable": {
+    "name": "hwMgmdHostInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceEntry": {
+    "name": "hwMgmdHostInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceQuerierType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceIfIndex": {
+    "name": "hwMgmdHostInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceQuerierType": {
+    "name": "hwMgmdHostInterfaceQuerierType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceQuerier": {
+    "name": "hwMgmdHostInterfaceQuerier",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceStatus": {
+    "name": "hwMgmdHostInterfaceStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceVersion": {
+    "name": "hwMgmdHostInterfaceVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceVersion1QuerierTimer": {
+    "name": "hwMgmdHostInterfaceVersion1QuerierTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceVersion2QuerierTimer": {
+    "name": "hwMgmdHostInterfaceVersion2QuerierTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceVersion3Robustness": {
+    "name": "hwMgmdHostInterfaceVersion3Robustness",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceBackupInterface": {
+    "name": "hwMgmdHostInterfaceBackupInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceRerouteDelayPeriod": {
+    "name": "hwMgmdHostInterfaceRerouteDelayPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceRerouteImmediate": {
+    "name": "hwMgmdHostInterfaceRerouteImmediate",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdHostInterfaceTtlCheck": {
+    "name": "hwMgmdHostInterfaceTtlCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdGroup": {
+    "name": "hwMgmdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwMgmdSource": {
+    "name": "hwMgmdSource",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwMgmdLimitInterfaceIfIndex": {
+    "name": "hwMgmdLimitInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdGlobalEntries": {
+    "name": "hwMgmdGlobalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdInterfaceEntries": {
+    "name": "hwMgmdInterfaceEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdTotalEntries": {
+    "name": "hwMgmdTotalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdGmpJoinGrpAddr": {
+    "name": "hwMgmdGmpJoinGrpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpJoinSrcAddr": {
+    "name": "hwMgmdGmpJoinSrcAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpJoinSenderIp": {
+    "name": "hwMgmdGmpJoinSenderIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpJoinVersion": {
+    "name": "hwMgmdGmpJoinVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpInterfaceIfIndex": {
+    "name": "hwMgmdGmpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpInterfaceName": {
+    "name": "hwMgmdGmpInterfaceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpLimitGroupAddressType": {
+    "name": "hwMgmdGmpLimitGroupAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpLimitGroup": {
+    "name": "hwMgmdGmpLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpLimitSource": {
+    "name": "hwMgmdGmpLimitSource",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdInstanceName": {
+    "name": "hwMgmdInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdNotificationAddressType": {
+    "name": "hwMgmdNotificationAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdTotalLimitCurrentCount": {
+    "name": "hwMgmdTotalLimitCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdTotalLimitThreshold": {
+    "name": "hwMgmdTotalLimitThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostStarGCurrentCount": {
+    "name": "hwMgmdHostStarGCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostStarGThreshold": {
+    "name": "hwMgmdHostStarGThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostStarGTotalCount": {
+    "name": "hwMgmdHostStarGTotalCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostNotificationSrcAddr": {
+    "name": "hwMgmdHostNotificationSrcAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostNotificationGrpAddr": {
+    "name": "hwMgmdHostNotificationGrpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostSGCurrentCount": {
+    "name": "hwMgmdHostSGCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostSGThreshold": {
+    "name": "hwMgmdHostSGThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostSGTotalCount": {
+    "name": "hwMgmdHostSGTotalCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdHostRerouteDelayPeriod": {
+    "name": "hwMgmdHostRerouteDelayPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdHostRerouteImmediate": {
+    "name": "hwMgmdHostRerouteImmediate",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdTtlCheck": {
+    "name": "hwMgmdTtlCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMgmdGmpIfCurrentCount": {
+    "name": "hwMgmdGmpIfCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdGmpIfThreshold": {
+    "name": "hwMgmdGmpIfThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdThresholdInterfaceIfIndex": {
+    "name": "hwMgmdThresholdInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdNotificationSlot": {
+    "name": "hwMgmdNotificationSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGmpBoardCurrentCount": {
+    "name": "hwMgmdGmpBoardCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 262144
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdGmpBoardLimitCount": {
+    "name": "hwMgmdGmpBoardLimitCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 262144
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMgmdGmpBoardThreshold": {
+    "name": "hwMgmdGmpBoardThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMgmdGlobalLimit": {
+    "name": "hwMgmdGlobalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMgmdInterfaceLimit": {
+    "name": "hwMgmdInterfaceLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMgmdTotalLimit": {
+    "name": "hwMgmdTotalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMgmdGmpJoin": {
+    "name": "hwMgmdGmpJoin",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSenderIp"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGmpLeave": {
+    "name": "hwMgmdGmpLeave",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPGlobalLimit": {
+    "name": "hwMgmdGMPGlobalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPInterfaceLimit": {
+    "name": "hwMgmdGMPInterfaceLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPTotalLimit": {
+    "name": "hwMgmdGMPTotalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPInterfaceLimitClear": {
+    "name": "hwMgmdGMPInterfaceLimitClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPGlobalLimitClear": {
+    "name": "hwMgmdGMPGlobalLimitClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPTotalLimitClear": {
+    "name": "hwMgmdGMPTotalLimitClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdTotalLimitThresholdExceed": {
+    "name": "hwMgmdTotalLimitThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdTotalLimitThresholdExceedClear": {
+    "name": "hwMgmdTotalLimitThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostStarGThresholdExceed": {
+    "name": "hwMgmdHostStarGThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostStarGThresholdExceedClear": {
+    "name": "hwMgmdHostStarGThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostStarGExceed": {
+    "name": "hwMgmdHostStarGExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostStarGExceedClear": {
+    "name": "hwMgmdHostStarGExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostSGThresholdExceed": {
+    "name": "hwMgmdHostSGThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostSGThresholdExceedClear": {
+    "name": "hwMgmdHostSGThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostSGExceed": {
+    "name": "hwMgmdHostSGExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostSGExceedClear": {
+    "name": "hwMgmdHostSGExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdIfThresholdExceed": {
+    "name": "hwMgmdIfThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdThresholdInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdIfThresholdExceedClear": {
+    "name": "hwMgmdIfThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdThresholdInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdBoardLimitThresholdExceed": {
+    "name": "hwMgmdBoardLimitThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationSlot"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardLimitCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdBoardLimitThresholdExceedClear": {
+    "name": "hwMgmdBoardLimitThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationSlot"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardLimitCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPBoardLimit": {
+    "name": "hwMgmdGMPBoardLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationSlot"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardLimitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdGMPBoardLimitClear": {
+    "name": "hwMgmdGMPBoardLimitClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationSlot"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardLimitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdMibConformance": {
+    "name": "hwMgmdMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4",
+    "class": "objectidentity"
+  },
+  "hwMgmdMibCompliance": {
+    "name": "hwMgmdMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3",
+    "class": "objectidentity"
+  },
+  "hwMgmdMibGroups": {
+    "name": "hwMgmdMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4",
+    "class": "objectidentity"
+  },
+  "hwMgmdIgmpV1RouterMibCompliance": {
+    "name": "hwMgmdIgmpV1RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMgmdRouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationObjects",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdIgmpV2RouterMibCompliance": {
+    "name": "hwMgmdIgmpV2RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMgmdRouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2IgmpRouterMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterOptMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2ProxyMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationObjects",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdMldV1RouterMibCompliance": {
+    "name": "hwMgmdMldV1RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMgmdRouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterOptMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2ProxyMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationObjects",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdIgmpV3RouterMibCompliance": {
+    "name": "hwMgmdIgmpV3RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMgmdRouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2IgmpRouterMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV3RouterMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationObjects",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdMldV2RouterMibCompliance": {
+    "name": "hwMgmdMldV2RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMgmdRouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV2RouterBaseMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdV3RouterMibGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationObjects",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      },
+      {
+        "object": "hwMgmdMibNotificationGroup",
+        "module": "HUAWEI-MGMD-STD-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostBaseMIBGroup": {
+    "name": "hwMgmdHostBaseMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceStatus"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdRouterBaseMibGroup": {
+    "name": "hwMgmdRouterBaseMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheUpTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheExpiryTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceJoins"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceGroups"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheLastReporter"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierUpTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierExpiryTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQueryInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV2HostMIBGroup": {
+    "name": "hwMgmdV2HostMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceVersion1QuerierTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV3HostMIBGroup": {
+    "name": "hwMgmdV3HostMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceVersion2QuerierTimer"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceVersion3Robustness"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdHostExtendedMIBGroup": {
+    "name": "hwMgmdHostExtendedMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceBackupInterface"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceRerouteDelayPeriod"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceRerouteImmediate"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceQuerier"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostRerouteDelayPeriod"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostRerouteImmediate"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostInterfaceTtlCheck"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTtlCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV2RouterBaseMibGroup": {
+    "name": "hwMgmdV2RouterBaseMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerier"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQueryMaxResponseTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceRobustness"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceWrongVersionQueries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceLastMembQueryIntvl"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceLastMembQueryCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStartupQueryCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStartupQueryInterval"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceTtlCheck"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTtlCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV2IgmpRouterMibGroup": {
+    "name": "hwMgmdV2IgmpRouterMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheVersion1HostTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV2ProxyMibGroup": {
+    "name": "hwMgmdV2ProxyMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceProxyIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV2RouterOptMibGroup": {
+    "name": "hwMgmdV2RouterOptMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountMibGroup": {
+    "name": "hwMgmdCtlMsgCountMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountQuery"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountReportASM"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountReportSSM"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountLeaveASM"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountLeaveSSM"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountISIN"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountISEX"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountTOIN"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountTOEX"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountALLOW"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountBLOCK"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountSrcRecTotal"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountOthers"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdV3RouterMibGroup": {
+    "name": "hwMgmdV3RouterMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheSourceFilterMode"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheVersion2HostTimer"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheExcludeModeExpiryTimer"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListHostAddress"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListExpire"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdMibNotificationObjects": {
+    "name": "hwMgmdMibNotificationObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSenderIp"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdThresholdInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpIfThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationSlot"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardLimitCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpBoardThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMgmdMibNotificationGroup": {
+    "name": "hwMgmdMibNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoin"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLeave"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPGlobalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPInterfaceLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPTotalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPInterfaceLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPGlobalLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPTotalLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdIfThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdIfThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdBoardLimitThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdBoardLimitThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPBoardLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPBoardLimitClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-MGMD-STD-MIB",
+      "Source digest sha256:d17e2110c1579af4091c8ae7ea70194899de8d79b6671967e273a73b1f7693a4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-MGMD-STD-MIB"
+  }
+}

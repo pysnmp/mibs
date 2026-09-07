@@ -1,0 +1,124 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "my": {
+    "name": "my",
+    "oid": "1.3.6.1.4.1.4881",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.4881.1",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.4881.1.1",
+    "class": "objectidentity"
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.4881.1.2",
+    "class": "objectidentity"
+  },
+  "wireless": {
+    "name": "wireless",
+    "oid": "1.3.6.1.4.1.4881.1.3",
+    "class": "objectidentity"
+  },
+  "switchMib": {
+    "name": "switchMib",
+    "oid": "1.3.6.1.4.1.4881.1.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "mySwitchProducts": {
+    "name": "mySwitchProducts",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "myMgmt": {
+    "name": "myMgmt",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "myAgentCapability": {
+    "name": "myAgentCapability",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "myModules": {
+    "name": "myModules",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "myExperiment": {
+    "name": "myExperiment",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerMib": {
+    "name": "routerMib",
+    "oid": "1.3.6.1.4.1.4881.1.2.1",
+    "class": "objectidentity"
+  },
+  "myRouterProducts": {
+    "name": "myRouterProducts",
+    "oid": "1.3.6.1.4.1.4881.1.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wirelessMib": {
+    "name": "wirelessMib",
+    "oid": "1.3.6.1.4.1.4881.1.3.1",
+    "class": "objectidentity"
+  },
+  "myWirelessProducts": {
+    "name": "myWirelessProducts",
+    "oid": "1.3.6.1.4.1.4881.1.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "myWirelessMgmt": {
+    "name": "myWirelessMgmt",
+    "oid": "1.3.6.1.4.1.4881.1.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MY-SMI",
+      "Source digest sha256:b5d03ff92feac38304c2e7ac1cf5417d1692968317a46bb54512b662b6ed2131",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MY-SMI"
+  }
+}

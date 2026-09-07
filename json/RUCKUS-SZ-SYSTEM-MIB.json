@@ -1,0 +1,196 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusSZSystemModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ruckusSZSystemMIB": {
+    "name": "ruckusSZSystemMIB",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1",
+    "class": "moduleidentity"
+  },
+  "ruckusSZSystemObjects": {
+    "name": "ruckusSZSystemObjects",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusSZSystemInfo": {
+    "name": "ruckusSZSystemInfo",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusSZSystemStats": {
+    "name": "ruckusSZSystemStats",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15",
+    "class": "objectidentity"
+  },
+  "ruckusSZSystemStatsNumAP": {
+    "name": "ruckusSZSystemStatsNumAP",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsNumSta": {
+    "name": "ruckusSZSystemStatsNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalRxPkts": {
+    "name": "ruckusSZSystemStatsWLANTotalRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalRxBytes": {
+    "name": "ruckusSZSystemStatsWLANTotalRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalRxMulticast": {
+    "name": "ruckusSZSystemStatsWLANTotalRxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalTxPkts": {
+    "name": "ruckusSZSystemStatsWLANTotalTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalTxBytes": {
+    "name": "ruckusSZSystemStatsWLANTotalTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalTxMulticast": {
+    "name": "ruckusSZSystemStatsWLANTotalTxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalTxFail": {
+    "name": "ruckusSZSystemStatsWLANTotalTxFail",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsWLANTotalTxRetry": {
+    "name": "ruckusSZSystemStatsWLANTotalTxRetry",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusSZSystemStatsSerialNumber": {
+    "name": "ruckusSZSystemStatsSerialNumber",
+    "oid": "1.3.6.1.4.1.25053.1.4.1.1.1.15.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RUCKUS-SZ-SYSTEM-MIB",
+      "Source digest sha256:afd556d673f59fcb6a3f42fd0ccc0387de7cc649703c98977dd2771bf9e8e61c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RUCKUS-SZ-SYSTEM-MIB"
+  }
+}

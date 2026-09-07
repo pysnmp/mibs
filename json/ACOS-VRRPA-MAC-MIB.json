@@ -1,0 +1,137 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vrrpAMacModule": {
+    "name": "vrrpAMacModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11",
+    "class": "moduleidentity"
+  },
+  "mac": {
+    "name": "mac",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1",
+    "class": "objectidentity"
+  },
+  "macOperVridMacListTable": {
+    "name": "macOperVridMacListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "macOperVridMacListEntry": {
+    "name": "macOperVridMacListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VRRPA-MAC-MIB",
+        "object": "macOperVridMacListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VRRPA-MAC-MIB",
+        "object": "macOperVridMacListVridMacListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "macOperVridMacListSlotId": {
+    "name": "macOperVridMacListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macOperVridMacListVridMacListListId": {
+    "name": "macOperVridMacListVridMacListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macOperVridMacListVrid": {
+    "name": "macOperVridMacListVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macOperVridMacListMacAddress": {
+    "name": "macOperVridMacListMacAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macOperVridMacListMacWithSynCookie": {
+    "name": "macOperVridMacListMacWithSynCookie",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.11.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VRRPA-MAC-MIB",
+      "Source digest sha256:b77c1387f9efc997bad2c6152b811974e6fe69eba4650530556f70c2fc2096d9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VRRPA-MAC-MIB"
+  }
+}

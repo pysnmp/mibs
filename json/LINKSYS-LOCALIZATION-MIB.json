@@ -1,0 +1,253 @@
+{
+  "imports": {
+    "class": "imports",
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlLocalization": {
+    "name": "rlLocalization",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlLocalizationActivelanguage": {
+    "name": "rlLocalizationActivelanguage",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlLocalizationLoginlanguage": {
+    "name": "rlLocalizationLoginlanguage",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesTable": {
+    "name": "rlLocalizationLanguagesTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesEntry": {
+    "name": "rlLocalizationLanguagesEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-LOCALIZATION-MIB",
+        "object": "rlLocalizationLanguagesName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlLocalizationLanguagesName": {
+    "name": "rlLocalizationLanguagesName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUnicodeName": {
+    "name": "rlLocalizationLanguagesUnicodeName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUrlDir": {
+    "name": "rlLocalizationLanguagesUrlDir",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUrlHelpDir": {
+    "name": "rlLocalizationLanguagesUrlHelpDir",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguageCode": {
+    "name": "rlLocalizationLanguageCode",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationNumOfSections": {
+    "name": "rlLocalizationNumOfSections",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationNumOfEmbSections": {
+    "name": "rlLocalizationNumOfEmbSections",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationVersion": {
+    "name": "rlLocalizationVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationMd5ChksumFile": {
+    "name": "rlLocalizationMd5ChksumFile",
+    "oid": "1.3.6.1.4.1.3955.1000.201.103.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LINKSYS-LOCALIZATION-MIB",
+      "Source digest sha256:722bf07842df53557b73d348f2c0273dd5230d631520c5964ead231aac1680d0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LINKSYS-LOCALIZATION-MIB"
+  }
+}

@@ -1,0 +1,3505 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "PIM-MIB": [
+      "pimRPSetComponent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "hpicfPim6MIB": {
+    "name": "hpicfPim6MIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-10 00:00",
+        "description": "Extended PIMv6 Trap, State refresh max range."
+      },
+      {
+        "revision": "2017-07-03 00:00",
+        "description": "Added PIMv6 SM specific objects."
+      },
+      {
+        "revision": "2012-04-12 00:00",
+        "description": "Extended hpicfPim6IfTable to provide more detail on PIM enabled interfaces."
+      }
+    ]
+  },
+  "hpicfPim6Objects": {
+    "name": "hpicfPim6Objects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1",
+    "class": "objectidentity"
+  },
+  "hpicfPim6Traps": {
+    "name": "hpicfPim6Traps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.0",
+    "class": "objectidentity"
+  },
+  "hpicfPim6": {
+    "name": "hpicfPim6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfPim6Conformance": {
+    "name": "hpicfPim6Conformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2",
+    "class": "objectidentity"
+  },
+  "hpicfPim6Groups": {
+    "name": "hpicfPim6Groups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfPim6Compliances": {
+    "name": "hpicfPim6Compliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfPim6AdminStatus": {
+    "name": "hpicfPim6AdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6StateRefreshInterval": {
+    "name": "hpicfPim6StateRefreshInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6TrapControl": {
+    "name": "hpicfPim6TrapControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "neighborLoss": 0,
+        "hardMrtFull": 1,
+        "softMrtFull": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6IfTable": {
+    "name": "hpicfPim6IfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IfEntry": {
+    "name": "hpicfPim6IfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6IfIndex": {
+    "name": "hpicfPim6IfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IfAddressType": {
+    "name": "hpicfPim6IfAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfAddress": {
+    "name": "hpicfPim6IfAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfMode": {
+    "name": "hpicfPim6IfMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dense": 1,
+          "sparse": 2
+        }
+      }
+    },
+    "default": {
+      "value": "dense",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfTrigHelloInterval": {
+    "name": "hpicfPim6IfTrigHelloInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfHelloHoldtime": {
+    "name": "hpicfPim6IfHelloHoldtime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 105,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfLanPruneDelay": {
+    "name": "hpicfPim6IfLanPruneDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfPropagationDelay": {
+    "name": "hpicfPim6IfPropagationDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 500,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfOverrideInterval": {
+    "name": "hpicfPim6IfOverrideInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2500,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfGenerationID": {
+    "name": "hpicfPim6IfGenerationID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfJoinPruneHoldtime": {
+    "name": "hpicfPim6IfJoinPruneHoldtime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 210,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfGraftRetryInterval": {
+    "name": "hpicfPim6IfGraftRetryInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfMaxGraftRetries": {
+    "name": "hpicfPim6IfMaxGraftRetries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfSRTTLThreshold": {
+    "name": "hpicfPim6IfSRTTLThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfLanDelayEnabled": {
+    "name": "hpicfPim6IfLanDelayEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfSRCapable": {
+    "name": "hpicfPim6IfSRCapable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfNBRTimeout": {
+    "name": "hpicfPim6IfNBRTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 8000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 180,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfNBRCount": {
+    "name": "hpicfPim6IfNBRCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfNegotiatedPropagationDelay": {
+    "name": "hpicfPim6IfNegotiatedPropagationDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfNegotiatedOverrideInterval": {
+    "name": "hpicfPim6IfNegotiatedOverrideInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfAssertHoldInterval": {
+    "name": "hpicfPim6IfAssertHoldInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfNumRoutersNotUsingLanDelay": {
+    "name": "hpicfPim6IfNumRoutersNotUsingLanDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IfHelloInterval": {
+    "name": "hpicfPim6IfHelloInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfStatus": {
+    "name": "hpicfPim6IfStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfDRPriority": {
+    "name": "hpicfPim6IfDRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfDRType": {
+    "name": "hpicfPim6IfDRType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6IfDR": {
+    "name": "hpicfPim6IfDR",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6RemoveConfig": {
+    "name": "hpicfPim6RemoveConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6NumStaticRpfEntries": {
+    "name": "hpicfPim6NumStaticRpfEntries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6Version": {
+    "name": "hpicfPim6Version",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6StarGEntries": {
+    "name": "hpicfPim6StarGEntries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6SGEntries": {
+    "name": "hpicfPim6SGEntries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6TotalNeighborCount": {
+    "name": "hpicfPim6TotalNeighborCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6JoinPruneInterval": {
+    "name": "hpicfPim6JoinPruneInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetTable": {
+    "name": "hpicfPim6StaticRPSetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetEntry": {
+    "name": "hpicfPim6StaticRPSetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-MIB",
+        "object": "pimRPSetComponent",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetGrpMskType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetGroupMask",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetGrpAddrType": {
+    "name": "hpicfPim6StaticRPSetGrpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetGroupAddress": {
+    "name": "hpicfPim6StaticRPSetGroupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetGrpMskType": {
+    "name": "hpicfPim6StaticRPSetGrpMskType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetGroupMask": {
+    "name": "hpicfPim6StaticRPSetGroupMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetAddressType": {
+    "name": "hpicfPim6StaticRPSetAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetAddress": {
+    "name": "hpicfPim6StaticRPSetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetOverride": {
+    "name": "hpicfPim6StaticRPSetOverride",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetRowStatus": {
+    "name": "hpicfPim6StaticRPSetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPTable": {
+    "name": "hpicfPim6CandidateRPTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPEntry": {
+    "name": "hpicfPim6CandidateRPEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPGrpMskType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPGroupMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPGrpAddrType": {
+    "name": "hpicfPim6CandidateRPGrpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPGroupAddress": {
+    "name": "hpicfPim6CandidateRPGroupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPGrpMskType": {
+    "name": "hpicfPim6CandidateRPGrpMskType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPGroupMask": {
+    "name": "hpicfPim6CandidateRPGroupMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPAddressType": {
+    "name": "hpicfPim6CandidateRPAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPAddress": {
+    "name": "hpicfPim6CandidateRPAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPRowStatus": {
+    "name": "hpicfPim6CandidateRPRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentTable": {
+    "name": "hpicfPim6ComponentTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6ComponentEntry": {
+    "name": "hpicfPim6ComponentEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6ComponentIndex": {
+    "name": "hpicfPim6ComponentIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRAddrType": {
+    "name": "hpicfPim6ComponentBSRAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRAddress": {
+    "name": "hpicfPim6ComponentBSRAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRExpiryTime": {
+    "name": "hpicfPim6ComponentBSRExpiryTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCRPHoldTime": {
+    "name": "hpicfPim6ComponentCRPHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentStatus": {
+    "name": "hpicfPim6ComponentStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRAdmStatus": {
+    "name": "hpicfPim6ComponentCBSRAdmStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRAddrType": {
+    "name": "hpicfPim6ComponentCBSRAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRAddress": {
+    "name": "hpicfPim6ComponentCBSRAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRPriority": {
+    "name": "hpicfPim6ComponentCBSRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRHashMskLen": {
+    "name": "hpicfPim6ComponentCBSRHashMskLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 126,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCBSRMsgInt": {
+    "name": "hpicfPim6ComponentCBSRMsgInt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCRPPriority": {
+    "name": "hpicfPim6ComponentCRPPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 192,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCRPAdvInterval": {
+    "name": "hpicfPim6ComponentCRPAdvInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRPriority": {
+    "name": "hpicfPim6ComponentBSRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRHashMskLen": {
+    "name": "hpicfPim6ComponentBSRHashMskLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRUpTime": {
+    "name": "hpicfPim6ComponentBSRUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentBSRNextMessage": {
+    "name": "hpicfPim6ComponentBSRNextMessage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6ComponentCRPAdvTimer": {
+    "name": "hpicfPim6ComponentCRPAdvTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6SPTThreshold": {
+    "name": "hpicfPim6SPTThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6NeighborTable": {
+    "name": "hpicfPim6NeighborTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6NeighborEntry": {
+    "name": "hpicfPim6NeighborEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6NeighborIfIndex": {
+    "name": "hpicfPim6NeighborIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6NeighborAddressType": {
+    "name": "hpicfPim6NeighborAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6NeighborAddress": {
+    "name": "hpicfPim6NeighborAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6NeighborGenIDPresent": {
+    "name": "hpicfPim6NeighborGenIDPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborGenIDValue": {
+    "name": "hpicfPim6NeighborGenIDValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborUpTime": {
+    "name": "hpicfPim6NeighborUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborExpiryTime": {
+    "name": "hpicfPim6NeighborExpiryTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborDRPrioPresent": {
+    "name": "hpicfPim6NeighborDRPrioPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborDRPriority": {
+    "name": "hpicfPim6NeighborDRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborLanPruneDlyPres": {
+    "name": "hpicfPim6NeighborLanPruneDlyPres",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6RPSetTable": {
+    "name": "hpicfPim6RPSetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetEntry": {
+    "name": "hpicfPim6RPSetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-MIB",
+        "object": "pimRPSetComponent",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetGroupMaskType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetGroupMask",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6RPSetGroupAddressType": {
+    "name": "hpicfPim6RPSetGroupAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetGroupAddress": {
+    "name": "hpicfPim6RPSetGroupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetGroupMaskType": {
+    "name": "hpicfPim6RPSetGroupMaskType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetGroupMask": {
+    "name": "hpicfPim6RPSetGroupMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetAddressType": {
+    "name": "hpicfPim6RPSetAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetAddress": {
+    "name": "hpicfPim6RPSetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6RPSetHoldTime": {
+    "name": "hpicfPim6RPSetHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6RPSetExpiryTime": {
+    "name": "hpicfPim6RPSetExpiryTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMcastEnabled": {
+    "name": "hpicfPim6IpMcastEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPim6IpMcastRouteEntryCount": {
+    "name": "hpicfPim6IpMcastRouteEntryCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteTable": {
+    "name": "hpicfPim6IpMRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteEntry": {
+    "name": "hpicfPim6IpMRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteGroup",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteGrpPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteSource",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteSrcPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteGrpAddrType": {
+    "name": "hpicfPim6IpMRouteGrpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteGroup": {
+    "name": "hpicfPim6IpMRouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteGrpPrefixLen": {
+    "name": "hpicfPim6IpMRouteGrpPrefixLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteSrcAddrType": {
+    "name": "hpicfPim6IpMRouteSrcAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteSource": {
+    "name": "hpicfPim6IpMRouteSource",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteSrcPrefixLen": {
+    "name": "hpicfPim6IpMRouteSrcPrefixLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteUpstrNbrType": {
+    "name": "hpicfPim6IpMRouteUpstrNbrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteUpstrNbr": {
+    "name": "hpicfPim6IpMRouteUpstrNbr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteInIfIndex": {
+    "name": "hpicfPim6IpMRouteInIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteTimeStamp": {
+    "name": "hpicfPim6IpMRouteTimeStamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteExpiryTime": {
+    "name": "hpicfPim6IpMRouteExpiryTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteProtocol": {
+    "name": "hpicfPim6IpMRouteProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteRtProtocol": {
+    "name": "hpicfPim6IpMRouteRtProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteRtAddrType": {
+    "name": "hpicfPim6IpMRouteRtAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteRtAddress": {
+    "name": "hpicfPim6IpMRouteRtAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteRtPrefixLen": {
+    "name": "hpicfPim6IpMRouteRtPrefixLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteRtType": {
+    "name": "hpicfPim6IpMRouteRtType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteOctets": {
+    "name": "hpicfPim6IpMRouteOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRoutePkts": {
+    "name": "hpicfPim6IpMRoutePkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteTtlDropOct": {
+    "name": "hpicfPim6IpMRouteTtlDropOct",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteTtlDropPkts": {
+    "name": "hpicfPim6IpMRouteTtlDropPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteDiffInIfOct": {
+    "name": "hpicfPim6IpMRouteDiffInIfOct",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteDiffInIfPkts": {
+    "name": "hpicfPim6IpMRouteDiffInIfPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteBps": {
+    "name": "hpicfPim6IpMRouteBps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.20.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopTable": {
+    "name": "hpicfPim6IpMRouteNHopTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopEntry": {
+    "name": "hpicfPim6IpMRouteNHopEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopGroup",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopGrpPLen",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopSource",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopSrcPLen",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopGrpAddrType": {
+    "name": "hpicfPim6IpMRouteNHopGrpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopGroup": {
+    "name": "hpicfPim6IpMRouteNHopGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopGrpPLen": {
+    "name": "hpicfPim6IpMRouteNHopGrpPLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopSrcAddrType": {
+    "name": "hpicfPim6IpMRouteNHopSrcAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopSource": {
+    "name": "hpicfPim6IpMRouteNHopSource",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopSrcPLen": {
+    "name": "hpicfPim6IpMRouteNHopSrcPLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopIfIndex": {
+    "name": "hpicfPim6IpMRouteNHopIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopAddrType": {
+    "name": "hpicfPim6IpMRouteNHopAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopAddress": {
+    "name": "hpicfPim6IpMRouteNHopAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopState": {
+    "name": "hpicfPim6IpMRouteNHopState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pruned": 1,
+          "forwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopTStamp": {
+    "name": "hpicfPim6IpMRouteNHopTStamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopExpTime": {
+    "name": "hpicfPim6IpMRouteNHopExpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopClsMHops": {
+    "name": "hpicfPim6IpMRouteNHopClsMHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopProtocol": {
+    "name": "hpicfPim6IpMRouteNHopProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopOctets": {
+    "name": "hpicfPim6IpMRouteNHopOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6IpMRouteNHopPkts": {
+    "name": "hpicfPim6IpMRouteNHopPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.1.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPim6NeighborLoss": {
+    "name": "hpicfPim6NeighborLoss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfPim6HardMRTFull": {
+    "name": "hpicfPim6HardMRTFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfPim6SoftMRTFull": {
+    "name": "hpicfPim6SoftMRTFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.1.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfPim6DenseMIBCompliance": {
+    "name": "hpicfPim6DenseMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6BaseGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6DenseIfGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfPim6UcastRoutingCompliance": {
+    "name": "hpicfPim6UcastRoutingCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6StaticRpfExtensionsGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6GlobalCountersCompliance": {
+    "name": "hpicfPim6GlobalCountersCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6GlobalCounterGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6InterfaceInfoCompliance": {
+    "name": "hpicfPim6InterfaceInfoCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6InterfaceExtensionsGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6NotificationCompliance": {
+    "name": "hpicfPim6NotificationCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6NotificationGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6SparseModeMIBCompliance": {
+    "name": "hpicfPim6SparseModeMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6CommonGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6StaticRPSetGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6SparseIfGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6CandidateRPGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6ComponentGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6NeighborGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6RPSetGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6MRouteGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6MRouteNHopGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6DenseModeMIBCompliance": {
+    "name": "hpicfPim6DenseModeMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPim6CommonGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6DenseIfGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6MRouteGroup",
+        "module": "HP-ICF-PIM6"
+      },
+      {
+        "object": "hpicfPim6MRouteNHopGroup",
+        "module": "HP-ICF-PIM6"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6BaseGroup": {
+    "name": "hpicfPim6BaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6AdminStatus"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StateRefreshInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6TrapControl"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6JoinPruneInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RemoveConfig"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfPim6DenseIfGroup": {
+    "name": "hpicfPim6DenseIfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfAddressType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfMode"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfStatus"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfTrigHelloInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfHelloInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfHelloHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfLanPruneDelay"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfPropagationDelay"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfOverrideInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfGenerationID"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfJoinPruneHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfGraftRetryInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfMaxGraftRetries"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfSRTTLThreshold"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfLanDelayEnabled"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfSRCapable"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNBRTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6InterfaceExtensionsGroup": {
+    "name": "hpicfPim6InterfaceExtensionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6Version"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNBRCount"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNegotiatedPropagationDelay"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNegotiatedOverrideInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfAssertHoldInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNumRoutersNotUsingLanDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6StaticRpfExtensionsGroup": {
+    "name": "hpicfPim6StaticRpfExtensionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NumStaticRpfEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6GlobalCounterGroup": {
+    "name": "hpicfPim6GlobalCounterGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StarGEntries"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6SGEntries"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6TotalNeighborCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6NotificationGroup": {
+    "name": "hpicfPim6NotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborLoss"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6HardMRTFull"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6SoftMRTFull"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6StaticRPSetGroup": {
+    "name": "hpicfPim6StaticRPSetGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetOverride"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StaticRPSetRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6CandidateRPGroup": {
+    "name": "hpicfPim6CandidateRPGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPAddressType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6CandidateRPRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6ComponentGroup": {
+    "name": "hpicfPim6ComponentGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRAddrType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRExpiryTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCRPHoldTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentStatus"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRAdmStatus"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRAddrType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRHashMskLen"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCBSRMsgInt"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCRPPriority"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCRPAdvInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRHashMskLen"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRUpTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentBSRNextMessage"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6ComponentCRPAdvTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6CommonGroup": {
+    "name": "hpicfPim6CommonGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6AdminStatus"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6StateRefreshInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6TrapControl"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6JoinPruneInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RemoveConfig"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6SPTThreshold"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMcastEnabled"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMcastRouteEntryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6SparseIfGroup": {
+    "name": "hpicfPim6SparseIfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfAddressType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfTrigHelloInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfHelloHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfLanPruneDelay"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfPropagationDelay"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfOverrideInterval"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfGenerationID"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfJoinPruneHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfLanDelayEnabled"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfDRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfNBRTimeout"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfDRType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IfDR"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6NeighborGroup": {
+    "name": "hpicfPim6NeighborGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborGenIDPresent"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborGenIDValue"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborUpTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborExpiryTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborDRPrioPresent"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborDRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6NeighborLanPruneDlyPres"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6RPSetGroup": {
+    "name": "hpicfPim6RPSetGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetHoldTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6RPSetExpiryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6MRouteGroup": {
+    "name": "hpicfPim6MRouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteUpstrNbrType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteUpstrNbr"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteInIfIndex"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteTimeStamp"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteExpiryTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteProtocol"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteRtProtocol"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteRtAddrType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteRtAddress"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteRtPrefixLen"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteRtType"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteOctets"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRoutePkts"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteTtlDropOct"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteTtlDropPkts"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteDiffInIfOct"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteDiffInIfPkts"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteBps"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPim6MRouteNHopGroup": {
+    "name": "hpicfPim6MRouteNHopGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.122.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopState"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopTStamp"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopExpTime"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopClsMHops"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopProtocol"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopOctets"
+      },
+      {
+        "module": "HP-ICF-PIM6",
+        "object": "hpicfPim6IpMRouteNHopPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-PIM6",
+      "Source digest sha256:29b40b263143ae3b8071428cd2e87465e798652616f4edd8c6fae18cd4b4741a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-PIM6"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoOtvCapability": {
+    "name": "ciscoOtvCapability",
+    "oid": "1.3.6.1.4.1.9.7.622",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoOtvCapNxOSV06R0202PN7K": {
+    "name": "ciscoOtvCapNxOSV06R0202PN7K",
+    "oid": "1.3.6.1.4.1.9.7.622.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(2) on Nexus 7000 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "includes": [
+          "ciscoOtvSiteGroup",
+          "ciscoOtvOverlayGroup",
+          "ciscoOtvVlanGroup",
+          "ciscoOtvDataGroupConfigGroup",
+          "ciscoOtvDataGroupInfoGroup",
+          "ciscoOtvAdjacencyGroup",
+          "ciscoOtvArpNdCacheGroup",
+          "ciscoOtvRouteGroup",
+          "ciscoOtvMcastRouteGroup",
+          "ciscoOtvMcastRouteInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "cotvSiteIdAdmin",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvSiteVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayVlansExtendedFirst2k",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayVlansExtendedSecond2k",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayControlGroupAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayControlGroupAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayBroadcastGroupAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayBroadcastGroupAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayJoinInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlaySourceInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayAdjServerTransportType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayAdjServerEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayPrimaryAdjServerAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayPrimaryAdjServerAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlaySecondaryAdjServerAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlaySecondaryAdjServerAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlaySuppressArpND",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvOverlayRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvDataGroupStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cotvDataGroupRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-OTV-CAPABILITY",
+      "Source digest sha256:550503b8aebcd4e3bebba2ee60da11f434b51693d4faded1ca5c7ac69a304f52",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-OTV-CAPABILITY"
+  }
+}

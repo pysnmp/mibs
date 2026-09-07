@@ -1,0 +1,55 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-OIDS": [
+      "cabletron"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ssr": {
+    "name": "ssr",
+    "oid": "1.3.6.1.4.1.52.2501",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-07-15 00:00",
+        "description": "Update contact information for Riverstone Networks as this mib is found on the Riverstione RS product line and Enterasys SSR product line."
+      }
+    ]
+  },
+  "ssrMibs": {
+    "name": "ssrMibs",
+    "oid": "1.3.6.1.4.1.52.2501.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ssrTraps": {
+    "name": "ssrTraps",
+    "oid": "1.3.6.1.4.1.52.2501.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-SSR-SMI-MIB",
+      "Source digest sha256:77ccf507c4c09d10370496bbc5c12c8f00d01b713f26e362d3aea8f7a23aa2ba",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-SSR-SMI-MIB"
+  }
+}

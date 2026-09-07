@@ -1,0 +1,393 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alCapModule",
+      "altigaCaps"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaCapModule": {
+    "name": "altigaCapModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-09 12:00",
+        "description": "Updated MIB to comply to Cisco MIB Police standards. Added missing supports for new Altiga MIBs. "
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "altigaBasicAgent": {
+    "name": "altigaBasicAgent",
+    "oid": "1.3.6.1.4.1.3076.4.1",
+    "class": "agentcapabilities",
+    "productrelease": "Altiga Agent v1.0",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup"
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "includes": [
+          "altigaVersionStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-PPTP-STATS-MIB",
+        "includes": [
+          "altigaPptpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-PPP-STATS-MIB",
+        "includes": [
+          "altigaPppStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "includes": [
+          "altigaHttpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-L2TP-STATS-MIB",
+        "includes": [
+          "altigaL2tpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "includes": [
+          "altigaSessionStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-TELNET-STATS-MIB",
+        "includes": [
+          "altigaTelnetStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-DHCP-STATS-MIB",
+        "includes": [
+          "altigaDhcpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-DNS-STATS-MIB",
+        "includes": [
+          "altigaDnsStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "includes": [
+          "altigaCertStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SEP-STATS-MIB",
+        "includes": [
+          "altigaSepStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SYNC-STATS-MIB",
+        "includes": [
+          "altigaSyncStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "includes": [
+          "altigaT1E1StatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SSL-STATS-MIB",
+        "includes": [
+          "altigaSslStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-EVENT-STATS-MIB",
+        "includes": [
+          "altigaEventStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-FILTER-STATS-MIB",
+        "includes": [
+          "altigaFilterStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "includes": [
+          "altigaFtpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-GENERAL-STATS-MIB",
+        "includes": [
+          "altigaGeneralStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-HARDWARE-STATS-MIB",
+        "includes": [
+          "altigaHardwareStatsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "altigaBasicAgentRev1": {
+    "name": "altigaBasicAgentRev1",
+    "oid": "1.3.6.1.4.1.3076.1.1.2.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Altiga Agent v1.1",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-ADDRESS-STATS-MIB",
+        "includes": [
+          "altigaAddressStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "includes": [
+          "altigaCertStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-DHCP-SERVER-STATS-MIB",
+        "includes": [
+          "altigaDhcpServerStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-DHCP-STATS-MIB",
+        "includes": [
+          "altigaDhcpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-DNS-STATS-MIB",
+        "includes": [
+          "altigaDnsStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-EVENT-STATS-MIB",
+        "includes": [
+          "altigaEventStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-FILTER-STATS-MIB",
+        "includes": [
+          "altigaFilterStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "includes": [
+          "altigaFtpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-GENERAL-STATS-MIB",
+        "includes": [
+          "altigaGeneralStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-HARDWARE-STATS-MIB",
+        "includes": [
+          "altigaHardwareStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "includes": [
+          "altigaHttpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-IP-STATS-MIB",
+        "includes": [
+          "altigaIpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-L2TP-STATS-MIB",
+        "includes": [
+          "altigaL2tpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-LBSSF-STATS-MIB",
+        "includes": [
+          "altigaStatsLBSSFGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-MULTILINK-STATS-MIB",
+        "includes": [
+          "altigaMultiLinkStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-NAT-STATS-MIB",
+        "includes": [
+          "altigaNatStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-PPP-STATS-MIB",
+        "includes": [
+          "altigaPppStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "includes": [
+          "altigaPPPoEStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-PPTP-STATS-MIB",
+        "includes": [
+          "altigaPptpStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "includes": [
+          "altigaACEServerGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SEP-STATS-MIB",
+        "includes": [
+          "altigaSepStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "includes": [
+          "altigaSessionStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SSH-STATS-MIB",
+        "includes": [
+          "altigaSshStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SSL-STATS-MIB",
+        "includes": [
+          "altigaSslStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-SYNC-STATS-MIB",
+        "includes": [
+          "altigaSyncStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "includes": [
+          "altigaT1E1StatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-TELNET-STATS-MIB",
+        "includes": [
+          "altigaTelnetStatsGroup"
+        ]
+      },
+      {
+        "module": "ALTIGA-VERSION-STATS-MIB",
+        "includes": [
+          "altigaVersionStatsGroup"
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALTIGA-CAP",
+      "Source digest sha256:4a89d6ea3a074b0a9fe436945b7e9f06d625a2fb46f7bcab3b671982acd8d08d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALTIGA-CAP"
+  }
+}

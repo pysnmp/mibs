@@ -1,0 +1,316 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfInstMIB": {
+    "name": "hpicfInstMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-07 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfInstObjects": {
+    "name": "hpicfInstObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1",
+    "class": "objectidentity"
+  },
+  "hpicfInstConformance": {
+    "name": "hpicfInstConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.2",
+    "class": "objectidentity"
+  },
+  "hpicfInstGroups": {
+    "name": "hpicfInstGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfInstCompliances": {
+    "name": "hpicfInstCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfInstEnable": {
+    "name": "hpicfInstEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstMaxMemMB": {
+    "name": "hpicfInstMaxMemMB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfInstParameterTable": {
+    "name": "hpicfInstParameterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstParameterEntry": {
+    "name": "hpicfInstParameterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstParameterIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstParameterIndex": {
+    "name": "hpicfInstParameterIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstInterfaceIndex": {
+    "name": "hpicfInstInterfaceIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstIntervalIndex": {
+    "name": "hpicfInstIntervalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInstParameterName": {
+    "name": "hpicfInstParameterName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstIntervalName": {
+    "name": "hpicfInstIntervalName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstParameterValue": {
+    "name": "hpicfInstParameterValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstParamValMin": {
+    "name": "hpicfInstParamValMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstParamValMax": {
+    "name": "hpicfInstParamValMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInstBaseGroup": {
+    "name": "hpicfInstBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstEnable"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstMaxMemMB"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstParameterName"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstIntervalName"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstParameterValue"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstParamValMin"
+      },
+      {
+        "module": "HP-ICF-INST-MIB",
+        "object": "hpicfInstParamValMax"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInstBaseCompliance": {
+    "name": "hpicfInstBaseCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.45.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfInstBaseGroup",
+        "module": "HP-ICF-INST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-INST-MIB",
+      "Source digest sha256:5f038fe6b2047725902a0eb21e572109633884343144d7bc45c1c8dcf2633f8f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-INST-MIB"
+  }
+}

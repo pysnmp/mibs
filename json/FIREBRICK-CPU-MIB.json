@@ -1,0 +1,150 @@
+{
+  "imports": {
+    "class": "imports",
+    "FIREBRICK-MIB": [
+      "firebrickNewStyle"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fbCpuMib": {
+    "name": "fbCpuMib",
+    "oid": "1.3.6.1.4.1.24693.100.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-06-17 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "fbCpuUsageTable": {
+    "name": "fbCpuUsageTable",
+    "oid": "1.3.6.1.4.1.24693.100.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbCpuUsageEntry": {
+    "name": "fbCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIREBRICK-CPU-MIB",
+        "object": "fbCpuPeriod",
+        "implied": 0
+      },
+      {
+        "module": "FIREBRICK-CPU-MIB",
+        "object": "fbCpuCore",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fbCpuPeriod": {
+    "name": "fbCpuPeriod",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbCpuCore": {
+    "name": "fbCpuCore",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbCpuIRQ": {
+    "name": "fbCpuIRQ",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbCpuAll": {
+    "name": "fbCpuAll",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbCpuIRQPeak": {
+    "name": "fbCpuIRQPeak",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbCpuAllPeak": {
+    "name": "fbCpuAllPeak",
+    "oid": "1.3.6.1.4.1.24693.100.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FIREBRICK-CPU-MIB",
+      "Source digest sha256:6551464f1203d299515959b4f3815e5e5ce05be37a3edfe1d4d52528fdc08583",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FIREBRICK-CPU-MIB"
+  }
+}

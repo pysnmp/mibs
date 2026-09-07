@@ -1,0 +1,31 @@
+#
+# PySNMP MIB module LENOVO-SMI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source LENOVO-SMI-MIB
+# Source digest sha256:162183fcd964a88730df7e7cb72b82cad8dc0bb6ee457eb88b9b1aed73bec609
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+lenovo = ModuleIdentity((1, 3, 6, 1, 4, 1, 19046))
+lenovo.setRevisions(('2016-10-27 18:30',))
+if mibBuilder.loadTexts: lenovo.setLastUpdated('2016-08-15 00:00')
+if mibBuilder.loadTexts: lenovo.setOrganization('Lenovo Group Ltd.')
+lenovoProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 1))
+if mibBuilder.loadTexts: lenovoProducts.setStatus('current')
+lenovoNetworkMibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 2))
+if mibBuilder.loadTexts: lenovoNetworkMibs.setStatus('current')
+tor_mibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 2, 7)).setLabel("tor-mibs")
+if mibBuilder.loadTexts: tor_mibs.setStatus('current')
+flex_mibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 2, 18)).setLabel("flex-mibs")
+if mibBuilder.loadTexts: flex_mibs.setStatus('current')
+network_mibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 2, 3)).setLabel("network-mibs")
+if mibBuilder.loadTexts: network_mibs.setStatus('current')
+lenovoServerMibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 11))
+if mibBuilder.loadTexts: lenovoServerMibs.setStatus('current')
+lenovoModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 19046, 4))
+if mibBuilder.loadTexts: lenovoModules.setStatus('current')
+mibBuilder.exportSymbols("LENOVO-SMI-MIB", PYSNMP_MODULE_ID=lenovo, flex_mibs=flex_mibs, lenovo=lenovo, lenovoModules=lenovoModules, lenovoNetworkMibs=lenovoNetworkMibs, lenovoProducts=lenovoProducts, lenovoServerMibs=lenovoServerMibs, network_mibs=network_mibs, tor_mibs=tor_mibs)

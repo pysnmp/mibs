@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniL2tpDialoutGeneratorAgent": {
+    "name": "juniL2tpDialoutGeneratorAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-21 14:51",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniL2tpDialoutGeneratorAgentV1": {
+    "name": "juniL2tpDialoutGeneratorAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.59.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the L2TP Dialout Generator component of the JUNOSe SNMP\n        agent.  This version of the L2TP Dialout Generator component is\n        supported in JUNOSe 5.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-L2TP-Dialout-MIB",
+        "includes": [
+          "juniL2tpDialoutTimersGroup",
+          "juniL2tpDialoutTargetConfigGroup",
+          "juniL2tpDialoutTriggerBuffersGroup",
+          "juniL2tpDialoutSessionControlGroup",
+          "juniL2tpDialoutStatusGroup",
+          "juniL2tpDialoutSystemStatisticsGroup",
+          "juniL2tpDialoutSystemWideVRouterStatisticsGroup",
+          "juniL2tpDialoutSystemWideTargetStatisticsGroup",
+          "juniL2tpDialoutSystemWideSessionStatisticsGroup",
+          "juniL2tpDialoutVRouterStatisticsGroup",
+          "juniL2tpDialoutTargetStatisticsGroup",
+          "juniL2tpDialoutSessionStatisticsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-L2TP-Dialout-Generator-CONF",
+      "Source digest sha256:495e6413fccfe80bf2ab08f18539989ec8fbd096ca516ea9052c232a8c18129b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-L2TP-Dialout-Generator-CONF"
+  }
+}

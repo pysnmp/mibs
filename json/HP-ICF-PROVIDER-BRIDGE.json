@@ -1,0 +1,245 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qVlanStaticEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfProviderBridge": {
+    "name": "hpicfProviderBridge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfProviderBridgeObjects": {
+    "name": "hpicfProviderBridgeObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1",
+    "class": "objectidentity"
+  },
+  "hpicfProviderBridgeBase": {
+    "name": "hpicfProviderBridgeBase",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfProviderBridgeType": {
+    "name": "hpicfProviderBridgeType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlanBridge": 1,
+          "svlanBridge": 2,
+          "providerEdgeBridge": 3,
+          "vlanSvlanBridge": 4
+        }
+      }
+    },
+    "default": {
+      "value": "vlanBridge",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfProviderBridgeEtherType": {
+    "name": "hpicfProviderBridgeEtherType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1536,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 34984,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfProviderBridgeVlanTypeTable": {
+    "name": "hpicfProviderBridgeVlanTypeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfProviderBridgeVlanTypeEntry": {
+    "name": "hpicfProviderBridgeVlanTypeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfProviderBridgeVlanTypeEntry",
+      "module": "HP-ICF-PROVIDER-BRIDGE",
+      "object": "dot1qVlanStaticEntry"
+    },
+    "status": "current"
+  },
+  "hpicfProviderBridgeVlanType": {
+    "name": "hpicfProviderBridgeVlanType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cvlan": 1,
+          "svlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfProviderBridgePortTable": {
+    "name": "hpicfProviderBridgePortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfProviderBridgePortEntry": {
+    "name": "hpicfProviderBridgePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfProviderBridgePortType": {
+    "name": "hpicfProviderBridgePortType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "customer-edge": 1,
+          "customer-network": 2,
+          "provider-network": 3
+        }
+      }
+    },
+    "default": {
+      "value": "customer-edge",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfProviderBridgeConformance": {
+    "name": "hpicfProviderBridgeConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.2",
+    "class": "objectidentity"
+  },
+  "hpicfProviderBridgeGroups": {
+    "name": "hpicfProviderBridgeGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfProviderBridgeBaseGroup": {
+    "name": "hpicfProviderBridgeBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PROVIDER-BRIDGE",
+        "object": "hpicfProviderBridgeType"
+      },
+      {
+        "module": "HP-ICF-PROVIDER-BRIDGE",
+        "object": "hpicfProviderBridgeEtherType"
+      },
+      {
+        "module": "HP-ICF-PROVIDER-BRIDGE",
+        "object": "hpicfProviderBridgePortType"
+      },
+      {
+        "module": "HP-ICF-PROVIDER-BRIDGE",
+        "object": "hpicfProviderBridgeVlanTypeTable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfProviderBridgeCompliances": {
+    "name": "hpicfProviderBridgeCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfProviderBridgeCompliance": {
+    "name": "hpicfProviderBridgeCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.40.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfProviderBridgeBaseGroup",
+        "module": "HP-ICF-PROVIDER-BRIDGE"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-PROVIDER-BRIDGE",
+      "Source digest sha256:8aefcde396bd87e91f8e4f4f92de2dcd36ebfc71c777f7a0df82f13e17cfcc67",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-PROVIDER-BRIDGE"
+  }
+}

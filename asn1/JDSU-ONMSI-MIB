@@ -1,0 +1,5105 @@
+JDSU-ONMSI-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	jdsuOnmsi
+		FROM JDSU-SMI-MIB
+	DateAndTime,
+	DisplayString,
+	TruthValue,
+	TEXTUAL-CONVENTION
+		FROM SNMPv2-TC
+	IANAItuProbableCause,
+	IANAItuEventType
+		FROM IANA-ITU-ALARM-TC-MIB
+	MODULE-IDENTITY,
+	OBJECT-TYPE,
+	NOTIFICATION-TYPE,
+	Unsigned32
+		FROM SNMPv2-SMI
+	OBJECT-GROUP,
+	NOTIFICATION-GROUP
+		FROM SNMPv2-CONF;
+
+-------------------------------------------------------------------------------
+-- Definition of the ONMSi SNMP interface
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMib MODULE-IDENTITY
+	LAST-UPDATED "202003111627Z"
+	ORGANIZATION "JDSU"
+	CONTACT-INFO
+		"JDS Uniphase France
+		Postal: JDSU france
+		        34 rue Necker
+		        42 000 SAINT-ETIENNE
+		        France
+
+		Tel: +(33) 47747 8900
+		Fax: +(33) 47747 8970"
+	DESCRIPTION
+		"JDSU FO Division MIB root"
+	REVISION "202003111627Z"
+	DESCRIPTION
+		"Version 4.40: add PON scheduling and home VIP flag"
+	REVISION "201911201601Z"
+	DESCRIPTION
+		"Version 4.30: add rootCause in PointToPointSpecificInfos"
+	REVISION "201809041559Z"
+	DESCRIPTION
+		"Version 3.12: add alarm additional attributes"
+	REVISION "201707051100Z"
+	DESCRIPTION
+		"Version sensing:
+		Add a new value to JdsuOnmsiOtdrPosition: center(3).
+		Add temperature and strain alarm specific infos to the alarm event entry and trap."
+	REVISION "201210251138Z"
+	DESCRIPTION
+		"Version 2.40.0:
+		Rename fields to attributes and custom fields to additional attributes.
+		Add GPS coordinates and AlarmOriginatingEntity to the alarm event entry and trap.
+		Add OTU and central office service
+		Add some Textual Convention
+		Update all documentation"
+	REVISION "201110041115Z"
+	DESCRIPTION
+		"Version 2.12.1: add field tables for links, monitoring tests, PONs, homes"
+	REVISION "201109271449Z"
+	DESCRIPTION
+		"Version 2.12.0"
+	REVISION "201006090910Z"
+	DESCRIPTION
+		"Initial version."
+	::= { jdsuOnmsi 1 }
+
+
+JdsuOnmsiAlarmAckStatus ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Enumeration to alarm acknowledgement status"
+	SYNTAX INTEGER {
+			acknowledged(1),
+			unacknowledged(2) }
+
+
+JdsuOnmsiAlarmClearStatus ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Enumeration to alarm clear status"
+	SYNTAX INTEGER {
+			cleared(1),
+			uncleared(2) }
+
+
+JdsuOnmsiAlarmEventType ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Enumeration for alarm event types"
+	SYNTAX INTEGER {
+			newAlarmEvent(1),
+			changedAlarmEvent(2),
+			ackStateChangedEvent(3),
+			clearStateChangedEvent(4),
+			alarmCommentsEvent(5) }
+
+
+JdsuOnmsiInternalKey ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Numeric object internal key"
+	SYNTAX Unsigned32
+
+
+JdsuOnmsiOtdrPosition ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"The position of an OTDR module in an OTU"
+	SYNTAX INTEGER {
+			top(1),
+			bottom(2),
+			center(3) }
+
+
+JdsuOnmsiPeakStatus ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Peak status :
+		- UNKNOWN : before test
+		- OK : peak OK
+		- WARNING_LEVEL : peak crosses warning threshold in level or position
+		- MINOR_LEVEL : peak crosses minor threshold in level or position
+		- NEW : peak was not referenced
+		- MISSING  referenced peak is missing"
+	SYNTAX OCTET STRING
+
+
+JdsuOnmsiPeakType ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Enumeration for peak types"
+	SYNTAX INTEGER {
+			notReferenced(1),
+			notHome(2),
+			home(3) }
+
+
+JdsuOnmsiSeverity ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"Perceived severity as defined in OSS/J"
+	SYNTAX INTEGER {
+			none(0),
+			indeterminate(1),
+			warning(2),
+			minor(3),
+			major(4),
+			critical(5) }
+
+
+JdsuOnmsiUtf8String ::= TEXTUAL-CONVENTION
+	STATUS  current
+	DESCRIPTION
+		"UTF-8 encoded strings.
+
+		The UTF-8 charset is specified by RFC 2279;
+		the transformation format upon which it is
+		based is specified in Amendment 2 of
+		ISO 10646-1 and is also described in
+		the Unicode Standard"
+	SYNTAX OCTET STRING (SIZE (0..65535))
+
+
+-------------------------------------------------------------------------------
+-- Definition of the product group
+-------------------------------------------------------------------------------
+
+jdsuOnmsiProduct OBJECT IDENTIFIER 	::= { jdsuOnmsiMib 1 }
+
+jdsuOnmsiProductDescr OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Textual description of the product.
+		It is mandatory that this only contain
+		printable ASCII characters"
+	::= { jdsuOnmsiProduct 1 }
+
+
+jdsuOnmsiProductObjectID OBJECT-TYPE
+	SYNTAX  OBJECT IDENTIFIER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Vendor's authoritative identification of the
+		network management subsystem contained into the
+		product.  This value is allocated within the SMI
+		enterprises subtree (1.3.6.1.4.1) and provides an
+		easy and unambiguous means for determining `what
+		kind of box' is being managed"
+	::= { jdsuOnmsiProduct 2 }
+
+
+jdsuOnmsiProductContact OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Textual identification of the person in charge of the managed node,
+		together with information on how to contact this person"
+	::= { jdsuOnmsiProduct 3 }
+
+
+jdsuOnmsiProductName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Administratively-assigned name for this
+		managed product"
+	::= { jdsuOnmsiProduct 4 }
+
+
+jdsuOnmsiProductLocation OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Physical location of the product (e.g.,
+		`JDSU ONMS Server office, 3rd floor...')"
+	::= { jdsuOnmsiProduct 5 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the administration group
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAdministration OBJECT IDENTIFIER 	::= { jdsuOnmsiMib 2 }
+
+-------------------------------------------------------------------------------
+-- SNMP configuration
+-------------------------------------------------------------------------------
+
+jdsuOnmsiSnmpConfig OBJECT IDENTIFIER 	::= { jdsuOnmsiAdministration 1 }
+
+jdsuOnmsiSnmpConfigurationReload OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Set 1 to reload the SNMP configuration.
+		(from jdmk.acl and snmp.properties files)"
+	::= { jdsuOnmsiSnmpConfig 1 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the I'm Alive feature
+-------------------------------------------------------------------------------
+
+jdsuOnmsiImAlive OBJECT IDENTIFIER 	::= { jdsuOnmsiAdministration 2 }
+
+jdsuOnmsiImAlivePeriodMin OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The periodicity of jdsuOnmsiImAliveTrap, in minutes.
+		Setting 0 will disable the traps."
+	::= { jdsuOnmsiImAlive 1 }
+
+
+jdsuOnmsiImAliveText OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The text carried by the jdsuOnmsiImAliveTrap"
+	::= { jdsuOnmsiImAlive 2 }
+
+
+jdsuOnmsiImAliveAlarmEventSequence OBJECT-TYPE
+	SYNTAX  Unsigned32
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The sequence of the jdsuOnmsiAlarmEventTrap.
+		Managers can rely on it to detect missed jdsuOnmsiAlarmEventTrap.
+		Use jdsuOnmsiAlarmResendEvents to resend missed traps."
+	::= { jdsuOnmsiImAlive 3 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the service group
+-------------------------------------------------------------------------------
+
+jdsuOnmsiServices OBJECT IDENTIFIER 	::= { jdsuOnmsiMib 3 }
+
+-------------------------------------------------------------------------------
+-- Definition of the home service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 1 }
+
+-------------------------------------------------------------------------------
+-- Data of the home service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeData OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeService 1 }
+
+jdsuOnmsiHomeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiHomeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard home data"
+	::= { jdsuOnmsiHomeData 1 }
+
+
+jdsuOnmsiHomeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiHomeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A home"
+	INDEX {
+		jdsuOnmsiHomeEntryInternalKey }
+	::= { jdsuOnmsiHomeTable 1 }
+
+
+JdsuOnmsiHomeEntry ::= SEQUENCE {
+
+	jdsuOnmsiHomeEntryInternalKey                    JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeEntryHomeIdentifier                 JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeEntryName                           JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeEntryDescription                    JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeEntryPonInternalKey                 JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeEntryLatestPeakInternalKey          JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeEntryLatestPeakSeverity             JdsuOnmsiSeverity,
+	jdsuOnmsiHomeEntryLatestPeakStatus               JdsuOnmsiPeakStatus,
+	jdsuOnmsiHomeEntryVip                            TruthValue }
+
+
+jdsuOnmsiHomeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The nternal key of the home"
+	::= { jdsuOnmsiHomeEntry 1 }
+
+
+jdsuOnmsiHomeEntryHomeIdentifier OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The identifier of the home"
+	::= { jdsuOnmsiHomeEntry 2 }
+
+
+jdsuOnmsiHomeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the home"
+	::= { jdsuOnmsiHomeEntry 3 }
+
+
+jdsuOnmsiHomeEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the home"
+	::= { jdsuOnmsiHomeEntry 4 }
+
+
+jdsuOnmsiHomeEntryPonInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home's PON"
+	::= { jdsuOnmsiHomeEntry 5 }
+
+
+jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home's termination type"
+	::= { jdsuOnmsiHomeEntry 6 }
+
+
+jdsuOnmsiHomeEntryLatestPeakInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home's latest peak"
+	::= { jdsuOnmsiHomeEntry 7 }
+
+
+jdsuOnmsiHomeEntryLatestPeakSeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The severity of the home's latest peak"
+	::= { jdsuOnmsiHomeEntry 8 }
+
+
+jdsuOnmsiHomeEntryLatestPeakStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPeakStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The status of the home's latest peak"
+	::= { jdsuOnmsiHomeEntry 9 }
+
+
+jdsuOnmsiHomeEntryVip OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The VIP status of the home"
+	::= { jdsuOnmsiHomeEntry 10 }
+
+
+jdsuOnmsiHomeAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiHomeAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on homes"
+	::= { jdsuOnmsiHomeData 2 }
+
+
+jdsuOnmsiHomeAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiHomeAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A additional attribute on a home"
+	INDEX {
+		jdsuOnmsiHomeAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiHomeAdditionalAttributeEntryName }
+	::= { jdsuOnmsiHomeAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiHomeAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiHomeAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiHomeAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home"
+	::= { jdsuOnmsiHomeAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiHomeAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiHomeAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiHomeAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiHomeAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiHomeTerminationTypeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiHomeTerminationTypeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard home termination type data"
+	::= { jdsuOnmsiHomeData 3 }
+
+
+jdsuOnmsiHomeTerminationTypeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiHomeTerminationTypeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A home termination type"
+	INDEX {
+		jdsuOnmsiHomeTerminationTypeEntryInternalKey }
+	::= { jdsuOnmsiHomeTerminationTypeTable 1 }
+
+
+JdsuOnmsiHomeTerminationTypeEntry ::= SEQUENCE {
+
+	jdsuOnmsiHomeTerminationTypeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiHomeTerminationTypeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeTerminationTypeEntryDescription JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiHomeTerminationTypeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home termination type"
+	::= { jdsuOnmsiHomeTerminationTypeEntry 1 }
+
+
+jdsuOnmsiHomeTerminationTypeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the home termination type"
+	::= { jdsuOnmsiHomeTerminationTypeEntry 2 }
+
+
+jdsuOnmsiHomeTerminationTypeEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the home termination type"
+	::= { jdsuOnmsiHomeTerminationTypeEntry 3 }
+
+
+jdsuOnmsiHomeAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiHomeAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable home attributes"
+	::= { jdsuOnmsiHomeData 4 }
+
+
+jdsuOnmsiHomeAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiHomeAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A home attribute entry"
+	INDEX {
+		jdsuOnmsiHomeAttributeEntryName }
+	::= { jdsuOnmsiHomeAttributeTable 1 }
+
+
+JdsuOnmsiHomeAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiHomeAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiHomeAttributeEntryAdditional TruthValue,
+	jdsuOnmsiHomeAttributeEntryFindable   TruthValue,
+	jdsuOnmsiHomeAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiHomeAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiHomeAttributeEntry 1 }
+
+
+jdsuOnmsiHomeAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiHomeAttributeEntry 2 }
+
+
+jdsuOnmsiHomeAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiHomeAttributeEntry 3 }
+
+
+jdsuOnmsiHomeAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiHomeAttributeEntry 4 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the home service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to load the home termination types
+-- Results will fill the jdsuOnmsiHomeTerminationTypeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeTerminationTypeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeFunctions 1 }
+
+jdsuOnmsiHomeTerminationTypeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiHomeTerminationTypeTable load"
+	::= { jdsuOnmsiHomeTerminationTypeLoad 1 }
+
+
+jdsuOnmsiHomeTerminationTypeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiHomeTerminationTypeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Function to get a home
+-- Results will fill jdsuOnmsiHomeTable and jdsuOnmsiHomeAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeGet OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeFunctions 2 }
+
+jdsuOnmsiHomeGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home to retrieve"
+	::= { jdsuOnmsiHomeGet 1 }
+
+
+jdsuOnmsiHomeGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the home retrieval"
+	::= { jdsuOnmsiHomeGet 2 }
+
+
+jdsuOnmsiHomeGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiHomeGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find homes
+-- Results will fill jdsuOnmsiHomeTable and jdsuOnmsiHomeAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeFind OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeFunctions 3 }
+
+jdsuOnmsiHomeFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the home to perform the search on.
+		Valid attributes for homes are :
+		- name
+		- identifier
+		- ponInternalKey
+		and any additional attribute name"
+	::= { jdsuOnmsiHomeFind 1 }
+
+
+jdsuOnmsiHomeFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiHomeFind 2 }
+
+
+jdsuOnmsiHomeFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the home find"
+	::= { jdsuOnmsiHomeFind 3 }
+
+
+jdsuOnmsiHomeFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiHomeFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to start a home test
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeStartTest OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeFunctions 4 }
+
+jdsuOnmsiHomeStartTestParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the home to start"
+	::= { jdsuOnmsiHomeStartTest 1 }
+
+
+jdsuOnmsiHomeStartTestExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the home test start"
+	::= { jdsuOnmsiHomeStartTest 2 }
+
+
+jdsuOnmsiHomeStartTestError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiHomeStartTest 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the home attributes
+-- Results will fill the jdsuOnmsiHomeAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiHomeAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiHomeFunctions 5 }
+
+jdsuOnmsiHomeAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiHomeAttributeTable load"
+	::= { jdsuOnmsiHomeAttributeLoad 1 }
+
+
+jdsuOnmsiHomeAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiHomeAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the PON service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 2 }
+
+-------------------------------------------------------------------------------
+-- Data of the PON service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonData OBJECT IDENTIFIER 	::= { jdsuOnmsiPonService 1 }
+
+jdsuOnmsiPonTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiPonEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard PON data"
+	::= { jdsuOnmsiPonData 1 }
+
+
+jdsuOnmsiPonEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPonEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A PON entry"
+	INDEX {
+		jdsuOnmsiPonEntryInternalKey }
+	::= { jdsuOnmsiPonTable 1 }
+
+
+JdsuOnmsiPonEntry ::= SEQUENCE {
+
+	jdsuOnmsiPonEntryInternalKey             JdsuOnmsiInternalKey,
+	jdsuOnmsiPonEntryName                    JdsuOnmsiUtf8String,
+	jdsuOnmsiPonEntryDescription             JdsuOnmsiUtf8String,
+	jdsuOnmsiPonEntryLatestTestInternalKey   JdsuOnmsiInternalKey,
+	jdsuOnmsiPonEntryOtuInternalKey          JdsuOnmsiInternalKey,
+	jdsuOnmsiPonEntryPortInternalKey         JdsuOnmsiInternalKey,
+	jdsuOnmsiPonEntrySeverity                JdsuOnmsiSeverity,
+	jdsuOnmsiPonEntrySchedulingConfiguration JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiPonEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON"
+	::= { jdsuOnmsiPonEntry 1 }
+
+
+jdsuOnmsiPonEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the PON"
+	::= { jdsuOnmsiPonEntry 2 }
+
+
+jdsuOnmsiPonEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the PON"
+	::= { jdsuOnmsiPonEntry 3 }
+
+
+jdsuOnmsiPonEntryLatestTestInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON's latest test"
+	::= { jdsuOnmsiPonEntry 4 }
+
+
+jdsuOnmsiPonEntryOtuInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the PON belongs"
+	::= { jdsuOnmsiPonEntry 5 }
+
+
+jdsuOnmsiPonEntryPortInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU port associated to the PON"
+	::= { jdsuOnmsiPonEntry 6 }
+
+
+jdsuOnmsiPonEntrySeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The current severity of the PON"
+	::= { jdsuOnmsiPonEntry 7 }
+
+
+jdsuOnmsiPonEntrySchedulingConfiguration OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"he scheduling configuration of the PON test in a serialized form (key1=value1|key2=value2|...).
+		It contains the following keys:
+		- scheduled: this flag indicates whether the PON test is periodic or not (true/false)
+		- periodical: this flag indicates whether the PON test is scheduled or not (true/false)
+		- startDate: the date at which the PON test scheduling starts, in seconds since January 1, 1970, 00:00:00 GMT
+		- frequencyMin: the period of the PON test scheduling (if the test is periodic), in minutes"
+	::= { jdsuOnmsiPonEntry 8 }
+
+
+jdsuOnmsiPonAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiPonAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on PONs"
+	::= { jdsuOnmsiPonData 2 }
+
+
+jdsuOnmsiPonAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPonAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A PON additional attribute entry"
+	INDEX {
+		jdsuOnmsiPonAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiPonAdditionalAttributeEntryName }
+	::= { jdsuOnmsiPonAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiPonAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiPonAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiPonAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiPonAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiPonAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON"
+	::= { jdsuOnmsiPonAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiPonAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiPonAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiPonAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiPonAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiPonAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiPonAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable PON attributes"
+	::= { jdsuOnmsiPonData 3 }
+
+
+jdsuOnmsiPonAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPonAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A PON attribute entry"
+	INDEX {
+		jdsuOnmsiPonAttributeEntryName }
+	::= { jdsuOnmsiPonAttributeTable 1 }
+
+
+JdsuOnmsiPonAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiPonAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiPonAttributeEntryAdditional TruthValue,
+	jdsuOnmsiPonAttributeEntryFindable   TruthValue,
+	jdsuOnmsiPonAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiPonAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiPonAttributeEntry 1 }
+
+
+jdsuOnmsiPonAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiPonAttributeEntry 2 }
+
+
+jdsuOnmsiPonAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiPonAttributeEntry 3 }
+
+
+jdsuOnmsiPonAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiPonAttributeEntry 4 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the PON service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiPonService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get a PON
+-- Results will fill jdsuOnmsiPonTable and jdsuOnmsiPonAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonGet OBJECT IDENTIFIER 	::= { jdsuOnmsiPonFunctions 1 }
+
+jdsuOnmsiPonGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON to retrieve"
+	::= { jdsuOnmsiPonGet 1 }
+
+
+jdsuOnmsiPonGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the PON retrieval"
+	::= { jdsuOnmsiPonGet 2 }
+
+
+jdsuOnmsiPonGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPonGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find PONs
+-- Results will fill jdsuOnmsiPonTable and jdsuOnmsiPonAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonFind OBJECT IDENTIFIER 	::= { jdsuOnmsiPonFunctions 2 }
+
+jdsuOnmsiPonFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the PON to perform the search on.
+		Valid attributes for PONs are :
+		- name
+		and any additional attribute name"
+	::= { jdsuOnmsiPonFind 1 }
+
+
+jdsuOnmsiPonFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiPonFind 2 }
+
+
+jdsuOnmsiPonFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the PON find"
+	::= { jdsuOnmsiPonFind 3 }
+
+
+jdsuOnmsiPonFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPonFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to start a PON test
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonStartTest OBJECT IDENTIFIER 	::= { jdsuOnmsiPonFunctions 3 }
+
+jdsuOnmsiPonStartTestParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON to start"
+	::= { jdsuOnmsiPonStartTest 1 }
+
+
+jdsuOnmsiPonStartTestExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the PON test start"
+	::= { jdsuOnmsiPonStartTest 2 }
+
+
+jdsuOnmsiPonStartTestError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPonStartTest 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the PON attributes
+-- Results will fill the jdsuOnmsiPonAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPonAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiPonFunctions 4 }
+
+jdsuOnmsiPonAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiPonAttributeTable load"
+	::= { jdsuOnmsiPonAttributeLoad 1 }
+
+
+jdsuOnmsiPonAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPonAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the peak service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPeakService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 3 }
+
+-------------------------------------------------------------------------------
+-- Data of the peak service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPeakData OBJECT IDENTIFIER 	::= { jdsuOnmsiPeakService 1 }
+
+jdsuOnmsiPeakTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiPeakEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"The table of peaks"
+	::= { jdsuOnmsiPeakData 1 }
+
+
+jdsuOnmsiPeakEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPeakEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A peak entry"
+	INDEX {
+		jdsuOnmsiPeakEntryInternalKey }
+	::= { jdsuOnmsiPeakTable 1 }
+
+
+JdsuOnmsiPeakEntry ::= SEQUENCE {
+
+	jdsuOnmsiPeakEntryInternalKey                    JdsuOnmsiInternalKey,
+	jdsuOnmsiPeakEntryTestInternalKey                JdsuOnmsiInternalKey,
+	jdsuOnmsiPeakEntryDate                           DateAndTime,
+	jdsuOnmsiPeakEntryIsAReference                   TruthValue,
+	jdsuOnmsiPeakEntryDistance                       INTEGER,
+	jdsuOnmsiPeakEntryLevel                          INTEGER,
+	jdsuOnmsiPeakEntryPower                          INTEGER,
+	jdsuOnmsiPeakEntryIsPowerMeasured                TruthValue,
+	jdsuOnmsiPeakEntrySeverity                       JdsuOnmsiSeverity,
+	jdsuOnmsiPeakEntryStatus                         JdsuOnmsiPeakStatus,
+	jdsuOnmsiPeakEntryRefDistance                    INTEGER,
+	jdsuOnmsiPeakEntryRefLevel                       INTEGER,
+	jdsuOnmsiPeakEntryRefPower                       INTEGER,
+	jdsuOnmsiPeakEntryRefIsPowerMeasured             TruthValue,
+	jdsuOnmsiPeakEntryRefDate                        DateAndTime,
+	jdsuOnmsiPeakEntryType                           JdsuOnmsiPeakType,
+	jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiPeakEntryHomeInternalKey                JdsuOnmsiInternalKey }
+
+
+jdsuOnmsiPeakEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the peak"
+	::= { jdsuOnmsiPeakEntry 1 }
+
+
+jdsuOnmsiPeakEntryTestInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the peak test"
+	::= { jdsuOnmsiPeakEntry 2 }
+
+
+jdsuOnmsiPeakEntryDate OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The date of the peak"
+	::= { jdsuOnmsiPeakEntry 3 }
+
+
+jdsuOnmsiPeakEntryIsAReference OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Whether the peak is a reference"
+	::= { jdsuOnmsiPeakEntry 4 }
+
+
+jdsuOnmsiPeakEntryDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the peak
+		Unit : millimeters"
+	::= { jdsuOnmsiPeakEntry 5 }
+
+
+jdsuOnmsiPeakEntryLevel OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The level of the peak
+		Unit : dB / 100"
+	::= { jdsuOnmsiPeakEntry 6 }
+
+
+jdsuOnmsiPeakEntryPower OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The power of the peak
+		Unit : dBm / 100"
+	::= { jdsuOnmsiPeakEntry 7 }
+
+
+jdsuOnmsiPeakEntryIsPowerMeasured OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Whether the power has been measured"
+	::= { jdsuOnmsiPeakEntry 8 }
+
+
+jdsuOnmsiPeakEntrySeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The severity of the peak"
+	::= { jdsuOnmsiPeakEntry 9 }
+
+
+jdsuOnmsiPeakEntryStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPeakStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The status of the peak"
+	::= { jdsuOnmsiPeakEntry 10 }
+
+
+jdsuOnmsiPeakEntryRefDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the reference peak
+		Unit : millimeters"
+	::= { jdsuOnmsiPeakEntry 11 }
+
+
+jdsuOnmsiPeakEntryRefLevel OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The level of the reference peak
+		Unit : dB / 100"
+	::= { jdsuOnmsiPeakEntry 12 }
+
+
+jdsuOnmsiPeakEntryRefPower OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The power of the reference peak
+		Unit : dBm / 100"
+	::= { jdsuOnmsiPeakEntry 13 }
+
+
+jdsuOnmsiPeakEntryRefIsPowerMeasured OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Whether the power of the reference peak has been measured"
+	::= { jdsuOnmsiPeakEntry 14 }
+
+
+jdsuOnmsiPeakEntryRefDate OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The date of the reference peak"
+	::= { jdsuOnmsiPeakEntry 15 }
+
+
+jdsuOnmsiPeakEntryType OBJECT-TYPE
+	SYNTAX  JdsuOnmsiPeakType
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The type of the peak"
+	::= { jdsuOnmsiPeakEntry 16 }
+
+
+jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the peak home termination type"
+	::= { jdsuOnmsiPeakEntry 17 }
+
+
+jdsuOnmsiPeakEntryHomeInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the peak home"
+	::= { jdsuOnmsiPeakEntry 18 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the peak service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPeakFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiPeakService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get a peak
+-- Results will fill jdsuOnmsiPeakTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPeakGet OBJECT IDENTIFIER 	::= { jdsuOnmsiPeakFunctions 1 }
+
+jdsuOnmsiPeakGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the peak to retrieve"
+	::= { jdsuOnmsiPeakGet 1 }
+
+
+jdsuOnmsiPeakGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the peak retrieval"
+	::= { jdsuOnmsiPeakGet 2 }
+
+
+jdsuOnmsiPeakGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPeakGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find peaks
+-- Results will fill jdsuOnmsiPeakTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiPeakFind OBJECT IDENTIFIER 	::= { jdsuOnmsiPeakFunctions 2 }
+
+jdsuOnmsiPeakFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the peak to perform the search on.
+		Valid attributes for peaks are :
+		- testInternalKey"
+	::= { jdsuOnmsiPeakFind 1 }
+
+
+jdsuOnmsiPeakFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiPeakFind 2 }
+
+
+jdsuOnmsiPeakFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the peak find"
+	::= { jdsuOnmsiPeakFind 3 }
+
+
+jdsuOnmsiPeakFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiPeakFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the link service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 4 }
+
+-------------------------------------------------------------------------------
+-- Data of the link service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkData OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkService 1 }
+
+jdsuOnmsiLinkTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiLinkEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard link data"
+	::= { jdsuOnmsiLinkData 1 }
+
+
+jdsuOnmsiLinkEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiLinkEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A link entry"
+	INDEX {
+		jdsuOnmsiLinkEntryInternalKey }
+	::= { jdsuOnmsiLinkTable 1 }
+
+
+JdsuOnmsiLinkEntry ::= SEQUENCE {
+
+	jdsuOnmsiLinkEntryInternalKey    JdsuOnmsiInternalKey,
+	jdsuOnmsiLinkEntryName           JdsuOnmsiUtf8String,
+	jdsuOnmsiLinkEntryDescription    JdsuOnmsiUtf8String,
+	jdsuOnmsiLinkEntryMeasureEnabled TruthValue,
+	jdsuOnmsiLinkEntryOtuInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiLinkEntrySeverity       JdsuOnmsiSeverity }
+
+
+jdsuOnmsiLinkEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the link"
+	::= { jdsuOnmsiLinkEntry 1 }
+
+
+jdsuOnmsiLinkEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the link"
+	::= { jdsuOnmsiLinkEntry 2 }
+
+
+jdsuOnmsiLinkEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the link"
+	::= { jdsuOnmsiLinkEntry 3 }
+
+
+jdsuOnmsiLinkEntryMeasureEnabled OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether measurements can be performed on the link"
+	::= { jdsuOnmsiLinkEntry 4 }
+
+
+jdsuOnmsiLinkEntryOtuInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the link belongs"
+	::= { jdsuOnmsiLinkEntry 5 }
+
+
+jdsuOnmsiLinkEntrySeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The current severity of the link"
+	::= { jdsuOnmsiLinkEntry 6 }
+
+
+jdsuOnmsiLinkAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiLinkAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on links"
+	::= { jdsuOnmsiLinkData 2 }
+
+
+jdsuOnmsiLinkAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiLinkAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A link additional attribute entry"
+	INDEX {
+		jdsuOnmsiLinkAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiLinkAdditionalAttributeEntryName }
+	::= { jdsuOnmsiLinkAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiLinkAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiLinkAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiLinkAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiLinkAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiLinkAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the link"
+	::= { jdsuOnmsiLinkAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiLinkAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiLinkAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiLinkAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiLinkAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiLinkAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiLinkAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable link attributes"
+	::= { jdsuOnmsiLinkData 3 }
+
+
+jdsuOnmsiLinkAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiLinkAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A link attribute entry"
+	INDEX {
+		jdsuOnmsiLinkAttributeEntryName }
+	::= { jdsuOnmsiLinkAttributeTable 1 }
+
+
+JdsuOnmsiLinkAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiLinkAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiLinkAttributeEntryAdditional TruthValue,
+	jdsuOnmsiLinkAttributeEntryFindable   TruthValue,
+	jdsuOnmsiLinkAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiLinkAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiLinkAttributeEntry 1 }
+
+
+jdsuOnmsiLinkAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiLinkAttributeEntry 2 }
+
+
+jdsuOnmsiLinkAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiLinkAttributeEntry 3 }
+
+
+jdsuOnmsiLinkAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiLinkAttributeEntry 4 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the link service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get a link
+-- Results will fill jdsuOnmsiLinkTable and jdsuOnmsiLinkAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkGet OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkFunctions 1 }
+
+jdsuOnmsiLinkGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the link to retrieve"
+	::= { jdsuOnmsiLinkGet 1 }
+
+
+jdsuOnmsiLinkGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the link retrieval"
+	::= { jdsuOnmsiLinkGet 2 }
+
+
+jdsuOnmsiLinkGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiLinkGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find links
+-- Results will fill jdsuOnmsiLinkTable and jdsuOnmsiLinkAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkFind OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkFunctions 2 }
+
+jdsuOnmsiLinkFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the link to perform the search on.
+		Valid attributes for links are :
+		- name
+		and any additional attribute name"
+	::= { jdsuOnmsiLinkFind 1 }
+
+
+jdsuOnmsiLinkFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiLinkFind 2 }
+
+
+jdsuOnmsiLinkFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the link find"
+	::= { jdsuOnmsiLinkFind 3 }
+
+
+jdsuOnmsiLinkFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiLinkFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to update a link
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkUpdate OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkFunctions 3 }
+
+jdsuOnmsiLinkUpdateParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the link to update"
+	::= { jdsuOnmsiLinkUpdate 1 }
+
+
+jdsuOnmsiLinkUpdateExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the link udpate"
+	::= { jdsuOnmsiLinkUpdate 2 }
+
+
+jdsuOnmsiLinkUpdateError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiLinkUpdate 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the link attributes
+-- Results will fill the jdsuOnmsiLinkAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiLinkAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiLinkFunctions 4 }
+
+jdsuOnmsiLinkAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiLinkAttributeTable load"
+	::= { jdsuOnmsiLinkAttributeLoad 1 }
+
+
+jdsuOnmsiLinkAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiLinkAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the monitoring test service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 5 }
+
+-------------------------------------------------------------------------------
+-- Data of the monitoring test service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestData OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestService 1 }
+
+jdsuOnmsiMonitoringTestTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiMonitoringTestEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard link data"
+	::= { jdsuOnmsiMonitoringTestData 1 }
+
+
+jdsuOnmsiMonitoringTestEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiMonitoringTestEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A monitoring test entry"
+	INDEX {
+		jdsuOnmsiMonitoringTestEntryInternalKey }
+	::= { jdsuOnmsiMonitoringTestTable 1 }
+
+
+JdsuOnmsiMonitoringTestEntry ::= SEQUENCE {
+
+	jdsuOnmsiMonitoringTestEntryInternalKey               JdsuOnmsiInternalKey,
+	jdsuOnmsiMonitoringTestEntryName                      JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestEntryDescription               JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestEntryLinkInternalKey           JdsuOnmsiInternalKey,
+	jdsuOnmsiMonitoringTestEntryDisplayOrder              INTEGER,
+	jdsuOnmsiMonitoringTestEntrySeverity                  JdsuOnmsiSeverity,
+	jdsuOnmsiMonitoringTestEntryDetectionConfiguration    JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestEntryLocalizationConfiguration JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestEntrySchedulingConfiguration   JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiMonitoringTestEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the monitoring test"
+	::= { jdsuOnmsiMonitoringTestEntry 1 }
+
+
+jdsuOnmsiMonitoringTestEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the monitoring test"
+	::= { jdsuOnmsiMonitoringTestEntry 2 }
+
+
+jdsuOnmsiMonitoringTestEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the monitoring test"
+	::= { jdsuOnmsiMonitoringTestEntry 3 }
+
+
+jdsuOnmsiMonitoringTestEntryLinkInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the monitoring test's link"
+	::= { jdsuOnmsiMonitoringTestEntry 4 }
+
+
+jdsuOnmsiMonitoringTestEntryDisplayOrder OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The display order ot the monitoring test"
+	::= { jdsuOnmsiMonitoringTestEntry 5 }
+
+
+jdsuOnmsiMonitoringTestEntrySeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The severity of the monitoring test"
+	::= { jdsuOnmsiMonitoringTestEntry 6 }
+
+
+jdsuOnmsiMonitoringTestEntryDetectionConfiguration OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The detection configuration of the monitoring test in a serialized form (key1=value1|key2=value2|...).
+		It contains the following keys:
+		- firstMarkerDistanceM: the distance of the first marker, in meters
+		- lastMarkerDistanceM: the distance of the last marker, in meters
+		- acqDurationSec: the acquisition duration of the detection reference, in seconds
+		- pulseNs: the pulse of the detection reference, in ns
+		- rangeKm: the range of the detection reference, in km
+		- fiberIndex: the fiber index of the detection reference
+		- resolutionCm: the resolution of the detection reference, in cm
+		- wavelengthNm: the wavelength of the detection reference, in nm"
+	::= { jdsuOnmsiMonitoringTestEntry 7 }
+
+
+jdsuOnmsiMonitoringTestEntryLocalizationConfiguration OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The localization configuration of the monitoring test in a serialized form (key1=value1|key2=value2|...).
+		It contains the following keys:
+		- acqDurationSec: the acquisition duration of the localization reference, in seconds
+		- pulseNs: the pulse of the localization reference, in ns
+		- rangeKm: the range of the localization reference, in km
+		- fiberIndex: the fiber index of the localization reference
+		- resolutionCm: the resolution of the localization reference, in cm
+		- wavelengthNm: the wavelength of the localization reference, in nm"
+	::= { jdsuOnmsiMonitoringTestEntry 8 }
+
+
+jdsuOnmsiMonitoringTestEntrySchedulingConfiguration OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The scheduling configuration of the monitoring test in a serialized form (key1=value1|key2=value2|...).
+		It contains the following keys:
+		- scheduled: this flag indicates whether the monitoring test is periodic or not (true/false)
+		- periodical: this flag indicates whether the monitoring test is scheduled or not (true/false)
+		- startDate: the date at which the monitoring test scheduling starts, in seconds since January 1, 1970, 00:00:00 GMT
+		- frequencyMin: the period of the monitoring test scheduling (if the test is periodic), in minutes"
+	::= { jdsuOnmsiMonitoringTestEntry 9 }
+
+
+jdsuOnmsiMonitoringTestAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiMonitoringTestAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on monitoring tests"
+	::= { jdsuOnmsiMonitoringTestData 2 }
+
+
+jdsuOnmsiMonitoringTestAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiMonitoringTestAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A monitoring test additional attribute entry"
+	INDEX {
+		jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiMonitoringTestAdditionalAttributeEntryName }
+	::= { jdsuOnmsiMonitoringTestAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiMonitoringTestAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiMonitoringTestAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the monitoring test"
+	::= { jdsuOnmsiMonitoringTestAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiMonitoringTestAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiMonitoringTestAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiMonitoringTestAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiMonitoringTestAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiMonitoringTestAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable monitoring test attributes"
+	::= { jdsuOnmsiMonitoringTestData 3 }
+
+
+jdsuOnmsiMonitoringTestAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiMonitoringTestAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A monitoring test attribute entry"
+	INDEX {
+		jdsuOnmsiMonitoringTestAttributeEntryName }
+	::= { jdsuOnmsiMonitoringTestAttributeTable 1 }
+
+
+JdsuOnmsiMonitoringTestAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiMonitoringTestAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiMonitoringTestAttributeEntryAdditional TruthValue,
+	jdsuOnmsiMonitoringTestAttributeEntryFindable   TruthValue,
+	jdsuOnmsiMonitoringTestAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiMonitoringTestAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiMonitoringTestAttributeEntry 1 }
+
+
+jdsuOnmsiMonitoringTestAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiMonitoringTestAttributeEntry 2 }
+
+
+jdsuOnmsiMonitoringTestAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiMonitoringTestAttributeEntry 3 }
+
+
+jdsuOnmsiMonitoringTestAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiMonitoringTestAttributeEntry 4 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the monitoring test service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get a monitoring test
+-- Results will fill jdsuOnmsiMonitoringTestTable and jdsuOnmsiMonitoringTestAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestGet OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestFunctions 1 }
+
+jdsuOnmsiMonitoringTestGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the monitoring test to retrieve"
+	::= { jdsuOnmsiMonitoringTestGet 1 }
+
+
+jdsuOnmsiMonitoringTestGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the monitoring test retrieval"
+	::= { jdsuOnmsiMonitoringTestGet 2 }
+
+
+jdsuOnmsiMonitoringTestGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiMonitoringTestGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find monitoring tests
+-- Results will fill jdsuOnmsiMonitoringTestTable and jdsuOnmsiMonitoringTestAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestFind OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestFunctions 2 }
+
+jdsuOnmsiMonitoringTestFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the monitoring test to perform the search on.
+		Valid attributes for monitoring tests are :
+		- linkInternalKey
+		- name
+		and any additional attribute name"
+	::= { jdsuOnmsiMonitoringTestFind 1 }
+
+
+jdsuOnmsiMonitoringTestFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiMonitoringTestFind 2 }
+
+
+jdsuOnmsiMonitoringTestFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the monitoring test find"
+	::= { jdsuOnmsiMonitoringTestFind 3 }
+
+
+jdsuOnmsiMonitoringTestFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiMonitoringTestFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to start a monitoring test
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestStartTest OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestFunctions 3 }
+
+jdsuOnmsiMonitoringTestStartTestParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the monitoring test to start"
+	::= { jdsuOnmsiMonitoringTestStartTest 1 }
+
+
+jdsuOnmsiMonitoringTestStartTestExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the monitoring test start"
+	::= { jdsuOnmsiMonitoringTestStartTest 2 }
+
+
+jdsuOnmsiMonitoringTestStartTestError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiMonitoringTestStartTest 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the monitoring test attributes
+-- Results will fill the jdsuOnmsiMonitoringTestAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiMonitoringTestAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiMonitoringTestFunctions 4 }
+
+jdsuOnmsiMonitoringTestAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiMonitoringTestAttributeTable load"
+	::= { jdsuOnmsiMonitoringTestAttributeLoad 1 }
+
+
+jdsuOnmsiMonitoringTestAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiMonitoringTestAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the alarm service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 6 }
+
+-------------------------------------------------------------------------------
+-- Data of the alarm service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmData OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmService 1 }
+
+jdsuOnmsiAlarmTypesTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiAlarmTypesEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table provides the list of the alarm types"
+	::= { jdsuOnmsiAlarmData 1 }
+
+
+jdsuOnmsiAlarmTypesEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmTypesEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An alarm type entry"
+	INDEX {
+		jdsuOnmsiAlarmTypeName }
+	::= { jdsuOnmsiAlarmTypesTable 1 }
+
+
+JdsuOnmsiAlarmTypesEntry ::= SEQUENCE {
+
+	jdsuOnmsiAlarmTypeName JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiAlarmTypeName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the alarm type"
+	::= { jdsuOnmsiAlarmTypesEntry 1 }
+
+
+jdsuOnmsiAlarmSpecificProblemsTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiAlarmSpecificProblemsEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table provides the list of the specific problems"
+	::= { jdsuOnmsiAlarmData 2 }
+
+
+jdsuOnmsiAlarmSpecificProblemsEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmSpecificProblemsEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An alarm specific problem entry"
+	INDEX {
+		jdsuOnmsiAlarmSpecificProblemName }
+	::= { jdsuOnmsiAlarmSpecificProblemsTable 1 }
+
+
+JdsuOnmsiAlarmSpecificProblemsEntry ::= SEQUENCE {
+
+	jdsuOnmsiAlarmSpecificProblemName JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiAlarmSpecificProblemName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the alarm specific problem"
+	::= { jdsuOnmsiAlarmSpecificProblemsEntry 1 }
+
+
+jdsuOnmsiAlarmEventTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiAlarmEventEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard alarm event data"
+	::= { jdsuOnmsiAlarmData 3 }
+
+
+jdsuOnmsiAlarmEventEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmEventEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An alarm event entry"
+	INDEX {
+		jdsuOnmsiAlarmEventEntrySequence }
+	::= { jdsuOnmsiAlarmEventTable 1 }
+
+
+JdsuOnmsiAlarmEventEntry ::= SEQUENCE {
+
+	jdsuOnmsiAlarmEventEntrySequence                               Unsigned32,
+	jdsuOnmsiAlarmEventEntryEventInternalKey                       JdsuOnmsiInternalKey,
+	jdsuOnmsiAlarmEventEntryEventType                              JdsuOnmsiAlarmEventType,
+	jdsuOnmsiAlarmEventEntryEventTime                              DateAndTime,
+	jdsuOnmsiAlarmEventEntryEventClearStatus                       JdsuOnmsiAlarmClearStatus,
+	jdsuOnmsiAlarmEventEntryEventAckStatus                         JdsuOnmsiAlarmAckStatus,
+	jdsuOnmsiAlarmEventEntryEventPerceivedSeverity                 JdsuOnmsiSeverity,
+	jdsuOnmsiAlarmEventEntryEventProbableCause                     IANAItuProbableCause,
+	jdsuOnmsiAlarmEventEntryEventAdditionalText                    JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventUserIdentifier                    JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos       JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos         JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos          JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos                 JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos                  JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos         JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmInternalKey                       JdsuOnmsiInternalKey,
+	jdsuOnmsiAlarmEventEntryAlarmType                              IANAItuEventType,
+	jdsuOnmsiAlarmEventEntryAlarmRaisedTime                        DateAndTime,
+	jdsuOnmsiAlarmEventEntryAlarmChangedTime                       DateAndTime,
+	jdsuOnmsiAlarmEventEntryAlarmClearStatus                       JdsuOnmsiAlarmClearStatus,
+	jdsuOnmsiAlarmEventEntryAlarmAckStatus                         JdsuOnmsiAlarmAckStatus,
+	jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity                 JdsuOnmsiSeverity,
+	jdsuOnmsiAlarmEventEntryAlarmSpecificProblem                   DisplayString,
+	jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind             DisplayString,
+	jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey      JdsuOnmsiInternalKey,
+	jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName             JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid              JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmSystemDN                          DisplayString,
+	jdsuOnmsiAlarmEventEntryAlarmProbableCause                     IANAItuProbableCause,
+	jdsuOnmsiAlarmEventEntryAlarmAdditionalText                    JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos       JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos         JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos          JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos                 JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos                  JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos         JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity                 JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos       JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos       JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventPonSpecificInfos                  JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos                  JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos             JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos             JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos               JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos               JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos          JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos          JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes              JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiAlarmEventEntrySequence OBJECT-TYPE
+	SYNTAX  Unsigned32
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This is the sequence of the alarm event.
+		It is used for synchronization between ONMSi and the SNMP manager.
+		This sequence number is unique (for each alarm event/manager community/user) and
+		there is no gap between two alarm events, to ensure no alarm event is ever missed.
+		A resynchronization will reset the sequence to 1"
+	::= { jdsuOnmsiAlarmEventEntry 1 }
+
+
+jdsuOnmsiAlarmEventEntryEventInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 2 }
+
+
+jdsuOnmsiAlarmEventEntryEventType OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmEventType
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The type of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 3 }
+
+
+jdsuOnmsiAlarmEventEntryEventClearStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmClearStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The clear status of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 5 }
+
+
+jdsuOnmsiAlarmEventEntryEventTime OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The date/time of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 4 }
+
+
+jdsuOnmsiAlarmEventEntryEventAckStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmAckStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The acknowledgement status of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 6 }
+
+
+jdsuOnmsiAlarmEventEntryEventPerceivedSeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The perceived severity of the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 7 }
+
+
+jdsuOnmsiAlarmEventEntryEventProbableCause OBJECT-TYPE
+	SYNTAX  IANAItuProbableCause
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The ITU probable cause of the alarm event (see IANAItuProbableCause)"
+	::= { jdsuOnmsiAlarmEventEntry 8 }
+
+
+jdsuOnmsiAlarmEventEntryEventAdditionalText OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The textual additional information on the alarm event"
+	::= { jdsuOnmsiAlarmEventEntry 9 }
+
+
+jdsuOnmsiAlarmEventEntryEventUserIdentifier OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The user identifier (login), if the alarm event is due to a user action"
+	::= { jdsuOnmsiAlarmEventEntry 10 }
+
+
+jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized monitoring test specific info of the alarm event.
+		This Alarm Specific Info describes the point to point monitoring test that detected the problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a monitoring test processing.
+		It contains the following keys:
+		- internalKey: the internal key of the monitoring test
+		- name: the name of the monitoring test
+		- firstMarkerDistanceM: the distance of the first marker, in meters
+		- lastMarkerDistanceM: the distance of the last marker, in meters
+		- det.acqDurationSec: the acquisition duration of the detection reference, in seconds
+		- det.pulseNs: the pulse of the detection reference, in ns
+		- det.rangeKm: the range of the detection reference, in km
+		- det.resolutionCm: the resolution of the detection reference, in cm
+		- det.wavelengthNm: the wavelength of the detection reference, in nm
+		- det.fiberIndex: the fiber index of the detection reference
+		- loc.acqDurationSec: the acquisition duration of the localization reference, in seconds
+		- loc.pulseNs: the pulse of the localization reference, in ns
+		- loc.rangeKm: the range of the localization reference, in km
+		- loc.resolutionCm: the resolution of the localization reference, in cm
+		- loc.wavelengthNm: the wavelength of the localization reference, in nm
+		- loc.fiberIndex: the fiber index of the localization reference
+		- scheduled: this flag indicates whether the monitoring test is periodic or not (true/false)
+		- periodical: this flag indicates whether the monitoring test is scheduled or not (true/false)
+		- startDate: the date at which the monitoring test scheduling starts, in seconds since January 1, 1970, 00:00:00 GMT
+		- frequencyMin: the period of the monitoring test scheduling (if the test is periodic), in minutes"
+	::= { jdsuOnmsiAlarmEventEntry 11 }
+
+
+jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized point to point specific info of the alarm event.
+		This Alarm Specific Info contains data on a point to point problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a point to point test processing.
+		It contains the following keys:
+		- deviationFirstMarkerDb: the deviation at the first marker, in dB (Can be empty if the value in not valid)
+		- deviationLinkLossDb: the deviation of the link loss, in dB (Can be empty if the value in not valid)
+		- problemConfirmed: this flag indicates whether the problem was confirmed
+		- rootCause: indicate what may be the root cause of the problem (ex: CONNECTOR)"
+	::= { jdsuOnmsiAlarmEventEntry 12 }
+
+
+jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized attenuation specific info of the alarm event.
+		This Alarm Specific Info describes a point to point attenuation problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is ATTENUATION.
+		It contains the following keys:
+		- attenuationDb: the value of the attenuation, in dB (Can be empty if the value in not valid)
+		- distanceM: the distance of the problem, in meters (Can be empty if the value in not valid)"
+	::= { jdsuOnmsiAlarmEventEntry 13 }
+
+
+jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized peak specific info of the alarm event.
+		This Alarm Specific Info describes a point to point peak problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is PEAK or NEW_PEAK.
+		It contains the following keys:
+		measuredBottomDistanceM: the measured distance of the peak bottom, in meters
+		measuredLevelDb: the measured level of the peak, in dB (Can be empty if the value in not valid)
+		measuredTopDistanceM: the measured distance of the peak top, in meters
+		referenceBottomDistanceM: the reference distance of the peak bottom, in meters
+		referenceLevelDb: the reference level of the peak, in dB
+		- referenceTopDistanceM: the reference distance of the peak top, in meters"
+	::= { jdsuOnmsiAlarmEventEntry 14 }
+
+
+jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized ORL specific info of the alarm event.
+		This Alarm Specific Info describes a point to point ORL problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is ORL.
+		It contains the following keys:
+		- measuredOrlDb: the measured ORL, in dB (Can be empty if the value in not valid)
+		- referenceOrlDb: the reference ORL, in dB"
+	::= { jdsuOnmsiAlarmEventEntry 15 }
+
+
+jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized fiber length extension specific info of the alarm event.
+		This Alarm Specific Info describes a point to point fiber length extension problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is FIBER_LENGTH_EXTENSION.
+		It contains the following keys:
+		- measuredFiberLengthM: the measured fiber length, in meters (Can be empty if the value in not valid)
+		- referenceFiberLengthM: the reference fiber length, in meters"
+	::= { jdsuOnmsiAlarmEventEntry 16 }
+
+
+jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized localization specific info of the alarm event.
+		This Alarm Specific Info describes a point to point fiber length extension problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is FIBER_LENGTH_EXTENSION.
+		It contains the following keys:
+		- opticalDistanceFromOriginM: the optical distance between the origin and the point to point problem, in meters
+		- primaryLandmarkAfterDistanceM: the distance between the problem and the primary alarm landmark after the problem, in meters
+		- primaryLandmarkAfterName: the name of primary alarm landmark after the problem
+		- primaryLandmarkAfterDescription: the description of primary alarm landmark after the problem
+		- primaryLandmarkBeforeDistanceM: the distance between the problem and the primary alarm landmark before the problem, in meters
+		- primaryLandmarkBeforeName: the name of primary alarm landmark before the problem
+		- primaryLandmarkBeforeDescription: the description of primary alarm landmark before the problem
+		- secondaryLandmarkAfterDistanceM: the distance between the problem and the secondary alarm landmark after the problem, in meters
+		- secondaryLandmarkAfterName: the name of secondary alarm landmark after the problem
+		- secondaryLandmarkAfterDescription: the description of secondary alarm landmark after the problem
+		- secondaryLandmarkBeforeDistanceM: the distance between the problem and the secondary alarm landmark before the problem, in meters
+		- secondaryLandmarkBeforeName: the name of secondary alarm landmark before the problem
+		- secondaryLandmarkBeforeDescription: the description of secondary alarm landmark before the problem"
+	::= { jdsuOnmsiAlarmEventEntry 17 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 18 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmType OBJECT-TYPE
+	SYNTAX  IANAItuEventType
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The ITU event type of the alarm (see IANAItuEventType)"
+	::= { jdsuOnmsiAlarmEventEntry 19 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmRaisedTime OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The date/time of alarm creation"
+	::= { jdsuOnmsiAlarmEventEntry 20 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmChangedTime OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The date/time of alarm latest update"
+	::= { jdsuOnmsiAlarmEventEntry 21 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmClearStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmClearStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The clear status of the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 22 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmAckStatus OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmAckStatus
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The acknowledgement status of the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 23 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The perceived severity of the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 24 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmSpecificProblem OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The specific problem of the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 25 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The kind of the entity to which the alarm applies:
+		- OTU
+		- LINK
+		- SECTION
+		- SERVER"
+	::= { jdsuOnmsiAlarmEventEntry 26 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the entity to which the alarm applies"
+	::= { jdsuOnmsiAlarmEventEntry 27 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Tthe name of the entity to which the alarm applies"
+	::= { jdsuOnmsiAlarmEventEntry 28 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The OID of the entity to which the alarm applies"
+	::= { jdsuOnmsiAlarmEventEntry 29 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmSystemDN OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the system that created the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 30 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmProbableCause OBJECT-TYPE
+	SYNTAX  IANAItuProbableCause
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The ITU probable cause of the alarm (se IANAItuProbableCause)"
+	::= { jdsuOnmsiAlarmEventEntry 31 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmAdditionalText OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The textual additional information on the alarm"
+	::= { jdsuOnmsiAlarmEventEntry 32 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized monitoring test specific info of the alarm.
+		This Alarm Specific Info describes the point to point monitoring test that detected the problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a monitoring test processing.
+		It contains the following keys:
+		- internalKey: the internal key of the monitoring test
+		- name: the name of the monitoring test
+		- firstMarkerDistanceM: the distance of the first marker, in meters
+		- lastMarkerDistanceM: the distance of the last marker, in meters
+		- det.acqDurationSec: the acquisition duration of the detection reference, in seconds
+		- det.pulseNs: the pulse of the detection reference, in ns
+		- det.rangeKm: the range of the detection reference, in km
+		- det.resolutionCm: the resolution of the detection reference, in cm
+		- det.wavelengthNm: the wavelength of the detection reference, in nm
+		- det.fiberIndex: the fiber index of the detection reference
+		- loc.acqDurationSec: the acquisition duration of the localization reference, in seconds
+		- loc.pulseNs: the pulse of the localization reference, in ns
+		- loc.rangeKm: the range of the localization reference, in km
+		- loc.resolutionCm: the resolution of the localization reference, in cm
+		- loc.wavelengthNm: the wavelength of the localization reference, in nm
+		- loc.fiberIndex: the fiber index of the localization reference
+		- scheduled: this flag indicates whether the monitoring test is periodic or not (true/false)
+		- periodical: this flag indicates whether the monitoring test is scheduled or not (true/false)
+		- startDate: the date at which the monitoring test scheduling starts, in seconds since January 1, 1970, 00:00:00 GMT
+		- frequencyMin: the period of the monitoring test scheduling (if the test is periodic), in minutes"
+	::= { jdsuOnmsiAlarmEventEntry 33 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized point to point specific info of the alarm.
+		This Alarm Specific Info contains data on a point to point problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a point to point test processing.
+		It contains the following keys:
+		- deviationFirstMarkerDb: the deviation at the first marker, in dB (Can be empty if the value in not valid)
+		- deviationLinkLossDb: the deviation of the link loss, in dB (Can be empty if the value in not valid)
+		- problemConfirmed: this flag indicates whether the problem was confirmed
+		- rootCause: indicate what may be the root cause of the problem (ex: CONNECTOR)"
+	::= { jdsuOnmsiAlarmEventEntry 34 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized attenuation specific info of the alarm.
+		This Alarm Specific Info describes a point to point attenuation problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is ATTENUATION.
+		It contains the following keys:
+		- attenuationDb: the value of the attenuation, in dB (Can be empty if the value in not valid)
+		- distanceM: the distance of the problem, in meters (Can be empty if the value in not valid)"
+	::= { jdsuOnmsiAlarmEventEntry 35 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized peak specific info of the alarm.
+		This Alarm Specific Info describes a point to point peak problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is PEAK or NEW_PEAK.
+		It contains the following keys:
+		measuredBottomDistanceM: the measured distance of the peak bottom, in meters
+		measuredLevelDb: the measured level of the peak, in dB (Can be empty if the value in not valid)
+		measuredTopDistanceM: the measured distance of the peak top, in meters
+		referenceBottomDistanceM: the reference distance of the peak bottom, in meters
+		referenceLevelDb: the reference level of the peak, in dB
+		- referenceTopDistanceM: the reference distance of the peak top, in meters"
+	::= { jdsuOnmsiAlarmEventEntry 36 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized ORL specific info of the alarm.
+		This Alarm Specific Info describes a point to point ORL problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is ORL.
+		It contains the following keys:
+		- measuredOrlDb: the measured ORL, in dB (Can be empty if the value in not valid)
+		- referenceOrlDb: the reference ORL, in dB"
+	::= { jdsuOnmsiAlarmEventEntry 37 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized fiber length extension specific info of the alarm.
+		This Alarm Specific Info describes a point to point fiber length extension problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is FIBER_LENGTH_EXTENSION.
+		It contains the following keys:
+		- measuredFiberLengthM: the measured fiber length, in meters (Can be empty if the value in not valid)
+		- referenceFiberLengthM: the reference fiber length, in meters"
+	::= { jdsuOnmsiAlarmEventEntry 38 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized localization specific info of the alarm.
+		This Alarm Specific Info describes a point to point fiber length extension problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the specific problem is FIBER_LENGTH_EXTENSION.
+		It contains the following keys:
+		- opticalDistanceFromOriginM: the optical distance between the origin and the point to point problem, in meters
+		- primaryLandmarkAfterDistanceM: the distance between the problem and the primary alarm landmark after the problem, in meters
+		- primaryLandmarkAfterName: the name of primary alarm landmark after the problem
+		- primaryLandmarkAfterDescription: the description of primary alarm landmark after the problem
+		- primaryLandmarkBeforeDistanceM: the distance between the problem and the primary alarm landmark before the problem, in meters
+		- primaryLandmarkBeforeName: the name of primary alarm landmark before the problem
+		- primaryLandmarkBeforeDescription: the description of primary alarm landmark before the problem
+		- secondaryLandmarkAfterDistanceM: the distance between the problem and the secondary alarm landmark after the problem, in meters
+		- secondaryLandmarkAfterName: the name of secondary alarm landmark after the problem
+		- secondaryLandmarkAfterDescription: the description of secondary alarm landmark after the problem
+		- secondaryLandmarkBeforeDistanceM: the distance between the problem and the secondary alarm landmark before the problem, in meters
+		- secondaryLandmarkBeforeName: the name of secondary alarm landmark before the problem
+		- secondaryLandmarkBeforeDescription: the description of secondary alarm landmark before the problem"
+	::= { jdsuOnmsiAlarmEventEntry 39 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized entity to which the alarm applies.
+		This field is to provide more information that the kind, name and internal key of the alarm originating entity.
+		It will contain data in a serialized form (key1=value1|key2=value2|...).
+		It contains the following keys:
+		- internalKey: the internal key of the entity to which the alarm applies
+		- name: the name of the entity to which the alarm applies
+		- kind: the kind of the entity to which the alarm applies (see Alarm Originating Entity Kind)
+		Moreover, it will contains keys for attributes that are specific to the kind of entity to which the alarm applies:
+		- link: see jdsuOnmsiLinkTable (ex: measureEnabled=true|...)
+		- OTU: see jdsuOnmsiOtuTable (ex: ipAddress=192.198.1.14|...)
+		It also contains keys for the additional attributes (which start with the underscore character: '_') of the entity to which the alarm applies:
+		_additionalAttribute1Name=additionalAttribute1Value|...
+		Finally, it may contain keys about contextual data:
+		- when the alarm originating entity is a link: the OTU
+		- when the alarm originating entity is a section: the OTU and the link
+		These attributes will be prefixed to indicate the contextual object (ex: link._gisId=...|otu.ipAddress=...)"
+	::= { jdsuOnmsiAlarmEventEntry 40 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"It will contain alarm's additional attributes in a serialized form
+		(_additionalAttribute1Name=additionalAttribute1Value|_additionalAttribute2Name=additionalAttribute2Name|...)."
+	::= { jdsuOnmsiAlarmEventEntry 51 }
+
+
+jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized GPS coordinates specific info of the event.
+		This Alarm Specific Info contains the GPS coordinates of the problem in a serialized form (key1=value1|key2=value2|...).
+		You will get one when the alarm can be geolocalized (such as an attenuation problem on a link using geographical file).
+		It contains the following keys:
+		- latitude: the GPS latitude of the problem, in decimal degrees
+		- longitude: the GPS longitude of the problem, in decimal degrees"
+	::= { jdsuOnmsiAlarmEventEntry 41 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized GPS coordinates specific info of the alarm.
+		This Alarm Specific Info contains the GPS coordinates of the problem in a serialized form (key1=value1|key2=value2|...).
+		You will get one when the alarm can be geolocalized (such as an attenuation problem on a link using geographical file).
+		It contains the following keys:
+		- latitude: the GPS latitude of the problem, in decimal degrees
+		- longitude: the GPS longitude of the problem, in decimal degrees"
+	::= { jdsuOnmsiAlarmEventEntry 42 }
+
+
+jdsuOnmsiAlarmEventEntryEventPonSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized PON specific info of the event.
+		This Alarm Specific Info contains data on a PON problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a PON test processing.
+		It contains the following keys:
+		- ponTestInternalKey: the internal key of the PON test
+		- peakInAlarmCount: the peak in alarm count
+		- newPeakCount: the new peak count
+		- peakChangeCount: the peak change count"
+	::= { jdsuOnmsiAlarmEventEntry 43 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized PON specific info of the alarm.
+		This Alarm Specific Info contains data on a PON problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a PON test processing.
+		It contains the following keys:
+		- ponTestInternalKey: the internal key of the PON test
+		- peakInAlarmCount: the peak in alarm count
+		- newPeakCount: the new peak count
+		- peakChangeCount: the peak change count"
+	::= { jdsuOnmsiAlarmEventEntry 44 }
+
+
+jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized splitter specific info of the event.
+		This Alarm Specific Info contains data on a splitter problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a PTP test processing.
+		It contains the following keys:
+		- localizationResult: LOCALIZED/NOT_LOCALIZED
+		- opticalDistanceFromOriginM: if LOCALIZED, the fault distance from the OTDR
+		- opticalDistanceFromLastMarkerM: if LOCALIZED, the fault distance from the last marker
+		- peakInAlarmCount: the peak in alarm count
+		- peakChangeCount: the peak change count"
+	::= { jdsuOnmsiAlarmEventEntry 45 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized splitter specific info of the alarm.
+		This Alarm Specific Info contains data on a splitter problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a PTP test processing.
+		It contains the following keys:
+		- localizationResult: LOCALIZED/NOT_LOCALIZED
+		- opticalDistanceFromOriginM: if LOCALIZED, the fault distance from the OTDR
+		- opticalDistanceFromLastMarkerM: if LOCALIZED, the fault distance from the last marker
+		- peakInAlarmCount: the peak in alarm count
+		- peakChangeCount: the peak change count"
+	::= { jdsuOnmsiAlarmEventEntry 46 }
+
+
+jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized strain specific info of the event.
+		This Alarm Specific Info contains data on a strain problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a sensing test processing.
+		It contains the following keys:
+		If any positive threshold is monitored:
+		- positionM.max: the position of the maximum value
+		If any negative threshold is monitored:
+		- positionM.min: the position of the minimum value
+		If the positive minMax is monitored:
+		- minMax.max.valueUE: contains the positive min/max value, in micro strain
+		- minMax.min.valueUE: contains the negative min/max value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- minMax.max.sev: contains the severity of the positive min/max monitoring
+		- minMax.min.sev: contains the severity of the negative min/max monitoring
+		- minMax.max.startM: the first distance at which the positive min/max threshold was crossed
+		- minMax.min.startM: the first distance at which the negative min/max threshold was crossed
+		- minMax.max.endM: the last distance at which the positive min/max threshold was crossed
+		- minMax.min.endM: the last distance at which the negative min/max threshold was crossed
+		If the positive minMax is monitored:
+		- devAvg.ref.valueUE: contains the average value, in micro strain
+		- devAvg.max.valueUE: contains the positive diff from average value, in micro strain
+		- devAvg.min.valueUE: contains the negative diff from average value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- devAvg.max.sev: contains the severity of the positive diff from average monitoring
+		- devAvg.min.sev: contains the severity of the negative diff from average monitoring
+		- devAvg.max.startM: the first distance at which the positive diff from average threshold was crossed
+		- devAvg.min.startM: the first distance at which the negative diff from average threshold was crossed
+		- devAvg.max.endM: the last distance at which the positive diff from average threshold was crossed
+		- devAvg.min.endM: the last distance at which the negative diff from average threshold was crossed
+		If the positive minMax is monitored:
+		- devMed.ref.valueUE: contains the median value, in micro strain
+		- devMed.max.valueUE: contains the positive diff from median value, in micro strain
+		- devMed.min.valueUE: contains the negative diff from median value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- devMed.max.sev: contains the severity of the positive diff from median monitoring
+		- devMed.min.sev: contains the severity of the negative diff from median monitoring
+		- devMed.max.startM: the first distance at which the positive diff from median threshold was crossed
+		- devMed.min.startM: the first distance at which the negative diff from median threshold was crossed
+		- devMed.max.endM: the last distance at which the positive diff from median threshold was crossed
+		- devMed.min.endM: the last distance at which the negative diff from median threshold was crossed"
+	::= { jdsuOnmsiAlarmEventEntry 47 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized strain specific info of the alarm.
+		This Alarm Specific Info contains data on a strain problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a sensing test processing.
+		It contains the following keys:
+		If any positive threshold is monitored:
+		- positionM.max: the position of the maximum value
+		If any negative threshold is monitored:
+		- positionM.min: the position of the minimum value
+		If the positive minMax is monitored:
+		- minMax.max.valueUE: contains the positive min/max value, in micro strain
+		- minMax.min.valueUE: contains the negative min/max value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- minMax.max.sev: contains the severity of the positive min/max monitoring
+		- minMax.min.sev: contains the severity of the negative min/max monitoring
+		- minMax.max.startM: the first distance at which the positive min/max threshold was crossed
+		- minMax.min.startM: the first distance at which the negative min/max threshold was crossed
+		- minMax.max.endM: the last distance at which the positive min/max threshold was crossed
+		- minMax.min.endM: the last distance at which the negative min/max threshold was crossed
+		If the positive minMax is monitored:
+		- devAvg.ref.valueUE: contains the average value, in micro strain
+		- devAvg.max.valueUE: contains the positive diff from average value, in micro strain
+		- devAvg.min.valueUE: contains the negative diff from average value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- devAvg.max.sev: contains the severity of the positive diff from average monitoring
+		- devAvg.min.sev: contains the severity of the negative diff from average monitoring
+		- devAvg.max.startM: the first distance at which the positive diff from average threshold was crossed
+		- devAvg.min.startM: the first distance at which the negative diff from average threshold was crossed
+		- devAvg.max.endM: the last distance at which the positive diff from average threshold was crossed
+		- devAvg.min.endM: the last distance at which the negative diff from average threshold was crossed
+		If the positive minMax is monitored:
+		- devMed.ref.valueUE: contains the median value, in micro strain
+		- devMed.max.valueUE: contains the positive diff from median value, in micro strain
+		- devMed.min.valueUE: contains the negative diff from median value, in micro strain
+		If the positive minMax is monitored and in alarm:
+		- devMed.max.sev: contains the severity of the positive diff from median monitoring
+		- devMed.min.sev: contains the severity of the negative diff from median monitoring
+		- devMed.max.startM: the first distance at which the positive diff from median threshold was crossed
+		- devMed.min.startM: the first distance at which the negative diff from median threshold was crossed
+		- devMed.max.endM: the last distance at which the positive diff from median threshold was crossed
+		- devMed.min.endM: the last distance at which the negative diff from median threshold was crossed"
+	::= { jdsuOnmsiAlarmEventEntry 48 }
+
+
+jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized temperature specific info of the event.
+		This Alarm Specific Info contains data on a temperature problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a sensing test processing.
+		It contains the following keys:
+		If any positive threshold is monitored:
+		- positionM.max: the position of the maximum value
+		If any negative threshold is monitored:
+		- positionM.min: the position of the minimum value
+		If the positive minMax is monitored:
+		- minMax.max.valueC: contains the positive min/max value, in degree C
+		- minMax.min.valueC: contains the negative min/max value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- minMax.max.sev: contains the severity of the positive min/max monitoring
+		- minMax.min.sev: contains the severity of the negative min/max monitoring
+		- minMax.max.startM: the first distance at which the positive min/max threshold was crossed
+		- minMax.min.startM: the first distance at which the negative min/max threshold was crossed
+		- minMax.max.endM: the last distance at which the positive min/max threshold was crossed
+		- minMax.min.endM: the last distance at which the negative min/max threshold was crossed
+		If the positive minMax is monitored:
+		- devAvg.ref.valueC: contains the average value, in degree C
+		- devAvg.max.valueC: contains the positive diff from average value, in degree C
+		- devAvg.min.valueC: contains the negative diff from average value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- devAvg.max.sev: contains the severity of the positive diff from average monitoring
+		- devAvg.min.sev: contains the severity of the negative diff from average monitoring
+		- devAvg.max.startM: the first distance at which the positive diff from average threshold was crossed
+		- devAvg.min.startM: the first distance at which the negative diff from average threshold was crossed
+		- devAvg.max.endM: the last distance at which the positive diff from average threshold was crossed
+		- devAvg.min.endM: the last distance at which the negative diff from average threshold was crossed
+		If the positive minMax is monitored:
+		- devMed.ref.valueC: contains the median value, in degree C
+		- devMed.max.valueC: contains the positive diff from median value, in degree C
+		- devMed.min.valueC: contains the negative diff from median value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- devMed.max.sev: contains the severity of the positive diff from median monitoring
+		- devMed.min.sev: contains the severity of the negative diff from median monitoring
+		- devMed.max.startM: the first distance at which the positive diff from median threshold was crossed
+		- devMed.min.startM: the first distance at which the negative diff from median threshold was crossed
+		- devMed.max.endM: the last distance at which the positive diff from median threshold was crossed
+		- devMed.min.endM: the last distance at which the negative diff from median threshold was crossed"
+	::= { jdsuOnmsiAlarmEventEntry 49 }
+
+
+jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serialized temperature specific info of the alarm.
+		This Alarm Specific Info contains data on a temperature problem in a serialized form (key1=value1|key2=value2|...).
+		It will be filled when the alarm is issued after a sensing test processing.
+		It contains the following keys:
+		If any positive threshold is monitored:
+		- positionM.max: the position of the maximum value
+		If any negative threshold is monitored:
+		- positionM.min: the position of the minimum value
+		If the positive minMax is monitored:
+		- minMax.max.valueC: contains the positive min/max value, in degree C
+		- minMax.min.valueC: contains the negative min/max value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- minMax.max.sev: contains the severity of the positive min/max monitoring
+		- minMax.min.sev: contains the severity of the negative min/max monitoring
+		- minMax.max.startM: the first distance at which the positive min/max threshold was crossed
+		- minMax.min.startM: the first distance at which the negative min/max threshold was crossed
+		- minMax.max.endM: the last distance at which the positive min/max threshold was crossed
+		- minMax.min.endM: the last distance at which the negative min/max threshold was crossed
+		If the positive minMax is monitored:
+		- devAvg.ref.valueC: contains the average value, in degree C
+		- devAvg.max.valueC: contains the positive diff from average value, in degree C
+		- devAvg.min.valueC: contains the negative diff from average value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- devAvg.max.sev: contains the severity of the positive diff from average monitoring
+		- devAvg.min.sev: contains the severity of the negative diff from average monitoring
+		- devAvg.max.startM: the first distance at which the positive diff from average threshold was crossed
+		- devAvg.min.startM: the first distance at which the negative diff from average threshold was crossed
+		- devAvg.max.endM: the last distance at which the positive diff from average threshold was crossed
+		- devAvg.min.endM: the last distance at which the negative diff from average threshold was crossed
+		If the positive minMax is monitored:
+		- devMed.ref.valueC: contains the median value, in degree C
+		- devMed.max.valueC: contains the positive diff from median value, in degree C
+		- devMed.min.valueC: contains the negative diff from median value, in degree C
+		If the positive minMax is monitored and in alarm:
+		- devMed.max.sev: contains the severity of the positive diff from median monitoring
+		- devMed.min.sev: contains the severity of the negative diff from median monitoring
+		- devMed.max.startM: the first distance at which the positive diff from median threshold was crossed
+		- devMed.min.startM: the first distance at which the negative diff from median threshold was crossed
+		- devMed.max.endM: the last distance at which the positive diff from median threshold was crossed
+		- devMed.min.endM: the last distance at which the negative diff from median threshold was crossed"
+	::= { jdsuOnmsiAlarmEventEntry 50 }
+
+
+jdsuOnmsiAlarmSplitterPeakTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiAlarmSplitterPeakEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains peak details for a splitter fault. Load it with jdsuOnmsiAlarmSplitterPeakLoad"
+	::= { jdsuOnmsiAlarmData 4 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiAlarmSplitterPeakEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION ""
+	INDEX {
+		jdsuOnmsiAlarmSplitterPeakEntryInternalKey }
+	::= { jdsuOnmsiAlarmSplitterPeakTable 1 }
+
+
+JdsuOnmsiAlarmSplitterPeakEntry ::= SEQUENCE {
+
+	jdsuOnmsiAlarmSplitterPeakEntryInternalKey             JdsuOnmsiInternalKey,
+	jdsuOnmsiAlarmSplitterPeakEntryName                    JdsuOnmsiUtf8String,
+	jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity       JdsuOnmsiSeverity,
+	jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity        JdsuOnmsiSeverity,
+	jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance INTEGER,
+	jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance    INTEGER,
+	jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel          INTEGER,
+	jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid    TruthValue,
+	jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance  INTEGER,
+	jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance     INTEGER,
+	jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel           INTEGER }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The peak internal key"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 1 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The peak name"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 2 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The severity of the peak"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 3 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The previous severity of the peak"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 4 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the reference peak's bottom
+		Unit : millimeters"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 5 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the reference peak's top
+		Unit : millimeters"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 6 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The level of the reference peak
+		Unit : dB / 100"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 7 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Whether the peak measurement is valid"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 8 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the measured peak's bottom
+		Unit : millimeters"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 9 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The distance of the measured peak's top
+		Unit : millimeters"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 10 }
+
+
+jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The level of the measured peak
+		Unit : dB / 100"
+	::= { jdsuOnmsiAlarmSplitterPeakEntry 11 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the alarm service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to acknowledge an alarm
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmAck OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 1 }
+
+jdsuOnmsiAlarmAckParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm to acknowledge"
+	::= { jdsuOnmsiAlarmAck 1 }
+
+
+jdsuOnmsiAlarmAckExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the alarm acknowledgement"
+	::= { jdsuOnmsiAlarmAck 2 }
+
+
+jdsuOnmsiAlarmAckError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmAck 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to unacknowledge an alarm
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmUnAck OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 2 }
+
+jdsuOnmsiAlarmUnAckParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm to unacknowledge"
+	::= { jdsuOnmsiAlarmUnAck 1 }
+
+
+jdsuOnmsiAlarmUnAckExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the alarm unacknowledgement"
+	::= { jdsuOnmsiAlarmUnAck 2 }
+
+
+jdsuOnmsiAlarmUnAckError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmUnAck 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to clear an alarm
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmClear OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 3 }
+
+jdsuOnmsiAlarmClearParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm to clear"
+	::= { jdsuOnmsiAlarmClear 1 }
+
+
+jdsuOnmsiAlarmClearExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the alarm clear"
+	::= { jdsuOnmsiAlarmClear 2 }
+
+
+jdsuOnmsiAlarmClearError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmClear 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to unclear an alarm
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmUnClear OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 4 }
+
+jdsuOnmsiAlarmUnClearParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the alarm to unclear"
+	::= { jdsuOnmsiAlarmUnClear 1 }
+
+
+jdsuOnmsiAlarmUnClearExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the alarm unclear"
+	::= { jdsuOnmsiAlarmUnClear 2 }
+
+
+jdsuOnmsiAlarmUnClearError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmUnClear 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to resend jdsuOnmsiAlarmEventTrap from a sequence number
+-- This function is to be used when the manager detects that it missed some traps
+-- The agent will resend traps from a sequence number up to the latest trap
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmResendEvents OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 5 }
+
+jdsuOnmsiAlarmResendEventsParamSequence OBJECT-TYPE
+	SYNTAX  Unsigned32
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The sequence number of the first jdsuOnmsiAlarmEventTrap to resend"
+	::= { jdsuOnmsiAlarmResendEvents 1 }
+
+
+jdsuOnmsiAlarmResendEventsExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the trap resend"
+	::= { jdsuOnmsiAlarmResendEvents 2 }
+
+
+jdsuOnmsiAlarmResendEventsError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmResendEvents 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to resynchronize jdsuOnmsiAlarmEventTrap
+-- This function is to be used when the manager has lost alarm synchronization
+-- The manager must clear its alarm cache, then call this function
+-- The agent will then send resequenced traps for all events of all active alarms
+-- matching the SNMP user notification filter
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmResynchronize OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 6 }
+
+jdsuOnmsiAlarmResynchronizeExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the alarm resynchronization"
+	::= { jdsuOnmsiAlarmResynchronize 1 }
+
+
+jdsuOnmsiAlarmResynchronizeError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmResynchronize 2 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the peak details of a splitter fault
+-- Results will fill jdsuOnmsiAlarmSplitterPeakTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiAlarmSplitterPeakLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiAlarmFunctions 7 }
+
+jdsuOnmsiAlarmSplitterPeakLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the splitter peak table load"
+	::= { jdsuOnmsiAlarmSplitterPeakLoad 2 }
+
+
+jdsuOnmsiAlarmSplitterPeakLoadParamEventInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the event for which the splitter peak should be loaded"
+	::= { jdsuOnmsiAlarmSplitterPeakLoad 1 }
+
+
+jdsuOnmsiAlarmSplitterPeakLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiAlarmSplitterPeakLoad 3 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the OTU service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 7 }
+
+-------------------------------------------------------------------------------
+-- Data of the OTU service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuData OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuService 1 }
+
+jdsuOnmsiOtuTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard OTU data"
+	::= { jdsuOnmsiOtuData 1 }
+
+
+jdsuOnmsiOtuEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An OTU entry"
+	INDEX {
+		jdsuOnmsiOtuEntryInternalKey }
+	::= { jdsuOnmsiOtuTable 1 }
+
+
+JdsuOnmsiOtuEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuEntryInternalKey              JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuEntryName                     JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuEntryDescription              JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuEntryIpAddress                JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuEntryDeviceName               DisplayString,
+	jdsuOnmsiOtuEntrySerialNumber             DisplayString,
+	jdsuOnmsiOtuEntrySoftwareVersion          DisplayString,
+	jdsuOnmsiOtuEntryCentralOfficeInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuEntrySeverity                 JdsuOnmsiSeverity }
+
+
+jdsuOnmsiOtuEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU"
+	::= { jdsuOnmsiOtuEntry 1 }
+
+
+jdsuOnmsiOtuEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the OTU"
+	::= { jdsuOnmsiOtuEntry 2 }
+
+
+jdsuOnmsiOtuEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the OTU"
+	::= { jdsuOnmsiOtuEntry 3 }
+
+
+jdsuOnmsiOtuEntryIpAddress OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The IP address of hostname of the OTU"
+	::= { jdsuOnmsiOtuEntry 4 }
+
+
+jdsuOnmsiOtuEntryDeviceName OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The device name of the OTU ('OTU 8000', 'OTU 8000E', ...)"
+	::= { jdsuOnmsiOtuEntry 5 }
+
+
+jdsuOnmsiOtuEntrySerialNumber OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serial number of the OTU"
+	::= { jdsuOnmsiOtuEntry 6 }
+
+
+jdsuOnmsiOtuEntrySoftwareVersion OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The software version of the OTU"
+	::= { jdsuOnmsiOtuEntry 7 }
+
+
+jdsuOnmsiOtuEntryCentralOfficeInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the central office associated to the OTU"
+	::= { jdsuOnmsiOtuEntry 8 }
+
+
+jdsuOnmsiOtuEntrySeverity OBJECT-TYPE
+	SYNTAX  JdsuOnmsiSeverity
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The current severity of the OTU"
+	::= { jdsuOnmsiOtuEntry 9 }
+
+
+jdsuOnmsiOtuAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on OTUs"
+	::= { jdsuOnmsiOtuData 2 }
+
+
+jdsuOnmsiOtuAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An OTU additional attribute entry"
+	INDEX {
+		jdsuOnmsiOtuAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiOtuAdditionalAttributeEntryName }
+	::= { jdsuOnmsiOtuAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiOtuAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiOtuAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU"
+	::= { jdsuOnmsiOtuAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiOtuAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiOtuAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiOtuAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiOtuAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiOtuAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable OTU attributes"
+	::= { jdsuOnmsiOtuData 3 }
+
+
+jdsuOnmsiOtuAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An OTU attribute entry"
+	INDEX {
+		jdsuOnmsiOtuAttributeEntryName }
+	::= { jdsuOnmsiOtuAttributeTable 1 }
+
+
+JdsuOnmsiOtuAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuAttributeEntryAdditional TruthValue,
+	jdsuOnmsiOtuAttributeEntryFindable   TruthValue,
+	jdsuOnmsiOtuAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiOtuAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiOtuAttributeEntry 1 }
+
+
+jdsuOnmsiOtuAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiOtuAttributeEntry 2 }
+
+
+jdsuOnmsiOtuAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiOtuAttributeEntry 3 }
+
+
+jdsuOnmsiOtuAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiOtuAttributeEntry 4 }
+
+
+jdsuOnmsiOtuOtdrTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuOtdrEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the data on the OTDR modules of OTUs"
+	::= { jdsuOnmsiOtuData 4 }
+
+
+jdsuOnmsiOtuOtdrEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuOtdrEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"An OTDR module entry"
+	INDEX {
+		jdsuOnmsiOtuOtdrEntryInternalKey }
+	::= { jdsuOnmsiOtuOtdrTable 1 }
+
+
+JdsuOnmsiOtuOtdrEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuOtdrEntryInternalKey    JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuOtdrEntryOtuInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuOtdrEntryPosition       JdsuOnmsiOtdrPosition,
+	jdsuOnmsiOtuOtdrEntryType           DisplayString,
+	jdsuOnmsiOtuOtdrEntrySerialNumber   DisplayString,
+	jdsuOnmsiOtuOtdrEntryWavelengths    DisplayString }
+
+
+jdsuOnmsiOtuOtdrEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTDR module"
+	::= { jdsuOnmsiOtuOtdrEntry 1 }
+
+
+jdsuOnmsiOtuOtdrEntryOtuInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the OTDR module belongs"
+	::= { jdsuOnmsiOtuOtdrEntry 2 }
+
+
+jdsuOnmsiOtuOtdrEntryPosition OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtdrPosition
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The position of the OTDR module in the OTU, as a JdsuOnmsiOtdrPosition:
+		1: top
+		2: bottom"
+	::= { jdsuOnmsiOtuOtdrEntry 3 }
+
+
+jdsuOnmsiOtuOtdrEntryType OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The type of OTDR module (ex: '8117R VLR')"
+	::= { jdsuOnmsiOtuOtdrEntry 4 }
+
+
+jdsuOnmsiOtuOtdrEntrySerialNumber OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The serial number of the OTDR module"
+	::= { jdsuOnmsiOtuOtdrEntry 5 }
+
+
+jdsuOnmsiOtuOtdrEntryWavelengths OBJECT-TYPE
+	SYNTAX  DisplayString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The list of wavelengths supported by the OTDR module (ex: '1550, 1625')"
+	::= { jdsuOnmsiOtuOtdrEntry 6 }
+
+
+jdsuOnmsiOtuSwitchTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuSwitchEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the data on the switches of OTUs"
+	::= { jdsuOnmsiOtuData 5 }
+
+
+jdsuOnmsiOtuSwitchEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuSwitchEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A switch entry"
+	INDEX {
+		jdsuOnmsiOtuSwitchEntryInternalKey }
+	::= { jdsuOnmsiOtuSwitchTable 1 }
+
+
+JdsuOnmsiOtuSwitchEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuSwitchEntryInternalKey    JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuSwitchEntryOtuInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuSwitchEntryName           JdsuOnmsiUtf8String,
+	jdsuOnmsiOtuSwitchEntryRemote         TruthValue,
+	jdsuOnmsiOtuSwitchEntryPosition       INTEGER,
+	jdsuOnmsiOtuSwitchEntryInputs         INTEGER,
+	jdsuOnmsiOtuSwitchEntryOutputs        INTEGER }
+
+
+jdsuOnmsiOtuSwitchEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the switch"
+	::= { jdsuOnmsiOtuSwitchEntry 1 }
+
+
+jdsuOnmsiOtuSwitchEntryOtuInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the switch belongs"
+	::= { jdsuOnmsiOtuSwitchEntry 2 }
+
+
+jdsuOnmsiOtuSwitchEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the switch"
+	::= { jdsuOnmsiOtuSwitchEntry 3 }
+
+
+jdsuOnmsiOtuSwitchEntryRemote OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the switch is remote"
+	::= { jdsuOnmsiOtuSwitchEntry 4 }
+
+
+jdsuOnmsiOtuSwitchEntryPosition OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The position of the switch in the OTU"
+	::= { jdsuOnmsiOtuSwitchEntry 5 }
+
+
+jdsuOnmsiOtuSwitchEntryInputs OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The switch input count"
+	::= { jdsuOnmsiOtuSwitchEntry 6 }
+
+
+jdsuOnmsiOtuSwitchEntryOutputs OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The switch output count"
+	::= { jdsuOnmsiOtuSwitchEntry 7 }
+
+
+jdsuOnmsiOtuPortTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiOtuPortEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the data on the ports of OTUs"
+	::= { jdsuOnmsiOtuData 6 }
+
+
+jdsuOnmsiOtuPortEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiOtuPortEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A port entry"
+	INDEX {
+		jdsuOnmsiOtuPortEntryInternalKey }
+	::= { jdsuOnmsiOtuPortTable 1 }
+
+
+JdsuOnmsiOtuPortEntry ::= SEQUENCE {
+
+	jdsuOnmsiOtuPortEntryInternalKey       JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuPortEntryOtuInternalKey    JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuPortEntryModuleInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuPortEntryPosition          INTEGER,
+	jdsuOnmsiOtuPortEntryPonInternalKey    JdsuOnmsiInternalKey,
+	jdsuOnmsiOtuPortEntryLinkInternalKey   JdsuOnmsiInternalKey }
+
+
+jdsuOnmsiOtuPortEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the port belongs"
+	::= { jdsuOnmsiOtuPortEntry 1 }
+
+
+jdsuOnmsiOtuPortEntryOtuInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to which the port belongs"
+	::= { jdsuOnmsiOtuPortEntry 2 }
+
+
+jdsuOnmsiOtuPortEntryModuleInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the module (which may be a jdsuOnmsiOtuSwitchEntryInternalKey or a jdsuOnmsiOtuOtdrEntryInternalKey) to which the port belongs."
+	::= { jdsuOnmsiOtuPortEntry 3 }
+
+
+jdsuOnmsiOtuPortEntryPosition OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The output number of the port"
+	::= { jdsuOnmsiOtuPortEntry 4 }
+
+
+jdsuOnmsiOtuPortEntryPonInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the PON associated to the port"
+	::= { jdsuOnmsiOtuPortEntry 5 }
+
+
+jdsuOnmsiOtuPortEntryLinkInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the link associated to the port"
+	::= { jdsuOnmsiOtuPortEntry 6 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the OTU service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get an OTU
+-- Results will fill jdsuOnmsiOtuTable, jdsuOnmsiOtuOtdrTable, jdsuOnmsiOtuSwitchTable and jdsuOnmsiOtuAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuGet OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuFunctions 1 }
+
+jdsuOnmsiOtuGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to retrieve"
+	::= { jdsuOnmsiOtuGet 1 }
+
+
+jdsuOnmsiOtuGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the OTU retrieval"
+	::= { jdsuOnmsiOtuGet 2 }
+
+
+jdsuOnmsiOtuGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiOtuGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find OTUs
+-- Results will fill jdsuOnmsiOtuTable, jdsuOnmsiOtuOtdrTable, jdsuOnmsiOtuSwitchTable and jdsuOnmsiOtuAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuFind OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuFunctions 2 }
+
+jdsuOnmsiOtuFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The name of the OTU attribute to perform the search on.
+		Valid attributes are :
+		- name
+		- ipAddress
+		- serialNumber
+		- centralOfficeInternalKey
+		and any additional attribute name"
+	::= { jdsuOnmsiOtuFind 1 }
+
+
+jdsuOnmsiOtuFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiOtuFind 2 }
+
+
+jdsuOnmsiOtuFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the OTU find"
+	::= { jdsuOnmsiOtuFind 3 }
+
+
+jdsuOnmsiOtuFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiOtuFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the OTU attributes
+-- Results will fill the jdsuOnmsiOtuAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuFunctions 3 }
+
+jdsuOnmsiOtuAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiOtuAttributeTable load"
+	::= { jdsuOnmsiOtuAttributeLoad 1 }
+
+
+jdsuOnmsiOtuAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiOtuAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Function to get the ports for an OTU
+-- Results will fill jdsuOnmsiOtuPortsTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiOtuGetPorts OBJECT IDENTIFIER 	::= { jdsuOnmsiOtuFunctions 4 }
+
+jdsuOnmsiOtuGetPortsParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the OTU to retrieve ports from"
+	::= { jdsuOnmsiOtuGetPorts 1 }
+
+
+jdsuOnmsiOtuGetPortsExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the port retrieval"
+	::= { jdsuOnmsiOtuGetPorts 2 }
+
+
+jdsuOnmsiOtuGetPortsError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiOtuGetPorts 3 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the central office service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeService OBJECT IDENTIFIER 	::= { jdsuOnmsiServices 8 }
+
+-------------------------------------------------------------------------------
+-- Data of the central office service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeData OBJECT IDENTIFIER 	::= { jdsuOnmsiCentralOfficeService 1 }
+
+jdsuOnmsiCentralOfficeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiCentralOfficeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the standard central office data"
+	::= { jdsuOnmsiCentralOfficeData 1 }
+
+
+jdsuOnmsiCentralOfficeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiCentralOfficeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A central office entry"
+	INDEX {
+		jdsuOnmsiCentralOfficeEntryInternalKey }
+	::= { jdsuOnmsiCentralOfficeTable 1 }
+
+
+JdsuOnmsiCentralOfficeEntry ::= SEQUENCE {
+
+	jdsuOnmsiCentralOfficeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiCentralOfficeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiCentralOfficeEntryDescription JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiCentralOfficeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the central office"
+	::= { jdsuOnmsiCentralOfficeEntry 1 }
+
+
+jdsuOnmsiCentralOfficeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The name of the central office"
+	::= { jdsuOnmsiCentralOfficeEntry 2 }
+
+
+jdsuOnmsiCentralOfficeEntryDescription OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The description of the central office"
+	::= { jdsuOnmsiCentralOfficeEntry 3 }
+
+
+jdsuOnmsiCentralOfficeAdditionalAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiCentralOfficeAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the additional attributes on central offices"
+	::= { jdsuOnmsiCentralOfficeData 2 }
+
+
+jdsuOnmsiCentralOfficeAdditionalAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiCentralOfficeAdditionalAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A central office additional attribute entry"
+	INDEX {
+		jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiCentralOfficeAdditionalAttributeEntryName }
+	::= { jdsuOnmsiCentralOfficeAdditionalAttributeTable 1 }
+
+
+JdsuOnmsiCentralOfficeAdditionalAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey JdsuOnmsiInternalKey,
+	jdsuOnmsiCentralOfficeAdditionalAttributeEntryName        JdsuOnmsiUtf8String,
+	jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue       JdsuOnmsiUtf8String }
+
+
+jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the central office"
+	::= { jdsuOnmsiCentralOfficeAdditionalAttributeEntry 1 }
+
+
+jdsuOnmsiCentralOfficeAdditionalAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute name"
+	::= { jdsuOnmsiCentralOfficeAdditionalAttributeEntry 2 }
+
+
+jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The additional attribute value"
+	::= { jdsuOnmsiCentralOfficeAdditionalAttributeEntry 3 }
+
+
+jdsuOnmsiCentralOfficeAttributeTable OBJECT-TYPE
+	SYNTAX  SEQUENCE OF JdsuOnmsiCentralOfficeAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"This table contains the descriptions of noticeable central office attributes"
+	::= { jdsuOnmsiCentralOfficeData 3 }
+
+
+jdsuOnmsiCentralOfficeAttributeEntry OBJECT-TYPE
+	SYNTAX  JdsuOnmsiCentralOfficeAttributeEntry
+	MAX-ACCESS not-accessible
+	STATUS  current
+	DESCRIPTION
+		"A central office attribute entry"
+	INDEX {
+		jdsuOnmsiCentralOfficeAttributeEntryName }
+	::= { jdsuOnmsiCentralOfficeAttributeTable 1 }
+
+
+JdsuOnmsiCentralOfficeAttributeEntry ::= SEQUENCE {
+
+	jdsuOnmsiCentralOfficeAttributeEntryName       JdsuOnmsiUtf8String,
+	jdsuOnmsiCentralOfficeAttributeEntryAdditional TruthValue,
+	jdsuOnmsiCentralOfficeAttributeEntryFindable   TruthValue,
+	jdsuOnmsiCentralOfficeAttributeEntryUpdatable  TruthValue }
+
+
+jdsuOnmsiCentralOfficeAttributeEntryName OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"The attribute name. The additional attributes are prefixed with an underscore character to avoid name collision with standard attributes"
+	::= { jdsuOnmsiCentralOfficeAttributeEntry 1 }
+
+
+jdsuOnmsiCentralOfficeAttributeEntryAdditional OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is additional"
+	::= { jdsuOnmsiCentralOfficeAttributeEntry 2 }
+
+
+jdsuOnmsiCentralOfficeAttributeEntryFindable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is findable"
+	::= { jdsuOnmsiCentralOfficeAttributeEntry 3 }
+
+
+jdsuOnmsiCentralOfficeAttributeEntryUpdatable OBJECT-TYPE
+	SYNTAX  TruthValue
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"This flag indicates whether the attribute is updatable"
+	::= { jdsuOnmsiCentralOfficeAttributeEntry 4 }
+
+
+-------------------------------------------------------------------------------
+-- Functions of the central office service
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeFunctions OBJECT IDENTIFIER 	::= { jdsuOnmsiCentralOfficeService 2 }
+
+-------------------------------------------------------------------------------
+-- Function to get a central office
+-- Results will fill jdsuOnmsiCentralOfficeTable and jdsuOnmsiCentralOfficeAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeGet OBJECT IDENTIFIER 	::= { jdsuOnmsiCentralOfficeFunctions 1 }
+
+jdsuOnmsiCentralOfficeGetParamInternalKey OBJECT-TYPE
+	SYNTAX  JdsuOnmsiInternalKey
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The internal key of the central office to retrieve"
+	::= { jdsuOnmsiCentralOfficeGet 1 }
+
+
+jdsuOnmsiCentralOfficeGetExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the central office retrieval"
+	::= { jdsuOnmsiCentralOfficeGet 2 }
+
+
+jdsuOnmsiCentralOfficeGetError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiCentralOfficeGet 3 }
+
+
+-------------------------------------------------------------------------------
+-- Function to find central offices
+-- Results will fill jdsuOnmsiCentralOfficeTable and jdsuOnmsiCentralOfficeAdditionalAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeFind OBJECT IDENTIFIER 	::= { jdsuOnmsiCentralOfficeFunctions 2 }
+
+jdsuOnmsiCentralOfficeFindParamAttribute OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute of the central office to perform the search on.
+		Valid attributes for central offices are :
+		- name
+		and any additional attribute name"
+	::= { jdsuOnmsiCentralOfficeFind 1 }
+
+
+jdsuOnmsiCentralOfficeFindParamValue OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"The attribute value to find"
+	::= { jdsuOnmsiCentralOfficeFind 2 }
+
+
+jdsuOnmsiCentralOfficeFindExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the central office find"
+	::= { jdsuOnmsiCentralOfficeFind 3 }
+
+
+jdsuOnmsiCentralOfficeFindError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiCentralOfficeFind 4 }
+
+
+-------------------------------------------------------------------------------
+-- Function to load the link attributes
+-- Results will fill the jdsuOnmsiLinkAttributeTable
+-------------------------------------------------------------------------------
+
+jdsuOnmsiCentralOfficeAttributeLoad OBJECT IDENTIFIER 	::= { jdsuOnmsiCentralOfficeFunctions 3 }
+
+jdsuOnmsiCentralOfficeAttributeLoadExecute OBJECT-TYPE
+	SYNTAX  INTEGER
+	MAX-ACCESS read-write
+	STATUS  current
+	DESCRIPTION
+		"Setting this field to 1 performs the jdsuOnmsiCentralOfficeAttributeTable load"
+	::= { jdsuOnmsiCentralOfficeAttributeLoad 1 }
+
+
+jdsuOnmsiCentralOfficeAttributeLoadError OBJECT-TYPE
+	SYNTAX  JdsuOnmsiUtf8String
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"When the function execution fails, this node contains information on the error that occurred.
+		This node is empty when the execution is successful."
+	::= { jdsuOnmsiCentralOfficeAttributeLoad 2 }
+
+
+-------------------------------------------------------------------------------
+-- Definition of the event group
+-------------------------------------------------------------------------------
+
+jdsuOnmsiEvents OBJECT IDENTIFIER 	::= { jdsuOnmsiMib 4 }
+
+
+jdsuOnmsiImAliveTrap NOTIFICATION-TYPE
+	OBJECTS {
+		jdsuOnmsiImAliveText,
+		jdsuOnmsiImAliveAlarmEventSequence}
+	STATUS  current
+	DESCRIPTION
+		"This trap is send periodically, to ensure the managers that the application is running.
+		Period and text can be configured under jdsuOnmsiAdministration/jdsuOnmsiImAlive.
+		This trap contains the current alarm event sequence, to help managers in detecting missed jdsuOnmsiAlarmEventTrap"
+	::= { jdsuOnmsiEvents 1 }
+
+
+jdsuOnmsiHomeTestResultTrap NOTIFICATION-TYPE
+	OBJECTS {
+		jdsuOnmsiHomeStartTestError,
+		jdsuOnmsiHomeEntryInternalKey,
+		jdsuOnmsiHomeEntryHomeIdentifier,
+		jdsuOnmsiHomeEntryName,
+		jdsuOnmsiHomeEntryDescription,
+		jdsuOnmsiHomeEntryPonInternalKey,
+		jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey,
+		jdsuOnmsiHomeEntryLatestPeakInternalKey,
+		jdsuOnmsiHomeEntryLatestPeakSeverity,
+		jdsuOnmsiHomeEntryLatestPeakStatus}
+	STATUS  current
+	DESCRIPTION
+		"This trap is send after a home test is started with jdsuOnmsiHomeStartTest function."
+	::= { jdsuOnmsiEvents 2 }
+
+
+jdsuOnmsiPonTestResultTrap NOTIFICATION-TYPE
+	OBJECTS {
+		jdsuOnmsiPonStartTestError,
+		jdsuOnmsiPonEntryInternalKey,
+		jdsuOnmsiPonEntryName,
+		jdsuOnmsiPonEntryDescription,
+		jdsuOnmsiPonEntryLatestTestInternalKey,
+		jdsuOnmsiPonEntryOtuInternalKey,
+		jdsuOnmsiPonEntryPortInternalKey,
+		jdsuOnmsiPonEntrySeverity}
+	STATUS  current
+	DESCRIPTION
+		"This trap is send after a PON test is started with jdsuOnmsiPonStartTest function."
+	::= { jdsuOnmsiEvents 3 }
+
+
+jdsuOnmsiMonitoringTestResultTrap NOTIFICATION-TYPE
+	OBJECTS {
+		jdsuOnmsiMonitoringTestStartTestError,
+		jdsuOnmsiMonitoringTestEntryInternalKey}
+	STATUS  current
+	DESCRIPTION
+		"This trap is send after a monitoring test is started with jdsuOnmsiMonitoringTestStartTest function."
+	::= { jdsuOnmsiEvents 4 }
+
+
+jdsuOnmsiAlarmEventTrap NOTIFICATION-TYPE
+	OBJECTS {
+		jdsuOnmsiAlarmEventEntrySequence,
+		jdsuOnmsiAlarmEventEntryEventInternalKey,
+		jdsuOnmsiAlarmEventEntryEventType,
+		jdsuOnmsiAlarmEventEntryEventTime,
+		jdsuOnmsiAlarmEventEntryEventClearStatus,
+		jdsuOnmsiAlarmEventEntryEventAckStatus,
+		jdsuOnmsiAlarmEventEntryEventPerceivedSeverity,
+		jdsuOnmsiAlarmEventEntryEventProbableCause,
+		jdsuOnmsiAlarmEventEntryEventAdditionalText,
+		jdsuOnmsiAlarmEventEntryEventUserIdentifier,
+		jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPonSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmInternalKey,
+		jdsuOnmsiAlarmEventEntryAlarmType,
+		jdsuOnmsiAlarmEventEntryAlarmRaisedTime,
+		jdsuOnmsiAlarmEventEntryAlarmChangedTime,
+		jdsuOnmsiAlarmEventEntryAlarmClearStatus,
+		jdsuOnmsiAlarmEventEntryAlarmAckStatus,
+		jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity,
+		jdsuOnmsiAlarmEventEntryAlarmSpecificProblem,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid,
+		jdsuOnmsiAlarmEventEntryAlarmSystemDN,
+		jdsuOnmsiAlarmEventEntryAlarmProbableCause,
+		jdsuOnmsiAlarmEventEntryAlarmAdditionalText,
+		jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity,
+		jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes}
+	STATUS  current
+	DESCRIPTION
+		"This trap is send asynchronously, when alarm events occurs on the ONMSi system.
+		When an alarm event pass the notification filter defined for the SNMP user (community),
+		a sequence number is associated to the alarm event per SNMP user, and a trap is sent."
+	::= { jdsuOnmsiEvents 5 }
+
+-------------------------------------------------------------------------------
+-- Definition of the conformance group
+-------------------------------------------------------------------------------
+
+jdsuOnmsiConf OBJECT IDENTIFIER 	::= { jdsuOnmsiMib 5 }
+
+jdsuOnmsiProductGroups OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiProductDescr,
+		jdsuOnmsiProductObjectID,
+		jdsuOnmsiProductContact,
+		jdsuOnmsiProductName,
+		jdsuOnmsiProductLocation }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for jdsuOnmsiProduct"
+	::= { jdsuOnmsiConf 1 }
+
+-------------------------------------------------------------------------------
+-- Conformance group for jdsuOnmsiAdministration
+-------------------------------------------------------------------------------
+
+jdsOnmsiAdministrationConfGroups OBJECT IDENTIFIER 	::= { jdsuOnmsiConf 2 }
+
+jdsuOnmsiSnmpConfigConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiSnmpConfigurationReload }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for jdsuOnmsiSnmpConfig"
+	::= { jdsOnmsiAdministrationConfGroups 1 }
+
+jdsuOnmsiImAliveConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiImAlivePeriodMin,
+		jdsuOnmsiImAliveText,
+		jdsuOnmsiImAliveAlarmEventSequence }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for jdsuOnmsiImAlive"
+	::= { jdsOnmsiAdministrationConfGroups 2 }
+
+-------------------------------------------------------------------------------
+-- Conformance groups for jdsuOnmsiServices :
+-------------------------------------------------------------------------------
+
+jdsuOnmsiServicesConfGroups OBJECT IDENTIFIER 	::= { jdsuOnmsiConf 3 }
+
+jdsuOnmsiHomeTerminationTypeConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiHomeTerminationTypeEntryInternalKey,
+		jdsuOnmsiHomeTerminationTypeEntryName,
+		jdsuOnmsiHomeTerminationTypeEntryDescription,
+		jdsuOnmsiHomeTerminationTypeLoadExecute,
+		jdsuOnmsiHomeTerminationTypeLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiHomeTerminationTypeTable nodes"
+	::= { jdsuOnmsiServicesConfGroups 1 }
+
+jdsuOnmsiHomeConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiHomeEntryInternalKey,
+		jdsuOnmsiHomeEntryHomeIdentifier,
+		jdsuOnmsiHomeEntryName,
+		jdsuOnmsiHomeEntryDescription,
+		jdsuOnmsiHomeEntryPonInternalKey,
+		jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey,
+		jdsuOnmsiHomeEntryLatestPeakInternalKey,
+		jdsuOnmsiHomeEntryLatestPeakSeverity,
+		jdsuOnmsiHomeEntryLatestPeakStatus,
+		jdsuOnmsiHomeEntryVip,
+		jdsuOnmsiHomeAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiHomeAdditionalAttributeEntryName,
+		jdsuOnmsiHomeAdditionalAttributeEntryValue,
+		jdsuOnmsiHomeAttributeEntryName,
+		jdsuOnmsiHomeAttributeEntryAdditional,
+		jdsuOnmsiHomeAttributeEntryFindable,
+		jdsuOnmsiHomeAttributeEntryUpdatable,
+		jdsuOnmsiHomeGetParamInternalKey,
+		jdsuOnmsiHomeGetExecute,
+		jdsuOnmsiHomeGetError,
+		jdsuOnmsiHomeFindParamAttribute,
+		jdsuOnmsiHomeFindParamValue,
+		jdsuOnmsiHomeFindExecute,
+		jdsuOnmsiHomeFindError,
+		jdsuOnmsiHomeStartTestParamInternalKey,
+		jdsuOnmsiHomeStartTestExecute,
+		jdsuOnmsiHomeStartTestError,
+		jdsuOnmsiHomeAttributeLoadExecute,
+		jdsuOnmsiHomeAttributeLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiHomeService"
+	::= { jdsuOnmsiServicesConfGroups 2 }
+
+jdsuOnmsiPonConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiPonEntryInternalKey,
+		jdsuOnmsiPonEntryName,
+		jdsuOnmsiPonEntryDescription,
+		jdsuOnmsiPonEntryLatestTestInternalKey,
+		jdsuOnmsiPonEntryOtuInternalKey,
+		jdsuOnmsiPonEntryPortInternalKey,
+		jdsuOnmsiPonEntrySeverity,
+		jdsuOnmsiPonEntrySchedulingConfiguration,
+		jdsuOnmsiPonAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiPonAdditionalAttributeEntryName,
+		jdsuOnmsiPonAdditionalAttributeEntryValue,
+		jdsuOnmsiPonAttributeEntryName,
+		jdsuOnmsiPonAttributeEntryAdditional,
+		jdsuOnmsiPonAttributeEntryFindable,
+		jdsuOnmsiPonAttributeEntryUpdatable,
+		jdsuOnmsiPonGetParamInternalKey,
+		jdsuOnmsiPonGetExecute,
+		jdsuOnmsiPonGetError,
+		jdsuOnmsiPonFindParamAttribute,
+		jdsuOnmsiPonFindParamValue,
+		jdsuOnmsiPonFindExecute,
+		jdsuOnmsiPonFindError,
+		jdsuOnmsiPonStartTestParamInternalKey,
+		jdsuOnmsiPonStartTestExecute,
+		jdsuOnmsiPonStartTestError,
+		jdsuOnmsiPonAttributeLoadExecute,
+		jdsuOnmsiPonAttributeLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiPonService"
+	::= { jdsuOnmsiServicesConfGroups 3 }
+
+jdsuOnmsiPeakConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiPeakEntryInternalKey,
+		jdsuOnmsiPeakEntryTestInternalKey,
+		jdsuOnmsiPeakEntryDate,
+		jdsuOnmsiPeakEntryIsAReference,
+		jdsuOnmsiPeakEntryDistance,
+		jdsuOnmsiPeakEntryLevel,
+		jdsuOnmsiPeakEntryPower,
+		jdsuOnmsiPeakEntryIsPowerMeasured,
+		jdsuOnmsiPeakEntrySeverity,
+		jdsuOnmsiPeakEntryStatus,
+		jdsuOnmsiPeakEntryRefDistance,
+		jdsuOnmsiPeakEntryRefLevel,
+		jdsuOnmsiPeakEntryRefPower,
+		jdsuOnmsiPeakEntryRefIsPowerMeasured,
+		jdsuOnmsiPeakEntryRefDate,
+		jdsuOnmsiPeakEntryType,
+		jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey,
+		jdsuOnmsiPeakEntryHomeInternalKey,
+		jdsuOnmsiPeakGetParamInternalKey,
+		jdsuOnmsiPeakGetExecute,
+		jdsuOnmsiPeakGetError,
+		jdsuOnmsiPeakFindParamAttribute,
+		jdsuOnmsiPeakFindParamValue,
+		jdsuOnmsiPeakFindExecute,
+		jdsuOnmsiPeakFindError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiPeakService"
+	::= { jdsuOnmsiServicesConfGroups 4 }
+
+jdsuOnmsiLinkServiceConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiLinkEntryInternalKey,
+		jdsuOnmsiLinkEntryName,
+		jdsuOnmsiLinkEntryDescription,
+		jdsuOnmsiLinkEntryMeasureEnabled,
+		jdsuOnmsiLinkEntryOtuInternalKey,
+		jdsuOnmsiLinkEntrySeverity,
+		jdsuOnmsiLinkAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiLinkAdditionalAttributeEntryName,
+		jdsuOnmsiLinkAdditionalAttributeEntryValue,
+		jdsuOnmsiLinkAttributeEntryName,
+		jdsuOnmsiLinkAttributeEntryAdditional,
+		jdsuOnmsiLinkAttributeEntryFindable,
+		jdsuOnmsiLinkAttributeEntryUpdatable,
+		jdsuOnmsiLinkGetParamInternalKey,
+		jdsuOnmsiLinkGetExecute,
+		jdsuOnmsiLinkGetError,
+		jdsuOnmsiLinkFindParamAttribute,
+		jdsuOnmsiLinkFindParamValue,
+		jdsuOnmsiLinkFindExecute,
+		jdsuOnmsiLinkFindError,
+		jdsuOnmsiLinkUpdateParamInternalKey,
+		jdsuOnmsiLinkUpdateExecute,
+		jdsuOnmsiLinkUpdateError,
+		jdsuOnmsiLinkAttributeLoadExecute,
+		jdsuOnmsiLinkAttributeLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiLinkService"
+	::= { jdsuOnmsiServicesConfGroups 5 }
+
+jdsuOnmsiMonitoringTestServiceConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiMonitoringTestEntryInternalKey,
+		jdsuOnmsiMonitoringTestEntryName,
+		jdsuOnmsiMonitoringTestEntryDescription,
+		jdsuOnmsiMonitoringTestEntryLinkInternalKey,
+		jdsuOnmsiMonitoringTestEntryDisplayOrder,
+		jdsuOnmsiMonitoringTestEntrySeverity,
+		jdsuOnmsiMonitoringTestEntryDetectionConfiguration,
+		jdsuOnmsiMonitoringTestEntryLocalizationConfiguration,
+		jdsuOnmsiMonitoringTestEntrySchedulingConfiguration,
+		jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiMonitoringTestAdditionalAttributeEntryName,
+		jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue,
+		jdsuOnmsiMonitoringTestAttributeEntryName,
+		jdsuOnmsiMonitoringTestAttributeEntryAdditional,
+		jdsuOnmsiMonitoringTestAttributeEntryFindable,
+		jdsuOnmsiMonitoringTestAttributeEntryUpdatable,
+		jdsuOnmsiMonitoringTestGetParamInternalKey,
+		jdsuOnmsiMonitoringTestGetExecute,
+		jdsuOnmsiMonitoringTestGetError,
+		jdsuOnmsiMonitoringTestFindParamAttribute,
+		jdsuOnmsiMonitoringTestFindParamValue,
+		jdsuOnmsiMonitoringTestFindExecute,
+		jdsuOnmsiMonitoringTestFindError,
+		jdsuOnmsiMonitoringTestStartTestParamInternalKey,
+		jdsuOnmsiMonitoringTestStartTestExecute,
+		jdsuOnmsiMonitoringTestStartTestError,
+		jdsuOnmsiMonitoringTestAttributeLoadExecute,
+		jdsuOnmsiMonitoringTestAttributeLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiMonitoringTestService"
+	::= { jdsuOnmsiServicesConfGroups 6 }
+
+jdsuOnmsiAlarmServiceConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiAlarmTypeName,
+		jdsuOnmsiAlarmSpecificProblemName,
+		jdsuOnmsiAlarmEventEntrySequence,
+		jdsuOnmsiAlarmEventEntryEventInternalKey,
+		jdsuOnmsiAlarmEventEntryEventType,
+		jdsuOnmsiAlarmEventEntryEventTime,
+		jdsuOnmsiAlarmEventEntryEventClearStatus,
+		jdsuOnmsiAlarmEventEntryEventAckStatus,
+		jdsuOnmsiAlarmEventEntryEventPerceivedSeverity,
+		jdsuOnmsiAlarmEventEntryEventProbableCause,
+		jdsuOnmsiAlarmEventEntryEventAdditionalText,
+		jdsuOnmsiAlarmEventEntryEventUserIdentifier,
+		jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventPonSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos,
+		jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmInternalKey,
+		jdsuOnmsiAlarmEventEntryAlarmType,
+		jdsuOnmsiAlarmEventEntryAlarmRaisedTime,
+		jdsuOnmsiAlarmEventEntryAlarmChangedTime,
+		jdsuOnmsiAlarmEventEntryAlarmClearStatus,
+		jdsuOnmsiAlarmEventEntryAlarmAckStatus,
+		jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity,
+		jdsuOnmsiAlarmEventEntryAlarmSpecificProblem,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName,
+		jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid,
+		jdsuOnmsiAlarmEventEntryAlarmSystemDN,
+		jdsuOnmsiAlarmEventEntryAlarmProbableCause,
+		jdsuOnmsiAlarmEventEntryAlarmAdditionalText,
+		jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos,
+		jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes,
+		jdsuOnmsiAlarmSplitterPeakEntryInternalKey,
+		jdsuOnmsiAlarmSplitterPeakEntryName,
+		jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity,
+		jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity,
+		jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance,
+		jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance,
+		jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance,
+		jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance,
+		jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel,
+		jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel,
+		jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid,
+		jdsuOnmsiAlarmAckExecute,
+		jdsuOnmsiAlarmAckParamInternalKey,
+		jdsuOnmsiAlarmAckError,
+		jdsuOnmsiAlarmUnAckParamInternalKey,
+		jdsuOnmsiAlarmUnAckExecute,
+		jdsuOnmsiAlarmUnAckError,
+		jdsuOnmsiAlarmClearParamInternalKey,
+		jdsuOnmsiAlarmClearExecute,
+		jdsuOnmsiAlarmClearError,
+		jdsuOnmsiAlarmUnClearParamInternalKey,
+		jdsuOnmsiAlarmUnClearExecute,
+		jdsuOnmsiAlarmUnClearError,
+		jdsuOnmsiAlarmResendEventsParamSequence,
+		jdsuOnmsiAlarmResendEventsExecute,
+		jdsuOnmsiAlarmResendEventsError,
+		jdsuOnmsiAlarmResynchronizeExecute,
+		jdsuOnmsiAlarmResynchronizeError,
+		jdsuOnmsiAlarmSplitterPeakLoadParamEventInternalKey,
+		jdsuOnmsiAlarmSplitterPeakLoadExecute,
+		jdsuOnmsiAlarmSplitterPeakLoadError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiAlarmService"
+	::= { jdsuOnmsiServicesConfGroups 7 }
+
+jdsuOnmsiOtuConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiOtuEntryInternalKey,
+		jdsuOnmsiOtuEntryName,
+		jdsuOnmsiOtuEntryDescription,
+		jdsuOnmsiOtuEntryIpAddress,
+		jdsuOnmsiOtuEntryDeviceName,
+		jdsuOnmsiOtuEntrySerialNumber,
+		jdsuOnmsiOtuEntrySoftwareVersion,
+		jdsuOnmsiOtuEntryCentralOfficeInternalKey,
+		jdsuOnmsiOtuEntrySeverity,
+		jdsuOnmsiOtuAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiOtuAdditionalAttributeEntryName,
+		jdsuOnmsiOtuAdditionalAttributeEntryValue,
+		jdsuOnmsiOtuAttributeEntryName,
+		jdsuOnmsiOtuAttributeEntryAdditional,
+		jdsuOnmsiOtuAttributeEntryFindable,
+		jdsuOnmsiOtuAttributeEntryUpdatable,
+		jdsuOnmsiOtuOtdrEntryInternalKey,
+		jdsuOnmsiOtuOtdrEntryOtuInternalKey,
+		jdsuOnmsiOtuOtdrEntryPosition,
+		jdsuOnmsiOtuOtdrEntryType,
+		jdsuOnmsiOtuOtdrEntrySerialNumber,
+		jdsuOnmsiOtuOtdrEntryWavelengths,
+		jdsuOnmsiOtuSwitchEntryInternalKey,
+		jdsuOnmsiOtuSwitchEntryOtuInternalKey,
+		jdsuOnmsiOtuSwitchEntryName,
+		jdsuOnmsiOtuSwitchEntryRemote,
+		jdsuOnmsiOtuSwitchEntryPosition,
+		jdsuOnmsiOtuSwitchEntryInputs,
+		jdsuOnmsiOtuSwitchEntryOutputs,
+		jdsuOnmsiOtuPortEntryInternalKey,
+		jdsuOnmsiOtuPortEntryOtuInternalKey,
+		jdsuOnmsiOtuPortEntryModuleInternalKey,
+		jdsuOnmsiOtuPortEntryPosition,
+		jdsuOnmsiOtuPortEntryPonInternalKey,
+		jdsuOnmsiOtuPortEntryLinkInternalKey,
+		jdsuOnmsiOtuGetParamInternalKey,
+		jdsuOnmsiOtuGetExecute,
+		jdsuOnmsiOtuGetError,
+		jdsuOnmsiOtuFindParamAttribute,
+		jdsuOnmsiOtuFindParamValue,
+		jdsuOnmsiOtuFindExecute,
+		jdsuOnmsiOtuFindError,
+		jdsuOnmsiOtuAttributeLoadExecute,
+		jdsuOnmsiOtuAttributeLoadError,
+		jdsuOnmsiOtuGetPortsParamInternalKey,
+		jdsuOnmsiOtuGetPortsExecute,
+		jdsuOnmsiOtuGetPortsError }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for the jdsuOnmsiOtuService"
+	::= { jdsuOnmsiServicesConfGroups 8 }
+
+jdsuOnmsiCentralOfficeConfGroup OBJECT-GROUP
+	OBJECTS {
+		jdsuOnmsiCentralOfficeEntryInternalKey,
+		jdsuOnmsiCentralOfficeEntryName,
+		jdsuOnmsiCentralOfficeEntryDescription,
+		jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey,
+		jdsuOnmsiCentralOfficeAdditionalAttributeEntryName,
+		jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue,
+		jdsuOnmsiCentralOfficeAttributeEntryName,
+		jdsuOnmsiCentralOfficeAttributeEntryAdditional,
+		jdsuOnmsiCentralOfficeAttributeEntryFindable,
+		jdsuOnmsiCentralOfficeAttributeEntryUpdatable,
+		jdsuOnmsiCentralOfficeGetParamInternalKey,
+		jdsuOnmsiCentralOfficeGetExecute,
+		jdsuOnmsiCentralOfficeGetError,
+		jdsuOnmsiCentralOfficeFindParamAttribute,
+		jdsuOnmsiCentralOfficeFindParamValue,
+		jdsuOnmsiCentralOfficeFindExecute,
+		jdsuOnmsiCentralOfficeFindError,
+		jdsuOnmsiCentralOfficeAttributeLoadExecute,
+		jdsuOnmsiCentralOfficeAttributeLoadError }
+	STATUS  current
+	DESCRIPTION ""
+	::= { jdsuOnmsiServicesConfGroups 9 }
+
+jdsuOnmsiEventsConfGroup NOTIFICATION-GROUP
+	NOTIFICATIONS {
+		jdsuOnmsiImAliveTrap,
+		jdsuOnmsiHomeTestResultTrap,
+		jdsuOnmsiPonTestResultTrap,
+		jdsuOnmsiMonitoringTestResultTrap,
+		jdsuOnmsiAlarmEventTrap }
+	STATUS  current
+	DESCRIPTION
+		"Conformance for jdsuOnmsiEvents"
+	::= { jdsuOnmsiConf 4 }
+
+END

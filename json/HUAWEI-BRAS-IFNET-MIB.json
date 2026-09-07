@@ -1,0 +1,190 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwSUBINT": {
+    "name": "hwSUBINT",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11",
+    "class": "moduleidentity"
+  },
+  "hwhwSUBINTMibObjects": {
+    "name": "hwhwSUBINTMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1",
+    "class": "objectidentity"
+  },
+  "hwSubIntTable": {
+    "name": "hwSubIntTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSubIntEntry": {
+    "name": "hwSubIntEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubInterfaceNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSubInterfaceNo": {
+    "name": "hwSubInterfaceNo",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSubIntRowStatus": {
+    "name": "hwSubIntRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSubIfIndex": {
+    "name": "hwSubIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSubIfDescr": {
+    "name": "hwSubIfDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSubIntConformance": {
+    "name": "hwSubIntConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2",
+    "class": "objectidentity"
+  },
+  "hwSubIntCompliances": {
+    "name": "hwSubIntCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.1",
+    "class": "objectidentity"
+  },
+  "hwSubIntCompliance": {
+    "name": "hwSubIntCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwSubIntTableGroup",
+        "module": "HUAWEI-BRAS-IFNET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSubIntTableGroups": {
+    "name": "hwSubIntTableGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.2",
+    "class": "objectidentity"
+  },
+  "hwSubIntTableGroup": {
+    "name": "hwSubIntTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubInterfaceNo"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIntRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIfDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-BRAS-IFNET-MIB",
+      "Source digest sha256:f757f05794f3ccffe8093cd0cb7e39177eb904634339aeaae1e1a9ff1509eaae",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-BRAS-IFNET-MIB"
+  }
+}

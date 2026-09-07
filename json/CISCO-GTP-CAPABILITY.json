@@ -1,0 +1,178 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGtpCapability": {
+    "name": "ciscoGtpCapability",
+    "oid": "1.3.6.1.4.1.9.7.263",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-02 09:00",
+        "description": "Updated for GPRS R4.0 release."
+      },
+      {
+        "revision": "2002-03-21 16:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cGtpCapabilityV12R02Rev08YD": {
+    "name": "cGtpCapabilityV12R02Rev08YD",
+    "oid": "1.3.6.1.4.1.9.7.263.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)YD",
+    "capabilities": [
+      {
+        "module": "CISCO-GTP-MIB",
+        "includes": [
+          "cGtpConfigurationsGroupRev1",
+          "cGtpStatusGroupRev1",
+          "cGtpStatisticsGroupRev1",
+          "cGtpNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGtpGSNService",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "sgsn": 1
+              }
+            }
+          },
+          {
+            "object": "cGtpVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cGtpT3TunnelTimer",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cGtpCapabilityV12R02Rev08YY": {
+    "name": "cGtpCapabilityV12R02Rev08YY",
+    "oid": "1.3.6.1.4.1.9.7.263.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)YY",
+    "capabilities": [
+      {
+        "module": "CISCO-GTP-MIB",
+        "includes": [
+          "cGtpConfigurationsGroupRev2",
+          "cGtpStatusGroupRev1",
+          "cGtpStatisticsGroupRev1",
+          "cGtpNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGtpGSNService",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "sgsn": 1
+              }
+            }
+          },
+          {
+            "object": "cGtpVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cGtpGSNAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cGtpCapabilityV12R02Rev08YW": {
+    "name": "cGtpCapabilityV12R02Rev08YW",
+    "oid": "1.3.6.1.4.1.9.7.263.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)YW",
+    "capabilities": [
+      {
+        "module": "CISCO-GTP-MIB",
+        "includes": [
+          "cGtpConfigurationsGroupRev2",
+          "cGtpStatusGroupRev3",
+          "cGtpStatisticsGroupRev1",
+          "cGtpNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGtpGSNService",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "sgsn": 1
+              }
+            }
+          },
+          {
+            "object": "cGtpVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cGtpPathAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GTP-CAPABILITY",
+      "Source digest sha256:1df9b04d9ac8a5aedf0066e4d56a90e0a30e7312068f6a918f9f5fbf934b3387",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GTP-CAPABILITY"
+  }
+}

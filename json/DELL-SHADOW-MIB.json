@@ -1,0 +1,920 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity"
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.674.10893",
+    "class": "objectidentity"
+  },
+  "hardware": {
+    "name": "hardware",
+    "oid": "1.3.6.1.4.1.674.10893.2",
+    "class": "objectidentity"
+  },
+  "shadow": {
+    "name": "shadow",
+    "oid": "1.3.6.1.4.1.674.10893.2.102",
+    "class": "objectidentity"
+  },
+  "shadowId": {
+    "name": "shadowId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1",
+    "class": "objectidentity"
+  },
+  "shadowIdDisplayName": {
+    "name": "shadowIdDisplayName",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowIdDescription": {
+    "name": "shadowIdDescription",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowAgentVendor": {
+    "name": "shadowAgentVendor",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowIdAgentVersion": {
+    "name": "shadowIdAgentVersion",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowIdBuildNumber": {
+    "name": "shadowIdBuildNumber",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowIdURL": {
+    "name": "shadowIdURL",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatus": {
+    "name": "shadowStatus",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2",
+    "class": "objectidentity"
+  },
+  "shadowStatusGlobalStatus": {
+    "name": "shadowStatusGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-Recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatusLastGlobalStatus": {
+    "name": "shadowStatusLastGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatusTimeStamp": {
+    "name": "shadowStatusTimeStamp",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatusGetTimeOut": {
+    "name": "shadowStatusGetTimeOut",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatusRefreshRate": {
+    "name": "shadowStatusRefreshRate",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowStatusGeneratingTrapFlag": {
+    "name": "shadowStatusGeneratingTrapFlag",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowPhysical": {
+    "name": "shadowPhysical",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3",
+    "class": "objectidentity"
+  },
+  "libraryTable": {
+    "name": "libraryTable",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "libraryEntry": {
+    "name": "libraryEntry",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-SHADOW-MIB",
+        "object": "libraryEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "libraryEntryId": {
+    "name": "libraryEntryId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryState": {
+    "name": "libraryState",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryTimeStamp": {
+    "name": "libraryTimeStamp",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryType": {
+    "name": "libraryType",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryScsiId": {
+    "name": "libraryScsiId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryScsiLun": {
+    "name": "libraryScsiLun",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryVendorId": {
+    "name": "libraryVendorId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryProductId": {
+    "name": "libraryProductId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryFwLevel": {
+    "name": "libraryFwLevel",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "librarySerNum": {
+    "name": "librarySerNum",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryDrvCnt": {
+    "name": "libraryDrvCnt",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "librarySlotCnt": {
+    "name": "librarySlotCnt",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryImpExpCnt": {
+    "name": "libraryImpExpCnt",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryTranspCnt": {
+    "name": "libraryTranspCnt",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryMoves": {
+    "name": "libraryMoves",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "librarySlotFetchRetries": {
+    "name": "librarySlotFetchRetries",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "librarySlotStowRetries": {
+    "name": "librarySlotStowRetries",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "libraryDrvFetchRetries": {
+    "name": "libraryDrvFetchRetries",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "libraryDrvStowRetries": {
+    "name": "libraryDrvStowRetries",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "libraryDoorState": {
+    "name": "libraryDoorState",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "open": 2,
+          "closed": 3,
+          "locked": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryImpExpState": {
+    "name": "libraryImpExpState",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "open": 2,
+          "closed": 3,
+          "locked": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "libraryFaultFSC": {
+    "name": "libraryFaultFSC",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "libraryFaultSev": {
+    "name": "libraryFaultSev",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "libraryFaultDescr": {
+    "name": "libraryFaultDescr",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "driveTable": {
+    "name": "driveTable",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "driveEntry": {
+    "name": "driveEntry",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-SHADOW-MIB",
+        "object": "driveEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "driveEntryId": {
+    "name": "driveEntryId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveState": {
+    "name": "driveState",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveTimeStamp": {
+    "name": "driveTimeStamp",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveType": {
+    "name": "driveType",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveScsiId": {
+    "name": "driveScsiId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveScsiLun": {
+    "name": "driveScsiLun",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveVendorId": {
+    "name": "driveVendorId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveProductId": {
+    "name": "driveProductId",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveFwlevel": {
+    "name": "driveFwlevel",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveSerNum": {
+    "name": "driveSerNum",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveLibrarySN": {
+    "name": "driveLibrarySN",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveTpHrs": {
+    "name": "driveTpHrs",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveClean": {
+    "name": "driveClean",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveLoads": {
+    "name": "driveLoads",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveSoftWrtErrors": {
+    "name": "driveSoftWrtErrors",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveHardWrtErrors": {
+    "name": "driveHardWrtErrors",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveSoftReadErrors": {
+    "name": "driveSoftReadErrors",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "driveHardReadErrors": {
+    "name": "driveHardReadErrors",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "shadowEvent": {
+    "name": "shadowEvent",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4",
+    "class": "objectidentity"
+  },
+  "eventStatusChange": {
+    "name": "eventStatusChange",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventDoorOpen": {
+    "name": "eventDoorOpen",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventMailSlotAccessed": {
+    "name": "eventMailSlotAccessed",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventFaultPosted": {
+    "name": "eventFaultPosted",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventRequestDriveClean": {
+    "name": "eventRequestDriveClean",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventDriveError": {
+    "name": "eventDriveError",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventLoaderRetriesExcessive": {
+    "name": "eventLoaderRetriesExcessive",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventLoaderOK": {
+    "name": "eventLoaderOK",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventLoaderPasswordChange": {
+    "name": "eventLoaderPasswordChange",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventLoaderConfigChange": {
+    "name": "eventLoaderConfigChange",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventBrowserLogin": {
+    "name": "eventBrowserLogin",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "eventBrowserLogout": {
+    "name": "eventBrowserLogout",
+    "oid": "1.3.6.1.4.1.674.10893.2.102.4.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DELL-SHADOW-MIB",
+      "Source digest sha256:4ea3248e6478c9cc208e26e81475f488b93d599f6d9fb76f11b607e63094b6de",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DELL-SHADOW-MIB"
+  }
+}

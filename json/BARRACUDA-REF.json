@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "barracuda": {
+    "name": "barracuda",
+    "oid": "1.3.6.1.4.1.20632",
+    "class": "moduleidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BARRACUDA-REF",
+      "Source digest sha256:04f2ef0f753b4659e9a6c6a472842af58235016073b04f04f57361d1bcbf448d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BARRACUDA-REF"
+  }
+}

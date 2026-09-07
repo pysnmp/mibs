@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpslaVideoProfileCapability": {
+    "name": "ciscoIpslaVideoProfileCapability",
+    "oid": "1.3.6.1.4.1.9.7.605",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpslaVideoProfileCapabilityV152R02T": {
+    "name": "ciscoIpslaVideoProfileCapabilityV152R02T",
+    "oid": "1.3.6.1.4.1.9.7.605.1",
+    "class": "agentcapabilities",
+    "productrelease": "OS=IOS\n                     OSVERSION=15.2(2)T\n                     PLATFORM=c29xx,c3925,c3945,c3925E,c3945E\n                     INTERFACE=None",
+    "capabilities": [
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "includes": [
+          "ciscoIpslaVideoProfileBaseGroup",
+          "ciscoIpslaVideoProfileIsrg2Pvdm3Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IPSLA-VIDEO-PROFILE-CAPABILITY",
+      "Source digest sha256:5ee187e79ab3980211b77e49274e37fc747268536a5d7c58ea46d2a2997a5b93",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IPSLA-VIDEO-PROFILE-CAPABILITY"
+  }
+}

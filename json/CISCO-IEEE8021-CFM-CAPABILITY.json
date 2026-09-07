@@ -1,0 +1,387 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIeee8021CfmCapability": {
+    "name": "ciscoIeee8021CfmCapability",
+    "oid": "1.3.6.1.4.1.9.7.578",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-23 00:00",
+        "description": "Added capability statement ciscoIeee8021CfmCapV12R0254SE."
+      },
+      {
+        "revision": "2009-02-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIeee8021CfmCapCatOSV08R0702": {
+    "name": "ciscoIeee8021CfmCapCatOSV08R0702",
+    "oid": "1.3.6.1.4.1.9.7.578.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(2).",
+    "capabilities": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "includes": [
+          "dot1agCfmMdGroup",
+          "dot1agCfmMaGroup",
+          "dot1agCfmMepGroup",
+          "dot1agCfmMepDbGroup",
+          "dot1agCfmNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1agCfmMdFormat",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdMhfCreation",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMdMhfIdPermission",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMdRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaNetCcmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "intervalInvalid": 0,
+                  "interval10s": 5,
+                  "interval1min": 6,
+                  "interval10min": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaNetRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMepDirection",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepPrimaryVid",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepCciEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepActive",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepFngState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepCcmLtmPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepFngAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepFngResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepErrorCcmLastFailure",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepXconCcmLastFailure",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepLbrBadMsdu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmDataTlv",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmVlanPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmVlanDropEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepDbRMepState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepDbRMepFailedOkTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepDbManAddressDomain",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepDbManAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmLtrManAddressDomain",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmLtrManAddress",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIeee8021CfmCapV12R0254SE": {
+    "name": "ciscoIeee8021CfmCapV12R0254SE",
+    "oid": "1.3.6.1.4.1.9.7.578.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(54)SE",
+    "capabilities": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "includes": [
+          "dot1agCfmMdGroup",
+          "dot1agCfmMepGroup",
+          "dot1agCfmMepDbGroup",
+          "dot1agCfmNotificationsGroup",
+          "ieee8021CfmMaNetGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1agCfmMdName",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdFormat",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdMdLevel",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdMhfCreation",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdMhfIdPermission",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMdRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMaNetFormat",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMaNetName",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMaNetCcmInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMaNetRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMaMepListRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepDirection",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepPrimaryVid",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepActive",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepCciEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepCcmLtmPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepLowPrDef",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepFngAlarmTime",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepFngResetTime",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmDestMacAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmDestMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmDestIsMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmMessages",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmDataTlv",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmVlanPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLbmVlanDropEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmFlags",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmTargetMacAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmTargetMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmTargetIsMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmTtl",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepTransmitLtmEgressIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1agCfmMepRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IEEE8021-CFM-CAPABILITY",
+      "Source digest sha256:7d58b39b36d06cc7efbd4aea44d3e216c9692923efd077a62eb5dbe41a11bf4a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IEEE8021-CFM-CAPABILITY"
+  }
+}

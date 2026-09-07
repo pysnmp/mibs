@@ -1,0 +1,3574 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mib-2",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "apAgentCapModule": {
+    "name": "apAgentCapModule",
+    "oid": "1.3.6.1.4.1.9148.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-08-01 00:00",
+        "description": " The initial version."
+      },
+      {
+        "revision": "2004-11-18 00:00",
+        "description": " Add agent capacity for release 2.0. "
+      },
+      {
+        "revision": "2006-05-01 00:00",
+        "description": " Add agent capability for SD9000 series"
+      },
+      {
+        "revision": "2007-05-07 00:00",
+        "description": " Add agent capability for SD9000 series"
+      },
+      {
+        "revision": "1920-12-15 00:00",
+        "description": " Add agent capability for ap-dd.mib"
+      },
+      {
+        "revision": "2012-03-07 00:00",
+        "description": " Add agent capability for ap-apps.mib"
+      },
+      {
+        "revision": "2012-07-16 00:00",
+        "description": "Updated contact information."
+      },
+      {
+        "revision": "2014-02-26 00:00",
+        "description": "Added new capability object apIfMibVHCCap."
+      },
+      {
+        "revision": "2014-06-20 00:00",
+        "description": " Added new capability object, apSmgmtCPULoadAvgCap"
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-02-09 00:00",
+        "description": "Updated capabiltiy information for diameter authentication notification"
+      },
+      {
+        "revision": "2017-10-18 00:00",
+        "description": " Added new capability object apSecurityTacacsDownLocalAuthCap"
+      },
+      {
+        "revision": "2017-11-24 00:00",
+        "description": "Added new capability object apSipVoLTECountersCap for SRVCC, Diameter Rx Policy Server, IKE SA, IMS-AKA SA and SRTP SA, licensed codec session stats, TCU Load Statistics, and licensed codec capaciites."
+      },
+      {
+        "revision": "2017-12-14 00:00",
+        "description": "Added new capability objects apSmgmtSipMethodStatsCap, apSipCallInformationCap"
+      },
+      {
+        "revision": "2018-04-10 00:00",
+        "description": "Added new capability object apSipSRVCCPreAlertingStatsCap for SRVCC Pre-Alerting stats"
+      },
+      {
+        "revision": "2018-04-27 00:00",
+        "description": "Added new capability objects apSipRegEvtSubscriptionCap for SIP Reg Event Subscriptions."
+      },
+      {
+        "revision": "2019-04-24 00:00",
+        "description": "Added new capability objects apSipMSRPStatsCap for MSRP statistics."
+      },
+      {
+        "revision": "2020-07-20 00:00",
+        "description": "Added new capability objects apDosThresholdTrapCap and apDosThresholdCountersCap for DOS Threshold counters."
+      },
+      {
+        "revision": "2020-12-10 00:00",
+        "description": "Obsolete TSCF capability objects apSecurityTscfCap and apSecurityTscfTimeoutCap."
+      },
+      {
+        "revision": "2021-07-21 00:00",
+        "description": "Added new capability objects for apSmgmtReservedNSEPCap Reserved NSEP session stats."
+      },
+      {
+        "revision": "2021-08-13 00:00",
+        "description": "Added apResrvdNsepUtlTrapCap for threshold cross of reserved nsep sessions."
+      },
+      {
+        "revision": "2021-08-26 00:00",
+        "description": "Obsolete apSecurityIkeIfcBlAuthIDErrorCap and related objects."
+      },
+      {
+        "revision": "2022-02-09 00:00",
+        "description": "Added new capability object for apDiamAcctBufferUsageNotifyCap buffer usages."
+      },
+      {
+        "revision": "2022-05-06 00:00",
+        "description": "Added apSip503RespThresholdNotificationsGroupCap."
+      },
+      {
+        "revision": "2022-05-06 00:00",
+        "description": "Added apSipSteeringPoolUtilNotificationsGroupCap."
+      },
+      {
+        "revision": "2022-07-21 00:00",
+        "description": "Added apSmgmtLDAPServerCap."
+      }
+    ]
+  },
+  "apSnmpMibCapabilities": {
+    "name": "apSnmpMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.1",
+    "class": "objectidentity"
+  },
+  "apIfMibCapabilities": {
+    "name": "apIfMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.2",
+    "class": "objectidentity"
+  },
+  "apIPMibCapabilities": {
+    "name": "apIPMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.3",
+    "class": "objectidentity"
+  },
+  "apTCPMibCapabilities": {
+    "name": "apTCPMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.4",
+    "class": "objectidentity"
+  },
+  "apUDPMibCapabilities": {
+    "name": "apUDPMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.5",
+    "class": "objectidentity"
+  },
+  "apEntityCapabilities": {
+    "name": "apEntityCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.6",
+    "class": "objectidentity"
+  },
+  "apSlogMibCapabilities": {
+    "name": "apSlogMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.7",
+    "class": "objectidentity"
+  },
+  "apSmgmtMibCapabilities": {
+    "name": "apSmgmtMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.8",
+    "class": "objectidentity"
+  },
+  "apEnvMonitorMibCapabilities": {
+    "name": "apEnvMonitorMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.9",
+    "class": "objectidentity"
+  },
+  "apSwinventoryMibCapabilities": {
+    "name": "apSwinventoryMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.10",
+    "class": "objectidentity"
+  },
+  "apLicenseMibCapabilities": {
+    "name": "apLicenseMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.11",
+    "class": "objectidentity"
+  },
+  "apAmiMibCapabilities": {
+    "name": "apAmiMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.12",
+    "class": "objectidentity"
+  },
+  "apCodecMibCapabilities": {
+    "name": "apCodecMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.13",
+    "class": "objectidentity"
+  },
+  "apSecurityMibCapabilities": {
+    "name": "apSecurityMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.14",
+    "class": "objectidentity"
+  },
+  "apH323MibCapabilites": {
+    "name": "apH323MibCapabilites",
+    "oid": "1.3.6.1.4.1.9148.2.1.15",
+    "class": "objectidentity"
+  },
+  "apSLBMibCapabilities": {
+    "name": "apSLBMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.16",
+    "class": "objectidentity"
+  },
+  "apDiamMibCapabilities": {
+    "name": "apDiamMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.17",
+    "class": "objectidentity"
+  },
+  "apDDMibCapabilities": {
+    "name": "apDDMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.18",
+    "class": "objectidentity"
+  },
+  "apDNSALGMibCapabilities": {
+    "name": "apDNSALGMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.19",
+    "class": "objectidentity"
+  },
+  "apAppsMibCapabilities": {
+    "name": "apAppsMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.20",
+    "class": "objectidentity"
+  },
+  "apSipMibCapabilities": {
+    "name": "apSipMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.21",
+    "class": "objectidentity"
+  },
+  "apUsbcSysMibCapabilities": {
+    "name": "apUsbcSysMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.22",
+    "class": "objectidentity"
+  },
+  "apRadiusMibCapabilities": {
+    "name": "apRadiusMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.23",
+    "class": "objectidentity"
+  },
+  "apCoreLbMibCapabilities": {
+    "name": "apCoreLbMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.24",
+    "class": "objectidentity"
+  },
+  "apUsbcSysDPDKMibCapabilities": {
+    "name": "apUsbcSysDPDKMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.25",
+    "class": "objectidentity"
+  },
+  "apUsbcSysScalingMibCapabilities": {
+    "name": "apUsbcSysScalingMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.26",
+    "class": "objectidentity"
+  },
+  "apUsbcSysThreadMibCapabilities": {
+    "name": "apUsbcSysThreadMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.27",
+    "class": "objectidentity"
+  },
+  "apUsbcSysThreadMibCapabilities2": {
+    "name": "apUsbcSysThreadMibCapabilities2",
+    "oid": "1.3.6.1.4.1.9148.2.1.28",
+    "class": "objectidentity"
+  },
+  "apUsbcSysSmMibCapabilities": {
+    "name": "apUsbcSysSmMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.29",
+    "class": "objectidentity"
+  },
+  "apUsbcSysThreadMibCapabilities3": {
+    "name": "apUsbcSysThreadMibCapabilities3",
+    "oid": "1.3.6.1.4.1.9148.2.1.30",
+    "class": "objectidentity"
+  },
+  "apAclDropMibCapabilities": {
+    "name": "apAclDropMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.31",
+    "class": "objectidentity"
+  },
+  "apCsvConfigMibCapabilities": {
+    "name": "apCsvConfigMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.32",
+    "class": "objectidentity"
+  },
+  "apResrvdNsepUtlMibCapabilities": {
+    "name": "apResrvdNsepUtlMibCapabilities",
+    "oid": "1.3.6.1.4.1.9148.2.1.33",
+    "class": "objectidentity"
+  },
+  "apSnmpCap": {
+    "name": "apSnmpCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "systemGroup",
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "snmpObsoleteGroup",
+          "snmpBasicNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSnmpv3Cap": {
+    "name": "apSnmpv3Cap",
+    "oid": "1.3.6.1.4.1.9148.2.1.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpCommunityGroup"
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpTargetSpinLock",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup"
+        ]
+      },
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ],
+        "variations": [
+          {
+            "object": "usmStats",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "includes": [
+          "vacmBasicGroup"
+        ],
+        "variations": [
+          {
+            "object": "vacmContextName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vacmViewSpinLock",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apInterfacesCap": {
+    "name": "apInterfacesCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifPacketGroup",
+          "ifOldObjectsGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHighSpeed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIfMibCap": {
+    "name": "apIfMibCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.2.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralGroup",
+          "ifPacketGroup",
+          "ifOldObjectsGroup",
+          "ifStackGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHighSpeed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIfMibHCCap": {
+    "name": "apIfMibHCCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.2.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralGroup",
+          "ifPacketGroup",
+          "ifOldObjectsGroup",
+          "ifHCPacketGroup",
+          "ifCounterDiscontinuityGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIfMibVHCCap": {
+    "name": "apIfMibVHCCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.2.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralGroup",
+          "ifPacketGroup",
+          "ifOldObjectsGroup",
+          "ifVHCPacketGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIpCap": {
+    "name": "apIpCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaNetAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIpCap2": {
+    "name": "apIpCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.3.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apIcmpStatsCap": {
+    "name": "apIcmpStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.3.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "icmpStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apTcpCap": {
+    "name": "apTcpCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.4.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpGroup"
+        ],
+        "variations": [
+          {
+            "object": "tcpConnState",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apTcpCap2": {
+    "name": "apTcpCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.4.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpConnectionGroup",
+          "tcpListenerGroup",
+          "tcpHCGroup"
+        ],
+        "variations": [
+          {
+            "object": "tcpConnState",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUdpCap": {
+    "name": "apUdpCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUdpCap2": {
+    "name": "apUdpCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.5.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpHCGroup",
+          "udpEndpointGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEntityCap": {
+    "name": "apEntityCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.6.1",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet for Relase 2.0",
+    "capabilities": [
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityGeneralGroup",
+          "entityPhysical2Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSyslogCap": {
+    "name": "apSyslogCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.7.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSLOG-MIB",
+        "includes": [
+          "apSyslogGroup",
+          "apSyslogNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCsvConfigSaveCap": {
+    "name": "apCsvConfigSaveCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.32.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCsvConfigSaveFailTrapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap": {
+    "name": "apSmgmtCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtCombinedGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtH323Group",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtObsoleteNotificationsGroup",
+          "apSysMgmtH323NotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap2": {
+    "name": "apSmgmtCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtNotificationsGroup2"
+        ],
+        "variations": [
+          {
+            "object": "apSysCPUUtil",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMemoryUtil",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysHealthScore",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysRedundancy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtPowerTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtTempTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtFanTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtRedundancyTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtSystemStateTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysMgmtTaskDeleteTrap",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap3": {
+    "name": "apSmgmtCap3",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtCombinedGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtH323Group",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtCtrlStatsGroup",
+          "apSysMgmtENUMServerStatusGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtObsoleteNotificationsGroup",
+          "apSysMgmtH323NotificationsGroup",
+          "apSysMgmtNotificationsGroup3"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap4": {
+    "name": "apSmgmtCap4",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtCombinedGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtH323Group",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtCtrlStatsGroup",
+          "apSysMgmtENUMServerStatusGroup",
+          "apSysMgmtNSEPStatsGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtObsoleteNotificationsGroup",
+          "apSysMgmtH323NotificationsGroup",
+          "apSysMgmtNotificationsGroup3",
+          "apSysMgmtNTPNotificationsGroup",
+          "apSysMgmtRegNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap5": {
+    "name": "apSmgmtCap5",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtCombinedGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtH323Group",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtCtrlStatsGroup",
+          "apSysMgmtENUMServerStatusGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtObsoleteNotificationsGroup",
+          "apSysMgmtH323NotificationsGroup",
+          "apSysMgmtNotificationsGroup3",
+          "apSysMgmtHDRNotificationsGroup",
+          "apSysMgmtMediaNotificationsGroup",
+          "apSysMgmtH248NotificationsGroup",
+          "apSysMgmtRFactorNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCap6": {
+    "name": "apSmgmtCap6",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtGeneralGroup",
+          "apSysMgmtCombinedGroup",
+          "apSysMgmtSipGroup",
+          "apSysMgmtH323Group",
+          "apSysMgmtSigRealmGroup",
+          "apSysMgmtCtrlStatsGroup",
+          "apSysMgmtENUMServerStatusGroup",
+          "apSysMgmtNotificationsGroup",
+          "apSysMgmtDOSNotificationsGroup",
+          "apSysMgmtH323NotificationsGroup",
+          "apSysMgmtNotificationsGroup3",
+          "apSysMgmtHDRNotificationsGroup",
+          "apSysMgmtInetAddrDOSTrustedtoUntrustedNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtNSEPCap": {
+    "name": "apSmgmtNSEPCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtNSEPStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCtrlStatsCap": {
+    "name": "apSmgmtCtrlStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.8",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCtrlStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtLDAPCap": {
+    "name": "apSmgmtLDAPCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.9",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtLDAPServerStatusNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtHDRCap": {
+    "name": "apSmgmtHDRCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.10",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtHDRNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtMediaSuperCap": {
+    "name": "apSmgmtMediaSuperCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.11",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtMediaNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtH248Cap": {
+    "name": "apSmgmtH248Cap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.12",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtH248NotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRFactorCap": {
+    "name": "apSmgmtRFactorCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.13",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRFactorNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtSipRejectCap": {
+    "name": "apSmgmtSipRejectCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.14",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtSipRejectNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtDOSNotifyCap": {
+    "name": "apSmgmtDOSNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.15",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtDOSNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegNotifyCap": {
+    "name": "apSmgmtRegNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.16",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtNTPNotifyCap": {
+    "name": "apSmgmtNTPNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.17",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtNTPNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCollectorPushSuccessNotifyCap": {
+    "name": "apSmgmtCollectorPushSuccessNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.18",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCollectorPushSuccessNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtExtSigRealmCap": {
+    "name": "apSmgmtExtSigRealmCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.19",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtExtSigRealmStatsGroup",
+          "apSysMgmtRealmExceedNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtClockNotifyCap": {
+    "name": "apSmgmtClockNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.20",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtClockSkewNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegistrationCap": {
+    "name": "apSmgmtRegistrationCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.21",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegistrationGroup"
+        ],
+        "variations": [
+          {
+            "object": "apSysMgcpGWEndpoints",
+            "access": "not-implemented"
+          },
+          {
+            "object": "apSysH323Registration",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegistrationCap2": {
+    "name": "apSmgmtRegistrationCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.22",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegistrationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegCacheLimCap": {
+    "name": "apSmgmtRegCacheLimCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.23",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegCacheLimitGroup",
+          "apSysMgmtRegCacheLimitNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtShortSessionCap": {
+    "name": "apSmgmtShortSessionCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.24",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtShortSessionGroup",
+          "apSysMgmtShortSessionNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSystemManagementGatewaySynchronizedMonitorCap": {
+    "name": "apSystemManagementGatewaySynchronizedMonitorCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.25",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtMonitorNetworkGatewaySynchronizedNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegistrationCap3": {
+    "name": "apSmgmtRegistrationCap3",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.26",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegistrationGroup"
+        ],
+        "variations": [
+          {
+            "object": "apSysMgcpGWEndpoints",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCallRecordingCap": {
+    "name": "apSmgmtCallRecordingCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.27",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCallRecordingGroup",
+          "apSysMgmtCallRecordingNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtH323AdditionsCap": {
+    "name": "apSmgmtH323AdditionsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.28",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtH323Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtENUMCap": {
+    "name": "apSmgmtENUMCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.29",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtENUMServerStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtExtSipCap": {
+    "name": "apSmgmtExtSipCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.30",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtSipExtNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRealmIcmpFailureCap": {
+    "name": "apSmgmtRealmIcmpFailureCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.31",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtIcmpFailureNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtTrapTableObjectCap": {
+    "name": "apSmgmtTrapTableObjectCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.32",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtTrapTableObjectGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCDRPushReceiverFailureCap": {
+    "name": "apSmgmtCDRPushReceiverFailureCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.33",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCDRPushReceiverNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRealmStatsQoSCap": {
+    "name": "apSmgmtRealmStatsQoSCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.34",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRealmStatsQoSGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtInetAddrDOSNotifyCap": {
+    "name": "apSmgmtInetAddrDOSNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.35",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtInetAddrDOSNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtApplicationCPUUsageCap": {
+    "name": "apSmgmtApplicationCPUUsageCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.36",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtApplicationCPUUsageGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRegistrationCapacityCap": {
+    "name": "apSmgmtRegistrationCapacityCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.37",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRegistrationCapacityGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "apSmgmtRejectedMessagesCap": {
+    "name": "apSmgmtRejectedMessagesCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.38",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRejectedMessagesGroup",
+          "apSysMgmtRejectedMessagesNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtEndPtDemotionCap": {
+    "name": "apSmgmtEndPtDemotionCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.39",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtEndPtDemotionObjectGroup",
+          "apSysMgmtInetAddrWithReasonDOSNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtAdminCap": {
+    "name": "apSmgmtAdminCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.40",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtAdminGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtLPCap": {
+    "name": "apSmgmtLPCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.41",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtLPGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtPhyUtilCap": {
+    "name": "apSmgmtPhyUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.42",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtPhyUtilGroup",
+          "apSysMgmtPhyUtilNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtStorageSpaceCap": {
+    "name": "apSmgmtStorageSpaceCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.43",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtStorageSpaceGroup",
+          "apSysMgmtStorageSpaceNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCtrlStatsCap2": {
+    "name": "apSmgmtCtrlStatsCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.44",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCtrlStatsGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtDatabaseRegCap": {
+    "name": "apSmgmtDatabaseRegCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.45",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtDatabaseRegGroup",
+          "apSysMgmtDatabaseRegNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCallsRejectedCap": {
+    "name": "apSmgmtCallsRejectedCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.46",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCallsRejectedGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtSipInterfaceRegCacheLimCap": {
+    "name": "apSmgmtSipInterfaceRegCacheLimCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.47",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtSipInterfaceRegCacheLimitNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtRealmRegCacheSummaryCap": {
+    "name": "apSmgmtRealmRegCacheSummaryCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.48",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtRealmRegCacheSummaryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtSubscriptionSummaryCap": {
+    "name": "apSmgmtSubscriptionSummaryCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.49",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtSubscriptionSummaryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtH248PortMapUsageCap": {
+    "name": "apSmgmtH248PortMapUsageCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.50",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtH248PortMapUsageNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtDOSNotifyTrustedtoUntrustedCap": {
+    "name": "apSmgmtDOSNotifyTrustedtoUntrustedCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.51",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtInetAddrDOSTrustedtoUntrustedNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSysMgmtETCUtilCap": {
+    "name": "apSysMgmtETCUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.52",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtETCUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtXCodeEVRCUtilCap": {
+    "name": "apSmgmtXCodeEVRCUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.53",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeEVRCUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtXCodeG729UtilCap": {
+    "name": "apSmgmtXCodeG729UtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.54",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeG729UtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtCPULoadAvgCap": {
+    "name": "apSmgmtCPULoadAvgCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.55",
+    "class": "agentcapabilities",
+    "productrelease": "Acme-Packet SD",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtCPULoadAvgGroup",
+          "apSysMgmtCPULoadAvgNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "apSmgmtXCodeOpusUtilCap": {
+    "name": "apSmgmtXCodeOpusUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.56",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeOpusUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtXCodeSILKUtilCap": {
+    "name": "apSmgmtXCodeSILKUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.57",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeSILKUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtXCodeEVRCNWUtilCap": {
+    "name": "apSmgmtXCodeEVRCNWUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.58",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeEVRCNWUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtXCodeEVSUtilCap": {
+    "name": "apSmgmtXCodeEVSUtilCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.59",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtXCodeEVSUtilGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtReservedNSEPCap": {
+    "name": "apSmgmtReservedNSEPCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.60",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtReservedNSEPStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtLDAPServerCap": {
+    "name": "apSmgmtLDAPServerCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.8.61",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "includes": [
+          "apSysMgmtLDAPServerStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEnvMonCap": {
+    "name": "apEnvMonCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.9.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "ACMEPACKET-ENVMON-MIB",
+        "includes": [
+          "apEnvMonGroup",
+          "apEnvMonNotifyGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEnvMonCap2": {
+    "name": "apEnvMonCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.9.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "ACMEPACKET-ENVMON-MIB",
+        "includes": [
+          "apEnvMonGroup",
+          "apEnvMonExtGroup",
+          "apEnvMonCardGroup",
+          "apEnvMonNotifyGroup",
+          "apEnvMonExtNotifyGroup"
+        ],
+        "variations": [
+          {
+            "object": "apEnvMonI2CState",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEnvMonPortChangeCap": {
+    "name": "apEnvMonPortChangeCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.9.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "ACMEPACKET-ENVMON-MIB",
+        "includes": [
+          "apEnvMonPortNotifyGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEnvMonCap4": {
+    "name": "apEnvMonCap4",
+    "oid": "1.3.6.1.4.1.9148.2.1.9.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "ACMEPACKET-ENVMON-MIB",
+        "includes": [
+          "apEnvMonGroup",
+          "apEnvMonExtGroup",
+          "apEnvMonCardGroup",
+          "apEnvMonNotifyGroup",
+          "apEnvMonTempNotifyGroup"
+        ],
+        "variations": [
+          {
+            "object": "apEnvMonI2CState",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apEnvMonCardCap": {
+    "name": "apEnvMonCardCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.9.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "ACMEPACKET-ENVMON-MIB",
+        "includes": [
+          "apEnvMonCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSwInventoryCap": {
+    "name": "apSwInventoryCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.10.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSWINVENTORY-MIB",
+        "includes": [
+          "apSwBootObjectsGroup",
+          "apSwCfgObjectsGroup",
+          "apSwInventoryNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseCap": {
+    "name": "apLicenseCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.11.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APLICENSE-MIB",
+        "includes": [
+          "apLicenseObjectsGroup",
+          "apLicenseNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseDBRegCap": {
+    "name": "apLicenseDBRegCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.11.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APLICENSE-MIB",
+        "includes": [
+          "apLicenseDatabaseRegGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseExpirationWarnCap": {
+    "name": "apLicenseExpirationWarnCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.11.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APLICENSE-MIB",
+        "includes": [
+          "apLicenseExpirationNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAmiCap": {
+    "name": "apAmiCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.12.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAMI-MIB",
+        "includes": [
+          "apAMIMibObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap": {
+    "name": "apCodecRealmCodecCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecMediaProcessingCap": {
+    "name": "apCodecMediaProcessingCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecMediaProcessingObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap2": {
+    "name": "apCodecRealmCodecCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecTranscodingStatsCap": {
+    "name": "apCodecTranscodingStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecTranscodingStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap3": {
+    "name": "apCodecRealmCodecCap3",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup3"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap4": {
+    "name": "apCodecRealmCodecCap4",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup4"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap5": {
+    "name": "apCodecRealmCodecCap5",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup5"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap6": {
+    "name": "apCodecRealmCodecCap6",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.8",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup6"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap7": {
+    "name": "apCodecRealmCodecCap7",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.9",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup7"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap8": {
+    "name": "apCodecRealmCodecCap8",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.10",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup8"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap9": {
+    "name": "apCodecRealmCodecCap9",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.11",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup9"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmCodecCap10": {
+    "name": "apCodecRealmCodecCap10",
+    "oid": "1.3.6.1.4.1.9148.2.1.13.12",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecRealmStatsObjectsGroup10"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityCap": {
+    "name": "apSecurityCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIPsecTunnelsCap": {
+    "name": "apSecurityIPsecTunnelsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIPsecTunnelsObjectsGroup",
+          "apSecurityIPsecTunnelsNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceCap": {
+    "name": "apSecurityIkeInterfaceCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTacacsCap": {
+    "name": "apSecurityTacacsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityTacacsObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityCertStatusCap": {
+    "name": "apSecurityCertStatusCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityCRLRetrievalNotificationsGroup",
+          "apSecurityCrlNotificationsGroup",
+          "apSecurityOCSRNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeDDoSCap": {
+    "name": "apSecurityIkeDDoSCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityDDosNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityCertificateCap": {
+    "name": "apSecurityCertificateCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityCertObjectsGroup",
+          "apSecurityCertNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityGtpStatusCap": {
+    "name": "apSecurityGtpStatusCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.8",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityGTPNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceInfoCap": {
+    "name": "apSecurityIkeInterfaceInfoCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.9",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceInfoObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTacacsNotifCap": {
+    "name": "apSecurityTacacsNotifCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.10",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityInetCap": {
+    "name": "apSecurityInetCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.11",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityNotificationsInetGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeDDoSInetCap": {
+    "name": "apSecurityIkeDDoSInetCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.12",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityDDosNotificationsInetGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeIfcBlAuthIDErrorCap": {
+    "name": "apSecurityIkeIfcBlAuthIDErrorCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.13",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeIfcBlAuthIDErrorObjectsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "apSecurityDhcpInterfaceCap": {
+    "name": "apSecurityDhcpInterfaceCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.14",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityDhcpInterfaceObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityGtpProfileCap": {
+    "name": "apSecurityGtpProfileCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.15",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityGtpProfileObjectsGroup",
+          "apSecurityGtpErrorObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityRekeyOnSNoverflowCap": {
+    "name": "apSecurityRekeyOnSNoverflowCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.16",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityRekeyOnSNoverflowObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceDpdStatsCap": {
+    "name": "apSecurityIkeInterfaceDpdStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.17",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceDpdStatsObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceEapOnlyAuthStatsCap": {
+    "name": "apSecurityIkeInterfaceEapOnlyAuthStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.18",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceEapOnlyAuthStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTscfCap": {
+    "name": "apSecurityTscfCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.19",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityTscfStatsGroup",
+          "apSecurityTscfNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "apSecurityIkeInterfaceEapMethodsStatsCap": {
+    "name": "apSecurityIkeInterfaceEapMethodsStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.20",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceEapMethodsStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceIkeErrorStatsCap": {
+    "name": "apSecurityIkeInterfaceIkeErrorStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.21",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceIkeErrorsGroup",
+          "apSecurityIkeInterfaceIkeStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityIkeInterfaceMobikeStatsCap": {
+    "name": "apSecurityIkeInterfaceMobikeStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.22",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterfaceMobikeStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTscfTimeoutCap": {
+    "name": "apSecurityTscfTimeoutCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.23",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityTscfStatsTimeoutGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "apSecurityIkeInterface3GPPAuthErrorsCap": {
+    "name": "apSecurityIkeInterface3GPPAuthErrorsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.24",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityIkeInterface3GPPAuthErrorsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityGtpCaviumStatsCap": {
+    "name": "apSecurityGtpCaviumStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.25",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet MSG",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityGtpCaviumStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTacacsDownLocalAuthCap": {
+    "name": "apSecurityTacacsDownLocalAuthCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.26",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityTacacsDownLocalAuthTrapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecurityTlsCap": {
+    "name": "apSecurityTlsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.27",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecurityTlsNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSecuritySrtpCap": {
+    "name": "apSecuritySrtpCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.14.28",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecuritySrtpNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apH323StackCap": {
+    "name": "apH323StackCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.15.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APH323-MIB",
+        "includes": [
+          "apH323StackObjectsGroup",
+          "apH323StackNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSLBEndpointCapacityCap": {
+    "name": "apSLBEndpointCapacityCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.16.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSLB-MIB",
+        "includes": [
+          "apSLBEndpointCapacityGroup",
+          "apSLBEndpointCapacityNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSLBUntrustedEndpointCapacityCap": {
+    "name": "apSLBUntrustedEndpointCapacityCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.16.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSLB-MIB",
+        "includes": [
+          "apSLBUntrustedEndpointCapacityGroup",
+          "apSLBUntrustedEndpointCapacityNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamMibCap": {
+    "name": "apDiamMibCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamACCTObjectsGroup",
+          "apDiamACCTNotificationsGroup",
+          "apDiamClfErrorStatsGroup",
+          "apDiamACCTResultObjectsGroup",
+          "apDiamACCTResultNotificationsGroup",
+          "apDiamInterfaceStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamNotifCap": {
+    "name": "apDiamNotifCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamACCTNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamClfCap": {
+    "name": "apDiamClfCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamClfErrorStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamIntfCap": {
+    "name": "apDiamIntfCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamInterfaceStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthCap": {
+    "name": "apDiamAuthCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme MSG",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "includes": [
+          "apDiamAuthStatsGroup",
+          "apDiamAuthErrorStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthNotifyCap": {
+    "name": "apDiamAuthNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme MSG",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "includes": [
+          "apDiamAuthNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAcctBufferUsageNotifyCap": {
+    "name": "apDiamAcctBufferUsageNotifyCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.17.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamACCTBufferUsageNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDStatsGroupCap": {
+    "name": "apDDStatsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.1",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDdGeneralGroup",
+          "apDdInterfaceStatsGroup",
+          "apDdErrorStatusGroup",
+          "apDdMsgTypeStatsGroup",
+          "apDdMsgStatsReturnCodeGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDNotifGroupCap": {
+    "name": "apDDNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.2",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDDNotifObjectsGroup",
+          "apDDNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDStatsGroup2Cap": {
+    "name": "apDDStatsGroup2Cap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.3",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDdIntfErrorStatusGroup",
+          "apDdAgentGeneralGroup",
+          "apDdAgentStatsGroup",
+          "apDdAgentErrorStatusGroup",
+          "apDdAgentMsgTypeStatsGroup",
+          "apDdAgentMsgStatsReturnCodeGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDStatsGroup3Cap": {
+    "name": "apDDStatsGroup3Cap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.4",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDdSessionSubscriberGeneralGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDSCTPNotifGroupCap": {
+    "name": "apDDSCTPNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.5",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDDSCTPNotifObjectsGroup",
+          "apDDSCTPNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDDStatsGroup4Cap": {
+    "name": "apDDStatsGroup4Cap",
+    "oid": "1.3.6.1.4.1.9148.2.1.18.6",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet Diameter Signaling Controller",
+    "capabilities": [
+      {
+        "module": "APDD-MIB",
+        "includes": [
+          "apDdDnsStatsEntryGroup",
+          "apDdAgentDnsStatsEntryGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDNSALGStatsGroupCap": {
+    "name": "apDNSALGStatsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.19.1",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet DNS ALG",
+    "capabilities": [
+      {
+        "module": "APDNSALG-MIB",
+        "includes": [
+          "apDnsAlgServerStatusGroup",
+          "apDnsAlgStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDNSALGNotifGroupCap": {
+    "name": "apDNSALGNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.19.2",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet PEC",
+    "capabilities": [
+      {
+        "module": "APDNSALG-MIB",
+        "includes": [
+          "apDNSALGNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDNSALGRateGroupCap": {
+    "name": "apDNSALGRateGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.19.3",
+    "class": "agentcapabilities",
+    "productrelease": "Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APDNSALG-MIB",
+        "includes": [
+          "apDnsAlgServerRateStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMStatusGroupCap": {
+    "name": "apAppsENUMStatusGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsENUMServerStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDNSStatusGroupCap": {
+    "name": "apAppsDNSStatusGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsDnsServerStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMSvrNotifGroupCap": {
+    "name": "apAppsENUMSvrNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsEnumServerNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDNSSvrNotifGroupCap": {
+    "name": "apAppsDNSSvrNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsDnsServerNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMRateGroupCap": {
+    "name": "apAppsENUMRateGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsENUMServerRateStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCommMonitorNotificationGroupCap": {
+    "name": "apCommMonitorNotificationGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apCommMonitorNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDosThresholdCountersCap": {
+    "name": "apDosThresholdCountersCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apDosThresholdCountersGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apDosThresholdTrapCap": {
+    "name": "apDosThresholdTrapCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.20.8",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apDosThresholdNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSecInterfaceRegNotifGroupCap": {
+    "name": "apSipSecInterfaceRegNotifGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSecInterfaceRegNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSecInterfaceRegObjectsGroupCap": {
+    "name": "apSipSecInterfaceRegObjectsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSecInterfaceRegObjectsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSurvivabilityNotificationsGroupCap": {
+    "name": "apSipSurvivabilityNotificationsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.3",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSurvivabilityNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRateGroupCap": {
+    "name": "apSipRateGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipRateStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACStatsGroupCap": {
+    "name": "apSipCACStatsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.5",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipCACStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACNotificationsGroupCap": {
+    "name": "apSipCACNotificationsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.6",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipCACNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACStatsCap": {
+    "name": "apSipCACStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.7",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipCACStatsSubGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRecNotificationsGroupCap": {
+    "name": "apSipRecNotificationsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.8",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipRecNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipAudioVideoCallsCap": {
+    "name": "apSipAudioVideoCallsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.9",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipAudioVideoCallsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipVoLTECountersCap": {
+    "name": "apSipVoLTECountersCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.10",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSRVCCStatsGroup"
+        ]
+      },
+      {
+        "module": "APSECURITY-MIB",
+        "includes": [
+          "apSecuritySAIKEStatsGroup",
+          "apSecuritySAIMSAKAStatsGroup",
+          "apSecuritySASRTPStatsGroup"
+        ]
+      },
+      {
+        "module": "APCODEC-MIB",
+        "includes": [
+          "apCodecTranscodingResourceUtilMIBGroup",
+          "apCodecTranscodingTCULoadStatsGroup"
+        ]
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "includes": [
+          "apDiamRxPolicyServerStatsGroup"
+        ]
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "includes": [
+          "apLicenseCodecLicensedCapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCallInformationCap": {
+    "name": "apSipCallInformationCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.11",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipCallDurationGroup",
+          "apSipCallDropGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSmgmtSipMethodStatsCap": {
+    "name": "apSmgmtSipMethodStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.12",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipMethodStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSRVCCPreAlertingStatsCap": {
+    "name": "apSipSRVCCPreAlertingStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.13",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSRVCCPreAlertingStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRegEvtSubscriptionCap": {
+    "name": "apSipRegEvtSubscriptionCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.14",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipRegEvtSubStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipMSRPStatsCap": {
+    "name": "apSipMSRPStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.15",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipMSRPStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSip503RespThresholdNotificationsGroupCap": {
+    "name": "apSip503RespThresholdNotificationsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.16",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSip503RespThresholdNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSteeringPoolUtilNotificationsGroupCap": {
+    "name": "apSipSteeringPoolUtilNotificationsGroupCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.21.17",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APSIP-MIB",
+        "includes": [
+          "apSipSteeringPoolUtilNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysCap": {
+    "name": "apUsbcSysCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.22.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysGroup",
+          "apUsbcSysCpuTblGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysDPDKCap": {
+    "name": "apUsbcSysDPDKCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.25.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysDPDKGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysScalingCap": {
+    "name": "apUsbcSysScalingCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.26.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysScalingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadCap": {
+    "name": "apUsbcSysThreadCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.27.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysThreadUsageTblGroup",
+          "apUsbcSysThreadEventTblGroup",
+          "apUsbcSysThreadSipGroup",
+          "apUsbcSysThreadAtcpGroup",
+          "apUsbcSysThreadMbcdGroup",
+          "apUsbcSysCpuNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysFdCap": {
+    "name": "apUsbcSysFdCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.22.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysFdCountGroup",
+          "apUsbcSysFdObjGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadCap2": {
+    "name": "apUsbcSysThreadCap2",
+    "oid": "1.3.6.1.4.1.9148.2.1.28.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysThreadEbmdGroup",
+          "apUsbcSysThreadDnsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadCap3": {
+    "name": "apUsbcSysThreadCap3",
+    "oid": "1.3.6.1.4.1.9148.2.1.30.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apMutexDeadLockNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadCap4": {
+    "name": "apUsbcSysThreadCap4",
+    "oid": "1.3.6.1.4.1.9148.2.1.27.4",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysThreadNotRespNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysSmCap": {
+    "name": "apUsbcSysSmCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.29.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "includes": [
+          "apUsbcSysSmGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apRadiusMibCap": {
+    "name": "apRadiusMibCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.23.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APRADIUS-MIB",
+        "includes": [
+          "apRadiusInterfaceStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apRadiusServerStatsCap": {
+    "name": "apRadiusServerStatsCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.23.2",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APRADIUS-MIB",
+        "includes": [
+          "apRadiusInterfaceStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apCoreLBMemberStatusNotifCap": {
+    "name": "apCoreLBMemberStatusNotifCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.24.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APCORELB-MIB",
+        "includes": [
+          "apCoreLBMemberStatusNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apAclDropCap": {
+    "name": "apAclDropCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.31.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAclDropNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "apResrvdNsepUtlTrapCap": {
+    "name": "apResrvdNsepUtlTrapCap",
+    "oid": "1.3.6.1.4.1.9148.2.1.33.1",
+    "class": "agentcapabilities",
+    "productrelease": "Oracle Communications Acme Packet SBC",
+    "capabilities": [
+      {
+        "module": "APAPPS-MIB",
+        "includes": [
+          "apAppsResrvdNsepUtlNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source APAGENTCAP-MIB",
+      "Source digest sha256:cabeb736a8cd638746d11b926d76590f45dde1e2b4ea3d6509b7d8fa2f03aa3d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "APAGENTCAP-MIB"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfSession": {
+    "name": "hpnicfSession",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-12-20 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfSessionTables": {
+    "name": "hpnicfSessionTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSessionStatTable": {
+    "name": "hpnicfSessionStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSessionStatEntry": {
+    "name": "hpnicfSessionStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-SESSION-MIB",
+        "object": "hpnicfSessionStatChassis",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-SESSION-MIB",
+        "object": "hpnicfSessionStatSlot",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-SESSION-MIB",
+        "object": "hpnicfSessionStatCPUID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSessionStatChassis": {
+    "name": "hpnicfSessionStatChassis",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSessionStatSlot": {
+    "name": "hpnicfSessionStatSlot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSessionStatCPUID": {
+    "name": "hpnicfSessionStatCPUID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSessionStatCount": {
+    "name": "hpnicfSessionStatCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSessionStatCreateRate": {
+    "name": "hpnicfSessionStatCreateRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.149.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-SESSION-MIB",
+      "Source digest sha256:8080075b5d4cdd9aa6ae13483cc77b876c2bcd0001947d5965131c7476b7da28",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-SESSION-MIB"
+  }
+}

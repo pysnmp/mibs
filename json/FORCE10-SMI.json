@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "force10": {
+    "name": "force10",
+    "oid": "1.3.6.1.4.1.6027",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-15 12:00",
+        "description": "Added f10Modules."
+      },
+      {
+        "revision": "1900-10-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "f10Products": {
+    "name": "f10Products",
+    "oid": "1.3.6.1.4.1.6027.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "f10Common": {
+    "name": "f10Common",
+    "oid": "1.3.6.1.4.1.6027.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "f10Mgmt": {
+    "name": "f10Mgmt",
+    "oid": "1.3.6.1.4.1.6027.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "f10Modules": {
+    "name": "f10Modules",
+    "oid": "1.3.6.1.4.1.6027.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "f10Experiment": {
+    "name": "f10Experiment",
+    "oid": "1.3.6.1.4.1.6027.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FORCE10-SMI",
+      "Source digest sha256:48cc0f0d6481d5dbd7aae27bedda8a398e6cc1275e8b9c404726dfde2b311eac",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FORCE10-SMI"
+  }
+}

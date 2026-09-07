@@ -1,0 +1,349 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoGtpDirectorMIB": {
+    "name": "ciscoGtpDirectorMIB",
+    "oid": "1.3.6.1.4.1.9.9.245",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-09-13 14:00",
+        "description": "Initial version of this MIB Module."
+      }
+    ]
+  },
+  "ciscoGtpDirectorMIBObjects": {
+    "name": "ciscoGtpDirectorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.245.1",
+    "class": "objectidentity"
+  },
+  "cgdConfigurations": {
+    "name": "cgdConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.245.1.1",
+    "class": "objectidentity"
+  },
+  "cgdStatus": {
+    "name": "cgdStatus",
+    "oid": "1.3.6.1.4.1.9.9.245.1.2",
+    "class": "objectidentity"
+  },
+  "cgdStatistics": {
+    "name": "cgdStatistics",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3",
+    "class": "objectidentity"
+  },
+  "cgdNotifMgmt": {
+    "name": "cgdNotifMgmt",
+    "oid": "1.3.6.1.4.1.9.9.245.1.4",
+    "class": "objectidentity"
+  },
+  "cgdCreatePdpRequestInfoSaveTimer": {
+    "name": "cgdCreatePdpRequestInfoSaveTimer",
+    "oid": "1.3.6.1.4.1.9.9.245.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgdPendingPdps": {
+    "name": "cgdPendingPdps",
+    "oid": "1.3.6.1.4.1.9.9.245.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdCreatePdpRequestFwded": {
+    "name": "cgdCreatePdpRequestFwded",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdTotalCreatePdpRequestFwded": {
+    "name": "cgdTotalCreatePdpRequestFwded",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdCreateRequestRejected": {
+    "name": "cgdCreateRequestRejected",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdTotalUnsupportedMessages": {
+    "name": "cgdTotalUnsupportedMessages",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdPdpRequestDropped": {
+    "name": "cgdPdpRequestDropped",
+    "oid": "1.3.6.1.4.1.9.9.245.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgdNotifEnable": {
+    "name": "cgdNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.245.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgdNotifType": {
+    "name": "cgdNotifType",
+    "oid": "1.3.6.1.4.1.9.9.245.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gdmServiceUp": 1,
+          "gdmServiceDown": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoGtpDirectorNotifPrefix": {
+    "name": "ciscoGtpDirectorNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.245.2",
+    "class": "objectidentity"
+  },
+  "ciscoGtpDirectorNotifications": {
+    "name": "ciscoGtpDirectorNotifications",
+    "oid": "1.3.6.1.4.1.9.9.245.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoGtpDirectorNotification": {
+    "name": "ciscoGtpDirectorNotification",
+    "oid": "1.3.6.1.4.1.9.9.245.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdNotifType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorMIBConformance": {
+    "name": "ciscoGtpDirectorMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.245.3",
+    "class": "objectidentity"
+  },
+  "ciscoGtpDirectorMIBCompliances": {
+    "name": "ciscoGtpDirectorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.245.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoGtpDirectorMIBGroups": {
+    "name": "ciscoGtpDirectorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoGtpDirectorMIBCompliance": {
+    "name": "ciscoGtpDirectorMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.245.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGtpDirectorConfigurationsGroup",
+        "module": "CISCO-GTP-DIRECTOR-MIB"
+      },
+      {
+        "object": "ciscoGtpDirectorStatusGroup",
+        "module": "CISCO-GTP-DIRECTOR-MIB"
+      },
+      {
+        "object": "ciscoGtpDirectorStatisticsGroup",
+        "module": "CISCO-GTP-DIRECTOR-MIB"
+      },
+      {
+        "object": "ciscoGtpDirectorNotifMgmtGroup",
+        "module": "CISCO-GTP-DIRECTOR-MIB"
+      },
+      {
+        "object": "ciscoGtpDirectorNotifGroup",
+        "module": "CISCO-GTP-DIRECTOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorConfigurationsGroup": {
+    "name": "ciscoGtpDirectorConfigurationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdCreatePdpRequestInfoSaveTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorStatusGroup": {
+    "name": "ciscoGtpDirectorStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdPendingPdps"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorStatisticsGroup": {
+    "name": "ciscoGtpDirectorStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdCreatePdpRequestFwded"
+      },
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdTotalCreatePdpRequestFwded"
+      },
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdCreateRequestRejected"
+      },
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdTotalUnsupportedMessages"
+      },
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdPdpRequestDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorNotifMgmtGroup": {
+    "name": "ciscoGtpDirectorNotifMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdNotifEnable"
+      },
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "cgdNotifType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGtpDirectorNotifGroup": {
+    "name": "ciscoGtpDirectorNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.245.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GTP-DIRECTOR-MIB",
+        "object": "ciscoGtpDirectorNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GTP-DIRECTOR-MIB",
+      "Source digest sha256:3cd052262fd717fc49d9a9dcafbef158e2319a744da2dafc3d8421dbe0074f0f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GTP-DIRECTOR-MIB"
+  }
+}

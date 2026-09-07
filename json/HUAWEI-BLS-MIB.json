@@ -1,0 +1,259 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBLS": {
+    "name": "hwBLS",
+    "oid": "1.3.6.1.4.1.2011.5.25.8",
+    "class": "moduleidentity"
+  },
+  "BlsAddReason": {
+    "name": "BlsAddReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reasonUnknow": 1,
+          "reasonManual": 2,
+          "reasonIPSweep": 3,
+          "reasonPortScan": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwBlsMibObjects": {
+    "name": "hwBlsMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1",
+    "class": "objectidentity"
+  },
+  "hwBlsEnableFlag": {
+    "name": "hwBlsEnableFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBlsBlackListTable": {
+    "name": "hwBlsBlackListTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBlsBlackListEntry": {
+    "name": "hwBlsBlackListEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBlsItemIPAddress": {
+    "name": "hwBlsItemIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBlsItemAge": {
+    "name": "hwBlsItemAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBlsItemAddReason": {
+    "name": "hwBlsItemAddReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BlsAddReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBlsItemAddTime": {
+    "name": "hwBlsItemAddTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBlsRowStatus": {
+    "name": "hwBlsRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBlsFilterTypeSet": {
+    "name": "hwBlsFilterTypeSet",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.3",
+    "class": "objectidentity"
+  },
+  "hwBlsFilterType": {
+    "name": "hwBlsFilterType",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 15,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBlsMibConformance": {
+    "name": "hwBlsMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2",
+    "class": "objectidentity"
+  },
+  "hwBlsMibGroup": {
+    "name": "hwBlsMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1",
+    "class": "objectidentity"
+  },
+  "hwBlsEnableGroup": {
+    "name": "hwBlsEnableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsEnableFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBlsBlackListTableGroup": {
+    "name": "hwBlsBlackListTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemIPAddress"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAge"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAddReason"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAddTime"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-BLS-MIB",
+      "Source digest sha256:13c2323c665a831266f1b860a6faa587227075f7418cfe662ba4761f7dbe6d5c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-BLS-MIB"
+  }
+}

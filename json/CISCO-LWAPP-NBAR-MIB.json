@@ -1,0 +1,722 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappNbarMIB": {
+    "name": "ciscoLwappNbarMIB",
+    "oid": "1.3.6.1.4.1.9.9.841",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-02-08 00:00",
+        "description": "Updated description for cLNbarAVCFlexRuleApplicationName, cLNbarAVCFlexRuleApplicationAction, cLNbarAVCRuleApplicationName and cLNbarAVCRuleApplicationAction for providing additional information about class-default application type."
+      },
+      {
+        "revision": "2017-04-27 00:00",
+        "description": "Updated the description of various objects."
+      },
+      {
+        "revision": "2012-06-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappNbarMIBNotifs": {
+    "name": "ciscoLwappNbarMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.841.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarMIBObjects": {
+    "name": "ciscoLwappNbarMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.841.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarMIBConform": {
+    "name": "ciscoLwappNbarMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.841.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarTableObjects": {
+    "name": "ciscoLwappNbarTableObjects",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarGlobalObjects": {
+    "name": "ciscoLwappNbarGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2",
+    "class": "objectidentity"
+  },
+  "cLNbarAVCEngineVersion": {
+    "name": "cLNbarAVCEngineVersion",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCProtoPackName": {
+    "name": "cLNbarAVCProtoPackName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCProtoPackVer": {
+    "name": "cLNbarAVCProtoPackVer",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCFlexEngineVersion": {
+    "name": "cLNbarAVCFlexEngineVersion",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProtoPackName": {
+    "name": "cLNbarAVCFlexProtoPackName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProtoPackVer": {
+    "name": "cLNbarAVCFlexProtoPackVer",
+    "oid": "1.3.6.1.4.1.9.9.841.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLNbarAVCProfileTable": {
+    "name": "cLNbarAVCProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCProfileEntry": {
+    "name": "cLNbarAVCProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarAVCProfileName": {
+    "name": "cLNbarAVCProfileName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCProfileRowStatus": {
+    "name": "cLNbarAVCProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleTable": {
+    "name": "cLNbarAVCRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCRuleEntry": {
+    "name": "cLNbarAVCRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleApplicationName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarAVCRuleProfileName": {
+    "name": "cLNbarAVCRuleProfileName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCRuleApplicationName": {
+    "name": "cLNbarAVCRuleApplicationName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCRuleApplicationGroupName": {
+    "name": "cLNbarAVCRuleApplicationGroupName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleApplicationAction": {
+    "name": "cLNbarAVCRuleApplicationAction",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "mark": 3,
+          "ratelimit": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleDscpValue": {
+    "name": "cLNbarAVCRuleDscpValue",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleRowStatus": {
+    "name": "cLNbarAVCRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleAppAvgRateLimit": {
+    "name": "cLNbarAVCRuleAppAvgRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCRuleAppBurstRateLimit": {
+    "name": "cLNbarAVCRuleAppBurstRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProfileTable": {
+    "name": "cLNbarAVCFlexProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProfileEntry": {
+    "name": "cLNbarAVCFlexProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarAVCFlexProfileName": {
+    "name": "cLNbarAVCFlexProfileName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProfileApply": {
+    "name": "cLNbarAVCFlexProfileApply",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modified": 0,
+          "apply": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexProfileRowStatus": {
+    "name": "cLNbarAVCFlexProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleTable": {
+    "name": "cLNbarAVCFlexRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleEntry": {
+    "name": "cLNbarAVCFlexRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleApplicationName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleProfileName": {
+    "name": "cLNbarAVCFlexRuleProfileName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleApplicationName": {
+    "name": "cLNbarAVCFlexRuleApplicationName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleApplicationGroupName": {
+    "name": "cLNbarAVCFlexRuleApplicationGroupName",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleApplicationAction": {
+    "name": "cLNbarAVCFlexRuleApplicationAction",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "mark": 3,
+          "ratelimit": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleDscpValue": {
+    "name": "cLNbarAVCFlexRuleDscpValue",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleRowStatus": {
+    "name": "cLNbarAVCFlexRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleAppAvgRateLimit": {
+    "name": "cLNbarAVCFlexRuleAppAvgRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNbarAVCFlexRuleAppBurstRateLimit": {
+    "name": "cLNbarAVCFlexRuleAppBurstRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.841.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLAVCProtoPackLoadNotifFailed": {
+    "name": "cLAVCProtoPackLoadNotifFailed",
+    "oid": "1.3.6.1.4.1.9.9.841.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackVer"
+      }
+    ],
+    "status": "current"
+  },
+  "cLAVCProtoPackLoadNotifSuccess": {
+    "name": "cLAVCProtoPackLoadNotifSuccess",
+    "oid": "1.3.6.1.4.1.9.9.841.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackVer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappNbarMIBCompliances": {
+    "name": "ciscoLwappNbarMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.841.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarMIBGroups": {
+    "name": "ciscoLwappNbarMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.841.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNbarMIBCompliance": {
+    "name": "ciscoLwappNbarMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.841.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLNbarConfigGroup",
+        "module": "CISCO-LWAPP-NBAR-MIB"
+      },
+      {
+        "object": "cLNbarGlobalGroup",
+        "module": "CISCO-LWAPP-NBAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarConfigGroup": {
+    "name": "cLNbarConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.841.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleApplicationName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleApplicationGroupName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleApplicationAction"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleDscpValue"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleApplicationName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleApplicationGroupName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleApplicationAction"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleDscpValue"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNbarGlobalGroup": {
+    "name": "cLNbarGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.841.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCEngineVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackVer"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCProtoPackName"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexEngineVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProtoPackVer"
+      },
+      {
+        "module": "CISCO-LWAPP-NBAR-MIB",
+        "object": "cLNbarAVCFlexProtoPackName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-NBAR-MIB",
+      "Source digest sha256:08d165d658495a676f2d9a4f53c9de70dd9b59a515cbf62d75927b49066d9bc7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-NBAR-MIB"
+  }
+}

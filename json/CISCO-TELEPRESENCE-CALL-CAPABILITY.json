@@ -1,0 +1,221 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTelepresenceCallCapability": {
+    "name": "ciscoTelepresenceCallCapability",
+    "oid": "1.3.6.1.4.1.9.7.577",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-02 00:00",
+        "description": "Added capability for Cisco Telepresence System (CTS) 1.7.0."
+      },
+      {
+        "revision": "2008-11-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTelepresenceCallCapabilityCTSV150": {
+    "name": "ciscoTelepresenceCallCapabilityCTSV150",
+    "oid": "1.3.6.1.4.1.9.7.577.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.5.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "includes": [
+          "ciscoTpCallConfigurationGroup",
+          "ciscoTpCallInformationGroup",
+          "ciscoTpCallStatisticsGroup",
+          "ciscoTpCallEventHistoryGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctpcTxIDRPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcTxShapingWindow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcRxIDRPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcRxShapingWindow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventHistTableSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ctpcStatEventMonObjectInst",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventCrossedValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventCrossedType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventTimeStamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTelepresenceCallCapabilityCTSV170": {
+    "name": "ciscoTelepresenceCallCapabilityCTSV170",
+    "oid": "1.3.6.1.4.1.9.7.577.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.7.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-TELEPRESENCE-CALL-MIB",
+        "includes": [
+          "ciscoTpCallConfigurationGroup",
+          "ciscoTpCallInformationGroup",
+          "ciscoTpCallStatisticsGroup",
+          "ciscoTpCallEventHistoryGroup",
+          "ciscoTpCallMgmtSysConnEventHistGroup",
+          "ciscoTpCallInformationGroupSup1",
+          "ciscoTpCallStatisticsGroupSup1",
+          "ciscoTpCallNotificationGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "ctpcTxIDRPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcTxShapingWindow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcRxIDRPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcRxShapingWindow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventHistTableSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ctpcStatEventMonObjectInst",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventCrossedValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventCrossedType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcMgmtSysConnEventHistTableSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ctpcMgmtSysConnEventStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcMgmtSysConnEventSIPRespCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcMgmtSysConnEventTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpcStatEventTimeStamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TELEPRESENCE-CALL-CAPABILITY",
+      "Source digest sha256:c783aae618e6ac430cf08774c923ab2ad3cc6e544ea4d3f9709c1dbb618e3140",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TELEPRESENCE-CALL-CAPABILITY"
+  }
+}

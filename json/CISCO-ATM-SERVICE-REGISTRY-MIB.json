@@ -1,0 +1,250 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmServiceRegistryMIB": {
+    "name": "ciscoAtmServiceRegistryMIB",
+    "oid": "1.3.6.1.4.1.9.9.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1996-02-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAtmServiceRegistryMIBObjects": {
+    "name": "ciscoAtmServiceRegistryMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.50.1",
+    "class": "objectidentity"
+  },
+  "AtmAddr": {
+    "name": "AtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 13,
+            "max": 13
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceIndexOrZero": {
+    "name": "InterfaceIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "asrSrvcRegTable": {
+    "name": "asrSrvcRegTable",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asrSrvcRegEntry": {
+    "name": "asrSrvcRegEntry",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegServiceID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "asrSrvcRegPort": {
+    "name": "asrSrvcRegPort",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asrSrvcRegServiceID": {
+    "name": "asrSrvcRegServiceID",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asrSrvcRegATMAddress": {
+    "name": "asrSrvcRegATMAddress",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "asrSrvcRegAddressIndex": {
+    "name": "asrSrvcRegAddressIndex",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asrSrvcRegParm1": {
+    "name": "asrSrvcRegParm1",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "asrSrvcRegRowStatus": {
+    "name": "asrSrvcRegRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.50.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "asrSrvcRegMIBConformance": {
+    "name": "asrSrvcRegMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.50.3",
+    "class": "objectidentity"
+  },
+  "asrSrvcRegMIBCompliances": {
+    "name": "asrSrvcRegMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.50.3.1",
+    "class": "objectidentity"
+  },
+  "asrSrvcRegMIBGroups": {
+    "name": "asrSrvcRegMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.50.3.2",
+    "class": "objectidentity"
+  },
+  "asrSrvcRegMIBCompliance": {
+    "name": "asrSrvcRegMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.50.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "asrSrvcRegMIBGroup",
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "asrSrvcRegMIBGroup": {
+    "name": "asrSrvcRegMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.50.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegATMAddress"
+      },
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegParm1"
+      },
+      {
+        "module": "CISCO-ATM-SERVICE-REGISTRY-MIB",
+        "object": "asrSrvcRegRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ATM-SERVICE-REGISTRY-MIB",
+      "Source digest sha256:897e694926dcf4158d0c9b0d0bdac39ebd1bef7e2de44412e14a11d18326a1b7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ATM-SERVICE-REGISTRY-MIB"
+  }
+}

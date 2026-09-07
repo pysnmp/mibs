@@ -1,0 +1,213 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cipv6Capability": {
+    "name": "cipv6Capability",
+    "oid": "1.3.6.1.4.1.9.7.503",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpv6CapCRS1V3R3R1": {
+    "name": "ciscoIpv6CapCRS1V3R3R1",
+    "oid": "1.3.6.1.4.1.9.7.503.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.3.1 for CRS-1",
+    "capabilities": [
+      {
+        "module": "IPV6-MIB",
+        "includes": [
+          "ipv6GeneralGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipv6Forwarding",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "forwarding": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ipv6IfTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInHdrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInTooBigErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInAddrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInTruncatedPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInDelivers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragCreates",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmReqds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixOnLinkFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAutonomousFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAdvPreferredLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAdvValidLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6DiscardedRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteNextHop",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RoutePolicy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteAge",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteNextHopRDI",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteMetric",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteWeight",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteInfo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteValid",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IPV6-CAPABILITY",
+      "Source digest sha256:52e6779566e9319321987c72905aaeaea392d5349e20fae4363be894314d83c5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IPV6-CAPABILITY"
+  }
+}

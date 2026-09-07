@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-SN-ROOT-MIB": [
+      "brcdSysLog"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "brocadeSysLogMIB": {
+    "name": "brocadeSysLogMIB",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-11-04 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "brcdSysLogGroup": {
+    "name": "brcdSysLogGroup",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1",
+    "class": "objectidentity"
+  },
+  "brcdSysLogServerTable": {
+    "name": "brcdSysLogServerTable",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "brcdSysLogServerEntry": {
+    "name": "brcdSysLogServerEntry",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BROCADE-SYSLOG-MIB",
+        "object": "brcdSysLogServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-SYSLOG-MIB",
+        "object": "brcdSysLogServerAddr",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-SYSLOG-MIB",
+        "object": "brcdSysLogServerUDPPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "brcdSysLogServerAddrType": {
+    "name": "brcdSysLogServerAddrType",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "brcdSysLogServerAddr": {
+    "name": "brcdSysLogServerAddr",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "brcdSysLogServerUDPPort": {
+    "name": "brcdSysLogServerUDPPort",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "brcdSysLogServerOutPkts": {
+    "name": "brcdSysLogServerOutPkts",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "brcdSysLogServerRowStatus": {
+    "name": "brcdSysLogServerRowStatus",
+    "oid": "1.3.6.1.4.1.1991.1.1.11.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BROCADE-SYSLOG-MIB",
+      "Source digest sha256:d7448e7f3c5afa36445227b00295f8793517357c2bfe593611a21b60e0d0c615",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BROCADE-SYSLOG-MIB"
+  }
+}

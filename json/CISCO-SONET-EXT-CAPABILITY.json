@@ -1,0 +1,523 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSonetExtCapability": {
+    "name": "ciscoSonetExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.261",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-23 00:00",
+        "description": "Added ciscoSonetExtCapabilityV5R00."
+      },
+      {
+        "revision": "2003-03-13 00:00",
+        "description": "Added ciscoSonetExtCapabilityV4R00 for modules: ATM Switch Service Module(AXSM), 10 Gig. ATM Switch Service Module(AXSM-XG), Enhanced ATM Switch Service Module(AXSM-E) and Processor Switch Module Enhanced (PXM1E)."
+      },
+      {
+        "revision": "2002-02-17 00:00",
+        "description": "Initial Version of the MIB module."
+      }
+    ]
+  },
+  "ciscoSonetExtAxsmCapabilityV2R00": {
+    "name": "ciscoSonetExtAxsmCapabilityV2R00",
+    "oid": "1.3.6.1.4.1.9.7.261.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetTraceMIBGroup",
+          "ciscoSonetApsMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "csApsWaitToRestore",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 5,
+                    "max": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cssTraceReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspTraceReceived",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetExtAxsmCapabilityV2R11": {
+    "name": "ciscoSonetExtAxsmCapabilityV2R11",
+    "oid": "1.3.6.1.4.1.9.7.261.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.0.11",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetTraceMIBGroup",
+          "ciscoSonetApsMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "csConfigFrameScramble",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsWaitToRestore",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 5,
+                    "max": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cssTraceReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspTraceReceived",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetExtAxsmeCapabilityV21R60": {
+    "name": "ciscoSonetExtAxsmeCapabilityV21R60",
+    "oid": "1.3.6.1.4.1.9.7.261.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.60.",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetTraceMIBGroup",
+          "ciscoSonetApsMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "csConfigFrameScramble",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2,
+                  "anexBOnePlusOne": 3,
+                  "straightOnePlusOneNok1k2": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "cssTraceReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspTraceReceived",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetExtSrmeCapabilityV3R00": {
+    "name": "ciscoSonetExtSrmeCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.261.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8800 Release 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup1",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetApsMIBGroup1",
+          "ciscoSonetVTConfMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "csConfigType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sonetStm1": 2,
+                  "sonetSts3": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "anexBOnePlusOne": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cslFarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalUASs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetExtCapabilityV4R00": {
+    "name": "ciscoSonetExtCapabilityV4R00",
+    "oid": "1.3.6.1.4.1.9.7.261.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850, MGX8950 Release 4.0.00.",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup1",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetTraceMIBGroup",
+          "ciscoSonetApsMIBGroup1",
+          "ciscoSonetPathConfMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "csConfigFrameScramble",
+            "access": "read-only"
+          },
+          {
+            "object": "cspSonetPathPayload",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspSonetPathPayload",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unequipped": 1,
+                  "ds3": 3,
+                  "atmCell": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cspSonetPathPayload",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unequipped": 1,
+                  "atmCell": 6
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "csConfigFrameScramble",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2,
+                  "anexBOnePlusOne": 3,
+                  "straightOnePlusOneNok1k2": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "cssTraceReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspTraceReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "csConfigRDIPType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "csConfigRDIVType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSonetExtCapabilityV5R00": {
+    "name": "ciscoSonetExtCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.261.6",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-SONET-MIB",
+        "includes": [
+          "ciscoSonetConfMIBGroup1",
+          "ciscoSonetApsMIBGroup1",
+          "ciscoSonetStatsMIBGroup",
+          "ciscoSonetTraceMIBGroup",
+          "ciscoSonetPathConfMIBGroup",
+          "ciscoSonetPathConfMIBGroup1"
+        ],
+        "variations": [
+          {
+            "object": "cslFarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslFarEndTotalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cspFarEndTotalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "csConfigType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sonetStm1": 2,
+                  "sonetSts3": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2,
+                  "anexBOnePlusOne": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "csApsArchMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "onePlusOne": 1,
+                  "oneToOne": 2,
+                  "anexBOnePlusOne": 3,
+                  "straightOnePlusOneNok1k2": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "cspSonetPathPayload",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ds3": 3,
+                  "vt15vc11": 4,
+                  "vt2vc12": 5
+                }
+              }
+            },
+            "default": [
+              "vt15vc11"
+            ]
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SONET-EXT-CAPABILITY",
+      "Source digest sha256:9df359fbda643a82880d996e63dc6950280e43028cbf44bf2ac1fc21b762438b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SONET-EXT-CAPABILITY"
+  }
+}

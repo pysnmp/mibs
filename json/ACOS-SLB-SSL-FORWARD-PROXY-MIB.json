@@ -1,0 +1,516 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbSslForwardProxyModule": {
+    "name": "slbSslForwardProxyModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312",
+    "class": "moduleidentity"
+  },
+  "sslForwardProxy": {
+    "name": "sslForwardProxy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1",
+    "class": "objectidentity"
+  },
+  "sslForwardProxyStatsTable": {
+    "name": "sslForwardProxyStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslForwardProxyStatsEntry": {
+    "name": "sslForwardProxyStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SSL-FORWARD-PROXY-MIB",
+        "object": "sslForwardProxyStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslForwardProxyStatsSlotId": {
+    "name": "sslForwardProxyStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertCreate": {
+    "name": "sslForwardProxyStatsCertCreate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertExpr": {
+    "name": "sslForwardProxyStatsCertExpr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertHit": {
+    "name": "sslForwardProxyStatsCertHit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertMiss": {
+    "name": "sslForwardProxyStatsCertMiss",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsConnBypass": {
+    "name": "sslForwardProxyStatsConnBypass",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsConnInspect": {
+    "name": "sslForwardProxyStatsConnInspect",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassFailsafeSslSessions": {
+    "name": "sslForwardProxyStatsBypassFailsafeSslSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassSniSessions": {
+    "name": "sslForwardProxyStatsBypassSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassClientAuthSessions": {
+    "name": "sslForwardProxyStatsBypassClientAuthSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsFailedInSslHandshakes": {
+    "name": "sslForwardProxyStatsFailedInSslHandshakes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsFailedInCryptoOperations": {
+    "name": "sslForwardProxyStatsFailedInCryptoOperations",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsFailedInTcp": {
+    "name": "sslForwardProxyStatsFailedInTcp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsFailedInCertificateVerification": {
+    "name": "sslForwardProxyStatsFailedInCertificateVerification",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsFailedInCertificateSigning": {
+    "name": "sslForwardProxyStatsFailedInCertificateSigning",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsInvalidOcspStaplingResponse": {
+    "name": "sslForwardProxyStatsInvalidOcspStaplingResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsRevokedOcspResponse": {
+    "name": "sslForwardProxyStatsRevokedOcspResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsUnsupportedSslVersion": {
+    "name": "sslForwardProxyStatsUnsupportedSslVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertificatesInCache": {
+    "name": "sslForwardProxyStatsCertificatesInCache",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsConnectionsFailed": {
+    "name": "sslForwardProxyStatsConnectionsFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsAflexBypass": {
+    "name": "sslForwardProxyStatsAflexBypass",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassCertSubjectSessions": {
+    "name": "sslForwardProxyStatsBypassCertSubjectSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassCertIssuerSessions": {
+    "name": "sslForwardProxyStatsBypassCertIssuerSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassCertSanSessions": {
+    "name": "sslForwardProxyStatsBypassCertSanSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassNoSniSessions": {
+    "name": "sslForwardProxyStatsBypassNoSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsResetNoSniSessions": {
+    "name": "sslForwardProxyStatsResetNoSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassEsniSessions": {
+    "name": "sslForwardProxyStatsBypassEsniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsDropEsniSessions": {
+    "name": "sslForwardProxyStatsDropEsniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassUsernameSessions": {
+    "name": "sslForwardProxyStatsBypassUsernameSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassAdGroupSessions": {
+    "name": "sslForwardProxyStatsBypassAdGroupSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsTotConnInBuff": {
+    "name": "sslForwardProxyStatsTotConnInBuff",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCurrConnInBuff": {
+    "name": "sslForwardProxyStatsCurrConnInBuff",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsAsyncConnTimeout": {
+    "name": "sslForwardProxyStatsAsyncConnTimeout",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsAsyncConnLimitDrop": {
+    "name": "sslForwardProxyStatsAsyncConnLimitDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsCertInCache": {
+    "name": "sslForwardProxyStatsCertInCache",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassClientIpSessions": {
+    "name": "sslForwardProxyStatsBypassClientIpSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslForwardProxyStatsBypassServerIpSessions": {
+    "name": "sslForwardProxyStatsBypassServerIpSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.312.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SSL-FORWARD-PROXY-MIB",
+      "Source digest sha256:30f9c621bfe1468b5203f9e6d6d5036a4524b8df049fa9f22e9649c7efd33f0d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SSL-FORWARD-PROXY-MIB"
+  }
+}

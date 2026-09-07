@@ -1,0 +1,115 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "lgpController",
+      "liebertControllerModuleReg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "liebertControllerModule": {
+    "name": "liebertControllerModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "Removed unnecessary item from import statement"
+      },
+      {
+        "revision": "2008-01-10 00:00",
+        "description": "Modified contact email address."
+      },
+      {
+        "revision": "2006-02-22 00:00",
+        "description": "Added support for Liebert DS Unit."
+      }
+    ]
+  },
+  "lgpCtrlNumberInstalledControlModules": {
+    "name": "lgpCtrlNumberInstalledControlModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpCtrlNumberFailedControlModules": {
+    "name": "lgpCtrlNumberFailedControlModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpCtrlNumberRedundantControlModules": {
+    "name": "lgpCtrlNumberRedundantControlModules",
+    "oid": "1.3.6.1.4.1.476.1.42.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpCtrlNumberControlModuleWarnings": {
+    "name": "lgpCtrlNumberControlModuleWarnings",
+    "oid": "1.3.6.1.4.1.476.1.42.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpCtrlBoardBatteryVoltage": {
+    "name": "lgpCtrlBoardBatteryVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".01 Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LIEBERT-GP-CONTROLLER-MIB",
+      "Source digest sha256:cb74f18aa39af21d061bb978f9aad20f379d4e413f97e2754ddee124c62aab6a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LIEBERT-GP-CONTROLLER-MIB"
+  }
+}

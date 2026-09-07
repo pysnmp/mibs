@@ -1,0 +1,493 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfSnmpMIB": {
+    "name": "hpicfSnmpMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-11 00:00",
+        "description": "Updated description and changed InterfaceIndex to InterfaceIndexOrZero for hpicfSnmpResponseSourceAddrIfIndex and hpicfSnmpTrapSourceAddrIfIndex objects."
+      },
+      {
+        "revision": "2006-09-01 00:00",
+        "description": "Initial revision"
+      },
+      {
+        "revision": "2007-08-24 00:00",
+        "description": "Added hpicfSnmpNotification information."
+      }
+    ]
+  },
+  "hpicfSnmpNotification": {
+    "name": "hpicfSnmpNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.0",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpAuthFail": {
+    "name": "hpicfSnmpAuthFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailCount"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailIPType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpObjects": {
+    "name": "hpicfSnmpObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpConfig": {
+    "name": "hpicfSnmpConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpGlobalCfg": {
+    "name": "hpicfSnmpGlobalCfg",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpResponseSourceAddrPolicyTable": {
+    "name": "hpicfSnmpResponseSourceAddrPolicyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddrPolicyEntry": {
+    "name": "hpicfSnmpResponseSourceAddrPolicyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddressType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddressType": {
+    "name": "hpicfSnmpResponseSourceAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddrPolicy": {
+    "name": "hpicfSnmpResponseSourceAddrPolicy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfc1517": 1,
+          "configuredIP": 2,
+          "configuredInterface": 3,
+          "dstIpOfRequest": 4
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddress": {
+    "name": "hpicfSnmpResponseSourceAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddrIfIndex": {
+    "name": "hpicfSnmpResponseSourceAddrIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrTable": {
+    "name": "hpicfSnmpTrapSourceAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrEntry": {
+    "name": "hpicfSnmpTrapSourceAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpTrapSourceAddressType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddressType": {
+    "name": "hpicfSnmpTrapSourceAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrPolicy": {
+    "name": "hpicfSnmpTrapSourceAddrPolicy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfc1517": 1,
+          "configuredIP": 2,
+          "configuredInterface": 3,
+          "dstIpOfRequest": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddress": {
+    "name": "hpicfSnmpTrapSourceAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrIfIndex": {
+    "name": "hpicfSnmpTrapSourceAddrIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSnmpAuthNotifyEnable": {
+    "name": "hpicfSnmpAuthNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSnmpNotificationObjects": {
+    "name": "hpicfSnmpNotificationObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpAuthFailCount": {
+    "name": "hpicfSnmpAuthFailCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSnmpAuthFailIPType": {
+    "name": "hpicfSnmpAuthFailIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSnmpAuthFailIP": {
+    "name": "hpicfSnmpAuthFailIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSnmpConformance": {
+    "name": "hpicfSnmpConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpCompliances": {
+    "name": "hpicfSnmpCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpCompliance": {
+    "name": "hpicfSnmpCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSnmpResponseSourceAddrTableCompliancesGroup",
+        "module": "HP-ICF-SNMP-MIB"
+      },
+      {
+        "object": "hpicfSnmpTrapSourceAddrTableCompliancesGroup",
+        "module": "HP-ICF-SNMP-MIB"
+      },
+      {
+        "object": "hpicfSnmpResponseSourceAddrTableGroup",
+        "module": "HP-ICF-SNMP-MIB"
+      },
+      {
+        "object": "hpicfSnmpTrapSourceAddrTableGroup",
+        "module": "HP-ICF-SNMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpCompliancesGroups": {
+    "name": "hpicfSnmpCompliancesGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfSnmpResponseSourceAddrTableCompliancesGroup": {
+    "name": "hpicfSnmpResponseSourceAddrTableCompliancesGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddressType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrPolicy"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddress"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrTableCompliancesGroup": {
+    "name": "hpicfSnmpTrapSourceAddrTableCompliancesGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpTrapSourceAddressType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpTrapSourceAddrPolicy"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpTrapSourceAddress"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpTrapSourceAddrIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpResponseSourceAddrTableGroup": {
+    "name": "hpicfSnmpResponseSourceAddrTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddressType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrPolicy"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddress"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpTrapSourceAddrTableGroup": {
+    "name": "hpicfSnmpTrapSourceAddrTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddressType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrPolicy"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddress"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpResponseSourceAddrIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpNotifyObjectGroup": {
+    "name": "hpicfSnmpNotifyObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailCount"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailIPType"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFailIP"
+      },
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSnmpNotificationGroup": {
+    "name": "hpicfSnmpNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.38.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SNMP-MIB",
+        "object": "hpicfSnmpAuthFail"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SNMP-MIB",
+      "Source digest sha256:f9ace2e078c6ab00a569475d8c841955bd94686b7f53263e1160e01b7c2abed7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SNMP-MIB"
+  }
+}

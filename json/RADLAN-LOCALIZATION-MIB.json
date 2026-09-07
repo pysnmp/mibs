@@ -1,0 +1,118 @@
+{
+  "imports": {
+    "class": "imports",
+    "RADLAN-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlLocalization": {
+    "name": "rlLocalization",
+    "oid": "1.3.6.1.4.1.89.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "RlLanguage": {
+    "name": "RlLanguage",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "original": 1,
+          "translated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlLocalizationMibVersion": {
+    "name": "rlLocalizationMibVersion",
+    "oid": "1.3.6.1.4.1.89.103.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguage": {
+    "name": "rlLocalizationLanguage",
+    "oid": "1.3.6.1.4.1.89.103.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlLanguage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlWEBlocalizationLanguage": {
+    "name": "rlWEBlocalizationLanguage",
+    "oid": "1.3.6.1.4.1.89.103.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlLanguage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlLocalizationFiles": {
+    "name": "rlLocalizationFiles",
+    "oid": "1.3.6.1.4.1.89.103.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-translated-files": 1,
+          "two-messages-files": 2,
+          "two-web-files": 3,
+          "two-messages-and-web-files": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RADLAN-LOCALIZATION-MIB",
+      "Source digest sha256:c766935ddc919921aec8e3556315e3415de6767ddb1598b5f21014aa036042f7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RADLAN-LOCALIZATION-MIB"
+  }
+}

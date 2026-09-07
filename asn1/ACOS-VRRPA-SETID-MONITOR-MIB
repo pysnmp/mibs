@@ -1,0 +1,234 @@
+ACOS-VRRPA-SETID-MONITOR-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpASetidMonitorModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpASetidMonitorModule OID for ACOS"
+				::=  {  acosSchema 13 }
+
+setidMonitor		 OBJECT IDENTIFIER ::= { vrrpASetidMonitorModule 1}
+
+setidMonitorOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SetidMonitorOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "monitor set id that has been used from object 'vrrp-a.setid-monitor'"
+	::= {setidMonitor 2}
+
+setidMonitorOperEntry OBJECT-TYPE
+	SYNTAX SetidMonitorOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The setidMonitorOper entry"
+	INDEX {
+		setidMonitorOperSlotId
+	}
+	::= { setidMonitorOperTable 1 }
+
+SetidMonitorOperEntry ::=
+	SEQUENCE {
+		setidMonitorOperSlotId Integer32,
+		setidMonitorOperSetId	 Integer32
+	}
+
+setidMonitorOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { setidMonitorOperEntry 1 }
+
+setidMonitorOperSetId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "set-id"
+	::= { setidMonitorOperEntry 2 }
+
+setidMonitorOperSetidListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SetidMonitorOperSetidListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "monitor set id that has been used from object 'vrrp-a.setid-monitor'"
+	::= {setidMonitor 3}
+
+setidMonitorOperSetidListEntry OBJECT-TYPE
+	SYNTAX SetidMonitorOperSetidListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The setidMonitorOperSetidList entry:setid-list"
+	INDEX {
+		setidMonitorOperSetidListSlotId,
+		setidMonitorOperSetidListSetidListListId
+	}
+	::= { setidMonitorOperSetidListTable 1}
+
+SetidMonitorOperSetidListEntry ::=
+	SEQUENCE {
+		setidMonitorOperSetidListSlotId Integer32,
+		setidMonitorOperSetidListSetidListListId Integer32,
+		setidMonitorOperSetidListInterfaceType	DisplayString,
+		setidMonitorOperSetidListLif	Integer32
+	}
+
+setidMonitorOperSetidListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { setidMonitorOperSetidListEntry 1}
+
+setidMonitorOperSetidListSetidListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { setidMonitorOperSetidListEntry 2}
+
+setidMonitorOperSetidListInterfaceType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"interface_type"
+	::= { setidMonitorOperSetidListEntry 3}
+
+setidMonitorOperSetidListLif OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"lif"
+	::= { setidMonitorOperSetidListEntry 4}
+
+setidMonitorOperSetidListIpListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SetidMonitorOperSetidListIpListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "monitor set id that has been used from object 'vrrp-a.setid-monitor'"
+	::= {setidMonitor 4}
+
+setidMonitorOperSetidListIpListEntry OBJECT-TYPE
+	SYNTAX SetidMonitorOperSetidListIpListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The setidMonitorOperSetidListIpList entry:ip-list"
+	INDEX {
+		setidMonitorOperSetidListIpListSlotId,
+		setidMonitorOperSetidListIpListSetidListListId,
+		setidMonitorOperSetidListIpListIpListListId
+	}
+	::= { setidMonitorOperSetidListIpListTable 1}
+
+SetidMonitorOperSetidListIpListEntry ::=
+	SEQUENCE {
+		setidMonitorOperSetidListIpListSlotId Integer32,
+		setidMonitorOperSetidListIpListSetidListListId Integer32,
+		setidMonitorOperSetidListIpListIpListListId Integer32,
+		setidMonitorOperSetidListIpListDeviceId	Integer32,
+		setidMonitorOperSetidListIpListIpaddress	DisplayString,
+		setidMonitorOperSetidListIpListIpv6	DisplayString,
+		setidMonitorOperSetidListIpListMac	DisplayString,
+		setidMonitorOperSetidListIpListVlan	Integer32,
+		setidMonitorOperSetidListIpListLastObserved	Integer32
+	}
+
+setidMonitorOperSetidListIpListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { setidMonitorOperSetidListIpListEntry 1}
+
+setidMonitorOperSetidListIpListSetidListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { setidMonitorOperSetidListIpListEntry 2}
+
+setidMonitorOperSetidListIpListIpListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { setidMonitorOperSetidListIpListEntry 3}
+
+setidMonitorOperSetidListIpListDeviceId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device-id"
+	::= { setidMonitorOperSetidListIpListEntry 4}
+
+setidMonitorOperSetidListIpListIpaddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipaddress"
+	::= { setidMonitorOperSetidListIpListEntry 5}
+
+setidMonitorOperSetidListIpListIpv6 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6"
+	::= { setidMonitorOperSetidListIpListEntry 6}
+
+setidMonitorOperSetidListIpListMac OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mac"
+	::= { setidMonitorOperSetidListIpListEntry 7}
+
+setidMonitorOperSetidListIpListVlan OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vlan"
+	::= { setidMonitorOperSetidListIpListEntry 8}
+
+setidMonitorOperSetidListIpListLastObserved OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"last_observed"
+	::= { setidMonitorOperSetidListIpListEntry 9}
+
+END
+

@@ -1,0 +1,418 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEnhancedSlbCapability": {
+    "name": "ciscoEnhancedSlbCapability",
+    "oid": "1.3.6.1.4.1.9.7.507",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-07 00:00",
+        "description": "Added capability statement ciscoEnhancedSlbCapc4710aceVA3R10 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2008-02-08 00:00",
+        "description": "Added capability statement ciscoEnhancedSlbCapc4710aceVA1R70 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-05-22 00:00",
+        "description": "Initial version of this MIB Added capability statement ciscoEnhancedSlbCapACSWV03R000 for Application Control Engine (ACE)."
+      }
+    ]
+  },
+  "ciscoEnhancedSlbCapACSWV03R000": {
+    "name": "ciscoEnhancedSlbCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.507.1",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "includes": [
+          "cesRealServerGroup",
+          "cesRealServerFarmGroup",
+          "cesRealServerNotifGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "cesRserverType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectRelocationStr",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectCode",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverOperWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupName",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverDroppedConns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesServerFarmRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedSlbCapc4710aceVA1R70": {
+    "name": "ciscoEnhancedSlbCapc4710aceVA1R70",
+    "oid": "1.3.6.1.4.1.9.7.507.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                    for ACE 4710 Application Control Engine \n                    Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "includes": [
+          "cesRealServerGroup",
+          "cesRealServerFarmGroup",
+          "cesRealServerNotifGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "cesRserverType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectRelocationStr",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectCode",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverOperWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupName",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverDroppedConns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesServerFarmRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedSlbCapc4710aceVA3R10": {
+    "name": "ciscoEnhancedSlbCapc4710aceVA3R10",
+    "oid": "1.3.6.1.4.1.9.7.507.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A3(1.0)\n                    for ACE 4710 Application Control Engine \n                    Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "includes": [
+          "cesRealServerGroup",
+          "cesRealServerFarmGroup",
+          "cesRealServerNotifGroupRev1",
+          "cesNotificationObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cesRealServerName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesRserverType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverIpAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectRelocationStr",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRedirectCode",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesRserverProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverOperWeight",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMaxConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverMinConns",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupName",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverBackupPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverDroppedConns",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesServerFarmRserverStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmRserverRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cesServerFarmName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesProbeName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cesRealServerNotifEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENHANCED-SLB-CAPABILITY",
+      "Source digest sha256:b1ec1afd25f8b279a3e18404e853795118a0a9404de7a3e2348cd3457aff8659",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENHANCED-SLB-CAPABILITY"
+  }
+}

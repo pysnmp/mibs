@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dragonwave": {
+    "name": "dragonwave",
+    "oid": "1.3.6.1.4.1.7262",
+    "class": "moduleidentity"
+  },
+  "harmony": {
+    "name": "harmony",
+    "oid": "1.3.6.1.4.1.7262.4",
+    "class": "objectidentity"
+  },
+  "lite": {
+    "name": "lite",
+    "oid": "1.3.6.1.4.1.7262.4.1",
+    "class": "objectidentity"
+  },
+  "harmonyMultiRadio": {
+    "name": "harmonyMultiRadio",
+    "oid": "1.3.6.1.4.1.7262.4.2",
+    "class": "objectidentity"
+  },
+  "harmonyFPH800": {
+    "name": "harmonyFPH800",
+    "oid": "1.3.6.1.4.1.7262.4.3",
+    "class": "objectidentity"
+  },
+  "harmonyFM": {
+    "name": "harmonyFM",
+    "oid": "1.3.6.1.4.1.7262.4.4",
+    "class": "objectidentity"
+  },
+  "mwr": {
+    "name": "mwr",
+    "oid": "1.3.6.1.4.1.7262.4.5",
+    "class": "objectidentity"
+  },
+  "equipmentCommon": {
+    "name": "equipmentCommon",
+    "oid": "1.3.6.1.4.1.7262.20",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.7262.50",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DWI-HARMONY-PRIVATE-MIB",
+      "Source digest sha256:50e33aa6ce40a23f8790e96001302c955c8d79c67df729625a95ab5623ede09d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DWI-HARMONY-PRIVATE-MIB"
+  }
+}

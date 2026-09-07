@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "spidcom": {
+    "name": "spidcom",
+    "oid": "1.3.6.1.4.1.22764",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SPIDCOM-MIB",
+      "Source digest sha256:24a7588f9f373961453c76f004a6e34c9424d00621314fb731007f2beb5bd733",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SPIDCOM-MIB"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfMadMIB": {
+    "name": "hpicfMadMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-12-12 00:00",
+        "description": "Initial version for this MIB module"
+      }
+    ]
+  },
+  "hpicfMadNotifications": {
+    "name": "hpicfMadNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.0",
+    "class": "objectidentity"
+  },
+  "hpicfMadObjects": {
+    "name": "hpicfMadObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1",
+    "class": "objectidentity"
+  },
+  "hpicfMadConformance": {
+    "name": "hpicfMadConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2",
+    "class": "objectidentity"
+  },
+  "hpicfMadLacpAggObjects": {
+    "name": "hpicfMadLacpAggObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfMadLacpAggTable": {
+    "name": "hpicfMadLacpAggTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMadLacpAggEntry": {
+    "name": "hpicfMadLacpAggEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadLacpAggTrunkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMadLacpAggTrunkId": {
+    "name": "hpicfMadLacpAggTrunkId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMadPassthroughLacpAggAdminStatus": {
+    "name": "hpicfMadPassthroughLacpAggAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMadLacpAggPortStatsTable": {
+    "name": "hpicfMadLacpAggPortStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMadLacpAggPortStatsEntry": {
+    "name": "hpicfMadLacpAggPortStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadLacpAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMadLacpAggPortIndex": {
+    "name": "hpicfMadLacpAggPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMadPassthroughLacpAggPDUsRx": {
+    "name": "hpicfMadPassthroughLacpAggPDUsRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMadPassthroughLacpAggPDUsTx": {
+    "name": "hpicfMadPassthroughLacpAggPDUsTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMadPassthroughLacpAggPDUsDropped": {
+    "name": "hpicfMadPassthroughLacpAggPDUsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfMadLacpAggGoups": {
+    "name": "hpicfMadLacpAggGoups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfMadLacpAggCompliances": {
+    "name": "hpicfMadLacpAggCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfMadLacpAggCompliance1": {
+    "name": "hpicfMadLacpAggCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfMadLacpAggConfigGroup",
+        "module": "HP-ICF-MAD-MIB"
+      },
+      {
+        "object": "hpicfMadLacpAggStatisticsGroup",
+        "module": "HP-ICF-MAD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMadLacpAggConfigGroup": {
+    "name": "hpicfMadLacpAggConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadPassthroughLacpAggAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMadLacpAggStatisticsGroup": {
+    "name": "hpicfMadLacpAggStatisticsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.95.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadPassthroughLacpAggPDUsRx"
+      },
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadPassthroughLacpAggPDUsTx"
+      },
+      {
+        "module": "HP-ICF-MAD-MIB",
+        "object": "hpicfMadPassthroughLacpAggPDUsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-MAD-MIB",
+      "Source digest sha256:ae2e4461a2a0adc89019de128d80a63554a93bdc791edc55999e34dec2a4edeb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-MAD-MIB"
+  }
+}

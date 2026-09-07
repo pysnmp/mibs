@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDNSClientCapability": {
+    "name": "ciscoDNSClientCapability",
+    "oid": "1.3.6.1.4.1.9.7.888",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-25 00:00",
+        "description": "Added the agent capabilities 'cDNSClientCapSanOSV20R1MDS9000' for SanOS 2.0(1) on Cisco MDS 9000 series devices."
+      },
+      {
+        "revision": "2004-08-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cDNSClientCapSanOSV20R1MDS9000": {
+    "name": "cDNSClientCapSanOSV20R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.888.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 2.0(1) on Cisco MDS 9000\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-DNS-CLIENT-MIB",
+        "includes": [
+          "ciscoDNSServerConfigGroup",
+          "ciscoDNSDomainNameConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdcNoOfDNSServerConfig",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 6
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DNS-CLIENT-CAPABILITY",
+      "Source digest sha256:5c0fe5845400e092f2576b1348d74923a897ee3dac9f45d974cb903d9f677a6f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DNS-CLIENT-CAPABILITY"
+  }
+}

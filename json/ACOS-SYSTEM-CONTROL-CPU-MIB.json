@@ -1,0 +1,864 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "systemControlCpuModule": {
+    "name": "systemControlCpuModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47",
+    "class": "moduleidentity"
+  },
+  "controlCpu": {
+    "name": "controlCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1",
+    "class": "objectidentity"
+  },
+  "controlCpuStatsTable": {
+    "name": "controlCpuStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "controlCpuStatsEntry": {
+    "name": "controlCpuStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SYSTEM-CONTROL-CPU-MIB",
+        "object": "controlCpuStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "controlCpuStatsSlotId": {
+    "name": "controlCpuStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCtrlCpuNumber": {
+    "name": "controlCpuStatsCtrlCpuNumber",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu1": {
+    "name": "controlCpuStatsCpu1",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu2": {
+    "name": "controlCpuStatsCpu2",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu3": {
+    "name": "controlCpuStatsCpu3",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu4": {
+    "name": "controlCpuStatsCpu4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu5": {
+    "name": "controlCpuStatsCpu5",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu6": {
+    "name": "controlCpuStatsCpu6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu7": {
+    "name": "controlCpuStatsCpu7",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu8": {
+    "name": "controlCpuStatsCpu8",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu9": {
+    "name": "controlCpuStatsCpu9",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu10": {
+    "name": "controlCpuStatsCpu10",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu11": {
+    "name": "controlCpuStatsCpu11",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu12": {
+    "name": "controlCpuStatsCpu12",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu13": {
+    "name": "controlCpuStatsCpu13",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu14": {
+    "name": "controlCpuStatsCpu14",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu15": {
+    "name": "controlCpuStatsCpu15",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu16": {
+    "name": "controlCpuStatsCpu16",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu17": {
+    "name": "controlCpuStatsCpu17",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu18": {
+    "name": "controlCpuStatsCpu18",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu19": {
+    "name": "controlCpuStatsCpu19",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu20": {
+    "name": "controlCpuStatsCpu20",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu21": {
+    "name": "controlCpuStatsCpu21",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu22": {
+    "name": "controlCpuStatsCpu22",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu23": {
+    "name": "controlCpuStatsCpu23",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu24": {
+    "name": "controlCpuStatsCpu24",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu25": {
+    "name": "controlCpuStatsCpu25",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu26": {
+    "name": "controlCpuStatsCpu26",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu27": {
+    "name": "controlCpuStatsCpu27",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu28": {
+    "name": "controlCpuStatsCpu28",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu29": {
+    "name": "controlCpuStatsCpu29",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu30": {
+    "name": "controlCpuStatsCpu30",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu31": {
+    "name": "controlCpuStatsCpu31",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu32": {
+    "name": "controlCpuStatsCpu32",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu33": {
+    "name": "controlCpuStatsCpu33",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu34": {
+    "name": "controlCpuStatsCpu34",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu35": {
+    "name": "controlCpuStatsCpu35",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu36": {
+    "name": "controlCpuStatsCpu36",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu37": {
+    "name": "controlCpuStatsCpu37",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu38": {
+    "name": "controlCpuStatsCpu38",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu39": {
+    "name": "controlCpuStatsCpu39",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu40": {
+    "name": "controlCpuStatsCpu40",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu41": {
+    "name": "controlCpuStatsCpu41",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu42": {
+    "name": "controlCpuStatsCpu42",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu43": {
+    "name": "controlCpuStatsCpu43",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu44": {
+    "name": "controlCpuStatsCpu44",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu45": {
+    "name": "controlCpuStatsCpu45",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu46": {
+    "name": "controlCpuStatsCpu46",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu47": {
+    "name": "controlCpuStatsCpu47",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu48": {
+    "name": "controlCpuStatsCpu48",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu49": {
+    "name": "controlCpuStatsCpu49",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu50": {
+    "name": "controlCpuStatsCpu50",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu51": {
+    "name": "controlCpuStatsCpu51",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu52": {
+    "name": "controlCpuStatsCpu52",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu53": {
+    "name": "controlCpuStatsCpu53",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu54": {
+    "name": "controlCpuStatsCpu54",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu55": {
+    "name": "controlCpuStatsCpu55",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu56": {
+    "name": "controlCpuStatsCpu56",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu57": {
+    "name": "controlCpuStatsCpu57",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu58": {
+    "name": "controlCpuStatsCpu58",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu59": {
+    "name": "controlCpuStatsCpu59",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu60": {
+    "name": "controlCpuStatsCpu60",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu61": {
+    "name": "controlCpuStatsCpu61",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu62": {
+    "name": "controlCpuStatsCpu62",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu63": {
+    "name": "controlCpuStatsCpu63",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlCpuStatsCpu64": {
+    "name": "controlCpuStatsCpu64",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.47.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SYSTEM-CONTROL-CPU-MIB",
+      "Source digest sha256:1df57112c3885b3dda715e139463989719afcd50aae12adf4d7b24b3647b8682",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SYSTEM-CONTROL-CPU-MIB"
+  }
+}

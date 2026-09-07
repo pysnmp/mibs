@@ -1,0 +1,492 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CONFIG-COPY-MIB": [
+      "ConfigCopyFailCause",
+      "ConfigCopyProtocol",
+      "ConfigCopyState",
+      "ConfigFileType"
+    ],
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoConfigCopyCapability": {
+    "name": "ciscoConfigCopyCapability",
+    "oid": "1.3.6.1.4.1.9.7.128",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-08 00:00",
+        "description": "Added Agent Capability statement ciscoConfigCopyCapIOSXRV2R0CRS1."
+      },
+      {
+        "revision": "2005-05-24 00:00",
+        "description": "Added capability statement ciscoConfigCopyCapMDS3R0."
+      },
+      {
+        "revision": "2004-06-08 00:00",
+        "description": "Added capability statement ciscoConfigCopyCapCatOSV08R0401."
+      },
+      {
+        "revision": "2004-03-17 00:00",
+        "description": "Adding new varbind for ccCopyCompletion Notification."
+      },
+      {
+        "revision": "2002-04-29 00:00",
+        "description": "Added ciscoConfigCopyCapabilityV2R0175 for RPM-PR module in MGX8850."
+      },
+      {
+        "revision": "2000-09-06 00:00",
+        "description": "Added VARIATION clauses to ccCopySourceFileType and ccCopyDestFileType."
+      },
+      {
+        "revision": "1999-10-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoConfigCopyCapabilityV12R00": {
+    "name": "ciscoConfigCopyCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.128.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tftp": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapabilityV12R01": {
+    "name": "ciscoConfigCopyCapabilityV12R01",
+    "oid": "1.3.6.1.4.1.9.7.128.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tftp": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopySourceFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "startupConfig": 3,
+                  "runningConfig": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyDestFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "startupConfig": 3,
+                  "runningConfig": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapabilityV2R0175": {
+    "name": "ciscoConfigCopyCapabilityV2R0175",
+    "oid": "1.3.6.1.4.1.9.7.128.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.75",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopySourceFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "runningConfig": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyDestFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "startupConfig": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyServerAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopyFileName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopyUserName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopyUserPassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopyNotificationOnCompletion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccCopyEntryRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapabilityV12R30S": {
+    "name": "ciscoConfigCopyCapabilityV12R30S",
+    "oid": "1.3.6.1.4.1.9.7.128.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.30S",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroupRev1",
+          "ccCopyNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tftp": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapCatOSV08R0401": {
+    "name": "ciscoConfigCopyCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.128.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tftp": 1,
+                  "ftp": 2,
+                  "rcp": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopySourceFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "iosFile": 2,
+                  "runningConfig": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyDestFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "iosFile": 2,
+                  "runningConfig": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 98
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ccCopyNotificationOnCompletion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "waiting": 1,
+                  "running": 2,
+                  "successful": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyFailCause",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 1,
+                  "badFileName": 2,
+                  "timeout": 3,
+                  "noMem": 4,
+                  "noConfig": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapMDS3R0": {
+    "name": "ciscoConfigCopyCapMDS3R0",
+    "oid": "1.3.6.1.4.1.9.7.128.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 3.0(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "ccCopySourceFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "startupConfig": 3,
+                  "runningConfig": 4,
+                  "fabricStartupConfig": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyDestFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "startupConfig": 3,
+                  "runningConfig": 4,
+                  "fabricStartupConfig": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoConfigCopyCapIOSXRV2R0CRS1": {
+    "name": "ciscoConfigCopyCapIOSXRV2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.128.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-CONFIG-COPY-MIB",
+        "includes": [
+          "ccCopyGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccCopyProtocol",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tftp": 1,
+                  "ftp": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopySourceFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "iosFile": 2,
+                  "runningConfig": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ccCopyDestFileType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "networkFile": 1,
+                  "iosFile": 2,
+                  "runningConfig": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CONFIG-COPY-CAPABILITY",
+      "Source digest sha256:c16756511568f48ae91d37580ae77f7bd088ccd77f033ae4e01c34852a242491",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CONFIG-COPY-CAPABILITY"
+  }
+}

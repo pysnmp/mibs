@@ -1,0 +1,31 @@
+#
+# PySNMP MIB module MDS-REG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source MDS-REG-MIB
+# Source digest sha256:fc73f841d31d47be8d600def27394027a7e6cfcff1b4571ec45061e32f72ba77
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mdsGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 4))
+mdsGlobalRegModule.setRevisions(('2006-02-08 00:00',))
+if mibBuilder.loadTexts: mdsGlobalRegModule.setLastUpdated('2006-02-08 00:00')
+if mibBuilder.loadTexts: mdsGlobalRegModule.setOrganization('Microwave Data Systems, Inc.')
+mdsRoot = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130))
+if mibBuilder.loadTexts: mdsRoot.setStatus('current')
+mdsWideband = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 1))
+if mibBuilder.loadTexts: mdsWideband.setStatus('current')
+mdsPointToPoint = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 1, 1))
+if mibBuilder.loadTexts: mdsPointToPoint.setStatus('current')
+mdsNarrowband = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 2))
+if mibBuilder.loadTexts: mdsNarrowband.setStatus('current')
+mdsPointToMultiPoint = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 2, 1))
+if mibBuilder.loadTexts: mdsPointToMultiPoint.setStatus('current')
+mdsBroadband = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 3))
+if mibBuilder.loadTexts: mdsBroadband.setStatus('current')
+mdsSoftware = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 9))
+if mibBuilder.loadTexts: mdsSoftware.setStatus('current')
+mibBuilder.exportSymbols("MDS-REG-MIB", PYSNMP_MODULE_ID=mdsGlobalRegModule, mdsBroadband=mdsBroadband, mdsGlobalRegModule=mdsGlobalRegModule, mdsNarrowband=mdsNarrowband, mdsPointToMultiPoint=mdsPointToMultiPoint, mdsPointToPoint=mdsPointToPoint, mdsRoot=mdsRoot, mdsSoftware=mdsSoftware, mdsWideband=mdsWideband)

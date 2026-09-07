@@ -1,0 +1,1060 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbSslStatsModule": {
+    "name": "slbSslStatsModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303",
+    "class": "moduleidentity"
+  },
+  "sslStats": {
+    "name": "sslStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1",
+    "class": "objectidentity"
+  },
+  "sslStatsOperTable": {
+    "name": "sslStatsOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslStatsOperEntry": {
+    "name": "sslStatsOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SSL-STATS-MIB",
+        "object": "sslStatsOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslStatsOperSlotId": {
+    "name": "sslStatsOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleType": {
+    "name": "sslStatsOperSslModuleType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperConfigModuleType": {
+    "name": "sslStatsOperConfigModuleType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperThalesHsmStatus": {
+    "name": "sslStatsOperThalesHsmStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModulesCount": {
+    "name": "sslStatsOperSslModulesCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCurrentClientsideConnections": {
+    "name": "sslStatsOperCurrentClientsideConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalClientsideConnections": {
+    "name": "sslStatsOperTotalClientsideConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCurrentServersideConnections": {
+    "name": "sslStatsOperCurrentServersideConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalServersideConnections": {
+    "name": "sslStatsOperTotalServersideConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperNonSslBypassConnections": {
+    "name": "sslStatsOperNonSslBypassConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalReuseClientSsl": {
+    "name": "sslStatsOperTotalReuseClientSsl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalReuseServerSsl": {
+    "name": "sslStatsOperTotalReuseServerSsl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalReuseSessionTicketClientSsl": {
+    "name": "sslStatsOperTotalReuseSessionTicketClientSsl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalReuseSessionTicketServerSsl": {
+    "name": "sslStatsOperTotalReuseSessionTicketServerSsl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalClientsideEarlyDataConnections": {
+    "name": "sslStatsOperTotalClientsideEarlyDataConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalServersideEarlyDataConnections": {
+    "name": "sslStatsOperTotalServersideEarlyDataConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalClientsideFailedEarlyDataConnections": {
+    "name": "sslStatsOperTotalClientsideFailedEarlyDataConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTotalServersideFailedEarlyDataConnections": {
+    "name": "sslStatsOperTotalServersideFailedEarlyDataConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFailedHandshakes": {
+    "name": "sslStatsOperFailedHandshakes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFailedCrypto": {
+    "name": "sslStatsOperFailedCrypto",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslMemoryUsage": {
+    "name": "sslStatsOperSslMemoryUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperServerCertErrors": {
+    "name": "sslStatsOperServerCertErrors",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientCertAuthFail": {
+    "name": "sslStatsOperClientCertAuthFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCaVerificationFailures": {
+    "name": "sslStatsOperCaVerificationFailures",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperHwContextTotal": {
+    "name": "sslStatsOperHwContextTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperHwContextUsage": {
+    "name": "sslStatsOperHwContextUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperHwContextAllocFail": {
+    "name": "sslStatsOperHwContextAllocFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperHwRingFull": {
+    "name": "sslStatsOperHwRingFull",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperRecordTooBig": {
+    "name": "sslStatsOperRecordTooBig",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientsslContextMallocFail": {
+    "name": "sslStatsOperClientsslContextMallocFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperMaxSslContexts": {
+    "name": "sslStatsOperMaxSslContexts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCurrSslContexts": {
+    "name": "sslStatsOperCurrSslContexts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperStaticSslContexts": {
+    "name": "sslStatsOperStaticSslContexts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperDynamicSslContexts": {
+    "name": "sslStatsOperDynamicSslContexts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassFailsafeSessions": {
+    "name": "sslStatsOperBypassFailsafeSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassUsenameSessions": {
+    "name": "sslStatsOperBypassUsenameSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassAdGroupSessions": {
+    "name": "sslStatsOperBypassAdGroupSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassSniSessions": {
+    "name": "sslStatsOperBypassSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassCertSubjectSessions": {
+    "name": "sslStatsOperBypassCertSubjectSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassCertIssuerSessions": {
+    "name": "sslStatsOperBypassCertIssuerSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassCertSanSessions": {
+    "name": "sslStatsOperBypassCertSanSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassNoSniSessions": {
+    "name": "sslStatsOperBypassNoSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperResetNoSniSessions": {
+    "name": "sslStatsOperResetNoSniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassEsniSessions": {
+    "name": "sslStatsOperBypassEsniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperDropEsniSessions": {
+    "name": "sslStatsOperDropEsniSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperBypassClientAuthSessions": {
+    "name": "sslStatsOperBypassClientAuthSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslHandshakeFailure": {
+    "name": "sslStatsOperSslHandshakeFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCryptioOperations": {
+    "name": "sslStatsOperCryptioOperations",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperTcpFailures": {
+    "name": "sslStatsOperTcpFailures",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCertificateVerificationFailures": {
+    "name": "sslStatsOperCertificateVerificationFailures",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperCertificateSigningFailures": {
+    "name": "sslStatsOperCertificateSigningFailures",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperInvalidOcspStaplingResponse": {
+    "name": "sslStatsOperInvalidOcspStaplingResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperRevokedOcspResponse": {
+    "name": "sslStatsOperRevokedOcspResponse",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperUnsupportedSslVersion": {
+    "name": "sslStatsOperUnsupportedSslVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientSslFatalAlert": {
+    "name": "sslStatsOperClientSslFatalAlert",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientSslFinReset": {
+    "name": "sslStatsOperClientSslFinReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslSessionFinReset": {
+    "name": "sslStatsOperSslSessionFinReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperServerSslFatalAlert": {
+    "name": "sslStatsOperServerSslFatalAlert",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperServerSslFinReset": {
+    "name": "sslStatsOperServerSslFinReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientSslInternalError": {
+    "name": "sslStatsOperClientSslInternalError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperClientSslUnknownError": {
+    "name": "sslStatsOperClientSslUnknownError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperServerSslInternalError": {
+    "name": "sslStatsOperServerSslInternalError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperServerSslUnknownError": {
+    "name": "sslStatsOperServerSslUnknownError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFpFailHandshake": {
+    "name": "sslStatsOperFpFailHandshake",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFpFailTcpError": {
+    "name": "sslStatsOperFpFailTcpError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFpFailVerifyCert": {
+    "name": "sslStatsOperFpFailVerifyCert",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperFpFailAflex": {
+    "name": "sslStatsOperFpFailAflex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperUtilEnableStatus": {
+    "name": "sslStatsOperUtilEnableStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsTable": {
+    "name": "sslStatsOperSslModuleStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsEntry": {
+    "name": "sslStatsOperSslModuleStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SSL-STATS-MIB",
+        "object": "sslStatsOperSslModuleStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SSL-STATS-MIB",
+        "object": "sslStatsOperSslModuleStatsSslModuleStatsListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsSlotId": {
+    "name": "sslStatsOperSslModuleStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsSslModuleStatsListId": {
+    "name": "sslStatsOperSslModuleStatsSslModuleStatsListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsSslModulesIndex": {
+    "name": "sslStatsOperSslModuleStatsSslModulesIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsTotalEnabledCryptoEngines": {
+    "name": "sslStatsOperSslModuleStatsTotalEnabledCryptoEngines",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsTotalAvailableCryptoEngines": {
+    "name": "sslStatsOperSslModuleStatsTotalAvailableCryptoEngines",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsRequestsHandled": {
+    "name": "sslStatsOperSslModuleStatsRequestsHandled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStatsUtilPercentage": {
+    "name": "sslStatsOperSslModuleStatsUtilPercentage",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStats1secRate": {
+    "name": "sslStatsOperSslModuleStats1secRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStats5secRate": {
+    "name": "sslStatsOperSslModuleStats5secRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStats10secRate": {
+    "name": "sslStatsOperSslModuleStats10secRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStats30secRate": {
+    "name": "sslStatsOperSslModuleStats30secRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslStatsOperSslModuleStats60secRate": {
+    "name": "sslStatsOperSslModuleStats60secRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.303.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SSL-STATS-MIB",
+      "Source digest sha256:645c7a7c5119ed36facd82afd678bf4f5928eb8a4a2689c43378a88373eeaf54",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SSL-STATS-MIB"
+  }
+}

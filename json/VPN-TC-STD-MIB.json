@@ -1,0 +1,79 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vpnTcMIB": {
+    "name": "vpnTcMIB",
+    "oid": "1.3.6.1.2.1.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-15 00:00",
+        "description": "Initial version, published as RFC 4265."
+      }
+    ]
+  },
+  "VPNId": {
+    "name": "VPNId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VPNIdOrZero": {
+    "name": "VPNIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VPN-TC-STD-MIB",
+      "Source digest sha256:9bbc89f6594d03bb5de6a0572c5b986b733760fa81a9ff5d89402d8af3b1d486",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VPN-TC-STD-MIB"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPopMgmtCapability": {
+    "name": "ciscoPopMgmtCapability",
+    "oid": "1.3.6.1.4.1.9.7.447",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-10-12 00:00",
+        "description": "Added variations for cpmDS0UsageGroupRev2."
+      },
+      {
+        "revision": "2005-08-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPopMgmtCapabilityV12R04": {
+    "name": "ciscoPopMgmtCapabilityV12R04",
+    "oid": "1.3.6.1.4.1.9.7.447.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4 for C3600 family platforms",
+    "capabilities": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "includes": [
+          "cpmDS0UsageGroupRev2",
+          "cpmDS0StatusGroup",
+          "cpmNotificationGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "cpmConfiguredType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 1,
+                  "isdn": 2,
+                  "ct1": 3,
+                  "ce1": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cpmDS0CallType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "idle": 1,
+                  "unknown": 2,
+                  "analog": 3,
+                  "digital": 4,
+                  "v110": 5,
+                  "v120": 6,
+                  "voice": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "cpmL2Encapsulation",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "idle": 1,
+                  "unknown": 2,
+                  "ppp": 3,
+                  "slip": 4,
+                  "arap": 5,
+                  "hdlc": 6,
+                  "exec": 7,
+                  "voice": 8
+                }
+              }
+            }
+          },
+          {
+            "object": "cpmCallCount",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmTimeInUse",
+            "syntax": {
+              "type": "TimeTicks",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmInOctets",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmOutOctets",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmInPackets",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmOutPackets",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmAssociatedInterface",
+            "syntax": {
+              "type": "InterfaceIndexOrZero",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmISDNCfgBChanInUseForAnalog",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmISDNCfgBChannelsInUse",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmActiveDS0s",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmPPPCalls",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmV120Calls",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmV110Calls",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmActiveDS0sHighWaterMark",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmDS1ActiveDS0s",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmDS1ActiveDS0sHighWaterMark",
+            "syntax": {
+              "type": "Counter32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmSW56CfgBChannelsInUse",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmISDNCfgBChanInUseForVoice",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmCASCfgBChanInUseForVoice",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type"
+            }
+          },
+          {
+            "object": "cpmDS1LoopbackNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-POP-MGMT-CAPABILITY",
+      "Source digest sha256:59db0430d26beee0ab8107720cd694cc90e72d062d007f1a84fd40b1b3852832",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-POP-MGMT-CAPABILITY"
+  }
+}

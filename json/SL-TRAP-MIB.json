@@ -1,0 +1,246 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAD-MIB": [
+      "tftpStatus"
+    ],
+    "SL-ALARM-MIB": [
+      "slAlarmActive",
+      "slAlarmIfIndex",
+      "slAlarmServiceAffect",
+      "slAlarmSeverity",
+      "slAlarmType"
+    ],
+    "SL-EDFA-MIB": [
+      "edfaIfIndex",
+      "edfaOperControlMode",
+      "edfaStatus"
+    ],
+    "SL-EVENT-MIB": [
+      "slEventIfIndex",
+      "slEventInventoryAction",
+      "slEventInventoryIfIndex",
+      "slEventInventoryPartnum",
+      "slEventInventorySerial",
+      "slEventInventoryType",
+      "slEventType",
+      "slEventUser",
+      "slEventVal",
+      "slGenEventIfIndex",
+      "slGenEventType",
+      "slGenEventUser",
+      "slGenEventVal"
+    ],
+    "SL-NE-MIB": [
+      "packetlight"
+    ],
+    "SL-OPT-APS-MIB": [
+      "optApsConfigActiveConnectionRx",
+      "optApsConfigUserWorkingIndex"
+    ],
+    "SL-TESTS-MIB": [
+      "slTestsIfLoopIfIndex",
+      "slTestsIfLoopType",
+      "slTestsTrapsLoopbackActive"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slAlarmTrapV1": {
+    "name": "slAlarmTrapV1",
+    "oid": "1.3.6.1.4.1.4515.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-ALARM-MIB",
+        "object": "slAlarmIfIndex"
+      },
+      {
+        "module": "SL-ALARM-MIB",
+        "object": "slAlarmType"
+      },
+      {
+        "module": "SL-ALARM-MIB",
+        "object": "slAlarmSeverity"
+      },
+      {
+        "module": "SL-ALARM-MIB",
+        "object": "slAlarmServiceAffect"
+      },
+      {
+        "module": "SL-ALARM-MIB",
+        "object": "slAlarmActive"
+      }
+    ]
+  },
+  "slTestsTrapsLoopbackTableChangedV1": {
+    "name": "slTestsTrapsLoopbackTableChangedV1",
+    "oid": "1.3.6.1.4.1.4515.0.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopIfIndex"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsIfLoopType"
+      },
+      {
+        "module": "SL-TESTS-MIB",
+        "object": "slTestsTrapsLoopbackActive"
+      }
+    ]
+  },
+  "edfaStatusChangeV1": {
+    "name": "edfaStatusChangeV1",
+    "oid": "1.3.6.1.4.1.4515.0.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaStatus"
+      }
+    ]
+  },
+  "edfaControlModeChangeV1": {
+    "name": "edfaControlModeChangeV1",
+    "oid": "1.3.6.1.4.1.4515.0.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaIfIndex"
+      },
+      {
+        "module": "SL-EDFA-MIB",
+        "object": "edfaOperControlMode"
+      }
+    ]
+  },
+  "optApsTrapSwitchoverV1": {
+    "name": "optApsTrapSwitchoverV1",
+    "oid": "1.3.6.1.4.1.4515.0.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex"
+      },
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigActiveConnectionRx"
+      }
+    ]
+  },
+  "slEventTrapV1": {
+    "name": "slEventTrapV1",
+    "oid": "1.3.6.1.4.1.4515.0.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventIfIndex"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventType"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventVal"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventUser"
+      }
+    ]
+  },
+  "tftpStatusChangeTrapV1": {
+    "name": "tftpStatusChangeTrapV1",
+    "oid": "1.3.6.1.4.1.4515.0.132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAD-MIB",
+        "object": "tftpStatus"
+      }
+    ]
+  },
+  "slEventInventoryTrapV1": {
+    "name": "slEventInventoryTrapV1",
+    "oid": "1.3.6.1.4.1.4515.0.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventInventoryIfIndex"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventInventoryAction"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventInventoryType"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventInventorySerial"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slEventInventoryPartnum"
+      }
+    ]
+  },
+  "slGenEventTrapV1": {
+    "name": "slGenEventTrapV1",
+    "oid": "1.3.6.1.4.1.4515.0.134",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slGenEventIfIndex"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slGenEventType"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slGenEventVal"
+      },
+      {
+        "module": "SL-EVENT-MIB",
+        "object": "slGenEventUser"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-TRAP-MIB",
+      "Source digest sha256:2cf7783793a911f48a385201426e0ffe8a5eef5afd6352bf92782c747fb47e03",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-TRAP-MIB"
+  }
+}

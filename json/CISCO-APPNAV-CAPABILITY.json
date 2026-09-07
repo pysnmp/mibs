@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAppnavCapability": {
+    "name": "ciscoAppnavCapability",
+    "oid": "1.3.6.1.4.1.9.7.610",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-17 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAppNavCapabilityWAASV5R0": {
+    "name": "ciscoAppNavCapabilityWAASV5R0",
+    "oid": "1.3.6.1.4.1.9.7.610.1",
+    "class": "agentcapabilities",
+    "productrelease": "OS=WAAS\n                     OSVERSION=V501",
+    "capabilities": [
+      {
+        "module": "CISCO-APPNAV-MIB",
+        "includes": [
+          "cAppNavServiceContextGroup",
+          "cAppNavACGGroup",
+          "cAppNavSNGGroup",
+          "cAppNavACGroup",
+          "cAppNavSNGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-APPNAV-CAPABILITY",
+      "Source digest sha256:25c175bf1b90eaa1ef4e2bc9406e01e8d70b93fd4502795b3497b3fabb609edf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-APPNAV-CAPABILITY"
+  }
+}

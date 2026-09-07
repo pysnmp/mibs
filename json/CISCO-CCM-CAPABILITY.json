@@ -1,0 +1,589 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCCMCapability": {
+    "name": "ciscoCCMCapability",
+    "oid": "1.3.6.1.4.1.9.7.211",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-14 00:00",
+        "description": "Added the agent capabilities for Cisco Unified Call Manager version 8.5"
+      },
+      {
+        "revision": "2009-12-15 00:00",
+        "description": "Added the agent capabilities for Cisco Unified Communications Manager (CUCM) 8.0 release. The SYNTAX classes for the objects(ccmPhFailedTblLastAddedIndex, ccmPhStatUpdtTblLastAddedIndex and ccmPhonePhysicalAddress) are removed as they don't give any additional info."
+      },
+      {
+        "revision": "2008-08-21 00:00",
+        "description": "Added the agent capabilities for Cisco Unified Communications Manager (CUCM) 7.1 release"
+      },
+      {
+        "revision": "2008-02-20 00:00",
+        "description": "Added the agent capabilities for Cisco Unified Communications Manager (CUCM) 7.0 release"
+      },
+      {
+        "revision": "2005-11-21 00:00",
+        "description": "Added the agent capabilities for Cisco Call Manager 5.0 release."
+      },
+      {
+        "revision": "2003-10-03 00:00",
+        "description": "Added the agent capabilities for Cisco Call Manager 4.0 release."
+      },
+      {
+        "revision": "2002-03-21 00:00",
+        "description": "Added the agent capabilities for Cisco Call Manager 3.3 release."
+      },
+      {
+        "revision": "2001-07-02 00:00",
+        "description": "Added the agent capabilities for Cisco Call Manager 3.0 release."
+      },
+      {
+        "revision": "2001-06-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCCMCapabilityV3R00": {
+    "name": "ciscoCCMCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.211.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroup",
+          "ccmPhoneInfoGroup",
+          "ccmGatewayInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneLastError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneTimeLastError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayTrunkType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayTrunkName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmTrunkGatewayIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayTrunkStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV3R01": {
+    "name": "ciscoCCMCapabilityV3R01",
+    "oid": "1.3.6.1.4.1.9.7.211.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 3.1",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev1",
+          "ccmPhoneInfoGroupRev1",
+          "ccmGatewayInfoGroupRev1",
+          "ccmMediaDeviceInfoGroup",
+          "ccmGatekeeperInfoGroup",
+          "ccmCTIDeviceInfoGroup",
+          "ccmNotificationsInfoGroup",
+          "ccmNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneLastError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneTimeLastError",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatekeeperDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDeviceAppInfo",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV3R03": {
+    "name": "ciscoCCMCapabilityV3R03",
+    "oid": "1.3.6.1.4.1.9.7.211.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 3.3",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev2",
+          "ccmPhoneInfoGroupRev2",
+          "ccmGatewayInfoGroupRev2",
+          "ccmMediaDeviceInfoGroupRev1",
+          "ccmCTIDeviceInfoGroupRev1",
+          "ccmNotificationsInfoGroupRev1",
+          "ccmNotificationsGroup",
+          "ccmH323DeviceInfoGroup",
+          "ccmVoiceMailDeviceInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCCMCapabilityV3R03Rev1": {
+    "name": "ciscoCCMCapabilityV3R03Rev1",
+    "oid": "1.3.6.1.4.1.9.7.211.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 3.3",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev2",
+          "ccmPhoneInfoGroupRev2",
+          "ccmGatewayInfoGroupRev2",
+          "ccmMediaDeviceInfoGroupRev1",
+          "ccmCTIDeviceInfoGroupRev1",
+          "ccmNotificationsInfoGroupRev1",
+          "ccmNotificationsGroup",
+          "ccmH323DeviceInfoGroup",
+          "ccmVoiceMailDeviceInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV4R00": {
+    "name": "ciscoCCMCapabilityV4R00",
+    "oid": "1.3.6.1.4.1.9.7.211.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 4.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev3",
+          "ccmPhoneInfoGroupRev3",
+          "ccmGatewayInfoGroupRev3",
+          "ccmMediaDeviceInfoGroupRev2",
+          "ccmCTIDeviceInfoGroupRev2",
+          "ccmNotificationsInfoGroupRev2",
+          "ccmNotificationsGroupRev1",
+          "ccmH323DeviceInfoGroupRev1",
+          "ccmVoiceMailDeviceInfoGroupRev1",
+          "ccmSIPDeviceInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV5R00": {
+    "name": "ciscoCCMCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.211.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Call Manager 5.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev3",
+          "ccmPhoneInfoGroupRev4",
+          "ccmGatewayInfoGroupRev3",
+          "ccmMediaDeviceInfoGroupRev2",
+          "ccmCTIDeviceInfoGroupRev2",
+          "ccmNotificationsInfoGroupRev3",
+          "ccmNotificationsGroupRev2",
+          "ccmH323DeviceInfoGroupRev1",
+          "ccmVoiceMailDeviceInfoGroupRev1",
+          "ccmSIPDeviceInfoGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV7R00": {
+    "name": "ciscoCCMCapabilityV7R00",
+    "oid": "1.3.6.1.4.1.9.7.211.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Communications Manager 7.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev4",
+          "ccmPhoneInfoGroupRev5",
+          "ccmGatewayInfoGroupRev3",
+          "ccmMediaDeviceInfoGroupRev3",
+          "ccmCTIDeviceInfoGroupRev2",
+          "ccmNotificationsInfoGroupRev4",
+          "ccmNotificationsGroupRev2",
+          "ccmH323DeviceInfoGroupRev2",
+          "ccmVoiceMailDeviceInfoGroupRev1",
+          "ccmSIPDeviceInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmInetAddress2Type",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmInetAddress2",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneInetAddressIPv6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneIPv6Attribute",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneFailedInetAddressIPv6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneFailedIPv6Attribute",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmSIPDevInetAddressIPv6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceInetAddressIPv6",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV7R01": {
+    "name": "ciscoCCMCapabilityV7R01",
+    "oid": "1.3.6.1.4.1.9.7.211.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Communications Manager 7.1",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev4",
+          "ccmPhoneInfoGroupRev5",
+          "ccmGatewayInfoGroupRev3",
+          "ccmMediaDeviceInfoGroupRev3",
+          "ccmCTIDeviceInfoGroupRev3",
+          "ccmNotificationsInfoGroupRev4",
+          "ccmNotificationsGroupRev2",
+          "ccmH323DeviceInfoGroupRev2",
+          "ccmVoiceMailDeviceInfoGroupRev1",
+          "ccmSIPDeviceInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV8R00": {
+    "name": "ciscoCCMCapabilityV8R00",
+    "oid": "1.3.6.1.4.1.9.7.211.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Communications Manager 8.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev4",
+          "ccmPhoneInfoGroupRev6",
+          "ccmGatewayInfoGroupRev4",
+          "ccmMediaDeviceInfoGroupRev4",
+          "ccmCTIDeviceInfoGroupRev4",
+          "ccmNotificationsInfoGroupRev5",
+          "ccmNotificationsGroupRev3",
+          "ccmH323DeviceInfoGroupRev3",
+          "ccmVoiceMailDeviceInfoGroupRev2",
+          "ccmSIPDeviceInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCCMCapabilityV8R05": {
+    "name": "ciscoCCMCapabilityV8R05",
+    "oid": "1.3.6.1.4.1.9.7.211.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Communications Manager 8.5",
+    "capabilities": [
+      {
+        "module": "CISCO-CCM-MIB",
+        "includes": [
+          "ccmInfoGroupRev4",
+          "ccmPhoneInfoGroupRev6",
+          "ccmGatewayInfoGroupRev4",
+          "ccmMediaDeviceInfoGroupRev4",
+          "ccmCTIDeviceInfoGroupRev4",
+          "ccmNotificationsInfoGroupRev5",
+          "ccmNotificationsGroupRev3",
+          "ccmH323DeviceInfoGroupRev3",
+          "ccmVoiceMailDeviceInfoGroupRev2",
+          "ccmSIPDeviceInfoGroupRev2"
+        ],
+        "variations": [
+          {
+            "object": "ccmPhoneE911Location",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmPhoneDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmGatewayDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmMediaDeviceDevicePoolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccmCTIDevicePoolIndex",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CCM-CAPABILITY",
+      "Source digest sha256:e97124c077ed6ab624c43fdaf61c230a607f5ed62d3562497184541856f570aa",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CCM-CAPABILITY"
+  }
+}

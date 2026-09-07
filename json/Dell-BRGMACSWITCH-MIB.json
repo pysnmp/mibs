@@ -1,0 +1,218 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlBrgMacSwitch": {
+    "name": "rlBrgMacSwitch",
+    "oid": "1.3.6.1.4.1.89.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlBrgMacSwVersion": {
+    "name": "rlBrgMacSwVersion",
+    "oid": "1.3.6.1.4.1.89.50.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwMaxTableNumber": {
+    "name": "rlBrgMacSwMaxTableNumber",
+    "oid": "1.3.6.1.4.1.89.50.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwDynamicTables": {
+    "name": "rlBrgMacSwDynamicTables",
+    "oid": "1.3.6.1.4.1.89.50.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwOldEntryDeleteMode": {
+    "name": "rlBrgMacSwOldEntryDeleteMode",
+    "oid": "1.3.6.1.4.1.89.50.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "refreshFlag": 1,
+          "agingFlag": 2,
+          "agingTime": 3,
+          "boundaries": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwSpanningTree": {
+    "name": "rlBrgMacSwSpanningTree",
+    "oid": "1.3.6.1.4.1.89.50.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwKeyType": {
+    "name": "rlBrgMacSwKeyType",
+    "oid": "1.3.6.1.4.1.89.50.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macOnly": 1,
+          "tagAndMac": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwYellowBoundary": {
+    "name": "rlBrgMacSwYellowBoundary",
+    "oid": "1.3.6.1.4.1.89.50.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwRedBoundary": {
+    "name": "rlBrgMacSwRedBoundary",
+    "oid": "1.3.6.1.4.1.89.50.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwTrapEnable": {
+    "name": "rlBrgMacSwTrapEnable",
+    "oid": "1.3.6.1.4.1.89.50.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwOperTrapCount": {
+    "name": "rlBrgMacSwOperTrapCount",
+    "oid": "1.3.6.1.4.1.89.50.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwAdminTrapFrequency": {
+    "name": "rlBrgMacSwAdminTrapFrequency",
+    "oid": "1.3.6.1.4.1.89.50.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-BRGMACSWITCH-MIB",
+      "Source digest sha256:f6b72b15c9a898485c19b05a8a45d45c3a7a668387c18f7ebdb8ad0d1b7f2117",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-BRGMACSWITCH-MIB"
+  }
+}

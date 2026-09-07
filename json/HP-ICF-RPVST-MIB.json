@@ -1,0 +1,2739 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "StpPortRole"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfRpvstMIB": {
+    "name": "hpicfRpvstMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-08 00:00",
+        "description": "Added object hpicfRpvstPortIeeeRstBpdu. Deprecated compliance hpicfRpvstCompliance1. Added compliance hpicfRpvstCompliance3. Deprecated group hpicfRpvstPortGroup. Added hpicfRpvstPortGroup1."
+      },
+      {
+        "revision": "2013-03-21 00:28",
+        "description": "Added objects hpicfRpvstLogPortStateTransitions, hpicfRpvstNewPortRole, hpicfRpvstOldPortRole, hpicfRpvstPathCostMode, hpicfRpvstPortRoleChangeCurrentPortRole, hpicfRpvstPortRoleChangeEntry, hpicfRpvstPortRoleChangeIndex, hpicfRpvstPortRoleChangePreviousPortRole, hpicfRpvstPortRoleChangeTable, hpicfRpvstPortRoleChangeTime, hpicfRpvstPortVlanInconsistencyReason, hpicfRpvstSendTopoChangeCtrl, hpicfRpvstTopoChangeTime, hpicfRpvstTopologyChange, hpicfRpvstVlanTopologyChangeRxEntry, hpicfRpvstVlanTopologyChangeRxIndex, hpicfRpvstVlanTopologyChangeRxMacAddress, hpicfRpvstVlanTopologyChangeRxPortId, hpicfRpvstVlanTopologyChangeRxTable, hpicfRpvstVlanTopologyChangeRxTime, hpicfRpvstVlanTopologyChangeTxCurrentPortRole, hpicfRpvstVlanTopologyChangeTxEntry, hpicfRpvstVlanTopologyChangeTxIndex, hpicfRpvstVlanTopologyChangeTxPortId, hpicfRpvstVlanTopologyChangeTxPreviousPortRole, hpicfRpvstVlanTopologyChangeTxTable, hpicfRpvstVlanTopologyChangeTxTime. Added groups hpicfRpvstPvst1, hpicfRpvstNotificationGroupPvst1, hpicfRpvstNotificationObjectGrpPvst1, hpicfRpvstTopologyRxGroup, hpicfRpvstTopologyTxGroup, hpicfRpvstPortRoleChangeGroup. Added complaince hpicfRpvstCompliance2. "
+      },
+      {
+        "revision": "2011-08-08 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "PointToPoint": {
+    "name": "PointToPoint",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfRpvstNotifications": {
+    "name": "hpicfRpvstNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstObjects": {
+    "name": "hpicfRpvstObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstConformance": {
+    "name": "hpicfRpvstConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstGeneralGroup": {
+    "name": "hpicfRpvstGeneralGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstResetCounters": {
+    "name": "hpicfRpvstResetCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstExtendedSystemID": {
+    "name": "hpicfRpvstExtendedSystemID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstIgnorePVIDInconsistency": {
+    "name": "hpicfRpvstIgnorePVIDInconsistency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPathCostMode": {
+    "name": "hpicfRpvstPathCostMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pathCost8021d": 1,
+          "pathCost8021t": 2,
+          "proprietary": 3
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTable": {
+    "name": "hpicfRpvstVlanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanEntry": {
+    "name": "hpicfRpvstVlanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstVlanId": {
+    "name": "hpicfRpvstVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanHelloTime": {
+    "name": "hpicfRpvstVlanHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanForwardDelay": {
+    "name": "hpicfRpvstVlanForwardDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 15,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanMaxAge": {
+    "name": "hpicfRpvstVlanMaxAge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanPriority": {
+    "name": "hpicfRpvstVlanPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 32768,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRoot": {
+    "name": "hpicfRpvstVlanRoot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRpvstStatus": {
+    "name": "hpicfRpvstVlanRpvstStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanResetCounters": {
+    "name": "hpicfRpvstVlanResetCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstVlanOperHelloTime": {
+    "name": "hpicfRpvstVlanOperHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootPriority": {
+    "name": "hpicfRpvstVlanRootPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 32768,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootPort": {
+    "name": "hpicfRpvstVlanRootPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootPathCost": {
+    "name": "hpicfRpvstVlanRootPathCost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootMacAddress": {
+    "name": "hpicfRpvstVlanRootMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootChangeCounter": {
+    "name": "hpicfRpvstVlanRootChangeCounter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTimeSinceLastTopoChange": {
+    "name": "hpicfRpvstVlanTimeSinceLastTopoChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVlanTopoChangeCount": {
+    "name": "hpicfVlanTopoChangeCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstSendTopoChangeCtrl": {
+    "name": "hpicfRpvstSendTopoChangeCtrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstLogPortStateTransitions": {
+    "name": "hpicfRpvstLogPortStateTransitions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortTable": {
+    "name": "hpicfRpvstPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortEntry": {
+    "name": "hpicfRpvstPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortIndex": {
+    "name": "hpicfRpvstPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortAdminEdge": {
+    "name": "hpicfRpvstPortAdminEdge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortAdminPointToPoint": {
+    "name": "hpicfRpvstPortAdminPointToPoint",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PointToPoint",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortAutoEdge": {
+    "name": "hpicfRpvstPortAutoEdge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortBpduFiltering": {
+    "name": "hpicfRpvstPortBpduFiltering",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortRestrictedTcn": {
+    "name": "hpicfRpvstPortRestrictedTcn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortRootGuard": {
+    "name": "hpicfRpvstPortRootGuard",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortLoopGuard": {
+    "name": "hpicfRpvstPortLoopGuard",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortBpduProtection": {
+    "name": "hpicfRpvstPortBpduProtection",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortIeeeRstBpdu": {
+    "name": "hpicfRpvstPortIeeeRstBpdu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTable": {
+    "name": "hpicfRpvstPortVlanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanEntry": {
+    "name": "hpicfRpvstPortVlanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanPathCost": {
+    "name": "hpicfRpvstPortVlanPathCost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanPriority": {
+    "name": "hpicfRpvstPortVlanPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 128,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanResetCounters": {
+    "name": "hpicfRpvstPortVlanResetCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRole": {
+    "name": "hpicfRpvstPortVlanRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanState": {
+    "name": "hpicfRpvstPortVlanState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6,
+          "bpduError": 7,
+          "loopInconsistent": 8,
+          "pvidInconsistent": 9,
+          "rootGuard": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanDesigBridge": {
+    "name": "hpicfRpvstPortVlanDesigBridge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanOperPointToPoint": {
+    "name": "hpicfRpvstPortVlanOperPointToPoint",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanOperEdge": {
+    "name": "hpicfRpvstPortVlanOperEdge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanInconsistencyReason": {
+    "name": "hpicfRpvstPortVlanInconsistencyReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rootProtected": 1,
+          "loopProtected": 2,
+          "inconsistentPvidprotected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRxCountersTable": {
+    "name": "hpicfRpvstPortVlanRxCountersTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRxCountersEntry": {
+    "name": "hpicfRpvstPortVlanRxCountersEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRpvstBpduRx": {
+    "name": "hpicfRpvstPortVlanRpvstBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRpvstBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanRpvstBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRstBpduRx": {
+    "name": "hpicfRpvstPortVlanRstBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRstBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanRstBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanConfigBpduRx": {
+    "name": "hpicfRpvstPortVlanConfigBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanConfigBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanConfigBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcnBpduRx": {
+    "name": "hpicfRpvstPortVlanTcnBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcnBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcnBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcDetectCount": {
+    "name": "hpicfRpvstPortVlanTcDetectCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcDetectCountLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcDetectCountLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcFlagRx": {
+    "name": "hpicfRpvstPortVlanTcFlagRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcFlagRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcFlagRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcAckFlagRx": {
+    "name": "hpicfRpvstPortVlanTcAckFlagRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcAckFlagRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcAckFlagRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanStarvedBpduCount": {
+    "name": "hpicfRpvstPortVlanStarvedBpduCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanStarvedBpduCountLastUpdated": {
+    "name": "hpicfRpvstPortVlanStarvedBpduCountLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanInvalidBpduRx": {
+    "name": "hpicfRpvstPortVlanInvalidBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanInvalidBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanInvalidBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanLoopedBackBpduRx": {
+    "name": "hpicfRpvstPortVlanLoopedBackBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanLoopedBackBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanLoopedBackBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanErrantBpduRxCount": {
+    "name": "hpicfRpvstPortVlanErrantBpduRxCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanErrantBpduRxCountLastUpdated": {
+    "name": "hpicfRpvstPortVlanErrantBpduRxCountLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanAgedBpduRx": {
+    "name": "hpicfRpvstPortVlanAgedBpduRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanAgedBpduRxLastUpdated": {
+    "name": "hpicfRpvstPortVlanAgedBpduRxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTxCountersTable": {
+    "name": "hpicfRpvstPortVlanTxCountersTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTxCountersEntry": {
+    "name": "hpicfRpvstPortVlanTxCountersEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRpvstBpduTx": {
+    "name": "hpicfRpvstPortVlanRpvstBpduTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRpvstBpduTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanRpvstBpduTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRstBpduTx": {
+    "name": "hpicfRpvstPortVlanRstBpduTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanRstBpduTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanRstBpduTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanConfigBpduTx": {
+    "name": "hpicfRpvstPortVlanConfigBpduTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanConfigBpduTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanConfigBpduTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcnBpduTx": {
+    "name": "hpicfRpvstPortVlanTcnBpduTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcnBpduTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcnBpduTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcFlagTx": {
+    "name": "hpicfRpvstPortVlanTcFlagTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcFlagTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcFlagTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcAckFlagTx": {
+    "name": "hpicfRpvstPortVlanTcAckFlagTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanTcAckFlagTxLastUpdated": {
+    "name": "hpicfRpvstPortVlanTcAckFlagTxLastUpdated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootHistoryTable": {
+    "name": "hpicfRpvstVlanRootHistoryTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootHistoryEntry": {
+    "name": "hpicfRpvstVlanRootHistoryEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootHistoryIndex": {
+    "name": "hpicfRpvstVlanRootHistoryIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootBridgeId": {
+    "name": "hpicfRpvstVlanRootBridgeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanRootHistoryTime": {
+    "name": "hpicfRpvstVlanRootHistoryTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxTable": {
+    "name": "hpicfRpvstVlanTopologyChangeRxTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxEntry": {
+    "name": "hpicfRpvstVlanTopologyChangeRxEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeRxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxIndex": {
+    "name": "hpicfRpvstVlanTopologyChangeRxIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxTime": {
+    "name": "hpicfRpvstVlanTopologyChangeRxTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxMacAddress": {
+    "name": "hpicfRpvstVlanTopologyChangeRxMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeRxPortId": {
+    "name": "hpicfRpvstVlanTopologyChangeRxPortId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxTable": {
+    "name": "hpicfRpvstVlanTopologyChangeTxTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxEntry": {
+    "name": "hpicfRpvstVlanTopologyChangeTxEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeTxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxIndex": {
+    "name": "hpicfRpvstVlanTopologyChangeTxIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxCurrentPortRole": {
+    "name": "hpicfRpvstVlanTopologyChangeTxCurrentPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxPreviousPortRole": {
+    "name": "hpicfRpvstVlanTopologyChangeTxPreviousPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxTime": {
+    "name": "hpicfRpvstVlanTopologyChangeTxTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstVlanTopologyChangeTxPortId": {
+    "name": "hpicfRpvstVlanTopologyChangeTxPortId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeTable": {
+    "name": "hpicfRpvstPortRoleChangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeEntry": {
+    "name": "hpicfRpvstPortRoleChangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRoleChangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeIndex": {
+    "name": "hpicfRpvstPortRoleChangeIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeCurrentPortRole": {
+    "name": "hpicfRpvstPortRoleChangeCurrentPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangePreviousPortRole": {
+    "name": "hpicfRpvstPortRoleChangePreviousPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StpPortRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeTime": {
+    "name": "hpicfRpvstPortRoleChangeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRpvstErrantBpduDetector": {
+    "name": "hpicfRpvstErrantBpduDetector",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpduFilter": 1,
+          "bpduProtection": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstErrantBpduSrcMac": {
+    "name": "hpicfRpvstErrantBpduSrcMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstNewRootBridgeId": {
+    "name": "hpicfRpvstNewRootBridgeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstPreviousRootBridgeId": {
+    "name": "hpicfRpvstPreviousRootBridgeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstDesignatedPort": {
+    "name": "hpicfRpvstDesignatedPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstVlanIndex": {
+    "name": "hpicfRpvstVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstPortNumber": {
+    "name": "hpicfRpvstPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstRootBridgeChangeTimeStamp": {
+    "name": "hpicfRpvstRootBridgeChangeTimeStamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstSuperiorBpduSrcMac": {
+    "name": "hpicfRpvstSuperiorBpduSrcMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstSuperiorBpduSrcPort": {
+    "name": "hpicfRpvstSuperiorBpduSrcPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstErrantBpduReceived": {
+    "name": "hpicfRpvstErrantBpduReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortNumber"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanErrantBpduRxCount"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanState"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanDesigBridge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstDesignatedPort"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstErrantBpduSrcMac"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstErrantBpduDetector"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstNewRoot": {
+    "name": "hpicfRpvstNewRoot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstNewRootBridgeId"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPreviousRootBridgeId"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstRootBridgeChangeTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstRootGuardInconsistency": {
+    "name": "hpicfRpvstRootGuardInconsistency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortNumber"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstSuperiorBpduSrcMac"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstSuperiorBpduSrcPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstLoopGuardInconsistency": {
+    "name": "hpicfRpvstLoopGuardInconsistency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortNumber"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanDesigBridge"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstOldPortRole": {
+    "name": "hpicfRpvstOldPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstNewPortRole": {
+    "name": "hpicfRpvstNewPortRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstTopoChangeTime": {
+    "name": "hpicfRpvstTopoChangeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRpvstTopologyChange": {
+    "name": "hpicfRpvstTopologyChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortNumber"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstOldPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstNewPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstTopoChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstGroups": {
+    "name": "hpicfRpvstGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstCompliances": {
+    "name": "hpicfRpvstCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfRpvstCompliance1": {
+    "name": "hpicfRpvstCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRpvstGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstVlanGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortVlanGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortVlanCounterGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstRootHistoryGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationObjectGrp",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfRpvstCompliance2": {
+    "name": "hpicfRpvstCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRpvstPvst1",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationGroupPvst1",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationObjectGrpPvst1",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstTopologyRxGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstTopologyTxGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortRoleChangeGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstCompliance3": {
+    "name": "hpicfRpvstCompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRpvstGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstVlanGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortVlanGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortGroup1",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstPortVlanCounterGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstRootHistoryGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationObjectGrp",
+        "module": "HP-ICF-RPVST-MIB"
+      },
+      {
+        "object": "hpicfRpvstNotificationGroup",
+        "module": "HP-ICF-RPVST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstGroup": {
+    "name": "hpicfRpvstGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstResetCounters"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstExtendedSystemID"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstIgnorePVIDInconsistency"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstVlanGroup": {
+    "name": "hpicfRpvstVlanGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanHelloTime"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanForwardDelay"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanMaxAge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanPriority"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRoot"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRpvstStatus"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanResetCounters"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanOperHelloTime"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootPriority"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootPort"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootPathCost"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootMacAddress"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootChangeCounter"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTimeSinceLastTopoChange"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfVlanTopoChangeCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortVlanGroup": {
+    "name": "hpicfRpvstPortVlanGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanPathCost"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanPriority"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanResetCounters"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanState"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanDesigBridge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanOperPointToPoint"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanOperEdge"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortGroup": {
+    "name": "hpicfRpvstPortGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAdminEdge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAdminPointToPoint"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAutoEdge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortBpduFiltering"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRestrictedTcn"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRootGuard"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortLoopGuard"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortBpduProtection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfRpvstPortVlanCounterGroup": {
+    "name": "hpicfRpvstPortVlanCounterGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRpvstBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRpvstBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRpvstBpduTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRpvstBpduTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRstBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRstBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRstBpduTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanRstBpduTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanConfigBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanConfigBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanConfigBpduTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanConfigBpduTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcnBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcnBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcnBpduTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcnBpduTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcDetectCount"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcDetectCountLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcFlagRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcFlagRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcFlagTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcFlagTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcAckFlagRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcAckFlagRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcAckFlagTx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanTcAckFlagTxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanAgedBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanAgedBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanStarvedBpduCount"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanStarvedBpduCountLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanInvalidBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanInvalidBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanLoopedBackBpduRx"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanLoopedBackBpduRxLastUpdated"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanErrantBpduRxCount"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanErrantBpduRxCountLastUpdated"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstRootHistoryGroup": {
+    "name": "hpicfRpvstRootHistoryGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootBridgeId"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanRootHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstNotificationObjectGrp": {
+    "name": "hpicfRpvstNotificationObjectGrp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstErrantBpduDetector"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstErrantBpduSrcMac"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanIndex"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortNumber"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstNewRootBridgeId"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPreviousRootBridgeId"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstDesignatedPort"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstRootBridgeChangeTimeStamp"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstSuperiorBpduSrcMac"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstSuperiorBpduSrcPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstNotificationGroup": {
+    "name": "hpicfRpvstNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstErrantBpduReceived"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstNewRoot"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstRootGuardInconsistency"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstLoopGuardInconsistency"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPvst1": {
+    "name": "hpicfRpvstPvst1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPathCostMode"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstSendTopoChangeCtrl"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstLogPortStateTransitions"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortVlanInconsistencyReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstNotificationGroupPvst1": {
+    "name": "hpicfRpvstNotificationGroupPvst1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstTopologyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstNotificationObjectGrpPvst1": {
+    "name": "hpicfRpvstNotificationObjectGrpPvst1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstOldPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstNewPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstTopoChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstTopologyRxGroup": {
+    "name": "hpicfRpvstTopologyRxGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeRxTime"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeRxMacAddress"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeRxPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstTopologyTxGroup": {
+    "name": "hpicfRpvstTopologyTxGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeTxCurrentPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeTxPreviousPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeTxTime"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstVlanTopologyChangeTxPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortRoleChangeGroup": {
+    "name": "hpicfRpvstPortRoleChangeGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRoleChangeCurrentPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRoleChangePreviousPortRole"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRoleChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRpvstPortGroup1": {
+    "name": "hpicfRpvstPortGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.88.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAdminEdge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAdminPointToPoint"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortAutoEdge"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortBpduFiltering"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRestrictedTcn"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortRootGuard"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortLoopGuard"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortBpduProtection"
+      },
+      {
+        "module": "HP-ICF-RPVST-MIB",
+        "object": "hpicfRpvstPortIeeeRstBpdu"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-RPVST-MIB",
+      "Source digest sha256:c3dd76b197c127f75826d4b6d7bda50734618ccb52f3fea851999e56173f3b61",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-RPVST-MIB"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPolicyGroupCapability": {
+    "name": "ciscoPolicyGroupCapability",
+    "oid": "1.3.6.1.4.1.9.7.512",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPolicyGroupCapV08R0601": {
+    "name": "ciscoPolicyGroupCapV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.512.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1)",
+    "capabilities": [
+      {
+        "module": "CISCO-POLICY-GROUP-MIB",
+        "includes": [
+          "ciscoCpgGroupInfoGroup",
+          "ciscoCpgGroupIpInfoGroup",
+          "ciscoCpgPolicyInfoGroup",
+          "ciscoCpgPolicyGroupInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpgGroupName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 31
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpgGroupSourceType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "accessList": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cpgGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cpgGroupIpGroupName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 31
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpgGroupIpAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cpgGroupIpRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cpgPolicyName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 31
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpgPolicyGroupPolicyName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 31
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpgPolicyGroupGroupName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 31
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cpgPolicyGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-POLICY-GROUP-CAPABILITY",
+      "Source digest sha256:085f9926b999a96aaa198337f79758eb91f96b4a8791a8c3d65ca3a6dc17e770",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-POLICY-GROUP-CAPABILITY"
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1PortMapping"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1PortMappingMIB": {
+    "name": "alcatelIND1PortMappingMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1PortMappingMIBObjects": {
+    "name": "alcatelIND1PortMappingMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "portMapping": {
+    "name": "portMapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1",
+    "class": "objectidentity"
+  },
+  "portMappingSessionTable": {
+    "name": "portMappingSessionTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmapSessionEntry": {
+    "name": "pmapSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmapSessionNumber": {
+    "name": "pmapSessionNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmapSessionStatus": {
+    "name": "pmapSessionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmapSessionDirection": {
+    "name": "pmapSessionDirection",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "bi": 2
+        }
+      }
+    },
+    "default": {
+      "value": "bi",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmapSessionRowStatus": {
+    "name": "pmapSessionRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmapSessionUnknownUnicastFloodStatus": {
+    "name": "pmapSessionUnknownUnicastFloodStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmapSessionDynProxyARP": {
+    "name": "pmapSessionDynProxyARP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portMappingTable": {
+    "name": "portMappingTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmapEntry": {
+    "name": "pmapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmapPortIfIndex": {
+    "name": "pmapPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmapPortType": {
+    "name": "pmapPortType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "network": 2
+        }
+      }
+    },
+    "default": {
+      "value": "user",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmapRowStatus": {
+    "name": "pmapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmapConformance": {
+    "name": "pmapConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2",
+    "class": "objectidentity"
+  },
+  "pmapGroups": {
+    "name": "pmapGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2.1",
+    "class": "objectidentity"
+  },
+  "pmapCompliances": {
+    "name": "pmapCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2.2",
+    "class": "objectidentity"
+  },
+  "pmapSessionTableGroup": {
+    "name": "pmapSessionTableGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionDirection"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionUnknownUnicastFloodStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapSessionDynProxyARP"
+      }
+    ],
+    "status": "current"
+  },
+  "pmapTableGroup": {
+    "name": "pmapTableGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapPortType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MAPPING",
+        "object": "pmapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pmapCompliance": {
+    "name": "pmapCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.33.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pmapSessionTableGroup",
+        "module": "ALCATEL-IND1-PORT-MAPPING"
+      },
+      {
+        "object": "pmapTableGroup",
+        "module": "ALCATEL-IND1-PORT-MAPPING"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-PORT-MAPPING",
+      "Source digest sha256:34defae0bd1473da885aa90c199a594897f35711740c0fa937da8a7349aada3b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-PORT-MAPPING"
+  }
+}

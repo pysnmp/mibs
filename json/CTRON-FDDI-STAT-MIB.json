@@ -1,0 +1,261 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctFDDIStats"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctFDDIStatsUtil": {
+    "name": "ctFDDIStatsUtil",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "ctFDDIStatsCtlTable": {
+    "name": "ctFDDIStatsCtlTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsCtlEntry": {
+    "name": "ctFDDIStatsCtlEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-FDDI-STAT-MIB",
+        "object": "ctFDDISlot",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-FDDI-STAT-MIB",
+        "object": "ctFDDISMT",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-FDDI-STAT-MIB",
+        "object": "ctFDDIPath",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFDDISlot": {
+    "name": "ctFDDISlot",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDISMT": {
+    "name": "ctFDDISMT",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIPath": {
+    "name": "ctFDDIPath",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDINextEntry": {
+    "name": "ctFDDINextEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIResetPeak": {
+    "name": "ctFDDIResetPeak",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsHistoryTable": {
+    "name": "ctFDDIStatsHistoryTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsHistoryEntry": {
+    "name": "ctFDDIStatsHistoryEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-FDDI-STAT-MIB",
+        "object": "ctFDDISlot",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-FDDI-STAT-MIB",
+        "object": "ctFDDIStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFDDIStatsIndex": {
+    "name": "ctFDDIStatsIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsTimeStamp": {
+    "name": "ctFDDIStatsTimeStamp",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIFrames": {
+    "name": "ctFDDIFrames",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIBytes": {
+    "name": "ctFDDIBytes",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIPeakBytes": {
+    "name": "ctFDDIPeakBytes",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIPeakTime": {
+    "name": "ctFDDIPeakTime",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsSMT": {
+    "name": "ctFDDIStatsSMT",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFDDIStatsPath": {
+    "name": "ctFDDIStatsPath",
+    "oid": "1.3.6.1.4.1.52.4.1.2.5.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-FDDI-STAT-MIB",
+      "Source digest sha256:5f1f615eb888f393215ad220acdab5ece0cc44fb5355f682d0c8ecc70c5278e9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-FDDI-STAT-MIB"
+  }
+}

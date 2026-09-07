@@ -1,0 +1,45 @@
+#
+# PySNMP MIB module CISCO-FC-DEVICE-ALIAS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-FC-DEVICE-ALIAS-MIB
+# Source digest sha256:bab8ad83c5b594c2666e8fb8f8ee87327ed51720768c82c5ebcd94aa48ecd487
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+CdpvmDevType, = mibBuilder.importSymbols("CISCO-DYNAMIC-PORT-VSAN-MIB", "CdpvmDevType")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoFcDeviceAliasMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 430))
+ciscoFcDeviceAliasMIB.setRevisions(('2004-09-20 00:00',))
+if mibBuilder.loadTexts: ciscoFcDeviceAliasMIB.setLastUpdated('2004-09-20 00:00')
+if mibBuilder.loadTexts: ciscoFcDeviceAliasMIB.setOrganization('Cisco Systems Inc.')
+cfdaMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 0))
+cfdaMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 1))
+cfdaMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 2))
+cfdaConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1))
+cfdaConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cfdaConfigTable.setStatus('current')
+cfdaConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-FC-DEVICE-ALIAS-MIB", "cfdaConfigDeviceAlias"))
+if mibBuilder.loadTexts: cfdaConfigEntry.setStatus('current')
+cfdaConfigDeviceAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cfdaConfigDeviceAlias.setStatus('current')
+cfdaConfigDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1, 1, 2), CdpvmDevType().clone('pwwn')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfdaConfigDeviceType.setStatus('current')
+cfdaConfigDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfdaConfigDeviceId.setStatus('current')
+cfdaConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 430, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfdaConfigRowStatus.setStatus('current')
+ciscoFcDaMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 2, 1))
+ciscoFcDaMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 430, 2, 2))
+ciscoFcDaMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 430, 2, 1, 1)).setObjects(("CISCO-FC-DEVICE-ALIAS-MIB", "ciscoFcDaConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFcDaMIBCompliance = ciscoFcDaMIBCompliance.setStatus('current')
+ciscoFcDaConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 430, 2, 2, 1)).setObjects(("CISCO-FC-DEVICE-ALIAS-MIB", "cfdaConfigDeviceType"), ("CISCO-FC-DEVICE-ALIAS-MIB", "cfdaConfigDeviceId"), ("CISCO-FC-DEVICE-ALIAS-MIB", "cfdaConfigRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFcDaConfigGroup = ciscoFcDaConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FC-DEVICE-ALIAS-MIB", PYSNMP_MODULE_ID=ciscoFcDeviceAliasMIB, cfdaConfigDeviceAlias=cfdaConfigDeviceAlias, cfdaConfigDeviceId=cfdaConfigDeviceId, cfdaConfigDeviceType=cfdaConfigDeviceType, cfdaConfigEntry=cfdaConfigEntry, cfdaConfigRowStatus=cfdaConfigRowStatus, cfdaConfigTable=cfdaConfigTable, cfdaConfiguration=cfdaConfiguration, cfdaMIBConform=cfdaMIBConform, cfdaMIBNotifs=cfdaMIBNotifs, cfdaMIBObjects=cfdaMIBObjects, ciscoFcDaConfigGroup=ciscoFcDaConfigGroup, ciscoFcDaMIBCompliance=ciscoFcDaMIBCompliance, ciscoFcDaMIBCompliances=ciscoFcDaMIBCompliances, ciscoFcDaMIBGroups=ciscoFcDaMIBGroups, ciscoFcDeviceAliasMIB=ciscoFcDeviceAliasMIB)

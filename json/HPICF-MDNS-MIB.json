@@ -1,0 +1,421 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-FTRCO": [
+      "VidList"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfMdns": {
+    "name": "hpicfMdns",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-19 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "hpicfMdnsNotifications": {
+    "name": "hpicfMdnsNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.0",
+    "class": "objectidentity"
+  },
+  "hpicfMdnsObjects": {
+    "name": "hpicfMdnsObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1",
+    "class": "objectidentity"
+  },
+  "hpicfMdnsConformance": {
+    "name": "hpicfMdnsConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2",
+    "class": "objectidentity"
+  },
+  "hpicfMdnsAdminState": {
+    "name": "hpicfMdnsAdminState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMdnsDefaultFilterInAction": {
+    "name": "hpicfMdnsDefaultFilterInAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "value": "deny",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMdnsDefaultFilterOutAction": {
+    "name": "hpicfMdnsDefaultFilterOutAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "value": "deny",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMdnsGatewayVIDList": {
+    "name": "hpicfMdnsGatewayVIDList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfMdnsProfileTable": {
+    "name": "hpicfMdnsProfileTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMdnsProfileEntry": {
+    "name": "hpicfMdnsProfileEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMdnsProfileName": {
+    "name": "hpicfMdnsProfileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRowStatus": {
+    "name": "hpicfMdnsProfileRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsProfileVIDList": {
+    "name": "hpicfMdnsProfileVIDList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleTable": {
+    "name": "hpicfMdnsProfileRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleEntry": {
+    "name": "hpicfMdnsProfileRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileName",
+        "implied": 0
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleIndex": {
+    "name": "hpicfMdnsProfileRuleIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleService": {
+    "name": "hpicfMdnsProfileRuleService",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleInstance": {
+    "name": "hpicfMdnsProfileRuleInstance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleAction": {
+    "name": "hpicfMdnsProfileRuleAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleRowStatus": {
+    "name": "hpicfMdnsProfileRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfMdnsCompliances": {
+    "name": "hpicfMdnsCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfMdnsGroups": {
+    "name": "hpicfMdnsGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfMdnsCompliance": {
+    "name": "hpicfMdnsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfMdnsScalarGroup",
+        "module": "HPICF-MDNS-MIB"
+      },
+      {
+        "object": "hpicfMdnsProfileGroup",
+        "module": "HPICF-MDNS-MIB"
+      },
+      {
+        "object": "hpicfMdnsProfileRuleGroup",
+        "module": "HPICF-MDNS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMdnsScalarGroup": {
+    "name": "hpicfMdnsScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsAdminState"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsDefaultFilterInAction"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsDefaultFilterOutAction"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsGatewayVIDList"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMdnsProfileGroup": {
+    "name": "hpicfMdnsProfileGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRowStatus"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileVIDList"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfMdnsProfileRuleGroup": {
+    "name": "hpicfMdnsProfileRuleGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.124.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRuleService"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRuleInstance"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRuleAction"
+      },
+      {
+        "module": "HPICF-MDNS-MIB",
+        "object": "hpicfMdnsProfileRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPICF-MDNS-MIB",
+      "Source digest sha256:489f07c8669ed4cfe67becbd194f1892c79d4535bf0819fb3bb3077cc4856015",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPICF-MDNS-MIB"
+  }
+}

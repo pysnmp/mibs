@@ -1,0 +1,516 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbDnsModule": {
+    "name": "slbDnsModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351",
+    "class": "moduleidentity"
+  },
+  "dns": {
+    "name": "dns",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1",
+    "class": "objectidentity"
+  },
+  "dnsStatsTable": {
+    "name": "dnsStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsStatsEntry": {
+    "name": "dnsStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-DNS-MIB",
+        "object": "dnsStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsStatsSlotId": {
+    "name": "dnsStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbReq": {
+    "name": "dnsStatsSlbReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbResp": {
+    "name": "dnsStatsSlbResp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbNoResp": {
+    "name": "dnsStatsSlbNoResp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbReqRexmit": {
+    "name": "dnsStatsSlbReqRexmit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbRespNoMatch": {
+    "name": "dnsStatsSlbRespNoMatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbNoResource": {
+    "name": "dnsStatsSlbNoResource",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatReq": {
+    "name": "dnsStatsNatReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatResp": {
+    "name": "dnsStatsNatResp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatNoResp": {
+    "name": "dnsStatsNatNoResp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatReqRexmit": {
+    "name": "dnsStatsNatReqRexmit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatRespNoMatch": {
+    "name": "dnsStatsNatRespNoMatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatNoResource": {
+    "name": "dnsStatsNatNoResource",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatXidReused": {
+    "name": "dnsStatsNatXidReused",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsFilterTypeDrop": {
+    "name": "dnsStatsFilterTypeDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsFilterClassDrop": {
+    "name": "dnsStatsFilterClassDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsFilterTypeAnyDrop": {
+    "name": "dnsStatsFilterTypeAnyDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsClientSslSucc": {
+    "name": "dnsStatsSlbDnsClientSslSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsServerSslSucc": {
+    "name": "dnsStatsSlbDnsServerSslSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsUdpConn": {
+    "name": "dnsStatsSlbDnsUdpConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsUdpConnSucc": {
+    "name": "dnsStatsSlbDnsUdpConnSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsPaddingToServerRemoved": {
+    "name": "dnsStatsSlbDnsPaddingToServerRemoved",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsPaddingToClientAdded": {
+    "name": "dnsStatsSlbDnsPaddingToClientAdded",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsEdnsSubnetToServerRemoved": {
+    "name": "dnsStatsSlbDnsEdnsSubnetToServerRemoved",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsUdpRetransmit": {
+    "name": "dnsStatsSlbDnsUdpRetransmit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsUdpRetransmitFail": {
+    "name": "dnsStatsSlbDnsUdpRetransmitFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionDrop": {
+    "name": "dnsStatsRpzActionDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionPassThru": {
+    "name": "dnsStatsRpzActionPassThru",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionTcpOnly": {
+    "name": "dnsStatsRpzActionTcpOnly",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionNxdomain": {
+    "name": "dnsStatsRpzActionNxdomain",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionNodata": {
+    "name": "dnsStatsRpzActionNodata",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsRpzActionLocalData": {
+    "name": "dnsStatsRpzActionLocalData",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDrop": {
+    "name": "dnsStatsSlbDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsNatSlbDrop": {
+    "name": "dnsStatsNatSlbDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsInvalidQLenToUdp": {
+    "name": "dnsStatsInvalidQLenToUdp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsEdnsEcsReceived": {
+    "name": "dnsStatsSlbDnsEdnsEcsReceived",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsStatsSlbDnsEdnsEcsInserted": {
+    "name": "dnsStatsSlbDnsEdnsEcsInserted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.351.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-DNS-MIB",
+      "Source digest sha256:d9f8ecbff7f376c38fc2a816c18b42172ebb2d6141db9efaa3c7afbf9e03131b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-DNS-MIB"
+  }
+}

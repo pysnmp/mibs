@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dragonwave": {
+    "name": "dragonwave",
+    "oid": "1.3.6.1.4.1.7262",
+    "class": "objectidentity"
+  },
+  "horizon": {
+    "name": "horizon",
+    "oid": "1.3.6.1.4.1.7262.2",
+    "class": "objectidentity"
+  },
+  "hzSystemType": {
+    "name": "hzSystemType",
+    "oid": "1.3.6.1.4.1.7262.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "odu": 1,
+          "idu": 2,
+          "quantum": 3,
+          "hcp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HORIZON-MIB",
+      "Source digest sha256:2768bf3f4121b2b43acb71a3167c71719a5903aae57e48bd97ea0a5d1217957c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HORIZON-MIB"
+  }
+}

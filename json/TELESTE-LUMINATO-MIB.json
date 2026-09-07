@@ -1,0 +1,4263 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TELESTE-ROOT-MIB": [
+      "luminato"
+    ],
+    "UCD-SNMP-MIB": [
+      "Float"
+    ]
+  },
+  "general": {
+    "name": "general",
+    "oid": "1.3.6.1.4.1.3715.17.1",
+    "class": "objectidentity"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.3715.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "generalStatus": {
+    "name": "generalStatus",
+    "oid": "1.3.6.1.4.1.3715.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "statusAlert": 1,
+          "statusCritical": 2,
+          "statusError": 3,
+          "statusWarning": 4,
+          "statusNotice": 5,
+          "statusInformational": 6,
+          "statusDebug": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "redundancyStatus": {
+    "name": "redundancyStatus",
+    "oid": "1.3.6.1.4.1.3715.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundancyStandalone": 1,
+          "redundancyMaster": 16,
+          "redundancyMasterHandover": 24,
+          "redundancyBackup": 32,
+          "redundancyBackupHandover": 40,
+          "redundancyError": 64
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "hwSerialNumber": {
+    "name": "hwSerialNumber",
+    "oid": "1.3.6.1.4.1.3715.17.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwType": {
+    "name": "hwType",
+    "oid": "1.3.6.1.4.1.3715.17.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVersion": {
+    "name": "hwVersion",
+    "oid": "1.3.6.1.4.1.3715.17.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVersion": {
+    "name": "swVersion",
+    "oid": "1.3.6.1.4.1.3715.17.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upTime": {
+    "name": "upTime",
+    "oid": "1.3.6.1.4.1.3715.17.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cumulativeUptime": {
+    "name": "cumulativeUptime",
+    "oid": "1.3.6.1.4.1.3715.17.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCode": {
+    "name": "statusCode",
+    "oid": "1.3.6.1.4.1.3715.17.2",
+    "class": "objectidentity"
+  },
+  "interfaceTypeTable": {
+    "name": "interfaceTypeTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceTypeEntry": {
+    "name": "interfaceTypeEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "interfaceTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceTypeId": {
+    "name": "interfaceTypeId",
+    "oid": "1.3.6.1.4.1.3715.17.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeDeviceTable": {
+    "name": "statusCodeDeviceTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeDeviceEntry": {
+    "name": "statusCodeDeviceEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scdObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scdObjectId": {
+    "name": "scdObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scdObjectValue": {
+    "name": "scdObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scdObjectDescriptor": {
+    "name": "scdObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scdObjectAlarmValue": {
+    "name": "scdObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCodeModuleTable": {
+    "name": "statusCodeModuleTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeModuleEntry": {
+    "name": "statusCodeModuleEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmModuleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scmModuleId": {
+    "name": "scmModuleId",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scmObjectId": {
+    "name": "scmObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scmObjectValue": {
+    "name": "scmObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scmObjectDescriptor": {
+    "name": "scmObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scmObjectAlarmValue": {
+    "name": "scmObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCodeInterfaceTable": {
+    "name": "statusCodeInterfaceTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeInterfaceEntry": {
+    "name": "statusCodeInterfaceEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "interfaceTypeId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmModuleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sciInterfaceId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sciObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sciInterfaceId": {
+    "name": "sciInterfaceId",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sciObjectId": {
+    "name": "sciObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sciObjectValue": {
+    "name": "sciObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sciObjectDescriptor": {
+    "name": "sciObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sciObjectAlarmValue": {
+    "name": "sciObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCodeTransportStreamTable": {
+    "name": "statusCodeTransportStreamTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeTransportStreamEntry": {
+    "name": "statusCodeTransportStreamEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "interfaceTypeId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmModuleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sciInterfaceId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sctsTransportStreamId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sctsObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sctsTransportStreamId": {
+    "name": "sctsTransportStreamId",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctsObjectId": {
+    "name": "sctsObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctsObjectValue": {
+    "name": "sctsObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctsObjectDescriptor": {
+    "name": "sctsObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sctsObjectAlarmValue": {
+    "name": "sctsObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCodeServiceTable": {
+    "name": "statusCodeServiceTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodeServiceEntry": {
+    "name": "statusCodeServiceEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "interfaceTypeId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmModuleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sciInterfaceId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sctsTransportStreamId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scsSID",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scsObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scsSID": {
+    "name": "scsSID",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsObjectId": {
+    "name": "scsObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsObjectValue": {
+    "name": "scsObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsObjectDescriptor": {
+    "name": "scsObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsServiceName": {
+    "name": "scsServiceName",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scsObjectAlarmValue": {
+    "name": "scsObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusCodePidTable": {
+    "name": "statusCodePidTable",
+    "oid": "1.3.6.1.4.1.3715.17.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusCodePidEntry": {
+    "name": "statusCodePidEntry",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "interfaceTypeId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scmModuleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sciInterfaceId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "sctsTransportStreamId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scpPID",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "scpObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scpPID": {
+    "name": "scpPID",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scpObjectId": {
+    "name": "scpObjectId",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scpObjectValue": {
+    "name": "scpObjectValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scpObjectDescriptor": {
+    "name": "scpObjectDescriptor",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scpObjectAlarmValue": {
+    "name": "scpObjectAlarmValue",
+    "oid": "1.3.6.1.4.1.3715.17.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interface": {
+    "name": "interface",
+    "oid": "1.3.6.1.4.1.3715.17.3",
+    "class": "objectidentity"
+  },
+  "ifExtTable": {
+    "name": "ifExtTable",
+    "oid": "1.3.6.1.4.1.3715.17.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pysmiFakeCol1000": {
+    "name": "pysmiFakeCol1000",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.1000",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "ifExtEntry": {
+    "name": "ifExtEntry",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "pysmiFakeCol1000",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifExtIndex": {
+    "name": "ifExtIndex",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifExtName": {
+    "name": "ifExtName",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtModule": {
+    "name": "ifExtModule",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtPhysInterface": {
+    "name": "ifExtPhysInterface",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtLogiInterface": {
+    "name": "ifExtLogiInterface",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifExtDirection": {
+    "name": "ifExtDirection",
+    "oid": "1.3.6.1.4.1.3715.17.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalPhysTable": {
+    "name": "signalPhysTable",
+    "oid": "1.3.6.1.4.1.3715.17.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "signalPhysEntry": {
+    "name": "signalPhysEntry",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "signalSnr": {
+    "name": "signalSnr",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalSnrMin": {
+    "name": "signalSnrMin",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "signalSnrMax": {
+    "name": "signalSnrMax",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "signalCcErrors": {
+    "name": "signalCcErrors",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "signalBer": {
+    "name": "signalBer",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Float",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalVber": {
+    "name": "signalVber",
+    "oid": "1.3.6.1.4.1.3715.17.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Float",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transferTable": {
+    "name": "transferTable",
+    "oid": "1.3.6.1.4.1.3715.17.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "transferEntry": {
+    "name": "transferEntry",
+    "oid": "1.3.6.1.4.1.3715.17.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "transBitrate": {
+    "name": "transBitrate",
+    "oid": "1.3.6.1.4.1.3715.17.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transBitrateMin": {
+    "name": "transBitrateMin",
+    "oid": "1.3.6.1.4.1.3715.17.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transBitrateMax": {
+    "name": "transBitrateMax",
+    "oid": "1.3.6.1.4.1.3715.17.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "proMpegFecTable": {
+    "name": "proMpegFecTable",
+    "oid": "1.3.6.1.4.1.3715.17.3.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "proMpegFecEntry": {
+    "name": "proMpegFecEntry",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fecValidPkts": {
+    "name": "fecValidPkts",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecUncorrectedPkts": {
+    "name": "fecUncorrectedPkts",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecCorrectedPkts": {
+    "name": "fecCorrectedPkts",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecDuplicatePkts": {
+    "name": "fecDuplicatePkts",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecReorderedPkts": {
+    "name": "fecReorderedPkts",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecIncorrectSeqNumbers": {
+    "name": "fecIncorrectSeqNumbers",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fecDiscontinuities": {
+    "name": "fecDiscontinuities",
+    "oid": "1.3.6.1.4.1.3715.17.3.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.3715.17.4",
+    "class": "objectidentity"
+  },
+  "statusFlags": {
+    "name": "statusFlags",
+    "oid": "1.3.6.1.4.1.3715.17.5",
+    "class": "objectidentity"
+  },
+  "moduleStatusTable": {
+    "name": "moduleStatusTable",
+    "oid": "1.3.6.1.4.1.3715.17.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moduleStatusEntry": {
+    "name": "moduleStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "moduleId": {
+    "name": "moduleId",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "modulePidConflictStatus": {
+    "name": "modulePidConflictStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pidOk": 1,
+          "pidConflict": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTemperatureHigh": {
+    "name": "moduleTemperatureHigh",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperatureNominal": 1,
+          "temperatureHigh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTemperatureLow": {
+    "name": "moduleTemperatureLow",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperatureNominal": 1,
+          "temperatureLow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePidCapaStatus": {
+    "name": "modulePidCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePsisiCaptureCapaStatus": {
+    "name": "modulePsisiCaptureCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSidAllocStatus": {
+    "name": "moduleSidAllocStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sidAllocOk": 1,
+          "sidAllocCapaExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCaDetectStatus": {
+    "name": "moduleCaDetectStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleOk": 1,
+          "moduleMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDetectStatus": {
+    "name": "moduleDetectStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleOk": 1,
+          "moduleUnknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleVoltageHigh": {
+    "name": "moduleVoltageHigh",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voltageNominal": 1,
+          "voltageHigh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleVoltageLow": {
+    "name": "moduleVoltageLow",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voltageNominal": 1,
+          "voltageLow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCurrentHigh": {
+    "name": "moduleCurrentHigh",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "currentNominal": 1,
+          "currentHigh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCurrentLow": {
+    "name": "moduleCurrentLow",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "currentNominal": 1,
+          "currentLow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDaemonInitStatus": {
+    "name": "moduleDaemonInitStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daemonNominal": 1,
+          "daemonInitFailed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDriverStatus": {
+    "name": "moduleDriverStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "driverNominal": 1,
+          "driverFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleHwStatus": {
+    "name": "moduleHwStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hwNominal": 1,
+          "hwFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFanStatus": {
+    "name": "moduleFanStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4131",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fanNominal": 1,
+          "fanFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePowerSourceStatus": {
+    "name": "modulePowerSourceStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4132",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runningOnMainPower": 1,
+          "runningOnBackupPower": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePsuOverloadStatus": {
+    "name": "modulePsuOverloadStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4133",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psuNominal": 1,
+          "psuOverloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBootupProgressStatus": {
+    "name": "moduleBootupProgressStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4134",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleBootingUp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBootupRetryStatus": {
+    "name": "moduleBootupRetryStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4135",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleBootingRetrying": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBootupStatus": {
+    "name": "moduleBootupStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4136",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleBootFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleShutdownProgressStatus": {
+    "name": "moduleShutdownProgressStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4137",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleShuttingDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleConnStatus": {
+    "name": "moduleConnStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4138",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectionNominal": 1,
+          "connectionLost": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCompatStatus": {
+    "name": "moduleCompatStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4139",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleIncompatible": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleUpcPowerLow": {
+    "name": "moduleUpcPowerLow",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4147",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ucpPowerNominal": 1,
+          "ucpPowerLow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleUpcPowerHigh": {
+    "name": "moduleUpcPowerHigh",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4148",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ucpPowerNominal": 1,
+          "ucpPowerHigh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCalibrDataStatus": {
+    "name": "moduleCalibrDataStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4149",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "calibrationDataNominal": 1,
+          "calibrationDataMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCalibrDataCheckStatus": {
+    "name": "moduleCalibrDataCheckStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4150",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checkOk": 1,
+          "checkSkipped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDescrStatus": {
+    "name": "moduleDescrStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4151",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "descramblingOk": 1,
+          "descramblingFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupStatus": {
+    "name": "moduleBackupStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4153",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleSwitchedToBackup": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitOutputsStatus": {
+    "name": "moduleNitOutputsStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4154",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitOutputsNominal": 1,
+          "noSupportedNitOutputs": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitSelectionStatus": {
+    "name": "moduleNitSelectionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4155",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitSelectionNominal": 1,
+          "noSelectedNitOutputs": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitConfChangeStatus": {
+    "name": "moduleNitConfChangeStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4156",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitConfNominal": 1,
+          "nitConfChanged": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitDataQueryStatus": {
+    "name": "moduleNitDataQueryStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4157",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitDataQueryNominal": 1,
+          "nitDataQueryFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitWizardStatus": {
+    "name": "moduleNitWizardStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4158",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitWizardNominal": 1,
+          "nitWizardFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleQamFreqStatus": {
+    "name": "moduleQamFreqStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4159",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qamFreqUnique": 1,
+          "qamFreqDuplicate": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleOutputSidStatus": {
+    "name": "moduleOutputSidStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4173",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sidOk": 1,
+          "sidConflict": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleConfStatus": {
+    "name": "moduleConfStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4175",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationOk": 1,
+          "configurationUnsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFreqStatus": {
+    "name": "moduleFreqStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4176",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freqOk": 1,
+          "freqOutOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleOutputPowerStatus": {
+    "name": "moduleOutputPowerStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4177",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOk": 1,
+          "powerOutOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSymrateStatus": {
+    "name": "moduleSymrateStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4178",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symbolRateOk": 1,
+          "symbolRateOutOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleChanDistStatus": {
+    "name": "moduleChanDistStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4179",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chanDistOk": 1,
+          "chanDistTooNarrow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleLnbVoltStatus": {
+    "name": "moduleLnbVoltStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4180",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lnbVoltageOk": 1,
+          "lnbVoltageInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFecRateStatus": {
+    "name": "moduleFecRateStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4181",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fecRateOk": 1,
+          "fecRateInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleLnbCurrStatus": {
+    "name": "moduleLnbCurrStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4182",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lnbCurrentOk": 1,
+          "lnbCurrentInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFreqOffsetStatus": {
+    "name": "moduleFreqOffsetStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4183",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freqOffsetOk": 1,
+          "freqOffsetInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDescrRestartStatus": {
+    "name": "moduleDescrRestartStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4185",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "descramblingNominal": 1,
+          "descramblingRestarting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCamRestartStatus": {
+    "name": "moduleCamRestartStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4186",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "camNominal": 1,
+          "camRestarting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEcmgStatus": {
+    "name": "moduleEcmgStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4187",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmgNominal": 1,
+          "ecmgFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEcmStreamStatus": {
+    "name": "moduleEcmStreamStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4188",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmStreamNominal": 1,
+          "ecmStreamFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEmmStatus": {
+    "name": "moduleEmmStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4189",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emmNominal": 1,
+          "emmFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEmmStreamStatus": {
+    "name": "moduleEmmStreamStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4190",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emmStreamNominal": 1,
+          "emmStreamFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEcmgConnStatus": {
+    "name": "moduleEcmgConnStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4191",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmgConnNominal": 1,
+          "ecmgNotConnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEmmConnStatus": {
+    "name": "moduleEmmConnStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4192",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emmConnNominal": 1,
+          "emmNotConnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEcmgSpareStatus": {
+    "name": "moduleEcmgSpareStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4194",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmgNominal": 1,
+          "ecmgSwitchedToSpare": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBootloaderAvailStatus": {
+    "name": "moduleBootloaderAvailStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4195",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootloaderOk": 1,
+          "bootloaderObsolete": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBl1UpdateProgStatus": {
+    "name": "moduleBl1UpdateProgStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4196",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootloaderNominal": 1,
+          "bootloaderUpdating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBl2UpdateProgStatus": {
+    "name": "moduleBl2UpdateProgStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4197",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootloaderNominal": 1,
+          "bootloaderUpdating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBl1UpdateStatus": {
+    "name": "moduleBl1UpdateStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4198",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootloaderNominal": 1,
+          "bootloaderUpdateFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBl2UpdateStatus": {
+    "name": "moduleBl2UpdateStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4199",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootloaderNominal": 1,
+          "bootloaderUpdateFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleActiveBackupStatus": {
+    "name": "moduleActiveBackupStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4203",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backupPassive": 1,
+          "backupActive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleConfProgressStatus": {
+    "name": "moduleConfProgressStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4205",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleConfiguring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePresenceStatus": {
+    "name": "modulePresenceStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4206",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "noModule": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleProcessRestartStatus": {
+    "name": "moduleProcessRestartStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4208",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "processesNominal": 1,
+          "processRestarted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupLicenseStatus": {
+    "name": "moduleBackupLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4209",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePsisiEditorLicenseStatus": {
+    "name": "modulePsisiEditorLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4210",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleMuxLicenseStatus": {
+    "name": "moduleMuxLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4211",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDemuxLicenseStatus": {
+    "name": "moduleDemuxLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4212",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDvbLicenseStatus": {
+    "name": "moduleDvbLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4213",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleMsdLicenseStatus": {
+    "name": "moduleMsdLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4214",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDvbs2LicenseStatus": {
+    "name": "moduleDvbs2LicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4215",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDvbt2LicenseStatus": {
+    "name": "moduleDvbt2LicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4216",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleScsLicenseStatus": {
+    "name": "moduleScsLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4217",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseValid": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCliLoginStatus": {
+    "name": "moduleCliLoginStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4218",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliNotLoggedIn": 1,
+          "cliLoggedIn": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleRedunActivationStatus": {
+    "name": "moduleRedunActivationStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4222",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundancyPassive": 1,
+          "redundancyActivated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleExtioPinSignalingStatus": {
+    "name": "moduleExtioPinSignalingStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4223",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extioPinNominal": 1,
+          "extioPinSignaled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupPsuStatus": {
+    "name": "moduleBackupPsuStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4224",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backupPsuNominal": 1,
+          "backupPsuFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleIntrusionStatus": {
+    "name": "moduleIntrusionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4225",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intrusionNominal": 1,
+          "intrusionDetected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleRedunStatus": {
+    "name": "moduleRedunStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4227",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundancyOk": 1,
+          "redundancyFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupHwStatus": {
+    "name": "moduleBackupHwStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4230",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backupHwOk": 1,
+          "backupHwNotSupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSwUpdateProgress": {
+    "name": "moduleSwUpdateProgress",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4231",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swUpdateInactive": 1,
+          "swUpdateInProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSwUpdateStatus": {
+    "name": "moduleSwUpdateStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4233",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swNominal": 1,
+          "swUpdateFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEitLicenseStatus": {
+    "name": "moduleEitLicenseStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4235",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseValid": 1,
+          "notLicensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDescramblingStatus": {
+    "name": "moduleDescramblingStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4237",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "descramblingNominal": 1,
+          "descramblingFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDvbTimeStatus": {
+    "name": "moduleDvbTimeStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4243",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dvbTimeNominal": 1,
+          "dvbTimeMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTunerDcFeedStatus": {
+    "name": "moduleTunerDcFeedStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4245",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "currentNominal": 1,
+          "currentOutOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTunerPlpSelectionReqStatus": {
+    "name": "moduleTunerPlpSelectionReqStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4247",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plpSelectionOk": 1,
+          "plpSelectionRequired": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTunerPlpStatus": {
+    "name": "moduleTunerPlpStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4248",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plpSelectionValid": 1,
+          "plpSelectionNotValid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTunerHierarchyStatus": {
+    "name": "moduleTunerHierarchyStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4249",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hierarchyOk": 1,
+          "hierarchyInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleEcmStatus": {
+    "name": "moduleEcmStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4250",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmNominal": 1,
+          "ecmMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleScramConflictStatus": {
+    "name": "moduleScramConflictStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4251",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scramblingNominal": 1,
+          "scramblingConflict": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleScramSharedStatus": {
+    "name": "moduleScramSharedStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4252",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scramblingNominal": 1,
+          "scramblingSharedComponent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupVoltageHigh": {
+    "name": "moduleBackupVoltageHigh",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4253",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voltageNominal": 1,
+          "voltageHigh": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupVoltageLow": {
+    "name": "moduleBackupVoltageLow",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4254",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voltageNominal": 1,
+          "voltageLow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSdtTableStatus": {
+    "name": "moduleSdtTableStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4255",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdtTableOk": 1,
+          "invalidSdtTableTemplate": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDescramblingRestart": {
+    "name": "moduleDescramblingRestart",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4256",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "descramblingNominal": 1,
+          "descramblingRestarting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCaModuleRestart": {
+    "name": "moduleCaModuleRestart",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4257",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "caModuleNominal": 1,
+          "caModuleRestarting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleCaMenuStatus": {
+    "name": "moduleCaMenuStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4258",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "caMenuNominal": 1,
+          "caMenuOpen": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleInvalidCamRouting": {
+    "name": "moduleInvalidCamRouting",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4259",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "camRoutingNominal": 1,
+          "camRoutingInvalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleNitSidConflict": {
+    "name": "moduleNitSidConflict",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4260",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nitSidNominal": 1,
+          "nitSidConflict": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleLicenseMissingFEC": {
+    "name": "moduleLicenseMissingFEC",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4262",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseOk": 1,
+          "licenseMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFecCorrectionStatus": {
+    "name": "moduleFecCorrectionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4263",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "correctionNominal": 1,
+          "correctionOverload": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFecPacketDropStatus": {
+    "name": "moduleFecPacketDropStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4264",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "packetsNominal": 1,
+          "packetsDropped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleFecMediaPktsStatus": {
+    "name": "moduleFecMediaPktsStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4265",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "packetsNominal": 1,
+          "packetsDiscarded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSfpLinkStatus": {
+    "name": "moduleSfpLinkStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4269",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sfpLinkNominal": 1,
+          "sfpLinkDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncModeOff": {
+    "name": "moduleBackupSyncModeOff",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4272",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeNominal": 1,
+          "modeOff": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncModeManual": {
+    "name": "moduleBackupSyncModeManual",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4273",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeNominal": 1,
+          "modeManual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncModeAuto": {
+    "name": "moduleBackupSyncModeAuto",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4274",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeNominal": 1,
+          "modeAuto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncConfStatus": {
+    "name": "moduleBackupSyncConfStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4275",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationNominal": 1,
+          "configurationChanged": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncStatus": {
+    "name": "moduleBackupSyncStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4276",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syncNominal": 1,
+          "synchronizing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncSwCompatibility": {
+    "name": "moduleBackupSyncSwCompatibility",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4278",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swCompatible": 1,
+          "swIncompatible": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncHwCompatibility": {
+    "name": "moduleBackupSyncHwCompatibility",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4279",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hwCompatible": 1,
+          "hwIncompatible": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncConfFaultStatus": {
+    "name": "moduleBackupSyncConfFaultStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4280",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationNominal": 1,
+          "configurationFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncConnectionStatus": {
+    "name": "moduleBackupSyncConnectionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4281",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectionNominal": 1,
+          "connectionLost": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncFromBackupStatus": {
+    "name": "moduleBackupSyncFromBackupStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4283",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syncNominal": 1,
+          "syncNotPossible": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncRebootStatus": {
+    "name": "moduleBackupSyncRebootStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4284",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pairDevNominal": 1,
+          "pairDevRebooting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncLicenseCompatStatus": {
+    "name": "moduleBackupSyncLicenseCompatStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4285",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licensesCompatible": 1,
+          "licensesIncompatible": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleBackupSyncLicenseCompareStatus": {
+    "name": "moduleBackupSyncLicenseCompareStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4286",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "licenseNominal": 1,
+          "licenseComparing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleDeviceFirstBootStatus": {
+    "name": "moduleDeviceFirstBootStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4288",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firstBootNominal": 1,
+          "firstBootInProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePartitionConfigurationBackup": {
+    "name": "modulePartitionConfigurationBackup",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4289",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationNominal": 1,
+          "configurationBackupInProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modulePartitionConfigurationRestore": {
+    "name": "modulePartitionConfigurationRestore",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4290",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationNominal": 1,
+          "configurationRestoreInProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSwRevertStatus": {
+    "name": "moduleSwRevertStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4291",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swNominal": 1,
+          "swRevertInProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleMaxOutputPidsStatus": {
+    "name": "moduleMaxOutputPidsStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4292",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pidsNominal": 1,
+          "maxPidsUsed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleUserRebootStatus": {
+    "name": "moduleUserRebootStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4293",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleRebootedByUser": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleRemovalStatus": {
+    "name": "moduleRemovalStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4294",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleRemoved": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleInsertionStatus": {
+    "name": "moduleInsertionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4295",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleNominal": 1,
+          "moduleInserted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleSptsInputConfStatus": {
+    "name": "moduleSptsInputConfStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.2.1.4296",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sptsInputNominal": 1,
+          "inputNotSpts": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifStatusTable": {
+    "name": "ifStatusTable",
+    "oid": "1.3.6.1.4.1.3715.17.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifStatusEntry": {
+    "name": "ifStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifDirection",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifId": {
+    "name": "ifId",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifDirection": {
+    "name": "ifDirection",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifSignalStatus": {
+    "name": "ifSignalStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1.4097",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalOk": 1,
+          "signalMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifAsiLinkStatus": {
+    "name": "ifAsiLinkStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1.4102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkOk": 1,
+          "linkDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifLinkStatus": {
+    "name": "ifLinkStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.3.1.4226",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkOk": 1,
+          "linkDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsStatusTable": {
+    "name": "tsStatusTable",
+    "oid": "1.3.6.1.4.1.3715.17.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsStatusEntry": {
+    "name": "tsStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifDirection",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsPidRemappingStatus": {
+    "name": "tsPidRemappingStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pidNominal": 1,
+          "pidRemapped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsManualTableInsertStatus": {
+    "name": "tsManualTableInsertStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insertOk": 1,
+          "insertFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsPassthruDupStatus": {
+    "name": "tsPassthruDupStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "servicesNominal": 1,
+          "servicesBlocked": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSyncStatus": {
+    "name": "tsSyncStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4098",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syncOk": 1,
+          "noSync": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsRxStatus": {
+    "name": "tsRxStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4099",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxNominal": 1,
+          "rxErrors": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsInputBufferStatus": {
+    "name": "tsInputBufferStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bufferNominal": 1,
+          "bufferOverflow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsNetworkStatus": {
+    "name": "tsNetworkStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netOk": 1,
+          "netForbidden": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsPsisiCapaStatus": {
+    "name": "tsPsisiCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsMultiplexDiscardStatus": {
+    "name": "tsMultiplexDiscardStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "muxNominal": 1,
+          "muxPacketsDiscarded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsMultiplexDelayStatus": {
+    "name": "tsMultiplexDelayStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4228",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "muxNominal": 1,
+          "muxPacketsDelayed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsCbrOversubscriptionStatus": {
+    "name": "tsCbrOversubscriptionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4229",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbrNominal": 1,
+          "cbrOversubscription": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsCbrDiscardStatus": {
+    "name": "tsCbrDiscardStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4236",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbrNominal": 1,
+          "cbrPacketsDiscarded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpInputCapaStatus": {
+    "name": "tsIpInputCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4238",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsEitReinsertCapaStatus": {
+    "name": "tsEitReinsertCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4239",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSectionCapaStatus": {
+    "name": "tsSectionCapaStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4240",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "capacityNominal": 1,
+          "capacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsRtpInputStatus": {
+    "name": "tsRtpInputStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4241",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputOk": 1,
+          "inputPacketsDropped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsRtpSeqStatus": {
+    "name": "tsRtpSeqStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4242",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seqOk": 1,
+          "seqAnomalies": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsTdtTotGenStatus": {
+    "name": "tsTdtTotGenStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4246",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tdtTotOk": 1,
+          "tdtTotNotGenerated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSttGenStatus": {
+    "name": "tsSttGenStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4261",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sttOk": 1,
+          "sttNotGenerated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsFecPacketCorrectionStatus": {
+    "name": "tsFecPacketCorrectionStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4266",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "packetsNominal": 1,
+          "fecCorrectedPackets": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsFecInputAnomalyStatus": {
+    "name": "tsFecInputAnomalyStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4267",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fecInputNominal": 1,
+          "fecInputAnomalies": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsFecCorrectionCapacityStatus": {
+    "name": "tsFecCorrectionCapacityStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4268",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "correctionCapacityNominal": 1,
+          "correctionCapacityExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpMirrorOutputPacketLossStatus": {
+    "name": "tsIpMirrorOutputPacketLossStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.4.1.4297",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipOutputNominal": 1,
+          "ipOutputPacketsDiscarded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatusTable": {
+    "name": "serviceStatusTable",
+    "oid": "1.3.6.1.4.1.3715.17.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceStatusEntry": {
+    "name": "serviceStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.17.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifDirection",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "serviceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceId": {
+    "name": "serviceId",
+    "oid": "1.3.6.1.4.1.3715.17.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceStatus": {
+    "name": "serviceStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "servicePresent": 1,
+          "serviceMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidStatusTable": {
+    "name": "pidStatusTable",
+    "oid": "1.3.6.1.4.1.3715.17.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pidStatusEntry": {
+    "name": "pidStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.17.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifDirection",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "ifId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB",
+        "object": "pId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pId": {
+    "name": "pId",
+    "oid": "1.3.6.1.4.1.3715.17.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pidStatus": {
+    "name": "pidStatus",
+    "oid": "1.3.6.1.4.1.3715.17.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pidPresent": 1,
+          "pidMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TELESTE-LUMINATO-MIB",
+      "Source digest sha256:6b100ef5b89b6a3e0913c5634f32575bd63324bc15f127e2ecf5e7d8f9e22339",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TELESTE-LUMINATO-MIB"
+  }
+}

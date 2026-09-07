@@ -1,0 +1,47 @@
+#
+# PySNMP MIB module CISCO-NDE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-NDE-MIB
+# Source digest sha256:4669a960d98f847eb4249840ac15172f8ab93d0fce7a33fd356b5fec2f7db418
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoNDEMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 226))
+ciscoNDEMIB.setRevisions(('2006-03-01 00:00', '2005-12-06 00:00', '2001-08-08 00:00',))
+if mibBuilder.loadTexts: ciscoNDEMIB.setLastUpdated('2006-03-01 00:00')
+if mibBuilder.loadTexts: ciscoNDEMIB.setOrganization('Cisco Systems, Inc.')
+ciscoNDEMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 1))
+cndeCollectorConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1))
+cndeMaxCollectors = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cndeMaxCollectors.setStatus('current')
+cndeCollectorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cndeCollectorTable.setStatus('current')
+cndeCollectorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "CISCO-NDE-MIB", "cndeCollectorAddressType"), (0, "CISCO-NDE-MIB", "cndeCollectorAddress"), (0, "CISCO-NDE-MIB", "cndeCollectorPort"))
+if mibBuilder.loadTexts: cndeCollectorEntry.setStatus('current')
+cndeCollectorAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2, 1, 1), InetAddressType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cndeCollectorAddressType.setStatus('current')
+cndeCollectorAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cndeCollectorAddress.setStatus('current')
+cndeCollectorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cndeCollectorPort.setStatus('current')
+cndeCollectorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 226, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cndeCollectorStatus.setStatus('current')
+cndeMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 2))
+cndeMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 0))
+cndeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 3))
+cndeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 3, 1))
+cndeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 226, 3, 2))
+cndeMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 226, 3, 1, 1)).setObjects(("CISCO-NDE-MIB", "cndeCollectorConfigurationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cndeMIBCompliance = cndeMIBCompliance.setStatus('current')
+cndeCollectorConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 226, 3, 2, 1)).setObjects(("CISCO-NDE-MIB", "cndeMaxCollectors"), ("CISCO-NDE-MIB", "cndeCollectorStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cndeCollectorConfigurationGroup = cndeCollectorConfigurationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-NDE-MIB", PYSNMP_MODULE_ID=ciscoNDEMIB, ciscoNDEMIB=ciscoNDEMIB, ciscoNDEMIBObjects=ciscoNDEMIBObjects, cndeCollectorAddress=cndeCollectorAddress, cndeCollectorAddressType=cndeCollectorAddressType, cndeCollectorConfiguration=cndeCollectorConfiguration, cndeCollectorConfigurationGroup=cndeCollectorConfigurationGroup, cndeCollectorEntry=cndeCollectorEntry, cndeCollectorPort=cndeCollectorPort, cndeCollectorStatus=cndeCollectorStatus, cndeCollectorTable=cndeCollectorTable, cndeMIBCompliance=cndeMIBCompliance, cndeMIBCompliances=cndeMIBCompliances, cndeMIBConformance=cndeMIBConformance, cndeMIBGroups=cndeMIBGroups, cndeMIBNotifications=cndeMIBNotifications, cndeMIBNotifs=cndeMIBNotifs, cndeMaxCollectors=cndeMaxCollectors)

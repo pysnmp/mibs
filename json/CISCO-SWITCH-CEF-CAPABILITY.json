@@ -1,0 +1,85 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchCefCapability": {
+    "name": "ciscoSwitchCefCapability",
+    "oid": "1.3.6.1.4.1.9.7.614",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchCefCapV15R0101SYPCat6kPfc3": {
+    "name": "ciscoSwitchCefCapV15R0101SYPCat6kPfc3",
+    "oid": "1.3.6.1.4.1.9.7.614.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with PFC3 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "includes": [
+          "cscSwitchCefIpv4StatsGroup",
+          "cscSwitchCefIpv6StatsGroup",
+          "cscTotalStatsGroup",
+          "cscSwitchCefEomL2Group",
+          "cscMplsStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchCefCapV15R0101SYPCat6kPfc4": {
+    "name": "ciscoSwitchCefCapV15R0101SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.614.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices with PFC4 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "includes": [
+          "cscSwitchCefIpv4StatsGroup",
+          "cscSwitchCefIpv6StatsGroup",
+          "cscTotalStatsGroup",
+          "cscSwitchCefIpv6GlobalStatsGroup",
+          "cscSwitchCefIpv6LinkLocalGroup",
+          "cscSwitchCefEomL2Group",
+          "cscMplsStatsGroup",
+          "cscMplsStatsGroupExt"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SWITCH-CEF-CAPABILITY",
+      "Source digest sha256:9386be2181e2be7fa3a067daf6979acbb604458d98de744c2abaa0a6118c58f9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SWITCH-CEF-CAPABILITY"
+  }
+}

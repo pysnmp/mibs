@@ -1,0 +1,1527 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfNtpMIB": {
+    "name": "hpicfNtpMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-22 00:00",
+        "description": " Added new MIB table hpicfNtpInetServerNameTable"
+      },
+      {
+        "revision": "2016-02-10 00:00",
+        "description": " Added new enum in following MIB object hpicfNtpAuthenticationKeyAuthMode"
+      },
+      {
+        "revision": "2015-07-01 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "hpicfNtpConfig": {
+    "name": "hpicfNtpConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1",
+    "class": "objectidentity"
+  },
+  "hpicfNtpConfigScalars": {
+    "name": "hpicfNtpConfigScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfNtpGlobal": {
+    "name": "hpicfNtpGlobal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.2",
+    "class": "objectidentity"
+  },
+  "hpicfNtpAdminStatus": {
+    "name": "hpicfNtpAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpConfigMode": {
+    "name": "hpicfNtpConfigMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "unicast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpMaxAssociation": {
+    "name": "hpicfNtpMaxAssociation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 8,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpStatusReferenceTimeFrac": {
+    "name": "hpicfNtpStatusReferenceTimeFrac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpStatusReferenceTimeSec": {
+    "name": "hpicfNtpStatusReferenceTimeSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpStatusClockOffset": {
+    "name": "hpicfNtpStatusClockOffset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpStatusRootDelay": {
+    "name": "hpicfNtpStatusRootDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpStatusRootDispersion": {
+    "name": "hpicfNtpStatusRootDispersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoDrift": {
+    "name": "hpicfNtpAssoDrift",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpInetConfigServerTable": {
+    "name": "hpicfNtpInetConfigServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetConfigServerEntry": {
+    "name": "hpicfNtpInetConfigServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpInetServerAddressType": {
+    "name": "hpicfNtpInetServerAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetServerAddress": {
+    "name": "hpicfNtpInetServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetServerRowStatus": {
+    "name": "hpicfNtpInetServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpInetServerAuthKeyId": {
+    "name": "hpicfNtpInetServerAuthKeyId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpConfigPollMinInterval": {
+    "name": "hpicfNtpConfigPollMinInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 6,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpConfigPollMaxInterval": {
+    "name": "hpicfNtpConfigPollMaxInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAssoBurst": {
+    "name": "hpicfNtpAssoBurst",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noburst": 1,
+          "burst": 2,
+          "iburst": 3
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAssoIsOobm": {
+    "name": "hpicfNtpAssoIsOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpInetServerInfoTable": {
+    "name": "hpicfNtpInetServerInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetServerInfoEntry": {
+    "name": "hpicfNtpInetServerInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAssoOurPollInterval": {
+    "name": "hpicfNtpAssoOurPollInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoPeerPollInterval": {
+    "name": "hpicfNtpAssoPeerPollInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoRootDelay": {
+    "name": "hpicfNtpAssoRootDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoRootDispersion": {
+    "name": "hpicfNtpAssoRootDispersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoPeerReach": {
+    "name": "hpicfNtpAssoPeerReach",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoOriginTimeFrac": {
+    "name": "hpicfNtpAssoOriginTimeFrac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoOriginTimeSec": {
+    "name": "hpicfNtpAssoOriginTimeSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoRecvTimeFrac": {
+    "name": "hpicfNtpAssoRecvTimeFrac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoRecvTimeSec": {
+    "name": "hpicfNtpAssoRecvTimeSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoXmtTimeFrac": {
+    "name": "hpicfNtpAssoXmtTimeFrac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoXmtTimeSec": {
+    "name": "hpicfNtpAssoXmtTimeSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssolastPollreq": {
+    "name": "hpicfNtpAssolastPollreq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoPrecision": {
+    "name": "hpicfNtpAssoPrecision",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoCurrentMode": {
+    "name": "hpicfNtpAssoCurrentMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "synchronized": 1,
+          "notsynchronized": 2,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAssoPeerDispersion": {
+    "name": "hpicfNtpAssoPeerDispersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyTable": {
+    "name": "hpicfNtpAuthenticationKeyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyEntry": {
+    "name": "hpicfNtpAuthenticationKeyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyId": {
+    "name": "hpicfNtpAuthenticationKeyId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyAuthMode": {
+    "name": "hpicfNtpAuthenticationKeyAuthMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2,
+          "sha1": 3
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyValue": {
+    "name": "hpicfNtpAuthenticationKeyValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyTrusted": {
+    "name": "hpicfNtpAuthenticationKeyTrusted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyRowStatus": {
+    "name": "hpicfNtpAuthenticationKeyRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyEncrypted": {
+    "name": "hpicfNtpAuthenticationKeyEncrypted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpIpv6MulticastTable": {
+    "name": "hpicfNtpIpv6MulticastTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpIpv6MulticastEntry": {
+    "name": "hpicfNtpIpv6MulticastEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpIpv6Multicast": {
+    "name": "hpicfNtpIpv6Multicast",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpIpv6MulticastStatus": {
+    "name": "hpicfNtpIpv6MulticastStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpAssoSampleTable": {
+    "name": "hpicfNtpAssoSampleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpAssoSampleEntry": {
+    "name": "hpicfNtpAssoSampleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoSampleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAssoSampleId": {
+    "name": "hpicfNtpAssoSampleId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpfiltDelaySample": {
+    "name": "hpicfNtpfiltDelaySample",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpfiltOffsetSample": {
+    "name": "hpicfNtpfiltOffsetSample",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpInetServerNameTable": {
+    "name": "hpicfNtpInetServerNameTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetServerNameEntry": {
+    "name": "hpicfNtpInetServerNameEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpServerNameIndex": {
+    "name": "hpicfNtpServerNameIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfNtpInetServerName": {
+    "name": "hpicfNtpInetServerName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpInetServerNameRowStatus": {
+    "name": "hpicfNtpInetServerNameRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfNtpServerNameResolvAddType": {
+    "name": "hpicfNtpServerNameResolvAddType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpServerNameResolvAddress": {
+    "name": "hpicfNtpServerNameResolvAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpServerNameResolveStatus": {
+    "name": "hpicfNtpServerNameResolveStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notattempted": 0,
+          "active": 1,
+          "dnsunknownhost": 2,
+          "dnsnotresponding": 3,
+          "dnsfailed": 4,
+          "notactive": 5
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfNtpInetServerNameAuthKeyId": {
+    "name": "hpicfNtpInetServerNameAuthKeyId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpConfigServerNamePollMinInterval": {
+    "name": "hpicfNtpConfigServerNamePollMinInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 6,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpConfigServerNamePollMaxInterval": {
+    "name": "hpicfNtpConfigServerNamePollMaxInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpServerNameAssoBurst": {
+    "name": "hpicfNtpServerNameAssoBurst",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noburst": 1,
+          "burst": 2,
+          "iburst": 3
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpServerNameAssoIsOobm": {
+    "name": "hpicfNtpServerNameAssoIsOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfNtpConfigConformance": {
+    "name": "hpicfNtpConfigConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3",
+    "class": "objectidentity"
+  },
+  "hpicfNtpConfigCompliances": {
+    "name": "hpicfNtpConfigCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfNtpConfigGroups": {
+    "name": "hpicfNtpConfigGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfNtpInetConfigCompliance": {
+    "name": "hpicfNtpInetConfigCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfNtpConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      },
+      {
+        "object": "hpicfNtpInetServerConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationConfigCompliance": {
+    "name": "hpicfNtpAuthenticationConfigCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfNtpAuthenticationKeyIdConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      },
+      {
+        "object": "hpicfNtpAuthenticationKeyIdConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpServerConfigCompliance": {
+    "name": "hpicfNtpServerConfigCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfNtpInetServerConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      },
+      {
+        "object": "hpicfNtpInetServerConfigGroup",
+        "module": "HP-ICF-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAssoSampleCompliance": {
+    "name": "hpicfNtpAssoSampleCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfNtpAssociationSampleGroup",
+        "module": "HP-ICF-NTP-MIB"
+      },
+      {
+        "object": "hpicfNtpAssociationSampleGroup",
+        "module": "HP-ICF-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpServerNameCfgCompliance": {
+    "name": "hpicfNtpServerNameCfgCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfNtpInetServerNameCfgGroup",
+        "module": "HP-ICF-NTP-MIB"
+      },
+      {
+        "object": "hpicfNtpInetServerNameCfgGroup",
+        "module": "HP-ICF-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpConfigGroup": {
+    "name": "hpicfNtpConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpConfigMode"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpMaxAssociation"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAdminStatus"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpStatusReferenceTimeFrac"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpStatusReferenceTimeSec"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpStatusClockOffset"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpStatusRootDelay"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpStatusRootDispersion"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoDrift"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpInetServerConfigGroup": {
+    "name": "hpicfNtpInetServerConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerRowStatus"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerAuthKeyId"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpConfigPollMinInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpConfigPollMaxInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoOurPollInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoPeerPollInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoRootDelay"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoRootDispersion"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoPeerReach"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoOriginTimeFrac"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoOriginTimeSec"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoRecvTimeFrac"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoRecvTimeSec"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoXmtTimeFrac"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoXmtTimeSec"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssolastPollreq"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoPrecision"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoCurrentMode"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoPeerDispersion"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoBurst"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAssoIsOobm"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAuthenticationKeyIdConfigGroup": {
+    "name": "hpicfNtpAuthenticationKeyIdConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyAuthMode"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyValue"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyEncrypted"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyTrusted"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpAuthenticationKeyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpAssociationSampleGroup": {
+    "name": "hpicfNtpAssociationSampleGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpfiltDelaySample"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpfiltOffsetSample"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpIpv6Multicast"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpIpv6MulticastStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfNtpInetServerNameCfgGroup": {
+    "name": "hpicfNtpInetServerNameCfgGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.121.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerName"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerNameRowStatus"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameResolvAddType"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameResolvAddress"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameResolveStatus"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpInetServerNameAuthKeyId"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpConfigServerNamePollMinInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpConfigServerNamePollMaxInterval"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameAssoBurst"
+      },
+      {
+        "module": "HP-ICF-NTP-MIB",
+        "object": "hpicfNtpServerNameAssoIsOobm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-NTP-MIB",
+      "Source digest sha256:7f6e60ce2e4fae7fc3894c9133769db334f392786239dafc9a65f9290ee25955",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-NTP-MIB"
+  }
+}

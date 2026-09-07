@@ -1,0 +1,127 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-JS-SMI": [
+      "jnxJsDnsRoot"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxJsDns": {
+    "name": "jnxJsDns",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1",
+    "class": "moduleidentity"
+  },
+  "jnxJsDnsProxyDataObjects": {
+    "name": "jnxJsDnsProxyDataObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsDNSProxyQueriesReceived": {
+    "name": "jnxJsDNSProxyQueriesReceived",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyResponsesSent": {
+    "name": "jnxJsDnsProxyResponsesSent",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyQueriesForwarded": {
+    "name": "jnxJsDnsProxyQueriesForwarded",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyNegativeResponses": {
+    "name": "jnxJsDnsProxyNegativeResponses",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyRetryRequests": {
+    "name": "jnxJsDnsProxyRetryRequests",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyPendingRequests": {
+    "name": "jnxJsDnsProxyPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsDnsProxyServerFailures": {
+    "name": "jnxJsDnsProxyServerFailures",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.10.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-JS-DNS-MIB",
+      "Source digest sha256:927dbb2647c6fd860e6e6031320cda8599c5c732abf894ecd30df93e8bf466ab",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-JS-DNS-MIB"
+  }
+}

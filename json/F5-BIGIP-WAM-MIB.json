@@ -1,0 +1,810 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-BIGIP-COMMON-MIB": [
+      "LongDisplayString",
+      "bigipCompliances",
+      "bigipGroups",
+      "bigipTrafficMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Opaque",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bigipWAM": {
+    "name": "bigipWAM",
+    "oid": "1.3.6.1.4.1.3375.2.7",
+    "class": "moduleidentity"
+  },
+  "wamAppStat": {
+    "name": "wamAppStat",
+    "oid": "1.3.6.1.4.1.3375.2.7.1",
+    "class": "objectidentity"
+  },
+  "wamAppStatResetStats": {
+    "name": "wamAppStatResetStats",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wamAppStatNumber": {
+    "name": "wamAppStatNumber",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wamAppStatTable": {
+    "name": "wamAppStatTable",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wamAppStatEntry": {
+    "name": "wamAppStatEntry",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wamAppStatName": {
+    "name": "wamAppStatName",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongDisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatVsName": {
+    "name": "wamAppStatVsName",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongDisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatRqstTotal": {
+    "name": "wamAppStatRqstTotal",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied": {
+    "name": "wamAppStatProxied",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedBytes": {
+    "name": "wamAppStatProxiedBytes",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied1500": {
+    "name": "wamAppStatProxied1500",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied10k": {
+    "name": "wamAppStatProxied10k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied50k": {
+    "name": "wamAppStatProxied50k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied100k": {
+    "name": "wamAppStatProxied100k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied500k": {
+    "name": "wamAppStatProxied500k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied1m": {
+    "name": "wamAppStatProxied1m",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxied5m": {
+    "name": "wamAppStatProxied5m",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedLarge": {
+    "name": "wamAppStatProxiedLarge",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedNew": {
+    "name": "wamAppStatProxiedNew",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedExpired": {
+    "name": "wamAppStatProxiedExpired",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedPerPolicy": {
+    "name": "wamAppStatProxiedPerPolicy",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedPerIrule": {
+    "name": "wamAppStatProxiedPerIrule",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedPerInvalidation": {
+    "name": "wamAppStatProxiedPerInvalidation",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedPerClientRequest": {
+    "name": "wamAppStatProxiedPerClientRequest",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatProxiedBypass": {
+    "name": "wamAppStatProxiedBypass",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache": {
+    "name": "wamAppStatFromCache",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCacheBytes": {
+    "name": "wamAppStatFromCacheBytes",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache1500": {
+    "name": "wamAppStatFromCache1500",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache10k": {
+    "name": "wamAppStatFromCache10k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache50k": {
+    "name": "wamAppStatFromCache50k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache100k": {
+    "name": "wamAppStatFromCache100k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache500k": {
+    "name": "wamAppStatFromCache500k",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache1m": {
+    "name": "wamAppStatFromCache1m",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCache5m": {
+    "name": "wamAppStatFromCache5m",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatFromCacheLarge": {
+    "name": "wamAppStatFromCacheLarge",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOws2xx": {
+    "name": "wamAppStatOws2xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOws3xx": {
+    "name": "wamAppStatOws3xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOws4xx": {
+    "name": "wamAppStatOws4xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOws5xx": {
+    "name": "wamAppStatOws5xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOwsDropped": {
+    "name": "wamAppStatOwsDropped",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatOwsRejected": {
+    "name": "wamAppStatOwsRejected",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWam2xx": {
+    "name": "wamAppStatWam2xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWam3xx": {
+    "name": "wamAppStatWam3xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWam4xx": {
+    "name": "wamAppStatWam4xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWam5xx": {
+    "name": "wamAppStatWam5xx",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWam503": {
+    "name": "wamAppStatWam503",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "wamAppStatWamDropped": {
+    "name": "wamAppStatWamDropped",
+    "oid": "1.3.6.1.4.1.3375.2.7.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bigipWAMCompliance": {
+    "name": "bigipWAMCompliance",
+    "oid": "1.3.6.1.4.1.3375.2.5.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bigipWAMGroups",
+        "module": "F5-BIGIP-WAM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipWAMGroups": {
+    "name": "bigipWAMGroups",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.7",
+    "class": "objectidentity"
+  },
+  "wamAppStatGroup": {
+    "name": "wamAppStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.7.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatNumber"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatName"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatVsName"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatRqstTotal"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedBytes"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied1500"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied10k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied50k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied100k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied500k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied1m"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxied5m"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedLarge"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedNew"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedExpired"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedPerPolicy"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedPerIrule"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedPerInvalidation"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedPerClientRequest"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatProxiedBypass"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCacheBytes"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache1500"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache10k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache50k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache100k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache500k"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache1m"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCache5m"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatFromCacheLarge"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOws2xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOws3xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOws4xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOws5xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOwsDropped"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatOwsRejected"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWam2xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWam3xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWam4xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWam5xx"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWam503"
+      },
+      {
+        "module": "F5-BIGIP-WAM-MIB",
+        "object": "wamAppStatWamDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source F5-BIGIP-WAM-MIB",
+      "Source digest sha256:844aa5691915a2016cee51ba9eaf1e0aa76a383e770ca222fe4b1df98b8e55f3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "F5-BIGIP-WAM-MIB"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMacNotificationCapability": {
+    "name": "ciscoMacNotificationCapability",
+    "oid": "1.3.6.1.4.1.9.7.327",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-09 00:00",
+        "description": "Add capability statement cmnCapabilityV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2004-02-05 00:00",
+        "description": "Add capability statement cmnCapabilityCatOSV08R0301Cat6K and add VARIATION for cmnCapabilityV12R0217SXCat6K."
+      },
+      {
+        "revision": "2003-11-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cmnCapabilityCatOSV08R0101Cat4K": {
+    "name": "cmnCapabilityCatOSV08R0101Cat4K",
+    "oid": "1.3.6.1.4.1.9.7.327.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000 series\n                        devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "includes": [
+          "cmnGlobalGroup",
+          "cmnInterfaceGroup",
+          "cmnNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmnCapabilityCatOSV08R0101Cat6K": {
+    "name": "cmnCapabilityCatOSV08R0101Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "includes": [
+          "cmnGlobalGroup",
+          "cmnInterfaceGroup",
+          "cmnNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmnNotificationInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 15,
+                    "max": 4294967295
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmnCapabilityV12R0217SXCat6K": {
+    "name": "cmnCapabilityV12R0217SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17)SX on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "includes": [
+          "cmnMACMoveGroup",
+          "cmnMACThresholdGroup",
+          "cmnMACMoveNotifGroup",
+          "cmnMACThresholdNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmnMACThresholdInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 120,
+                    "max": 1000000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmnCapabilityCatOSV08R0301Cat6K": {
+    "name": "cmnCapabilityCatOSV08R0301Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "includes": [
+          "cmnGlobalGroup",
+          "cmnInterfaceGroup",
+          "cmnNotificationGroup",
+          "cmnMACMoveGroup",
+          "cmnMACThresholdGroup",
+          "cmnMACMoveNotifGroup",
+          "cmnMACThresholdNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmnNotificationInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 15,
+                    "max": 4294967295
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmnMACThresholdInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 120,
+                    "max": 4294967295
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmnCapabilityV12R0233SXHPCat6K": {
+    "name": "cmnCapabilityV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.327.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "includes": [
+          "cmnMACMoveGroup",
+          "cmnMACThresholdGroup",
+          "cmnMACMoveNotifGroup",
+          "cmnMACThresholdNotifGroup",
+          "cmnGlobalGroup",
+          "cmnInterfaceGroup",
+          "cmnNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmnMACThresholdInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 120,
+                    "max": 1000000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmnNotificationInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2147483647
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MAC-NOTIFICATION-CAPABILITY",
+      "Source digest sha256:209c4579ddade539e70326f013dfa46fed63d6da82a83a135961f935118e6356",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MAC-NOTIFICATION-CAPABILITY"
+  }
+}

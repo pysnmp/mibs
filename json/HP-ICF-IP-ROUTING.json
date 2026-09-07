@@ -1,0 +1,2900 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "HpInetCidrRouteState"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "IP-FORWARD-MIB": [
+      "inetCidrRouteDestType",
+      "inetCidrRouteEntry",
+      "ipCidrRouteEntry"
+    ],
+    "IP-MIB": [
+      "ipDefaultRouterEntry",
+      "ipv6RouterAdvertEntry"
+    ],
+    "OSPF-MIB": [
+      "Metric"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfIpRouting": {
+    "name": "hpicfIpRouting",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-02 00:00",
+        "description": " Added hpicfIpStaticRouteBfdTable to provide BFD support to Static Routes."
+      },
+      {
+        "revision": "2016-11-09 00:00",
+        "description": "Added hpicfIpv6RouterAdvertRtrPreference, hpicfIpv6RtrAdvParamGroup and hpicfIpv6RtrAdvParamCompliance. Deprecated hpicfIpv6RtrAdvGroup and hpicfIpv6RtrAdvCompliance."
+      },
+      {
+        "revision": "2016-03-18 00:00",
+        "description": "Changed syntax and description of hpicfIpStaticRouteLogging"
+      },
+      {
+        "revision": "2016-02-17 00:00",
+        "description": "Added hpicfIpStaticRouteLogging"
+      },
+      {
+        "revision": "2014-08-26 00:00",
+        "description": "Added hpicfDBroadcastFwdAcl"
+      },
+      {
+        "revision": "2013-06-03 00:00",
+        "description": "Added hpicfIpv6RouteSummary"
+      },
+      {
+        "revision": "2012-10-20 00:00",
+        "description": "Added hpicfIpStaticRouteName"
+      },
+      {
+        "revision": "2011-11-10 00:00",
+        "description": "Added hpicfIpv6NDRADNSAdminStatus and hpicfIpv6RouterAdvertSendDNSAdverts."
+      },
+      {
+        "revision": "2011-08-30 00:00",
+        "description": "Added hpicfIpStaticRouteMetric."
+      },
+      {
+        "revision": "2010-11-29 00:00",
+        "description": "Added hpicfIpRouteTable."
+      },
+      {
+        "revision": "2010-05-27 00:00",
+        "description": "Added hpicfArpMcastReplies."
+      },
+      {
+        "revision": "2009-11-05 00:00",
+        "description": "Added hpicfIpv6RtrAdvPrefixAdvertiseFlag to hpicfIpv6RtrAdvPrefixEntry."
+      },
+      {
+        "revision": "2009-10-12 00:00",
+        "description": "Added hpicfIpv6RtrAdvCurHopLimitMode."
+      },
+      {
+        "revision": "2008-12-19 00:00",
+        "description": "Added hpicfIpRouteBaseScalars."
+      },
+      {
+        "revision": "2008-04-08 00:00",
+        "description": "Added hpicfIpv6RtrAdvPrefixTable."
+      },
+      {
+        "revision": "2008-03-04 00:00",
+        "description": "Added hpicfIpv6ND."
+      },
+      {
+        "revision": "2007-04-20 00:00",
+        "description": "Added hpicfArpAgingTime."
+      },
+      {
+        "revision": "2005-08-13 02:28",
+        "description": "Added hpicfInetCidrRouteTable augmenting inetCidrRouteTable."
+      },
+      {
+        "revision": "2005-08-05 00:00",
+        "description": "Added import objects."
+      },
+      {
+        "revision": "2003-05-13 02:28",
+        "description": "Added static route configuration objects."
+      },
+      {
+        "revision": "2002-10-31 23:53",
+        "description": "Added Source Route Global Enable."
+      },
+      {
+        "revision": "2002-05-23 17:38",
+        "description": "Added ICMP Rate Limiting and Directed Broadcast forwarding objects."
+      },
+      {
+        "revision": "2000-07-15 00:22",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfIpRoutingObjects": {
+    "name": "hpicfIpRoutingObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1",
+    "class": "objectidentity"
+  },
+  "hpicfIcmpRdisc": {
+    "name": "hpicfIcmpRdisc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfRdiscAdminStatus": {
+    "name": "hpicfRdiscAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfCfgTable": {
+    "name": "hpicfRdiscIfCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRdiscIfCfgEntry": {
+    "name": "hpicfRdiscIfCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRdiscIfAdminStatus": {
+    "name": "hpicfRdiscIfAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfAdvertAddress": {
+    "name": "hpicfRdiscIfAdvertAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicast": 1,
+          "broadcast": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfMaxAdvertInterval": {
+    "name": "hpicfRdiscIfMaxAdvertInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfMinAdvertInterval": {
+    "name": "hpicfRdiscIfMinAdvertInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfAdvertLifetime": {
+    "name": "hpicfRdiscIfAdvertLifetime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRdiscIfPreference": {
+    "name": "hpicfRdiscIfPreference",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpRateLimits": {
+    "name": "hpicfIcmpRateLimits",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfIcmpBoxLimits": {
+    "name": "hpicfIcmpBoxLimits",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfIcmpReplyLimitEnable": {
+    "name": "hpicfIcmpReplyLimitEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpReplyLimit": {
+    "name": "hpicfIcmpReplyLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpRedirectEnable": {
+    "name": "hpicfIcmpRedirectEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpDestUnreachEnable": {
+    "name": "hpicfIcmpDestUnreachEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpAddrMaskReplyEnable": {
+    "name": "hpicfIcmpAddrMaskReplyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIcmpEchoBroadcastReplyEnable": {
+    "name": "hpicfIcmpEchoBroadcastReplyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfGlobalIpConfig": {
+    "name": "hpicfGlobalIpConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfDBroadcastFwdEnable": {
+    "name": "hpicfDBroadcastFwdEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSourceRouteEnable": {
+    "name": "hpicfSourceRouteEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpMaximumPaths": {
+    "name": "hpicfIpMaximumPaths",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDBroadcastFwdAcl": {
+    "name": "hpicfDBroadcastFwdAcl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteConfig": {
+    "name": "hpicfIpStaticRouteConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfIpStaticRouteTable": {
+    "name": "hpicfIpStaticRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteEntry": {
+    "name": "hpicfIpStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefixType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdAddr",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRoutePrefixType": {
+    "name": "hpicfIpStaticRoutePrefixType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRoutePrefix": {
+    "name": "hpicfIpStaticRoutePrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRoutePrefixLength": {
+    "name": "hpicfIpStaticRoutePrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteFwdAddrType": {
+    "name": "hpicfIpStaticRouteFwdAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteFwdAddr": {
+    "name": "hpicfIpStaticRouteFwdAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteFwdIfIndex": {
+    "name": "hpicfIpStaticRouteFwdIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteType": {
+    "name": "hpicfIpStaticRouteType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "null": 5
+        }
+      }
+    },
+    "default": {
+      "value": "remote",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteDistance": {
+    "name": "hpicfIpStaticRouteDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteTag": {
+    "name": "hpicfIpStaticRouteTag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteStatus": {
+    "name": "hpicfIpStaticRouteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteMetric": {
+    "name": "hpicfIpStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteName": {
+    "name": "hpicfIpStaticRouteName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteLogging": {
+    "name": "hpicfIpStaticRouteLogging",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdEnable": {
+    "name": "hpicfIpStaticRouteBfdEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborTable": {
+    "name": "hpicfIpStaticNeighborTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborEntry": {
+    "name": "hpicfIpStaticNeighborEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticNeighborIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticNeighborNetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticNeighborNetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborIfIndex": {
+    "name": "hpicfIpStaticNeighborIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborNetAddrType": {
+    "name": "hpicfIpStaticNeighborNetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborNetAddress": {
+    "name": "hpicfIpStaticNeighborNetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborPhysAddress": {
+    "name": "hpicfIpStaticNeighborPhysAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticNeighborStatus": {
+    "name": "hpicfIpStaticNeighborStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdTable": {
+    "name": "hpicfIpStaticRouteBfdTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdEntry": {
+    "name": "hpicfIpStaticRouteBfdEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefixType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRoutePrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdAddr",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteFwdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdSrcAddrType": {
+    "name": "hpicfIpStaticRouteBfdSrcAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdSrcAddr": {
+    "name": "hpicfIpStaticRouteBfdSrcAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdDstAddrType": {
+    "name": "hpicfIpStaticRouteBfdDstAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdDstAddr": {
+    "name": "hpicfIpStaticRouteBfdDstAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdStatus": {
+    "name": "hpicfIpStaticRouteBfdStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpRouteStats": {
+    "name": "hpicfIpRouteStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5",
+    "class": "objectidentity"
+  },
+  "hpicfIpCidrRouteTable": {
+    "name": "hpicfIpCidrRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpCidrRouteEntry": {
+    "name": "hpicfIpCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfIpCidrRouteEntry",
+      "module": "HP-ICF-IP-ROUTING",
+      "object": "ipCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "hpicfIpCidrRouteDistance": {
+    "name": "hpicfIpCidrRouteDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteTable": {
+    "name": "hpicfInetCidrRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteEntry": {
+    "name": "hpicfInetCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfInetCidrRouteEntry",
+      "module": "HP-ICF-IP-ROUTING",
+      "object": "inetCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "hpicfInetCidrRouteDistance": {
+    "name": "hpicfInetCidrRouteDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteInfo": {
+    "name": "hpicfInetCidrRouteInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteState": {
+    "name": "hpicfInetCidrRouteState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpInetCidrRouteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteStatsTable": {
+    "name": "hpicfInetCidrRouteStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfInetCidrRouteStatsEntry": {
+    "name": "hpicfInetCidrRouteStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-FORWARD-MIB",
+        "object": "inetCidrRouteDestType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrNumRouteDestinations": {
+    "name": "hpicfInetCidrNumRouteDestinations",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfInetCidrNumRouteRoutes": {
+    "name": "hpicfInetCidrNumRouteRoutes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfArpInfo": {
+    "name": "hpicfArpInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.6",
+    "class": "objectidentity"
+  },
+  "hpicfArpAgingTime": {
+    "name": "hpicfArpAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16666666
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfArpMcastReplies": {
+    "name": "hpicfArpMcastReplies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixInfo": {
+    "name": "hpicfIpDefaultRouterPrefixInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7",
+    "class": "objectidentity"
+  },
+  "hpicfIpDefaultRouterPrefixTable": {
+    "name": "hpicfIpDefaultRouterPrefixTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixEntry": {
+    "name": "hpicfIpDefaultRouterPrefixEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterAddressType": {
+    "name": "hpicfIpDefaultRouterAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterAddress": {
+    "name": "hpicfIpDefaultRouterAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterIfIndex": {
+    "name": "hpicfIpDefaultRouterIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixType": {
+    "name": "hpicfIpDefaultRouterPrefixType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefix": {
+    "name": "hpicfIpDefaultRouterPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixLength": {
+    "name": "hpicfIpDefaultRouterPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixOnLink": {
+    "name": "hpicfIpDefaultRouterPrefixOnLink",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixAutonomous": {
+    "name": "hpicfIpDefaultRouterPrefixAutonomous",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixValidLifeTime": {
+    "name": "hpicfIpDefaultRouterPrefixValidLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterPrefixPrefdLifeTime": {
+    "name": "hpicfIpDefaultRouterPrefixPrefdLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterProperties": {
+    "name": "hpicfIpDefaultRouterProperties",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.8",
+    "class": "objectidentity"
+  },
+  "hpicfIpDefaultRouterTable": {
+    "name": "hpicfIpDefaultRouterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterEntry": {
+    "name": "hpicfIpDefaultRouterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfIpDefaultRouterEntry",
+      "module": "HP-ICF-IP-ROUTING",
+      "object": "ipDefaultRouterEntry"
+    },
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterMTU": {
+    "name": "hpicfIpDefaultRouterMTU",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterHopLimit": {
+    "name": "hpicfIpDefaultRouterHopLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpv6ND": {
+    "name": "hpicfIpv6ND",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9",
+    "class": "objectidentity"
+  },
+  "hpicfIpv6NDRAAdminStatus": {
+    "name": "hpicfIpv6NDRAAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixTable": {
+    "name": "hpicfIpv6RtrAdvPrefixTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixEntry": {
+    "name": "hpicfIpv6RtrAdvPrefixEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixPrefix",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixIfIndex": {
+    "name": "hpicfIpv6RtrAdvPrefixIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixType": {
+    "name": "hpicfIpv6RtrAdvPrefixType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixPrefix": {
+    "name": "hpicfIpv6RtrAdvPrefixPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixLength": {
+    "name": "hpicfIpv6RtrAdvPrefixLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixOnLinkFlag": {
+    "name": "hpicfIpv6RtrAdvPrefixOnLinkFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixAutonomousFlag": {
+    "name": "hpicfIpv6RtrAdvPrefixAutonomousFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixLifetimeType": {
+    "name": "hpicfIpv6RtrAdvPrefixLifetimeType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "realTime": 2
+        }
+      }
+    },
+    "default": {
+      "value": "fixed",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixPreferredLifetime": {
+    "name": "hpicfIpv6RtrAdvPrefixPreferredLifetime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 604800,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixValidLifetime": {
+    "name": "hpicfIpv6RtrAdvPrefixValidLifetime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 2592000,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixRowStatus": {
+    "name": "hpicfIpv6RtrAdvPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixAdvertiseFlag": {
+    "name": "hpicfIpv6RtrAdvPrefixAdvertiseFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpRouteSummary": {
+    "name": "hpicfIpRouteSummary",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.10",
+    "class": "objectidentity"
+  },
+  "HpicfIpRouteProtoName": {
+    "name": "HpicfIpRouteProtoName",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "ipv6": 7,
+          "ospf2ase": 8,
+          "rip": 9,
+          "bgp": 10,
+          "rdisc6": 11,
+          "static": 12,
+          "snmp": 13,
+          "isis": 15,
+          "ripng": 17,
+          "ipv4": 18,
+          "pim": 22,
+          "rdisc": 23,
+          "ospf2": 24,
+          "ospf2nssa": 25,
+          "mroute": 27,
+          "igmpv3": 32,
+          "pim6": 33,
+          "mpls": 40,
+          "vrrp2": 42
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfIpRouteSummaryTable": {
+    "name": "hpicfIpRouteSummaryTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpRouteEntry": {
+    "name": "hpicfIpRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpRouteProto",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouteProto": {
+    "name": "hpicfIpRouteProto",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfIpRouteProtoName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpRouteCnt": {
+    "name": "hpicfIpRouteCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpv6RouteSummary": {
+    "name": "hpicfIpv6RouteSummary",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.11",
+    "class": "objectidentity"
+  },
+  "HpicfIpv6RouteProtoName": {
+    "name": "HpicfIpv6RouteProtoName",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "ospf3": 4,
+          "ospf3ase": 5,
+          "ospf3nssa": 6,
+          "ipv6": 7,
+          "ospf2ase": 8,
+          "rip": 9,
+          "bgp": 10,
+          "rdisc6": 11,
+          "static": 12,
+          "snmp": 13,
+          "isis": 15,
+          "ripng": 17,
+          "ipv4": 18,
+          "pim": 22,
+          "rdisc": 23,
+          "ospf2": 24,
+          "ospf2nssa": 25,
+          "mroute": 27,
+          "igmpv3": 32,
+          "pim6": 33,
+          "mpls": 40,
+          "vrrp2": 42
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfIpv6RouteSummaryTable": {
+    "name": "hpicfIpv6RouteSummaryTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RouteEntry": {
+    "name": "hpicfIpv6RouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RouteProto",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RouteProto": {
+    "name": "hpicfIpv6RouteProto",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfIpv6RouteProtoName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6RouteCnt": {
+    "name": "hpicfIpv6RouteCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpRouteBaseScalars": {
+    "name": "hpicfIpRouteBaseScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.3",
+    "class": "objectidentity"
+  },
+  "hpicfIpRouteCount": {
+    "name": "hpicfIpRouteCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpRouteNextHopCount": {
+    "name": "hpicfIpRouteNextHopCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvTable": {
+    "name": "hpicfIpv6RtrAdvTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpv6NDRADNSAdminStatus": {
+    "name": "hpicfIpv6NDRADNSAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvEntry": {
+    "name": "hpicfIpv6RtrAdvEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfIpv6RtrAdvEntry",
+      "module": "HP-ICF-IP-ROUTING",
+      "object": "ipv6RouterAdvertEntry"
+    },
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvCurHopLimitMode": {
+    "name": "hpicfIpv6RtrAdvCurHopLimitMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1,
+          "perInterface": 2
+        }
+      }
+    },
+    "default": {
+      "value": "global",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpv6RouterAdvertSendDNSAdverts": {
+    "name": "hpicfIpv6RouterAdvertSendDNSAdverts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpv6RouterAdvertRtrPreference": {
+    "name": "hpicfIpv6RouterAdvertRtrPreference",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.1.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3
+        }
+      }
+    },
+    "default": {
+      "value": "medium",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIpRoutingConformance": {
+    "name": "hpicfIpRoutingConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2",
+    "class": "objectidentity"
+  },
+  "hpicfIpRoutingGroups": {
+    "name": "hpicfIpRoutingGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfRdiscBaseGroup": {
+    "name": "hpicfRdiscBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRdiscIfCfgGroup": {
+    "name": "hpicfRdiscIfCfgGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfAdminStatus"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfAdvertAddress"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfMaxAdvertInterval"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfMinAdvertInterval"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfAdvertLifetime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfRdiscIfPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIcmpReplyBaseGroup": {
+    "name": "hpicfIcmpReplyBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpRedirectEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpDestUnreachEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpAddrMaskReplyEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpEchoBroadcastReplyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIcmpReplyLimitGroup": {
+    "name": "hpicfIcmpReplyLimitGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpReplyLimitEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIcmpReplyLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouteCfgGroup": {
+    "name": "hpicfIpRouteCfgGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfDBroadcastFwdEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfSourceRouteEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteGroup": {
+    "name": "hpicfIpStaticRouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteDistance"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteTag"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteLogging"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpStaticNeighborGroup": {
+    "name": "hpicfIpStaticNeighborGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticNeighborPhysAddress"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticNeighborStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpCidrRouteGroup": {
+    "name": "hpicfIpCidrRouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpCidrRouteDistance"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteGroup": {
+    "name": "hpicfInetCidrRouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfInetCidrRouteDistance"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfInetCidrRouteInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfArpBaseGroup": {
+    "name": "hpicfArpBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfArpAgingTime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfArpMcastReplies"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixGroup": {
+    "name": "hpicfIpv6RtrAdvPrefixGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixOnLinkFlag"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixAutonomousFlag"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixLifetimeType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixPreferredLifetime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixValidLifetime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixRowStatus"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvPrefixAdvertiseFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvGroup": {
+    "name": "hpicfIpv6RtrAdvGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvCurHopLimitMode"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGlobalIpConfigGroup": {
+    "name": "hpicfGlobalIpConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfDBroadcastFwdEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfSourceRouteEnable"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpMaximumPaths"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterGroup": {
+    "name": "hpicfIpDefaultRouterGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixOnLink"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixAutonomous"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixValidLifeTime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterPrefixPrefdLifeTime"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterMTU"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpDefaultRouterHopLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6NDRAAdminGroup": {
+    "name": "hpicfIpv6NDRAAdminGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6NDRAAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouteBaseScalarsGroup": {
+    "name": "hpicfIpRouteBaseScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpRouteCount"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpRouteNextHopCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteOtherGroup": {
+    "name": "hpicfIpStaticRouteOtherGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteMetric"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpRouteSummaryTableGroup": {
+    "name": "hpicfIpRouteSummaryTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpRouteCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteGroup1": {
+    "name": "hpicfInetCidrRouteGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfInetCidrRouteState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteStatsGroup": {
+    "name": "hpicfInetCidrRouteStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfInetCidrNumRouteDestinations"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfInetCidrNumRouteRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvDNSGroup": {
+    "name": "hpicfIpv6RtrAdvDNSGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RouterAdvertSendDNSAdverts"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6NDRADNSAdminGroup": {
+    "name": "hpicfIpv6NDRADNSAdminGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6NDRADNSAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteNameGroup": {
+    "name": "hpicfIpStaticRouteNameGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpv6RouteSummaryTableGroup": {
+    "name": "hpicfIpv6RouteSummaryTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RouteProto"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RouteCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDBroadcastFwdAclGroup": {
+    "name": "hpicfDBroadcastFwdAclGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfDBroadcastFwdAcl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteParamGroup": {
+    "name": "hpicfIpStaticRouteParamGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteDistance"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteTag"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteStatus"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteMetric"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteName"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteLogging"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpStaticRouteParamGroup1": {
+    "name": "hpicfIpStaticRouteParamGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteDistance"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteTag"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteStatus"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteMetric"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteName"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteLogging"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteBfdGroup": {
+    "name": "hpicfIpStaticRouteBfdGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdSrcAddrType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdSrcAddr"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdDstAddrType"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdDstAddr"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpStaticRouteBfdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvParamGroup": {
+    "name": "hpicfIpv6RtrAdvParamGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RtrAdvCurHopLimitMode"
+      },
+      {
+        "module": "HP-ICF-IP-ROUTING",
+        "object": "hpicfIpv6RouterAdvertRtrPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRoutingCompliances": {
+    "name": "hpicfIpRoutingCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfIcmpRdiscCompliance": {
+    "name": "hpicfIcmpRdiscCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRdiscBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfRdiscIfCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIcmpReplyCompliance": {
+    "name": "hpicfIcmpReplyCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIcmpReplyBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyLimitGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouterCompliance": {
+    "name": "hpicfIpRouterCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRdiscBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfRdiscIfCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyLimitGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpRouteCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticRouteGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticNeighborGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpCidrRouteGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfArpInfoCompliance": {
+    "name": "hpicfArpInfoCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfArpBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvPrefixCompliance": {
+    "name": "hpicfIpv6RtrAdvPrefixCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RtrAdvPrefixGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvCompliance": {
+    "name": "hpicfIpv6RtrAdvCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RtrAdvGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGlobalIpConfigCompliance": {
+    "name": "hpicfGlobalIpConfigCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGlobalIpConfigGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpDefaultRouterCompliance": {
+    "name": "hpicfIpDefaultRouterCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpDefaultRouterGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6NDRAAdminCompliance": {
+    "name": "hpicfIpv6NDRAAdminCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6NDRAAdminGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouteBaseScalarsCompliance": {
+    "name": "hpicfIpRouteBaseScalarsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpRouteBaseScalarsGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteCompliance": {
+    "name": "hpicfInetCidrRouteCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfInetCidrRouteGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouterOtherCompliance": {
+    "name": "hpicfIpRouterOtherCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpStaticRouteOtherGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpRouteSummaryCompliance": {
+    "name": "hpicfIpRouteSummaryCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpRouteSummaryTableGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteCompliance1": {
+    "name": "hpicfInetCidrRouteCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfInetCidrRouteGroup1",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfInetCidrRouteStatsCompliance": {
+    "name": "hpicfInetCidrRouteStatsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.15",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfInetCidrRouteStatsGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6RtrAdvDNSCompliance": {
+    "name": "hpicfIpv6RtrAdvDNSCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.16",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RtrAdvDNSGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpv6NDRADNSAdminCompliance": {
+    "name": "hpicfIpv6NDRADNSAdminCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.17",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6NDRADNSAdminGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteNameCompliance": {
+    "name": "hpicfIpStaticRouteNameCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.18",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpStaticRouteNameGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpv6RouteSummaryCompliance": {
+    "name": "hpicfIpv6RouteSummaryCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.19",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RouteSummaryTableGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpDBroadcastFwdAclCompliance": {
+    "name": "hpicfIpDBroadcastFwdAclCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.20",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDBroadcastFwdAclGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpRouteCompliance": {
+    "name": "hpicfIpRouteCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.21",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRdiscBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfRdiscIfCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyLimitGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpRouteCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticNeighborGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpCidrRouteGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticRouteParamGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfIpv6RtrAdvParamCompliance": {
+    "name": "hpicfIpv6RtrAdvParamCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.22",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfIpv6RtrAdvParamGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticRouteCompliance1": {
+    "name": "hpicfIpStaticRouteCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.15.2.2.23",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRdiscBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfRdiscIfCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyBaseGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIcmpReplyLimitGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpRouteCfgGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticNeighborGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpCidrRouteGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticRouteParamGroup1",
+        "module": "HP-ICF-IP-ROUTING"
+      },
+      {
+        "object": "hpicfIpStaticRouteBfdGroup",
+        "module": "HP-ICF-IP-ROUTING"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-IP-ROUTING",
+      "Source digest sha256:4dd46bc796f2e294717ef5ee8302adc226284d67462cbf01811aac5eccb022da",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-IP-ROUTING"
+  }
+}

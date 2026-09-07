@@ -1,0 +1,91 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfAAANasId": {
+    "name": "hpnicfAAANasId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-09 09:45",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfAAANasIdObjects": {
+    "name": "hpnicfAAANasIdObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1",
+    "class": "objectidentity"
+  },
+  "hpnicfAAANasIdTable": {
+    "name": "hpnicfAAANasIdTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAAANasIdEntry": {
+    "name": "hpnicfAAANasIdEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-AAA-NASID-MIB",
+        "object": "hpnicfAAANasIdName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAAANasIdName": {
+    "name": "hpnicfAAANasIdName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-AAA-NASID-MIB",
+      "Source digest sha256:3b7dcdc4b4be71bf0f6527d3cc363c8760cf45c03cd69d7fb0572fe154e013ab",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-AAA-NASID-MIB"
+  }
+}

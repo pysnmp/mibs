@@ -1,0 +1,429 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanAnnouncementMIB": {
+    "name": "ciscoWanAnnouncementMIB",
+    "oid": "1.3.6.1.4.1.351.150.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-22 00:00",
+        "description": "Update with description changes from review."
+      },
+      {
+        "revision": "2001-12-26 00:00",
+        "description": " Initial draft. Created new Media Gateway Card Announcement Group "
+      }
+    ]
+  },
+  "cwAnnounceGrpMIBObjects": {
+    "name": "cwAnnounceGrpMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.25.1",
+    "class": "objectidentity"
+  },
+  "cwAnnounceGeneric": {
+    "name": "cwAnnounceGeneric",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1",
+    "class": "objectidentity"
+  },
+  "cwAnnounceControlGrp": {
+    "name": "cwAnnounceControlGrp",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1",
+    "class": "objectidentity"
+  },
+  "cwAnnounceTableGrp": {
+    "name": "cwAnnounceTableGrp",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2",
+    "class": "objectidentity"
+  },
+  "AnnCodecType": {
+    "name": "AnnCodecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711u": 1,
+          "g711a": 2,
+          "g726r32000": 3,
+          "g729a": 4,
+          "g729ab": 5,
+          "g726r16000": 7,
+          "g726r24000": 8,
+          "g726r40000": 9,
+          "g723h": 11,
+          "g723ah": 12,
+          "g723l": 13,
+          "g723al": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cwAnnMaximumSize": {
+    "name": "cwAnnMaximumSize",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwAnnFileServerName": {
+    "name": "cwAnnFileServerName",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " ",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwAnnAgeTime": {
+    "name": "cwAnnAgeTime",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10080,
+      "format": "decimal"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwAnnPreferenceCodec": {
+    "name": "cwAnnPreferenceCodec",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AnnCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwAnnPrefixPath": {
+    "name": "cwAnnPrefixPath",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": " ",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwAnnReqTimeout": {
+    "name": "cwAnnReqTimeout",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwAnnounceTable": {
+    "name": "cwAnnounceTable",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwAnnounceEntry": {
+    "name": "cwAnnounceEntry",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnounceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwAnnounceNumber": {
+    "name": "cwAnnounceNumber",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwAnnFileStatus": {
+    "name": "cwAnnFileStatus",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "loading": 2,
+          "invalidFile": 3,
+          "loadFailed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwAnnFileName": {
+    "name": "cwAnnFileName",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwAnnFileCodec": {
+    "name": "cwAnnFileCodec",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AnnCodecType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwAnnRowStatus": {
+    "name": "cwAnnRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.25.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwAnnounceNotificationPrefix": {
+    "name": "cwAnnounceNotificationPrefix",
+    "oid": "1.3.6.1.4.1.351.150.25.2",
+    "class": "objectidentity"
+  },
+  "cwAnnounceNotifications": {
+    "name": "cwAnnounceNotifications",
+    "oid": "1.3.6.1.4.1.351.150.25.2.0",
+    "class": "objectidentity"
+  },
+  "cwAnnounceMIBConformance": {
+    "name": "cwAnnounceMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.25.3",
+    "class": "objectidentity"
+  },
+  "cwAnnounceMIBCompliances": {
+    "name": "cwAnnounceMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.25.3.1",
+    "class": "objectidentity"
+  },
+  "cwAnnounceMIBGroups": {
+    "name": "cwAnnounceMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.25.3.2",
+    "class": "objectidentity"
+  },
+  "announceMIBCompliance": {
+    "name": "announceMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.25.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwAnnounceControlGroup",
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB"
+      },
+      {
+        "object": "cwAnnounceTableGroup",
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwAnnounceControlGroup": {
+    "name": "cwAnnounceControlGroup",
+    "oid": "1.3.6.1.4.1.351.150.25.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnMaximumSize"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileServerName"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnAgeTime"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnPreferenceCodec"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnPrefixPath"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnReqTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "cwAnnounceTableGroup": {
+    "name": "cwAnnounceTableGroup",
+    "oid": "1.3.6.1.4.1.351.150.25.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileStatus"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileName"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileCodec"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-ANNOUNCEMENT-MIB",
+      "Source digest sha256:c318c8e7bc8c8e65919488eb94dfcc51c05dd0f054e9edc474b134f3b838d55a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-ANNOUNCEMENT-MIB"
+  }
+}

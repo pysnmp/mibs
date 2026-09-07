@@ -1,0 +1,434 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "ciscoEthernetFabricExtenderMIB": {
+    "name": "ciscoEthernetFabricExtenderMIB",
+    "oid": "1.3.6.1.4.1.9.9.691",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEthernetFabricExtenderMIBNotifs": {
+    "name": "ciscoEthernetFabricExtenderMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.691.0",
+    "class": "objectidentity"
+  },
+  "ciscoEthernetFabricExtenderObjects": {
+    "name": "ciscoEthernetFabricExtenderObjects",
+    "oid": "1.3.6.1.4.1.9.9.691.1",
+    "class": "objectidentity"
+  },
+  "ciscoEthernetFabricExtenderMIBConformance": {
+    "name": "ciscoEthernetFabricExtenderMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.691.2",
+    "class": "objectidentity"
+  },
+  "cefexConfig": {
+    "name": "cefexConfig",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1",
+    "class": "objectidentity"
+  },
+  "CiscoPortPinningMode": {
+    "name": "CiscoPortPinningMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cefexBindingTable": {
+    "name": "cefexBindingTable",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefexBindingEntry": {
+    "name": "cefexBindingEntry",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingInterfaceOnCoreSwitch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefexBindingInterfaceOnCoreSwitch": {
+    "name": "cefexBindingInterfaceOnCoreSwitch",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefexBindingExtenderIndex": {
+    "name": "cefexBindingExtenderIndex",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexBindingCreationTime": {
+    "name": "cefexBindingCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefexBindingRowStatus": {
+    "name": "cefexBindingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigTable": {
+    "name": "cefexConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cefexConfigEntry": {
+    "name": "cefexConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingExtenderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cefexConfigExtenderName": {
+    "name": "cefexConfigExtenderName",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigSerialNumCheck": {
+    "name": "cefexConfigSerialNumCheck",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigSerialNum": {
+    "name": "cefexConfigSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigPinningFailOverMode": {
+    "name": "cefexConfigPinningFailOverMode",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortPinningMode",
+      "class": "type"
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigPinningMaxLinks": {
+    "name": "cefexConfigPinningMaxLinks",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cefexConfigCreationTime": {
+    "name": "cefexConfigCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cefexConfigRowStatus": {
+    "name": "cefexConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.691.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cEthernetFabricExtenderMIBCompliances": {
+    "name": "cEthernetFabricExtenderMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.691.2.1",
+    "class": "objectidentity"
+  },
+  "cEthernetFabricExtenderMIBGroups": {
+    "name": "cEthernetFabricExtenderMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.691.2.2",
+    "class": "objectidentity"
+  },
+  "cEthernetFabricExtenderMIBCompliance": {
+    "name": "cEthernetFabricExtenderMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.691.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cefexBindingConformanceObjects",
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingExtenderIndex",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigExtenderName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigSerialNum",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigPinningFailOverMode",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigPinningMaxLinks",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigSerialNumCheck",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "cefexBindingConformanceObjects": {
+    "name": "cefexBindingConformanceObjects",
+    "oid": "1.3.6.1.4.1.9.9.691.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingExtenderIndex"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingCreationTime"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexBindingRowStatus"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigExtenderName"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigSerialNumCheck"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigSerialNum"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigPinningFailOverMode"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigPinningMaxLinks"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigCreationTime"
+      },
+      {
+        "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+        "object": "cefexConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ETHERNET-FABRIC-EXTENDER-MIB",
+      "Source digest sha256:a98d32741bbf8d6d37a5d2267f2c9b5055222e6dc83f989dd01e51f5a74b8841",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ETHERNET-FABRIC-EXTENDER-MIB"
+  }
+}

@@ -1,0 +1,1140 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fibernet": {
+    "name": "fibernet",
+    "oid": "1.3.6.1.4.1.29003",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-04-24 18:20",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "fbntransport": {
+    "name": "fbntransport",
+    "oid": "1.3.6.1.4.1.29003.2",
+    "class": "objectidentity"
+  },
+  "fbnXMux4Plus": {
+    "name": "fbnXMux4Plus",
+    "oid": "1.3.6.1.4.1.29003.2.44",
+    "class": "objectidentity"
+  },
+  "mux4Plus": {
+    "name": "mux4Plus",
+    "oid": "1.3.6.1.4.1.29003.2.44.1",
+    "class": "objectidentity"
+  },
+  "dmux4": {
+    "name": "dmux4",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1",
+    "class": "objectidentity"
+  },
+  "identityMux4": {
+    "name": "identityMux4",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "numbermux": {
+    "name": "numbermux",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "numberChannel": {
+    "name": "numberChannel",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "strTrapsMux4": {
+    "name": "strTrapsMux4",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapmuxIndex": {
+    "name": "trapmuxIndex",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapchannelIndex": {
+    "name": "trapchannelIndex",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapValue": {
+    "name": "trapValue",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "strDescription": {
+    "name": "strDescription",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxTable": {
+    "name": "muxTable",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "muxEntry": {
+    "name": "muxEntry",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "muxTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "muxTableIndex": {
+    "name": "muxTableIndex",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxIdentity": {
+    "name": "muxIdentity",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxAlarmStatus": {
+    "name": "muxAlarmStatus",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxFanTemp": {
+    "name": "muxFanTemp",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxInteriorTemp": {
+    "name": "muxInteriorTemp",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxVolt3v3": {
+    "name": "muxVolt3v3",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxVolt2v5": {
+    "name": "muxVolt2v5",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxVolt1v2": {
+    "name": "muxVolt1v2",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxLeftPower": {
+    "name": "muxLeftPower",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOn": 1,
+          "powerOff": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxRightPower": {
+    "name": "muxRightPower",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOn": 1,
+          "powerOff": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxLeftPowerIdenti": {
+    "name": "muxLeftPowerIdenti",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxRightPowerIdenti": {
+    "name": "muxRightPowerIdenti",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxOpticalSN": {
+    "name": "muxOpticalSN",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "muxOpticalPN": {
+    "name": "muxOpticalPN",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelTable": {
+    "name": "channelTable",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelEntry": {
+    "name": "channelEntry",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "channelmuxIndex",
+        "implied": 0
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "channelchannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelmuxIndex": {
+    "name": "channelmuxIndex",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelchannelIndex": {
+    "name": "channelchannelIndex",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelPresent": {
+    "name": "channelPresent",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "present": 1,
+          "missing": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalTx": {
+    "name": "channelLocalTx",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalRx": {
+    "name": "channelLocalRx",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteTx": {
+    "name": "channelRemoteTx",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteRx": {
+    "name": "channelRemoteRx",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpPresent": {
+    "name": "channelLocalSfpPresent",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "present": 1,
+          "missing": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpPresent": {
+    "name": "channelRemoteXfpPresent",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "present": 1,
+          "missing": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelBitRate": {
+    "name": "channelBitRate",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalByPass": {
+    "name": "channelLocalByPass",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteByPass": {
+    "name": "channelRemoteByPass",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelSDHCompatibility": {
+    "name": "channelSDHCompatibility",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelOfc": {
+    "name": "channelOfc",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelSir": {
+    "name": "channelSir",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelMTwin": {
+    "name": "channelMTwin",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelSecondary": {
+    "name": "channelSecondary",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelActive": {
+    "name": "channelActive",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelBackup": {
+    "name": "channelBackup",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLoop": {
+    "name": "channelLoop",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelBer": {
+    "name": "channelBer",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpType": {
+    "name": "channelLocalSfpType",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpConector": {
+    "name": "channelLocalSfpConector",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpCompatibility": {
+    "name": "channelLocalSfpCompatibility",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpBitRate": {
+    "name": "channelLocalSfpBitRate",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelLocalSfpWaveLength": {
+    "name": "channelLocalSfpWaveLength",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpType": {
+    "name": "channelRemoteXfpType",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpConector": {
+    "name": "channelRemoteXfpConector",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpCompatibility": {
+    "name": "channelRemoteXfpCompatibility",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpBitRate": {
+    "name": "channelRemoteXfpBitRate",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelRemoteXfpWaveLength": {
+    "name": "channelRemoteXfpWaveLength",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelDescription": {
+    "name": "channelDescription",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelManagement": {
+    "name": "channelManagement",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 0,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mux4PlusTraps": {
+    "name": "mux4PlusTraps",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8",
+    "class": "objectidentity"
+  },
+  "channelLocalRxChange": {
+    "name": "channelLocalRxChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "channelRemoteRxChange": {
+    "name": "channelRemoteRxChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmaStatusChange": {
+    "name": "alarmaStatusChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "channelActivoChange": {
+    "name": "channelActivoChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "powerLeftChange": {
+    "name": "powerLeftChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRightChange": {
+    "name": "powerRightChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "configChange": {
+    "name": "configChange",
+    "oid": "1.3.6.1.4.1.29003.2.44.1.8.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapmuxIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapchannelIndex"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "trapValue"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strTrapsMux4"
+      },
+      {
+        "module": "XMUX4-PLUS",
+        "object": "strDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source XMUX4-PLUS",
+      "Source digest sha256:ba9aa1984dd21aeccc10b59907b8e937f18e52c1a0997500ff5433386eb05e2f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "XMUX4-PLUS"
+  }
+}

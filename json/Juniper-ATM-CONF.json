@@ -1,0 +1,1899 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniAtmAgent": {
+    "name": "juniAtmAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-17 17:26",
+        "description": "Juniper-UNI-ATM-MIB: Removed SVC support. ATM2-MIB: Removed SVC support."
+      },
+      {
+        "revision": "2005-02-17 23:15",
+        "description": "Juniper-UNI-ATM-MIB: Added circuit OAM support to the ATM VCC end point agent capabilities."
+      },
+      {
+        "revision": "2004-01-06 19:53",
+        "description": "Added support to export the subinterface description to the line cards."
+      },
+      {
+        "revision": "2003-11-07 14:57",
+        "description": "ATM2-MIB: Updated from an Internet Draft to a Proposed Standard (RFC 3606). Juniper-UNI-ATM-MIB: Added ATM sub-interface location support."
+      },
+      {
+        "revision": "2003-05-08 17:57",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM F4 OAM circuits management and ATM VP description support."
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Juniper-UNI-ATM-MIB: Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-08-09 14:15",
+        "description": "ATM2-MIB: Added support for the atmSigStatTable, the atmAal5VclStatTable and the atmInterfaceExtTable. Juniper-UNI-ATM-MIB: Added receive bandwith support to CAC. Added E164 public addressing support."
+      },
+      {
+        "revision": "2002-01-29 15:18",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM switched virtual connection (SVC) support to the VCC end point capabilities."
+      },
+      {
+        "revision": "2002-01-24 14:16",
+        "description": "Juniper-UNI-ATM-MIB: Added support for ATM connection admission control (CAC) to the VCC end point capabilities."
+      },
+      {
+        "revision": "2001-12-14 19:51",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM traffic shaping capabilities."
+      },
+      {
+        "revision": "2001-05-23 16:12",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniAtmVccEndPointAgent": {
+    "name": "juniAtmVccEndPointAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1",
+    "class": "objectidentity"
+  },
+  "juniAtmVccEndPointAgentV1": {
+    "name": "juniAtmVccEndPointAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.0 and 3.1 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV2": {
+    "name": "juniAtmVccEndPointAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.2 and JUNOSe 3.3 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup2",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup2",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV3": {
+    "name": "juniAtmVccEndPointAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.4 and subsequent 3.x system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup3",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup2",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV4": {
+    "name": "juniAtmVccEndPointAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 4.0 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup4",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup3",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV5": {
+    "name": "juniAtmVccEndPointAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 4.1 thru 5.0 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup5",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup4",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV6": {
+    "name": "juniAtmVccEndPointAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 5.1 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup6",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup4",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV7": {
+    "name": "juniAtmVccEndPointAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 5.2 system release.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup6",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup4",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup",
+          "juniAtmLocationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV8": {
+    "name": "juniAtmVccEndPointAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 5.3 and 6.0 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup6",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup5",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup",
+          "juniAtmLocationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV9": {
+    "name": "juniAtmVccEndPointAgentV9",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.9",
+    "class": "agentcapabilities",
+    "productrelease": "Version 9 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 6.1 system release.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup7",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup5",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup",
+          "juniAtmLocationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV10": {
+    "name": "juniAtmVccEndPointAgentV10",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.10",
+    "class": "agentcapabilities",
+    "productrelease": "Version 10 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup8",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup5",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup",
+          "juniAtmLocationGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV11": {
+    "name": "juniAtmVccEndPointAgentV11",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.11",
+    "class": "agentcapabilities",
+    "productrelease": "Version 11 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.1 and 7.2 system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup8",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup6",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup2",
+          "juniAtmLocationGroup",
+          "juniAtmVpStatsGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV12": {
+    "name": "juniAtmVccEndPointAgentV12",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.12",
+    "class": "agentcapabilities",
+    "productrelease": "Version 12 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.3 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "ATM-MIB",
+        "includes": [
+          "atmInterfaceTCGroup",
+          "aal5VccGroup",
+          "atmInterfaceConfGroup2",
+          "atmVccTerminationGroup2"
+        ],
+        "variations": [
+          {
+            "object": "atmVclAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclReceiveTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclTransmitTrafficDescrIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVccAalType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclCastType",
+            "access": "read-only"
+          },
+          {
+            "object": "atmVclConnKind",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "ATM2-MIB",
+        "includes": [
+          "atmCommonGroup",
+          "atmHostGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmSigSSCOPConEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigSSCOPErrdPdus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectSetupAttempts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitSetupAttempts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectUnavailRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitUnavailRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectUnavailResrcs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitUnavailResrcs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectCldPtyEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitCldPtyEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectMsgErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitMsgErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectClgPtyEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitClgPtyEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectTimerExpireds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitTimerExpireds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigDetectRestarts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigEmitRestarts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigInEstabls",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmSigOutEstabls",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortDef",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVplLogicalPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceConfMaxSvpcVpi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceCurrentMaxSvpcVpi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceConfMaxSvccVpi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceCurrentMaxSvccVpi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceConfMinSvccVci",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmInterfaceCurrentMinSvccVci",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmIntfSigVccRxTrafficDescrIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmIntfSigVccTxTrafficDescrIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmIntfLeafSetupFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmIntfLeafSetupRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVplTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmCurrentlyFailingPVclTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclAddrRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmAddrVclAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmVclGenSigDescrIndex",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ATM-FORUM-SNMP-M4-MIB",
+        "includes": [
+          "atmfM4General",
+          "atmfM4AtmLayerGroup",
+          "atmfM4VpTestGroup",
+          "atmfM4VcTestGroup"
+        ],
+        "variations": [
+          {
+            "object": "atmfM4NeVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeAlarmSeverityIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4NeSuppressZeroStats",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfSubscriberAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfPreferredCarrier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4IfFarEndCarrierNetwork",
+            "access": "not-implemented"
+          },
+          {
+            "object": "atmfM4VclSegEndPt",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmGroup8",
+          "juniAtmAal5Group",
+          "juniAtmSubIfGroup7",
+          "juniAtmVpPingControlGroup",
+          "juniAtmVcPingControlGroup",
+          "juniAtmPingTrapGroup",
+          "juniAtmSvcGroup2",
+          "juniAtmF4OamCircuitGroup2",
+          "juniAtmLocationGroup",
+          "juniAtmVpStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniAtmVpTunnelAgent": {
+    "name": "juniAtmVpTunnelAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.2",
+    "class": "objectidentity"
+  },
+  "juniAtmVpTunnelAgentV1": {
+    "name": "juniAtmVpTunnelAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM VP tunnel subcomponent of the JUNOSe SNMP agent.\n        This version of the ATM tunnel subcomponent is supported in JUNOSe 3.0\n        and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmVpTunnelGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniAtmNbmaAgent": {
+    "name": "juniAtmNbmaAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.3",
+    "class": "objectidentity"
+  },
+  "juniAtmNbmaAgentV1": {
+    "name": "juniAtmNbmaAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM NBMA interface subcomponent of the JUNOSe SNMP\n        agent.  This version of the ATM NBMA subcomponent is supported in JUNOSe\n        3.2 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmNbmaMapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "juniAtmSwitchAgent": {
+    "name": "juniAtmSwitchAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4",
+    "class": "objectidentity"
+  },
+  "juniAtmSwitchAgentV1": {
+    "name": "juniAtmSwitchAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4.1",
+    "class": "objectidentity"
+  },
+  "juniAtmSwitchAgentV2": {
+    "name": "juniAtmSwitchAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4.2",
+    "class": "objectidentity"
+  },
+  "juniAtmTrafficShapingAgent": {
+    "name": "juniAtmTrafficShapingAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.5",
+    "class": "objectidentity"
+  },
+  "juniAtmTrafficShapingAgentV1": {
+    "name": "juniAtmTrafficShapingAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM traffic shaping subcomponent of the JUNOSe SNMP\n        agent.  This version of the ATM traffic shaping subcomponent is\n        supported in JUNOSe 3.3 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-UNI-ATM-MIB",
+        "includes": [
+          "juniAtmTrafficShapingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-ATM-CONF",
+      "Source digest sha256:a2df743c68c0bb80dda0e19210c25dfd6defbcf950195257012f66f4977a7d85",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-ATM-CONF"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "axisDiagnostics"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "basisOnlineDiagMIB": {
+    "name": "basisOnlineDiagMIB",
+    "oid": "1.3.6.1.4.1.351.150.80",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-06-11 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "onlineDiagnostics": {
+    "name": "onlineDiagnostics",
+    "oid": "1.3.6.1.4.1.351.110.6.3",
+    "class": "objectidentity"
+  },
+  "diagType": {
+    "name": "diagType",
+    "oid": "1.3.6.1.4.1.351.110.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "post": 1,
+          "onlinediag": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diagResult": {
+    "name": "diagResult",
+    "oid": "1.3.6.1.4.1.351.110.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diagTestId": {
+    "name": "diagTestId",
+    "oid": "1.3.6.1.4.1.351.110.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boDiagMIBConformance": {
+    "name": "boDiagMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.80.2",
+    "class": "objectidentity"
+  },
+  "boDiagMIBCompliances": {
+    "name": "boDiagMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.80.2.1",
+    "class": "objectidentity"
+  },
+  "boDiagMIBGroups": {
+    "name": "boDiagMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.80.2.2",
+    "class": "objectidentity"
+  },
+  "boDiagCompliance": {
+    "name": "boDiagCompliance",
+    "oid": "1.3.6.1.4.1.351.150.80.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "boDiagGroup",
+        "module": "BASIS-ONLINE-DIAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "boDiagGroup": {
+    "name": "boDiagGroup",
+    "oid": "1.3.6.1.4.1.351.150.80.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BASIS-ONLINE-DIAG-MIB",
+        "object": "diagType"
+      },
+      {
+        "module": "BASIS-ONLINE-DIAG-MIB",
+        "object": "diagResult"
+      },
+      {
+        "module": "BASIS-ONLINE-DIAG-MIB",
+        "object": "diagTestId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BASIS-ONLINE-DIAG-MIB",
+      "Source digest sha256:34235012a13c73c28793c5b7b03bf37dd78b1fcc15f6539ada1db302031a19b7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BASIS-ONLINE-DIAG-MIB"
+  }
+}

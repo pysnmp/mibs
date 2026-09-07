@@ -1,0 +1,112 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSCommon",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSOverTempProtectionMib": {
+    "name": "adGenAOSOverTempProtectionMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-04 16:15",
+        "description": "Created the adGenAosOverTempProtection MIB. Revision R11.6"
+      }
+    ]
+  },
+  "adGenAOSOverTempProtection": {
+    "name": "adGenAOSOverTempProtection",
+    "oid": "1.3.6.1.4.1.664.5.53.1.10",
+    "class": "objectidentity"
+  },
+  "adGenAOSOverTempProtectionTrap": {
+    "name": "adGenAOSOverTempProtectionTrap",
+    "oid": "1.3.6.1.4.1.664.5.53.1.10.0",
+    "class": "objectidentity"
+  },
+  "adGenAOSOverTempProtectionWarning": {
+    "name": "adGenAOSOverTempProtectionWarning",
+    "oid": "1.3.6.1.4.1.664.5.53.1.10.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "adGenAOSOverTempProtectionShutdown": {
+    "name": "adGenAOSOverTempProtectionShutdown",
+    "oid": "1.3.6.1.4.1.664.5.53.1.10.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "adGenAOSOverTempProtectionConformance": {
+    "name": "adGenAOSOverTempProtectionConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.19",
+    "class": "objectidentity"
+  },
+  "adGenAOSOverTempProtectionGroups": {
+    "name": "adGenAOSOverTempProtectionGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.19.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSOverTempProtectionCompliances": {
+    "name": "adGenAOSOverTempProtectionCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.19.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSOverTempProtectionFullCompliance": {
+    "name": "adGenAOSOverTempProtectionFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.19.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSOverTempProtectionNotificationGroup",
+        "module": "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSOverTempProtectionNotificationGroup": {
+    "name": "adGenAOSOverTempProtectionNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.19.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB",
+        "object": "adGenAOSOverTempProtectionWarning"
+      },
+      {
+        "module": "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB",
+        "object": "adGenAOSOverTempProtectionShutdown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB",
+      "Source digest sha256:d18db0e7ba193fb7ac82bd7e06137dcbdc7bcefcd0deb358d996e0f631cd49fb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB"
+  }
+}

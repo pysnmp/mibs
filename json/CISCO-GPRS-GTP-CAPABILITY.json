@@ -1,0 +1,242 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgprsGtpCapability": {
+    "name": "cgprsGtpCapability",
+    "oid": "1.3.6.1.4.1.9.7.212",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-12-20 16:00",
+        "description": "Updated information for cgprsGtpDroppedPktsMonTime. "
+      },
+      {
+        "revision": "2001-06-05 16:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cgprsGtpCapabilityV12R01": {
+    "name": "cgprsGtpCapabilityV12R01",
+    "oid": "1.3.6.1.4.1.9.7.212.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1",
+    "capabilities": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "includes": [
+          "cgprsGtpGeneralConfigGroup",
+          "cgprsGtpGgsnConfigGroup",
+          "cgprsGtpGgsnStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgprsGtpT3TunnelTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpT3ResponseTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpN3Request",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpN3BufferSize",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpEchoRequestTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpGSNTotalBandwidthResrc",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpMaxNumPDPCxts",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpDroppedPktsMonTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpNoRespToEchoNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpPDPCxtActRejNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNAddrAllocMethodGlobDef",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWName",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWType",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNName",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNAddrAllocMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpGSNEchoFailedNotifCnt",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgprsGtpGSNPathRecoveredNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cgprsGtpCapabilityV12R02": {
+    "name": "cgprsGtpCapabilityV12R02",
+    "oid": "1.3.6.1.4.1.9.7.212.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(7)",
+    "capabilities": [
+      {
+        "module": "CISCO-GPRS-GTP-MIB",
+        "includes": [
+          "cgprsGtpGeneralConfigGroup",
+          "cgprsGtpGgsnConfigGroup",
+          "cgprsGtpGgsnStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgprsGtpT3TunnelTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpT3ResponseTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpN3Request",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpN3BufferSize",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpEchoRequestTimer",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpGSNTotalBandwidthResrc",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpMaxNumPDPCxts",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpNoRespToEchoNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpPDPCxtActRejNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNAddrAllocMethodGlobDef",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWName",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWType",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpChargingGWRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNName",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNAddrAllocMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpAPNRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cgprsGtpGSNEchoFailedNotifCnt",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgprsGtpGSNPathRecoveredNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GPRS-GTP-CAPABILITY",
+      "Source digest sha256:46bcceb774f4554c848afd3ef90e118eee36fed9fc07dfa8118cfba038ae6365",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GPRS-GTP-CAPABILITY"
+  }
+}

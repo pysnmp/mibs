@@ -1,0 +1,122 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DMN-DSG-ROOT-MIB": [
+      "ciscoDSGUtilities"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDSGBISS": {
+    "name": "ciscoDSGBISS",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-02 07:00",
+        "description": "V01.00.00 2010-08-02 Initial Version."
+      }
+    ]
+  },
+  "bissMode": {
+    "name": "bissMode",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.38.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 1,
+          "modeE": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bissMode1SessionWord": {
+    "name": "bissMode1SessionWord",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.38.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bissModeESessionWord": {
+    "name": "bissModeESessionWord",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.38.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bissModeEInjectedId": {
+    "name": "bissModeEInjectedId",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.38.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DMN-DSG-BISS-MIB",
+      "Source digest sha256:c2315d68a2b9daa77bbce21f2a0f1c5243472643be2b6ef75bc7539e67e809f6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DMN-DSG-BISS-MIB"
+  }
+}

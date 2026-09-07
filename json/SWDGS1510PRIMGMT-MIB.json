@@ -1,0 +1,128 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlink-mgmt",
+      "dlink-products"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlink_Dgs1510Prod": {
+    "name": "dlink_Dgs1510Prod",
+    "oid": "1.3.6.1.4.1.171.10.137",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_20": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_20",
+    "oid": "1.3.6.1.4.1.171.10.137.1",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_28": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_28",
+    "oid": "1.3.6.1.4.1.171.10.137.2",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_28P": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_28P",
+    "oid": "1.3.6.1.4.1.171.10.137.3",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_52": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_52",
+    "oid": "1.3.6.1.4.1.171.10.137.4",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_28X": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_28X",
+    "oid": "1.3.6.1.4.1.171.10.137.6",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_52X": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_52X",
+    "oid": "1.3.6.1.4.1.171.10.137.8",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_28XMP": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_28XMP",
+    "oid": "1.3.6.1.4.1.171.10.137.9",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Prod_Dgs1510_52XMP": {
+    "name": "dlink_Dgs1510Prod_Dgs1510_52XMP",
+    "oid": "1.3.6.1.4.1.171.10.137.10",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj": {
+    "name": "dlink_Dgs1510Proj",
+    "oid": "1.3.6.1.4.1.171.11.118",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510ProjModel": {
+    "name": "dlink_Dgs1510ProjModel",
+    "oid": "1.3.6.1.4.1.171.11.118.1",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_20": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_20",
+    "oid": "1.3.6.1.4.1.171.11.118.1.1",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_28": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_28",
+    "oid": "1.3.6.1.4.1.171.11.118.1.2",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_28P": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_28P",
+    "oid": "1.3.6.1.4.1.171.11.118.1.3",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_52": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_52",
+    "oid": "1.3.6.1.4.1.171.11.118.1.4",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_28X": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_28X",
+    "oid": "1.3.6.1.4.1.171.11.118.1.6",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_52X": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_52X",
+    "oid": "1.3.6.1.4.1.171.11.118.1.8",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_28XMP": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_28XMP",
+    "oid": "1.3.6.1.4.1.171.11.118.1.9",
+    "class": "objectidentity"
+  },
+  "dlink_Dgs1510Proj_Dgs1510_52XMP": {
+    "name": "dlink_Dgs1510Proj_Dgs1510_52XMP",
+    "oid": "1.3.6.1.4.1.171.11.118.1.10",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SWDGS1510PRIMGMT-MIB",
+      "Source digest sha256:77ab7046a05a5ecd8b75dc9220152a10ccb56271ab79757802b707d299468993",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SWDGS1510PRIMGMT-MIB"
+  }
+}

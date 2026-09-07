@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVismDsx1Capability": {
+    "name": "ciscoVismDsx1Capability",
+    "oid": "1.3.6.1.4.1.9.7.450",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-26 00:00",
+        "description": "Initial version of this capability file."
+      }
+    ]
+  },
+  "cVismDsx1CapabilityV3325": {
+    "name": "cVismDsx1CapabilityV3325",
+    "oid": "1.3.6.1.4.1.9.7.450.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco VISM Release 3.3.25",
+    "capabilities": [
+      {
+        "module": "CISCO-VISM-DSX1-MIB",
+        "includes": [
+          "cvDsx1ConfGroupSup2"
+        ],
+        "variations": [
+          {
+            "object": "vismDsx1AlarmLogAdminTimer",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 7200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vismDsx1AlarmLogOperTimer",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 7200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vismDsx1ElectricalSignalEnable",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VISM-DSX1-CAPABILITY",
+      "Source digest sha256:f2b3c2c65dbdf0d85ffc344d7c8c5c2bf6572d7ade8367a1ac093cfefaa20c94",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VISM-DSX1-CAPABILITY"
+  }
+}

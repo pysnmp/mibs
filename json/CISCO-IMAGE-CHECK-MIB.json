@@ -1,0 +1,398 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImageCheckMIB": {
+    "name": "ciscoImageCheckMIB",
+    "oid": "1.3.6.1.4.1.9.9.99990",
+    "class": "moduleidentity"
+  },
+  "ciscoImageCheckMIBObjects": {
+    "name": "ciscoImageCheckMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99990.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageCheck": {
+    "name": "ciscoImageCheck",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageCheckOpTable": {
+    "name": "ciscoImageCheckOpTable",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoImageCheckOpEntry": {
+    "name": "ciscoImageCheckOpEntry",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckSerialNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCheckSerialNum": {
+    "name": "ciscoImageCheckSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoImageCheckImageName": {
+    "name": "ciscoImageCheckImageName",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoImageCheckStatus": {
+    "name": "ciscoImageCheckStatus",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "inCompatLoose": 3,
+          "inCompatStrict": 4,
+          "compatible": 5,
+          "noStandby": 6,
+          "pssErr": 7,
+          "extractFail": 8,
+          "fileParseErr": 9,
+          "getIncompatErr": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoImageCheckEntryStatus": {
+    "name": "ciscoImageCheckEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoImgChkResultsTable": {
+    "name": "ciscoImgChkResultsTable",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoImgChkResultsEntry": {
+    "name": "ciscoImgChkResultsEntry",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckSerialNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkFeatureIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkCapabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImgChkFeatureIndex": {
+    "name": "ciscoImgChkFeatureIndex",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoImgChkCapabIndex": {
+    "name": "ciscoImgChkCapabIndex",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoImgChkFeatureName": {
+    "name": "ciscoImgChkFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoImgChkCapabilityName": {
+    "name": "ciscoImgChkCapabilityName",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoImgChkCapabilityReq": {
+    "name": "ciscoImgChkCapabilityReq",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "loose": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoImgChkInCompDescr": {
+    "name": "ciscoImgChkInCompDescr",
+    "oid": "1.3.6.1.4.1.9.9.99990.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoImageCheckMIBConformance": {
+    "name": "ciscoImageCheckMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.99990.2",
+    "class": "objectidentity"
+  },
+  "ciscoImageCheckMIBCompliances": {
+    "name": "ciscoImageCheckMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99990.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageCheckMIBGroups": {
+    "name": "ciscoImageCheckMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99990.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoImageCheckMIBCompliance": {
+    "name": "ciscoImageCheckMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99990.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoImageCheckOpGroup",
+        "module": "CISCO-IMAGE-CHECK-MIB"
+      },
+      {
+        "object": "ciscoImgChkResultsGroup",
+        "module": "CISCO-IMAGE-CHECK-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckEntryStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCheckOpGroup": {
+    "name": "ciscoImageCheckOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.99990.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckImageName"
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImageCheckEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImgChkResultsGroup": {
+    "name": "ciscoImgChkResultsGroup",
+    "oid": "1.3.6.1.4.1.9.9.99990.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkFeatureName"
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkCapabilityName"
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkCapabilityReq"
+      },
+      {
+        "module": "CISCO-IMAGE-CHECK-MIB",
+        "object": "ciscoImgChkInCompDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IMAGE-CHECK-MIB",
+      "Source digest sha256:940b6381193890c14c2179e2010957322852d5ba253cce01fafeb07ab1580fa4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IMAGE-CHECK-MIB"
+  }
+}

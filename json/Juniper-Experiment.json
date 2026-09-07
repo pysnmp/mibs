@@ -1,0 +1,81 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-UNI-SMI": [
+      "juniperUniExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniExperiment": {
+    "name": "juniExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-13 20:58",
+        "description": "Replaced Unisphere names with Juniper names. Added OID for the Internet draft MPLS MIB."
+      },
+      {
+        "revision": "2001-06-20 20:36",
+        "description": "Added OID for the Internet draft SONET APS-MIB."
+      },
+      {
+        "revision": "2000-10-24 21:00",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDvmrpExperiment": {
+    "name": "juniDvmrpExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniSonetApsExperiment": {
+    "name": "juniSonetApsExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniMplsExperiment": {
+    "name": "juniMplsExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniMplsVPNExperiment": {
+    "name": "juniMplsVPNExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "juniBFDExperiment": {
+    "name": "juniBFDExperiment",
+    "oid": "1.3.6.1.4.1.4874.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Experiment",
+      "Source digest sha256:8d1a677fda3706cc0eafa723f7ee31a61fb4b0f5bce01cc03034103d8286e606",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Experiment"
+  }
+}

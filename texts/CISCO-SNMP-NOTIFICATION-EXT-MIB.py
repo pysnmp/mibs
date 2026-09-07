@@ -1,0 +1,56 @@
+#
+# PySNMP MIB module CISCO-SNMP-NOTIFICATION-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-SNMP-NOTIFICATION-EXT-MIB
+# Source digest sha256:168469d2bebd448c328c6b08fe1dae09f32a02819a2ec8327b852fd98eb23e80
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+snmpNotifyFilterEntry, = mibBuilder.importSymbols("SNMP-NOTIFICATION-MIB", "snmpNotifyFilterEntry")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoSnmpNotificationExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 408))
+ciscoSnmpNotificationExtMIB.setRevisions(('2004-05-12 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setRevisionsDescriptions(('Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setLastUpdated('2004-05-12 00:00')
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setContactInfo('Cisco Systems\n                  Customer Service\n\n                  Postal: 170 W Tasman Drive\n                  San Jose, CA  95134\n                  USA\n\n                  Tel: +1 800 553-NETS\n\n                  E-mail: cs-wanatm@cisco.com')
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setDescription('This MIB extends the functionality provided \n         by SNMP-NOTIFICATION-MIB.\n         This MIB provides for the aging of the \n         notification filters specified in the\n         SNMP-NOTIFICATION-MIB.\n       ')
+csneMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 0))
+csneMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 1))
+csneMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2))
+csneNotifyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1))
+csneSnmpNotifyFilterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: csneSnmpNotifyFilterTable.setStatus('current')
+if mibBuilder.loadTexts: csneSnmpNotifyFilterTable.setDescription("This table contains objects which are used\n         to configure notification filtering parameters\n         and an entry in this table will augment the \n         corresponding base entry in snmpNotifyFilterTable.\n\n         When the csneFilterAdminTimer defined in this table \n         expires, the entire row from the snmpNotifyFilterTable \n         and the csneNotifyFilterTable will be removed.\n         Thus, the csneNotifyFilterTable will provide an\n         'aging' capability to the snmpNotifyFilterTable\n         entries. The 'age' of an entry will be defined in the\n         csneFilterAdminTimer object.\n\n         The snmpNotifyFilterProfileStatus is an object\n         in the snmpNotifyFilterProfileTable. \n         The snmpNotifyFilterProfileTable also contains \n         the snmpNotifyFilterProfileName that is used to \n         index into the snmpNotifyFilterTable (and \n         consequently the csneNotifyFilterTable). \n         If, due to the aging mechanism, there are no \n         entries in the snmpNotifyFilterTable with an \n         index corresponding to a snmpNotifyFilterProfileName \n         say abc, then the corresponding entry in the \n         snmpNotifyFilterProfileTable for abc will have its \n         row status, snmpNotifyFilterProfileRowStatus, changed \n         to 'notReady'.\n       ")
+csneSnmpNotifyFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1), ).setMaxAccess("notaccessible")
+snmpNotifyFilterEntry.registerAugmentions(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneSnmpNotifyFilterEntry"))
+csneSnmpNotifyFilterEntry.setIndexNames(*snmpNotifyFilterEntry.getIndexNames())
+if mibBuilder.loadTexts: csneSnmpNotifyFilterEntry.setStatus('current')
+if mibBuilder.loadTexts: csneSnmpNotifyFilterEntry.setDescription('This entry augments the entries in  \n         snmpNotifyFilterEntry.')
+csneFilterAdminTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 1), Unsigned32().clone(15)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: csneFilterAdminTimer.setStatus('current')
+if mibBuilder.loadTexts: csneFilterAdminTimer.setDescription('This object specifies the time in units \n         specified in csneFilterTimerUnit for which\n         the notification specified in snmpNotifyFilterSubtree \n         will remain active with the corresponding \n         snmpNotifyFilterProfileName. \n\n         If set to 0, it indicates that the corresponding \n         snmpNotifyFilterSubtree will remain active forever.\n         This value can be set when the snmpNotifyFilterRowStatus\n         is active. If this is done, the csneFilterOperTimer will\n         be refreshed to take the new value set in this object.\n       ')
+csneFilterOperTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csneFilterOperTimer.setStatus('current')
+if mibBuilder.loadTexts: csneFilterOperTimer.setDescription('This object specifies the time in units \n         specified in csneFilterTimerUnit for which the \n         notification specified in snmpNotifyFilterSubtree \n         to remain active within the corresponding \n         snmpNotifyFilterProfileName.\n\n         When this value becomes 0, it indicates that the \n         corresponding row in the snmpNotifyFilterTable has \n         run through the time specified in csneFilterAdminTimer. \n         This will cause the corresponding row to be deleted from \n         the corresponding snmpNotifyFilterName. \n\n         If snmpNotifyFilterRowStatus is notInService, then this \n         object will not be decremented, i.e. the timer will not\n         run. Once the snmpNotifyFilterRowStatus is transitioned to\n         active, the timer will be refreshed with the value in\n         csneFilterAdminTimer.\n\n         Example:\n         If a row indexed by snmpNotifyFilterProfileName abc and \n         snmpNotifyFilterSubtree 1.2.3.1 is created for a\n         csneFilterAdminTimer value of 10 units (as specified in \n         csneFilterTimerUnit). Initially, the csneFilterAdminTimer \n         and the csneFilterOperTimer will indicate 10 units. \n         If the snmpNotifyFilterRowStatus is active, then the \n         csneFilterOperTimer will start decrementing. \n         Once the csneFilterOperTimer value reaches 0, it will \n         cause the deletion of the row indexed by \n         snmpNotifyFilterProfileName abc and \n         snmpNotifyFilterSubtree 1.2.3.1. \n         Now, if snmpNotifyFilterProfileName abc has no more \n         active rows that it indexes, then, the \n         snmpNotifyFilterProfileRowStatus for the \n         snmpNotifyFilterProfileName of abc will be \n         transitioned to notReady.\n        ')
+csneFilterTimerUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("seconds", 1), ("minutes", 2), ("hours", 3))).clone('minutes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: csneFilterTimerUnit.setStatus('current')
+if mibBuilder.loadTexts: csneFilterTimerUnit.setDescription('This object specifies the unit of time that is used\n         for the csneFilterAdminTimer and csneFilerOperTimer\n         objects.')
+csneMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 1))
+csneMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 2))
+csneMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 1, 1)).setObjects(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneNotifyFilterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csneMIBCompliance = csneMIBCompliance.setStatus('current')
+if mibBuilder.loadTexts: csneMIBCompliance.setDescription('The compliance statement for entities which implement\n                the CISCO-SNMP-NOTIFICATION-EXT-MIB.')
+csneNotifyFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 2, 1)).setObjects(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterOperTimer"), ("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterAdminTimer"), ("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterTimerUnit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csneNotifyFilterGroup = csneNotifyFilterGroup.setStatus('current')
+if mibBuilder.loadTexts: csneNotifyFilterGroup.setDescription('Extension objects to the snmpNotifyFilterTable.')
+mibBuilder.exportSymbols("CISCO-SNMP-NOTIFICATION-EXT-MIB", PYSNMP_MODULE_ID=ciscoSnmpNotificationExtMIB, ciscoSnmpNotificationExtMIB=ciscoSnmpNotificationExtMIB, csneFilterAdminTimer=csneFilterAdminTimer, csneFilterOperTimer=csneFilterOperTimer, csneFilterTimerUnit=csneFilterTimerUnit, csneMIBCompliance=csneMIBCompliance, csneMIBCompliances=csneMIBCompliances, csneMIBConform=csneMIBConform, csneMIBGroups=csneMIBGroups, csneMIBNotifs=csneMIBNotifs, csneMIBObjects=csneMIBObjects, csneNotifyFilterGroup=csneNotifyFilterGroup, csneNotifyObjects=csneNotifyObjects, csneSnmpNotifyFilterEntry=csneSnmpNotifyFilterEntry, csneSnmpNotifyFilterTable=csneSnmpNotifyFilterTable)

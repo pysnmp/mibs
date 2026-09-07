@@ -1,0 +1,312 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgnv6HttpAlgModule": {
+    "name": "cgnv6HttpAlgModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419",
+    "class": "moduleidentity"
+  },
+  "httpAlg": {
+    "name": "httpAlg",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1",
+    "class": "objectidentity"
+  },
+  "httpAlgStatsTable": {
+    "name": "httpAlgStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpAlgStatsEntry": {
+    "name": "httpAlgStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-HTTP-ALG-MIB",
+        "object": "httpAlgStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "httpAlgStatsSlotId": {
+    "name": "httpAlgStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRequestProcessed": {
+    "name": "httpAlgStatsRequestProcessed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRequestInsertMsisdnPerformed": {
+    "name": "httpAlgStatsRequestInsertMsisdnPerformed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRequestInsertClientIpPerformed": {
+    "name": "httpAlgStatsRequestInsertClientIpPerformed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRequestInsertMsisdnUnavailable": {
+    "name": "httpAlgStatsRequestInsertMsisdnUnavailable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsQueuedSessionTooMany": {
+    "name": "httpAlgStatsQueuedSessionTooMany",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusQuerySucceed": {
+    "name": "httpAlgStatsRadiusQuerySucceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusQueryFailed": {
+    "name": "httpAlgStatsRadiusQueryFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusRequstSent": {
+    "name": "httpAlgStatsRadiusRequstSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusRequstDropped": {
+    "name": "httpAlgStatsRadiusRequstDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusResponseReceived": {
+    "name": "httpAlgStatsRadiusResponseReceived",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsRadiusResponseDropped": {
+    "name": "httpAlgStatsRadiusResponseDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsOutOfMemoryDropped": {
+    "name": "httpAlgStatsOutOfMemoryDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsQueueLenExceedDropped": {
+    "name": "httpAlgStatsQueueLenExceedDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsOutOfOrderDropped": {
+    "name": "httpAlgStatsOutOfOrderDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsBuffResent": {
+    "name": "httpAlgStatsBuffResent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsBuffSpiltFailed": {
+    "name": "httpAlgStatsBuffSpiltFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsHeaderInsertionFailed": {
+    "name": "httpAlgStatsHeaderInsertionFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsHeaderRemovalFailed": {
+    "name": "httpAlgStatsHeaderRemovalFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpAlgStatsNoQueue": {
+    "name": "httpAlgStatsNoQueue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.419.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CGNV6-HTTP-ALG-MIB",
+      "Source digest sha256:ada18fef78ef0182ee15e0499627c0ac146d01bf72d1fbc75b8b8b4979abe3bb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CGNV6-HTTP-ALG-MIB"
+  }
+}

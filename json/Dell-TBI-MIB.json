@@ -1,0 +1,292 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlTBIMib": {
+    "name": "rlTBIMib",
+    "oid": "1.3.6.1.4.1.89.145",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-12 00:00",
+        "description": "Time Range Infrastructure MIBs initial version. "
+      }
+    ]
+  },
+  "rlTBITimeRangeTable": {
+    "name": "rlTBITimeRangeTable",
+    "oid": "1.3.6.1.4.1.89.145.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTBITimeRangeEntry": {
+    "name": "rlTBITimeRangeEntry",
+    "oid": "1.3.6.1.4.1.89.145.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TBI-MIB",
+        "object": "rlTBITimeRangeName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlTBITimeRangeName": {
+    "name": "rlTBITimeRangeName",
+    "oid": "1.3.6.1.4.1.89.145.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTBITimeRangeAbsoluteStart": {
+    "name": "rlTBITimeRangeAbsoluteStart",
+    "oid": "1.3.6.1.4.1.89.145.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTBITimeRangeAbsoluteEnd": {
+    "name": "rlTBITimeRangeAbsoluteEnd",
+    "oid": "1.3.6.1.4.1.89.145.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTBITimeRangeActiveStatus": {
+    "name": "rlTBITimeRangeActiveStatus",
+    "oid": "1.3.6.1.4.1.89.145.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTBITimeRangeRowStatus": {
+    "name": "rlTBITimeRangeRowStatus",
+    "oid": "1.3.6.1.4.1.89.145.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "RlTBIWeekDayList": {
+    "name": "RlTBIWeekDayList",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "monday": 0,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 3,
+        "friday": 4,
+        "saturday": 5,
+        "sunday": 6
+      }
+    },
+    "status": "current"
+  },
+  "rlTBIPeriodicTable": {
+    "name": "rlTBIPeriodicTable",
+    "oid": "1.3.6.1.4.1.89.145.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTBIPeriodicEntry": {
+    "name": "rlTBIPeriodicEntry",
+    "oid": "1.3.6.1.4.1.89.145.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TBI-MIB",
+        "object": "rlTBIPeriodicTimeRangeName",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TBI-MIB",
+        "object": "rlTBIPeriodicWeekDayList",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TBI-MIB",
+        "object": "rlTBIPeriodicStart",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TBI-MIB",
+        "object": "rlTBIPeriodicEnd",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlTBIPeriodicTimeRangeName": {
+    "name": "rlTBIPeriodicTimeRangeName",
+    "oid": "1.3.6.1.4.1.89.145.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTBIPeriodicWeekDayList": {
+    "name": "rlTBIPeriodicWeekDayList",
+    "oid": "1.3.6.1.4.1.89.145.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlTBIWeekDayList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTBIPeriodicStart": {
+    "name": "rlTBIPeriodicStart",
+    "oid": "1.3.6.1.4.1.89.145.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTBIPeriodicEnd": {
+    "name": "rlTBIPeriodicEnd",
+    "oid": "1.3.6.1.4.1.89.145.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTBIPeriodicRowStatus": {
+    "name": "rlTBIPeriodicRowStatus",
+    "oid": "1.3.6.1.4.1.89.145.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-TBI-MIB",
+      "Source digest sha256:09d3e83f876fcca87977247b08650702c5df36b58ad79a3306ca15d265a8ca54",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-TBI-MIB"
+  }
+}

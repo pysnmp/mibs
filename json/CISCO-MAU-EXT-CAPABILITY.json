@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMauExtCapability": {
+    "name": "ciscoMauExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.404",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-28 00:00",
+        "description": "Added capability statement ciscoMauExtCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2004-12-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMauExtCapCatOSV08R0401": {
+    "name": "ciscoMauExtCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.404.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-MAU-EXT-MIB",
+        "includes": [
+          "cmExtJackConfigGroup",
+          "cmExtIfAutoMdixConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauExtCapV12R0233SXIPCat6K": {
+    "name": "ciscoMauExtCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.404.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAU-EXT-MIB",
+        "includes": [
+          "cmExtJackConfigGroup",
+          "cmExtIfAutoMdixConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MAU-EXT-CAPABILITY",
+      "Source digest sha256:8cc64519c7462cf78ec34b431fc230bc38206b6bc910c7645410eed7bf9bd318",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MAU-EXT-CAPABILITY"
+  }
+}

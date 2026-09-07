@@ -1,0 +1,141 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBRASIPTN": {
+    "name": "hwBRASIPTN",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8",
+    "class": "moduleidentity"
+  },
+  "hwIPTNMibObjects": {
+    "name": "hwIPTNMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.1",
+    "class": "objectidentity"
+  },
+  "hwIptnInterfaceTable": {
+    "name": "hwIptnInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIptnEnableEntry": {
+    "name": "hwIptnEnableEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-IPTN-MIB",
+        "object": "hwIptnIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIptnIfIndex": {
+    "name": "hwIptnIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIptnEnableFlag": {
+    "name": "hwIptnEnableFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIptnConformance": {
+    "name": "hwIptnConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.2",
+    "class": "objectidentity"
+  },
+  "hwIptnCompliances": {
+    "name": "hwIptnCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.2.1",
+    "class": "objectidentity"
+  },
+  "hwIptnCompliance": {
+    "name": "hwIptnCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIptnInterfaceGroup",
+        "module": "HUAWEI-BRAS-IPTN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIptnInterfaceGroups": {
+    "name": "hwIptnInterfaceGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.2.2",
+    "class": "objectidentity"
+  },
+  "hwIptnInterfaceGroup": {
+    "name": "hwIptnInterfaceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-IPTN-MIB",
+        "object": "hwIptnIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-IPTN-MIB",
+        "object": "hwIptnEnableFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-BRAS-IPTN-MIB",
+      "Source digest sha256:50f9e0800893850a5606a4d176e694e1610807c3c794c7496893e08a13a34d93",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-BRAS-IPTN-MIB"
+  }
+}

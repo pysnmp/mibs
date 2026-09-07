@@ -1,0 +1,230 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCdpCapability": {
+    "name": "ciscoCdpCapability",
+    "oid": "1.3.6.1.4.1.9.7.43",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-18 00:00",
+        "description": "Added capability statement ciscoCdpCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2006-10-26 00:00",
+        "description": "Added capability for Cisco TelePresence System (CTS) and Cisco TelePresence Manager (CTM) platforms."
+      },
+      {
+        "revision": "2006-02-06 00:00",
+        "description": "Added capability for IOS-XR 2.0 CRS-1."
+      },
+      {
+        "revision": "2005-05-24 00:00",
+        "description": "Added capability for MDS platform."
+      },
+      {
+        "revision": "2003-09-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCdpCapV12R0111bEXCat6K": {
+    "name": "ciscoCdpCapV12R0111bEXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.43.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11b)EX on Catalyst 6000/6500\n\n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapV12R0217SXCat6K": {
+    "name": "ciscoCdpCapV12R0217SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.43.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17)SX on Catalyst 6000/6500\n\n                     and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapCatOSV08R0101Cat6K": {
+    "name": "ciscoCdpCapCatOSV08R0101Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.43.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n\n                     and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02",
+          "ciscoCdpV2MIBGroup",
+          "ciscoCdpV2IfExtGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapCatOSV08R0101Cat4K": {
+    "name": "ciscoCdpCapCatOSV08R0101Cat4K",
+    "oid": "1.3.6.1.4.1.9.7.43.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000 series\n\n                     devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02",
+          "ciscoCdpV2MIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapSanOSV03R0001": {
+    "name": "ciscoCdpCapSanOSV03R0001",
+    "oid": "1.3.6.1.4.1.9.7.43.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SAN-OS 3.0(1) on MDS platform.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02",
+          "ciscoCdpV2MIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdpGlobalDeviceIdFormat",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapIOSXRV2R0CRS1": {
+    "name": "ciscoCdpCapIOSXRV2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.43.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02"
+        ],
+        "variations": [
+          {
+            "object": "cdpInterfaceGroup",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdpInterfacePort",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapCTSV100": {
+    "name": "ciscoCdpCapCTSV100",
+    "oid": "1.3.6.1.4.1.9.7.43.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.0.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02",
+          "ciscoCdpV2MIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdpGlobalDeviceIdFormat",
+            "access": "read-write"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapCTMV1000": {
+    "name": "ciscoCdpCapCTMV1000",
+    "oid": "1.3.6.1.4.1.9.7.43.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence Manager (CTM) 1.0.0.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R02",
+          "ciscoCdpV2MIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdpGlobalDeviceIdFormat",
+            "access": "read-write"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCapV12R0233SXHPCat6K": {
+    "name": "ciscoCdpCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.43.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500 \n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "includes": [
+          "ciscoCdpMIBGroupV12R03",
+          "ciscoCdpV2IfExtGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CDP-CAPABILITY",
+      "Source digest sha256:fb32eac50eab107cf7275f644a6764ad3a3f76e9ed7e9770c575c7450c8c5fe2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CDP-CAPABILITY"
+  }
+}

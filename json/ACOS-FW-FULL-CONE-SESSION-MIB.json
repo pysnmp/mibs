@@ -1,0 +1,256 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fwFullConeSessionModule": {
+    "name": "fwFullConeSessionModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485",
+    "class": "moduleidentity"
+  },
+  "fullConeSession": {
+    "name": "fullConeSession",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1",
+    "class": "objectidentity"
+  },
+  "fullConeSessionOperTable": {
+    "name": "fullConeSessionOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fullConeSessionOperEntry": {
+    "name": "fullConeSessionOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-FULL-CONE-SESSION-MIB",
+        "object": "fullConeSessionOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fullConeSessionOperSlotId": {
+    "name": "fullConeSessionOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperTotal": {
+    "name": "fullConeSessionOperTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperIpv4Addr": {
+    "name": "fullConeSessionOperIpv4Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperIpv6Addr": {
+    "name": "fullConeSessionOperIpv6Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListTable": {
+    "name": "fullConeSessionOperSessionListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListEntry": {
+    "name": "fullConeSessionOperSessionListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-FULL-CONE-SESSION-MIB",
+        "object": "fullConeSessionOperSessionListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-FW-FULL-CONE-SESSION-MIB",
+        "object": "fullConeSessionOperSessionListSessionListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListSlotId": {
+    "name": "fullConeSessionOperSessionListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListSessionListListId": {
+    "name": "fullConeSessionOperSessionListSessionListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListProtocol": {
+    "name": "fullConeSessionOperSessionListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListInsideAddress": {
+    "name": "fullConeSessionOperSessionListInsideAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListInsidePort": {
+    "name": "fullConeSessionOperSessionListInsidePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListOutbound": {
+    "name": "fullConeSessionOperSessionListOutbound",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListInbound": {
+    "name": "fullConeSessionOperSessionListInbound",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListCpu": {
+    "name": "fullConeSessionOperSessionListCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullConeSessionOperSessionListAge": {
+    "name": "fullConeSessionOperSessionListAge",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.485.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-FW-FULL-CONE-SESSION-MIB",
+      "Source digest sha256:ec8285294049bf731364b233e70b7006ce442204bc5e4ee742d9eb874c1c5eb7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-FW-FULL-CONE-SESSION-MIB"
+  }
+}

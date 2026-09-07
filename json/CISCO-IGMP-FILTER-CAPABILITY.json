@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIgmpFilterCapability": {
+    "name": "ciscoIgmpFilterCapability",
+    "oid": "1.3.6.1.4.1.9.7.331",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIgmpFilterCapCatOSV07R0101Cat4k": {
+    "name": "cIgmpFilterCapCatOSV07R0101Cat4k",
+    "oid": "1.3.6.1.4.1.9.7.331.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.1(1) on Catalyst 4000/4500\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IGMP-FILTER-MIB",
+        "includes": [
+          "ciscoIgmpFilterGlobalGroup",
+          "ciscoIgmpFilterInfoGroup",
+          "ciscoIgmpFilterEditorGroup"
+        ],
+        "variations": [
+          {
+            "object": "cIgmpFilterStartAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cIgmpFilterEndAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cIgmpFilterEditStartAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cIgmpFilterEditEndAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IGMP-FILTER-CAPABILITY",
+      "Source digest sha256:885b4fccb0e9caf5ab12aef3a81ad1c98e31d8397d62684cbeaf7ea7c28748d8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IGMP-FILTER-CAPABILITY"
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoIeee8021PaeCapability": {
+    "name": "ciscoIeee8021PaeCapability",
+    "oid": "1.3.6.1.4.1.9.7.314",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-05 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV15R0101SYCat6K."
+      },
+      {
+        "revision": "2011-03-25 16:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0233SXJPCat6K."
+      },
+      {
+        "revision": "2010-11-01 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2010-03-22 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2009-08-26 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0252SGPCat4K. Added VARIATIONs for dot1xPaePortEntry and dot1xAuthConfigEntry in cIeee8021PaeCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-06-02 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2007-07-09 00:00",
+        "description": "Added capability statement cIeee8021PaeCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2004-01-13 00:00",
+        "description": "Added capability statement ciscoIeee8021PaeCapCatOSV08R0301."
+      },
+      {
+        "revision": "2003-09-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIeee8021PaeCapV12R0111bEXCat6K": {
+    "name": "cIeee8021PaeCapV12R0111bEXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11b)EX on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthAdminControlledDirections",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "both": 0
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthOperControlledDirections",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "both": 0
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIeee8021PaeCapCatOSV07R0101": {
+    "name": "ciscoIeee8021PaeCapCatOSV07R0101",
+    "oid": "1.3.6.1.4.1.9.7.314.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.1(1).",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthAdminControlledDirections",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "both": 0
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthOperControlledDirections",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "both": 0
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIeee8021PaeCapCatOSV08R0301": {
+    "name": "ciscoIeee8021PaeCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.314.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0233SXHPCat6K": {
+    "name": "cIeee8021PaeCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0233SXIPCat6K": {
+    "name": "cIeee8021PaeCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0252SGPCat4K": {
+    "name": "cIeee8021PaeCapV12R0252SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.314.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(52)SG on CAT4K family switches.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xPaePortCapabilities",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "dot1xPaePortAuthCapable": 0
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0233SXI4PCat6K": {
+    "name": "cIeee8021PaeCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2",
+          "dot1xPaeSuppConfigGroup",
+          "dot1xPaeSuppConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xSuppHeldPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAuthPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppStartPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppMaxStart",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAccessCtrlWithAuth",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0250SYPCat6K": {
+    "name": "cIeee8021PaeCapV12R0250SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2",
+          "dot1xPaeSuppConfigGroup",
+          "dot1xPaeSuppConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xSuppHeldPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAuthPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppStartPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppMaxStart",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAccessCtrlWithAuth",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV12R0233SXJPCat6K": {
+    "name": "cIeee8021PaeCapV12R0233SXJPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXJ on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2",
+          "dot1xPaeSuppConfigGroup",
+          "dot1xPaeSuppConfigGroup2",
+          "dot1xPaeSuppStatsGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xSuppHeldPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAuthPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppStartPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppMaxStart",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAccessCtrlWithAuth",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIeee8021PaeCapV15R0101SYCat6K": {
+    "name": "cIeee8021PaeCapV15R0101SYCat6K",
+    "oid": "1.3.6.1.4.1.9.7.314.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "includes": [
+          "dot1xPaeSystemGroup",
+          "dot1xPaeAuthConfigGroup",
+          "dot1xPaeAuthStatsGroup",
+          "dot1xPaeAuthSessionStatsGroup",
+          "dot1xPaeAuthConfigGroup2",
+          "dot1xPaeSuppConfigGroup",
+          "dot1xPaeSuppConfigGroup2",
+          "dot1xPaeSuppStatsGroup2"
+        ],
+        "variations": [
+          {
+            "object": "dot1xAuthKeyTxEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1xAuthServerTimeout",
+            "default": [
+              0
+            ]
+          },
+          {
+            "object": "dot1xAuthSessionOctetsRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionOctetsTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesRx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionFramesTx",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionAuthenticMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xAuthSessionTerminateCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1xSuppHeldPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAuthPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppStartPeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppMaxStart",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1xSuppAccessCtrlWithAuth",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IEEE8021-PAE-CAPABILITY",
+      "Source digest sha256:35b35ba848e6f6e637fb37edf4ec7ae3a6ac292c2322e7ebd00f43c3e9a23990",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IEEE8021-PAE-CAPABILITY"
+  }
+}

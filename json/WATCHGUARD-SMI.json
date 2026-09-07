@@ -1,0 +1,53 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "watchguard": {
+    "name": "watchguard",
+    "oid": "1.3.6.1.4.1.3097",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-10 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "wgProducts": {
+    "name": "wgProducts",
+    "oid": "1.3.6.1.4.1.3097.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgSystemConfigMIB": {
+    "name": "wgSystemConfigMIB",
+    "oid": "1.3.6.1.4.1.3097.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WATCHGUARD-SMI",
+      "Source digest sha256:eec1fca950765511e9f6a1accd1d49bce0b6361fa5e2659d91db73a9e8a14e8b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WATCHGUARD-SMI"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "cisco"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex",
+      "ifType"
+    ],
+    "OLD-CISCO-INTERFACES-MIB": [
+      "locIfReason"
+    ],
+    "OLD-CISCO-SYSTEM-MIB": [
+      "authAddr",
+      "whyReload"
+    ],
+    "OLD-CISCO-TCP-MIB": [
+      "loctcpConnElapsed",
+      "loctcpConnInBytes",
+      "loctcpConnOutBytes"
+    ],
+    "OLD-CISCO-TS-MIB": [
+      "tsLineUser",
+      "tslineSesType"
+    ],
+    "RFC1213-MIB": [
+      "egpNeighAddr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmp",
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TCP-MIB": [
+      "tcpConnState"
+    ]
+  },
+  "coldStart": {
+    "name": "coldStart",
+    "oid": "1.3.6.1.6.3.1.1.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "OLD-CISCO-SYSTEM-MIB",
+        "object": "whyReload"
+      }
+    ]
+  },
+  "linkDown": {
+    "name": "linkDown",
+    "oid": "1.3.6.1.6.3.1.1.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "OLD-CISCO-INTERFACES-MIB",
+        "object": "locIfReason"
+      }
+    ]
+  },
+  "linkUp": {
+    "name": "linkUp",
+    "oid": "1.3.6.1.6.3.1.1.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "OLD-CISCO-INTERFACES-MIB",
+        "object": "locIfReason"
+      }
+    ]
+  },
+  "authenticationFailure": {
+    "name": "authenticationFailure",
+    "oid": "1.3.6.1.6.3.1.1.5.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OLD-CISCO-SYSTEM-MIB",
+        "object": "authAddr"
+      }
+    ]
+  },
+  "egpNeighborLoss": {
+    "name": "egpNeighborLoss",
+    "oid": "1.3.6.1.6.3.1.1.5.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RFC1213-MIB",
+        "object": "egpNeighAddr"
+      }
+    ]
+  },
+  "reload": {
+    "name": "reload",
+    "oid": "1.3.6.1.4.1.9.0.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "OLD-CISCO-SYSTEM-MIB",
+        "object": "whyReload"
+      }
+    ]
+  },
+  "tcpConnectionClose": {
+    "name": "tcpConnectionClose",
+    "oid": "1.3.6.1.4.1.9.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OLD-CISCO-TS-MIB",
+        "object": "tslineSesType"
+      },
+      {
+        "module": "TCP-MIB",
+        "object": "tcpConnState"
+      },
+      {
+        "module": "OLD-CISCO-TCP-MIB",
+        "object": "loctcpConnElapsed"
+      },
+      {
+        "module": "OLD-CISCO-TCP-MIB",
+        "object": "loctcpConnInBytes"
+      },
+      {
+        "module": "OLD-CISCO-TCP-MIB",
+        "object": "loctcpConnOutBytes"
+      },
+      {
+        "module": "OLD-CISCO-TS-MIB",
+        "object": "tsLineUser"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOTRAP-MIB",
+      "Source digest sha256:0ee2624530d6cd4961518b9415bb0250e6d7702152e20ffb2cff0e4c42edb797",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOTRAP-MIB"
+  }
+}

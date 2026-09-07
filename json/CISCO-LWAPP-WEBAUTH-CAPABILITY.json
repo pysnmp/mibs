@@ -1,0 +1,59 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappWebauthCapability": {
+    "name": "ciscoLwappWebauthCapability",
+    "oid": "1.3.6.1.4.1.9.7.5555",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-30 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappWebAuthCapabilityCUWNSV7R0": {
+    "name": "ciscoLwappWebAuthCapabilityCUWNSV7R0",
+    "oid": "1.3.6.1.4.1.9.7.5555.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 7.0 for Cisco WLAN Controllers",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-WEBAUTH-MIB",
+        "includes": [
+          "cLWACustomWebAuthGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-WEBAUTH-CAPABILITY",
+      "Source digest sha256:c14138e68f6509e94517fa7c0d0693a9a92ce8cb3bdde1acd771a2d3e9865e4b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-WEBAUTH-CAPABILITY"
+  }
+}

@@ -1,0 +1,29 @@
+#
+# PySNMP MIB module IANAPowerStateSet-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source IANAPowerStateSet-MIB
+# Source digest sha256:f679ba1680227d59b555b30a80248ea72990678ecf174cc1e8c45729f3cd1560
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "mib-2")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ianaPowerStateSet = ModuleIdentity((1, 3, 6, 1, 2, 1, 228))
+ianaPowerStateSet.setRevisions(('2015-02-09 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ianaPowerStateSet.setRevisionsDescriptions(('Initial version of this MIB module, as published as RFC\n\t     7460.',))
+if mibBuilder.loadTexts: ianaPowerStateSet.setLastUpdated('2015-02-09 00:00')
+if mibBuilder.loadTexts: ianaPowerStateSet.setOrganization('IANA')
+if mibBuilder.loadTexts: ianaPowerStateSet.setContactInfo('\n\t               Internet Assigned Numbers Authority\n\t               Postal: ICANN\n\t               12025 Waterfront Drive, Suite 300\n\t               Los Angeles, CA 90094\n\t               United States\n\t               Tel: +1-310-301 5800\n\t               EMail: iana&iana.org')
+if mibBuilder.loadTexts: ianaPowerStateSet.setDescription("Copyright (c) 2015 IETF Trust and the persons identified as\n\t     authors of the code.  All rights reserved.\n\n\t     Redistribution and use in source and binary forms, with or\n\t     without modification, is permitted pursuant to, and subject\n\t     to the license terms contained in, the Simplified BSD License\n\t     set forth in Section 4.c of the IETF Trust's Legal Provisions\n\t     Relating to IETF Documents\n\t     (http://trustee.ietf.org/license-info).\n\n\t     This MIB module defines the PowerStateSet Textual\n\t     Convention, which specifies the Power State Sets and\n\t     Power State Set Values an Energy Object supports.\n\n\t     The initial version of this MIB module was published in\n\t     RFC 7460; for full legal notices see the RFC itself.")
+class PowerStateSet(TextualConvention, Integer32):
+    reference = 'http://www.iana.org/assignments/power-state-sets'
+    description = 'IANAPowerState is a textual convention that describes\n\t     Power State Sets and Power State Set Values an Energy\n\t     Object supports.  IANA has created a registry of Power\n\t     State supported by an Energy Object and IANA shall\n\t     administer the list of Power State Sets and Power\n\t     States.\n\n\t     The Textual Convention assumes that Power States in a\n\t     Power State Set are limited to 255 distinct values.  For\n\t     a Power State Set S, the named number with the value S *\n\t     256 is allocated to indicate the Power State Set.  For a\n\t     Power State X in the Power State Set S, the named number\n\t     with the value S * 256 + X + 1 is allocated to represent\n\t     the Power State.\n\n\t     Requests for new values should be made to IANA via email\n\t     (iana&iana.org).'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 255, 256, 257, 258, 259, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036))
+    namedValues = NamedValues(("other", 0), ("unknown", 255), ("ieee1621", 256), ("ieee1621Off", 257), ("ieee1621Sleep", 258), ("ieee1621On", 259), ("dmtf", 512), ("dmtfOn", 513), ("dmtfSleepLight", 514), ("dmtfSleepDeep", 515), ("dmtfOffHard", 516), ("dmtfOffSoft", 517), ("dmtfHibernate", 518), ("dmtfPowerOffSoft", 519), ("dmtfPowerOffHard", 520), ("dmtfMasterBusReset", 521), ("dmtfDiagnosticInterrapt", 522), ("dmtfOffSoftGraceful", 523), ("dmtfOffHardGraceful", 524), ("dmtfMasterBusResetGraceful", 525), ("dmtfPowerCycleOffSoftGraceful", 526), ("dmtfPowerCycleHardGraceful", 527), ("eman", 1024), ("emanMechOff", 1025), ("emanSoftOff", 1026), ("emanHibernate", 1027), ("emanSleep", 1028), ("emanStandby", 1029), ("emanReady", 1030), ("emanLowMinus", 1031), ("emanLow", 1032), ("emanMediumMinus", 1033), ("emanMedium", 1034), ("emanHighMinus", 1035), ("emanHigh", 1036))
+
+mibBuilder.exportSymbols("IANAPowerStateSet-MIB", PYSNMP_MODULE_ID=ianaPowerStateSet, PowerStateSet=PowerStateSet, ianaPowerStateSet=ianaPowerStateSet)

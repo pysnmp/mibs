@@ -1,0 +1,4112 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-SN-ROOT-MIB": [
+      "snL4"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "L4RowSts": {
+    "name": "L4RowSts",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    }
+  },
+  "L4Status": {
+    "name": "L4Status",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    }
+  },
+  "L4ServerName": {
+    "name": "L4ServerName",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    }
+  },
+  "L4Flag": {
+    "name": "L4Flag",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    }
+  },
+  "L4DeleteState": {
+    "name": "L4DeleteState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "done": 0,
+          "waitunbind": 1,
+          "waitdelete": 2
+        }
+      }
+    }
+  },
+  "WebCacheState": {
+    "name": "WebCacheState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "failed": 2,
+          "testing": 3,
+          "suspect": 4,
+          "shutdown": 5,
+          "active": 6
+        }
+      }
+    }
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "snL4Gen": {
+    "name": "snL4Gen",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServer": {
+    "name": "snL4VirtualServer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2",
+    "class": "objectidentity"
+  },
+  "snL4RealServer": {
+    "name": "snL4RealServer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerPort": {
+    "name": "snL4VirtualServerPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4",
+    "class": "objectidentity"
+  },
+  "snL4RealServerPort": {
+    "name": "snL4RealServerPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5",
+    "class": "objectidentity"
+  },
+  "snL4Bind": {
+    "name": "snL4Bind",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerStatus": {
+    "name": "snL4VirtualServerStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7",
+    "class": "objectidentity"
+  },
+  "snL4RealServerStatus": {
+    "name": "snL4RealServerStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerPortStatus": {
+    "name": "snL4VirtualServerPortStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9",
+    "class": "objectidentity"
+  },
+  "snL4RealServerPortStatus": {
+    "name": "snL4RealServerPortStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10",
+    "class": "objectidentity"
+  },
+  "snL4Policy": {
+    "name": "snL4Policy",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11",
+    "class": "objectidentity"
+  },
+  "snL4PolicyPortAccess": {
+    "name": "snL4PolicyPortAccess",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12",
+    "class": "objectidentity"
+  },
+  "snL4Trap": {
+    "name": "snL4Trap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.13",
+    "class": "objectidentity"
+  },
+  "snL4WebCache": {
+    "name": "snL4WebCache",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14",
+    "class": "objectidentity"
+  },
+  "snL4WebCacheGroup": {
+    "name": "snL4WebCacheGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15",
+    "class": "objectidentity"
+  },
+  "snL4WebCacheTrafficStats": {
+    "name": "snL4WebCacheTrafficStats",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16",
+    "class": "objectidentity"
+  },
+  "snL4WebUncachedTrafficStats": {
+    "name": "snL4WebUncachedTrafficStats",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17",
+    "class": "objectidentity"
+  },
+  "snL4WebCachePort": {
+    "name": "snL4WebCachePort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18",
+    "class": "objectidentity"
+  },
+  "snL4RealServerCfg": {
+    "name": "snL4RealServerCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19",
+    "class": "objectidentity"
+  },
+  "snL4RealServerPortCfg": {
+    "name": "snL4RealServerPortCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerCfg": {
+    "name": "snL4VirtualServerCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerPortCfg": {
+    "name": "snL4VirtualServerPortCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22",
+    "class": "objectidentity"
+  },
+  "snL4RealServerStatistic": {
+    "name": "snL4RealServerStatistic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23",
+    "class": "objectidentity"
+  },
+  "snL4RealServerPortStatistic": {
+    "name": "snL4RealServerPortStatistic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerStatistic": {
+    "name": "snL4VirtualServerStatistic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25",
+    "class": "objectidentity"
+  },
+  "snL4VirtualServerPortStatistic": {
+    "name": "snL4VirtualServerPortStatistic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26",
+    "class": "objectidentity"
+  },
+  "snL4MaxSessionLimit": {
+    "name": "snL4MaxSessionLimit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4TcpSynLimit": {
+    "name": "snL4TcpSynLimit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4slbGlobalSDAType": {
+    "name": "snL4slbGlobalSDAType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leastconnection": 1,
+          "roundrobin": 2,
+          "weighted": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4slbTotalConnections": {
+    "name": "snL4slbTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbLimitExceeds": {
+    "name": "snL4slbLimitExceeds",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbForwardTraffic": {
+    "name": "snL4slbForwardTraffic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbReverseTraffic": {
+    "name": "snL4slbReverseTraffic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbDrops": {
+    "name": "snL4slbDrops",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbDangling": {
+    "name": "snL4slbDangling",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbDisableCount": {
+    "name": "snL4slbDisableCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbAged": {
+    "name": "snL4slbAged",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4slbFinished": {
+    "name": "snL4slbFinished",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4FreeSessionCount": {
+    "name": "snL4FreeSessionCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BackupInterface": {
+    "name": "snL4BackupInterface",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4BackupMacAddr": {
+    "name": "snL4BackupMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4Active": {
+    "name": "snL4Active",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Flag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4Redundancy": {
+    "name": "snL4Redundancy",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4Backup": {
+    "name": "snL4Backup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Flag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BecomeActive": {
+    "name": "snL4BecomeActive",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BecomeStandBy": {
+    "name": "snL4BecomeStandBy",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BackupState": {
+    "name": "snL4BackupState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slbSyncComplete": 0,
+          "slbSyncReqMap": 1,
+          "slbSyncreqMac": 2,
+          "slbSyncreqServers": 3,
+          "slbSyncReqL4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4NoPDUSent": {
+    "name": "snL4NoPDUSent",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4NoPDUCount": {
+    "name": "snL4NoPDUCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4NoPortMap": {
+    "name": "snL4NoPortMap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4unsuccessfulConn": {
+    "name": "snL4unsuccessfulConn",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4PingInterval": {
+    "name": "snL4PingInterval",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PingRetry": {
+    "name": "snL4PingRetry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 4,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4TcpAge": {
+    "name": "snL4TcpAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4UdpAge": {
+    "name": "snL4UdpAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableMaxSessionLimitReachedTrap": {
+    "name": "snL4EnableMaxSessionLimitReachedTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableTcpSynLimitReachedTrap": {
+    "name": "snL4EnableTcpSynLimitReachedTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableRealServerUpTrap": {
+    "name": "snL4EnableRealServerUpTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableRealServerDownTrap": {
+    "name": "snL4EnableRealServerDownTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableRealServerPortUpTrap": {
+    "name": "snL4EnableRealServerPortUpTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableRealServerPortDownTrap": {
+    "name": "snL4EnableRealServerPortDownTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableRealServerMaxConnLimitReachedTrap": {
+    "name": "snL4EnableRealServerMaxConnLimitReachedTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableBecomeStandbyTrap": {
+    "name": "snL4EnableBecomeStandbyTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4EnableBecomeActiveTrap": {
+    "name": "snL4EnableBecomeActiveTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4slbRouterInterfacePortMask": {
+    "name": "snL4slbRouterInterfacePortMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4MaxNumWebCacheGroup": {
+    "name": "snL4MaxNumWebCacheGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4MaxNumWebCachePerGroup": {
+    "name": "snL4MaxNumWebCachePerGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheStateful": {
+    "name": "snL4WebCacheStateful",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerTable": {
+    "name": "snL4VirtualServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerEntry": {
+    "name": "snL4VirtualServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerIndex": {
+    "name": "snL4VirtualServerIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerName": {
+    "name": "snL4VirtualServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerVirtualIP": {
+    "name": "snL4VirtualServerVirtualIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerAdminStatus": {
+    "name": "snL4VirtualServerAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerSDAType": {
+    "name": "snL4VirtualServerSDAType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "leastconnection": 1,
+          "roundrobin": 2,
+          "weighted": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerRowStatus": {
+    "name": "snL4VirtualServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerDeleteState": {
+    "name": "snL4VirtualServerDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerTable": {
+    "name": "snL4RealServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerEntry": {
+    "name": "snL4RealServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerIndex": {
+    "name": "snL4RealServerIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerName": {
+    "name": "snL4RealServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerIP": {
+    "name": "snL4RealServerIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerAdminStatus": {
+    "name": "snL4RealServerAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerMaxConnections": {
+    "name": "snL4RealServerMaxConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerWeight": {
+    "name": "snL4RealServerWeight",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerRowStatus": {
+    "name": "snL4RealServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerDeleteState": {
+    "name": "snL4RealServerDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortTable": {
+    "name": "snL4VirtualServerPortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortEntry": {
+    "name": "snL4VirtualServerPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortIndex": {
+    "name": "snL4VirtualServerPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortServerName": {
+    "name": "snL4VirtualServerPortServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortPort": {
+    "name": "snL4VirtualServerPortPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortAdminStatus": {
+    "name": "snL4VirtualServerPortAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortSticky": {
+    "name": "snL4VirtualServerPortSticky",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortConcurrent": {
+    "name": "snL4VirtualServerPortConcurrent",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortRowStatus": {
+    "name": "snL4VirtualServerPortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortDeleteState": {
+    "name": "snL4VirtualServerPortDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortTable": {
+    "name": "snL4RealServerPortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortEntry": {
+    "name": "snL4RealServerPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerPortIndex": {
+    "name": "snL4RealServerPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortServerName": {
+    "name": "snL4RealServerPortServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortPort": {
+    "name": "snL4RealServerPortPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortAdminStatus": {
+    "name": "snL4RealServerPortAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortRowStatus": {
+    "name": "snL4RealServerPortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortDeleteState": {
+    "name": "snL4RealServerPortDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BindTable": {
+    "name": "snL4BindTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4BindEntry": {
+    "name": "snL4BindEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4BindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4BindIndex": {
+    "name": "snL4BindIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4BindVirtualServerName": {
+    "name": "snL4BindVirtualServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4BindVirtualPortNumber": {
+    "name": "snL4BindVirtualPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4BindRealServerName": {
+    "name": "snL4BindRealServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4BindRealPortNumber": {
+    "name": "snL4BindRealPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4BindRowStatus": {
+    "name": "snL4BindRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusTable": {
+    "name": "snL4VirtualServerStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusEntry": {
+    "name": "snL4VirtualServerStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusIndex": {
+    "name": "snL4VirtualServerStatusIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusName": {
+    "name": "snL4VirtualServerStatusName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusReceivePkts": {
+    "name": "snL4VirtualServerStatusReceivePkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusTransmitPkts": {
+    "name": "snL4VirtualServerStatusTransmitPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatusTotalConnections": {
+    "name": "snL4VirtualServerStatusTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusTable": {
+    "name": "snL4RealServerStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusEntry": {
+    "name": "snL4RealServerStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusIndex": {
+    "name": "snL4RealServerStatusIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusName": {
+    "name": "snL4RealServerStatusName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusRealIP": {
+    "name": "snL4RealServerStatusRealIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusReceivePkts": {
+    "name": "snL4RealServerStatusReceivePkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusTransmitPkts": {
+    "name": "snL4RealServerStatusTransmitPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusCurConnections": {
+    "name": "snL4RealServerStatusCurConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusTotalConnections": {
+    "name": "snL4RealServerStatusTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusAge": {
+    "name": "snL4RealServerStatusAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusState": {
+    "name": "snL4RealServerStatusState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverdisabled": 0,
+          "serverenabled": 1,
+          "serverfailed": 2,
+          "servertesting": 3,
+          "serversuspect": 4,
+          "servershutdown": 5,
+          "serveractive": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusReassignments": {
+    "name": "snL4RealServerStatusReassignments",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusReassignmentLimit": {
+    "name": "snL4RealServerStatusReassignmentLimit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusFailedPortExists": {
+    "name": "snL4RealServerStatusFailedPortExists",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusFailTime": {
+    "name": "snL4RealServerStatusFailTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatusPeakConnections": {
+    "name": "snL4RealServerStatusPeakConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusTable": {
+    "name": "snL4VirtualServerPortStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusEntry": {
+    "name": "snL4VirtualServerPortStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusIndex": {
+    "name": "snL4VirtualServerPortStatusIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusPort": {
+    "name": "snL4VirtualServerPortStatusPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusServerName": {
+    "name": "snL4VirtualServerPortStatusServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusCurrentConnection": {
+    "name": "snL4VirtualServerPortStatusCurrentConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusTotalConnection": {
+    "name": "snL4VirtualServerPortStatusTotalConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatusPeakConnection": {
+    "name": "snL4VirtualServerPortStatusPeakConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusTable": {
+    "name": "snL4RealServerPortStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusEntry": {
+    "name": "snL4RealServerPortStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusIndex": {
+    "name": "snL4RealServerPortStatusIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusPort": {
+    "name": "snL4RealServerPortStatusPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusServerName": {
+    "name": "snL4RealServerPortStatusServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusReassignCount": {
+    "name": "snL4RealServerPortStatusReassignCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusState": {
+    "name": "snL4RealServerPortStatusState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "failed": 2,
+          "testing": 3,
+          "suspect": 4,
+          "shutdown": 5,
+          "active": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusFailTime": {
+    "name": "snL4RealServerPortStatusFailTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusCurrentConnection": {
+    "name": "snL4RealServerPortStatusCurrentConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusTotalConnection": {
+    "name": "snL4RealServerPortStatusTotalConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusRxPkts": {
+    "name": "snL4RealServerPortStatusRxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusTxPkts": {
+    "name": "snL4RealServerPortStatusTxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusRxBytes": {
+    "name": "snL4RealServerPortStatusRxBytes",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusTxBytes": {
+    "name": "snL4RealServerPortStatusTxBytes",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatusPeakConnection": {
+    "name": "snL4RealServerPortStatusPeakConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4PolicyTable": {
+    "name": "snL4PolicyTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4PolicyEntry": {
+    "name": "snL4PolicyEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4PolicyId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4PolicyId": {
+    "name": "snL4PolicyId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4PolicyPriority": {
+    "name": "snL4PolicyPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyScope": {
+    "name": "snL4PolicyScope",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 0,
+          "local": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyProtocol": {
+    "name": "snL4PolicyProtocol",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 0,
+          "tcp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyPort": {
+    "name": "snL4PolicyPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyRowStatus": {
+    "name": "snL4PolicyRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyPortAccessTable": {
+    "name": "snL4PolicyPortAccessTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4PolicyPortAccessEntry": {
+    "name": "snL4PolicyPortAccessEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4PolicyPortAccessPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4PolicyPortAccessPort": {
+    "name": "snL4PolicyPortAccessPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4PolicyPortAccessList": {
+    "name": "snL4PolicyPortAccessList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4PolicyPortAccessRowStatus": {
+    "name": "snL4PolicyPortAccessRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4TrapRealServerIP": {
+    "name": "snL4TrapRealServerIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4TrapRealServerName": {
+    "name": "snL4TrapRealServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4TrapRealServerPort": {
+    "name": "snL4TrapRealServerPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4TrapRealServerCurConnections": {
+    "name": "snL4TrapRealServerCurConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTable": {
+    "name": "snL4WebCacheTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebCacheEntry": {
+    "name": "snL4WebCacheEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCacheIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4WebCacheIP": {
+    "name": "snL4WebCacheIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheName": {
+    "name": "snL4WebCacheName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheAdminStatus": {
+    "name": "snL4WebCacheAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheMaxConnections": {
+    "name": "snL4WebCacheMaxConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheWeight": {
+    "name": "snL4WebCacheWeight",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheRowStatus": {
+    "name": "snL4WebCacheRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheDeleteState": {
+    "name": "snL4WebCacheDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupTable": {
+    "name": "snL4WebCacheGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupEntry": {
+    "name": "snL4WebCacheGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCacheGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupId": {
+    "name": "snL4WebCacheGroupId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupName": {
+    "name": "snL4WebCacheGroupName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupWebCacheIpList": {
+    "name": "snL4WebCacheGroupWebCacheIpList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupDestMask": {
+    "name": "snL4WebCacheGroupDestMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupSrcMask": {
+    "name": "snL4WebCacheGroupSrcMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupAdminStatus": {
+    "name": "snL4WebCacheGroupAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheGroupRowStatus": {
+    "name": "snL4WebCacheGroupRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTrafficStatsTable": {
+    "name": "snL4WebCacheTrafficStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTrafficStatsEntry": {
+    "name": "snL4WebCacheTrafficStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCacheTrafficIp",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCacheTrafficPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4WebCacheTrafficIp": {
+    "name": "snL4WebCacheTrafficIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTrafficPort": {
+    "name": "snL4WebCacheTrafficPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheCurrConnections": {
+    "name": "snL4WebCacheCurrConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTotalConnections": {
+    "name": "snL4WebCacheTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTxPkts": {
+    "name": "snL4WebCacheTxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheRxPkts": {
+    "name": "snL4WebCacheRxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheTxOctets": {
+    "name": "snL4WebCacheTxOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCacheRxOctets": {
+    "name": "snL4WebCacheRxOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortState": {
+    "name": "snL4WebCachePortState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WebCacheState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedTrafficStatsTable": {
+    "name": "snL4WebUncachedTrafficStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedTrafficStatsEntry": {
+    "name": "snL4WebUncachedTrafficStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebServerPort",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebClientPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4WebServerPort": {
+    "name": "snL4WebServerPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebClientPort": {
+    "name": "snL4WebClientPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedTxPkts": {
+    "name": "snL4WebUncachedTxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedRxPkts": {
+    "name": "snL4WebUncachedRxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedTxOctets": {
+    "name": "snL4WebUncachedTxOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebUncachedRxOctets": {
+    "name": "snL4WebUncachedRxOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebServerPortName": {
+    "name": "snL4WebServerPortName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebClientPortName": {
+    "name": "snL4WebClientPortName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortTable": {
+    "name": "snL4WebCachePortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortEntry": {
+    "name": "snL4WebCachePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCachePortServerIp",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4WebCachePortPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4WebCachePortServerIp": {
+    "name": "snL4WebCachePortServerIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortPort": {
+    "name": "snL4WebCachePortPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortAdminStatus": {
+    "name": "snL4WebCachePortAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortRowStatus": {
+    "name": "snL4WebCachePortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4WebCachePortDeleteState": {
+    "name": "snL4WebCachePortDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.18.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgTable": {
+    "name": "snL4RealServerCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgEntry": {
+    "name": "snL4RealServerCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerCfgIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgIP": {
+    "name": "snL4RealServerCfgIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgName": {
+    "name": "snL4RealServerCfgName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgAdminStatus": {
+    "name": "snL4RealServerCfgAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgMaxConnections": {
+    "name": "snL4RealServerCfgMaxConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgWeight": {
+    "name": "snL4RealServerCfgWeight",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgRowStatus": {
+    "name": "snL4RealServerCfgRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerCfgDeleteState": {
+    "name": "snL4RealServerCfgDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.19.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgTable": {
+    "name": "snL4RealServerPortCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgEntry": {
+    "name": "snL4RealServerPortCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortCfgIP",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortCfgPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgIP": {
+    "name": "snL4RealServerPortCfgIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgPort": {
+    "name": "snL4RealServerPortCfgPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgServerName": {
+    "name": "snL4RealServerPortCfgServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgAdminStatus": {
+    "name": "snL4RealServerPortCfgAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgRowStatus": {
+    "name": "snL4RealServerPortCfgRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortCfgDeleteState": {
+    "name": "snL4RealServerPortCfgDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgTable": {
+    "name": "snL4VirtualServerCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgEntry": {
+    "name": "snL4VirtualServerCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerCfgVirtualIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgVirtualIP": {
+    "name": "snL4VirtualServerCfgVirtualIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgName": {
+    "name": "snL4VirtualServerCfgName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgAdminStatus": {
+    "name": "snL4VirtualServerCfgAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgSDAType": {
+    "name": "snL4VirtualServerCfgSDAType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "leastconnection": 1,
+          "roundrobin": 2,
+          "weighted": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgRowStatus": {
+    "name": "snL4VirtualServerCfgRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerCfgDeleteState": {
+    "name": "snL4VirtualServerCfgDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgTable": {
+    "name": "snL4VirtualServerPortCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgEntry": {
+    "name": "snL4VirtualServerPortCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortCfgIP",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortCfgPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgIP": {
+    "name": "snL4VirtualServerPortCfgIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgPort": {
+    "name": "snL4VirtualServerPortCfgPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgServerName": {
+    "name": "snL4VirtualServerPortCfgServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgAdminStatus": {
+    "name": "snL4VirtualServerPortCfgAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgSticky": {
+    "name": "snL4VirtualServerPortCfgSticky",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgConcurrent": {
+    "name": "snL4VirtualServerPortCfgConcurrent",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgRowStatus": {
+    "name": "snL4VirtualServerPortCfgRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4RowSts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortCfgDeleteState": {
+    "name": "snL4VirtualServerPortCfgDeleteState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.22.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4DeleteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticTable": {
+    "name": "snL4VirtualServerStatisticTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticEntry": {
+    "name": "snL4VirtualServerStatisticEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerStatisticIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticIP": {
+    "name": "snL4VirtualServerStatisticIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticName": {
+    "name": "snL4VirtualServerStatisticName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticReceivePkts": {
+    "name": "snL4VirtualServerStatisticReceivePkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticTransmitPkts": {
+    "name": "snL4VirtualServerStatisticTransmitPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerStatisticTotalConnections": {
+    "name": "snL4VirtualServerStatisticTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.25.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticTable": {
+    "name": "snL4RealServerStatisticTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticEntry": {
+    "name": "snL4RealServerStatisticEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerStatisticRealIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticRealIP": {
+    "name": "snL4RealServerStatisticRealIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticName": {
+    "name": "snL4RealServerStatisticName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticReceivePkts": {
+    "name": "snL4RealServerStatisticReceivePkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticTransmitPkts": {
+    "name": "snL4RealServerStatisticTransmitPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticCurConnections": {
+    "name": "snL4RealServerStatisticCurConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticTotalConnections": {
+    "name": "snL4RealServerStatisticTotalConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticAge": {
+    "name": "snL4RealServerStatisticAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticState": {
+    "name": "snL4RealServerStatisticState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverdisabled": 0,
+          "serverenabled": 1,
+          "serverfailed": 2,
+          "servertesting": 3,
+          "serversuspect": 4,
+          "servershutdown": 5,
+          "serveractive": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticReassignments": {
+    "name": "snL4RealServerStatisticReassignments",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticReassignmentLimit": {
+    "name": "snL4RealServerStatisticReassignmentLimit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticFailedPortExists": {
+    "name": "snL4RealServerStatisticFailedPortExists",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticFailTime": {
+    "name": "snL4RealServerStatisticFailTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerStatisticPeakConnections": {
+    "name": "snL4RealServerStatisticPeakConnections",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.23.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticTable": {
+    "name": "snL4VirtualServerPortStatisticTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticEntry": {
+    "name": "snL4VirtualServerPortStatisticEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortStatisticIP",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4VirtualServerPortStatisticPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticIP": {
+    "name": "snL4VirtualServerPortStatisticIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticPort": {
+    "name": "snL4VirtualServerPortStatisticPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticServerName": {
+    "name": "snL4VirtualServerPortStatisticServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticCurrentConnection": {
+    "name": "snL4VirtualServerPortStatisticCurrentConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticTotalConnection": {
+    "name": "snL4VirtualServerPortStatisticTotalConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4VirtualServerPortStatisticPeakConnection": {
+    "name": "snL4VirtualServerPortStatisticPeakConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.26.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticTable": {
+    "name": "snL4RealServerPortStatisticTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticEntry": {
+    "name": "snL4RealServerPortStatisticEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortStatisticIP",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4RealServerPortStatisticPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticIP": {
+    "name": "snL4RealServerPortStatisticIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticPort": {
+    "name": "snL4RealServerPortStatisticPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticServerName": {
+    "name": "snL4RealServerPortStatisticServerName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "L4ServerName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticReassignCount": {
+    "name": "snL4RealServerPortStatisticReassignCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticState": {
+    "name": "snL4RealServerPortStatisticState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "failed": 2,
+          "testing": 3,
+          "suspect": 4,
+          "shutdown": 5,
+          "active": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticFailTime": {
+    "name": "snL4RealServerPortStatisticFailTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticCurrentConnection": {
+    "name": "snL4RealServerPortStatisticCurrentConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticTotalConnection": {
+    "name": "snL4RealServerPortStatisticTotalConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticRxPkts": {
+    "name": "snL4RealServerPortStatisticRxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticTxPkts": {
+    "name": "snL4RealServerPortStatisticTxPkts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticRxBytes": {
+    "name": "snL4RealServerPortStatisticRxBytes",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticTxBytes": {
+    "name": "snL4RealServerPortStatisticTxBytes",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snL4RealServerPortStatisticPeakConnection": {
+    "name": "snL4RealServerPortStatisticPeakConnection",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.4.24.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-SN-SW-L4-SWITCH-GROUP-MIB",
+      "Source digest sha256:b236f45d23851914d4e2179bf7e053007658dd3401cb360d754abf82e236dde3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB"
+  }
+}

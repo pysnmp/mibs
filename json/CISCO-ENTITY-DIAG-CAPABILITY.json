@@ -1,0 +1,841 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityDiagCapability": {
+    "name": "ciscoEntityDiagCapability",
+    "oid": "1.3.6.1.4.1.9.7.529",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-03 00:00",
+        "description": "Added capability statement ceDiagCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2009-07-02 00:00",
+        "description": "Added capability statement ceDiagCapV12R0233SXI2PCat6K."
+      },
+      {
+        "revision": "2009-06-01 00:00",
+        "description": "Added capability statement ceDiagCapV12R0252SGPCat4K."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Added capability statement ceDiagCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-02-29 00:00",
+        "description": "Removed variation for ceDiagBootupLevel in ceDiagCapCatOSV08R0601Cat6K."
+      },
+      {
+        "revision": "2007-07-23 00:00",
+        "description": "Added capability statement ceDiagCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2007-01-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ceDiagCapCatOSV08R0601Cat6K": {
+    "name": "ceDiagCapCatOSV08R0601Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.529.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500 series \n                     devices with Supervisor 720 or Supervisor 32 \n                     present.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65534
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThresholdDefault",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagCapV12R0233SXHPCat6K": {
+    "name": "ceDiagCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.529.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65534
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThresholdDefault",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagCapV12R0233SXIPCat6K": {
+    "name": "ceDiagCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.529.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup",
+          "ceDiagNotifControlGroup",
+          "ceDiagNotifErrorMsgGroup",
+          "ceDiagNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65534
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 99
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagCapV12R0252SGPCat4K": {
+    "name": "ceDiagCapV12R0252SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.529.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(52)SG on CAT4K family \n                    switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup",
+          "ceDiagNotifControlGroup",
+          "ceDiagNotifErrorMsgGroup",
+          "ceDiagNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 99
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagCapV12R0233SXI2PCat6K": {
+    "name": "ceDiagCapV12R0233SXI2PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.529.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI2 on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup",
+          "ceDiagNotifControlGroup",
+          "ceDiagNotifErrorMsgGroup",
+          "ceDiagNotificationGroup",
+          "ceDiagTestPerfLastTestMethodGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 99
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceDiagCapV12R0250SYPCat6K": {
+    "name": "ceDiagCapV12R0250SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.529.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DIAG-MIB",
+        "includes": [
+          "ceDiagDescrGroup",
+          "ceDiagGlobalConfigGroup",
+          "ceDiagEntityGroup",
+          "ceDiagOnDemandGroup",
+          "ceDiagScheduledGroup",
+          "ceDiagTestPerfGroup",
+          "ceDiagHealthMonitorGroup",
+          "ceDiagEventGroup",
+          "ceDiagNotifControlGroup",
+          "ceDiagNotifErrorMsgGroup",
+          "ceDiagNotificationGroup",
+          "ceDiagTestPerfLastTestMethodGroup",
+          "ceDiagHMTestThreshWindowGroup"
+        ],
+        "variations": [
+          {
+            "object": "ceDiagOnDemandErrorAllowed",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandIterations",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 999
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagOnDemandJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagScheduledJobRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 99
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventLogSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 10000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ceDiagEventQueryStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ceDiagHMTestThreshWindowSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1000000
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENTITY-DIAG-CAPABILITY",
+      "Source digest sha256:0f4603b1808486e9055da7f44de9e1da7806df0702d8400a2943312e05af87b5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENTITY-DIAG-CAPABILITY"
+  }
+}

@@ -1,0 +1,2207 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "axChassis"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axChassisMgmt": {
+    "name": "axChassisMgmt",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1",
+    "class": "moduleidentity"
+  },
+  "axChassisSystem": {
+    "name": "axChassisSystem",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1",
+    "class": "objectidentity"
+  },
+  "axChassisHardware": {
+    "name": "axChassisHardware",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "axFanTable": {
+    "name": "axFanTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axFanEntry": {
+    "name": "axFanEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axFanSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axFanSlotId": {
+    "name": "axFanSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFanIndex": {
+    "name": "axFanIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFanName": {
+    "name": "axFanName",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFanStatus": {
+    "name": "axFanStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "okFixedHigh": 4,
+          "okLowMed": 5,
+          "okMedMed": 6,
+          "okMedHigh": 7,
+          "notReady": -2,
+          "unknown": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFanSpeed": {
+    "name": "axFanSpeed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axTemperatureTable": {
+    "name": "axTemperatureTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axTemperatureEntry": {
+    "name": "axTemperatureEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axTemperatureSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axTemperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axTemperatureSlotId": {
+    "name": "axTemperatureSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axTemperatureIndex": {
+    "name": "axTemperatureIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axTemperature": {
+    "name": "axTemperature",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "low-med": 1,
+          "med-med": 2,
+          "med-high": 3,
+          "ok": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axAverageControlCpuUsageTable": {
+    "name": "axAverageControlCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axAverageControlCpuUsageEntry": {
+    "name": "axAverageControlCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axAverageControlCpuUsageSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axAverageControlCpuUsageSlotId": {
+    "name": "axAverageControlCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axAverageControlCpuUsage": {
+    "name": "axAverageControlCpuUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axAverageDataCpuUsageTable": {
+    "name": "axAverageDataCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axAverageDataCpuUsageEntry": {
+    "name": "axAverageDataCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axAverageDataCpuUsageSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axAverageDataCpuUsageSlotId": {
+    "name": "axAverageDataCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axAverageDataCpuUsage": {
+    "name": "axAverageDataCpuUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axMemoryTable": {
+    "name": "axMemoryTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axMemoryEntry": {
+    "name": "axMemoryEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axMemorySlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axMemorySlotId": {
+    "name": "axMemorySlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axMemoryTotal": {
+    "name": "axMemoryTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axMemoryUsage": {
+    "name": "axMemoryUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemVoltageTable": {
+    "name": "axSystemVoltageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSystemVoltageEntry": {
+    "name": "axSystemVoltageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSystemVoltageSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSystemVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSystemVoltageSlotId": {
+    "name": "axSystemVoltageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemVoltageIndex": {
+    "name": "axSystemVoltageIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemVoltageStatus": {
+    "name": "axSystemVoltageStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "normal": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemVoltageDesc": {
+    "name": "axSystemVoltageDesc",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axPowerSupplyTable": {
+    "name": "axPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axPowerSupplyEntry": {
+    "name": "axPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axPowerSupplySlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axPowerSupplySlotId": {
+    "name": "axPowerSupplySlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axPowerSupplyIndex": {
+    "name": "axPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axPowerSupplyName": {
+    "name": "axPowerSupplyName",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axPowerSupplyStatus": {
+    "name": "axPowerSupplyStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "absent": 2,
+          "unknown": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axDiskTable": {
+    "name": "axDiskTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axDiskEntry": {
+    "name": "axDiskEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axDiskSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axDiskSlotId": {
+    "name": "axDiskSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axDiskTotal": {
+    "name": "axDiskTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axDiskUsed": {
+    "name": "axDiskUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axDiskFree": {
+    "name": "axDiskFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecDataCpuUsageTable": {
+    "name": "axCurrFiveSecDataCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axCurrFiveSecDataCpuUsageEntry": {
+    "name": "axCurrFiveSecDataCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axCurrFiveSecDataCpuUsageSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axCurrFiveSecDataCpuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axCurrFiveSecDataCpuUsageSlotId": {
+    "name": "axCurrFiveSecDataCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecDataCpuId": {
+    "name": "axCurrFiveSecDataCpuId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecDataCpuUsage": {
+    "name": "axCurrFiveSecDataCpuUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecCtrlCpuUsageTable": {
+    "name": "axCurrFiveSecCtrlCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axCurrFiveSecCtrlCpuUsageEntry": {
+    "name": "axCurrFiveSecCtrlCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axCurrFiveSecCtrlCpuUsageSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axCurrFiveSecCtrlCpuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axCurrFiveSecCtrlCpuUsageSlotId": {
+    "name": "axCurrFiveSecCtrlCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecCtrlCpuId": {
+    "name": "axCurrFiveSecCtrlCpuId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCurrFiveSecCtrlCpuUsage": {
+    "name": "axCurrFiveSecCtrlCpuUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axChassisStats": {
+    "name": "axChassisStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2",
+    "class": "objectidentity"
+  },
+  "axSystemStats": {
+    "name": "axSystemStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "axInterfaceStats": {
+    "name": "axInterfaceStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "axCgnv6Stats": {
+    "name": "axCgnv6Stats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3",
+    "class": "objectidentity"
+  },
+  "axFwStats": {
+    "name": "axFwStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4",
+    "class": "objectidentity"
+  },
+  "axSlbStats": {
+    "name": "axSlbStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.5",
+    "class": "objectidentity"
+  },
+  "axNetflowStats": {
+    "name": "axNetflowStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "axGlobalThroughputTable": {
+    "name": "axGlobalThroughputTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axGlobalThroughputEntry": {
+    "name": "axGlobalThroughputEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axGlobalThroughputSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axGlobalThroughputSlotId": {
+    "name": "axGlobalThroughputSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axGlobalThroughput": {
+    "name": "axGlobalThroughput",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppPerformanceTable": {
+    "name": "axSystemAppPerformanceTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSystemAppPerformanceEntry": {
+    "name": "axSystemAppPerformanceEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSystemAppPerformanceSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSystemAppPerformanceSlotId": {
+    "name": "axSystemAppPerformanceSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppPerformanceCurrentConnections": {
+    "name": "axSystemAppPerformanceCurrentConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppPerformanceNewConnections": {
+    "name": "axSystemAppPerformanceNewConnections",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppPerformanceNatCpi": {
+    "name": "axSystemAppPerformanceNatCpi",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppPerformanceFwCpi": {
+    "name": "axSystemAppPerformanceFwCpi",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsTable": {
+    "name": "axSessionStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSessionStatsEntry": {
+    "name": "axSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSessionStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSessionStatsSlotId": {
+    "name": "axSessionStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsUDP": {
+    "name": "axSessionStatsUDP",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsCurrFreeConn": {
+    "name": "axSessionStatsCurrFreeConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsTotalFwConn": {
+    "name": "axSessionStatsTotalFwConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsConnCount": {
+    "name": "axSessionStatsConnCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsTcpEstCounter": {
+    "name": "axSessionStatsTcpEstCounter",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsTcpHalfOpenCounter": {
+    "name": "axSessionStatsTcpHalfOpenCounter",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSessionStatsTcpEstabRate": {
+    "name": "axSessionStatsTcpEstabRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.3.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemRadiusServer": {
+    "name": "axSystemRadiusServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "axSystemRadiusServerStatTable": {
+    "name": "axSystemRadiusServerStatTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSystemRadiusServerStatEntry": {
+    "name": "axSystemRadiusServerStatEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSystemRadiusServerStatSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSystemRadiusServerStatSlotId": {
+    "name": "axSystemRadiusServerStatSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemRadiusServerRequestReceived": {
+    "name": "axSystemRadiusServerRequestReceived",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemRadiusServerRequestBadSecretDropped": {
+    "name": "axSystemRadiusServerRequestBadSecretDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemRadiusServerRequestMalformedDropped": {
+    "name": "axSystemRadiusServerRequestMalformedDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemRadiusServerRequestTableFullDropped": {
+    "name": "axSystemRadiusServerRequestTableFullDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppBufferTable": {
+    "name": "axSystemAppBufferTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSystemAppBufferEntry": {
+    "name": "axSystemAppBufferEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSystemAppBufferSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSystemAppBufferSlotId": {
+    "name": "axSystemAppBufferSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppBufferDrop": {
+    "name": "axSystemAppBufferDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSystemAppBufferTotalDrop": {
+    "name": "axSystemAppBufferTotalDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axVEIntfStatsTable": {
+    "name": "axVEIntfStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axVEIntfStatsEntry": {
+    "name": "axVEIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axVEIntfStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axVEIntfStatsIntfNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axVEIntfStatsSlotId": {
+    "name": "axVEIntfStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axVEIntfStatsIntfNum": {
+    "name": "axVEIntfStatsIntfNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axVEIntfStatsRateBitsRcv": {
+    "name": "axVEIntfStatsRateBitsRcv",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axVEIntfStatsRateBitsSend": {
+    "name": "axVEIntfStatsRateBitsSend",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLifIntfStatsTable": {
+    "name": "axLifIntfStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLifIntfStatsEntry": {
+    "name": "axLifIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLifIntfStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLifIntfStatsIntfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLifIntfStatsSlotId": {
+    "name": "axLifIntfStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLifIntfStatsIntfName": {
+    "name": "axLifIntfStatsIntfName",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLifIntfStatsRateBitsRcv": {
+    "name": "axLifIntfStatsRateBitsRcv",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLifIntfStatsRateBitsSend": {
+    "name": "axLifIntfStatsRateBitsSend",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatsTable": {
+    "name": "axEthIntfStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axEthIntfStatsEntry": {
+    "name": "axEthIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axEthIntfStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axEthIntfStatsIfNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axEthIntfStatsSlotId": {
+    "name": "axEthIntfStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatsIfNum": {
+    "name": "axEthIntfStatsIfNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatsRateBitsRcv": {
+    "name": "axEthIntfStatsRateBitsRcv",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatsRateBitsSend": {
+    "name": "axEthIntfStatsRateBitsSend",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatErrorsIn": {
+    "name": "axEthIntfStatErrorsIn",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatErrorsOut": {
+    "name": "axEthIntfStatErrorsOut",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatDropsIn": {
+    "name": "axEthIntfStatDropsIn",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatDropsOut": {
+    "name": "axEthIntfStatDropsOut",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatCollisions": {
+    "name": "axEthIntfStatCollisions",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatUtilPercentIn": {
+    "name": "axEthIntfStatUtilPercentIn",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axEthIntfStatUtilPercentOut": {
+    "name": "axEthIntfStatUtilPercentOut",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwSystemStatusTable": {
+    "name": "axFwSystemStatusTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axFwSystemStatusEntry": {
+    "name": "axFwSystemStatusEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axFwSystemStatusSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axFwSystemStatusSlotId": {
+    "name": "axFwSystemStatusSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwSystemStatusDataSessionUsed": {
+    "name": "axFwSystemStatusDataSessionUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwSystemStatusDataSessionFree": {
+    "name": "axFwSystemStatusDataSessionFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwGlobalStatsTable": {
+    "name": "axFwGlobalStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axFwGlobalStatsEntry": {
+    "name": "axFwGlobalStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axFwGlobalStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axFwGlobalStatsSlotId": {
+    "name": "axFwGlobalStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwTcpFullconeCreated": {
+    "name": "axFwTcpFullconeCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwTcpFullconeFreed": {
+    "name": "axFwTcpFullconeFreed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwUdpFullconeCreated": {
+    "name": "axFwUdpFullconeCreated",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwUdpFullconeFreed": {
+    "name": "axFwUdpFullconeFreed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwActiveFullconeSession": {
+    "name": "axFwActiveFullconeSession",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwFullconeCreationFailure": {
+    "name": "axFwFullconeCreationFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axFwDataSessionFreed": {
+    "name": "axFwDataSessionFreed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCgnv6LsnStats": {
+    "name": "axCgnv6LsnStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "axCgnv6LsnUserQuotaSessonStats": {
+    "name": "axCgnv6LsnUserQuotaSessonStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "axLsnUserQuotaSessionTable": {
+    "name": "axLsnUserQuotaSessionTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLsnUserQuotaSessionEntry": {
+    "name": "axLsnUserQuotaSessionEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLsnUserQuotaSessionSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLsnUserQuotaSessionSlotId": {
+    "name": "axLsnUserQuotaSessionSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnUserQuotaSessionCount": {
+    "name": "axLsnUserQuotaSessionCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusSessionTable": {
+    "name": "axLsnSystemStatusSessionTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLsnSystemStatusSessionEntry": {
+    "name": "axLsnSystemStatusSessionEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLsnSystemStatusSessionSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLsnSystemStatusSessionSlotId": {
+    "name": "axLsnSystemStatusSessionSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusDataSessionUsed": {
+    "name": "axLsnSystemStatusDataSessionUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusDataSessionFree": {
+    "name": "axLsnSystemStatusDataSessionFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusSMPSessionUsed": {
+    "name": "axLsnSystemStatusSMPSessionUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusSMPSessionFree": {
+    "name": "axLsnSystemStatusSMPSessionFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusNatPortUsageTable": {
+    "name": "axLsnSystemStatusNatPortUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLsnSystemStatusNatPortUsageEntry": {
+    "name": "axLsnSystemStatusNatPortUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLsnSystemStatusNatPortUsageSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLsnSystemStatusNatPortUsageSlotId": {
+    "name": "axLsnSystemStatusNatPortUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusTcpNatPortUsed": {
+    "name": "axLsnSystemStatusTcpNatPortUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusTcpNatPortFree": {
+    "name": "axLsnSystemStatusTcpNatPortFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusUdpNatPortUsed": {
+    "name": "axLsnSystemStatusUdpNatPortUsed",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnSystemStatusUdpNatPortFree": {
+    "name": "axLsnSystemStatusUdpNatPortFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnGlobalStatsTable": {
+    "name": "axLsnGlobalStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLsnGlobalStatsEntry": {
+    "name": "axLsnGlobalStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLsnGlobalStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLsnGlobalStatsSlotId": {
+    "name": "axLsnGlobalStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnGlobalStatsTcpUserQuotaExceeded": {
+    "name": "axLsnGlobalStatsTcpUserQuotaExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnGlobalStatsUdpUserQuotaExceeded": {
+    "name": "axLsnGlobalStatsUdpUserQuotaExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnGlobalStatsIcmpUserQuotaExceeded": {
+    "name": "axLsnGlobalStatsIcmpUserQuotaExceeded",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCgnv6LsnFullConeSessonStats": {
+    "name": "axCgnv6LsnFullConeSessonStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.5",
+    "class": "objectidentity"
+  },
+  "axLsnFullConeSessionStatsTable": {
+    "name": "axLsnFullConeSessionStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axLsnFullConeSessionStatsEntry": {
+    "name": "axLsnFullConeSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axLsnFullConeSessionStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axLsnFullConeSessionStatsSlotId": {
+    "name": "axLsnFullConeSessionStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axLsnFullConeSessionStatsTotalSessions": {
+    "name": "axLsnFullConeSessionStatsTotalSessions",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axCgnv6NatStats": {
+    "name": "axCgnv6NatStats",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "axNatPoolStatTable": {
+    "name": "axNatPoolStatTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axNatPoolStatEntry": {
+    "name": "axNatPoolStatEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axNatPoolStatSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axNatPoolStatPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axNatPoolStatSlotId": {
+    "name": "axNatPoolStatSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNatPoolStatPoolName": {
+    "name": "axNatPoolStatPoolName",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNatPoolStatUsers": {
+    "name": "axNatPoolStatUsers",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSlbL4StatsTable": {
+    "name": "axSlbL4StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axSlbL4StatsEntry": {
+    "name": "axSlbL4StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axSlbL4StatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axSlbL4StatsSlotId": {
+    "name": "axSlbL4StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axSlbL4StatsNatNoSessionDrops": {
+    "name": "axSlbL4StatsNatNoSessionDrops",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNetflowMonitorStatsTable": {
+    "name": "axNetflowMonitorStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "axNetflowMonitorStatsEntry": {
+    "name": "axNetflowMonitorStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axNetflowMonitorStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "A10-AX-CHASSIS",
+        "object": "axNetflowMonitorStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "axNetflowMonitorStatsSlotId": {
+    "name": "axNetflowMonitorStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNetflowMonitorStatsName": {
+    "name": "axNetflowMonitorStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNetflowMonitorStatsCustSesEveNat44CreatRecSentFail": {
+    "name": "axNetflowMonitorStatsCustSesEveNat44CreatRecSentFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNetflowMonitorStatsCustSesEveNat44DelRecSentFail": {
+    "name": "axNetflowMonitorStatsCustSesEveNat44DelRecSentFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.4.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-AX-CHASSIS",
+      "Source digest sha256:bf7a50dcf1b739390c6c736906640c472cfa523eb0e072ae34d182aa708e6e6a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-AX-CHASSIS"
+  }
+}

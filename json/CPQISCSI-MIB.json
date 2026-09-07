@@ -1,0 +1,3243 @@
+{
+  "imports": {
+    "class": "imports",
+    "CPQHOST-MIB": [
+      "compaq",
+      "cpqHoTrapFlags"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cpqiScsiModule": {
+    "name": "cpqiScsiModule",
+    "oid": "1.3.6.1.4.1.232.169",
+    "class": "objectidentity"
+  },
+  "cpqiScsiMibRev": {
+    "name": "cpqiScsiMibRev",
+    "oid": "1.3.6.1.4.1.232.169.1",
+    "class": "objectidentity"
+  },
+  "cpqiScsiObjects": {
+    "name": "cpqiScsiObjects",
+    "oid": "1.3.6.1.4.1.232.169.2",
+    "class": "objectidentity"
+  },
+  "cpqiScsiDescriptors": {
+    "name": "cpqiScsiDescriptors",
+    "oid": "1.3.6.1.4.1.232.169.2.1",
+    "class": "objectidentity"
+  },
+  "cpqiScsiInstance": {
+    "name": "cpqiScsiInstance",
+    "oid": "1.3.6.1.4.1.232.169.2.2",
+    "class": "objectidentity"
+  },
+  "cpqiScsiPortal": {
+    "name": "cpqiScsiPortal",
+    "oid": "1.3.6.1.4.1.232.169.2.3",
+    "class": "objectidentity"
+  },
+  "cpqiScsiTargetPortal": {
+    "name": "cpqiScsiTargetPortal",
+    "oid": "1.3.6.1.4.1.232.169.2.4",
+    "class": "objectidentity"
+  },
+  "cpqiScsiInitiatorPortal": {
+    "name": "cpqiScsiInitiatorPortal",
+    "oid": "1.3.6.1.4.1.232.169.2.5",
+    "class": "objectidentity"
+  },
+  "cpqiScsiNode": {
+    "name": "cpqiScsiNode",
+    "oid": "1.3.6.1.4.1.232.169.2.6",
+    "class": "objectidentity"
+  },
+  "cpqiScsiTarget": {
+    "name": "cpqiScsiTarget",
+    "oid": "1.3.6.1.4.1.232.169.2.7",
+    "class": "objectidentity"
+  },
+  "cpqiScsiTgtAuthorization": {
+    "name": "cpqiScsiTgtAuthorization",
+    "oid": "1.3.6.1.4.1.232.169.2.8",
+    "class": "objectidentity"
+  },
+  "cpqiScsiInitiator": {
+    "name": "cpqiScsiInitiator",
+    "oid": "1.3.6.1.4.1.232.169.2.9",
+    "class": "objectidentity"
+  },
+  "cpqiScsiIntrAuthorization": {
+    "name": "cpqiScsiIntrAuthorization",
+    "oid": "1.3.6.1.4.1.232.169.2.10",
+    "class": "objectidentity"
+  },
+  "cpqiScsiSession": {
+    "name": "cpqiScsiSession",
+    "oid": "1.3.6.1.4.1.232.169.2.11",
+    "class": "objectidentity"
+  },
+  "cpqiScsiConnection": {
+    "name": "cpqiScsiConnection",
+    "oid": "1.3.6.1.4.1.232.169.2.12",
+    "class": "objectidentity"
+  },
+  "cpqiScsiMibRevMajor": {
+    "name": "cpqiScsiMibRevMajor",
+    "oid": "1.3.6.1.4.1.232.169.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiMibRevMinor": {
+    "name": "cpqiScsiMibRevMinor",
+    "oid": "1.3.6.1.4.1.232.169.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiMibCondition": {
+    "name": "cpqiScsiMibCondition",
+    "oid": "1.3.6.1.4.1.232.169.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstanceAttributesTable": {
+    "name": "cpqiScsiInstanceAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstanceAttributesEntry": {
+    "name": "cpqiScsiInstanceAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiInstIndex": {
+    "name": "cpqiScsiInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstDescr": {
+    "name": "cpqiScsiInstDescr",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstVersionMin": {
+    "name": "cpqiScsiInstVersionMin",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstVersionMax": {
+    "name": "cpqiScsiInstVersionMax",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstVendorID": {
+    "name": "cpqiScsiInstVendorID",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstVendorVersion": {
+    "name": "cpqiScsiInstVendorVersion",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstPortalNumber": {
+    "name": "cpqiScsiInstPortalNumber",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstNodeNumber": {
+    "name": "cpqiScsiInstNodeNumber",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSessionNumber": {
+    "name": "cpqiScsiInstSessionNumber",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSsnFailures": {
+    "name": "cpqiScsiInstSsnFailures",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstLastSsnFailureType": {
+    "name": "cpqiScsiInstLastSsnFailureType",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstLastSsnRmtNodeName": {
+    "name": "cpqiScsiInstLastSsnRmtNodeName",
+    "oid": "1.3.6.1.4.1.232.169.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstanceSsnErrorStatsTable": {
+    "name": "cpqiScsiInstanceSsnErrorStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstanceSsnErrorStatsEntry": {
+    "name": "cpqiScsiInstanceSsnErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSsnInstIndex": {
+    "name": "cpqiScsiInstSsnInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSsnDigestErrors": {
+    "name": "cpqiScsiInstSsnDigestErrors",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSsnCxnTimeoutErrors": {
+    "name": "cpqiScsiInstSsnCxnTimeoutErrors",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInstSsnFormatErrors": {
+    "name": "cpqiScsiInstSsnFormatErrors",
+    "oid": "1.3.6.1.4.1.232.169.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalAttributesTable": {
+    "name": "cpqiScsiPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalAttributesEntry": {
+    "name": "cpqiScsiPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalInstIndex": {
+    "name": "cpqiScsiPortalInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalIndex": {
+    "name": "cpqiScsiPortalIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalRowStatus": {
+    "name": "cpqiScsiPortalRowStatus",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalRoles": {
+    "name": "cpqiScsiPortalRoles",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalAddrType": {
+    "name": "cpqiScsiPortalAddrType",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalAddr": {
+    "name": "cpqiScsiPortalAddr",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalProtocol": {
+    "name": "cpqiScsiPortalProtocol",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp": 1,
+          "igmp": 2,
+          "ggp": 3,
+          "ip": 4,
+          "st": 5,
+          "tcp": 6
+        }
+      }
+    },
+    "default": {
+      "value": "tcp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalMaxRecvDataSegLength": {
+    "name": "cpqiScsiPortalMaxRecvDataSegLength",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 8192,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalPrimaryHdrDigest": {
+    "name": "cpqiScsiPortalPrimaryHdrDigest",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "default": {
+      "value": "crc32c",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalPrimaryDataDigest": {
+    "name": "cpqiScsiPortalPrimaryDataDigest",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "default": {
+      "value": "crc32c",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalSecondaryHdrDigest": {
+    "name": "cpqiScsiPortalSecondaryHdrDigest",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "default": {
+      "value": "noDigest",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalSecondaryDataDigest": {
+    "name": "cpqiScsiPortalSecondaryDataDigest",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "default": {
+      "value": "noDigest",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiPortalRecvMarker": {
+    "name": "cpqiScsiPortalRecvMarker",
+    "oid": "1.3.6.1.4.1.232.169.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalAttributesTable": {
+    "name": "cpqiScsiTgtPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalAttributesEntry": {
+    "name": "cpqiScsiTgtPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalInstIndex": {
+    "name": "cpqiScsiTgtPortalInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalPortalIndex": {
+    "name": "cpqiScsiTgtPortalPortalIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalPort": {
+    "name": "cpqiScsiTgtPortalPort",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtPortalTag": {
+    "name": "cpqiScsiTgtPortalTag",
+    "oid": "1.3.6.1.4.1.232.169.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrPortalAttributesTable": {
+    "name": "cpqiScsiIntrPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrPortalAttributesEntry": {
+    "name": "cpqiScsiIntrPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrPortalInstIndex": {
+    "name": "cpqiScsiIntrPortalInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrPortalPortalIndex": {
+    "name": "cpqiScsiIntrPortalPortalIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrPortalTag": {
+    "name": "cpqiScsiIntrPortalTag",
+    "oid": "1.3.6.1.4.1.232.169.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeAttributesTable": {
+    "name": "cpqiScsiNodeAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeAttributesEntry": {
+    "name": "cpqiScsiNodeAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiNodeInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiNodeNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeInstIndex": {
+    "name": "cpqiScsiNodeInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeNodeIndex": {
+    "name": "cpqiScsiNodeNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeName": {
+    "name": "cpqiScsiNodeName",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeAlias": {
+    "name": "cpqiScsiNodeAlias",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeRoles": {
+    "name": "cpqiScsiNodeRoles",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeTransportType": {
+    "name": "cpqiScsiNodeTransportType",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeInitialR2T": {
+    "name": "cpqiScsiNodeInitialR2T",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeImmediateData": {
+    "name": "cpqiScsiNodeImmediateData",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeMaxOutstandingR2T": {
+    "name": "cpqiScsiNodeMaxOutstandingR2T",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeFirstBurstLength": {
+    "name": "cpqiScsiNodeFirstBurstLength",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 65536,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeMaxBurstLength": {
+    "name": "cpqiScsiNodeMaxBurstLength",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 262144,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeMaxConnections": {
+    "name": "cpqiScsiNodeMaxConnections",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeDataSequenceInOrder": {
+    "name": "cpqiScsiNodeDataSequenceInOrder",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeDataPDUInOrder": {
+    "name": "cpqiScsiNodeDataPDUInOrder",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeDefaultTime2Wait": {
+    "name": "cpqiScsiNodeDefaultTime2Wait",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeDefaultTime2Retain": {
+    "name": "cpqiScsiNodeDefaultTime2Retain",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiNodeErrorRecoveryLevel": {
+    "name": "cpqiScsiNodeErrorRecoveryLevel",
+    "oid": "1.3.6.1.4.1.232.169.2.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetAttributesTable": {
+    "name": "cpqiScsiTargetAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetAttributesEntry": {
+    "name": "cpqiScsiTargetAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtInstIndex": {
+    "name": "cpqiScsiTgtInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtNodeIndex": {
+    "name": "cpqiScsiTgtNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginFailures": {
+    "name": "cpqiScsiTgtLoginFailures",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLastFailureTime": {
+    "name": "cpqiScsiTgtLastFailureTime",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLastFailureType": {
+    "name": "cpqiScsiTgtLastFailureType",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLastIntrFailureName": {
+    "name": "cpqiScsiTgtLastIntrFailureName",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLastIntrFailureAddrType": {
+    "name": "cpqiScsiTgtLastIntrFailureAddrType",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLastIntrFailureAddr": {
+    "name": "cpqiScsiTgtLastIntrFailureAddr",
+    "oid": "1.3.6.1.4.1.232.169.2.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetLoginStatsTable": {
+    "name": "cpqiScsiTargetLoginStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetLoginStatsEntry": {
+    "name": "cpqiScsiTargetLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtLoginInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtLoginNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginInstIndex": {
+    "name": "cpqiScsiTgtLoginInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginNodeIndex": {
+    "name": "cpqiScsiTgtLoginNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginAccepts": {
+    "name": "cpqiScsiTgtLoginAccepts",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginOtherFails": {
+    "name": "cpqiScsiTgtLoginOtherFails",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginRedirects": {
+    "name": "cpqiScsiTgtLoginRedirects",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginAuthorizeFails": {
+    "name": "cpqiScsiTgtLoginAuthorizeFails",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginAuthenticateFails": {
+    "name": "cpqiScsiTgtLoginAuthenticateFails",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLoginNegotiateFails": {
+    "name": "cpqiScsiTgtLoginNegotiateFails",
+    "oid": "1.3.6.1.4.1.232.169.2.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetLogoutStatsTable": {
+    "name": "cpqiScsiTargetLogoutStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiTargetLogoutStatsEntry": {
+    "name": "cpqiScsiTargetLogoutStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtLogoutInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtLogoutNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLogoutInstIndex": {
+    "name": "cpqiScsiTgtLogoutInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLogoutNodeIndex": {
+    "name": "cpqiScsiTgtLogoutNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLogoutNormals": {
+    "name": "cpqiScsiTgtLogoutNormals",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtLogoutOthers": {
+    "name": "cpqiScsiTgtLogoutOthers",
+    "oid": "1.3.6.1.4.1.232.169.2.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthAttributesTable": {
+    "name": "cpqiScsiTgtAuthAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthAttributesEntry": {
+    "name": "cpqiScsiTgtAuthAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtAuthInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtAuthNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiTgtAuthIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthInstIndex": {
+    "name": "cpqiScsiTgtAuthInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthNodeIndex": {
+    "name": "cpqiScsiTgtAuthNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthIndex": {
+    "name": "cpqiScsiTgtAuthIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthRowStatus": {
+    "name": "cpqiScsiTgtAuthRowStatus",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiTgtAuthIdentity": {
+    "name": "cpqiScsiTgtAuthIdentity",
+    "oid": "1.3.6.1.4.1.232.169.2.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorAttributesTable": {
+    "name": "cpqiScsiInitiatorAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorAttributesEntry": {
+    "name": "cpqiScsiInitiatorAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrInstIndex": {
+    "name": "cpqiScsiIntrInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrNodeIndex": {
+    "name": "cpqiScsiIntrNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginFailures": {
+    "name": "cpqiScsiIntrLoginFailures",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLastFailureTime": {
+    "name": "cpqiScsiIntrLastFailureTime",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLastFailureType": {
+    "name": "cpqiScsiIntrLastFailureType",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLastTgtFailureName": {
+    "name": "cpqiScsiIntrLastTgtFailureName",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLastTgtFailureAddrType": {
+    "name": "cpqiScsiIntrLastTgtFailureAddrType",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLastTgtFailureAddr": {
+    "name": "cpqiScsiIntrLastTgtFailureAddr",
+    "oid": "1.3.6.1.4.1.232.169.2.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorLoginStatsTable": {
+    "name": "cpqiScsiInitiatorLoginStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorLoginStatsEntry": {
+    "name": "cpqiScsiInitiatorLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrLoginInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrLoginNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginInstIndex": {
+    "name": "cpqiScsiIntrLoginInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginNodeIndex": {
+    "name": "cpqiScsiIntrLoginNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginAcceptRsps": {
+    "name": "cpqiScsiIntrLoginAcceptRsps",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginOtherFailRsps": {
+    "name": "cpqiScsiIntrLoginOtherFailRsps",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginRedirectRsps": {
+    "name": "cpqiScsiIntrLoginRedirectRsps",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginAuthFailRsps": {
+    "name": "cpqiScsiIntrLoginAuthFailRsps",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginAuthenticateFails": {
+    "name": "cpqiScsiIntrLoginAuthenticateFails",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLoginNegotiateFails": {
+    "name": "cpqiScsiIntrLoginNegotiateFails",
+    "oid": "1.3.6.1.4.1.232.169.2.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorLogoutStatsTable": {
+    "name": "cpqiScsiInitiatorLogoutStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiInitiatorLogoutStatsEntry": {
+    "name": "cpqiScsiInitiatorLogoutStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrLogoutInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrLogoutNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLogoutInstIndex": {
+    "name": "cpqiScsiIntrLogoutInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLogoutNodeIndex": {
+    "name": "cpqiScsiIntrLogoutNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLogoutNormals": {
+    "name": "cpqiScsiIntrLogoutNormals",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrLogoutOthers": {
+    "name": "cpqiScsiIntrLogoutOthers",
+    "oid": "1.3.6.1.4.1.232.169.2.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthAttributesTable": {
+    "name": "cpqiScsiIntrAuthAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthAttributesEntry": {
+    "name": "cpqiScsiIntrAuthAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrAuthInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrAuthNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiIntrAuthIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthInstIndex": {
+    "name": "cpqiScsiIntrAuthInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthNodeIndex": {
+    "name": "cpqiScsiIntrAuthNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthIndex": {
+    "name": "cpqiScsiIntrAuthIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthRowStatus": {
+    "name": "cpqiScsiIntrAuthRowStatus",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiIntrAuthIdentity": {
+    "name": "cpqiScsiIntrAuthIdentity",
+    "oid": "1.3.6.1.4.1.232.169.2.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionAttributesTable": {
+    "name": "cpqiScsiSessionAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionAttributesEntry": {
+    "name": "cpqiScsiSessionAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnInstIndex": {
+    "name": "cpqiScsiSsnInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnNodeIndex": {
+    "name": "cpqiScsiSsnNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnIndex": {
+    "name": "cpqiScsiSsnIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnDirection": {
+    "name": "cpqiScsiSsnDirection",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inboundSession": 1,
+          "outboundSession": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnInitiatorName": {
+    "name": "cpqiScsiSsnInitiatorName",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnTargetName": {
+    "name": "cpqiScsiSsnTargetName",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnTSIH": {
+    "name": "cpqiScsiSsnTSIH",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnISID": {
+    "name": "cpqiScsiSsnISID",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnInitiatorAlias": {
+    "name": "cpqiScsiSsnInitiatorAlias",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnTargetAlias": {
+    "name": "cpqiScsiSsnTargetAlias",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnInitialR2T": {
+    "name": "cpqiScsiSsnInitialR2T",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnImmediateData": {
+    "name": "cpqiScsiSsnImmediateData",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnType": {
+    "name": "cpqiScsiSsnType",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalSession": 1,
+          "discoverySession": 2
+        }
+      }
+    },
+    "default": {
+      "value": "normalSession",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnMaxOutstandingR2T": {
+    "name": "cpqiScsiSsnMaxOutstandingR2T",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnFirstBurstLength": {
+    "name": "cpqiScsiSsnFirstBurstLength",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 65536,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnMaxBurstLength": {
+    "name": "cpqiScsiSsnMaxBurstLength",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 262144,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnConnectionNumber": {
+    "name": "cpqiScsiSsnConnectionNumber",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnAuthIdentity": {
+    "name": "cpqiScsiSsnAuthIdentity",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnDataSequenceInOrder": {
+    "name": "cpqiScsiSsnDataSequenceInOrder",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnDataPDUInOrder": {
+    "name": "cpqiScsiSsnDataPDUInOrder",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnErrorRecoveryLevel": {
+    "name": "cpqiScsiSsnErrorRecoveryLevel",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionId": {
+    "name": "cpqiScsiSessionId",
+    "oid": "1.3.6.1.4.1.232.169.2.11.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionStatsTable": {
+    "name": "cpqiScsiSessionStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionStatsEntry": {
+    "name": "cpqiScsiSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnStatInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnStatNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnStatInstIndex": {
+    "name": "cpqiScsiSsnStatInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnStatNodeIndex": {
+    "name": "cpqiScsiSsnStatNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnSessionIndex": {
+    "name": "cpqiScsiSsnSessionIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCmdPDUs": {
+    "name": "cpqiScsiSsnCmdPDUs",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnRspPDUs": {
+    "name": "cpqiScsiSsnRspPDUs",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnTxDataOctets": {
+    "name": "cpqiScsiSsnTxDataOctets",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnRxDataOctets": {
+    "name": "cpqiScsiSsnRxDataOctets",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnLCTxDataOctets": {
+    "name": "cpqiScsiSsnLCTxDataOctets",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnLCRxDataOctets": {
+    "name": "cpqiScsiSsnLCRxDataOctets",
+    "oid": "1.3.6.1.4.1.232.169.2.11.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionCxnErrorStatsTable": {
+    "name": "cpqiScsiSessionCxnErrorStatsTable",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiSessionCxnErrorStatsEntry": {
+    "name": "cpqiScsiSessionCxnErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnCxnInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnCxnNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiSsnCxnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCxnInstIndex": {
+    "name": "cpqiScsiSsnCxnInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCxnNodeIndex": {
+    "name": "cpqiScsiSsnCxnNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCxnIndex": {
+    "name": "cpqiScsiSsnCxnIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCxnDigestErrors": {
+    "name": "cpqiScsiSsnCxnDigestErrors",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiSsnCxnTimeoutErrors": {
+    "name": "cpqiScsiSsnCxnTimeoutErrors",
+    "oid": "1.3.6.1.4.1.232.169.2.11.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiConnectionAttributesTable": {
+    "name": "cpqiScsiConnectionAttributesTable",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqiScsiConnectionAttributesEntry": {
+    "name": "cpqiScsiConnectionAttributesEntry",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiCxnAttrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiCxnAttrNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiCxnAttrSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiCxnAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrInstIndex": {
+    "name": "cpqiScsiCxnAttrInstIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrNodeIndex": {
+    "name": "cpqiScsiCxnAttrNodeIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrSessionIndex": {
+    "name": "cpqiScsiCxnAttrSessionIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrIndex": {
+    "name": "cpqiScsiCxnAttrIndex",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrCid": {
+    "name": "cpqiScsiCxnAttrCid",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrState": {
+    "name": "cpqiScsiCxnAttrState",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "login": 1,
+          "full": 2,
+          "logout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrLocalAddrType": {
+    "name": "cpqiScsiCxnAttrLocalAddrType",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrLocalAddr": {
+    "name": "cpqiScsiCxnAttrLocalAddr",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrProtocol": {
+    "name": "cpqiScsiCxnAttrProtocol",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp": 1,
+          "igmp": 2,
+          "ggp": 3,
+          "ip": 4,
+          "st": 5,
+          "tcp": 6
+        }
+      }
+    },
+    "default": {
+      "value": "tcp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrLocalPort": {
+    "name": "cpqiScsiCxnAttrLocalPort",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrRemoteAddrType": {
+    "name": "cpqiScsiCxnAttrRemoteAddrType",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrRemoteAddr": {
+    "name": "cpqiScsiCxnAttrRemoteAddr",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrRemotePort": {
+    "name": "cpqiScsiCxnAttrRemotePort",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrMaxRecvDataSegLength": {
+    "name": "cpqiScsiCxnAttrMaxRecvDataSegLength",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 8192,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrMaxXmitDataSegLength": {
+    "name": "cpqiScsiCxnAttrMaxXmitDataSegLength",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 8192,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrHeaderIntegrity": {
+    "name": "cpqiScsiCxnAttrHeaderIntegrity",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrDataIntegrity": {
+    "name": "cpqiScsiCxnAttrDataIntegrity",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrRecvMarker": {
+    "name": "cpqiScsiCxnAttrRecvMarker",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrSendMarker": {
+    "name": "cpqiScsiCxnAttrSendMarker",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiCxnAttrVersionActive": {
+    "name": "cpqiScsiCxnAttrVersionActive",
+    "oid": "1.3.6.1.4.1.232.169.2.12.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqiScsiLinkUp": {
+    "name": "cpqiScsiLinkUp",
+    "oid": "1.3.6.1.4.1.232.0.169001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstDescr"
+      }
+    ]
+  },
+  "cpqiScsiLinkDown": {
+    "name": "cpqiScsiLinkDown",
+    "oid": "1.3.6.1.4.1.232.0.169002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQISCSI-MIB",
+        "object": "cpqiScsiInstDescr"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CPQISCSI-MIB",
+      "Source digest sha256:52a875da122096bcbda7537a7c68b36861044f3eedcfbcc2e339b05cd54c7c87",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CPQISCSI-MIB"
+  }
+}

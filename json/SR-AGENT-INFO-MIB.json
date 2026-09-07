@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-RESEARCH-MIB": [
+      "snmpResearchMIBs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "srAgentInfo": {
+    "name": "srAgentInfo",
+    "oid": "1.3.6.1.4.1.99.12.46",
+    "class": "moduleidentity"
+  },
+  "srAgentInfoDescr": {
+    "name": "srAgentInfoDescr",
+    "oid": "1.3.6.1.4.1.99.12.46.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srAgentInfoOSFlavor": {
+    "name": "srAgentInfoOSFlavor",
+    "oid": "1.3.6.1.4.1.99.12.46.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srAgentInfoGroups": {
+    "name": "srAgentInfoGroups",
+    "oid": "1.3.6.1.4.1.99.12.46.10",
+    "class": "objectidentity"
+  },
+  "srAgentInfoInitialGroup": {
+    "name": "srAgentInfoInitialGroup",
+    "oid": "1.3.6.1.4.1.99.12.46.10.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SR-AGENT-INFO-MIB",
+        "object": "srAgentInfoDescr"
+      },
+      {
+        "module": "SR-AGENT-INFO-MIB",
+        "object": "srAgentInfoOSFlavor"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SR-AGENT-INFO-MIB",
+      "Source digest sha256:bd870bfae093bf17e3d9904600b6714329640b5930ae365f94c0f97d3fa5b51d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SR-AGENT-INFO-MIB"
+  }
+}

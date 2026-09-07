@@ -1,0 +1,102 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3clswCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cLswArpMib": {
+    "name": "hh3cLswArpMib",
+    "oid": "1.3.6.1.4.1.25506.8.35.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-06-29 00:00",
+        "description": ""
+      }
+    ]
+  },
+  "hh3cLswProxyArpObject": {
+    "name": "hh3cLswProxyArpObject",
+    "oid": "1.3.6.1.4.1.25506.8.35.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cLswProxyArpEnableTable": {
+    "name": "hh3cLswProxyArpEnableTable",
+    "oid": "1.3.6.1.4.1.25506.8.35.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLswProxyArpEnableEntry": {
+    "name": "hh3cLswProxyArpEnableEntry",
+    "oid": "1.3.6.1.4.1.25506.8.35.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LswARP-MIB",
+        "object": "hh3cLswIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLswIfIndex": {
+    "name": "hh3cLswIfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.35.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLswProxyArpStatus": {
+    "name": "hh3cLswProxyArpStatus",
+    "oid": "1.3.6.1.4.1.25506.8.35.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-LswARP-MIB",
+      "Source digest sha256:d69e6e46609b772b824aa09c15da30496a683ea8aa173e4b654fdb0deb778918",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-LswARP-MIB"
+  }
+}

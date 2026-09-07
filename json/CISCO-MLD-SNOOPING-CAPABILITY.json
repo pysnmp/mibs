@@ -1,0 +1,89 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMldSnoopingCapability": {
+    "name": "ciscoMldSnoopingCapability",
+    "oid": "1.3.6.1.4.1.9.7.586",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMldSnoopingCapabilityV04R01": {
+    "name": "ciscoMldSnoopingCapabilityV04R01",
+    "oid": "1.3.6.1.4.1.9.7.586.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS-XR",
+    "capabilities": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "includes": [
+          "ciscoMldSnoopingMIBConfigMainObjectGroup",
+          "ciscoMldSnoopingMIBInfoMainObjectGroup",
+          "ciscoMldSnoopingMIBStatsMainObjectGroup",
+          "ciscoMldSnoopingMIBConfigDetailedObjectGroup",
+          "ciscoMldSnoopingMIBStatsDetailedObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmsProfileInternalQuerier",
+            "access": "read-only"
+          },
+          {
+            "object": "cmsProfileReportSuppression",
+            "access": "read-only"
+          },
+          {
+            "object": "cmsProfileRouterGuard",
+            "access": "read-only"
+          },
+          {
+            "object": "cmsProfileStaticMRouter",
+            "access": "read-only"
+          },
+          {
+            "object": "cmsProfileImmediateLeave",
+            "access": "read-only"
+          },
+          {
+            "object": "cmsConfigPortProfileName",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MLD-SNOOPING-CAPABILITY",
+      "Source digest sha256:8f38168bc1b936fb405a5eb7099e7d9f3aa9c96ece52acda27ae96a77fb751fb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MLD-SNOOPING-CAPABILITY"
+  }
+}

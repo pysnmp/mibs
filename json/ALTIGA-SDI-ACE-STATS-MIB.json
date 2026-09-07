@@ -1,0 +1,335 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alACEServerMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alACEServerGroup",
+      "alACEServerStats"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaACEStatsMibModule": {
+    "name": "altigaACEStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.50.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alCfgACEGlobal": {
+    "name": "alCfgACEGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.1",
+    "class": "objectidentity"
+  },
+  "alACEServerTable": {
+    "name": "alACEServerTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alACEServerEntry": {
+    "name": "alACEServerEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEPrimaryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alACEPrimaryIndex": {
+    "name": "alACEPrimaryIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerIndex": {
+    "name": "alACEServerIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerPriority": {
+    "name": "alACEServerPriority",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerAddress": {
+    "name": "alACEServerAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerPort": {
+    "name": "alACEServerPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerRetries": {
+    "name": "alACEServerRetries",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerTimeout": {
+    "name": "alACEServerTimeout",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerGroupId": {
+    "name": "alACEServerGroupId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerAuthSuccesses": {
+    "name": "alACEServerAuthSuccesses",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerAuthFailures": {
+    "name": "alACEServerAuthFailures",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerBadCodeSent": {
+    "name": "alACEServerBadCodeSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alACEServerBadPinSent": {
+    "name": "alACEServerBadPinSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.45.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaACEStatsMibConformance": {
+    "name": "altigaACEStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.50.1.1",
+    "class": "objectidentity"
+  },
+  "altigaACEStatsMibCompliances": {
+    "name": "altigaACEStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.50.1.1.1",
+    "class": "objectidentity"
+  },
+  "altigaACEStatsMibCompliance": {
+    "name": "altigaACEStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.50.1.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaACEServerGroup",
+        "module": "ALTIGA-SDI-ACE-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaACEServerGroup": {
+    "name": "altigaACEServerGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.45.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEPrimaryIndex"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerIndex"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerPriority"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerAddress"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerPort"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerRetries"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerTimeout"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerGroupId"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerAuthSuccesses"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerAuthFailures"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerBadCodeSent"
+      },
+      {
+        "module": "ALTIGA-SDI-ACE-STATS-MIB",
+        "object": "alACEServerBadPinSent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALTIGA-SDI-ACE-STATS-MIB",
+      "Source digest sha256:cb3164d8183ee1106312d86cdb16b0b72bd60ef47186d2487cba90648ed4d314",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALTIGA-SDI-ACE-STATS-MIB"
+  }
+}

@@ -1,0 +1,34 @@
+#
+# PySNMP MIB module IPV6-FLOW-LABEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source IPV6-FLOW-LABEL-MIB
+# Source digest sha256:14079ecb27f1a3a4fa62a892d7bb6af250288562e01503a67eb4b0be615f4027
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "mib-2")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ipv6FlowLabelMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 103))
+ipv6FlowLabelMIB.setRevisions(('2003-08-28 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ipv6FlowLabelMIB.setRevisionsDescriptions(('Initial version, published as RFC 3595.',))
+if mibBuilder.loadTexts: ipv6FlowLabelMIB.setLastUpdated('2003-08-28 00:00')
+if mibBuilder.loadTexts: ipv6FlowLabelMIB.setOrganization('IETF Operations and Management Area')
+if mibBuilder.loadTexts: ipv6FlowLabelMIB.setContactInfo('Bert Wijnen (Editor)\n                      Lucent Technologies\n                      Schagen 33\n                      3461 GL Linschoten\n                      Netherlands\n                      Phone: +31 348-407-775\n                      EMail: bwijnen@lucent.com\n\n                      Send comments to <mibs@ops.ietf.org>.\n                     ')
+if mibBuilder.loadTexts: ipv6FlowLabelMIB.setDescription('This MIB module provides commonly used textual\n                      conventions for IPv6 Flow Labels.\n\n                      Copyright (C) The Internet Society (2003).  This\n                      version of this MIB module is part of RFC 3595,\n                      see the RFC itself for full legal notices.\n                     ')
+class IPv6FlowLabel(TextualConvention, Integer32):
+    reference = 'Internet Protocol, Version 6 (IPv6) specification,\n                      section 6.  RFC 2460.\n                     '
+    description = 'The flow identifier or Flow Label in an IPv6\n                      packet header that may be used to discriminate\n                      traffic flows.\n                     '
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 1048575)
+
+class IPv6FlowLabelOrAny(TextualConvention, Integer32):
+    description = 'The flow identifier or Flow Label in an IPv6\n                      packet header that may be used to discriminate\n                      traffic flows.  The value of -1 is used to\n                      indicate a wildcard, i.e. any value.\n                     '
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 1048575), )
+mibBuilder.exportSymbols("IPV6-FLOW-LABEL-MIB", IPv6FlowLabel=IPv6FlowLabel, IPv6FlowLabelOrAny=IPv6FlowLabelOrAny, PYSNMP_MODULE_ID=ipv6FlowLabelMIB, ipv6FlowLabelMIB=ipv6FlowLabelMIB)

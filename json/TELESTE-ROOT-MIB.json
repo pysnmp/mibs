@@ -1,0 +1,305 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "TDisplayString": {
+    "name": "TDisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "TPhysAddress": {
+    "name": "TPhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "Int8": {
+    "name": "Int8",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    }
+  },
+  "Int16": {
+    "name": "Int16",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32768
+          }
+        ]
+      }
+    }
+  },
+  "Uint8": {
+    "name": "Uint8",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "Uint16": {
+    "name": "Uint16",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    }
+  },
+  "Uint32": {
+    "name": "Uint32",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "DateAndTime": {
+    "name": "DateAndTime",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 28
+          }
+        ]
+      }
+    }
+  },
+  "ValueStatus": {
+    "name": "ValueStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valueNormal": 1,
+          "valueHIHI": 2,
+          "valueHi": 3,
+          "valueLo": 4,
+          "valueLOLO": 5
+        }
+      }
+    }
+  },
+  "teleste": {
+    "name": "teleste",
+    "oid": "1.3.6.1.4.1.3715",
+    "class": "objectidentity"
+  },
+  "ems": {
+    "name": "ems",
+    "oid": "1.3.6.1.4.1.3715.1",
+    "class": "objectidentity"
+  },
+  "gendata": {
+    "name": "gendata",
+    "oid": "1.3.6.1.4.1.3715.2",
+    "class": "objectidentity"
+  },
+  "bk": {
+    "name": "bk",
+    "oid": "1.3.6.1.4.1.3715.3",
+    "class": "objectidentity"
+  },
+  "bxx": {
+    "name": "bxx",
+    "oid": "1.3.6.1.4.1.3715.4",
+    "class": "objectidentity"
+  },
+  "dvo": {
+    "name": "dvo",
+    "oid": "1.3.6.1.4.1.3715.5",
+    "class": "objectidentity"
+  },
+  "dvx": {
+    "name": "dvx",
+    "oid": "1.3.6.1.4.1.3715.6",
+    "class": "objectidentity"
+  },
+  "inf": {
+    "name": "inf",
+    "oid": "1.3.6.1.4.1.3715.7",
+    "class": "objectidentity"
+  },
+  "atmux": {
+    "name": "atmux",
+    "oid": "1.3.6.1.4.1.3715.8",
+    "class": "objectidentity"
+  },
+  "easi": {
+    "name": "easi",
+    "oid": "1.3.6.1.4.1.3715.9",
+    "class": "objectidentity"
+  },
+  "emt": {
+    "name": "emt",
+    "oid": "1.3.6.1.4.1.3715.10",
+    "class": "objectidentity"
+  },
+  "acx": {
+    "name": "acx",
+    "oid": "1.3.6.1.4.1.3715.11",
+    "class": "objectidentity"
+  },
+  "etth": {
+    "name": "etth",
+    "oid": "1.3.6.1.4.1.3715.12",
+    "class": "objectidentity"
+  },
+  "hdo": {
+    "name": "hdo",
+    "oid": "1.3.6.1.4.1.3715.14",
+    "class": "objectidentity"
+  },
+  "cfo": {
+    "name": "cfo",
+    "oid": "1.3.6.1.4.1.3715.15",
+    "class": "objectidentity"
+  },
+  "ftth": {
+    "name": "ftth",
+    "oid": "1.3.6.1.4.1.3715.16",
+    "class": "objectidentity"
+  },
+  "luminato": {
+    "name": "luminato",
+    "oid": "1.3.6.1.4.1.3715.17",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.3715.99",
+    "class": "objectidentity"
+  },
+  "functional": {
+    "name": "functional",
+    "oid": "1.3.6.1.4.1.3715.100",
+    "class": "objectidentity"
+  },
+  "hmsModem": {
+    "name": "hmsModem",
+    "oid": "1.3.6.1.4.1.3715.100.1",
+    "class": "objectidentity"
+  },
+  "spectrumAnalyser": {
+    "name": "spectrumAnalyser",
+    "oid": "1.3.6.1.4.1.3715.100.2",
+    "class": "objectidentity"
+  },
+  "pilotGenerator": {
+    "name": "pilotGenerator",
+    "oid": "1.3.6.1.4.1.3715.100.3",
+    "class": "objectidentity"
+  },
+  "ntpcontrol": {
+    "name": "ntpcontrol",
+    "oid": "1.3.6.1.4.1.3715.100.4",
+    "class": "objectidentity"
+  },
+  "hfcOptics": {
+    "name": "hfcOptics",
+    "oid": "1.3.6.1.4.1.3715.100.10",
+    "class": "objectidentity"
+  },
+  "headEnd": {
+    "name": "headEnd",
+    "oid": "1.3.6.1.4.1.3715.100.20",
+    "class": "objectidentity"
+  },
+  "experimental": {
+    "name": "experimental",
+    "oid": "1.3.6.1.4.1.3715.999",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TELESTE-ROOT-MIB",
+      "Source digest sha256:1a786dd4bb0cdfe453bff72b3d55031e9c11f00a8090215ad286a84d1cdd1cc1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TELESTE-ROOT-MIB"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "headerCompression": {
+    "name": "headerCompression",
+    "oid": "1.3.6.1.4.1.3373.1103.79",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-07 00:00",
+        "description": "Changed MAX-ACCESS clause of some objects in headerCompressionTable "
+      },
+      {
+        "revision": "2014-03-31 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "headerCompressionMibVersion": {
+    "name": "headerCompressionMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.79.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "headerCompressionTable": {
+    "name": "headerCompressionTable",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "headerCompressionEntry": {
+    "name": "headerCompressionEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-HC-MIB",
+        "object": "headerCompressionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "headerCompressionIndex": {
+    "name": "headerCompressionIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "headerCompressionAdminStatus": {
+    "name": "headerCompressionAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "headerCompressionContextDepth": {
+    "name": "headerCompressionContextDepth",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctx16bytes": 1,
+          "ctx32bytes": 2,
+          "ctx64byets": 3,
+          "ctx128bytes": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "headerCompressionParsingMode": {
+    "name": "headerCompressionParsingMode",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "semiMpls": 2,
+          "semiIPv4IPv6": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "headerCompressionTagEnable": {
+    "name": "headerCompressionTagEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "headerCompressionRowStatus": {
+    "name": "headerCompressionRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.79.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-HC-MIB",
+      "Source digest sha256:2fd241607c9b0e13fa49a3cbd05ee5e3a2791c83da11e2b7d0355d7df87e2f4b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-HC-MIB"
+  }
+}

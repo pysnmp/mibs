@@ -1,0 +1,4432 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaAPStatus",
+      "ArubaAccessPointMode",
+      "ArubaActiveState",
+      "ArubaAntennaSetting",
+      "ArubaAuthenticationMethods",
+      "ArubaEnableValue",
+      "ArubaEncryptionMethods",
+      "ArubaEnet1Mode",
+      "ArubaFrameType",
+      "ArubaHTExtChannel",
+      "ArubaHTMode",
+      "ArubaMeshRole",
+      "ArubaMonitorMode",
+      "ArubaPhyType",
+      "ArubaRogueApType",
+      "ArubaUnprovisionedStatus",
+      "ArubaVlanValidRange",
+      "ArubaVoipProtocolType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TEXTUAL-CONVENTION",
+      "Unsigned32",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "PhysAddress",
+      "RowStatus",
+      "StorageType",
+      "TAddress",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval",
+      "TruthValue"
+    ]
+  },
+  "wlsxWlanMIB": {
+    "name": "wlsxWlanMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1910-01-26 18:06",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxWlanConfigGroup": {
+    "name": "wlsxWlanConfigGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.1",
+    "class": "objectidentity"
+  },
+  "wlsxWlanStateGroup": {
+    "name": "wlsxWlanStateGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2",
+    "class": "objectidentity"
+  },
+  "wlsxWlanStatsGroup": {
+    "name": "wlsxWlanStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3",
+    "class": "objectidentity"
+  },
+  "wlsxWlanAccessPointInfoGroup": {
+    "name": "wlsxWlanAccessPointInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "wlsxWlanStationInfoGroup": {
+    "name": "wlsxWlanStationInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2",
+    "class": "objectidentity"
+  },
+  "wlsxWlanAssociationInfoGroup": {
+    "name": "wlsxWlanAssociationInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.3",
+    "class": "objectidentity"
+  },
+  "wlsxWlanAccessPointStatsGroup": {
+    "name": "wlsxWlanAccessPointStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1",
+    "class": "objectidentity"
+  },
+  "wlsxWlanStationStatsGroup": {
+    "name": "wlsxWlanStationStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2",
+    "class": "objectidentity"
+  },
+  "wlsxWlanTotalNumAccessPoints": {
+    "name": "wlsxWlanTotalNumAccessPoints",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanTotalNumStationsAssociated": {
+    "name": "wlsxWlanTotalNumStationsAssociated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPGroupTable": {
+    "name": "wlsxWlanAPGroupTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPGroupEntry": {
+    "name": "wlsxWlanAPGroupEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPGroup",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPGroup": {
+    "name": "wlanAPGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanAPNumAps": {
+    "name": "wlanAPNumAps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPTable": {
+    "name": "wlsxWlanAPTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPEntry": {
+    "name": "wlsxWlanAPEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPMacAddress": {
+    "name": "wlanAPMacAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanAPIpAddress": {
+    "name": "wlanAPIpAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPName": {
+    "name": "wlanAPName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPGroupName": {
+    "name": "wlanAPGroupName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPModel": {
+    "name": "wlanAPModel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPSerialNumber": {
+    "name": "wlanAPSerialNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPdot11aAntennaGain": {
+    "name": "wlanAPdot11aAntennaGain",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPdot11gAntennaGain": {
+    "name": "wlanAPdot11gAntennaGain",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPNumRadios": {
+    "name": "wlanAPNumRadios",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPEnet1Mode": {
+    "name": "wlanAPEnet1Mode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnet1Mode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPIpsecMode": {
+    "name": "wlanAPIpsecMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPUpTime": {
+    "name": "wlanAPUpTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPModelName": {
+    "name": "wlanAPModelName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPLocation": {
+    "name": "wlanAPLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBuilding": {
+    "name": "wlanAPBuilding",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFloor": {
+    "name": "wlanAPFloor",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPLoc": {
+    "name": "wlanAPLoc",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPExternalAntenna": {
+    "name": "wlanAPExternalAntenna",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaAntennaSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatus": {
+    "name": "wlanAPStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaAPStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPNumBootstraps": {
+    "name": "wlanAPNumBootstraps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPNumReboots": {
+    "name": "wlanAPNumReboots",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPUnprovisioned": {
+    "name": "wlanAPUnprovisioned",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaUnprovisionedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPMonitorMode": {
+    "name": "wlanAPMonitorMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFQLNBuilding": {
+    "name": "wlanAPFQLNBuilding",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFQLNFloor": {
+    "name": "wlanAPFQLNFloor",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFQLN": {
+    "name": "wlanAPFQLN",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPFQLNCampus": {
+    "name": "wlanAPFQLNCampus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPLongitude": {
+    "name": "wlanAPLongitude",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPLatitude": {
+    "name": "wlanAPLatitude",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPAltitude": {
+    "name": "wlanAPAltitude",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPMeshRole": {
+    "name": "wlanAPMeshRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaMeshRole",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPSysLocation": {
+    "name": "wlanAPSysLocation",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanRadioTable": {
+    "name": "wlsxWlanRadioTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanRadioEntry": {
+    "name": "wlsxWlanRadioEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPRadioNumber": {
+    "name": "wlanAPRadioNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanAPRadioType": {
+    "name": "wlanAPRadioType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPRadioChannel": {
+    "name": "wlanAPRadioChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioTransmitPower": {
+    "name": "wlanAPRadioTransmitPower",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioMode": {
+    "name": "wlanAPRadioMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaAccessPointMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioUtilization": {
+    "name": "wlanAPRadioUtilization",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioNumAssociatedClients": {
+    "name": "wlanAPRadioNumAssociatedClients",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioNumMonitoredClients": {
+    "name": "wlanAPRadioNumMonitoredClients",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioNumActiveBSSIDs": {
+    "name": "wlanAPRadioNumActiveBSSIDs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioNumMonitoredBSSIDs": {
+    "name": "wlanAPRadioNumMonitoredBSSIDs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioBearing": {
+    "name": "wlanAPRadioBearing",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPRadioTiltAngle": {
+    "name": "wlanAPRadioTiltAngle",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPRadioHTMode": {
+    "name": "wlanAPRadioHTMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioHTExtChannel": {
+    "name": "wlanAPRadioHTExtChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTExtChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRadioHTChannel": {
+    "name": "wlanAPRadioHTChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlanAPRadioAPName": {
+    "name": "wlanAPRadioAPName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wlsxWlanAPBssidTable": {
+    "name": "wlsxWlanAPBssidTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPBssidEntry": {
+    "name": "wlsxWlanAPBssidEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPBSSID": {
+    "name": "wlanAPBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanAPESSID": {
+    "name": "wlanAPESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidSlot": {
+    "name": "wlanAPBssidSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidPort": {
+    "name": "wlanAPBssidPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidPhyType": {
+    "name": "wlanAPBssidPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidRogueType": {
+    "name": "wlanAPBssidRogueType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaRogueApType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidMode": {
+    "name": "wlanAPBssidMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 1,
+          "am": 2,
+          "mpp": 3,
+          "mp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidChannel": {
+    "name": "wlanAPBssidChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidUpTime": {
+    "name": "wlanAPBssidUpTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidInactiveTime": {
+    "name": "wlanAPBssidInactiveTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidLoadBalancing": {
+    "name": "wlanAPBssidLoadBalancing",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidNumAssociatedStations": {
+    "name": "wlanAPBssidNumAssociatedStations",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidAPMacAddress": {
+    "name": "wlanAPBssidAPMacAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidPhyNumber": {
+    "name": "wlanAPBssidPhyNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidHTMode": {
+    "name": "wlanAPBssidHTMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidHTExtChannel": {
+    "name": "wlanAPBssidHTExtChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTExtChannel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidHTChannel": {
+    "name": "wlanAPBssidHTChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPBssidModule": {
+    "name": "wlanAPBssidModule",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanESSIDTable": {
+    "name": "wlsxWlanESSIDTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanESSIDEntry": {
+    "name": "wlsxWlanESSIDEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanESSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanESSID": {
+    "name": "wlanESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanESSIDNumStations": {
+    "name": "wlanESSIDNumStations",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanESSIDNumAccessPointsUp": {
+    "name": "wlanESSIDNumAccessPointsUp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanESSIDNumAccessPointsDown": {
+    "name": "wlanESSIDNumAccessPointsDown",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanESSIDEncryptionType": {
+    "name": "wlanESSIDEncryptionType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEncryptionMethods",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanESSIDVlanPoolTable": {
+    "name": "wlsxWlanESSIDVlanPoolTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanESSIDVlanPoolEntry": {
+    "name": "wlsxWlanESSIDVlanPoolEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanESSID",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanESSIDVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanESSIDVlanId": {
+    "name": "wlanESSIDVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanESSIDVlanPoolStatus": {
+    "name": "wlanESSIDVlanPoolStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wlsxWlanStationTable": {
+    "name": "wlsxWlanStationTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStationEntry": {
+    "name": "wlsxWlanStationEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaPhyAddress": {
+    "name": "wlanStaPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanStaApBssid": {
+    "name": "wlanStaApBssid",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlanStaPhyType": {
+    "name": "wlanStaPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaIsAuthenticated": {
+    "name": "wlanStaIsAuthenticated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaIsAssociated": {
+    "name": "wlanStaIsAssociated",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaChannel": {
+    "name": "wlanStaChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaVlanId": {
+    "name": "wlanStaVlanId",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVlanValidRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaVOIPState": {
+    "name": "wlanStaVOIPState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaVOIPProtocol": {
+    "name": "wlanStaVOIPProtocol",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaVoipProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTransmitRate": {
+    "name": "wlanStaTransmitRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssociationID": {
+    "name": "wlanStaAssociationID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAccessPointESSID": {
+    "name": "wlanStaAccessPointESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaPhyNumber": {
+    "name": "wlanStaPhyNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRSSI": {
+    "name": "wlanStaRSSI",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaUpTime": {
+    "name": "wlanStaUpTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaHTMode": {
+    "name": "wlanStaHTMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStaAssociationFailureTable": {
+    "name": "wlsxWlanStaAssociationFailureTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStaAssociationFailureEntry": {
+    "name": "wlsxWlanStaAssociationFailureEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaAssocFailureApName": {
+    "name": "wlanStaAssocFailureApName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssocFailureApEssid": {
+    "name": "wlanStaAssocFailureApEssid",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssocFailurePhyNum": {
+    "name": "wlanStaAssocFailurePhyNum",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssocFailurePhyType": {
+    "name": "wlanStaAssocFailurePhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssocFailureElapsedTime": {
+    "name": "wlanStaAssocFailureElapsedTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaAssocFailureReason": {
+    "name": "wlanStaAssocFailureReason",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPStatsTable": {
+    "name": "wlsxWlanAPStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPStatsEntry": {
+    "name": "wlsxWlanAPStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPCurrentChannel": {
+    "name": "wlanAPCurrentChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPNumClients": {
+    "name": "wlanAPNumClients",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPTxPkts": {
+    "name": "wlanAPTxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPTxBytes": {
+    "name": "wlanAPTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRxPkts": {
+    "name": "wlanAPRxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRxBytes": {
+    "name": "wlanAPRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPTxDeauthentications": {
+    "name": "wlanAPTxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRxDeauthentications": {
+    "name": "wlanAPRxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChannelThroughput": {
+    "name": "wlanAPChannelThroughput",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameRetryRate": {
+    "name": "wlanAPFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameLowSpeedRate": {
+    "name": "wlanAPFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameNonUnicastRate": {
+    "name": "wlanAPFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameFragmentationRate": {
+    "name": "wlanAPFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameBandwidthRate": {
+    "name": "wlanAPFrameBandwidthRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameRetryErrorRate": {
+    "name": "wlanAPFrameRetryErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChannelErrorRate": {
+    "name": "wlanAPChannelErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPFrameReceiveErrorRate": {
+    "name": "wlanAPFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRxDataPkts": {
+    "name": "wlanAPRxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanAPRxDataBytes": {
+    "name": "wlanAPRxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanAPTxDataPkts": {
+    "name": "wlanAPTxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanAPTxDataBytes": {
+    "name": "wlanAPTxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanAPRxDataPkts64": {
+    "name": "wlanAPRxDataPkts64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPRxDataBytes64": {
+    "name": "wlanAPRxDataBytes64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPTxDataPkts64": {
+    "name": "wlanAPTxDataPkts64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPTxDataBytes64": {
+    "name": "wlanAPTxDataBytes64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPRateStatsTable": {
+    "name": "wlsxWlanAPRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPRateStatsEntry": {
+    "name": "wlsxWlanAPRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt1Mbps": {
+    "name": "wlanAPStatsTotPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt1Mbps": {
+    "name": "wlanAPStatsTotBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt2Mbps": {
+    "name": "wlanAPStatsTotPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt2Mbps": {
+    "name": "wlanAPStatsTotBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt5Mbps": {
+    "name": "wlanAPStatsTotPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt5Mbps": {
+    "name": "wlanAPStatsTotBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt11Mbps": {
+    "name": "wlanAPStatsTotPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt11Mbps": {
+    "name": "wlanAPStatsTotBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt6Mbps": {
+    "name": "wlanAPStatsTotPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt6Mbps": {
+    "name": "wlanAPStatsTotBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt12Mbps": {
+    "name": "wlanAPStatsTotPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt12Mbps": {
+    "name": "wlanAPStatsTotBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt18Mbps": {
+    "name": "wlanAPStatsTotPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt18Mbps": {
+    "name": "wlanAPStatsTotBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt24Mbps": {
+    "name": "wlanAPStatsTotPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt24Mbps": {
+    "name": "wlanAPStatsTotBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt36Mbps": {
+    "name": "wlanAPStatsTotPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt36Mbps": {
+    "name": "wlanAPStatsTotBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt48Mbps": {
+    "name": "wlanAPStatsTotPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt48Mbps": {
+    "name": "wlanAPStatsTotBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt54Mbps": {
+    "name": "wlanAPStatsTotPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt54Mbps": {
+    "name": "wlanAPStatsTotBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotPktsAt9Mbps": {
+    "name": "wlanAPStatsTotPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotBytesAt9Mbps": {
+    "name": "wlanAPStatsTotBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPDATypeStatsTable": {
+    "name": "wlsxWlanAPDATypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPDATypeStatsEntry": {
+    "name": "wlsxWlanAPDATypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPStatsTotDABroadcastPkts": {
+    "name": "wlanAPStatsTotDABroadcastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDABroadcastBytes": {
+    "name": "wlanAPStatsTotDABroadcastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDAMulticastPkts": {
+    "name": "wlanAPStatsTotDAMulticastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDAMulticastBytes": {
+    "name": "wlanAPStatsTotDAMulticastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDAUnicastPkts": {
+    "name": "wlanAPStatsTotDAUnicastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDAUnicastBytes": {
+    "name": "wlanAPStatsTotDAUnicastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPFrameTypeStatsTable": {
+    "name": "wlsxWlanAPFrameTypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPFrameTypeStatsEntry": {
+    "name": "wlsxWlanAPFrameTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPStatsTotMgmtPkts": {
+    "name": "wlanAPStatsTotMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotMgmtBytes": {
+    "name": "wlanAPStatsTotMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotCtrlPkts": {
+    "name": "wlanAPStatsTotCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotCtrlBytes": {
+    "name": "wlanAPStatsTotCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDataPkts": {
+    "name": "wlanAPStatsTotDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsTotDataBytes": {
+    "name": "wlanAPStatsTotDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPPktSizeStatsTable": {
+    "name": "wlsxWlanAPPktSizeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPPktSizeStatsEntry": {
+    "name": "wlsxWlanAPPktSizeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPStatsPkts63Bytes": {
+    "name": "wlanAPStatsPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsPkts64To127": {
+    "name": "wlanAPStatsPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsPkts128To255": {
+    "name": "wlanAPStatsPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsPkts256To511": {
+    "name": "wlanAPStatsPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsPkts512To1023": {
+    "name": "wlanAPStatsPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPStatsPkts1024To1518": {
+    "name": "wlanAPStatsPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanAPChStatsTable": {
+    "name": "wlsxWlanAPChStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanAPChStatsEntry": {
+    "name": "wlsxWlanAPChStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanAPRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanAPChannelNumber": {
+    "name": "wlanAPChannelNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChNumStations": {
+    "name": "wlanAPChNumStations",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotPkts": {
+    "name": "wlanAPChTotPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotBytes": {
+    "name": "wlanAPChTotBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotRetryPkts": {
+    "name": "wlanAPChTotRetryPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotFragmentedPkts": {
+    "name": "wlanAPChTotFragmentedPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotPhyErrPkts": {
+    "name": "wlanAPChTotPhyErrPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTotMacErrPkts": {
+    "name": "wlanAPChTotMacErrPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChNoise": {
+    "name": "wlanAPChNoise",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChCoverageIndex": {
+    "name": "wlanAPChCoverageIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChInterferenceIndex": {
+    "name": "wlanAPChInterferenceIndex",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameRetryRate": {
+    "name": "wlanAPChFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameLowSpeedRate": {
+    "name": "wlanAPChFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameNonUnicastRate": {
+    "name": "wlanAPChFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameFragmentationRate": {
+    "name": "wlanAPChFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameBandwidthRate": {
+    "name": "wlanAPChFrameBandwidthRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameRetryErrorRate": {
+    "name": "wlanAPChFrameRetryErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanAPChBusyRate": {
+    "name": "wlanAPChBusyRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChNumAPs": {
+    "name": "wlanAPChNumAPs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameReceiveErrorRate": {
+    "name": "wlanAPChFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTransmittedFragmentCount": {
+    "name": "wlanAPChTransmittedFragmentCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChMulticastTransmittedFrameCount": {
+    "name": "wlanAPChMulticastTransmittedFrameCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFailedCount": {
+    "name": "wlanAPChFailedCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChRetryCount": {
+    "name": "wlanAPChRetryCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChMultipleRetryCount": {
+    "name": "wlanAPChMultipleRetryCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFrameDuplicateCount": {
+    "name": "wlanAPChFrameDuplicateCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChRTSSuccessCount": {
+    "name": "wlanAPChRTSSuccessCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChRTSFailureCount": {
+    "name": "wlanAPChRTSFailureCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChACKFailureCount": {
+    "name": "wlanAPChACKFailureCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChReceivedFragmentCount": {
+    "name": "wlanAPChReceivedFragmentCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChMulticastReceivedFrameCount": {
+    "name": "wlanAPChMulticastReceivedFrameCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChFCSErrorCount": {
+    "name": "wlanAPChFCSErrorCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTransmittedFrameCount": {
+    "name": "wlanAPChTransmittedFrameCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChWEPUndecryptableCount": {
+    "name": "wlanAPChWEPUndecryptableCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChRxUtilization": {
+    "name": "wlanAPChRxUtilization",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChTxUtilization": {
+    "name": "wlanAPChTxUtilization",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanAPChUtilization": {
+    "name": "wlanAPChUtilization",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.1.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStationStatsTable": {
+    "name": "wlsxWlanStationStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStationStatsEntry": {
+    "name": "wlsxWlanStationStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaChannelNum": {
+    "name": "wlanStaChannelNum",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts": {
+    "name": "wlanStaTxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytes": {
+    "name": "wlanStaTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts": {
+    "name": "wlanStaRxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytes": {
+    "name": "wlanStaRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBCastPkts": {
+    "name": "wlanStaTxBCastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBCastBytes": {
+    "name": "wlanStaRxBCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanStaTxMCastPkts": {
+    "name": "wlanStaTxMCastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxMCastBytes": {
+    "name": "wlanStaRxMCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanStaDataPkts": {
+    "name": "wlanStaDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaCtrlPkts": {
+    "name": "wlanStaCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaNumAssocRequests": {
+    "name": "wlanStaNumAssocRequests",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaNumAuthRequests": {
+    "name": "wlanStaNumAuthRequests",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDeauthentications": {
+    "name": "wlanStaTxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxDeauthentications": {
+    "name": "wlanStaRxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameRetryRate": {
+    "name": "wlanStaFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameLowSpeedRate": {
+    "name": "wlanStaFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameNonUnicastRate": {
+    "name": "wlanStaFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameFragmentationRate": {
+    "name": "wlanStaFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameBandwidthRate": {
+    "name": "wlanStaFrameBandwidthRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaFrameRetryErrorRate": {
+    "name": "wlanStaFrameRetryErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wlanStaFrameReceiveErrorRate": {
+    "name": "wlanStaFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBCastBytes": {
+    "name": "wlanStaTxBCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxMCastBytes": {
+    "name": "wlanStaTxMCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytes64": {
+    "name": "wlanStaTxBytes64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytes64": {
+    "name": "wlanStaRxBytes64",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStaRateStatsTable": {
+    "name": "wlsxWlanStaRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStaRateStatsEntry": {
+    "name": "wlsxWlanStaRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaTxPktsAt1Mbps": {
+    "name": "wlanStaTxPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt1Mbps": {
+    "name": "wlanStaTxBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt2Mbps": {
+    "name": "wlanStaTxPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt2Mbps": {
+    "name": "wlanStaTxBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt5Mbps": {
+    "name": "wlanStaTxPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt5Mbps": {
+    "name": "wlanStaTxBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt11Mbps": {
+    "name": "wlanStaTxPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt11Mbps": {
+    "name": "wlanStaTxBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt6Mbps": {
+    "name": "wlanStaTxPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt6Mbps": {
+    "name": "wlanStaTxBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt12Mbps": {
+    "name": "wlanStaTxPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt12Mbps": {
+    "name": "wlanStaTxBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt18Mbps": {
+    "name": "wlanStaTxPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt18Mbps": {
+    "name": "wlanStaTxBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt24Mbps": {
+    "name": "wlanStaTxPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt24Mbps": {
+    "name": "wlanStaTxBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt36Mbps": {
+    "name": "wlanStaTxPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt36Mbps": {
+    "name": "wlanStaTxBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt48Mbps": {
+    "name": "wlanStaTxPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt48Mbps": {
+    "name": "wlanStaTxBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt54Mbps": {
+    "name": "wlanStaTxPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt54Mbps": {
+    "name": "wlanStaTxBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt1Mbps": {
+    "name": "wlanStaRxPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt1Mbps": {
+    "name": "wlanStaRxBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt2Mbps": {
+    "name": "wlanStaRxPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt2Mbps": {
+    "name": "wlanStaRxBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt5Mbps": {
+    "name": "wlanStaRxPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt5Mbps": {
+    "name": "wlanStaRxBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt11Mbps": {
+    "name": "wlanStaRxPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt11Mbps": {
+    "name": "wlanStaRxBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt6Mbps": {
+    "name": "wlanStaRxPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt6Mbps": {
+    "name": "wlanStaRxBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt12Mbps": {
+    "name": "wlanStaRxPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt12Mbps": {
+    "name": "wlanStaRxBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt18Mbps": {
+    "name": "wlanStaRxPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt18Mbps": {
+    "name": "wlanStaRxBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt24Mbps": {
+    "name": "wlanStaRxPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt24Mbps": {
+    "name": "wlanStaRxBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt36Mbps": {
+    "name": "wlanStaRxPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt36Mbps": {
+    "name": "wlanStaRxBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt48Mbps": {
+    "name": "wlanStaRxPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt48Mbps": {
+    "name": "wlanStaRxBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt54Mbps": {
+    "name": "wlanStaRxPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt54Mbps": {
+    "name": "wlanStaRxBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPktsAt9Mbps": {
+    "name": "wlanStaTxPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxBytesAt9Mbps": {
+    "name": "wlanStaTxBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPktsAt9Mbps": {
+    "name": "wlanStaRxPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxBytesAt9Mbps": {
+    "name": "wlanStaRxBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStaDATypeStatsTable": {
+    "name": "wlsxWlanStaDATypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStaDATypeStatsEntry": {
+    "name": "wlsxWlanStaDATypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaTxDABroadcastPkts": {
+    "name": "wlanStaTxDABroadcastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDABroadcastBytes": {
+    "name": "wlanStaTxDABroadcastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDAMulticastPkts": {
+    "name": "wlanStaTxDAMulticastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDAMulticastBytes": {
+    "name": "wlanStaTxDAMulticastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDAUnicastPkts": {
+    "name": "wlanStaTxDAUnicastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDAUnicastBytes": {
+    "name": "wlanStaTxDAUnicastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStaFrameTypeStatsTable": {
+    "name": "wlsxWlanStaFrameTypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStaFrameTypeStatsEntry": {
+    "name": "wlsxWlanStaFrameTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaTxMgmtPkts": {
+    "name": "wlanStaTxMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxMgmtBytes": {
+    "name": "wlanStaTxMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxCtrlPkts": {
+    "name": "wlanStaTxCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxCtrlBytes": {
+    "name": "wlanStaTxCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDataPkts": {
+    "name": "wlanStaTxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxDataBytes": {
+    "name": "wlanStaTxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxMgmtPkts": {
+    "name": "wlanStaRxMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxMgmtBytes": {
+    "name": "wlanStaRxMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxCtrlPkts": {
+    "name": "wlanStaRxCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxCtrlBytes": {
+    "name": "wlanStaRxCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxDataPkts": {
+    "name": "wlanStaRxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxDataBytes": {
+    "name": "wlanStaRxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxWlanStaPktSizeStatsTable": {
+    "name": "wlsxWlanStaPktSizeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxWlanStaPktSizeStatsEntry": {
+    "name": "wlsxWlanStaPktSizeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-WLAN-MIB",
+        "object": "wlanStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlanStaTxPkts63Bytes": {
+    "name": "wlanStaTxPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts64To127": {
+    "name": "wlanStaTxPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts128To255": {
+    "name": "wlanStaTxPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts256To511": {
+    "name": "wlanStaTxPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts512To1023": {
+    "name": "wlanStaTxPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaTxPkts1024To1518": {
+    "name": "wlanStaTxPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts63Bytes": {
+    "name": "wlanStaRxPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts64To127": {
+    "name": "wlanStaRxPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts128To255": {
+    "name": "wlanStaRxPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts256To511": {
+    "name": "wlanStaRxPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts512To1023": {
+    "name": "wlanStaRxPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlanStaRxPkts1024To1518": {
+    "name": "wlanStaRxPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.5.3.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WLSX-WLAN-MIB",
+      "Source digest sha256:9b4ea0f9024bcaad7e5e2c10683039ec24c704538d515ac847de6986f1b07da6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WLSX-WLAN-MIB"
+  }
+}

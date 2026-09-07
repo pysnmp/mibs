@@ -1,0 +1,404 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ],
+    "UBQS-TC": [
+      "UbiBridgeId",
+      "UbiPortList"
+    ]
+  },
+  "ubiPbMIB": {
+    "name": "ubiPbMIB",
+    "oid": "1.3.6.1.4.1.7800.100.8",
+    "class": "moduleidentity"
+  },
+  "VlanStpType": {
+    "name": "VlanStpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 1,
+          "stp-vlan-bridge": 2,
+          "rstp": 3,
+          "rstp-vlan-bridge": 4,
+          "mstp": 5,
+          "provider-rstp": 6,
+          "provider-mstp": 7,
+          "rpvstExt": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiVlanType": {
+    "name": "UbiVlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "static": 1,
+        "dynamic": 2,
+        "cvlan": 3,
+        "svlan": 4,
+        "svlan_p2p": 5,
+        "svlan_m2m": 6,
+        "bvlan": 7,
+        "bvlan_p2p": 8,
+        "bvlan_m2m": 9,
+        "tevlan": 10,
+        "auto": 11
+      }
+    },
+    "status": "current"
+  },
+  "UbiBridgeProtocol": {
+    "name": "UbiBridgeProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iComponent": 1,
+          "bComponent": 2,
+          "cVlanComponent": 3,
+          "sVlanComponent": 4,
+          "dBridgeComponent": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ubiPbMIBNotificationsPrefix": {
+    "name": "ubiPbMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.8.0",
+    "class": "objectidentity"
+  },
+  "ubiPbMIBObjects": {
+    "name": "ubiPbMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.8.1",
+    "class": "objectidentity"
+  },
+  "ubiPbMIBConformance": {
+    "name": "ubiPbMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.8.2",
+    "class": "objectidentity"
+  },
+  "ubiCvlanRegistrationTable": {
+    "name": "ubiCvlanRegistrationTable",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiCvlanRegistrationEntry": {
+    "name": "ubiCvlanRegistrationEntry",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegBridgeId",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiCvlanRegBridgeId": {
+    "name": "ubiCvlanRegBridgeId",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiBridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCvlanRegName": {
+    "name": "ubiCvlanRegName",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCvlanRegRowStatus": {
+    "name": "ubiCvlanRegRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiCvlanMappingTable": {
+    "name": "ubiCvlanMappingTable",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiCvlanMappingEntry": {
+    "name": "ubiCvlanMappingEntry",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegBridgeId",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegName",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegCvid",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegSvid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiCvlanMappingCvid": {
+    "name": "ubiCvlanMappingCvid",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCvlanMappingSvid": {
+    "name": "ubiCvlanMappingSvid",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCvlanMappingRowStatus": {
+    "name": "ubiCvlanMappingRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiCvlanRegistrationPortTable": {
+    "name": "ubiCvlanRegistrationPortTable",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiCvlanRegistrationPortEntry": {
+    "name": "ubiCvlanRegistrationPortEntry",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegBridgeId",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegName",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiBridgePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiCvlanRegPortName": {
+    "name": "ubiCvlanRegPortName",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCvlanRegPortSet": {
+    "name": "ubiCvlanRegPortSet",
+    "oid": "1.3.6.1.4.1.7800.100.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "add": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPbMIBCompliances": {
+    "name": "ubiPbMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.8.2.1",
+    "class": "objectidentity"
+  },
+  "ubiPbMIBGroups": {
+    "name": "ubiPbMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.8.2.2",
+    "class": "objectidentity"
+  },
+  "ubiPbMIBCompliance": {
+    "name": "ubiPbMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiPbCvlanRegGroup",
+        "module": "UBQS-PB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiPbCvlanRegGroup": {
+    "name": "ubiPbCvlanRegGroup",
+    "oid": "1.3.6.1.4.1.7800.100.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegBridgeId"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegName"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegRowStatus"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanMappingCvid"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanMappingSvid"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanMappingRowStatus"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegPortName"
+      },
+      {
+        "module": "UBQS-PB-MIB",
+        "object": "ubiCvlanRegPortSet"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-PB-MIB",
+      "Source digest sha256:9ccea0ac7b50c31de93b47ff7dd46c4d8880549536f234c7427562ee0ccd3eab",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-PB-MIB"
+  }
+}

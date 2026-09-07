@@ -1,0 +1,1897 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfSyslog"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "hpicfSyslogMIB": {
+    "name": "hpicfSyslogMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-11 05:26",
+        "description": "Added 'captivePortal' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-09-04 00:00",
+        "description": "Added 'lldpmad' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-09-03 00:00",
+        "description": "Added 'bfd' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-08-31 00:00",
+        "description": "Added 'rip' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-08-28 00:00",
+        "description": "Added 'mvrp' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-05-09 00:00",
+        "description": "Added 'arpthrottle' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2015-04-16 00:00",
+        "description": "Added 'ripng' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2014-11-13 00:00",
+        "description": "Added hpicfSyslogSecClearLog for securty logging hpicfSyslogLogMsgOptions"
+      },
+      {
+        "revision": "2014-07-17 00:00",
+        "description": "Added acct susbsytem for accounting RMON logging in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2013-11-06 00:00",
+        "description": "Added 'tr69' and 'http' entries in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2013-09-24 00:00",
+        "description": "Added 'hpicfSyslogOriginId' entry to hpicfSyslogPriority"
+      },
+      {
+        "revision": "2013-09-14 00:00",
+        "description": "Added 'job' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2013-09-05 00:00",
+        "description": "Added 'dhcp-server' entry in hpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2013-06-25 00:00",
+        "description": "Added 'tls' entry in hpicfSyslogControlTransportProtocol"
+      },
+      {
+        "revision": "2013-08-07 00:00",
+        "description": "Added 'insysprog' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2012-03-15 00:00",
+        "description": "Added 'hpespcm' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2012-01-30 00:00",
+        "description": "Added 'securemode' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-10-11 00:00",
+        "description": "Added 'mobility-agent' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-08-24 00:00",
+        "description": "Added 'ecm' and 'hpespip' entries in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-07-19 00:00",
+        "description": "Added 'ra-guard' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-06-13 00:00",
+        "description": "Added 'slp' entries in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-05-27 00:00",
+        "description": "Added 'rfs', 'crypto' and 'testmode' entries in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2011-03-21 00:00",
+        "description": "Added 'stacking' entry in HpicfSyslogSystemModule 'stacking' is applicable only for platforms which support true stacking solution"
+      },
+      {
+        "revision": "2011-03-05 00:00",
+        "description": "Added 'hpicfSyslogAlerts' group of objects. Objects 'hpicfSyslogAlertIndex', 'hpicfSyslogAlertStatus', and 'hpicfSyslogAlertTransmitInterval' added to this group."
+      },
+      {
+        "revision": "2010-11-09 00:00",
+        "description": "Added 'sftp' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2010-10-25 00:00",
+        "description": "Added 'dt' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2010-08-11 00:00",
+        "description": "Added 'fips' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2010-06-20 00:00",
+        "description": "Added 'hpicfSyslogControlTransportProtocol' & 'hpicfSyslogControlDestinationPort' to hpicfSyslogControlEntry."
+      },
+      {
+        "revision": "2010-03-20 00:00",
+        "description": "Added 'bgp' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2010-03-12 00:00",
+        "description": "Added 'dhcpv6r' entry in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2010-01-27 00:00",
+        "description": "Added an enum for ospf3 in HpicfSyslogSystemModule"
+      },
+      {
+        "revision": "2009-08-19 00:00",
+        "description": "Added 'hpicfSyslogControlSmmLog to hpicfSyslogControlEntry & 'hpicfSyslogLogMsgOptions' to the hpicfSyslogObjects."
+      },
+      {
+        "revision": "2009-02-18 00:00",
+        "description": "Added 'hpicfSyslogControlBindAddrIsOobm' MIB object to 'hpicfSyslogControlTable'. Add an enum for oobm in ''HpicfSyslogSystemModule'. "
+      },
+      {
+        "revision": "2009-01-30 00:00",
+        "description": "Add Syslog statistics hpicfSyslogObjects."
+      },
+      {
+        "revision": "2008-11-18 00:00",
+        "description": "Add 'srcip' to the available SYNTAX for HpicfSyslogSystemModule. "
+      },
+      {
+        "revision": "2008-07-09 00:00",
+        "description": "Add 'hpsm' to the available SYNTAX for HpicfSyslogSystemModule. "
+      },
+      {
+        "revision": "2008-06-26 00:00",
+        "description": "Add 'dipld' to the available SYNTAX for HpicfSyslogSystemModule. "
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Correct comments that are not clear or written properly. "
+      },
+      {
+        "revision": "2008-01-25 00:00",
+        "description": "Add 'bridge' to the available SYNTAX for HpicfSyslogSystemModule. "
+      },
+      {
+        "revision": "2008-01-01 11:21",
+        "description": "The initial version."
+      }
+    ]
+  },
+  "HpicfSyslogFacility": {
+    "name": "HpicfSyslogFacility",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kern": 0,
+          "user": 1,
+          "mail": 2,
+          "daemon": 3,
+          "auth": 4,
+          "syslog": 5,
+          "lpr": 6,
+          "news": 7,
+          "uucp": 8,
+          "sys9": 9,
+          "sys10": 10,
+          "sys11": 11,
+          "sys12": 12,
+          "sys13": 13,
+          "sys14": 14,
+          "cron": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfSyslogSeverity": {
+    "name": "HpicfSyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "major": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfSyslogSystemModule": {
+    "name": "HpicfSyslogSystemModule",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all-pass": 0,
+          "vlan": 1,
+          "ip": 2,
+          "igmp": 3,
+          "ipx": 4,
+          "stp": 5,
+          "system": 6,
+          "chassis": 7,
+          "console": 8,
+          "ports": 9,
+          "dhcp": 10,
+          "download": 11,
+          "tcp": 12,
+          "telnet": 13,
+          "timep": 14,
+          "tftp": 15,
+          "xmodem": 16,
+          "update": 17,
+          "mgr": 18,
+          "bridge": 19,
+          "snmp": 20,
+          "addrmgr": 21,
+          "agp": 22,
+          "fault": 23,
+          "ldbal": 24,
+          "garp": 25,
+          "gvrp": 26,
+          "cos": 27,
+          "lacp": 28,
+          "dhcpr": 29,
+          "stack": 30,
+          "dma": 31,
+          "sntp": 32,
+          "ieee8021x": 33,
+          "cdp": 34,
+          "auth": 35,
+          "tacacs": 36,
+          "radius": 37,
+          "ssh": 38,
+          "netinet": 39,
+          "ospf": 40,
+          "xrrp": 41,
+          "ssl": 42,
+          "ipaddrmgr": 43,
+          "macauth": 44,
+          "kms": 45,
+          "pim": 46,
+          "maclock": 47,
+          "acl": 48,
+          "udpf": 49,
+          "inst-mon": 50,
+          "udld": 51,
+          "hpesp": 52,
+          "lldp": 53,
+          "connfilt": 54,
+          "ratelim": 55,
+          "idm": 56,
+          "iplock": 57,
+          "dhcp-snoop": 58,
+          "vrrp": 59,
+          "usb": 60,
+          "licensing": 61,
+          "loop-protect": 62,
+          "sflow": 63,
+          "arp-protect": 64,
+          "dhcpv6c": 65,
+          "mtm": 66,
+          "mld": 67,
+          "dca": 68,
+          "qinq": 69,
+          "autorun": 70,
+          "ffi": 71,
+          "wsm": 72,
+          "dipld": 73,
+          "hpsm": 74,
+          "srcip": 75,
+          "policy": 76,
+          "oobm": 77,
+          "trmode": 78,
+          "ospf3": 79,
+          "dhcpv6r": 80,
+          "bgp": 81,
+          "ufd": 82,
+          "fips": 83,
+          "dt": 84,
+          "dcbx": 85,
+          "sftp": 86,
+          "stacking": 87,
+          "rfs": 88,
+          "testmode": 89,
+          "crypto": 90,
+          "slp": 91,
+          "ra-guard": 92,
+          "ecm": 93,
+          "hpespip": 94,
+          "mobility-agent": 95,
+          "securemode": 96,
+          "mSatProxy": 97,
+          "eSatProxy": 98,
+          "hpespcm": 99,
+          "openflow": 100,
+          "smart-link": 101,
+          "insysprog": 102,
+          "dhcp-server": 103,
+          "job": 104,
+          "dsnoopv6": 105,
+          "dipldv6": 106,
+          "servicetunnel": 107,
+          "tr069": 108,
+          "http": 109,
+          "vxlantunnel": 110,
+          "bpdu": 111,
+          "byod-redirect": 112,
+          "dldp": 113,
+          "macsec": 114,
+          "acct": 115,
+          "tls": 116,
+          "ripng": 117,
+          "arpthrottle": 120,
+          "ndsnoop": 122,
+          "ntp": 123,
+          "mdns": 126,
+          "mvrp": 127,
+          "rip": 128,
+          "bfd": 129,
+          "lldpmad": 130,
+          "captive-portal": 131,
+          "profile-manager": 132,
+          "vsf": 133
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfSyslogOriginId": {
+    "name": "HpicfSyslogOriginId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip-address": 1,
+          "hostname": 2,
+          "none": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfSyslogNotifications": {
+    "name": "hpicfSyslogNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.0",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogObjects": {
+    "name": "hpicfSyslogObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogConformance": {
+    "name": "hpicfSyslogConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogControlTable": {
+    "name": "hpicfSyslogControlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogControlEntry": {
+    "name": "hpicfSyslogControlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogControlIndex": {
+    "name": "hpicfSyslogControlIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogControlDescr": {
+    "name": "hpicfSyslogControlDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlBindAddrType": {
+    "name": "hpicfSyslogControlBindAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlBindAddr": {
+    "name": "hpicfSyslogControlBindAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlRowStatus": {
+    "name": "hpicfSyslogControlRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlBindAddrIsOobm": {
+    "name": "hpicfSyslogControlBindAddrIsOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlSmmLog": {
+    "name": "hpicfSyslogControlSmmLog",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSyslogControlTransportProtocol": {
+    "name": "hpicfSyslogControlTransportProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "tls": 3
+        }
+      }
+    },
+    "default": {
+      "value": "udp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogControlDestinationPort": {
+    "name": "hpicfSyslogControlDestinationPort",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogOperations": {
+    "name": "hpicfSyslogOperations",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogOperationsMsgsTransmitted": {
+    "name": "hpicfSyslogOperationsMsgsTransmitted",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsMsgsDropped": {
+    "name": "hpicfSyslogOperationsMsgsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsLastMsgTransmittedTime": {
+    "name": "hpicfSyslogOperationsLastMsgTransmittedTime",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsStartTime": {
+    "name": "hpicfSyslogOperationsStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsLastError": {
+    "name": "hpicfSyslogOperationsLastError",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsLastErrorTime": {
+    "name": "hpicfSyslogOperationsLastErrorTime",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsCounterDiscontinuityTime": {
+    "name": "hpicfSyslogOperationsCounterDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogOperationsStatus": {
+    "name": "hpicfSyslogOperationsStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "started": 2,
+          "suspended": 3,
+          "stopped": 4
+        }
+      }
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogPriority": {
+    "name": "hpicfSyslogPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogPriorityFacility": {
+    "name": "hpicfSyslogPriorityFacility",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogFacility",
+      "class": "type"
+    },
+    "default": {
+      "value": "user",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogPrioritySeverity": {
+    "name": "hpicfSyslogPrioritySeverity",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "value": "debug",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogPriorityDescr": {
+    "name": "hpicfSyslogPriorityDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogSystemModule": {
+    "name": "hpicfSyslogSystemModule",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogSystemModule",
+      "class": "type"
+    },
+    "default": {
+      "value": "all-pass",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogOriginId": {
+    "name": "hpicfSyslogOriginId",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogOriginId",
+      "class": "type"
+    },
+    "default": {
+      "value": "ip-address",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogStatistics": {
+    "name": "hpicfSyslogStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogGeneralStatistics": {
+    "name": "hpicfSyslogGeneralStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogGeneralLogSent": {
+    "name": "hpicfSyslogGeneralLogSent",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralLogRecv": {
+    "name": "hpicfSyslogGeneralLogRecv",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralLogRelay": {
+    "name": "hpicfSyslogGeneralLogRelay",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralSendError": {
+    "name": "hpicfSyslogGeneralSendError",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralLogResend": {
+    "name": "hpicfSyslogGeneralLogResend",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralResendError": {
+    "name": "hpicfSyslogGeneralResendError",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogGeneralLogBuffered": {
+    "name": "hpicfSyslogGeneralLogBuffered",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogSeverityStatistics": {
+    "name": "hpicfSyslogSeverityStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogSeverityCounterInfoTable": {
+    "name": "hpicfSyslogSeverityCounterInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogSeverityCounterInfoEntry": {
+    "name": "hpicfSyslogSeverityCounterInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSeverityTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogSeverityTypeIndex": {
+    "name": "hpicfSyslogSeverityTypeIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogSeverityType": {
+    "name": "hpicfSyslogSeverityType",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogSeverityCounter": {
+    "name": "hpicfSyslogSeverityCounter",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogFacilityStatistics": {
+    "name": "hpicfSyslogFacilityStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogFacilityCounterInfoTable": {
+    "name": "hpicfSyslogFacilityCounterInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogFacilityCounterInfoEntry": {
+    "name": "hpicfSyslogFacilityCounterInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogfacilityCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogfacilityCounterIndex": {
+    "name": "hpicfSyslogfacilityCounterIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogfacilityType": {
+    "name": "hpicfSyslogfacilityType",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfSyslogFacility",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogfacilityCounter": {
+    "name": "hpicfSyslogfacilityCounter",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogLogMsgOptions": {
+    "name": "hpicfSyslogLogMsgOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.5",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogClearLog": {
+    "name": "hpicfSyslogClearLog",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogSecClearLog": {
+    "name": "hpicfSyslogSecClearLog",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogServerStatisticsTable": {
+    "name": "hpicfSyslogServerStatisticsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogServerStatisticsEntry": {
+    "name": "hpicfSyslogServerStatisticsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogServerLogSent": {
+    "name": "hpicfSyslogServerLogSent",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerLogRecv": {
+    "name": "hpicfSyslogServerLogRecv",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerLogRelay": {
+    "name": "hpicfSyslogServerLogRelay",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerSendError": {
+    "name": "hpicfSyslogServerSendError",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerLogResend": {
+    "name": "hpicfSyslogServerLogResend",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerResendError": {
+    "name": "hpicfSyslogServerResendError",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogServerLogBuffered": {
+    "name": "hpicfSyslogServerLogBuffered",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfSyslogAlerts": {
+    "name": "hpicfSyslogAlerts",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogAlertsTable": {
+    "name": "hpicfSyslogAlertsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogAlertsEntry": {
+    "name": "hpicfSyslogAlertsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogAlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogAlertIndex": {
+    "name": "hpicfSyslogAlertIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runningCfgChg": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSyslogAlertAdminStatus": {
+    "name": "hpicfSyslogAlertAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogAlertTransmitInterval": {
+    "name": "hpicfSyslogAlertTransmitInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSyslogStatusChanged": {
+    "name": "hpicfSyslogStatusChanged",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlIndex"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlDescr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddrType"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlRowStatus"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPriorityDescr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPrioritySeverity"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPriorityFacility"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSystemModule"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogGroups": {
+    "name": "hpicfSyslogGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogCompliances": {
+    "name": "hpicfSyslogCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfSyslogOperationsGroup": {
+    "name": "hpicfSyslogOperationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsMsgsTransmitted"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsMsgsDropped"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsLastMsgTransmittedTime"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsStartTime"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsLastError"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsLastErrorTime"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsCounterDiscontinuityTime"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOperationsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogControlGroup": {
+    "name": "hpicfSyslogControlGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlDescr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddrType"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogPriorityGroup": {
+    "name": "hpicfSyslogPriorityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPriorityDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogNotificationGroup": {
+    "name": "hpicfSyslogNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogStatusChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogControlGroupOobm": {
+    "name": "hpicfSyslogControlGroupOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddrIsOobm"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogGeneralStatisticsGroup": {
+    "name": "hpicfSyslogGeneralStatisticsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralLogSent"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralLogRecv"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralLogRelay"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralSendError"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralLogResend"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralResendError"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogGeneralLogBuffered"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogSeverityStatisticsGroup": {
+    "name": "hpicfSyslogSeverityStatisticsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSeverityType"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSeverityCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogFacilityStatisticsGroup": {
+    "name": "hpicfSyslogFacilityStatisticsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogfacilityType"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogfacilityCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogControlGroupSmm": {
+    "name": "hpicfSyslogControlGroupSmm",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlSmmLog"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogLogMsgOptionsGroup": {
+    "name": "hpicfSyslogLogMsgOptionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogClearLog"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfSyslogControlTransportGroup": {
+    "name": "hpicfSyslogControlTransportGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlTransportProtocol"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlDestinationPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogServerStatisticsGroup": {
+    "name": "hpicfSyslogServerStatisticsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerLogSent"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerLogRecv"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerLogRelay"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerSendError"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerLogResend"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerResendError"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogServerLogBuffered"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogPriorityGroup1": {
+    "name": "hpicfSyslogPriorityGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPriorityFacility"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPrioritySeverity"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSystemModule"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogAlertsGroup": {
+    "name": "hpicfSyslogAlertsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogAlertAdminStatus"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogAlertTransmitInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogOriginIdGroup1": {
+    "name": "hpicfSyslogOriginIdGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogOriginId"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogLogMsgOptionsGroup1": {
+    "name": "hpicfSyslogLogMsgOptionsGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogClearLog"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogSecClearLog"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogFullCompliance1": {
+    "name": "hpicfSyslogFullCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogNotificationGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogOperationsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogControlGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogPriorityGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogFullCompliance2": {
+    "name": "hpicfSyslogFullCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogOperationsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogControlGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogPriorityGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogReadOnlyCompliance1": {
+    "name": "hpicfSyslogReadOnlyCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogNotificationGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogOperationsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogControlGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogPriorityGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlDescr",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddrType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogReadOnlyCompliance2": {
+    "name": "hpicfSyslogReadOnlyCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogOperationsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogControlGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogPriorityGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlDescr",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddrType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlBindAddr",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogControlRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SYSLOG-MIB",
+        "object": "hpicfSyslogPriorityDescr",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogNotificationCompliance": {
+    "name": "hpicfSyslogNotificationCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogNotificationGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogFullComplianceOobm": {
+    "name": "hpicfSyslogFullComplianceOobm",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogControlGroupOobm",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogStatisticsCompliance": {
+    "name": "hpicfSyslogStatisticsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogGeneralStatisticsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogSeverityStatisticsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogFacilityStatisticsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogSmmLogMsgCompliance": {
+    "name": "hpicfSyslogSmmLogMsgCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogControlGroupSmm",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogLogMsgOptionsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfSyslogTransportCompliance": {
+    "name": "hpicfSyslogTransportCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogControlTransportGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogPriorityCompliance": {
+    "name": "hpicfSyslogPriorityCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogPriorityGroup1",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogServerStatisticsCompliance": {
+    "name": "hpicfSyslogServerStatisticsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogServerStatisticsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogAlertsCompliance": {
+    "name": "hpicfSyslogAlertsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogAlertsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogOriginIdCompliance": {
+    "name": "hpicfSyslogOriginIdCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.15",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogOriginIdGroup1",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSyslogSmmLogMsgCompliance1": {
+    "name": "hpicfSyslogSmmLogMsgCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.14.1.3.2.16",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSyslogControlGroupSmm",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogLogMsgOptionsGroup",
+        "module": "HP-ICF-SYSLOG-MIB"
+      },
+      {
+        "object": "hpicfSyslogLogMsgOptionsGroup1",
+        "module": "HP-ICF-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SYSLOG-MIB",
+      "Source digest sha256:255331454cdfb0ff5b8ab82c2589e4bf44e6a872f4ae9d3ff5192a983630e0ba",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SYSLOG-MIB"
+  }
+}

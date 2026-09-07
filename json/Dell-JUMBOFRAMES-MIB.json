@@ -1,0 +1,79 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlJumboFrames": {
+    "name": "rlJumboFrames",
+    "oid": "1.3.6.1.4.1.89.91",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlJumboFramesCurrentStatus": {
+    "name": "rlJumboFramesCurrentStatus",
+    "oid": "1.3.6.1.4.1.89.91.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlJumboFramesStatusAfterReset": {
+    "name": "rlJumboFramesStatusAfterReset",
+    "oid": "1.3.6.1.4.1.89.91.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-JUMBOFRAMES-MIB",
+      "Source digest sha256:46be1bc0abc456b6d3ae8091fafabbf2a8e723ece4016436a0d263b6be0bcd99",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-JUMBOFRAMES-MIB"
+  }
+}

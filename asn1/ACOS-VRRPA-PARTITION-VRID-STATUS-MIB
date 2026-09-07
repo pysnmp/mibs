@@ -1,0 +1,123 @@
+ACOS-VRRPA-PARTITION-VRID-STATUS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpAPartitionVridStatusModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpAPartitionVridStatusModule OID for ACOS"
+				::=  {  acosSchema 8 }
+
+partitionVridStatus		 OBJECT IDENTIFIER ::= { vrrpAPartitionVridStatusModule 1}
+
+partitionVridStatusOperAllPartitionListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PartitionVridStatusOperAllPartitionListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a status for all partitions from object 'vrrp-a.partition-vrid-status'"
+	::= {partitionVridStatus 2}
+
+partitionVridStatusOperAllPartitionListEntry OBJECT-TYPE
+	SYNTAX PartitionVridStatusOperAllPartitionListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The partitionVridStatusOperAllPartitionList entry:all-partition-list"
+	INDEX {
+		partitionVridStatusOperAllPartitionListSlotId,
+		partitionVridStatusOperAllPartitionListAllPartitionListListId
+	}
+	::= { partitionVridStatusOperAllPartitionListTable 1}
+
+PartitionVridStatusOperAllPartitionListEntry ::=
+	SEQUENCE {
+		partitionVridStatusOperAllPartitionListSlotId Integer32,
+		partitionVridStatusOperAllPartitionListAllPartitionListListId Integer32,
+		partitionVridStatusOperAllPartitionListLocalDeviceID	Integer32,
+		partitionVridStatusOperAllPartitionListPartitionName	DisplayString,
+		partitionVridStatusOperAllPartitionListVrid	Integer32,
+		partitionVridStatusOperAllPartitionListActiveDeviceId	Integer32,
+		partitionVridStatusOperAllPartitionListActivePriority	Integer32,
+		partitionVridStatusOperAllPartitionListActiveWeight	Integer32
+	}
+
+partitionVridStatusOperAllPartitionListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { partitionVridStatusOperAllPartitionListEntry 1}
+
+partitionVridStatusOperAllPartitionListAllPartitionListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { partitionVridStatusOperAllPartitionListEntry 2}
+
+partitionVridStatusOperAllPartitionListLocalDeviceID OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"local_device_ID"
+	::= { partitionVridStatusOperAllPartitionListEntry 3}
+
+partitionVridStatusOperAllPartitionListPartitionName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"partition-name"
+	::= { partitionVridStatusOperAllPartitionListEntry 4}
+
+partitionVridStatusOperAllPartitionListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { partitionVridStatusOperAllPartitionListEntry 5}
+
+partitionVridStatusOperAllPartitionListActiveDeviceId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"active_device_id"
+	::= { partitionVridStatusOperAllPartitionListEntry 6}
+
+partitionVridStatusOperAllPartitionListActivePriority OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"active_priority"
+	::= { partitionVridStatusOperAllPartitionListEntry 7}
+
+partitionVridStatusOperAllPartitionListActiveWeight OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"active_weight"
+	::= { partitionVridStatusOperAllPartitionListEntry 8}
+
+END
+

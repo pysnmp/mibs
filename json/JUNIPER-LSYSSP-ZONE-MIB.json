@@ -1,0 +1,247 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB": [
+      "jnxLsysSpZone"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpZoneMIB": {
+    "name": "jnxLsysSpZoneMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1",
+    "class": "moduleidentity"
+  },
+  "jnxLsysSpZoneObjects": {
+    "name": "jnxLsysSpZoneObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpZoneSummary": {
+    "name": "jnxLsysSpZoneSummary",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpZoneTable": {
+    "name": "jnxLsysSpZoneTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpZoneEntry": {
+    "name": "jnxLsysSpZoneEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LSYSSP-ZONE-MIB",
+        "object": "jnxLsysSpZoneLsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLsysSpZoneLsysName": {
+    "name": "jnxLsysSpZoneLsysName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpZoneProfileName": {
+    "name": "jnxLsysSpZoneProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneUsage": {
+    "name": "jnxLsysSpZoneUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneReserved": {
+    "name": "jnxLsysSpZoneReserved",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneMaximum": {
+    "name": "jnxLsysSpZoneMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneUsedAmount": {
+    "name": "jnxLsysSpZoneUsedAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneMaxQuota": {
+    "name": "jnxLsysSpZoneMaxQuota",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneAvailableAmount": {
+    "name": "jnxLsysSpZoneAvailableAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneHeaviestUsage": {
+    "name": "jnxLsysSpZoneHeaviestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneHeaviestUser": {
+    "name": "jnxLsysSpZoneHeaviestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneLightestUsage": {
+    "name": "jnxLsysSpZoneLightestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpZoneLightestUser": {
+    "name": "jnxLsysSpZoneLightestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-LSYSSP-ZONE-MIB",
+      "Source digest sha256:e8d4b8bce9f3ce217df4e4eb42a6e659c3b20b63f166195c8b1fa2d2a0af60c9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-LSYSSP-ZONE-MIB"
+  }
+}

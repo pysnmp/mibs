@@ -1,0 +1,178 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchMulticastCapability": {
+    "name": "ciscoSwitchMulticastCapability",
+    "oid": "1.3.6.1.4.1.9.7.546",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-11 00:00",
+        "description": "Added capability statement cswmCapabilityV12R0250SYPCat6kPfc4."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Added capability statement cswmCapabilityV12R0233SXIPCat6k."
+      },
+      {
+        "revision": "2007-07-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cswmCapabilityV12R0219SXHPCat6k": {
+    "name": "cswmCapabilityV12R0219SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.546.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-MULTICAST-MIB",
+        "includes": [
+          "cswmGlobalGroup",
+          "cswmConsistCheckGroup",
+          "cswmReplicationGroup",
+          "cswmMvrfStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cswmReplConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cswmCapabilityV12R0233SXIPCat6k": {
+    "name": "cswmCapabilityV12R0233SXIPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.546.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-MULTICAST-MIB",
+        "includes": [
+          "cswmGlobalGroup",
+          "cswmConsistCheckGroup",
+          "cswmReplicationGroup",
+          "cswmMvrfStatsGroup",
+          "cswmBiDirPimDfUsageGroup",
+          "cswmLtlUsageGroup"
+        ],
+        "variations": [
+          {
+            "object": "cswmReplConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cswmCapabilityV12R0250SYPCat6kPfc4": {
+    "name": "cswmCapabilityV12R0250SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.546.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                         series devices with PFC4 card.",
+    "capabilities": [
+      {
+        "module": "CISCO-SWITCH-MULTICAST-MIB",
+        "includes": [
+          "cswmGlobalGroup",
+          "cswmConsistCheckGroup",
+          "cswmReplicationGroup",
+          "cswmMvrfStatsGroup",
+          "cswmBiDirPimDfUsageGroup",
+          "cswmLtlUsageGroup",
+          "cswmGlobalReplicationGroup",
+          "cswmMvrfBiDirPimDfUsageGroup",
+          "cswmForwardingGroup",
+          "cswmFlowQueryResultGroup"
+        ],
+        "variations": [
+          {
+            "object": "cswmReplConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1,
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cswmMRouteConsistCheck",
+            "access": "read-only"
+          },
+          {
+            "object": "cswmProcessorConsistCheck",
+            "access": "read-only"
+          },
+          {
+            "object": "cswmReplConfigCurMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cswmReplConfigAutoDetect",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SWITCH-MULTICAST-CAPABILITY",
+      "Source digest sha256:252a379be2c6207dfc746ae1fbbbe64c06d1f26091e7b92ea74c34b8c8a33bd8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SWITCH-MULTICAST-CAPABILITY"
+  }
+}

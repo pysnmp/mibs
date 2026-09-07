@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappQosCapability": {
+    "name": "ciscoLwappQosCapability",
+    "oid": "1.3.6.1.4.1.9.7.505",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-15 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappQosCapabilityCUWNSV4R0": {
+    "name": "ciscoLwappQosCapabilityCUWNSV4R0",
+    "oid": "1.3.6.1.4.1.9.7.505.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Unified Wireless Network Software\n                        Release 4.0 for Cisco WLAN Controllers",
+    "capabilities": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "includes": [
+          "ciscoLwappQosDot11aConfigGroup",
+          "ciscoLwappQosDot11bConfigGroup",
+          "ciscoLwappQosDot11WlanConfigGroup",
+          "ciscoLwappQosDot11CacStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-QOS-CAPABILITY",
+      "Source digest sha256:13b0b344acb400ed0b9488ee904573f3cb666b36e5b9a7f80fb04d1d79709044",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-QOS-CAPABILITY"
+  }
+}

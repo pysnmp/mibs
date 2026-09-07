@@ -1,0 +1,1248 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "VidList"
+    ],
+    "HPICF-SAVI-MIB": [
+      "hpicfSaviObjectsBindingEntry",
+      "hpicfSaviObjectsPortEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfDSnoopV6": {
+    "name": "hpicfDSnoopV6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-11-08 00:00",
+        "description": "Importing hpicfSaviObjectsBindingEntry and hpicfSaviObjectsPortEntry from HPICF-SAVI-MIB and augmenting them instead of saviObjectsBindingEntry and saviObjectsPortEntry. Updated hpicfDSnoopV6AuthorizedServerStatus mib to specify not supported row status states."
+      },
+      {
+        "revision": "2015-01-28 00:00",
+        "description": "Added hpicfDsnoopV6DatabaseFTPort, hpicfDSnoopV6DatabaseSFTPUsername, hpicfDSnoopV6DatabaseSFTPPassword, hpicfDSnoopV6DatabaseValidateSFTPServer"
+      },
+      {
+        "revision": "2013-10-06 00:00",
+        "description": "Changed syntax type for hpicfDSnoopV6VlanEnable from OctetString to Vidlist."
+      },
+      {
+        "revision": "2013-04-30 00:00",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "hpicfDSnoopV6Notifications": {
+    "name": "hpicfDSnoopV6Notifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6Objects": {
+    "name": "hpicfDSnoopV6Objects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6Config": {
+    "name": "hpicfDSnoopV6Config",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6GlobalCfg": {
+    "name": "hpicfDSnoopV6GlobalCfg",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6Enable": {
+    "name": "hpicfDSnoopV6Enable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6VlanEnable": {
+    "name": "hpicfDSnoopV6VlanEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseFile": {
+    "name": "hpicfDSnoopV6DatabaseFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseWriteDelay": {
+    "name": "hpicfDSnoopV6DatabaseWriteDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseWriteTimeout": {
+    "name": "hpicfDSnoopV6DatabaseWriteTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6OutOfResourcesTrapCtrl": {
+    "name": "hpicfDSnoopV6OutOfResourcesTrapCtrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6ErrantReplyTrapCtrl": {
+    "name": "hpicfDSnoopV6ErrantReplyTrapCtrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseFTPort": {
+    "name": "hpicfDSnoopV6DatabaseFTPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseSFTPUsername": {
+    "name": "hpicfDSnoopV6DatabaseSFTPUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseSFTPPassword": {
+    "name": "hpicfDSnoopV6DatabaseSFTPPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DatabaseValidateSFTPServer": {
+    "name": "hpicfDSnoopV6DatabaseValidateSFTPServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6AuthorizedServerTable": {
+    "name": "hpicfDSnoopV6AuthorizedServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDSnoopV6AuthorizedServerEntry": {
+    "name": "hpicfDSnoopV6AuthorizedServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6AuthorizedServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6AuthorizedServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6AuthorizedServerAddrType": {
+    "name": "hpicfDSnoopV6AuthorizedServerAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDSnoopV6AuthorizedServerAddress": {
+    "name": "hpicfDSnoopV6AuthorizedServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDSnoopV6AuthorizedServerStatus": {
+    "name": "hpicfDSnoopV6AuthorizedServerStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDSnoopV6GlobalStats": {
+    "name": "hpicfDSnoopV6GlobalStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6CSForwards": {
+    "name": "hpicfDSnoopV6CSForwards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6CSMACMismatches": {
+    "name": "hpicfDSnoopV6CSMACMismatches",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6CSBadReleases": {
+    "name": "hpicfDSnoopV6CSBadReleases",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6CSUntrustedDestPorts": {
+    "name": "hpicfDSnoopV6CSUntrustedDestPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SCForwards": {
+    "name": "hpicfDSnoopV6SCForwards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SCUntrustedPorts": {
+    "name": "hpicfDSnoopV6SCUntrustedPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SCRelayReplyUntrustedPorts": {
+    "name": "hpicfDSnoopV6SCRelayReplyUntrustedPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SCUnauthorizedServers": {
+    "name": "hpicfDSnoopV6SCUnauthorizedServers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DBFileWriteAttempts": {
+    "name": "hpicfDSnoopV6DBFileWriteAttempts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DBFileWriteFailures": {
+    "name": "hpicfDSnoopV6DBFileWriteFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DBFileReadStatus": {
+    "name": "hpicfDSnoopV6DBFileReadStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DBFileWriteStatus": {
+    "name": "hpicfDSnoopV6DBFileWriteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "delaying": 2,
+          "inProgress": 3,
+          "succeeded": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6DBFileLastWriteTime": {
+    "name": "hpicfDSnoopV6DBFileLastWriteTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6MaxbindPktsDropped": {
+    "name": "hpicfDSnoopV6MaxbindPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6ClearStatsOptions": {
+    "name": "hpicfDSnoopV6ClearStatsOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6ClearStats": {
+    "name": "hpicfDSnoopV6ClearStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6PortMaxBindingTable": {
+    "name": "hpicfDSnoopV6PortMaxBindingTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDSnoopV6PortMaxBindingEntry": {
+    "name": "hpicfDSnoopV6PortMaxBindingEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfDSnoopV6PortMaxBindingEntry",
+      "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+      "object": "hpicfSaviObjectsPortEntry"
+    },
+    "status": "current"
+  },
+  "hpicfDSnoopV6PortStaticBinding": {
+    "name": "hpicfDSnoopV6PortStaticBinding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6PortDynamicBinding": {
+    "name": "hpicfDSnoopV6PortDynamicBinding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6StaticBindingTable": {
+    "name": "hpicfDSnoopV6StaticBindingTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDSnoopV6StaticBindingEntry": {
+    "name": "hpicfDSnoopV6StaticBindingEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfDSnoopV6StaticBindingEntry",
+      "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+      "object": "hpicfSaviObjectsBindingEntry"
+    },
+    "status": "current"
+  },
+  "hpicfDSnoopV6BindingVlanId": {
+    "name": "hpicfDSnoopV6BindingVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6BindingLLAddress": {
+    "name": "hpicfDSnoopV6BindingLLAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDSnoopV6BindingSecVlan": {
+    "name": "hpicfDSnoopV6BindingSecVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingOutOfResources": {
+    "name": "hpicfDSnoopV6SourceBindingOutOfResources",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingPort"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingMacAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingIpAddressType"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingIpAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDsnoopV6SourceBindingOutOfResourcesObjects": {
+    "name": "hpicfDsnoopV6SourceBindingOutOfResourcesObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2",
+    "class": "objectidentity"
+  },
+  "hpicfDsnoopV6SourceBindingPort": {
+    "name": "hpicfDsnoopV6SourceBindingPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDsnoopV6SourceBindingMacAddress": {
+    "name": "hpicfDsnoopV6SourceBindingMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDsnoopV6SourceBindingIpAddressType": {
+    "name": "hpicfDsnoopV6SourceBindingIpAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDsnoopV6SourceBindingIpAddress": {
+    "name": "hpicfDsnoopV6SourceBindingIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDsnoopV6SourceBindingVlan": {
+    "name": "hpicfDsnoopV6SourceBindingVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingErrantReply": {
+    "name": "hpicfDSnoopV6SourceBindingErrantReply",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingNotifyCount"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcMAC"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcIPType"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingNotifyObjects": {
+    "name": "hpicfDSnoopV6SourceBindingNotifyObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.4",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6SourceBindingNotifyCount": {
+    "name": "hpicfDSnoopV6SourceBindingNotifyCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingErrantSrcMAC": {
+    "name": "hpicfDSnoopV6SourceBindingErrantSrcMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingErrantSrcIPType": {
+    "name": "hpicfDSnoopV6SourceBindingErrantSrcIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDSnoopV6SourceBindingErrantSrcIP": {
+    "name": "hpicfDSnoopV6SourceBindingErrantSrcIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.0.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDSnoopV6Conformance": {
+    "name": "hpicfDSnoopV6Conformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6Groups": {
+    "name": "hpicfDSnoopV6Groups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6BaseGroup": {
+    "name": "hpicfDSnoopV6BaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6Enable"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6VlanEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6CSForwards"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6CSBadReleases"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6CSUntrustedDestPorts"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6CSMACMismatches"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SCForwards"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SCUnauthorizedServers"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SCUntrustedPorts"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SCRelayReplyUntrustedPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6ServersGroup": {
+    "name": "hpicfDSnoopV6ServersGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6AuthorizedServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6DbaseFileGroup": {
+    "name": "hpicfDSnoopV6DbaseFileGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseFile"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileLastWriteTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDSnoopV6MaxBindingsGroup": {
+    "name": "hpicfDSnoopV6MaxBindingsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6MaxbindPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6PortStaticBinding"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6PortDynamicBinding"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6StaticBindingsGroup": {
+    "name": "hpicfDSnoopV6StaticBindingsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6BindingVlanId"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6BindingLLAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6BindingSecVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6ClearStatsOptionsGroup": {
+    "name": "hpicfDSnoopV6ClearStatsOptionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6ClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6TrapObjectsGroup": {
+    "name": "hpicfDSnoopV6TrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingNotifyCount"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcMAC"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcIPType"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantSrcIP"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingPort"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingMacAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingIpAddressType"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingIpAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDsnoopV6SourceBindingVlan"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6OutOfResourcesTrapCtrl"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6ErrantReplyTrapCtrl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6TrapsGroup": {
+    "name": "hpicfDSnoopV6TrapsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingOutOfResources"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6SourceBindingErrantReply"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6DbaseFileGroup1": {
+    "name": "hpicfDSnoopV6DbaseFileGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseFile"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DBFileLastWriteTime"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseFTPort"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseSFTPUsername"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseSFTPPassword"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB",
+        "object": "hpicfDSnoopV6DatabaseValidateSFTPServer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDSnoopV6Compliances": {
+    "name": "hpicfDSnoopV6Compliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.3",
+    "class": "objectidentity"
+  },
+  "hpicfDSnoopV6Compliance2": {
+    "name": "hpicfDSnoopV6Compliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDSnoopV6BaseGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6ServersGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6DbaseFileGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6MaxBindingsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6StaticBindingsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6ClearStatsOptionsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6TrapObjectsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6TrapsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDSnoopV6Compliance": {
+    "name": "hpicfDSnoopV6Compliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.102.2.3.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDSnoopV6BaseGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6ServersGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6MaxBindingsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6StaticBindingsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6ClearStatsOptionsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6TrapObjectsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6TrapsGroup",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDSnoopV6DbaseFileGroup1",
+        "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-DHCPv6-SNOOP-MIB",
+      "Source digest sha256:1b3ba0a8c169d097852358e31f9ef1fcc9ebe9d220a6ddf9a484fd0337b19b2f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-DHCPv6-SNOOP-MIB"
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVirtualSwitchCapability": {
+    "name": "ciscoVirtualSwitchCapability",
+    "oid": "1.3.6.1.4.1.9.7.563",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Added capability statement cvsCapV15R0101SYPCat6K."
+      },
+      {
+        "revision": "2011-09-26 00:00",
+        "description": "Added capability statement cvsCapV15R0001SYPCat6K."
+      },
+      {
+        "revision": "2010-03-29 00:00",
+        "description": "Added capability statement cvsCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2008-01-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cvsCapV12R0233SXH01PCat6K": {
+    "name": "cvsCapV12R0233SXH01PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.563.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH1 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-VIRTUAL-SWITCH-MIB",
+        "includes": [
+          "cvsGlobalGroup",
+          "cvsCoreSwitchGroup",
+          "cvsChassisGroup",
+          "cvsVSLConnectionGroup",
+          "cvsVSLStatisticsGroup",
+          "cvsModuleGroup",
+          "cvsConnectionNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvsDomain",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsCoreSwitchPriority",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLCoreSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLConnectionRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cvsCapV12R0233SXI4PCat6K": {
+    "name": "cvsCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.563.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-VIRTUAL-SWITCH-MIB",
+        "includes": [
+          "cvsGlobalGroup",
+          "cvsCoreSwitchGroup",
+          "cvsChassisGroup",
+          "cvsVSLConnectionGroup",
+          "cvsVSLStatisticsGroup",
+          "cvsModuleGroup",
+          "cvsVssModuleStandbyGroup",
+          "cvsConnectionNotifsGroup",
+          "cvsVSLStatisticsExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvsDomain",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsCoreSwitchPriority",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLCoreSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLConnectionRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cvsCapV15R0001SYPCat6K": {
+    "name": "cvsCapV15R0001SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.563.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-VIRTUAL-SWITCH-MIB",
+        "includes": [
+          "cvsGlobalGroup",
+          "cvsCoreSwitchGroup",
+          "cvsChassisGroup",
+          "cvsVSLConnectionGroup",
+          "cvsVSLStatisticsGroup",
+          "cvsModuleGroup",
+          "cvsVssModuleStandbyGroup",
+          "cvsConnectionNotifsGroup",
+          "cvsVSLStatisticsExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvsDomain",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsCoreSwitchPriority",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLCoreSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLConnectionRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cvsCapV15R0101SYPCat6K": {
+    "name": "cvsCapV15R0101SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.563.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-VIRTUAL-SWITCH-MIB",
+        "includes": [
+          "cvsGlobalGroup",
+          "cvsCoreSwitchGroup",
+          "cvsChassisGroup",
+          "cvsVSLConnectionGroup",
+          "cvsVSLStatisticsGroup",
+          "cvsModuleGroup",
+          "cvsVssModuleStandbyGroup",
+          "cvsConnectionNotifsGroup",
+          "cvsVSLStatisticsExtGroup",
+          "cvsCoreSwitchLocationGroup",
+          "cvsDualActiveDetectionNotifsControlGroup",
+          "cvsDualActiveDetectionNotifsInfoGroup",
+          "cvsDualActiveDetectionNotifsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvsDomain",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsCoreSwitchPriority",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLCoreSwitchID",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvsVSLConnectionRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cvsCoreSwitchLocation",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 230
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VIRTUAL-SWITCH-CAPABILITY",
+      "Source digest sha256:2c0b85fddd1e09ec2cee7b1751c668c06befb04758adc760068808bccd6fadd0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VIRTUAL-SWITCH-CAPABILITY"
+  }
+}

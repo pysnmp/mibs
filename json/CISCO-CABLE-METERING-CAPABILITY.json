@@ -1,0 +1,81 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCableMeteringCapability": {
+    "name": "ciscoCableMeteringCapability",
+    "oid": "1.3.6.1.4.1.9.7.582",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-16 00:00",
+        "description": "Initial version of this MIB Module."
+      }
+    ]
+  },
+  "ciscoCableMeteringCapabilityV122R01": {
+    "name": "ciscoCableMeteringCapabilityV122R01",
+    "oid": "1.3.6.1.4.1.9.7.582.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2S",
+    "capabilities": [
+      {
+        "module": "CISCO-CABLE-METERING-MIB",
+        "includes": [
+          "ccmtrMeteringNotifCtrlGroup",
+          "ccmtrMeteringNotifGroup",
+          "ccmtrMeteringObjGroupRev1",
+          "ccmtrMeteringSrcIntfObjGroup",
+          "ccmtrMeteringRateCtrlObjGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccmtrCollectionRevInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 1440
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CABLE-METERING-CAPABILITY",
+      "Source digest sha256:8da19fa48ba28ebf1b2a80f034bad67bee6242798abb49f3de257772e4ea6f21",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CABLE-METERING-CAPABILITY"
+  }
+}

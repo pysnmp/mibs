@@ -1,0 +1,83 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoQosPolicyConfigCapability": {
+    "name": "ciscoQosPolicyConfigCapability",
+    "oid": "1.3.6.1.4.1.9.7.363",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-28 00:00",
+        "description": "Add cqpcCapabilityV12R0233SXHPCat6k statement."
+      },
+      {
+        "revision": "2003-10-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cqpcCapabilityCatOSV08R0101Cat6k": {
+    "name": "cqpcCapabilityCatOSV08R0101Cat6k",
+    "oid": "1.3.6.1.4.1.9.7.363.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                      and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "includes": [
+          "qosGlobalGroup",
+          "qosPrGlobalGroup",
+          "qosPrInterfaceGroup",
+          "qosInterfaceCapabilityGroup",
+          "qosCopsPolicyStatusGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cqpcCapabilityV12R0233SXHPCat6k": {
+    "name": "cqpcCapabilityV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.363.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-QOS-POLICY-CONFIG-MIB",
+        "includes": [
+          "qosGlobalGroup",
+          "qosInterfaceCapabilityGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-QOS-POLICY-CONFIG-CAPABILITY",
+      "Source digest sha256:519b89ffcc44718854b0f670abd7eab7fa80a21cb3b5649104bf6265167498e0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-QOS-POLICY-CONFIG-CAPABILITY"
+  }
+}

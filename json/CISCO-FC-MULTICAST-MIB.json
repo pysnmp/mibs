@@ -1,0 +1,207 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "DomainIdOrZero"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFcMulticastMIB": {
+    "name": "ciscoFcMulticastMIB",
+    "oid": "1.3.6.1.4.1.9.9.435",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-10-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcMulticastNotifications": {
+    "name": "ciscoFcMulticastNotifications",
+    "oid": "1.3.6.1.4.1.9.9.435.0",
+    "class": "objectidentity"
+  },
+  "ciscoFcMulticastMIBObjects": {
+    "name": "ciscoFcMulticastMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.435.1",
+    "class": "objectidentity"
+  },
+  "ciscoFcMulticaseConformance": {
+    "name": "ciscoFcMulticaseConformance",
+    "oid": "1.3.6.1.4.1.9.9.435.2",
+    "class": "objectidentity"
+  },
+  "cfmConfiguration": {
+    "name": "cfmConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1",
+    "class": "objectidentity"
+  },
+  "CfmMulticastRootMode": {
+    "name": "CfmMulticastRootMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "principalSwitch": 1,
+          "lowestDomainSwitch": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cfmMulticastRootTable": {
+    "name": "cfmMulticastRootTable",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMulticastRootEntry": {
+    "name": "cfmMulticastRootEntry",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMulticastRootConfigMode": {
+    "name": "cfmMulticastRootConfigMode",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmMulticastRootMode",
+      "class": "type"
+    },
+    "default": {
+      "value": "principalSwitch",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMulticastRootOperMode": {
+    "name": "cfmMulticastRootOperMode",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmMulticastRootMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMulticastRootDomainId": {
+    "name": "cfmMulticastRootDomainId",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMulticastRootRowStatus": {
+    "name": "cfmMulticastRootRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.435.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFcMulticastMIBCompliances": {
+    "name": "ciscoFcMulticastMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.435.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFcMulticastMIBGroups": {
+    "name": "ciscoFcMulticastMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.435.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFcMulticastMIBCompliance": {
+    "name": "ciscoFcMulticastMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.435.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfmConfigurationGroup",
+        "module": "CISCO-FC-MULTICAST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmConfigurationGroup": {
+    "name": "cfmConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.435.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-MULTICAST-MIB",
+        "object": "cfmMulticastRootConfigMode"
+      },
+      {
+        "module": "CISCO-FC-MULTICAST-MIB",
+        "object": "cfmMulticastRootOperMode"
+      },
+      {
+        "module": "CISCO-FC-MULTICAST-MIB",
+        "object": "cfmMulticastRootDomainId"
+      },
+      {
+        "module": "CISCO-FC-MULTICAST-MIB",
+        "object": "cfmMulticastRootRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-FC-MULTICAST-MIB",
+      "Source digest sha256:8b2a0f5c1241430420d6e0ebc345c342c3da57953f5309a85a483201b6db1faf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-FC-MULTICAST-MIB"
+  }
+}

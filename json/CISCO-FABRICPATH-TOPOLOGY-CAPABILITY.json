@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFabricPathTopologyCapability": {
+    "name": "ciscoFabricPathTopologyCapability",
+    "oid": "1.3.6.1.4.1.9.7.620",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-16 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFabricPathTopologyCapNxOSV06R0202PN7k": {
+    "name": "ciscoFabricPathTopologyCapNxOSV06R0202PN7k",
+    "oid": "1.3.6.1.4.1.9.7.620.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(2) on Nexus 7000 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-FABRICPATH-TOPOLOGY-MIB",
+        "includes": [
+          "cfptTopologyGroup",
+          "cfptTopologyIfGroup",
+          "cfptTopologyIfVlanGroup",
+          "cfptTopologyTreeGroup"
+        ],
+        "variations": [
+          {
+            "object": "cfptTopologyDescr",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyVlansFirst2K",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyVlansSecond2K",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyIfStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cfptTopologyIfRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-FABRICPATH-TOPOLOGY-CAPABILITY",
+      "Source digest sha256:e50ceee1bce23f17aea6c471c6b0a2264b62590c08d5496d4a84701ab1101899",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-FABRICPATH-TOPOLOGY-CAPABILITY"
+  }
+}

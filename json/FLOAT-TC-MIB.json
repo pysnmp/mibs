@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "floatTcMIB": {
+    "name": "floatTcMIB",
+    "oid": "1.3.6.1.2.1.201",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-07-27 00:00",
+        "description": "Initial version, published as RFC 6340."
+      }
+    ]
+  },
+  "Float32TC": {
+    "name": "Float32TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Float64TC": {
+    "name": "Float64TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Float128TC": {
+    "name": "Float128TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FLOAT-TC-MIB",
+      "Source digest sha256:c74eea8533f4b4a00c0416a7c7596f105eeac7d84ca307ed66665e0416d8e432",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FLOAT-TC-MIB"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfUSBPortMIB": {
+    "name": "hpicfUSBPortMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-11 00:00",
+        "description": "Add hpicfUSBPortZeroPowerStatus object "
+      },
+      {
+        "revision": "2008-09-17 00:00",
+        "description": "Move NOTIFICATIONS OID from 3 to 0"
+      },
+      {
+        "revision": "2008-09-10 00:00",
+        "description": "Added NOTIFICATIONS for enabled/disabled"
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Original version"
+      }
+    ]
+  },
+  "hpicfUSBPortConfig": {
+    "name": "hpicfUSBPortConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.1",
+    "class": "objectidentity"
+  },
+  "hpicfUSBPortStatus": {
+    "name": "hpicfUSBPortStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUSBPortZeroPowerStatus": {
+    "name": "hpicfUSBPortZeroPowerStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerUnavailable": 0,
+          "powerOff": 1,
+          "powerOn": 2
+        }
+      }
+    },
+    "default": {
+      "value": "powerOn",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUSBPortNotifications": {
+    "name": "hpicfUSBPortNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.0",
+    "class": "objectidentity"
+  },
+  "hpicfUSBPortEnabled": {
+    "name": "hpicfUSBPortEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfUSBPortDisabled": {
+    "name": "hpicfUSBPortDisabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfUSBPortConformance": {
+    "name": "hpicfUSBPortConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2",
+    "class": "objectidentity"
+  },
+  "hpicfUSBPortGroups": {
+    "name": "hpicfUSBPortGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfUSBPortBaseGroup": {
+    "name": "hpicfUSBPortBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-USBPORT",
+        "object": "hpicfUSBPortStatus"
+      },
+      {
+        "module": "HP-ICF-USBPORT",
+        "object": "hpicfUSBPortZeroPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUSBPortNotificationGroup": {
+    "name": "hpicfUSBPortNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-USBPORT",
+        "object": "hpicfUSBPortEnabled"
+      },
+      {
+        "module": "HP-ICF-USBPORT",
+        "object": "hpicfUSBPortDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUSBPortCompliances": {
+    "name": "hpicfUSBPortCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfUSBPortCompliance": {
+    "name": "hpicfUSBPortCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.53.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfUSBPortBaseGroup",
+        "module": "HP-ICF-USBPORT"
+      },
+      {
+        "object": "hpicfUSBPortNotificationGroup",
+        "module": "HP-ICF-USBPORT"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-USBPORT",
+      "Source digest sha256:bdf82ad837c4231b11ab6778e6151da486e6d947ec540e471c6b6cba6daa4c88",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-USBPORT"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lantronix": {
+    "name": "lantronix",
+    "oid": "1.3.6.1.4.1.244",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-01 00:00",
+        "description": "Added legacy products."
+      },
+      {
+        "revision": "2006-11-10 00:00",
+        "description": "Added sls product."
+      },
+      {
+        "revision": "2004-12-13 00:00",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.244.1",
+    "class": "objectidentity"
+  },
+  "slc": {
+    "name": "slc",
+    "oid": "1.3.6.1.4.1.244.1.1",
+    "class": "objectidentity"
+  },
+  "slk": {
+    "name": "slk",
+    "oid": "1.3.6.1.4.1.244.1.8",
+    "class": "objectidentity"
+  },
+  "slp": {
+    "name": "slp",
+    "oid": "1.3.6.1.4.1.244.1.9",
+    "class": "objectidentity"
+  },
+  "slm": {
+    "name": "slm",
+    "oid": "1.3.6.1.4.1.244.1.10",
+    "class": "objectidentity"
+  },
+  "sls": {
+    "name": "sls",
+    "oid": "1.3.6.1.4.1.244.1.11",
+    "class": "objectidentity"
+  },
+  "ltxlna": {
+    "name": "ltxlna",
+    "oid": "1.3.6.1.4.1.244.10",
+    "class": "objectidentity"
+  },
+  "ltxlrp": {
+    "name": "ltxlrp",
+    "oid": "1.3.6.1.4.1.244.11",
+    "class": "objectidentity"
+  },
+  "ltxlsw": {
+    "name": "ltxlsw",
+    "oid": "1.3.6.1.4.1.244.12",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LANTRONIX-MIB",
+      "Source digest sha256:8f4421b5f63bc7ae77dfaf6c395ba5cf4c5fee56ae705be25be3a062368fc092",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LANTRONIX-MIB"
+  }
+}

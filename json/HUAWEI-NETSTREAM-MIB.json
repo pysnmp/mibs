@@ -1,0 +1,242 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "BITS",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwNetStreamMIB": {
+    "name": "hwNetStreamMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.110",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-25 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "hwNetStreamObjects": {
+    "name": "hwNetStreamObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1",
+    "class": "objectidentity"
+  },
+  "hwNetStreamNotifications": {
+    "name": "hwNetStreamNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2",
+    "class": "objectidentity"
+  },
+  "hwNetStreamlastchangedtime": {
+    "name": "hwNetStreamlastchangedtime",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNetStreamIfIndexTable": {
+    "name": "hwNetStreamIfIndexTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwNetStreamIfIndexEntry": {
+    "name": "hwNetStreamIfIndexEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStream16BitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwNetStream16BitIndex": {
+    "name": "hwNetStream16BitIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwifNet32BitIndex": {
+    "name": "hwifNet32BitIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNetStreamTemplateRefresh": {
+    "name": "hwNetStreamTemplateRefresh",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNetStreamTrapPrefix": {
+    "name": "hwNetStreamTrapPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0",
+    "class": "objectidentity"
+  },
+  "hwNetStreamIndexStatusChanged": {
+    "name": "hwNetStreamIndexStatusChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwNetStreamIndexUsedUp": {
+    "name": "hwNetStreamIndexUsedUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwNetStreamSessionFull": {
+    "name": "hwNetStreamSessionFull",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwNetstreamConformance": {
+    "name": "hwNetstreamConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3",
+    "class": "objectidentity"
+  },
+  "hwNetstreamGroups": {
+    "name": "hwNetstreamGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1",
+    "class": "objectidentity"
+  },
+  "hwNetstreamCompliances": {
+    "name": "hwNetstreamCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.2",
+    "class": "objectidentity"
+  },
+  "hwNetstreamCompliance": {
+    "name": "hwNetstreamCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwNetstreamExtGroup",
+        "module": "HUAWEI-NETSTREAM-MIB"
+      },
+      {
+        "object": "hwNotificationExtGroup",
+        "module": "HUAWEI-NETSTREAM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNetstreamExtGroup": {
+    "name": "hwNetstreamExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamlastchangedtime"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStream16BitIndex"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwifNet32BitIndex"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamTemplateRefresh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNotificationExtGroup": {
+    "name": "hwNotificationExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamIndexUsedUp"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamIndexStatusChanged"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamSessionFull"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-NETSTREAM-MIB",
+      "Source digest sha256:483d2fd23db69df72aa2ef54273f5811e9f3ad7cb4c45d333a6d6863448320d4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-NETSTREAM-MIB"
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctPriorityExt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctPriorityExtClassifyConfig": {
+    "name": "ctPriorityExtClassifyConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5",
+    "class": "objectidentity"
+  },
+  "pClassifyRTP": {
+    "name": "pClassifyRTP",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1",
+    "class": "objectidentity"
+  },
+  "pClassifyUDP": {
+    "name": "pClassifyUDP",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2",
+    "class": "objectidentity"
+  },
+  "pClassifyRTPLowDelayQueuePreference": {
+    "name": "pClassifyRTPLowDelayQueuePreference",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 7,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyRTCPParsing": {
+    "name": "pClassifyRTCPParsing",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyRTPTable": {
+    "name": "pClassifyRTPTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pClassifyRTPEntry": {
+    "name": "pClassifyRTPEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-PRIORITY-CLASSIFY-MIB",
+        "object": "pClassifyRTPInterfaceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pClassifyRTPInterfaceNumber": {
+    "name": "pClassifyRTPInterfaceNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pClassifyRTPState": {
+    "name": "pClassifyRTPState",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noModification": 1,
+          "onlyQTag": 2,
+          "onlyQTOS": 3,
+          "qTagAndQTOS": 4
+        }
+      }
+    },
+    "default": {
+      "value": "noModification",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyRTPTOSPrecedence": {
+    "name": "pClassifyRTPTOSPrecedence",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 7,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyRTPTagPriority": {
+    "name": "pClassifyRTPTagPriority",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 7,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyRTPTagVID": {
+    "name": "pClassifyRTPTagVID",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyUDPTable": {
+    "name": "pClassifyUDPTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pClassifyUDPEntry": {
+    "name": "pClassifyUDPEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-PRIORITY-CLASSIFY-MIB",
+        "object": "pClassifyUDPPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pClassifyUDPPortNumber": {
+    "name": "pClassifyUDPPortNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyUDPState": {
+    "name": "pClassifyUDPState",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "remove": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pClassifyUDPLowDelayQueuePreference": {
+    "name": "pClassifyUDPLowDelayQueuePreference",
+    "oid": "1.3.6.1.4.1.52.4.1.2.14.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 7,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CT-PRIORITY-CLASSIFY-MIB",
+      "Source digest sha256:44b86d3c78bad2ffd96df33143969da8502ca12e53afca3b0dbc2907bf1f5323",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CT-PRIORITY-CLASSIFY-MIB"
+  }
+}

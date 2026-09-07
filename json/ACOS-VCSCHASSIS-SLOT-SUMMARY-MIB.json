@@ -1,0 +1,589 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vcsChassisSlotSummaryModule": {
+    "name": "vcsChassisSlotSummaryModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19",
+    "class": "moduleidentity"
+  },
+  "slotSummary": {
+    "name": "slotSummary",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1",
+    "class": "objectidentity"
+  },
+  "slotSummaryOperTable": {
+    "name": "slotSummaryOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperEntry": {
+    "name": "slotSummaryOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperSlotId": {
+    "name": "slotSummaryOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVcsEnabled": {
+    "name": "slotSummaryOperVcsEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperChassisId": {
+    "name": "slotSummaryOperChassisId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMulticastAddr": {
+    "name": "slotSummaryOperMulticastAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMulticastPort": {
+    "name": "slotSummaryOperMulticastPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVersion": {
+    "name": "slotSummaryOperVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVmasterMaintenanceInterval": {
+    "name": "slotSummaryOperVmasterMaintenanceInterval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVmasterMaintenanceLeft": {
+    "name": "slotSummaryOperVmasterMaintenanceLeft",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListTable": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListEntry": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperVcsHandshakeCompletedListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListSlotId": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted": {
+    "name": "slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListTable": {
+    "name": "slotSummaryOperFloatingIpv4ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListEntry": {
+    "name": "slotSummaryOperFloatingIpv4ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperFloatingIpv4ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListSlotId": {
+    "name": "slotSummaryOperFloatingIpv4ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId": {
+    "name": "slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListFloatingIpv4": {
+    "name": "slotSummaryOperFloatingIpv4ListFloatingIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv4ListFloatingIpv4Mask": {
+    "name": "slotSummaryOperFloatingIpv4ListFloatingIpv4Mask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListTable": {
+    "name": "slotSummaryOperFloatingIpv6ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListEntry": {
+    "name": "slotSummaryOperFloatingIpv6ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperFloatingIpv6ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListSlotId": {
+    "name": "slotSummaryOperFloatingIpv6ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId": {
+    "name": "slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListFloatingIpv6": {
+    "name": "slotSummaryOperFloatingIpv6ListFloatingIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperFloatingIpv6ListFloatingIpv6Prefix": {
+    "name": "slotSummaryOperFloatingIpv6ListFloatingIpv6Prefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListTable": {
+    "name": "slotSummaryOperMemberListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListEntry": {
+    "name": "slotSummaryOperMemberListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperMemberListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperMemberListMemberListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperMemberListSlotId": {
+    "name": "slotSummaryOperMemberListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListMemberListListId": {
+    "name": "slotSummaryOperMemberListMemberListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListId": {
+    "name": "slotSummaryOperMemberListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListState": {
+    "name": "slotSummaryOperMemberListState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListPriority": {
+    "name": "slotSummaryOperMemberListPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListPort": {
+    "name": "slotSummaryOperMemberListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListLocation": {
+    "name": "slotSummaryOperMemberListLocation",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListTable": {
+    "name": "slotSummaryOperMemberListIpListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListEntry": {
+    "name": "slotSummaryOperMemberListIpListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperMemberListIpListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperMemberListIpListMemberListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+        "object": "slotSummaryOperMemberListIpListIpListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListSlotId": {
+    "name": "slotSummaryOperMemberListIpListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListMemberListListId": {
+    "name": "slotSummaryOperMemberListIpListMemberListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListIpListListId": {
+    "name": "slotSummaryOperMemberListIpListIpListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotSummaryOperMemberListIpListIp": {
+    "name": "slotSummaryOperMemberListIpListIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.19.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB",
+      "Source digest sha256:ceb84454631a1258399c8190db63e14cfb7afaae2ac81a0f6a84566f56708c64",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB"
+  }
+}

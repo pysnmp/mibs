@@ -1,0 +1,297 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "MPLS-TC-EXT-STD-MIB": [
+      "MplsCcId",
+      "MplsIccId"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelIndex",
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelInstance"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlRequestResultType",
+      "SleControlStatusType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "zeroDotZero"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleMplsTpNode": {
+    "name": "sleMplsTpNode",
+    "oid": "1.3.6.1.4.1.6296.101.16.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-07-15 00:00",
+        "description": "MPLS_TP node configuration table"
+      }
+    ]
+  },
+  "sleMpls": {
+    "name": "sleMpls",
+    "oid": "1.3.6.1.4.1.6296.101.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfg": {
+    "name": "sleMplsTpNodeCfg",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1",
+    "class": "objectidentity"
+  },
+  "sleMplsTpNodeCfgInfo": {
+    "name": "sleMplsTpNodeCfgInfo",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1",
+    "class": "objectidentity"
+  },
+  "sleMplsTpNodeCfgInfoGlobalId": {
+    "name": "sleMplsTpNodeCfgInfoGlobalId",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgInfoItutCc": {
+    "name": "sleMplsTpNodeCfgInfoItutCc",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsCcId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgInfoItutIcc": {
+    "name": "sleMplsTpNodeCfgInfoItutIcc",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgInfoNodeId": {
+    "name": "sleMplsTpNodeCfgInfoNodeId",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgInfoNodeType": {
+    "name": "sleMplsTpNodeCfgInfoNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "itut": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControl": {
+    "name": "sleMplsTpNodeCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpNodeCfgControlRequest": {
+    "name": "sleMplsTpNodeCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setMplsTpNode": 1,
+          "unsetMplsTpNode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlStatus": {
+    "name": "sleMplsTpNodeCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlTimer": {
+    "name": "sleMplsTpNodeCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlTimestamp": {
+    "name": "sleMplsTpNodeCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlReqResult": {
+    "name": "sleMplsTpNodeCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlGlobalId": {
+    "name": "sleMplsTpNodeCfgControlGlobalId",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlItutCc": {
+    "name": "sleMplsTpNodeCfgControlItutCc",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsCcId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlItutIcc": {
+    "name": "sleMplsTpNodeCfgControlItutIcc",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlNodeId": {
+    "name": "sleMplsTpNodeCfgControlNodeId",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpNodeCfgControlNodeType": {
+    "name": "sleMplsTpNodeCfgControlNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.16.13.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "itut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SLE-MPLS-TP-NODE-MIB",
+      "Source digest sha256:4a3520c0d52022c68b7b9abb46b8cb9d98d60c6c0e5130e2198c4e1543ad3ac7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SLE-MPLS-TP-NODE-MIB"
+  }
+}

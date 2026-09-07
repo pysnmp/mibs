@@ -1,0 +1,376 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL3"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "gbnL3DhcpRelay": {
+    "name": "gbnL3DhcpRelay",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1901-05-03 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "dhcpRelayEnableStatus": {
+    "name": "dhcpRelayEnableStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelayDebugStatus": {
+    "name": "dhcpRelayDebugStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dhcpRelayGroupTable": {
+    "name": "dhcpRelayGroupTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpRelayGroupEntry": {
+    "name": "dhcpRelayGroupEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelaySvrGroupNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpRelaySvrGroupNo": {
+    "name": "dhcpRelaySvrGroupNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayServerIp": {
+    "name": "dhcpRelayServerIp",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelayIfaceTable": {
+    "name": "dhcpRelayIfaceTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpRelayIfaceEntry": {
+    "name": "dhcpRelayIfaceEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelaySvrVlanIfaceNo",
+        "implied": 0
+      },
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelayVlanIfaceGroupNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpRelaySvrVlanIfaceNo": {
+    "name": "dhcpRelaySvrVlanIfaceNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayVlanIfaceGroupNo": {
+    "name": "dhcpRelayVlanIfaceGroupNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayVlanIfaceServerNo": {
+    "name": "dhcpRelayVlanIfaceServerNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelayHideServerIp": {
+    "name": "dhcpRelayHideServerIp",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelayMaxHops": {
+    "name": "dhcpRelayMaxHops",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelayClientTable": {
+    "name": "dhcpRelayClientTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpRelayClientEntry": {
+    "name": "dhcpRelayClientEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelayUserMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpRelayUserMac": {
+    "name": "dhcpRelayUserMac",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayVlanId": {
+    "name": "dhcpRelayVlanId",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayIpAddress": {
+    "name": "dhcpRelayIpAddress",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelayHostName": {
+    "name": "dhcpRelayHostName",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRelaySvrTraps": {
+    "name": "dhcpRelaySvrTraps",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.8",
+    "class": "objectidentity"
+  },
+  "dhcpRelaySvrTrapEnable": {
+    "name": "dhcpRelaySvrTrapEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRelaySvrClientTrap": {
+    "name": "dhcpRelaySvrClientTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.5.8.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelayUserMac"
+      },
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelayVlanId"
+      },
+      {
+        "module": "GBNL3DhcpRelay-MIB",
+        "object": "dhcpRelayIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNL3DhcpRelay-MIB",
+      "Source digest sha256:d10dc97098035cb4a24e064e80659de2ba00f008c05b43f090981dd17cd45041",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNL3DhcpRelay-MIB"
+  }
+}

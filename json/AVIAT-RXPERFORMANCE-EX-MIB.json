@@ -1,0 +1,505 @@
+{
+  "imports": {
+    "class": "imports",
+    "AVIAT-RXPERFORMANCE-MIB": [
+      "aviatRxPerformDayIndex",
+      "aviatRxPerformDayPeriod",
+      "aviatRxPerformQHourIndex",
+      "aviatRxPerformQHourPeriod"
+    ],
+    "AVIAT-TEXTCONVENTION-MIB": [
+      "AviatPowerLevel"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "STXN-GLOBALREGISTER-MIB": [
+      "aviatModules"
+    ]
+  },
+  "aviatRxPerformanceExModule": {
+    "name": "aviatRxPerformanceExModule",
+    "oid": "1.3.6.1.4.1.2509.9.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-21 01:57",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "aviatRxPerformanceExConf": {
+    "name": "aviatRxPerformanceExConf",
+    "oid": "1.3.6.1.4.1.2509.9.33.1",
+    "class": "objectidentity"
+  },
+  "aviatRxPerformanceExGroups": {
+    "name": "aviatRxPerformanceExGroups",
+    "oid": "1.3.6.1.4.1.2509.9.33.1.1",
+    "class": "objectidentity"
+  },
+  "aviatRxPerformanceExCompl": {
+    "name": "aviatRxPerformanceExCompl",
+    "oid": "1.3.6.1.4.1.2509.9.33.1.2",
+    "class": "objectidentity"
+  },
+  "aviatRxPerformanceExMIBObjs": {
+    "name": "aviatRxPerformanceExMIBObjs",
+    "oid": "1.3.6.1.4.1.2509.9.33.2",
+    "class": "objectidentity"
+  },
+  "aviatRxPerformExTable": {
+    "name": "aviatRxPerformExTable",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRxPerformExEntry": {
+    "name": "aviatRxPerformExEntry",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRxPerformCinrReadingMean": {
+    "name": "aviatRxPerformCinrReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformCinrReadingCurrent": {
+    "name": "aviatRxPerformCinrReadingCurrent",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformCinrReadingMax": {
+    "name": "aviatRxPerformCinrReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformCinrReadingMin": {
+    "name": "aviatRxPerformCinrReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformTxpowReadingMean": {
+    "name": "aviatRxPerformTxpowReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformTxpowReadingCurrent": {
+    "name": "aviatRxPerformTxpowReadingCurrent",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformTxpowReadingMax": {
+    "name": "aviatRxPerformTxpowReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformTxpowReadingMin": {
+    "name": "aviatRxPerformTxpowReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQuarterHourExTable": {
+    "name": "aviatRxPerformQuarterHourExTable",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRxPerformQuarterHourExEntry": {
+    "name": "aviatRxPerformQuarterHourExEntry",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-MIB",
+        "object": "aviatRxPerformQHourIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-MIB",
+        "object": "aviatRxPerformQHourPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRxPerformQHourCinrReadingMean": {
+    "name": "aviatRxPerformQHourCinrReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQHourCinrReadingMax": {
+    "name": "aviatRxPerformQHourCinrReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQHourCinrReadingMin": {
+    "name": "aviatRxPerformQHourCinrReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQHourTxpowReadingMean": {
+    "name": "aviatRxPerformQHourTxpowReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQHourTxpowReadingMax": {
+    "name": "aviatRxPerformQHourTxpowReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformQHourTxpowReadingMin": {
+    "name": "aviatRxPerformQHourTxpowReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayExTable": {
+    "name": "aviatRxPerformDayExTable",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRxPerformDayExEntry": {
+    "name": "aviatRxPerformDayExEntry",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-MIB",
+        "object": "aviatRxPerformDayIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-MIB",
+        "object": "aviatRxPerformDayPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRxPerformDayCinrReadingMean": {
+    "name": "aviatRxPerformDayCinrReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayCinrReadingMax": {
+    "name": "aviatRxPerformDayCinrReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayCinrReadingMin": {
+    "name": "aviatRxPerformDayCinrReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayTxpowReadingMean": {
+    "name": "aviatRxPerformDayTxpowReadingMean",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayTxpowReadingMax": {
+    "name": "aviatRxPerformDayTxpowReadingMax",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformDayTxpowReadingMin": {
+    "name": "aviatRxPerformDayTxpowReadingMin",
+    "oid": "1.3.6.1.4.1.2509.9.33.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRxPerformExObjectGroup": {
+    "name": "aviatRxPerformExObjectGroup",
+    "oid": "1.3.6.1.4.1.2509.9.33.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformCinrReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformCinrReadingCurrent"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformCinrReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformCinrReadingMin"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformTxpowReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformTxpowReadingCurrent"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformTxpowReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformTxpowReadingMin"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourCinrReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourCinrReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourCinrReadingMin"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourTxpowReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourTxpowReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformQHourTxpowReadingMin"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayCinrReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayCinrReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayCinrReadingMin"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayTxpowReadingMean"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayTxpowReadingMax"
+      },
+      {
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB",
+        "object": "aviatRxPerformDayTxpowReadingMin"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRxPerformanceExComplV1": {
+    "name": "aviatRxPerformanceExComplV1",
+    "oid": "1.3.6.1.4.1.2509.9.33.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aviatRxPerformExObjectGroup",
+        "module": "AVIAT-RXPERFORMANCE-EX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AVIAT-RXPERFORMANCE-EX-MIB",
+      "Source digest sha256:e9ab477ef86008b0acd2d0ed077c511ec053f9f5185c6f385b5ef4cfa249e793",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AVIAT-RXPERFORMANCE-EX-MIB"
+  }
+}

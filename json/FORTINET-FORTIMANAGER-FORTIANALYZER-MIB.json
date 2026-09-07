@@ -1,0 +1,4770 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORTINET-CORE-MIB": [
+      "FnBoolState",
+      "FnIndex",
+      "fnGenTrapMsg",
+      "fnSysSerial",
+      "fortinet"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fnFortiManagerMib": {
+    "name": "fnFortiManagerMib",
+    "oid": "1.3.6.1.4.1.12356.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-04-23 00:00",
+        "description": "Add the following objects. fmDeviceEntLogRateHour, fmDeviceEntLogRateDay, fmDeviceEntLogRateWeek, fmDeviceEntArchiveLogUsedSpace, fmAdomEntLogRateMinute, fmAdomEntArchiveLogRetention, fmAdomEntArchiveLogQuota, fmAdomEntArchiveLogUsedSpacePercent, fmAdomEntArchiveLogUsedSpace, fmAdomEntAnalyticsLogRetention, fmAdomEntAnalyticsLogQuota, fmAdomEntAnalyticsLogUsedSpacePercent, fmAdomEntAnalyticsLogUsedSpace, fmAdomEntLicGbDayToday, fmAdomEntLicGbDayYesterday, fmAdomEntLicGbDayWeekAvg, fmSysLogRateHr, fmSysLogIndexingRate, fmSysLogLagTime, fmSysLicGbDayToday, fmSysLicGbDayYesterday, fmSysLicGbDayWeekAvg, fmSysDiskInfo, fmSysDiskTable, fmSysLogForwardInfo, fmSysLogForwardTable."
+      },
+      {
+        "revision": "2022-02-04 00:00",
+        "description": "Add support for UM (FDS/FGD service)."
+      },
+      {
+        "revision": "2021-05-13 00:00",
+        "description": "Change fmDeviceEntPolicyPackageState syntax."
+      },
+      {
+        "revision": "2020-02-12 00:00",
+        "description": "Add fmVdomNumber."
+      },
+      {
+        "revision": "2019-08-21 00:00",
+        "description": "HW sensors."
+      },
+      {
+        "revision": "2018-08-07 00:00",
+        "description": "NPI faz800F, fmg300F."
+      },
+      {
+        "revision": "2017-10-13 00:00",
+        "description": "NPI faz200F, faz300F, fmg200F."
+      },
+      {
+        "revision": "2017-07-27 00:00",
+        "description": "Added model names faz1000E, fmg400E, faz400E, fmg300E, faz3500F, faz3000F, fmg3000F, faz2000E, fmg2000E, faz3700F."
+      },
+      {
+        "revision": "2017-06-28 00:00",
+        "description": "Add fmSysVersion,fmSysUpTime,fmLogRate,fmAdom,fmDevice,fmRaid,fmPower,fmHa"
+      },
+      {
+        "revision": "2015-08-15 00:00",
+        "description": "NPI faz200E, fmg200E."
+      },
+      {
+        "revision": "2015-06-12 00:00",
+        "description": "Add model names faz3000E, fmg4000E, faz1000D, fmg1000D."
+      },
+      {
+        "revision": "2014-04-22 00:00",
+        "description": "Added fmSysCpuUsageExcludedNice. Added fmTrapCpuThresholdExcludeNice."
+      },
+      {
+        "revision": "2013-06-10 00:00",
+        "description": "Add support for FortiAnalyzer."
+      },
+      {
+        "revision": "2013-03-27 00:00",
+        "description": "Added license gb/day and device quota trap. fmTrapLicGbDayThreshold and fmTrapLicDevQuotaThreshold"
+      },
+      {
+        "revision": "2012-11-26 00:00",
+        "description": "Added commas between notifications in NOTIFICATION-GROUP. Added imports from SNMPv2-SMI and SNMPv2-TC. imported `OBJECT-GROUP' from module SNMPv2-CONF"
+      },
+      {
+        "revision": "2012-04-20 00:00",
+        "description": "Added RAID trap fmTrapRAIDStatusChange."
+      },
+      {
+        "revision": "2011-03-25 00:00",
+        "description": "Added fmSysMemUsed,fmSysMemCapacity,fmSysCpuUsage. Added new FortiManager models."
+      },
+      {
+        "revision": "2011-01-19 00:00",
+        "description": "MIB module for Fortinet FortiManager devices."
+      },
+      {
+        "revision": "2008-07-18 00:00",
+        "description": "Add sysName to fmTrapHASwitch."
+      },
+      {
+        "revision": "2008-06-26 00:00",
+        "description": "OID correction for fnFortiManagerMib."
+      },
+      {
+        "revision": "2008-06-16 00:00",
+        "description": "Spelling corrections."
+      },
+      {
+        "revision": "2008-06-10 00:00",
+        "description": "Initial version of FORTINET-FORTIMANAGER-MIB."
+      }
+    ]
+  },
+  "FmTenths": {
+    "name": "FmTenths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "FmHundredths": {
+    "name": "FmHundredths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "FmRAIDStatusCode": {
+    "name": "FmRAIDStatusCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arrayOK": 1,
+          "arrayDegraded": 2,
+          "arrayFailed": 3,
+          "arrayRebuilding": 4,
+          "arrayRebuildingStarted": 5,
+          "arrayRebuildingFinished": 6,
+          "arrayInitializing": 7,
+          "arrayInitializingStarted": 8,
+          "arrayInitializingFinished": 9,
+          "diskOk": 10,
+          "diskDegraded": 11,
+          "diskFailEvent": 12,
+          "diskUnavailable": 100,
+          "diskUnused": 101,
+          "diskOK": 102,
+          "diskRebuilding": 103,
+          "diskFailed": 104,
+          "diskSpare": 105,
+          "raidUnavailable": 200,
+          "raidOK": 201,
+          "raidDegraded": 202,
+          "raidFailed": 203,
+          "raidBackground-Initializing": 204,
+          "raidBackground-Verifying": 205,
+          "raidBackground-Rebuilding": 206
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmSessProto": {
+    "name": "FmSessProto",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 0,
+          "icmp": 1,
+          "igmp": 2,
+          "ipip": 4,
+          "tcp": 6,
+          "egp": 8,
+          "pup": 12,
+          "udp": 17,
+          "idp": 22,
+          "ipv6": 41,
+          "rsvp": 46,
+          "gre": 47,
+          "esp": 50,
+          "ah": 51,
+          "ospf": 89,
+          "pim": 103,
+          "comp": 108,
+          "raw": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmTraps": {
+    "name": "fmTraps",
+    "oid": "1.3.6.1.4.1.12356.103.0",
+    "class": "objectidentity"
+  },
+  "fmTrapPrefix": {
+    "name": "fmTrapPrefix",
+    "oid": "1.3.6.1.4.1.12356.103.0.0",
+    "class": "objectidentity"
+  },
+  "fmTrapObject": {
+    "name": "fmTrapObject",
+    "oid": "1.3.6.1.4.1.12356.103.0.1",
+    "class": "objectidentity"
+  },
+  "fmRAIDStatus": {
+    "name": "fmRAIDStatus",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmRAIDStatusCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmRAIDDevIndex": {
+    "name": "fmRAIDDevIndex",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLogRate": {
+    "name": "fmLogRate",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLogRateThreshold": {
+    "name": "fmLogRateThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLogDataRate": {
+    "name": "fmLogDataRate",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLogDataRateThreshold": {
+    "name": "fmLogDataRateThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLicGbDay": {
+    "name": "fmLicGbDay",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLicGbDayThreshold": {
+    "name": "fmLicGbDayThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLicDevQuota": {
+    "name": "fmLicDevQuota",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmLicDevQuotaThreshold": {
+    "name": "fmLicDevQuotaThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmSensorName": {
+    "name": "fmSensorName",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmModel": {
+    "name": "fmModel",
+    "oid": "1.3.6.1.4.1.12356.103.1",
+    "class": "objectidentity"
+  },
+  "fmgvm": {
+    "name": "fmgvm",
+    "oid": "1.3.6.1.4.1.12356.103.1.64",
+    "class": "objectidentity"
+  },
+  "fmg100": {
+    "name": "fmg100",
+    "oid": "1.3.6.1.4.1.12356.103.1.1000",
+    "class": "objectidentity"
+  },
+  "fmg100C": {
+    "name": "fmg100C",
+    "oid": "1.3.6.1.4.1.12356.103.1.1003",
+    "class": "objectidentity"
+  },
+  "fmg200D": {
+    "name": "fmg200D",
+    "oid": "1.3.6.1.4.1.12356.103.1.2004",
+    "class": "objectidentity"
+  },
+  "fmg200E": {
+    "name": "fmg200E",
+    "oid": "1.3.6.1.4.1.12356.103.1.2005",
+    "class": "objectidentity"
+  },
+  "fmg200F": {
+    "name": "fmg200F",
+    "oid": "1.3.6.1.4.1.12356.103.1.2006",
+    "class": "objectidentity"
+  },
+  "fmg200G": {
+    "name": "fmg200G",
+    "oid": "1.3.6.1.4.1.12356.103.1.2007",
+    "class": "objectidentity"
+  },
+  "fmg300D": {
+    "name": "fmg300D",
+    "oid": "1.3.6.1.4.1.12356.103.1.3004",
+    "class": "objectidentity"
+  },
+  "fmg300E": {
+    "name": "fmg300E",
+    "oid": "1.3.6.1.4.1.12356.103.1.3005",
+    "class": "objectidentity"
+  },
+  "fmg300F": {
+    "name": "fmg300F",
+    "oid": "1.3.6.1.4.1.12356.103.1.3006",
+    "class": "objectidentity"
+  },
+  "fmg400": {
+    "name": "fmg400",
+    "oid": "1.3.6.1.4.1.12356.103.1.4000",
+    "class": "objectidentity"
+  },
+  "fmg400A": {
+    "name": "fmg400A",
+    "oid": "1.3.6.1.4.1.12356.103.1.4001",
+    "class": "objectidentity"
+  },
+  "fmg400B": {
+    "name": "fmg400B",
+    "oid": "1.3.6.1.4.1.12356.103.1.4002",
+    "class": "objectidentity"
+  },
+  "fmg400C": {
+    "name": "fmg400C",
+    "oid": "1.3.6.1.4.1.12356.103.1.4003",
+    "class": "objectidentity"
+  },
+  "fmg400E": {
+    "name": "fmg400E",
+    "oid": "1.3.6.1.4.1.12356.103.1.4005",
+    "class": "objectidentity"
+  },
+  "fmg400G": {
+    "name": "fmg400G",
+    "oid": "1.3.6.1.4.1.12356.103.1.4007",
+    "class": "objectidentity"
+  },
+  "fmg410G": {
+    "name": "fmg410G",
+    "oid": "1.3.6.1.4.1.12356.103.1.4107",
+    "class": "objectidentity"
+  },
+  "fmg1000C": {
+    "name": "fmg1000C",
+    "oid": "1.3.6.1.4.1.12356.103.1.10003",
+    "class": "objectidentity"
+  },
+  "fmg1000D": {
+    "name": "fmg1000D",
+    "oid": "1.3.6.1.4.1.12356.103.1.10004",
+    "class": "objectidentity"
+  },
+  "fmg1000F": {
+    "name": "fmg1000F",
+    "oid": "1.3.6.1.4.1.12356.103.1.10006",
+    "class": "objectidentity"
+  },
+  "fmg1000G": {
+    "name": "fmg1000G",
+    "oid": "1.3.6.1.4.1.12356.103.1.10007",
+    "class": "objectidentity"
+  },
+  "fmg2000E": {
+    "name": "fmg2000E",
+    "oid": "1.3.6.1.4.1.12356.103.1.20005",
+    "class": "objectidentity"
+  },
+  "fmg2000XL": {
+    "name": "fmg2000XL",
+    "oid": "1.3.6.1.4.1.12356.103.1.20000",
+    "class": "objectidentity"
+  },
+  "fmg3000": {
+    "name": "fmg3000",
+    "oid": "1.3.6.1.4.1.12356.103.1.30000",
+    "class": "objectidentity"
+  },
+  "fmg3000B": {
+    "name": "fmg3000B",
+    "oid": "1.3.6.1.4.1.12356.103.1.30002",
+    "class": "objectidentity"
+  },
+  "fmg3000C": {
+    "name": "fmg3000C",
+    "oid": "1.3.6.1.4.1.12356.103.1.30003",
+    "class": "objectidentity"
+  },
+  "fmg3000F": {
+    "name": "fmg3000F",
+    "oid": "1.3.6.1.4.1.12356.103.1.30006",
+    "class": "objectidentity"
+  },
+  "fmg3000G": {
+    "name": "fmg3000G",
+    "oid": "1.3.6.1.4.1.12356.103.1.30007",
+    "class": "objectidentity"
+  },
+  "fmg3100G": {
+    "name": "fmg3100G",
+    "oid": "1.3.6.1.4.1.12356.103.1.31007",
+    "class": "objectidentity"
+  },
+  "fmg3700F": {
+    "name": "fmg3700F",
+    "oid": "1.3.6.1.4.1.12356.103.1.37006",
+    "class": "objectidentity"
+  },
+  "fmg3700G": {
+    "name": "fmg3700G",
+    "oid": "1.3.6.1.4.1.12356.103.1.37007",
+    "class": "objectidentity"
+  },
+  "fmg3900E": {
+    "name": "fmg3900E",
+    "oid": "1.3.6.1.4.1.12356.103.1.39005",
+    "class": "objectidentity"
+  },
+  "fmg4000D": {
+    "name": "fmg4000D",
+    "oid": "1.3.6.1.4.1.12356.103.1.40004",
+    "class": "objectidentity"
+  },
+  "fmg4000E": {
+    "name": "fmg4000E",
+    "oid": "1.3.6.1.4.1.12356.103.1.40005",
+    "class": "objectidentity"
+  },
+  "fmg5001A": {
+    "name": "fmg5001A",
+    "oid": "1.3.6.1.4.1.12356.103.1.50011",
+    "class": "objectidentity"
+  },
+  "fmSystem": {
+    "name": "fmSystem",
+    "oid": "1.3.6.1.4.1.12356.103.2",
+    "class": "objectidentity"
+  },
+  "fmSystemInfo": {
+    "name": "fmSystemInfo",
+    "oid": "1.3.6.1.4.1.12356.103.2.1",
+    "class": "objectidentity"
+  },
+  "fmSysCpuUsage": {
+    "name": "fmSysCpuUsage",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysMemUsed": {
+    "name": "fmSysMemUsed",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysMemCapacity": {
+    "name": "fmSysMemCapacity",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskUsage": {
+    "name": "fmSysDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskCapacity": {
+    "name": "fmSysDiskCapacity",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysCpuUsageExcludedNice": {
+    "name": "fmSysCpuUsageExcludedNice",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysVersion": {
+    "name": "fmSysVersion",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysUpTime": {
+    "name": "fmSysUpTime",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogRate": {
+    "name": "fmSysLogRate",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogRateHr": {
+    "name": "fmSysLogRateHr",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogIndexingRate": {
+    "name": "fmSysLogIndexingRate",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogLagTime": {
+    "name": "fmSysLogLagTime",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLicGbDayToday": {
+    "name": "fmSysLicGbDayToday",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLicGbDayYesterday": {
+    "name": "fmSysLicGbDayYesterday",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLicGbDayWeekAvg": {
+    "name": "fmSysLicGbDayWeekAvg",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskInfo": {
+    "name": "fmSysDiskInfo",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.16",
+    "class": "objectidentity"
+  },
+  "fmSysDiskNumber": {
+    "name": "fmSysDiskNumber",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskTable": {
+    "name": "fmSysDiskTable",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmSysDiskEntry": {
+    "name": "fmSysDiskEntry",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmSysDiskEntIndex": {
+    "name": "fmSysDiskEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmSysDiskEntName": {
+    "name": "fmSysDiskEntName",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskEntUsage": {
+    "name": "fmSysDiskEntUsage",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskEntCapacity": {
+    "name": "fmSysDiskEntCapacity",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysDiskEntIOUtil": {
+    "name": "fmSysDiskEntIOUtil",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmTenths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogForwardInfo": {
+    "name": "fmSysLogForwardInfo",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.18",
+    "class": "objectidentity"
+  },
+  "fmSysLogForwardNumber": {
+    "name": "fmSysLogForwardNumber",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogForwardTable": {
+    "name": "fmSysLogForwardTable",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmSysLogForwardEntry": {
+    "name": "fmSysLogForwardEntry",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogForwardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmSysLogForwardIndex": {
+    "name": "fmSysLogForwardIndex",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmSysLogForwardName": {
+    "name": "fmSysLogForwardName",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSysLogForwardRate": {
+    "name": "fmSysLogForwardRate",
+    "oid": "1.3.6.1.4.1.12356.103.2.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmTrapHASwitch": {
+    "name": "fmTrapHASwitch",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapRAIDStatusChange": {
+    "name": "fmTrapRAIDStatusChange",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmRAIDStatus"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmRAIDDevIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapLogAlert": {
+    "name": "fmTrapLogAlert",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnGenTrapMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapLogRateThreshold": {
+    "name": "fmTrapLogRateThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogRateThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapLogDataRateThreshold": {
+    "name": "fmTrapLogDataRateThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogDataRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogDataRateThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapLicGbDayThreshold": {
+    "name": "fmTrapLicGbDayThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.407",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicGbDay"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicGbDayThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapLicDevQuotaThreshold": {
+    "name": "fmTrapLicDevQuotaThreshold",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.408",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicDevQuota"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicDevQuotaThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapCpuThresholdExcludeNice": {
+    "name": "fmTrapCpuThresholdExcludeNice",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.409",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapPowerStateChange": {
+    "name": "fmTrapPowerStateChange",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.410",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapFanStateChange": {
+    "name": "fmTrapFanStateChange",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.411",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapTemperatureStateChange": {
+    "name": "fmTrapTemperatureStateChange",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.412",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmTrapVoltageStateChange": {
+    "name": "fmTrapVoltageStateChange",
+    "oid": "1.3.6.1.4.1.12356.103.0.0.413",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorName"
+      }
+    ],
+    "status": "current"
+  },
+  "faModel": {
+    "name": "faModel",
+    "oid": "1.3.6.1.4.1.12356.103.3",
+    "class": "objectidentity"
+  },
+  "fazvm": {
+    "name": "fazvm",
+    "oid": "1.3.6.1.4.1.12356.103.3.64",
+    "class": "objectidentity"
+  },
+  "faz100": {
+    "name": "faz100",
+    "oid": "1.3.6.1.4.1.12356.103.3.1000",
+    "class": "objectidentity"
+  },
+  "faz100A": {
+    "name": "faz100A",
+    "oid": "1.3.6.1.4.1.12356.103.3.1001",
+    "class": "objectidentity"
+  },
+  "faz100B": {
+    "name": "faz100B",
+    "oid": "1.3.6.1.4.1.12356.103.3.1002",
+    "class": "objectidentity"
+  },
+  "faz100C": {
+    "name": "faz100C",
+    "oid": "1.3.6.1.4.1.12356.103.3.1003",
+    "class": "objectidentity"
+  },
+  "faz150G": {
+    "name": "faz150G",
+    "oid": "1.3.6.1.4.1.12356.103.3.1507",
+    "class": "objectidentity"
+  },
+  "faz200D": {
+    "name": "faz200D",
+    "oid": "1.3.6.1.4.1.12356.103.3.2004",
+    "class": "objectidentity"
+  },
+  "faz200E": {
+    "name": "faz200E",
+    "oid": "1.3.6.1.4.1.12356.103.3.2005",
+    "class": "objectidentity"
+  },
+  "faz200F": {
+    "name": "faz200F",
+    "oid": "1.3.6.1.4.1.12356.103.3.2006",
+    "class": "objectidentity"
+  },
+  "faz300D": {
+    "name": "faz300D",
+    "oid": "1.3.6.1.4.1.12356.103.3.3004",
+    "class": "objectidentity"
+  },
+  "faz300F": {
+    "name": "faz300F",
+    "oid": "1.3.6.1.4.1.12356.103.3.3006",
+    "class": "objectidentity"
+  },
+  "faz300G": {
+    "name": "faz300G",
+    "oid": "1.3.6.1.4.1.12356.103.3.3007",
+    "class": "objectidentity"
+  },
+  "faz400E": {
+    "name": "faz400E",
+    "oid": "1.3.6.1.4.1.12356.103.3.4005",
+    "class": "objectidentity"
+  },
+  "faz400": {
+    "name": "faz400",
+    "oid": "1.3.6.1.4.1.12356.103.3.4000",
+    "class": "objectidentity"
+  },
+  "faz400B": {
+    "name": "faz400B",
+    "oid": "1.3.6.1.4.1.12356.103.3.4002",
+    "class": "objectidentity"
+  },
+  "faz400C": {
+    "name": "faz400C",
+    "oid": "1.3.6.1.4.1.12356.103.3.4003",
+    "class": "objectidentity"
+  },
+  "faz800": {
+    "name": "faz800",
+    "oid": "1.3.6.1.4.1.12356.103.3.8000",
+    "class": "objectidentity"
+  },
+  "faz800B": {
+    "name": "faz800B",
+    "oid": "1.3.6.1.4.1.12356.103.3.8002",
+    "class": "objectidentity"
+  },
+  "faz800F": {
+    "name": "faz800F",
+    "oid": "1.3.6.1.4.1.12356.103.3.8006",
+    "class": "objectidentity"
+  },
+  "faz800G": {
+    "name": "faz800G",
+    "oid": "1.3.6.1.4.1.12356.103.3.8007",
+    "class": "objectidentity"
+  },
+  "faz810G": {
+    "name": "faz810G",
+    "oid": "1.3.6.1.4.1.12356.103.3.8107",
+    "class": "objectidentity"
+  },
+  "faz1000B": {
+    "name": "faz1000B",
+    "oid": "1.3.6.1.4.1.12356.103.3.10002",
+    "class": "objectidentity"
+  },
+  "faz1000C": {
+    "name": "faz1000C",
+    "oid": "1.3.6.1.4.1.12356.103.3.10003",
+    "class": "objectidentity"
+  },
+  "faz1000D": {
+    "name": "faz1000D",
+    "oid": "1.3.6.1.4.1.12356.103.3.10004",
+    "class": "objectidentity"
+  },
+  "faz1000E": {
+    "name": "faz1000E",
+    "oid": "1.3.6.1.4.1.12356.103.3.10005",
+    "class": "objectidentity"
+  },
+  "faz1000F": {
+    "name": "faz1000F",
+    "oid": "1.3.6.1.4.1.12356.103.3.10006",
+    "class": "objectidentity"
+  },
+  "faz1000G": {
+    "name": "faz1000G",
+    "oid": "1.3.6.1.4.1.12356.103.3.10007",
+    "class": "objectidentity"
+  },
+  "faz2000": {
+    "name": "faz2000",
+    "oid": "1.3.6.1.4.1.12356.103.3.20000",
+    "class": "objectidentity"
+  },
+  "faz2000A": {
+    "name": "faz2000A",
+    "oid": "1.3.6.1.4.1.12356.103.3.20001",
+    "class": "objectidentity"
+  },
+  "faz2000B": {
+    "name": "faz2000B",
+    "oid": "1.3.6.1.4.1.12356.103.3.20002",
+    "class": "objectidentity"
+  },
+  "faz2000E": {
+    "name": "faz2000E",
+    "oid": "1.3.6.1.4.1.12356.103.3.20005",
+    "class": "objectidentity"
+  },
+  "faz3000D": {
+    "name": "faz3000D",
+    "oid": "1.3.6.1.4.1.12356.103.3.30004",
+    "class": "objectidentity"
+  },
+  "faz3000E": {
+    "name": "faz3000E",
+    "oid": "1.3.6.1.4.1.12356.103.3.30005",
+    "class": "objectidentity"
+  },
+  "faz3000F": {
+    "name": "faz3000F",
+    "oid": "1.3.6.1.4.1.12356.103.3.30006",
+    "class": "objectidentity"
+  },
+  "faz3000G": {
+    "name": "faz3000G",
+    "oid": "1.3.6.1.4.1.12356.103.3.30007",
+    "class": "objectidentity"
+  },
+  "faz3100G": {
+    "name": "faz3100G",
+    "oid": "1.3.6.1.4.1.12356.103.3.31007",
+    "class": "objectidentity"
+  },
+  "faz3500E": {
+    "name": "faz3500E",
+    "oid": "1.3.6.1.4.1.12356.103.3.35005",
+    "class": "objectidentity"
+  },
+  "faz3500F": {
+    "name": "faz3500F",
+    "oid": "1.3.6.1.4.1.12356.103.3.35006",
+    "class": "objectidentity"
+  },
+  "faz3500G": {
+    "name": "faz3500G",
+    "oid": "1.3.6.1.4.1.12356.103.3.35007",
+    "class": "objectidentity"
+  },
+  "faz3510G": {
+    "name": "faz3510G",
+    "oid": "1.3.6.1.4.1.12356.103.3.35107",
+    "class": "objectidentity"
+  },
+  "faz3700F": {
+    "name": "faz3700F",
+    "oid": "1.3.6.1.4.1.12356.103.3.37006",
+    "class": "objectidentity"
+  },
+  "faz3700G": {
+    "name": "faz3700G",
+    "oid": "1.3.6.1.4.1.12356.103.3.37007",
+    "class": "objectidentity"
+  },
+  "faz3900E": {
+    "name": "faz3900E",
+    "oid": "1.3.6.1.4.1.12356.103.3.39005",
+    "class": "objectidentity"
+  },
+  "faz4000": {
+    "name": "faz4000",
+    "oid": "1.3.6.1.4.1.12356.103.3.40000",
+    "class": "objectidentity"
+  },
+  "faz4000A": {
+    "name": "faz4000A",
+    "oid": "1.3.6.1.4.1.12356.103.3.40001",
+    "class": "objectidentity"
+  },
+  "faz4000B": {
+    "name": "faz4000B",
+    "oid": "1.3.6.1.4.1.12356.103.3.40002",
+    "class": "objectidentity"
+  },
+  "fmInetProto": {
+    "name": "fmInetProto",
+    "oid": "1.3.6.1.4.1.12356.103.4",
+    "class": "objectidentity"
+  },
+  "fmInetProtoInfo": {
+    "name": "fmInetProtoInfo",
+    "oid": "1.3.6.1.4.1.12356.103.4.1",
+    "class": "objectidentity"
+  },
+  "fmInetProtoTables": {
+    "name": "fmInetProtoTables",
+    "oid": "1.3.6.1.4.1.12356.103.4.2",
+    "class": "objectidentity"
+  },
+  "fmIpSessTable": {
+    "name": "fmIpSessTable",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmIpSessEntry": {
+    "name": "fmIpSessEntry",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmIpSessIndex": {
+    "name": "fmIpSessIndex",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmIpSessProto": {
+    "name": "fmIpSessProto",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmSessProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmIpSessFromAddr": {
+    "name": "fmIpSessFromAddr",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmIpSessFromPort": {
+    "name": "fmIpSessFromPort",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmIpSessToAddr": {
+    "name": "fmIpSessToAddr",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmIpSessToPort": {
+    "name": "fmIpSessToPort",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmIpSessExp": {
+    "name": "fmIpSessExp",
+    "oid": "1.3.6.1.4.1.12356.103.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdom": {
+    "name": "fmAdom",
+    "oid": "1.3.6.1.4.1.12356.103.5",
+    "class": "objectidentity"
+  },
+  "fmAdomInfo": {
+    "name": "fmAdomInfo",
+    "oid": "1.3.6.1.4.1.12356.103.5.1",
+    "class": "objectidentity"
+  },
+  "fmAdomEnabled": {
+    "name": "fmAdomEnabled",
+    "oid": "1.3.6.1.4.1.12356.103.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomNumber": {
+    "name": "fmAdomNumber",
+    "oid": "1.3.6.1.4.1.12356.103.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomMax": {
+    "name": "fmAdomMax",
+    "oid": "1.3.6.1.4.1.12356.103.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomTable": {
+    "name": "fmAdomTable",
+    "oid": "1.3.6.1.4.1.12356.103.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmAdomEntry": {
+    "name": "fmAdomEntry",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmAdomEntIndex": {
+    "name": "fmAdomEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmAdomEntName": {
+    "name": "fmAdomEntName",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntState": {
+    "name": "fmAdomEntState",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmAdomEntMode": {
+    "name": "FmAdomEntMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "backup": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmAdomEntMode": {
+    "name": "fmAdomEntMode",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmAdomEntMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntFgtNumber": {
+    "name": "fmAdomEntFgtNumber",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntPolicyPackageNumber": {
+    "name": "fmAdomEntPolicyPackageNumber",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntOsVersion": {
+    "name": "fmAdomEntOsVersion",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntMr": {
+    "name": "fmAdomEntMr",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmAdomEntVpnMode": {
+    "name": "FmAdomEntVpnMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "central-console": 1,
+          "policy-and-device": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmAdomEntVpnMode": {
+    "name": "fmAdomEntVpnMode",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmAdomEntVpnMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntLogRateMinute": {
+    "name": "fmAdomEntLogRateMinute",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntArchiveLogRetention": {
+    "name": "fmAdomEntArchiveLogRetention",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntArchiveLogQuota": {
+    "name": "fmAdomEntArchiveLogQuota",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntArchiveLogUsedSpace": {
+    "name": "fmAdomEntArchiveLogUsedSpace",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntArchiveLogUsedSpacePercent": {
+    "name": "fmAdomEntArchiveLogUsedSpacePercent",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmTenths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntAnalyticsLogRetention": {
+    "name": "fmAdomEntAnalyticsLogRetention",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntAnalyticsLogQuota": {
+    "name": "fmAdomEntAnalyticsLogQuota",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntAnalyticsLogUsedSpace": {
+    "name": "fmAdomEntAnalyticsLogUsedSpace",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntAnalyticsLogUsedSpacePercent": {
+    "name": "fmAdomEntAnalyticsLogUsedSpacePercent",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmTenths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntLicGbDayToday": {
+    "name": "fmAdomEntLicGbDayToday",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntLicGbDayYesterday": {
+    "name": "fmAdomEntLicGbDayYesterday",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmAdomEntLicGbDayWeekAvg": {
+    "name": "fmAdomEntLicGbDayWeekAvg",
+    "oid": "1.3.6.1.4.1.12356.103.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDevice": {
+    "name": "fmDevice",
+    "oid": "1.3.6.1.4.1.12356.103.6",
+    "class": "objectidentity"
+  },
+  "fmDeviceInfo": {
+    "name": "fmDeviceInfo",
+    "oid": "1.3.6.1.4.1.12356.103.6.1",
+    "class": "objectidentity"
+  },
+  "fmDeviceNumber": {
+    "name": "fmDeviceNumber",
+    "oid": "1.3.6.1.4.1.12356.103.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmVdomNumber": {
+    "name": "fmVdomNumber",
+    "oid": "1.3.6.1.4.1.12356.103.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceTable": {
+    "name": "fmDeviceTable",
+    "oid": "1.3.6.1.4.1.12356.103.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmDeviceEntry": {
+    "name": "fmDeviceEntry",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmDeviceEntIndex": {
+    "name": "fmDeviceEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmDeviceEntName": {
+    "name": "fmDeviceEntName",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntSn": {
+    "name": "fmDeviceEntSn",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntMode": {
+    "name": "FmDeviceEntMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unregistered": 0,
+          "fmg": 1,
+          "faz": 2,
+          "fmg-faz": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntMode": {
+    "name": "fmDeviceEntMode",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntAdom": {
+    "name": "fmDeviceEntAdom",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntIp": {
+    "name": "fmDeviceEntIp",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntOsVersion": {
+    "name": "fmDeviceEntOsVersion",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntMr": {
+    "name": "fmDeviceEntMr",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntBuild": {
+    "name": "fmDeviceEntBuild",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntHaMode": {
+    "name": "FmDeviceEntHaMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 0,
+          "a-p": 1,
+          "a-a": 2,
+          "elbc": 3,
+          "dual": 4,
+          "fmg": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntHaMode": {
+    "name": "fmDeviceEntHaMode",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntHaMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntHaGroup": {
+    "name": "fmDeviceEntHaGroup",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntConnectState": {
+    "name": "FmDeviceEntConnectState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntConnectState": {
+    "name": "fmDeviceEntConnectState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntConnectState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntDbState": {
+    "name": "FmDeviceEntDbState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "not-modified": 1,
+          "modified": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntDbState": {
+    "name": "fmDeviceEntDbState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntDbState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntConfigState": {
+    "name": "FmDeviceEntConfigState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "in-sync": 1,
+          "out-of-sync": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntConfigState": {
+    "name": "fmDeviceEntConfigState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntState": {
+    "name": "FmDeviceEntState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "unknown": 1,
+          "checked-in": 2,
+          "in-progress": 3,
+          "installed": 4,
+          "aborted": 5,
+          "sched": 6,
+          "retry": 7,
+          "canceled": 8,
+          "pending": 9,
+          "retrieved": 10,
+          "changed-conf": 11,
+          "sync-fail": 12,
+          "timeout": 13,
+          "rev-reverted": 14,
+          "auto-updated": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntState": {
+    "name": "fmDeviceEntState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntPlatform": {
+    "name": "fmDeviceEntPlatform",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntVdomEnabled": {
+    "name": "fmDeviceEntVdomEnabled",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmDeviceEntSupportState": {
+    "name": "FmDeviceEntSupportState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "expired": 0,
+          "valid": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmDeviceEntSupportState": {
+    "name": "fmDeviceEntSupportState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmDeviceEntSupportState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntAvExpireDate": {
+    "name": "fmDeviceEntAvExpireDate",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntIpsExpireDate": {
+    "name": "fmDeviceEntIpsExpireDate",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntWfExpireDate": {
+    "name": "fmDeviceEntWfExpireDate",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntAsExpireDate": {
+    "name": "fmDeviceEntAsExpireDate",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntPolicyPackageState": {
+    "name": "fmDeviceEntPolicyPackageState",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntDesc": {
+    "name": "fmDeviceEntDesc",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntLogRateHour": {
+    "name": "fmDeviceEntLogRateHour",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntLogRateDay": {
+    "name": "fmDeviceEntLogRateDay",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntLogRateWeek": {
+    "name": "fmDeviceEntLogRateWeek",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHundredths",
+      "class": "type"
+    },
+    "units": "logs per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDeviceEntArchiveLogUsedSpace": {
+    "name": "fmDeviceEntArchiveLogUsedSpace",
+    "oid": "1.3.6.1.4.1.12356.103.6.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmRaid": {
+    "name": "fmRaid",
+    "oid": "1.3.6.1.4.1.12356.103.7",
+    "class": "objectidentity"
+  },
+  "fmRaidInfo": {
+    "name": "fmRaidInfo",
+    "oid": "1.3.6.1.4.1.12356.103.7.1",
+    "class": "objectidentity"
+  },
+  "FmRaidLevel": {
+    "name": "FmRaidLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 0,
+          "linear": 1,
+          "raid-0": 2,
+          "raid-1": 3,
+          "raid-1s": 4,
+          "raid-5": 5,
+          "raid-5s": 6,
+          "raid-6": 7,
+          "raid-6s": 8,
+          "raid-10": 9,
+          "raid-10s": 10,
+          "raid-50": 11,
+          "raid-50s": 12,
+          "raid-60": 13,
+          "raid-60s": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmRaidLevel": {
+    "name": "fmRaidLevel",
+    "oid": "1.3.6.1.4.1.12356.103.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmRaidLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmRaidState": {
+    "name": "FmRaidState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 0,
+          "ok": 1,
+          "degraded": 2,
+          "failed": 3,
+          "background-initializing": 4,
+          "background-verifying": 5,
+          "background-rebuilding": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmRaidState": {
+    "name": "fmRaidState",
+    "oid": "1.3.6.1.4.1.12356.103.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmRaidState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmRaidSize": {
+    "name": "fmRaidSize",
+    "oid": "1.3.6.1.4.1.12356.103.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "GB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmRaidDiskNumber": {
+    "name": "fmRaidDiskNumber",
+    "oid": "1.3.6.1.4.1.12356.103.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmRaidDiskTable": {
+    "name": "fmRaidDiskTable",
+    "oid": "1.3.6.1.4.1.12356.103.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmRaidDiskEntry": {
+    "name": "fmRaidDiskEntry",
+    "oid": "1.3.6.1.4.1.12356.103.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmRaidDiskEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmRaidDiskEntIndex": {
+    "name": "fmRaidDiskEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "FmRaidDiskEntState": {
+    "name": "FmRaidDiskEntState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 0,
+          "failed": 1,
+          "unused": 2,
+          "ok": 3,
+          "rebuilding": 4,
+          "spare": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmRaidDiskEntState": {
+    "name": "fmRaidDiskEntState",
+    "oid": "1.3.6.1.4.1.12356.103.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmRaidDiskEntState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmRaidDiskEntSize": {
+    "name": "fmRaidDiskEntSize",
+    "oid": "1.3.6.1.4.1.12356.103.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "GB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSensor": {
+    "name": "fmSensor",
+    "oid": "1.3.6.1.4.1.12356.103.8",
+    "class": "objectidentity"
+  },
+  "fmSensorTable": {
+    "name": "fmSensorTable",
+    "oid": "1.3.6.1.4.1.12356.103.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmSensorEntry": {
+    "name": "fmSensorEntry",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmSensorEntIndex": {
+    "name": "fmSensorEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "FmSensorEntType": {
+    "name": "FmSensorEntType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "power": 0,
+          "fan": 1,
+          "temperature": 2,
+          "voltage": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmSensorEntName": {
+    "name": "fmSensorEntName",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSensorEntVal": {
+    "name": "fmSensorEntVal",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSensorEntType": {
+    "name": "fmSensorEntType",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmSensorEntType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmSensorEntState": {
+    "name": "FmSensorEntState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "failed": 1,
+          "out-of-range-not-critical": 2,
+          "out-of-range-critical": 3,
+          "out-of-range-not-recoverable": 4,
+          "input-lost": 5,
+          "not-present": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmSensorState": {
+    "name": "fmSensorState",
+    "oid": "1.3.6.1.4.1.12356.103.0.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmSensorEntState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmSensorEntState": {
+    "name": "fmSensorEntState",
+    "oid": "1.3.6.1.4.1.12356.103.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmSensorEntState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHa": {
+    "name": "fmHa",
+    "oid": "1.3.6.1.4.1.12356.103.9",
+    "class": "objectidentity"
+  },
+  "fmHaInfo": {
+    "name": "fmHaInfo",
+    "oid": "1.3.6.1.4.1.12356.103.9.1",
+    "class": "objectidentity"
+  },
+  "FmHaMode": {
+    "name": "FmHaMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 0,
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmHaMode": {
+    "name": "fmHaMode",
+    "oid": "1.3.6.1.4.1.12356.103.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHaMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaClusterId": {
+    "name": "fmHaClusterId",
+    "oid": "1.3.6.1.4.1.12356.103.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaPeerNumber": {
+    "name": "fmHaPeerNumber",
+    "oid": "1.3.6.1.4.1.12356.103.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaPeerTable": {
+    "name": "fmHaPeerTable",
+    "oid": "1.3.6.1.4.1.12356.103.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmHaPeerEntry": {
+    "name": "fmHaPeerEntry",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmHaPeerEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmHaPeerEntIndex": {
+    "name": "fmHaPeerEntIndex",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmHaPeerEntIp": {
+    "name": "fmHaPeerEntIp",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaPeerEntSn": {
+    "name": "fmHaPeerEntSn",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaPeerEntEnabled": {
+    "name": "fmHaPeerEntEnabled",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmHaPeerEntHostName": {
+    "name": "fmHaPeerEntHostName",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmHaPeerEntState": {
+    "name": "FmHaPeerEntState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "negotiating": 1,
+          "synchronizing": 2,
+          "up": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmHaPeerEntState": {
+    "name": "fmHaPeerEntState",
+    "oid": "1.3.6.1.4.1.12356.103.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmHaPeerEntState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmMIBConformance": {
+    "name": "fmMIBConformance",
+    "oid": "1.3.6.1.4.1.12356.103.10",
+    "class": "objectidentity"
+  },
+  "fmTrapsComplianceGroup": {
+    "name": "fmTrapsComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapHASwitch"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapRAIDStatusChange"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapLogAlert"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapLogRateThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapLogDataRateThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapLicGbDayThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapLicDevQuotaThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapCpuThresholdExcludeNice"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapPowerStateChange"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapFanStateChange"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapTemperatureStateChange"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmTrapVoltageStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSystemObjectGroup": {
+    "name": "fmSystemObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysMemUsed"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysMemCapacity"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysCpuUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskCapacity"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysCpuUsageExcludedNice"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysVersion"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysUpTime"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogRateHr"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogLagTime"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogIndexingRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLicGbDayToday"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLicGbDayYesterday"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLicGbDayWeekAvg"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskEntName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskEntUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskEntCapacity"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysDiskEntIOUtil"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogForwardName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogForwardNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSysLogForwardRate"
+      }
+    ],
+    "status": "current"
+  },
+  "fmNotificationObjComplianceGroup": {
+    "name": "fmNotificationObjComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmRAIDStatus"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmRAIDDevIndex"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogRateThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogDataRate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLogDataRateThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicGbDay"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicGbDayThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicDevQuota"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmLicDevQuotaThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmSensorName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSessionComplianceGroup": {
+    "name": "fmSessionComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessProto"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessFromAddr"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessFromPort"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessToAddr"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessToPort"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmIpSessExp"
+      }
+    ],
+    "status": "current"
+  },
+  "fmAdomComplianceGroup": {
+    "name": "fmAdomComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEnabled"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomMax"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntMode"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntFgtNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntPolicyPackageNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntOsVersion"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntMr"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntVpnMode"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntLogRateMinute"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntArchiveLogRetention"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntArchiveLogQuota"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntArchiveLogUsedSpace"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntArchiveLogUsedSpacePercent"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntAnalyticsLogRetention"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntAnalyticsLogQuota"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntAnalyticsLogUsedSpace"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntAnalyticsLogUsedSpacePercent"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntLicGbDayToday"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntLicGbDayYesterday"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmAdomEntLicGbDayWeekAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDeviceComplianceGroup": {
+    "name": "fmDeviceComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.103.10.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmVdomNumber"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntName"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntSn"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntMode"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntAdom"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntIp"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntOsVersion"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntMr"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntBuild"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntHaMode"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntHaGroup"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntConnectState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntDbState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntConfigState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntPlatform"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntVdomEnabled"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntSupportState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntAvExpireDate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntIpsExpireDate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntWfExpireDate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntAsExpireDate"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntPolicyPackageState"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntDesc"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntLogRateHour"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntLogRateDay"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntLogRateWeek"
+      },
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmDeviceEntArchiveLogUsedSpace"
+      }
+    ],
+    "status": "current"
+  },
+  "fmMIBCompliance": {
+    "name": "fmMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.103.10.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fmTrapsComplianceGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      },
+      {
+        "object": "fmSystemObjectGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      },
+      {
+        "object": "fmNotificationObjComplianceGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      },
+      {
+        "object": "fmSessionComplianceGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      },
+      {
+        "object": "fmAdomComplianceGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      },
+      {
+        "object": "fmDeviceComplianceGroup",
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fmUm": {
+    "name": "fmUm",
+    "oid": "1.3.6.1.4.1.12356.103.11",
+    "class": "objectidentity"
+  },
+  "fmUmContract": {
+    "name": "fmUmContract",
+    "oid": "1.3.6.1.4.1.12356.103.11.1",
+    "class": "objectidentity"
+  },
+  "fmUmContractTable": {
+    "name": "fmUmContractTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmContractEntry": {
+    "name": "fmUmContractEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmContractEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmContractEntryIndex": {
+    "name": "fmUmContractEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmContractEntrySerial": {
+    "name": "fmUmContractEntrySerial",
+    "oid": "1.3.6.1.4.1.12356.103.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmContractEntryData": {
+    "name": "fmUmContractEntryData",
+    "oid": "1.3.6.1.4.1.12356.103.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FmUmServiceStatus": {
+    "name": "FmUmServiceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmUmBoolState": {
+    "name": "FmUmBoolState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmUmFds": {
+    "name": "fmUmFds",
+    "oid": "1.3.6.1.4.1.12356.103.11.2",
+    "class": "objectidentity"
+  },
+  "fmUmFdsServiceFds": {
+    "name": "fmUmFdsServiceFds",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1",
+    "class": "objectidentity"
+  },
+  "fmUmFdsServiceFdsStatus": {
+    "name": "fmUmFdsServiceFdsStatus",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerTable": {
+    "name": "fmUmFdsServiceFdsServerTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerEntry": {
+    "name": "fmUmFdsServiceFdsServerEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFdsServiceFdsServerEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerEntryIndex": {
+    "name": "fmUmFdsServiceFdsServerEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerAddr": {
+    "name": "fmUmFdsServiceFdsServerAddr",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerPort": {
+    "name": "fmUmFdsServiceFdsServerPort",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerTimeZone": {
+    "name": "fmUmFdsServiceFdsServerTimeZone",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFdsServerCurrent": {
+    "name": "fmUmFdsServiceFdsServerCurrent",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFct": {
+    "name": "fmUmFdsServiceFct",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2",
+    "class": "objectidentity"
+  },
+  "fmUmFdsServiceFctStatus": {
+    "name": "fmUmFdsServiceFctStatus",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerTable": {
+    "name": "fmUmFdsServiceFctServerTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerEntry": {
+    "name": "fmUmFdsServiceFctServerEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFdsServiceFctServerEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerEntryIndex": {
+    "name": "fmUmFdsServiceFctServerEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerAddr": {
+    "name": "fmUmFdsServiceFctServerAddr",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerPort": {
+    "name": "fmUmFdsServiceFctServerPort",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerTimeZone": {
+    "name": "fmUmFdsServiceFctServerTimeZone",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsServiceFctServerCurrent": {
+    "name": "fmUmFdsServiceFctServerCurrent",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsPackage": {
+    "name": "fmUmFdsPackage",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3",
+    "class": "objectidentity"
+  },
+  "fmUmFdsObjectTable": {
+    "name": "fmUmFdsObjectTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntry": {
+    "name": "fmUmFdsObjectEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFdsObjectEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryIndex": {
+    "name": "fmUmFdsObjectEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryObjid": {
+    "name": "fmUmFdsObjectEntryObjid",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryVersion": {
+    "name": "fmUmFdsObjectEntryVersion",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryDate": {
+    "name": "fmUmFdsObjectEntryDate",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntrySize": {
+    "name": "fmUmFdsObjectEntrySize",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryDesc": {
+    "name": "fmUmFdsObjectEntryDesc",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFdsObjectEntryProduct": {
+    "name": "fmUmFdsObjectEntryProduct",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDevice": {
+    "name": "fmUmDevice",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4",
+    "class": "objectidentity"
+  },
+  "fmUmDeviceStatusTable": {
+    "name": "fmUmDeviceStatusTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmDeviceStatusEntry": {
+    "name": "fmUmDeviceStatusEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmDeviceStatusEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmDeviceStatusEntryIndex": {
+    "name": "fmUmDeviceStatusEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmDeviceStatusEntrySerial": {
+    "name": "fmUmDeviceStatusEntrySerial",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceStatusEntryStatus": {
+    "name": "fmUmDeviceStatusEntryStatus",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceStatusEntryUpdateTime": {
+    "name": "fmUmDeviceStatusEntryUpdateTime",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceObjectTable": {
+    "name": "fmUmDeviceObjectTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntry": {
+    "name": "fmUmDeviceObjectEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmDeviceObjectEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntryIndex": {
+    "name": "fmUmDeviceObjectEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntrySerial": {
+    "name": "fmUmDeviceObjectEntrySerial",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntryObjid": {
+    "name": "fmUmDeviceObjectEntryObjid",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntryDeviceVersion": {
+    "name": "fmUmDeviceObjectEntryDeviceVersion",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntryServerVersion": {
+    "name": "fmUmDeviceObjectEntryServerVersion",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmDeviceObjectEntryPreferVersion": {
+    "name": "fmUmDeviceObjectEntryPreferVersion",
+    "oid": "1.3.6.1.4.1.12356.103.11.2.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgd": {
+    "name": "fmUmFgd",
+    "oid": "1.3.6.1.4.1.12356.103.11.3",
+    "class": "objectidentity"
+  },
+  "fmUmFgdServiceFgd": {
+    "name": "fmUmFgdServiceFgd",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1",
+    "class": "objectidentity"
+  },
+  "fmUmFgdServiceFgdStatus": {
+    "name": "fmUmFgdServiceFgdStatus",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerTable": {
+    "name": "fmUmFgdServiceFgdServerTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerEntry": {
+    "name": "fmUmFgdServiceFgdServerEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdServiceFgdServerEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerEntryIndex": {
+    "name": "fmUmFgdServiceFgdServerEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerAddr": {
+    "name": "fmUmFgdServiceFgdServerAddr",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerPort": {
+    "name": "fmUmFgdServiceFgdServerPort",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerTimeZone": {
+    "name": "fmUmFgdServiceFgdServerTimeZone",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgdServerCurrent": {
+    "name": "fmUmFgdServiceFgdServerCurrent",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfq": {
+    "name": "fmUmFgdServiceFgfq",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2",
+    "class": "objectidentity"
+  },
+  "fmUmFgdServiceFgfqStatus": {
+    "name": "fmUmFgdServiceFgfqStatus",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerTable": {
+    "name": "fmUmFgdServiceFgfqServerTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerEntry": {
+    "name": "fmUmFgdServiceFgfqServerEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdServiceFgfqServerEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerEntryIndex": {
+    "name": "fmUmFgdServiceFgfqServerEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerAddr": {
+    "name": "fmUmFgdServiceFgfqServerAddr",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerPort": {
+    "name": "fmUmFgdServiceFgfqServerPort",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerTimeZone": {
+    "name": "fmUmFgdServiceFgfqServerTimeZone",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdServiceFgfqServerCurrent": {
+    "name": "fmUmFgdServiceFgfqServerCurrent",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmUmBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdPackage": {
+    "name": "fmUmFgdPackage",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3",
+    "class": "objectidentity"
+  },
+  "fmUmFgdDBVersionTable": {
+    "name": "fmUmFgdDBVersionTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntry": {
+    "name": "fmUmFgdDBVersionEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdDBVersionEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntryIndex": {
+    "name": "fmUmFgdDBVersionEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntryCategory": {
+    "name": "fmUmFgdDBVersionEntryCategory",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntryVersion": {
+    "name": "fmUmFgdDBVersionEntryVersion",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntrySize": {
+    "name": "fmUmFgdDBVersionEntrySize",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntryDate": {
+    "name": "fmUmFgdDBVersionEntryDate",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdDBVersionEntryDesc": {
+    "name": "fmUmFgdDBVersionEntryDesc",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatistic": {
+    "name": "fmUmFgdQueryStatistic",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4",
+    "class": "objectidentity"
+  },
+  "fmUmFgdQueryStatisticTop10SitesTable": {
+    "name": "fmUmFgdQueryStatisticTop10SitesTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10SitesEntry": {
+    "name": "fmUmFgdQueryStatisticTop10SitesEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdQueryStatisticTop10SitesEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10SitesEntryIndex": {
+    "name": "fmUmFgdQueryStatisticTop10SitesEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10SitesEntryAddress": {
+    "name": "fmUmFgdQueryStatisticTop10SitesEntryAddress",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10SitesEntryVisits": {
+    "name": "fmUmFgdQueryStatisticTop10SitesEntryVisits",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10DevicesTable": {
+    "name": "fmUmFgdQueryStatisticTop10DevicesTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10DevicesEntry": {
+    "name": "fmUmFgdQueryStatisticTop10DevicesEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdQueryStatisticTop10DevicesEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10DevicesEntryIndex": {
+    "name": "fmUmFgdQueryStatisticTop10DevicesEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10DevicesEntryName": {
+    "name": "fmUmFgdQueryStatisticTop10DevicesEntryName",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticTop10DevicesEntryQueries": {
+    "name": "fmUmFgdQueryStatisticTop10DevicesEntryQueries",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryTable": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryTable",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntry": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntry",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+        "object": "fmUmFgdQueryStatisticQueryHistoryEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryIndex": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryIndex",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryBeginTime": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryBeginTime",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryEndTime": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryEndTime",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryDeviceName": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryDeviceName",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryDeviceAddress": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryDeviceAddress",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryQueries": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryQueries",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryHits": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryHits",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryMisses": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryMisses",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmUmFgdQueryStatisticQueryHistoryEntryBandWidth": {
+    "name": "fmUmFgdQueryStatisticQueryHistoryEntryBandWidth",
+    "oid": "1.3.6.1.4.1.12356.103.11.3.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FORTINET-FORTIMANAGER-FORTIANALYZER-MIB",
+      "Source digest sha256:ffa60e7689663bb7d672f390a3b2e5478f0ff20fba0dd309b884298758e28abc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FORTINET-FORTIMANAGER-FORTIANALYZER-MIB"
+  }
+}

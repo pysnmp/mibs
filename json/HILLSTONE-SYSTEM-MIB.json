@@ -1,0 +1,264 @@
+{
+  "imports": {
+    "class": "imports",
+    "HILLSTONE-SMI": [
+      "hillstoneSys"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "hillstoneSysMibObjects": {
+    "name": "hillstoneSysMibObjects",
+    "oid": "1.3.6.1.4.1.28557.2.2.1",
+    "class": "objectidentity"
+  },
+  "sysSerialNumber": {
+    "name": "sysSerialNumber",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysSoftware": {
+    "name": "sysSoftware",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysCPU": {
+    "name": "sysCPU",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysTotalMemory": {
+    "name": "sysTotalMemory",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysCurMemory": {
+    "name": "sysCurMemory",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysTotalSession": {
+    "name": "sysTotalSession",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysCurSession": {
+    "name": "sysCurSession",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysHAStatus": {
+    "name": "sysHAStatus",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "init": 1,
+          "hello": 2,
+          "backup": 3,
+          "master": 4,
+          "slase": 5,
+          "AA-mode": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysSnmpStackStatus": {
+    "name": "sysSnmpStackStatus",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysTr069StackStatus": {
+    "name": "sysTr069StackStatus",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVedorOUI": {
+    "name": "sysVedorOUI",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysLogStackStatus": {
+    "name": "sysLogStackStatus",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysLogServerAddress1": {
+    "name": "sysLogServerAddress1",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysLogServerAddress2": {
+    "name": "sysLogServerAddress2",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysDeviceReloadAction": {
+    "name": "sysDeviceReloadAction",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reloadUnAvailable": 1,
+          "reloadAtOnce": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysStatisticsPeriod": {
+    "name": "sysStatisticsPeriod",
+    "oid": "1.3.6.1.4.1.28557.2.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneDay": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HILLSTONE-SYSTEM-MIB",
+      "Source digest sha256:1b071ecd764bef40a19b1191d7f4233a180a4e5d57b447f7a3b8349555cbbc77",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HILLSTONE-SYSTEM-MIB"
+  }
+}

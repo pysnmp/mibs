@@ -1,0 +1,86 @@
+#
+# PySNMP MIB module CISCO-SERVICE-CONTROL-LINK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-SERVICE-CONTROL-LINK-MIB
+# Source digest sha256:6a99d11ba0a1bd2d23f03f1240d1a1a37c4be385cbe53b78912ea76a547e2411
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+EntPhysicalIndexOrZero, = mibBuilder.importSymbols("CISCO-TC", "EntPhysicalIndexOrZero")
+PhysicalIndex, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex", "entPhysicalIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+ciscoServiceControlLinkMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 631))
+ciscoServiceControlLinkMIB.setRevisions(('2007-06-26 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoServiceControlLinkMIB.setRevisionsDescriptions(('Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoServiceControlLinkMIB.setLastUpdated('2007-06-26 00:00')
+if mibBuilder.loadTexts: ciscoServiceControlLinkMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoServiceControlLinkMIB.setContactInfo('Cisco Systems\n            Customer Service\n\n            Postal: 170 W Tasman Drive\n            San Jose, CA  95134\n            USA\n\n            Tel: +1 800 553-NETS\n\n            E-mail: cs-excelsior-dev@cisco.com')
+if mibBuilder.loadTexts: ciscoServiceControlLinkMIB.setDescription('This MIB module provides information about the status and\n        configuration of links used by service control entities.\n\n        The link on a service control entity is a contained entity that\n        joins subscriber side port(s) to network side port(s).')
+ciscoSCLinkMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 631, 0))
+ciscoSCLinkMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 631, 1))
+ciscoSCLinkMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 631, 2))
+class CsceLinkModeType(TextualConvention, Integer32):
+    description = "An enumerated value which identifies the various modes of a\n        link.\n                'other'\n                     None of the following.\n                'bypass'\n                     The traffic is forwarded from one port to the\n                     other using an internal splitter.\n                'forwarding'\n                     The traffic is forwarded through the internal\n                     hardware and software modules of the system.\n                'cutoff'\n                     The traffic is dropped by the system.\n                'sniffing'\n                     The traffic is passed in the same manner as in\n                     'bypass' mode, however a copy of the traffic is\n                     made and analyzed internally in the box."
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("other", 1), ("bypass", 2), ("forwarding", 3), ("cutoff", 4), ("sniffing", 5))
+
+cscLinkNotifsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cscLinkNotifsEnabled.setStatus('current')
+if mibBuilder.loadTexts: cscLinkNotifsEnabled.setDescription("This object controls whether the cServiceLinkModeChange\n        notification is generated. A 'false' value will prevent\n        notifications from being generated.")
+cscLinkStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cscLinkStatusTable.setStatus('current')
+if mibBuilder.loadTexts: cscLinkStatusTable.setDescription("This table provides information regarding the configuration and\n        status of the links that pass through the service control\n        entity\n        and carry inband traffic. The link is an entity and has an entry\n        in the entPhysicalTable of the ENTITY-MIB with entPhysicalClass\n        of 'other' and is contained in entity 'chassis' or 'module'. A\n        link entity contains entities from the entPhysicalTable of\n        entPhysicalClass 'port'.\n\n        The number of entries in this table is determined by the number\n        of service control entities in the entPhysicalTable and the\n        number of links supported by each. \n\n        Each Link entity contains at least a subscriber side port entity\n        and a network side port entity.")
+cscLinkStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cscLinkStatusEntry.setStatus('current')
+if mibBuilder.loadTexts: cscLinkStatusEntry.setDescription("An entry (conceptual row) in the cscLinkStatusTable created by\n        the agent for every link entity contained in the service control\n        entity after initilization.\n\n        entPhysicalIndex is index for this table which represents\n        entities of 'other' entPhysicalClass.")
+cscLinkAdminModeOnActive = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 1), CsceLinkModeType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cscLinkAdminModeOnActive.setStatus('current')
+if mibBuilder.loadTexts: cscLinkAdminModeOnActive.setDescription('This object indicates the desired mode of the link when the\n        entity that contains this link has the operating status of\n        active and the entity is not in boot or failure state.')
+cscLinkAdminModeOnFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 2), CsceLinkModeType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cscLinkAdminModeOnFailure.setStatus('current')
+if mibBuilder.loadTexts: cscLinkAdminModeOnFailure.setDescription('This object indicates the desired mode of the link when the\n        entity that contains this link has the operational status of\n        failure.')
+cscLinkOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 3), CsceLinkModeType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cscLinkOperMode.setStatus('current')
+if mibBuilder.loadTexts: cscLinkOperMode.setDescription('This object reflects the operational mode of the link.')
+cscLinkAdminReflectionEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("reflectionEnabled", 1), ("reflectionOnAllPortsEnabled", 2), ("reflectionDisabled", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cscLinkAdminReflectionEnable.setStatus('current')
+if mibBuilder.loadTexts: cscLinkAdminReflectionEnable.setDescription("This object indicates how the failure status of the physical\n        link on one port should be reflected to the other port(s) of the\n        link.\n        'reflectionEnabled'          : Failure is reflected on the other \n                                       port of the link.\n        'reflectionOnAllPortsEnabled': Failure of Physical Link is reflected \n                                       on all other ports on all links.                \n        'reflectionDisabled'         : Port status is not reflected on the \n                                       link.")
+cscLinkSubscriberSidePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 5), EntPhysicalIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cscLinkSubscriberSidePortIndex.setStatus('current')
+if mibBuilder.loadTexts: cscLinkSubscriberSidePortIndex.setDescription('This object specifies the entPhysicalIndex value that uniquely\n        identifies the port entity contained in this link entity in the\n        entPhysicalTable. This port entity is connected to the \n        subscriber side.')
+cscLinkNetworkSidePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 6), EntPhysicalIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cscLinkNetworkSidePortIndex.setStatus('current')
+if mibBuilder.loadTexts: cscLinkNetworkSidePortIndex.setDescription('This object specifies the entPhysicalIndex value that uniquely\n        identifies the port entity contained in this link entity in the\n        entPhysicalTable. This port entity is connected to the \n        network side.')
+cscLinkAdminReflectionState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 631, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noLinkReflection", 1), ("reflectingFailureToNetwork", 2), ("reflectingFailureToSubscriber", 3), ("reflectingFailureToBoth", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cscLinkAdminReflectionState.setStatus('current')
+if mibBuilder.loadTexts: cscLinkAdminReflectionState.setDescription("This object indicates how the link propagates the failure state\n        between the ports on each end of the link.\n        'noLinkReflection'             : No failure is currently being \n                                         reflected.\n        'reflectingFailureToNetwork'   : Link failure on subscriber side\n                                         is reflected to the network side.\n        'reflectingFailureToSubscriber': Link failure on network side\n                                         is reflected to the subscriber side.\n        'reflectingFailureToBoth'      : Failure reflected to both sides of \n                                         the link.")
+ciscoServiceControlLinkModeChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 631, 0, 1)).setObjects(("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkOperMode"))
+if mibBuilder.loadTexts: ciscoServiceControlLinkModeChange.setStatus('current')
+if mibBuilder.loadTexts: ciscoServiceControlLinkModeChange.setDescription('This notification signifies that the agent entity has detected\n        that the cscLinkOperMode object in this MIB has changed.')
+ciscoSCLinkMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 1))
+ciscoSCLinkMIBObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 2))
+cServiceLinkMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 1, 1)).setObjects(("CISCO-SERVICE-CONTROL-LINK-MIB", "cSCLinkMIBObjectGroup"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cSCLinkMIBNotificationGroup"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cSCLinkNotifControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cServiceLinkMIBCompliance = cServiceLinkMIBCompliance.setStatus('current')
+if mibBuilder.loadTexts: cServiceLinkMIBCompliance.setDescription('The compliance statement for SNMP Agents which implement this\n        MIB.')
+cSCLinkMIBObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 2, 1)).setObjects(("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkAdminModeOnActive"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkAdminModeOnFailure"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkOperMode"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkAdminReflectionEnable"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkSubscriberSidePortIndex"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkNetworkSidePortIndex"), ("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkAdminReflectionState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSCLinkMIBObjectGroup = cSCLinkMIBObjectGroup.setStatus('current')
+if mibBuilder.loadTexts: cSCLinkMIBObjectGroup.setDescription('Collection of objects for link status.')
+cSCLinkMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 2, 2)).setObjects(("CISCO-SERVICE-CONTROL-LINK-MIB", "ciscoServiceControlLinkModeChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSCLinkMIBNotificationGroup = cSCLinkMIBNotificationGroup.setStatus('current')
+if mibBuilder.loadTexts: cSCLinkMIBNotificationGroup.setDescription('This group contains notifications of this MIB.')
+cSCLinkNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 631, 2, 2, 3)).setObjects(("CISCO-SERVICE-CONTROL-LINK-MIB", "cscLinkNotifsEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSCLinkNotifControlGroup = cSCLinkNotifControlGroup.setStatus('current')
+if mibBuilder.loadTexts: cSCLinkNotifControlGroup.setDescription('This is a collection of objects that controls the\n        enable/disable of notifications defined in this MIB.')
+mibBuilder.exportSymbols("CISCO-SERVICE-CONTROL-LINK-MIB", CsceLinkModeType=CsceLinkModeType, PYSNMP_MODULE_ID=ciscoServiceControlLinkMIB, cSCLinkMIBNotificationGroup=cSCLinkMIBNotificationGroup, cSCLinkMIBObjectGroup=cSCLinkMIBObjectGroup, cSCLinkNotifControlGroup=cSCLinkNotifControlGroup, cServiceLinkMIBCompliance=cServiceLinkMIBCompliance, ciscoSCLinkMIBCompliances=ciscoSCLinkMIBCompliances, ciscoSCLinkMIBConform=ciscoSCLinkMIBConform, ciscoSCLinkMIBNotifs=ciscoSCLinkMIBNotifs, ciscoSCLinkMIBObjectGroups=ciscoSCLinkMIBObjectGroups, ciscoSCLinkMIBObjects=ciscoSCLinkMIBObjects, ciscoServiceControlLinkMIB=ciscoServiceControlLinkMIB, ciscoServiceControlLinkModeChange=ciscoServiceControlLinkModeChange, cscLinkAdminModeOnActive=cscLinkAdminModeOnActive, cscLinkAdminModeOnFailure=cscLinkAdminModeOnFailure, cscLinkAdminReflectionEnable=cscLinkAdminReflectionEnable, cscLinkAdminReflectionState=cscLinkAdminReflectionState, cscLinkNetworkSidePortIndex=cscLinkNetworkSidePortIndex, cscLinkNotifsEnabled=cscLinkNotifsEnabled, cscLinkOperMode=cscLinkOperMode, cscLinkStatusEntry=cscLinkStatusEntry, cscLinkStatusTable=cscLinkStatusTable, cscLinkSubscriberSidePortIndex=cscLinkSubscriberSidePortIndex)

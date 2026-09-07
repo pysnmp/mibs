@@ -1,0 +1,258 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPortStormControlCapability": {
+    "name": "ciscoPortStormControlCapability",
+    "oid": "1.3.6.1.4.1.9.7.542",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-04 00:00",
+        "description": "Added capability statement cpscCapabilityV06R0002U0301PN3K."
+      },
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Added capability statement cpscCapabilityV15R0101SYPCat6k."
+      },
+      {
+        "revision": "2011-03-24 00:00",
+        "description": "Added capability statement cpscCapabilityV12R0233SXJPCat6k."
+      },
+      {
+        "revision": "2007-07-03 00:00",
+        "description": "Added capability statement cpscCapabilityV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2007-07-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cpscCapabilityV12R0240SGCat4K": {
+    "name": "cpscCapabilityV12R0240SGCat4K",
+    "oid": "1.3.6.1.4.1.9.7.542.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(40)SG on Cat4K platform",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "includes": [
+          "cpscConfigurationGroup",
+          "cpscStatusGroup",
+          "cpscNotificationGroup",
+          "cpscNotifConfigurationGroup",
+          "cpscStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpscLowerThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cpscNotificationControl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "both": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cpscCapabilityV12R0233SXHPCat6K": {
+    "name": "cpscCapabilityV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.542.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "includes": [
+          "cpscConfigurationGroup",
+          "cpscStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpscLowerThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cpscAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "filter": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cpscCapabilityV12R0233SXJPCat6k": {
+    "name": "cpscCapabilityV12R0233SXJPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.542.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXJ on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "includes": [
+          "cpscConfigurationGroup",
+          "cpscStatusGroup",
+          "cpscNotificationGroupRev1",
+          "cpscNotifConfigurationGroup",
+          "cpscStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpscLowerThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cpscNotificationControl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "stormOccurred": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cpscCurrentLevel",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cpscCapabilityV15R0101SYPCat6k": {
+    "name": "cpscCapabilityV15R0101SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.542.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "includes": [
+          "cpscConfigurationGroup",
+          "cpscStatusGroup",
+          "cpscNotificationGroupRev1",
+          "cpscNotifConfigurationGroup",
+          "cpscStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpscLowerThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cpscNotificationControl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "stormOccurred": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cpscCurrentLevel",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cpscCapabilityV06R0002U0301PN3K": {
+    "name": "cpscCapabilityV06R0002U0301PN3K",
+    "oid": "1.3.6.1.4.1.9.7.542.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.0(2)U3(1) on Nexus 3000.",
+    "capabilities": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "includes": [
+          "cpscConfigurationGroup",
+          "cpscStatusGroup",
+          "cpscNotificationGroupRev1",
+          "cpscNotifConfigurationGroup",
+          "cpscStatisticsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpscLowerThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "cpscNotificationControl",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "stormOccurred": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cpscCurrentLevel",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PORT-STORM-CONTROL-CAPABILITY",
+      "Source digest sha256:aa74dfe3888d77ad9a6aeb64fd273d248a6f3fe35734967f2abd7c9d43caec97",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PORT-STORM-CONTROL-CAPABILITY"
+  }
+}

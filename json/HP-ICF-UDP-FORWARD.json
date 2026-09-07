@@ -1,0 +1,280 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfUdpFwd": {
+    "name": "hpicfUdpFwd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-19 06:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hpicfUdpFwdNotification": {
+    "name": "hpicfUdpFwdNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.0",
+    "class": "objectidentity"
+  },
+  "hpicfUdpFwdObjects": {
+    "name": "hpicfUdpFwdObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1",
+    "class": "objectidentity"
+  },
+  "hpicfUdpBcastFwdAdminStatus": {
+    "name": "hpicfUdpBcastFwdAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUdpFwdServersTable": {
+    "name": "hpicfUdpFwdServersTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUdpFwdServersEntry": {
+    "name": "hpicfUdpFwdServersEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUdpFwdVlanId": {
+    "name": "hpicfUdpFwdVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUdpFwdServerIndex": {
+    "name": "hpicfUdpFwdServerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUdpFwdServerAddressType": {
+    "name": "hpicfUdpFwdServerAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUdpFwdServerAddress": {
+    "name": "hpicfUdpFwdServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUdpFwdPortNumber": {
+    "name": "hpicfUdpFwdPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUdpFwdRowStatus": {
+    "name": "hpicfUdpFwdRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUdpFwdConformance": {
+    "name": "hpicfUdpFwdConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2",
+    "class": "objectidentity"
+  },
+  "hpicfUdpFwdCompliances": {
+    "name": "hpicfUdpFwdCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfUdpFwdGroups": {
+    "name": "hpicfUdpFwdGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfUdpFwdCompliance": {
+    "name": "hpicfUdpFwdCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfUdpFwdCfgGroup",
+        "module": "HP-ICF-UDP-FORWARD"
+      },
+      {
+        "object": "hpicfUdpFwdServerTableGroup",
+        "module": "HP-ICF-UDP-FORWARD"
+      },
+      {
+        "object": "hpicfUdpFwdCfgGroup",
+        "module": "HP-ICF-UDP-FORWARD"
+      },
+      {
+        "object": "hpicfUdpFwdServerTableGroup",
+        "module": "HP-ICF-UDP-FORWARD"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUdpFwdCfgGroup": {
+    "name": "hpicfUdpFwdCfgGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpBcastFwdAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUdpFwdServerTableGroup": {
+    "name": "hpicfUdpFwdServerTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.23.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdVlanId"
+      },
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdServerAddressType"
+      },
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdServerAddress"
+      },
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdPortNumber"
+      },
+      {
+        "module": "HP-ICF-UDP-FORWARD",
+        "object": "hpicfUdpFwdRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-UDP-FORWARD",
+      "Source digest sha256:eb9d4541e8ab0ae0ba19ee29517507e4ae13778db339adda070630e3bccaf19d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-UDP-FORWARD"
+  }
+}

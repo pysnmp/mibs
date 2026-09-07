@@ -1,0 +1,81 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "uuidTCMIB": {
+    "name": "uuidTCMIB",
+    "oid": "1.3.6.1.2.1.217",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-05 00:00",
+        "description": "Initial version of this MIB as published in RFC 6933."
+      }
+    ]
+  },
+  "UUID": {
+    "name": "UUID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "4x-2x-2x-1x1x-6x",
+    "status": "current"
+  },
+  "UUIDorZero": {
+    "name": "UUIDorZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "4x-2x-2x-1x1x-6x",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UUID-TC-MIB",
+      "Source digest sha256:7c3d21529995d35eed3d3996e3c719185013850a563ddc640547e3281acfe397",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UUID-TC-MIB"
+  }
+}

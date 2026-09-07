@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniHaRedundancyAgent": {
+    "name": "juniHaRedundancyAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.69",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-02 16:46",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniHaRedundancyAgentV1": {
+    "name": "juniHaRedundancyAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.69.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Ha Redundancy component of the JUNOSe SNMP agent.\n        This version of the Ha Redundancy component is supported in JUNOSe 6.0\n        and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-REDUNDANCY-MIB",
+        "includes": [
+          "juniRedundancyStatusGroup",
+          "juniRedundancyCfgGroup",
+          "juniRedundancyHistoryGroup",
+          "juniRedundancyNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Ha-Redundancy-CONF",
+      "Source digest sha256:fad9691a20db6edf0223fbb240fb06737e1888a5294a0b21e4b7c8fc868e1345",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Ha-Redundancy-CONF"
+  }
+}

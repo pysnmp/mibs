@@ -1,0 +1,572 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpCapability": {
+    "name": "ciscoIpCapability",
+    "oid": "1.3.6.1.4.1.9.7.445",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-09-30 00:00",
+        "description": "Added ciscoIpCapabilityV12R2SE agent capabilities for Catalyst 2k/3k series."
+      },
+      {
+        "revision": "2008-08-11 00:00",
+        "description": "Added newline at the end of the MIB file."
+      },
+      {
+        "revision": "2007-11-05 00:00",
+        "description": "Added cIpCapc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-11-03 00:00",
+        "description": "Added capability for Cisco TelePresence System (CTS) and Cisco TelePresence Manager (CTM) platforms."
+      },
+      {
+        "revision": "2006-05-27 00:00",
+        "description": "Added capability statement cIpCapACSWV03R000"
+      },
+      {
+        "revision": "2006-02-17 00:00",
+        "description": "Added ipv4 Object Groups to the initial Agent Capability"
+      },
+      {
+        "revision": "2005-07-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIpCapV320CRS1": {
+    "name": "cIpCapV320CRS1",
+    "oid": "1.3.6.1.4.1.9.7.445.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipSystemStatsGroup",
+          "ipIfStatsGroup",
+          "ipAddressPrefixGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipv6RouterAdvertGroup",
+          "icmpStatsGroup",
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipSystemStatsIPVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ipIfStatsIPVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ipAddressPrefixType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ipAddressAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2,
+                  "ipv6z": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ipNetToPhysicalNetAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "icmpStatsIPVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "icmpMsgStatsIPVersion",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv6": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ipv6IpDefaultHopLimit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsInNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutForwDatagrams",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutTransmits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsInMcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsInMcastOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutMcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsOutMcastOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsRefreshRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInHdrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInAddrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInTruncatedPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInForwDatagrams",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsReasmReqds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsReasmOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsReasmFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsInDelivers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutForwDatagrams",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutFragReqds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutFragOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutFragFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsOutFragCreates",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsRefreshRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipAddressPrefixAdvPreferredLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipAddressPrefixAdvValidLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipAddressSpinLock",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipAddressLastChanged",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertSpinLock",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertLinkMTU",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertReachableTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertRetransmitTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertCurHopLimit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouterAdvertDefaultLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "icmpStatsOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipForwarding",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "forwarding": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ipAdEntBcastAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaNetAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIpCapACSWV03R000": {
+    "name": "cIpCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.445.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipv4GeneralGroup",
+          "ipSystemStatsGroup",
+          "ipv4SystemStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipIfStatsGroup",
+          "ipv4IfStatsGroup",
+          "ipIfStatsHCOctetGroup",
+          "ipIfStatsHCPacketGroup",
+          "ipv4IfStatsHCPacketGroup",
+          "icmpStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIpCapCTSV100": {
+    "name": "cIpCapCTSV100",
+    "oid": "1.3.6.1.4.1.9.7.445.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.0.0",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIpCapCTMV1000": {
+    "name": "cIpCapCTMV1000",
+    "oid": "1.3.6.1.4.1.9.7.445.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence Manager (CTM) 1.0.0.0",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup",
+          "icmpGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaNetAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cIpCapc4710aceVA1R700": {
+    "name": "cIpCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.445.5",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                    for ACE 4710 Application Control Engine \n                    Appliance",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipv4GeneralGroup",
+          "ipSystemStatsGroup",
+          "ipv4SystemStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipIfStatsGroup",
+          "ipv4IfStatsGroup",
+          "ipIfStatsHCOctetGroup",
+          "ipIfStatsHCPacketGroup",
+          "ipv4IfStatsHCPacketGroup",
+          "icmpStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipForwarding",
+            "access": "read-only"
+          },
+          {
+            "object": "ipDefaultTTL",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpCapabilityV12R2SE": {
+    "name": "ciscoIpCapabilityV12R2SE",
+    "oid": "1.3.6.1.4.1.9.7.445.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2SE Catalyst 2k/3k Series.",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipIfStatsGroup",
+          "ipIfStatsHCOctetGroup",
+          "ipIfStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6ScopeGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipv4InterfaceTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipSystemStatsRefreshRate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipIfStatsRefreshRate",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IP-CAPABILITY",
+      "Source digest sha256:f1c6bd1f0874e39a58527b1a0c7e25347eb325e47447191262f4a81f9927bd29",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IP-CAPABILITY"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIvrCapability": {
+    "name": "ciscoIvrCapability",
+    "oid": "1.3.6.1.4.1.9.7.491",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoIvrCapSanOSV30R1MDS9000": {
+    "name": "ciscoIvrCapSanOSV30R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.491.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.0(1) on Cisco MDS 9000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IVR-MIB",
+        "includes": [
+          "civrZoneConfigurationGroup",
+          "civrTopologyGroup",
+          "civrStatsGroup",
+          "civrNotificationGroup",
+          "civrVirtualDomainsGroup",
+          "civrGenericGroup",
+          "civrTopologyGroupRev2",
+          "civrZoneConfigurationGroupRev2",
+          "civrNotificationGroupRev2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IVR-CAPABILITY",
+      "Source digest sha256:1ea577d1e11d89568a6d41f49a7282823b5814e6502a6e2f95ae272ccdffd57b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IVR-CAPABILITY"
+  }
+}

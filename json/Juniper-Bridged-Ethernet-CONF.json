@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniBridgedEthernetAgent": {
+    "name": "juniBridgedEthernetAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-30 16:45",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniBridgedEthernetAgentV1": {
+    "name": "juniBridgedEthernetAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Bridged Ethernet component of the JUNOSe SNMP agent.\n        This version of the Bridged Ethernet component is supported in JUNOSe\n        2.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-BRIDGE-ETHERNET-MIB",
+        "includes": [
+          "juniBridgedEthernetGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Bridged-Ethernet-CONF",
+      "Source digest sha256:ee8f33e85035d311dfec24f5704023b0dbe6ddbcc8e7385f0d9bed7fce6230fd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Bridged-Ethernet-CONF"
+  }
+}

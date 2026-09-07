@@ -1,0 +1,180 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctAtmfLanEmulation"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctBus": {
+    "name": "ctBus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4",
+    "class": "objectidentity"
+  },
+  "ctBusConfGroup": {
+    "name": "ctBusConfGroup",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1",
+    "class": "objectidentity"
+  },
+  "CtLaneDebugLevel": {
+    "name": "CtLaneDebugLevel",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "all": 2,
+          "error": 3,
+          "warning": 4,
+          "informational": 5,
+          "detailed": 6,
+          "trace": 7
+        }
+      }
+    }
+  },
+  "ctBusDSStatus": {
+    "name": "ctBusDSStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "connectionLost": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctBusUNIVersion": {
+    "name": "ctBusUNIVersion",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "uni30": 2,
+          "uni31": 3,
+          "uni40": 4
+        }
+      }
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctBusLaneDbgOutputFile": {
+    "name": "ctBusLaneDbgOutputFile",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctBusLaneDbgConnectionServices": {
+    "name": "ctBusLaneDbgConnectionServices",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "value": "user",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctBusLaneDbgSNMP": {
+    "name": "ctBusLaneDbgSNMP",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "value": "user",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctBusLaneDbgBUS": {
+    "name": "ctBusLaneDbgBUS",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "value": "user",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-BUS-MIB",
+      "Source digest sha256:7380e382ebb7256d83e283815f9c268fded29864d5eba0528c75bf4e350b4dd2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-BUS-MIB"
+  }
+}

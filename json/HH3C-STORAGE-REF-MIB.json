@@ -1,0 +1,226 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3c"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cStorageRef": {
+    "name": "hh3cStorageRef",
+    "oid": "1.3.6.1.4.1.25506.10",
+    "class": "moduleidentity"
+  },
+  "Hh3cStorageCapableState": {
+    "name": "Hh3cStorageCapableState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cStorageEnableState": {
+    "name": "Hh3cStorageEnableState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cStorageActionType": {
+    "name": "Hh3cStorageActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "action": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cStorageLedStateType": {
+    "name": "Hh3cStorageLedStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "blink": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cStorageOnlineState": {
+    "name": "Hh3cStorageOnlineState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cLvIDType": {
+    "name": "Hh3cLvIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cSessionIDType": {
+    "name": "Hh3cSessionIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cWwpnListType": {
+    "name": "Hh3cWwpnListType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Hh3cStorageOwnerType": {
+    "name": "Hh3cStorageOwnerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spa": 1,
+          "spb": 2,
+          "none": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cExtendSelectPolicy": {
+    "name": "Hh3cExtendSelectPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "differentAdapter": 1,
+          "differentDrive": 2,
+          "anyDrive": 3,
+          "none": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cRaidIDType": {
+    "name": "Hh3cRaidIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 36,
+            "max": 71
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cSoftwareInfoString": {
+    "name": "Hh3cSoftwareInfoString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-STORAGE-REF-MIB",
+      "Source digest sha256:9e103f0b5ddf66f6f6dec3f0dd7e5aa4b8a48f289c90dc9d9057d24f48bcf40a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-STORAGE-REF-MIB"
+  }
+}

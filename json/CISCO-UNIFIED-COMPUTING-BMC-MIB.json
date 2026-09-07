@@ -1,0 +1,323 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "Unsigned64"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsBmcSELCntEqptClassId",
+      "CucsBmcSELCntEqptInstIdPropId",
+      "CucsBmcSELCntStatsClassId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "cucsBmcObjects": {
+    "name": "cucsBmcObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5",
+    "class": "moduleidentity"
+  },
+  "cucsBmcSELCounterTable": {
+    "name": "cucsBmcSELCounterTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsBmcSELCounterEntry": {
+    "name": "cucsBmcSELCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-BMC-MIB",
+        "object": "cucsBmcSELCounterInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsBmcSELCounterInstanceId": {
+    "name": "cucsBmcSELCounterInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsBmcSELCounterDn": {
+    "name": "cucsBmcSELCounterDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterRn": {
+    "name": "cucsBmcSELCounterRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterBitmask": {
+    "name": "cucsBmcSELCounterBitmask",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterCollInterval": {
+    "name": "cucsBmcSELCounterCollInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterContClassId": {
+    "name": "cucsBmcSELCounterContClassId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsBmcSELCntEqptClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterContInstId": {
+    "name": "cucsBmcSELCounterContInstId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterContInstIdPropId": {
+    "name": "cucsBmcSELCounterContInstIdPropId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsBmcSELCntEqptInstIdPropId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterEqptClassId": {
+    "name": "cucsBmcSELCounterEqptClassId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsBmcSELCntEqptClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterEqptInstId": {
+    "name": "cucsBmcSELCounterEqptInstId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterEqptInstIdPropId": {
+    "name": "cucsBmcSELCounterEqptInstIdPropId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsBmcSELCntEqptInstIdPropId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterGlobalId": {
+    "name": "cucsBmcSELCounterGlobalId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterLocalId": {
+    "name": "cucsBmcSELCounterLocalId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterPcGlobalId": {
+    "name": "cucsBmcSELCounterPcGlobalId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterPcLocalId": {
+    "name": "cucsBmcSELCounterPcLocalId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterStatsClassId": {
+    "name": "cucsBmcSELCounterStatsClassId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsBmcSELCntStatsClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterStatsPropId": {
+    "name": "cucsBmcSELCounterStatsPropId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterThreshold": {
+    "name": "cucsBmcSELCounterThreshold",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsBmcSELCounterValue": {
+    "name": "cucsBmcSELCounterValue",
+    "oid": "1.3.6.1.4.1.9.9.719.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-UNIFIED-COMPUTING-BMC-MIB",
+      "Source digest sha256:0b4d6351921585d12485aa2ddc2837ada60076df0a3717bfade21e224f997ab2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-BMC-MIB"
+  }
+}

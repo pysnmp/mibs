@@ -1,0 +1,1226 @@
+{
+  "imports": {
+    "class": "imports",
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ],
+    "UBQS-TC": [
+      "UbiBridgeId",
+      "UbiPortList"
+    ]
+  },
+  "ubiDot1BridgeMIB": {
+    "name": "ubiDot1BridgeMIB",
+    "oid": "1.3.6.1.4.1.7800.100.5",
+    "class": "moduleidentity"
+  },
+  "VlanStpType": {
+    "name": "VlanStpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 1,
+          "stp-vlan-bridge": 2,
+          "rstp": 3,
+          "rstp-vlan-bridge": 4,
+          "mstp": 5,
+          "provider-rstp": 6,
+          "provider-mstp": 7,
+          "rpvstExt": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiVlanIntType": {
+    "name": "UbiVlanIntType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "backbone_p2p": 2,
+          "backbone_m2m": 3,
+          "customer": 4,
+          "service_p2p": 5,
+          "service_m2m": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiVlanType": {
+    "name": "UbiVlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "static": 0,
+        "dynamic": 1,
+        "cvlan": 2,
+        "svlan": 3,
+        "svlan_p2p": 4,
+        "svlan_m2m": 5,
+        "bvlan": 6,
+        "bvlan_p2p": 7,
+        "bvlan_m2m": 8,
+        "tevlan": 9,
+        "auto": 10
+      }
+    },
+    "status": "current"
+  },
+  "UbiBridgeType": {
+    "name": "UbiBridgeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iComponent": 1,
+          "bComponent": 2,
+          "cVlanComponent": 3,
+          "sVlanComponent": 4,
+          "dBridgeComponent": 5,
+          "edgeComponent": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ubiDot1BridgeMIBNotificationsPrefix": {
+    "name": "ubiDot1BridgeMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.5.0",
+    "class": "objectidentity"
+  },
+  "ubiVlanMIBObjects": {
+    "name": "ubiVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.5.1",
+    "class": "objectidentity"
+  },
+  "ubiBridgeMIBObjects": {
+    "name": "ubiBridgeMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.5.2",
+    "class": "objectidentity"
+  },
+  "ubiMacAddressTableMIBObjects": {
+    "name": "ubiMacAddressTableMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.5.3",
+    "class": "objectidentity"
+  },
+  "ubiDot1BridgeMIBConformance": {
+    "name": "ubiDot1BridgeMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.5.10",
+    "class": "objectidentity"
+  },
+  "ubiVlanNotifications": {
+    "name": "ubiVlanNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.0",
+    "class": "objectidentity"
+  },
+  "ubiVlanCreated": {
+    "name": "ubiVlanCreated",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanName"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanDeleted": {
+    "name": "ubiVlanDeleted",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanName"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiFdbNotifications": {
+    "name": "ubiFdbNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.1",
+    "class": "objectidentity"
+  },
+  "ubiFdbAlarmAsserted": {
+    "name": "ubiFdbAlarmAsserted",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.1.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ubiFdbAlarmCleared": {
+    "name": "ubiFdbAlarmCleared",
+    "oid": "1.3.6.1.4.1.7800.100.5.0.1.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ubiVlanNotificationEnables": {
+    "name": "ubiVlanNotificationEnables",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.1",
+    "class": "objectidentity"
+  },
+  "ubiVlanCreateEnabled": {
+    "name": "ubiVlanCreateEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiVlanDeleteEnabled": {
+    "name": "ubiVlanDeleteEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiVlanTable": {
+    "name": "ubiVlanTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiVlanEntry": {
+    "name": "ubiVlanEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanIndex": {
+    "name": "ubiVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiVlanIfIndex": {
+    "name": "ubiVlanIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiVlanName": {
+    "name": "ubiVlanName",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiVlanStatus": {
+    "name": "ubiVlanStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "default": {
+      "value": "active",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiVlanType": {
+    "name": "ubiVlanType",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiVlanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiVlanMtu": {
+    "name": "ubiVlanMtu",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 10218
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1500,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiVlanStpType": {
+    "name": "ubiVlanStpType",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanStpType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiVlanRowStatus": {
+    "name": "ubiVlanRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ubiVlanMembershipTable": {
+    "name": "ubiVlanMembershipTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiVlanMembershipEntry": {
+    "name": "ubiVlanMembershipEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVmMemberPorts": {
+    "name": "ubiVmMemberPorts",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiVlanStaticTable": {
+    "name": "ubiVlanStaticTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiVlanStaticEntry": {
+    "name": "ubiVlanStaticEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanStaticBridgeId": {
+    "name": "ubiVlanStaticBridgeId",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiBridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiVlanStaticVlanType": {
+    "name": "ubiVlanStaticVlanType",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiVlanIntType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiVlanStaticAdditiveType": {
+    "name": "ubiVlanStaticAdditiveType",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "multicast": 0
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiVlanStaticRowStatus": {
+    "name": "ubiVlanStaticRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiBridgeTable": {
+    "name": "ubiBridgeTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiBridgeEntry": {
+    "name": "ubiBridgeEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgeId": {
+    "name": "ubiBridgeId",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiBridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgeProtocol": {
+    "name": "ubiBridgeProtocol",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiBridgeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiBridgeTopology": {
+    "name": "ubiBridgeTopology",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgeAgeingTime": {
+    "name": "ubiBridgeAgeingTime",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgeRowStatus": {
+    "name": "ubiBridgeRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiBridgePortTable": {
+    "name": "ubiBridgePortTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiBridgePortEntry": {
+    "name": "ubiBridgePortEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeId",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgePort": {
+    "name": "ubiBridgePort",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgePortIfIndex": {
+    "name": "ubiBridgePortIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgePortName": {
+    "name": "ubiBridgePortName",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgePortStatus": {
+    "name": "ubiBridgePortStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "disabled": 1,
+          "listening": 2,
+          "learning": 3,
+          "forwarding": 4,
+          "blocking": 5,
+          "discarding": 6,
+          "discarding-edge": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiBridgeVlanTable": {
+    "name": "ubiBridgeVlanTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiBridgeVlanEntry": {
+    "name": "ubiBridgeVlanEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeId",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgeVlanStatus": {
+    "name": "ubiBridgeVlanStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacAddressAgingTime": {
+    "name": "ubiMacAddressAgingTime",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiMacTableListTable": {
+    "name": "ubiMacTableListTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiMacTableListEntry": {
+    "name": "ubiMacTableListEntry",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiMacTableAddress",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiMacTableIfindex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiMacTableType",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiMacTableForward",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiMacTableVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiMacTableAddress": {
+    "name": "ubiMacTableAddress",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacTableIfindex": {
+    "name": "ubiMacTableIfindex",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacTableType": {
+    "name": "ubiMacTableType",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacTableForward": {
+    "name": "ubiMacTableForward",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 0,
+          "forward": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacTableVlanId": {
+    "name": "ubiMacTableVlanId",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMacTableRowStatus": {
+    "name": "ubiMacTableRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiClearMacTable": {
+    "name": "ubiClearMacTable",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3",
+    "class": "objectidentity"
+  },
+  "ubiClearMacType": {
+    "name": "ubiClearMacType",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "multicast": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacAddress": {
+    "name": "ubiClearMacAddress",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacIfindex": {
+    "name": "ubiClearMacIfindex",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacVlanId": {
+    "name": "ubiClearMacVlanId",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacBridgeId": {
+    "name": "ubiClearMacBridgeId",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacInstanceId": {
+    "name": "ubiClearMacInstanceId",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearMacExcute": {
+    "name": "ubiClearMacExcute",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "excute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiMacTotalCount": {
+    "name": "ubiMacTotalCount",
+    "oid": "1.3.6.1.4.1.7800.100.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDot1BridgeMIBCompliances": {
+    "name": "ubiDot1BridgeMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.1",
+    "class": "objectidentity"
+  },
+  "ubiDot1BridgeMIBGroups": {
+    "name": "ubiDot1BridgeMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2",
+    "class": "objectidentity"
+  },
+  "ubiVlanMIBCompliance": {
+    "name": "ubiVlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiVlanGroup",
+        "module": "UBQS-DOT1BRIDGE-MIB"
+      },
+      {
+        "object": "ubiVlanNotifEnabledGroup",
+        "module": "UBQS-DOT1BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanGroup": {
+    "name": "ubiVlanGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIndex"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanIfIndex"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanState"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanType"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanName"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanMtu"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanStpType"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanRowStatus"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVmMemberPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanNotifEnabledGroup": {
+    "name": "ubiVlanNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanCreatedNotifEnabled"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanDeletedNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanStaticGroup": {
+    "name": "ubiVlanStaticGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanStaticBridgeId"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanStaticVlanType"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanStaticAdditiveType"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlanStaticRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgeMIBCompliance": {
+    "name": "ubiBridgeMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiBridgeGroup",
+        "module": "UBQS-DOT1BRIDGE-MIB"
+      },
+      {
+        "object": "ubiBridgePortGroup",
+        "module": "UBQS-DOT1BRIDGE-MIB"
+      },
+      {
+        "object": "ubiBridgeVlanGroup",
+        "module": "UBQS-DOT1BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgeGroup": {
+    "name": "ubiBridgeGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeId"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeProtocol"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiVlubiBridgeTopology"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeAgeingTime"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgePortGroup": {
+    "name": "ubiBridgePortGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgePort"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgePortIfIndex"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgePortName"
+      },
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgePortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBridgeVlanGroup": {
+    "name": "ubiBridgeVlanGroup",
+    "oid": "1.3.6.1.4.1.7800.100.5.10.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DOT1BRIDGE-MIB",
+        "object": "ubiBridgeVlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-DOT1BRIDGE-MIB",
+      "Source digest sha256:922fdcf4330e919df2fd5720c4df549c08750ae6121046d9cabd714b7a5f1fe1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-DOT1BRIDGE-MIB"
+  }
+}

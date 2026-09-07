@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-MIB": [
+      "cmtsC3"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmtsC3NTPMIB": {
+    "name": "cmtsC3NTPMIB",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7",
+    "class": "moduleidentity"
+  },
+  "dcxNTPObjects": {
+    "name": "dcxNTPObjects",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1",
+    "class": "objectidentity"
+  },
+  "dcxNTPServerTable": {
+    "name": "dcxNTPServerTable",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxNTPServerEntry": {
+    "name": "dcxNTPServerEntry",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-C3-NTP-MIB",
+        "object": "dcxNTPServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcxNTPServerIp": {
+    "name": "dcxNTPServerIp",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxNTPServerInterval": {
+    "name": "dcxNTPServerInterval",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dcxNTPServerSuccess": {
+    "name": "dcxNTPServerSuccess",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxNTPServerAttempts": {
+    "name": "dcxNTPServerAttempts",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxNTPServerOffset": {
+    "name": "dcxNTPServerOffset",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxNTPServerStatus": {
+    "name": "dcxNTPServerStatus",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dcxNTPMasterServer": {
+    "name": "dcxNTPMasterServer",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARRIS-C3-NTP-MIB",
+      "Source digest sha256:a9a52ee56351890ab023cf124c8d6dcc8ae007711be1df1467c4757f12b6b39a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARRIS-C3-NTP-MIB"
+  }
+}

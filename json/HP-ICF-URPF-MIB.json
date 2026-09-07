@@ -1,0 +1,408 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfUrpfMIB": {
+    "name": "hpicfUrpfMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-14 00:00",
+        "description": "Initial version of URPF MIB module."
+      }
+    ]
+  },
+  "hpicfUrpfConfig": {
+    "name": "hpicfUrpfConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1",
+    "class": "objectidentity"
+  },
+  "hpicfUrpfStats": {
+    "name": "hpicfUrpfStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.2",
+    "class": "objectidentity"
+  },
+  "hpicfUrpfConformance": {
+    "name": "hpicfUrpfConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3",
+    "class": "objectidentity"
+  },
+  "hpicfUrpfConfigGlobalEnable": {
+    "name": "hpicfUrpfConfigGlobalEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigGlobalLogTimeout": {
+    "name": "hpicfUrpfConfigGlobalLogTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigTable": {
+    "name": "hpicfUrpfConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUrpfConfigEntry": {
+    "name": "hpicfUrpfConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfAddrFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUrpfIfIndex": {
+    "name": "hpicfUrpfIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUrpfAddrFamily": {
+    "name": "hpicfUrpfAddrFamily",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUrpfConfigMode": {
+    "name": "hpicfUrpfConfigMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "strict": 2,
+          "loose": 3
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigDefRoute": {
+    "name": "hpicfUrpfConfigDefRoute",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigAllowDhcp": {
+    "name": "hpicfUrpfConfigAllowDhcp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigLogging": {
+    "name": "hpicfUrpfConfigLogging",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigHasWhitelistAcl": {
+    "name": "hpicfUrpfConfigHasWhitelistAcl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfConfigWhitelistAclName": {
+    "name": "hpicfUrpfConfigWhitelistAclName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUrpfStatsTable": {
+    "name": "hpicfUrpfStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUrpfStatsEntry": {
+    "name": "hpicfUrpfStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfAddrFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUrpfStatsBlockedPackets": {
+    "name": "hpicfUrpfStatsBlockedPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUrpfStatsBlockedOctets": {
+    "name": "hpicfUrpfStatsBlockedOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUrpfMIBGroups": {
+    "name": "hpicfUrpfMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfUrpfMIBCompliances": {
+    "name": "hpicfUrpfMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfUrpfScalarGroup": {
+    "name": "hpicfUrpfScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigGlobalEnable"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigGlobalLogTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUrpfConfigTableGroup": {
+    "name": "hpicfUrpfConfigTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigMode"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigDefRoute"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigAllowDhcp"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigLogging"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigHasWhitelistAcl"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfConfigWhitelistAclName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUrpfStatsTableGroup": {
+    "name": "hpicfUrpfStatsTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfStatsBlockedPackets"
+      },
+      {
+        "module": "HP-ICF-URPF-MIB",
+        "object": "hpicfUrpfStatsBlockedOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUrpfMIBCompliance": {
+    "name": "hpicfUrpfMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.131.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfUrpfScalarGroup",
+        "module": "HP-ICF-URPF-MIB"
+      },
+      {
+        "object": "hpicfUrpfConfigTableGroup",
+        "module": "HP-ICF-URPF-MIB"
+      },
+      {
+        "object": "hpicfUrpfStatsTableGroup",
+        "module": "HP-ICF-URPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-URPF-MIB",
+      "Source digest sha256:ff6c4e20ead030487351b7ea8c94b6a4162615b882949fc41abbcf31cbe61ece",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-URPF-MIB"
+  }
+}

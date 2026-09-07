@@ -1,0 +1,139 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoOtnIfMIBCapability": {
+    "name": "ciscoOtnIfMIBCapability",
+    "oid": "1.3.6.1.4.1.9.7.562",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-20 00:00",
+        "description": "First version of this MIB module."
+      }
+    ]
+  },
+  "ciscoOtnIfCapIOSXRV3R06CRS1": {
+    "name": "ciscoOtnIfCapIOSXRV3R06CRS1",
+    "oid": "1.3.6.1.4.1.9.7.562.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS-XR Release 3.6 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "includes": [
+          "coiIfControllerGroup",
+          "coiIfOtnGroup",
+          "coiIfFECGroup"
+        ],
+        "variations": [
+          {
+            "object": "coiIfControllerLoopback",
+            "writesyntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "noLoop": 1,
+                  "otherLoop": 2,
+                  "diagnosticLoop": 3,
+                  "lineLoop": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "coiFECThreshType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "bitErrCor": 1,
+                  "byteErrcor": 2,
+                  "zeroErrDet": 3,
+                  "oneErrDet": 4,
+                  "unCorWords": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "coiFECCurrentCorByteErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiFECIntervalDetZeroErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiFECCurrentDetOneErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiFECIntervalCorByteErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiFECIntervalDetOneErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiFECCurrentDetZeroErrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "coiOtnNearEndThreshStorageType",
+            "access": "read-only",
+            "default": [
+              "nonVolatile"
+            ]
+          },
+          {
+            "object": "coiOtnFarEndThreshStorageType",
+            "access": "not-implemented",
+            "default": [
+              "nonVolatile"
+            ]
+          },
+          {
+            "object": "coiFECThreshStorageType",
+            "access": "read-only",
+            "default": [
+              "nonVolatile"
+            ]
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-OTN-IF-CAPABILITY",
+      "Source digest sha256:0a58d9b1ea5ea737775f01f8550fd302fb6b2bbb165858382bdcce61198068dd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-OTN-IF-CAPABILITY"
+  }
+}

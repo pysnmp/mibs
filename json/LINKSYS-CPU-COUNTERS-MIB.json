@@ -1,0 +1,213 @@
+{
+  "imports": {
+    "class": "imports",
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlCpuCounters": {
+    "name": "rlCpuCounters",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlCpuCountersTable": {
+    "name": "rlCpuCountersTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCpuCountersEntry": {
+    "name": "rlCpuCountersEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-CPU-COUNTERS-MIB",
+        "object": "rlCpuCountersTarget",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCpuCountersTarget": {
+    "name": "rlCpuCountersTarget",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpuCounters": 0
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCpuCountersTxBC": {
+    "name": "rlCpuCountersTxBC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersTxMC": {
+    "name": "rlCpuCountersTxMC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersTxUC": {
+    "name": "rlCpuCountersTxUC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersTxOctets": {
+    "name": "rlCpuCountersTxOctets",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersRxBC": {
+    "name": "rlCpuCountersRxBC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersRxMC": {
+    "name": "rlCpuCountersRxMC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersRxUC": {
+    "name": "rlCpuCountersRxUC",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersRxOctets": {
+    "name": "rlCpuCountersRxOctets",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCpuCountersReset": {
+    "name": "rlCpuCountersReset",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCpuCountersEnabled": {
+    "name": "rlCpuCountersEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.124.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LINKSYS-CPU-COUNTERS-MIB",
+      "Source digest sha256:9c163fc8cfc661cbb954cfd16dbcc4dc1ff484213ac50b3f042ba69731bb0dbc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LINKSYS-CPU-COUNTERS-MIB"
+  }
+}

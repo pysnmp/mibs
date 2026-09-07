@@ -1,0 +1,231 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pwTcStdMIB": {
+    "name": "pwTcStdMIB",
+    "oid": "1.3.6.1.2.1.188",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-21 00:00",
+        "description": "Original Version"
+      }
+    ]
+  },
+  "PwGroupID": {
+    "name": "PwGroupID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PwIDType": {
+    "name": "PwIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PwIndexType": {
+    "name": "PwIndexType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PwIndexOrZeroType": {
+    "name": "PwIndexOrZeroType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PwOperStatusTC": {
+    "name": "PwOperStatusTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "dormant": 4,
+          "notPresent": 5,
+          "lowerLayerDown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PwAttachmentIdentifierType": {
+    "name": "PwAttachmentIdentifierType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PwGenIdType": {
+    "name": "PwGenIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PwCwStatusTC": {
+    "name": "PwCwStatusTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "waitingForNextMsg": 1,
+          "sentWrongBitErrorCode": 2,
+          "rxWithdrawWithWrongBitErrorCode": 3,
+          "illegalReceivedBit": 4,
+          "cwPresent": 5,
+          "cwNotPresent": 6,
+          "notYetKnown": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PwStatus": {
+    "name": "PwStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pwNotForwarding": 0,
+        "servicePwRxFault": 1,
+        "servicePwTxFault": 2,
+        "psnPwRxFault": 3,
+        "psnPwTxFault": 4
+      }
+    },
+    "status": "current"
+  },
+  "PwFragSize": {
+    "name": "PwFragSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PwFragStatus": {
+    "name": "PwFragStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noFrag": 0,
+        "cfgFragGreaterThanPsnMtu": 1,
+        "cfgFragButRemoteIncapable": 2,
+        "remoteFragCapable": 3,
+        "fragEnabled": 4
+      }
+    },
+    "status": "current"
+  },
+  "PwCfgIndexOrzero": {
+    "name": "PwCfgIndexOrzero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source PW-TC-STD-MIB",
+      "Source digest sha256:f044bd5dd0565ac8ffa2c50211bb8d4277edf68d451525248cc9bcfa2dc54e12",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "PW-TC-STD-MIB"
+  }
+}

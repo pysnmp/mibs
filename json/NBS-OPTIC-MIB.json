@@ -1,0 +1,222 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsOpticMib": {
+    "name": "nbsOpticMib",
+    "oid": "1.3.6.1.4.1.629.213",
+    "class": "moduleidentity"
+  },
+  "nbsOpticPortGrp": {
+    "name": "nbsOpticPortGrp",
+    "oid": "1.3.6.1.4.1.629.213.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsOpticPortTableSize": {
+    "name": "nbsOpticPortTableSize",
+    "oid": "1.3.6.1.4.1.629.213.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOpticPortTable": {
+    "name": "nbsOpticPortTable",
+    "oid": "1.3.6.1.4.1.629.213.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOpticPortEntry": {
+    "name": "nbsOpticPortEntry",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-OPTIC-MIB",
+        "object": "nbsOpticPortNdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsOpticPortNdx": {
+    "name": "nbsOpticPortNdx",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsOpticPortTxStatusAdmin": {
+    "name": "nbsOpticPortTxStatusAdmin",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "outOfService": 2,
+          "inService": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOpticPortTxStatusOper": {
+    "name": "nbsOpticPortTxStatusOper",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "outOfService": 2,
+          "inService": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOpticPortRxStatusAdmin": {
+    "name": "nbsOpticPortRxStatusAdmin",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "outOfService": 2,
+          "inService": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsOpticPortRxStatusOper": {
+    "name": "nbsOpticPortRxStatusOper",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "outOfService": 2,
+          "inService": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOpticPortConnector": {
+    "name": "nbsOpticPortConnector",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOpticPortPolish": {
+    "name": "nbsOpticPortPolish",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "pc": 2,
+          "upc": 3,
+          "apc": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsOpticPortFiberMode": {
+    "name": "nbsOpticPortFiberMode",
+    "oid": "1.3.6.1.4.1.629.213.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "reserved2": 2,
+          "reserved3": 3,
+          "singleMode": 4,
+          "multiMode": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NBS-OPTIC-MIB",
+      "Source digest sha256:bc9821a13ca1095f57a392fde535c85af5b97e71ad4ac1b1fe8b4f6aad3951ee",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NBS-OPTIC-MIB"
+  }
+}

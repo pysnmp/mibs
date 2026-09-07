@@ -1,0 +1,180 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmSeverityCode",
+      "AlarmStatus"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "safeMode": {
+    "name": "safeMode",
+    "oid": "1.3.6.1.4.1.3373.1103.99",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-10 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "safeModeMibVersion": {
+    "name": "safeModeMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.99.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "safeModeAlarm": {
+    "name": "safeModeAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.99.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "safeModeAlarmSeverityCode": {
+    "name": "safeModeAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.99.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "value": "minorTrapEnable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "safeModeStatus": {
+    "name": "safeModeStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.99.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "safeModeStatusInactive": 1,
+          "safeModeStatusNoAuxService": 2,
+          "safeModeStatusLinkMngmt": 3,
+          "safeModeStatusSiteMngmt": 4,
+          "safeModeStatusSiteDefault": 5,
+          "safeModeStatusSiteRescue": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "safeModeRescueAdminStatus": {
+    "name": "safeModeRescueAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.99.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "safeModeRescuePwd": {
+    "name": "safeModeRescuePwd",
+    "oid": "1.3.6.1.4.1.3373.1103.99.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "safeModeRescueIpAddress": {
+    "name": "safeModeRescueIpAddress",
+    "oid": "1.3.6.1.4.1.3373.1103.99.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "value": "ac14fd0d",
+      "format": "hex"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "safeModeRescueIpNetMask": {
+    "name": "safeModeRescueIpNetMask",
+    "oid": "1.3.6.1.4.1.3373.1103.99.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-SAFE-MODE-MIB",
+      "Source digest sha256:5338e60ba23b3686395be92b78c44306edb59dbf4db9db61f3f064668d0b6761",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-SAFE-MODE-MIB"
+  }
+}

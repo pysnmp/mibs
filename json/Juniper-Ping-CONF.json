@@ -1,0 +1,65 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPingAgent": {
+    "name": "juniPingAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-29 14:14",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniPingAgentV1": {
+    "name": "juniPingAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.30.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Ping component of the JUNOSe SNMP agent.  This version\n        of the Ping component is supported in JUNOSe 3.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "includes": [
+          "pingGroup",
+          "pingTimeStampGroup",
+          "pingNotificationsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Ping-CONF",
+      "Source digest sha256:85eeaa2f00994dbc779751733b7e2ff3b6e09ac1f7ba118c8d037ef4b851b0e0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Ping-CONF"
+  }
+}

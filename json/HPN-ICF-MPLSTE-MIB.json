@@ -1,0 +1,222 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpnicfMplsTe": {
+    "name": "hpnicfMplsTe",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-13 18:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "hpnicfMplsTeObjects": {
+    "name": "hpnicfMplsTeObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsTeScalarGroup": {
+    "name": "hpnicfMplsTeScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsTeStatus": {
+    "name": "hpnicfMplsTeStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpStatus": {
+    "name": "hpnicfMplsTeRsvpStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsTeTable": {
+    "name": "hpnicfMplsTeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsTeEntry": {
+    "name": "hpnicfMplsTeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLSTE-MIB",
+        "object": "hpnicfMplsTeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsTeIndex": {
+    "name": "hpnicfMplsTeIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsTeCapability": {
+    "name": "hpnicfMplsTeCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsTeRowStatus": {
+    "name": "hpnicfMplsTeRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpTable": {
+    "name": "hpnicfMplsTeRsvpTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpEntry": {
+    "name": "hpnicfMplsTeRsvpEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLSTE-MIB",
+        "object": "hpnicfMplsTeRsvpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpIndex": {
+    "name": "hpnicfMplsTeRsvpIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpCapability": {
+    "name": "hpnicfMplsTeRsvpCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsTeRsvpRowStatus": {
+    "name": "hpnicfMplsTeRsvpRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.143.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-MPLSTE-MIB",
+      "Source digest sha256:2069ecb16bb46961652317b8fcf557e16494dd23d6101a62729b51bdccf6ab54",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-MPLSTE-MIB"
+  }
+}

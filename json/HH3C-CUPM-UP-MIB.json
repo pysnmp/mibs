@@ -1,0 +1,210 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cCupmUp": {
+    "name": "hh3cCupmUp",
+    "oid": "1.3.6.1.4.1.25506.2.195",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-09-11 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cCupmUpNotifications": {
+    "name": "hh3cCupmUpNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.195.0",
+    "class": "objectidentity"
+  },
+  "hh3cCupmUpProtoTnlUp": {
+    "name": "hh3cCupmUpProtoTnlUp",
+    "oid": "1.3.6.1.4.1.25506.2.195.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbVxlanID"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbSrcAddrType"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbSrcAddr"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbDestAddrType"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbDestAddr"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCupmUpProtoTnlDown": {
+    "name": "hh3cCupmUpProtoTnlDown",
+    "oid": "1.3.6.1.4.1.25506.2.195.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbVxlanID"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbSrcAddrType"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbSrcAddr"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbDestAddrType"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbDestAddr"
+      },
+      {
+        "module": "HH3C-CUPM-UP-MIB",
+        "object": "hh3cCupmUpVbVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCupmUpNotifyVarObjects": {
+    "name": "hh3cCupmUpNotifyVarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.195.1",
+    "class": "objectidentity"
+  },
+  "hh3cCupmUpVbVxlanID": {
+    "name": "hh3cCupmUpVbVxlanID",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCupmUpVbSrcAddrType": {
+    "name": "hh3cCupmUpVbSrcAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCupmUpVbSrcAddr": {
+    "name": "hh3cCupmUpVbSrcAddr",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCupmUpVbDestAddrType": {
+    "name": "hh3cCupmUpVbDestAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCupmUpVbDestAddr": {
+    "name": "hh3cCupmUpVbDestAddr",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCupmUpVbVpnName": {
+    "name": "hh3cCupmUpVbVpnName",
+    "oid": "1.3.6.1.4.1.25506.2.195.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-CUPM-UP-MIB",
+      "Source digest sha256:533d2abab40bb6d78d97da860dc67c2ef49224c533d1914afe31075ab72060da",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-CUPM-UP-MIB"
+  }
+}

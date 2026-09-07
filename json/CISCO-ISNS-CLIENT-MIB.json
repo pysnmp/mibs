@@ -1,0 +1,266 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIsnsClientMIB": {
+    "name": "ciscoIsnsClientMIB",
+    "oid": "1.3.6.1.4.1.9.9.372",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIsnsClientMIBNotifications": {
+    "name": "ciscoIsnsClientMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.372.0",
+    "class": "objectidentity"
+  },
+  "ciscoIsnsClientMIBMIBObjects": {
+    "name": "ciscoIsnsClientMIBMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.372.1",
+    "class": "objectidentity"
+  },
+  "ciscoIsnsClientMIBConformance": {
+    "name": "ciscoIsnsClientMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.372.2",
+    "class": "objectidentity"
+  },
+  "cIsnsClientConfig": {
+    "name": "cIsnsClientConfig",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1",
+    "class": "objectidentity"
+  },
+  "cIsnsClntServerProfileTable": {
+    "name": "cIsnsClntServerProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntServerProfileEntry": {
+    "name": "cIsnsClntServerProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClntServerProfileName": {
+    "name": "cIsnsClntServerProfileName",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntServerIndex": {
+    "name": "cIsnsClntServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntServerProfileAddrType": {
+    "name": "cIsnsClntServerProfileAddrType",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntServerProfileAddr": {
+    "name": "cIsnsClntServerProfileAddr",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntServerProfilePort": {
+    "name": "cIsnsClntServerProfilePort",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "default": {
+      "value": 3205,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntServerProfileStatus": {
+    "name": "cIsnsClntServerProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.372.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoiIsnsClientMIBCompliances": {
+    "name": "ciscoiIsnsClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.372.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIsnsClientMIBGroups": {
+    "name": "ciscoIsnsClientMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.372.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIsnsClientMIBCompliance": {
+    "name": "ciscoIsnsClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.372.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsServerConfigGroup",
+        "module": "CISCO-ISNS-CLIENT-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfileStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      },
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfilePort",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerConfigGroup": {
+    "name": "cIsnsServerConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.372.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfileAddrType"
+      },
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfileAddr"
+      },
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfilePort"
+      },
+      {
+        "module": "CISCO-ISNS-CLIENT-MIB",
+        "object": "cIsnsClntServerProfileStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ISNS-CLIENT-MIB",
+      "Source digest sha256:fdad6d436d04e08d98c6c9dc5a349741589b496777f63996d25cc9d01c43a125",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ISNS-CLIENT-MIB"
+  }
+}

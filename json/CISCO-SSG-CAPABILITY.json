@@ -1,0 +1,238 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSsgCapability": {
+    "name": "ciscoSsgCapability",
+    "oid": "1.3.6.1.4.1.9.7.1500",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSsgCapabilityV12R03RevT": {
+    "name": "ciscoSsgCapabilityV12R03RevT",
+    "oid": "1.3.6.1.4.1.9.7.1500.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3T",
+    "capabilities": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "includes": [
+          "ciscoSsgCfgGroupRev1",
+          "ciscoSsgExclusionsGroup",
+          "ciscoSsgTcpRedirectGroup",
+          "ciscoSsgServiceInterfaceGroup",
+          "ciscoSsgRadiusClientsGroup",
+          "ciscoSsgPortMapGroup"
+        ],
+        "variations": [
+          {
+            "object": "cssgCfgSsgEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAutoDomainMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgLocalForwardingEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAutoLogOffMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgRadiusProxyEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTcpRedirectEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAutoDomainNatEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgPortBundleHostKeyEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTransPassThroughEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAutoLogOffInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAutoLogOffIcmpRetries",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgMaxServicesPerUser",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAccountingEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgDefaultNetworkType",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgDefaultNetwork",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgRadiusAuthenPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgRadiusAccountingPort",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgRadiusFwdAcctPktsEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgAccountingInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTCPRedirGrpForUnAuthUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTCPRedirGrpForUnAuthServ",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTcpRedirGrpForSMTP",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTcpRedirGrpForInitialCapt",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTcpRedirGrpForAdvCapt",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgCfgTalEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgExcludedAPNRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgExcludedDomainRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirectGrpRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgNetworkGrpNetRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgPortGrpPortRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirNetworkMapGrpName",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirNetworkGrpMapRowStat",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirPortMapGrpName",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirPortGrpMapRowStat",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirPortNo",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgTcpRedirPortNoMapRowStat",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgServiceIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgServiceIfRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgRadiusClientRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgPortMapLength",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgPortMapPortRangeFrom",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgPortMapPortRangeTo",
+            "access": "read-only"
+          },
+          {
+            "object": "cssgPortMapRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SSG-CAPABILITY",
+      "Source digest sha256:f19eb9e4857c5089280ea6dff62c7148e4521e4c6671c4d76e74a12bfe229567",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SSG-CAPABILITY"
+  }
+}

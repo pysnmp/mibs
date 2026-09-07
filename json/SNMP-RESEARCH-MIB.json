@@ -1,0 +1,710 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpResearch": {
+    "name": "snmpResearch",
+    "oid": "1.3.6.1.4.1.99",
+    "class": "objectidentity"
+  },
+  "snmpResearchNode": {
+    "name": "snmpResearchNode",
+    "oid": "1.3.6.1.4.1.99.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchAgent": {
+    "name": "snmpResearchAgent",
+    "oid": "1.3.6.1.4.1.99.1.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchUNIXAgent": {
+    "name": "snmpResearchUNIXAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchSnmpd": {
+    "name": "snmpResearchSnmpd",
+    "oid": "1.3.6.1.4.1.99.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchProxyAgent": {
+    "name": "snmpResearchProxyAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.2",
+    "class": "objectidentity"
+  },
+  "snmpResearchLb100Proxy": {
+    "name": "snmpResearchLb100Proxy",
+    "oid": "1.3.6.1.4.1.99.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchEMANATEMasterAgent": {
+    "name": "snmpResearchEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3",
+    "class": "objectidentity"
+  },
+  "solarisEMANATEMasterAgent": {
+    "name": "solarisEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "solarisTCPEMANATEMasterAgent": {
+    "name": "solarisTCPEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "solarisx86TCPEMANATEMasterAgent": {
+    "name": "solarisx86TCPEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "sunosEMANATEMasterAgent": {
+    "name": "sunosEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "dguxEMANATEMasterAgent": {
+    "name": "dguxEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "hpuxEMANATEMasterAgent": {
+    "name": "hpuxEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "vxworksEMANATEMasterAgent": {
+    "name": "vxworksEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.7",
+    "class": "objectidentity"
+  },
+  "hprtEMANATEMasterAgent": {
+    "name": "hprtEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.8",
+    "class": "objectidentity"
+  },
+  "aixEMANATEMasterAgent": {
+    "name": "aixEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.9",
+    "class": "objectidentity"
+  },
+  "sco3EMANATEMasterAgent": {
+    "name": "sco3EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.10",
+    "class": "objectidentity"
+  },
+  "ntEMANATEMasterAgent": {
+    "name": "ntEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.11",
+    "class": "objectidentity"
+  },
+  "win31EMANATEMasterAgent": {
+    "name": "win31EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.12",
+    "class": "objectidentity"
+  },
+  "dynixEMANATEMasterAgent": {
+    "name": "dynixEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.13",
+    "class": "objectidentity"
+  },
+  "osf1EMANATEMasterAgent": {
+    "name": "osf1EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.14",
+    "class": "objectidentity"
+  },
+  "ncrEMANATEMasterAgent": {
+    "name": "ncrEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.15",
+    "class": "objectidentity"
+  },
+  "sco5EMANATEMasterAgent": {
+    "name": "sco5EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.16",
+    "class": "objectidentity"
+  },
+  "solarisx86EMANATEMasterAgent": {
+    "name": "solarisx86EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.17",
+    "class": "objectidentity"
+  },
+  "freebsdEMANATEMasterAgent": {
+    "name": "freebsdEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.18",
+    "class": "objectidentity"
+  },
+  "irixEMANATEMasterAgent": {
+    "name": "irixEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.19",
+    "class": "objectidentity"
+  },
+  "os2EMANATEMasterAgent": {
+    "name": "os2EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.20",
+    "class": "objectidentity"
+  },
+  "unixwareEMANATEMasterAgent": {
+    "name": "unixwareEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.21",
+    "class": "objectidentity"
+  },
+  "bsdiEMANATEMasterAgent": {
+    "name": "bsdiEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.22",
+    "class": "objectidentity"
+  },
+  "sinixEMANATEMasterAgent": {
+    "name": "sinixEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.23",
+    "class": "objectidentity"
+  },
+  "ftxEMANATEMasterAgent": {
+    "name": "ftxEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.24",
+    "class": "objectidentity"
+  },
+  "hpux10EMANATEMasterAgent": {
+    "name": "hpux10EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.25",
+    "class": "objectidentity"
+  },
+  "dguxx86EMANATEMasterAgent": {
+    "name": "dguxx86EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.26",
+    "class": "objectidentity"
+  },
+  "unixware21EMANATEMasterAgent": {
+    "name": "unixware21EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.27",
+    "class": "objectidentity"
+  },
+  "linuxEMANATEMasterAgent": {
+    "name": "linuxEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.28",
+    "class": "objectidentity"
+  },
+  "osf4EMANATEMasterAgent": {
+    "name": "osf4EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.29",
+    "class": "objectidentity"
+  },
+  "hpux11EMANATEMasterAgent": {
+    "name": "hpux11EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.30",
+    "class": "objectidentity"
+  },
+  "nextEMANATEMasterAgent": {
+    "name": "nextEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.31",
+    "class": "objectidentity"
+  },
+  "netbsdEMANATEMasterAgent": {
+    "name": "netbsdEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.32",
+    "class": "objectidentity"
+  },
+  "openvmsEMANATEMasterAgent": {
+    "name": "openvmsEMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.33",
+    "class": "objectidentity"
+  },
+  "sol64EMANATEMasterAgent": {
+    "name": "sol64EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.34",
+    "class": "objectidentity"
+  },
+  "sol64x86EMANATEMasterAgent": {
+    "name": "sol64x86EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.35",
+    "class": "objectidentity"
+  },
+  "hpux64EMANATEMasterAgent": {
+    "name": "hpux64EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.36",
+    "class": "objectidentity"
+  },
+  "aix64EMANATEMasterAgent": {
+    "name": "aix64EMANATEMasterAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.3.37",
+    "class": "objectidentity"
+  },
+  "snmpResearchLTxxxAgent": {
+    "name": "snmpResearchLTxxxAgent",
+    "oid": "1.3.6.1.4.1.99.1.1.4",
+    "class": "objectidentity"
+  },
+  "snmpResearchLT301Agent": {
+    "name": "snmpResearchLT301Agent",
+    "oid": "1.3.6.1.4.1.99.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchManager": {
+    "name": "snmpResearchManager",
+    "oid": "1.3.6.1.4.1.99.1.2",
+    "class": "objectidentity"
+  },
+  "snmpSecurityPack": {
+    "name": "snmpSecurityPack",
+    "oid": "1.3.6.1.4.1.99.1.2.1",
+    "class": "objectidentity"
+  },
+  "snmpSecurityPackTgtOid": {
+    "name": "snmpSecurityPackTgtOid",
+    "oid": "1.3.6.1.4.1.99.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "snmpResearchVarVersion": {
+    "name": "snmpResearchVarVersion",
+    "oid": "1.3.6.1.4.1.99.2",
+    "class": "objectidentity"
+  },
+  "snmpResearchMIBs": {
+    "name": "snmpResearchMIBs",
+    "oid": "1.3.6.1.4.1.99.12",
+    "class": "objectidentity"
+  },
+  "psMIB": {
+    "name": "psMIB",
+    "oid": "1.3.6.1.4.1.99.12.2",
+    "class": "objectidentity"
+  },
+  "testMIB": {
+    "name": "testMIB",
+    "oid": "1.3.6.1.4.1.99.12.3",
+    "class": "objectidentity"
+  },
+  "snmpResearchload": {
+    "name": "snmpResearchload",
+    "oid": "1.3.6.1.4.1.99.12.4",
+    "class": "objectidentity"
+  },
+  "oldExamples": {
+    "name": "oldExamples",
+    "oid": "1.3.6.1.4.1.99.12.5",
+    "class": "objectidentity"
+  },
+  "dmiTestMIB": {
+    "name": "dmiTestMIB",
+    "oid": "1.3.6.1.4.1.99.12.6",
+    "class": "objectidentity"
+  },
+  "emacs2": {
+    "name": "emacs2",
+    "oid": "1.3.6.1.4.1.99.12.7",
+    "class": "objectidentity"
+  },
+  "sample": {
+    "name": "sample",
+    "oid": "1.3.6.1.4.1.99.12.8",
+    "class": "objectidentity"
+  },
+  "etc": {
+    "name": "etc",
+    "oid": "1.3.6.1.4.1.99.12.9",
+    "class": "objectidentity"
+  },
+  "spakes": {
+    "name": "spakes",
+    "oid": "1.3.6.1.4.1.99.12.10",
+    "class": "objectidentity"
+  },
+  "demo": {
+    "name": "demo",
+    "oid": "1.3.6.1.4.1.99.12.12",
+    "class": "objectidentity"
+  },
+  "newV2ip": {
+    "name": "newV2ip",
+    "oid": "1.3.6.1.4.1.99.12.13",
+    "class": "objectidentity"
+  },
+  "newV2udp": {
+    "name": "newV2udp",
+    "oid": "1.3.6.1.4.1.99.12.14",
+    "class": "objectidentity"
+  },
+  "instanceRep": {
+    "name": "instanceRep",
+    "oid": "1.3.6.1.4.1.99.12.17",
+    "class": "objectidentity"
+  },
+  "brassMIB": {
+    "name": "brassMIB",
+    "oid": "1.3.6.1.4.1.99.12.18",
+    "class": "objectidentity"
+  },
+  "srExamples": {
+    "name": "srExamples",
+    "oid": "1.3.6.1.4.1.99.12.19",
+    "class": "objectidentity"
+  },
+  "srBasics": {
+    "name": "srBasics",
+    "oid": "1.3.6.1.4.1.99.12.19.1",
+    "class": "objectidentity"
+  },
+  "srProductFeatures": {
+    "name": "srProductFeatures",
+    "oid": "1.3.6.1.4.1.99.12.19.2",
+    "class": "objectidentity"
+  },
+  "latin": {
+    "name": "latin",
+    "oid": "1.3.6.1.4.1.99.12.21",
+    "class": "objectidentity"
+  },
+  "processControl": {
+    "name": "processControl",
+    "oid": "1.3.6.1.4.1.99.12.23",
+    "class": "objectidentity"
+  },
+  "ltHardware": {
+    "name": "ltHardware",
+    "oid": "1.3.6.1.4.1.99.12.25",
+    "class": "objectidentity"
+  },
+  "alias": {
+    "name": "alias",
+    "oid": "1.3.6.1.4.1.99.12.27",
+    "class": "objectidentity"
+  },
+  "softTrap": {
+    "name": "softTrap",
+    "oid": "1.3.6.1.4.1.99.12.28",
+    "class": "objectidentity"
+  },
+  "critApp": {
+    "name": "critApp",
+    "oid": "1.3.6.1.4.1.99.12.29",
+    "class": "objectidentity"
+  },
+  "htmlpage": {
+    "name": "htmlpage",
+    "oid": "1.3.6.1.4.1.99.12.30",
+    "class": "objectidentity"
+  },
+  "phoneSwitch": {
+    "name": "phoneSwitch",
+    "oid": "1.3.6.1.4.1.99.12.31",
+    "class": "objectidentity"
+  },
+  "httpToSnmpAuthMappingMIB": {
+    "name": "httpToSnmpAuthMappingMIB",
+    "oid": "1.3.6.1.4.1.99.12.32",
+    "class": "objectidentity"
+  },
+  "srCommunityMIB": {
+    "name": "srCommunityMIB",
+    "oid": "1.3.6.1.4.1.99.12.33",
+    "class": "objectidentity"
+  },
+  "srAgtTest": {
+    "name": "srAgtTest",
+    "oid": "1.3.6.1.4.1.99.12.34",
+    "class": "objectidentity"
+  },
+  "usmTargetTagMIB": {
+    "name": "usmTargetTagMIB",
+    "oid": "1.3.6.1.4.1.99.12.35",
+    "class": "objectidentity"
+  },
+  "tgtAddressMaskMIB": {
+    "name": "tgtAddressMaskMIB",
+    "oid": "1.3.6.1.4.1.99.12.36",
+    "class": "objectidentity"
+  },
+  "siServiceMIB": {
+    "name": "siServiceMIB",
+    "oid": "1.3.6.1.4.1.99.12.38",
+    "class": "objectidentity"
+  },
+  "siFsMonitor": {
+    "name": "siFsMonitor",
+    "oid": "1.3.6.1.4.1.99.12.39",
+    "class": "objectidentity"
+  },
+  "siLog": {
+    "name": "siLog",
+    "oid": "1.3.6.1.4.1.99.12.40",
+    "class": "objectidentity"
+  },
+  "smExtensionMIB": {
+    "name": "smExtensionMIB",
+    "oid": "1.3.6.1.4.1.99.12.41",
+    "class": "objectidentity"
+  },
+  "siCIAgentEval": {
+    "name": "siCIAgentEval",
+    "oid": "1.3.6.1.4.1.99.12.42",
+    "class": "objectidentity"
+  },
+  "siCIAgentEvalExpiredMsg": {
+    "name": "siCIAgentEvalExpiredMsg",
+    "oid": "1.3.6.1.4.1.99.12.42.1",
+    "class": "objectidentity"
+  },
+  "siCIAgentEvalExpiredTrap": {
+    "name": "siCIAgentEvalExpiredTrap",
+    "oid": "1.3.6.1.4.1.99.12.42.10",
+    "class": "objectidentity"
+  },
+  "siKernelMIB": {
+    "name": "siKernelMIB",
+    "oid": "1.3.6.1.4.1.99.12.43",
+    "class": "objectidentity"
+  },
+  "srAutoDiscovery": {
+    "name": "srAutoDiscovery",
+    "oid": "1.3.6.1.4.1.99.12.44",
+    "class": "objectidentity"
+  },
+  "snmpSecurityPackMIB": {
+    "name": "snmpSecurityPackMIB",
+    "oid": "1.3.6.1.4.1.99.12.45",
+    "class": "objectidentity"
+  },
+  "srAgentInfo": {
+    "name": "srAgentInfo",
+    "oid": "1.3.6.1.4.1.99.12.46",
+    "class": "objectidentity"
+  },
+  "epicCLIMIB": {
+    "name": "epicCLIMIB",
+    "oid": "1.3.6.1.4.1.99.12.47",
+    "class": "objectidentity"
+  },
+  "mgrHintsMIB": {
+    "name": "mgrHintsMIB",
+    "oid": "1.3.6.1.4.1.99.12.48",
+    "class": "objectidentity"
+  },
+  "srSpMIB": {
+    "name": "srSpMIB",
+    "oid": "1.3.6.1.4.1.99.12.49",
+    "class": "objectidentity"
+  },
+  "brassAuxiliaryInfo": {
+    "name": "brassAuxiliaryInfo",
+    "oid": "1.3.6.1.4.1.99.12.50",
+    "class": "objectidentity"
+  },
+  "componentUserMIB": {
+    "name": "componentUserMIB",
+    "oid": "1.3.6.1.4.1.99.12.51",
+    "class": "objectidentity"
+  },
+  "distBrassMIB": {
+    "name": "distBrassMIB",
+    "oid": "1.3.6.1.4.1.99.12.52",
+    "class": "objectidentity"
+  },
+  "queueEmulation": {
+    "name": "queueEmulation",
+    "oid": "1.3.6.1.4.1.99.12.53",
+    "class": "objectidentity"
+  },
+  "srNativeAgentAdapter": {
+    "name": "srNativeAgentAdapter",
+    "oid": "1.3.6.1.4.1.99.12.54",
+    "class": "objectidentity"
+  },
+  "srProxyAgentOption": {
+    "name": "srProxyAgentOption",
+    "oid": "1.3.6.1.4.1.99.12.55",
+    "class": "objectidentity"
+  },
+  "srPrograms": {
+    "name": "srPrograms",
+    "oid": "1.3.6.1.4.1.99.13",
+    "class": "objectidentity"
+  },
+  "srExperimental": {
+    "name": "srExperimental",
+    "oid": "1.3.6.1.4.1.99.15",
+    "class": "objectidentity"
+  },
+  "srExperimentalMIBs": {
+    "name": "srExperimentalMIBs",
+    "oid": "1.3.6.1.4.1.99.15.1",
+    "class": "objectidentity"
+  },
+  "srExperimentalDomains": {
+    "name": "srExperimentalDomains",
+    "oid": "1.3.6.1.4.1.99.15.2",
+    "class": "objectidentity"
+  },
+  "srExperimentalAPOErrorCodes": {
+    "name": "srExperimentalAPOErrorCodes",
+    "oid": "1.3.6.1.4.1.99.15.3",
+    "class": "objectidentity"
+  },
+  "srExperimentalAPOConsortium": {
+    "name": "srExperimentalAPOConsortium",
+    "oid": "1.3.6.1.4.1.99.15.4",
+    "class": "objectidentity"
+  },
+  "httpSecurityMIB": {
+    "name": "httpSecurityMIB",
+    "oid": "1.3.6.1.4.1.99.15.1.1",
+    "class": "objectidentity"
+  },
+  "reconfigMIB": {
+    "name": "reconfigMIB",
+    "oid": "1.3.6.1.4.1.99.15.1.2",
+    "class": "objectidentity"
+  },
+  "reconfigAgent": {
+    "name": "reconfigAgent",
+    "oid": "1.3.6.1.4.1.99.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "loadSubagent": {
+    "name": "loadSubagent",
+    "oid": "1.3.6.1.4.1.99.15.1.2.2",
+    "class": "objectidentity"
+  },
+  "srSmExt": {
+    "name": "srSmExt",
+    "oid": "1.3.6.1.4.1.99.15.1.3",
+    "class": "objectidentity"
+  },
+  "eventMIB": {
+    "name": "eventMIB",
+    "oid": "1.3.6.1.4.1.99.15.1.5",
+    "class": "objectidentity"
+  },
+  "httpTCPIPDomain": {
+    "name": "httpTCPIPDomain",
+    "oid": "1.3.6.1.4.1.99.15.2.1",
+    "class": "objectidentity"
+  },
+  "snmpTCPDomain": {
+    "name": "snmpTCPDomain",
+    "oid": "1.3.6.1.4.1.99.15.2.2",
+    "class": "objectidentity"
+  },
+  "secureIntelligence": {
+    "name": "secureIntelligence",
+    "oid": "1.3.6.1.4.1.99.16",
+    "class": "objectidentity"
+  },
+  "enterpol": {
+    "name": "enterpol",
+    "oid": "1.3.6.1.4.1.99.16.1",
+    "class": "objectidentity"
+  },
+  "enterpolEvents": {
+    "name": "enterpolEvents",
+    "oid": "1.3.6.1.4.1.99.16.1.1",
+    "class": "objectidentity"
+  },
+  "enterpolStatusEvents": {
+    "name": "enterpolStatusEvents",
+    "oid": "1.3.6.1.4.1.99.16.1.1.1",
+    "class": "objectidentity"
+  },
+  "enterpolPingFailed": {
+    "name": "enterpolPingFailed",
+    "oid": "1.3.6.1.4.1.99.16.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "enterpolPollFailed": {
+    "name": "enterpolPollFailed",
+    "oid": "1.3.6.1.4.1.99.16.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "enterpolCdistribEvents": {
+    "name": "enterpolCdistribEvents",
+    "oid": "1.3.6.1.4.1.99.16.1.1.2",
+    "class": "objectidentity"
+  },
+  "enterpolRemoteEvents": {
+    "name": "enterpolRemoteEvents",
+    "oid": "1.3.6.1.4.1.99.16.1.1.3",
+    "class": "objectidentity"
+  },
+  "enterpolVarBinds": {
+    "name": "enterpolVarBinds",
+    "oid": "1.3.6.1.4.1.99.16.1.2",
+    "class": "objectidentity"
+  },
+  "enterpolMapName": {
+    "name": "enterpolMapName",
+    "oid": "1.3.6.1.4.1.99.16.1.2.1",
+    "class": "objectidentity"
+  },
+  "enterpolScript": {
+    "name": "enterpolScript",
+    "oid": "1.3.6.1.4.1.99.16.1.2.2",
+    "class": "objectidentity"
+  },
+  "enterpolProcesses": {
+    "name": "enterpolProcesses",
+    "oid": "1.3.6.1.4.1.99.16.1.3",
+    "class": "objectidentity"
+  },
+  "cdistrib": {
+    "name": "cdistrib",
+    "oid": "1.3.6.1.4.1.99.16.1.3.1",
+    "class": "objectidentity"
+  },
+  "pconfig": {
+    "name": "pconfig",
+    "oid": "1.3.6.1.4.1.99.16.1.3.2",
+    "class": "objectidentity"
+  },
+  "enterpolSubsystems": {
+    "name": "enterpolSubsystems",
+    "oid": "1.3.6.1.4.1.99.16.1.4",
+    "class": "objectidentity"
+  },
+  "pmamm": {
+    "name": "pmamm",
+    "oid": "1.3.6.1.4.1.99.16.1.4.1",
+    "class": "objectidentity"
+  },
+  "policyBasedManagement": {
+    "name": "policyBasedManagement",
+    "oid": "1.3.6.1.4.1.99.17",
+    "class": "objectidentity"
+  },
+  "pbmScratchPad": {
+    "name": "pbmScratchPad",
+    "oid": "1.3.6.1.4.1.99.17.1",
+    "class": "objectidentity"
+  },
+  "srAgentCapabilities": {
+    "name": "srAgentCapabilities",
+    "oid": "1.3.6.1.4.1.99.18",
+    "class": "objectidentity"
+  },
+  "mlmMIB": {
+    "name": "mlmMIB",
+    "oid": "1.3.6.1.4.1.99.42",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SNMP-RESEARCH-MIB",
+      "Source digest sha256:fb408b986c581fd29298ecd9029b534cdc139e048a01816358d857f446cef5c9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SNMP-RESEARCH-MIB"
+  }
+}

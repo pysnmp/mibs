@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALARM-MIB": [
+      "alarmClearEntry"
+    ],
+    "JUNIPER-SMI": [
+      "jnxAlarmExtMibRoot",
+      "jnxMibs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxAlarmMIB": {
+    "name": "jnxAlarmMIB",
+    "oid": "1.3.6.1.4.1.2636.3.72.1",
+    "class": "moduleidentity"
+  },
+  "jnxAlarmObjects": {
+    "name": "jnxAlarmObjects",
+    "oid": "1.3.6.1.4.1.2636.3.72.1.1",
+    "class": "objectidentity"
+  },
+  "jnxAlarmClearTable": {
+    "name": "jnxAlarmClearTable",
+    "oid": "1.3.6.1.4.1.2636.3.72.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxAlarmClearEntry": {
+    "name": "jnxAlarmClearEntry",
+    "oid": "1.3.6.1.4.1.2636.3.72.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "jnxAlarmClearEntry",
+      "module": "JUNIPER-ALARM-EXT-MIB",
+      "object": "alarmClearEntry"
+    },
+    "status": "current"
+  },
+  "jnxAlarmClearActiveDateAndTime": {
+    "name": "jnxAlarmClearActiveDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.72.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-ALARM-EXT-MIB",
+      "Source digest sha256:553f2ec755e015794814060c7c9ec09959bfe2c8bdadacc08b493dc43d8a019d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-ALARM-EXT-MIB"
+  }
+}

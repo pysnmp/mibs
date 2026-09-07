@@ -1,0 +1,101 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "globalRegModule": {
+    "name": "globalRegModule",
+    "oid": "1.3.6.1.4.1.20246.2.1.1.1",
+    "class": "moduleidentity"
+  },
+  "delta": {
+    "name": "delta",
+    "oid": "1.3.6.1.4.1.20246",
+    "class": "objectidentity"
+  },
+  "root": {
+    "name": "root",
+    "oid": "1.3.6.1.4.1.20246.2",
+    "class": "objectidentity"
+  },
+  "reg": {
+    "name": "reg",
+    "oid": "1.3.6.1.4.1.20246.2.1",
+    "class": "objectidentity"
+  },
+  "modules": {
+    "name": "modules",
+    "oid": "1.3.6.1.4.1.20246.2.1.1",
+    "class": "objectidentity"
+  },
+  "generic": {
+    "name": "generic",
+    "oid": "1.3.6.1.4.1.20246.2.2",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.20246.2.3",
+    "class": "objectidentity"
+  },
+  "controller": {
+    "name": "controller",
+    "oid": "1.3.6.1.4.1.20246.2.3.1",
+    "class": "objectidentity"
+  },
+  "orion": {
+    "name": "orion",
+    "oid": "1.3.6.1.4.1.20246.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "caps": {
+    "name": "caps",
+    "oid": "1.3.6.1.4.1.20246.2.4",
+    "class": "objectidentity"
+  },
+  "regs": {
+    "name": "regs",
+    "oid": "1.3.6.1.4.1.20246.2.5",
+    "class": "objectidentity"
+  },
+  "expr": {
+    "name": "expr",
+    "oid": "1.3.6.1.4.1.20246.2.6",
+    "class": "objectidentity"
+  },
+  "controllerReg": {
+    "name": "controllerReg",
+    "oid": "1.3.6.1.4.1.20246.2.1.2",
+    "class": "objectidentity"
+  },
+  "controllerOrionReg": {
+    "name": "controllerOrionReg",
+    "oid": "1.3.6.1.4.1.20246.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GLOBAL-REG",
+      "Source digest sha256:c4b0d693ad78f06a402e64cfc4ac1b6ba4bbe0369abb8ff78f0ffd4d04ebda52",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GLOBAL-REG"
+  }
+}

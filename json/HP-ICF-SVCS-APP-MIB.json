@@ -1,0 +1,627 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfSvcsAppMIB": {
+    "name": "hpicfSvcsAppMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-05-27 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfSvcsAppNotifications": {
+    "name": "hpicfSvcsAppNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.0",
+    "class": "objectidentity"
+  },
+  "hpicfSvcsAppObjects": {
+    "name": "hpicfSvcsAppObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1",
+    "class": "objectidentity"
+  },
+  "hpicfSvcsAppConformance": {
+    "name": "hpicfSvcsAppConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2",
+    "class": "objectidentity"
+  },
+  "AppStatus": {
+    "name": "AppStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "bootInit": 3,
+          "booting": 4,
+          "bootFailure": 5,
+          "halted": 6,
+          "rebooting": 7,
+          "ready": 8,
+          "appInit": 9,
+          "appError": 10,
+          "appRunning": 11,
+          "shuttingDown": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppTable": {
+    "name": "hpicfSvcsInstalledAppTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppEntry": {
+    "name": "hpicfSvcsInstalledAppEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppPlatformType": {
+    "name": "hpicfSvcsInstalledAppPlatformType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppDescription": {
+    "name": "hpicfSvcsInstalledAppDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppVersion": {
+    "name": "hpicfSvcsInstalledAppVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppStatus": {
+    "name": "hpicfSvcsInstalledAppStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppJNumber": {
+    "name": "hpicfSvcsInstalledAppJNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppLicensingStatus": {
+    "name": "hpicfSvcsInstalledAppLicensingStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "expired": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppRowStatus": {
+    "name": "hpicfSvcsInstalledAppRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppTable": {
+    "name": "hpicfSvcsV1AppTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppEntry": {
+    "name": "hpicfSvcsV1AppEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSvcsV1AppIndex": {
+    "name": "hpicfSvcsV1AppIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppCLIAvailable": {
+    "name": "hpicfSvcsV1AppCLIAvailable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppName": {
+    "name": "hpicfSvcsV1AppName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppDescription": {
+    "name": "hpicfSvcsV1AppDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppVersion": {
+    "name": "hpicfSvcsV1AppVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppStatus": {
+    "name": "hpicfSvcsV1AppStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppJNumber": {
+    "name": "hpicfSvcsV1AppJNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppURL": {
+    "name": "hpicfSvcsV1AppURL",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsV1AppRowStatus": {
+    "name": "hpicfSvcsV1AppRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfSvcsAppCompliances": {
+    "name": "hpicfSvcsAppCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfSvcsAppGroups": {
+    "name": "hpicfSvcsAppGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfSvcsAppCompliance": {
+    "name": "hpicfSvcsAppCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSvcsInstalledAppGroup",
+        "module": "HP-ICF-SVCS-APP-MIB"
+      },
+      {
+        "object": "hpicfSvcsV1AppGroup",
+        "module": "HP-ICF-SVCS-APP-MIB"
+      },
+      {
+        "object": "hpicfSvcsInstalledAppGroup",
+        "module": "HP-ICF-SVCS-APP-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppPlatformType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppDescription",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppVersion",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppJNumber",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppLicensingStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppIndex",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppCLIAvailable",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppDescription",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppVersion",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppJNumber",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppURL",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppRowStatus",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSvcsInstalledAppGroup": {
+    "name": "hpicfSvcsInstalledAppGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppPlatformType"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppDescription"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppVersion"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppStatus"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppJNumber"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppLicensingStatus"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsInstalledAppRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSvcsV1AppGroup": {
+    "name": "hpicfSvcsV1AppGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.86.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppIndex"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppCLIAvailable"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppName"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppDescription"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppVersion"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppStatus"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppJNumber"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppURL"
+      },
+      {
+        "module": "HP-ICF-SVCS-APP-MIB",
+        "object": "hpicfSvcsV1AppRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SVCS-APP-MIB",
+      "Source digest sha256:30c60f18c79c8d83df43ce9b4d2ac4d319f3bbe61df5da20ac9e070758dd8d17",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SVCS-APP-MIB"
+  }
+}

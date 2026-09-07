@@ -1,0 +1,166 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsVlanTagsMib": {
+    "name": "nbsVlanTagsMib",
+    "oid": "1.3.6.1.4.1.629.219",
+    "class": "moduleidentity"
+  },
+  "nbsVlanTagsPortGrp": {
+    "name": "nbsVlanTagsPortGrp",
+    "oid": "1.3.6.1.4.1.629.219.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsVlanTagsPortTableSize": {
+    "name": "nbsVlanTagsPortTableSize",
+    "oid": "1.3.6.1.4.1.629.219.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsVlanTagsPortTable": {
+    "name": "nbsVlanTagsPortTable",
+    "oid": "1.3.6.1.4.1.629.219.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsVlanTagsPortEntry": {
+    "name": "nbsVlanTagsPortEntry",
+    "oid": "1.3.6.1.4.1.629.219.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-VLAN-TAGS-MIB",
+        "object": "nbsVlanTagsPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsVlanTagsPortIfIndex": {
+    "name": "nbsVlanTagsPortIfIndex",
+    "oid": "1.3.6.1.4.1.629.219.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsVlanTagsPortAction": {
+    "name": "nbsVlanTagsPortAction",
+    "oid": "1.3.6.1.4.1.629.219.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "add": 2,
+          "strip": 3,
+          "ignore": 4
+        }
+      }
+    },
+    "default": {
+      "value": "ignore",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsVlanTagsPortVid": {
+    "name": "nbsVlanTagsPortVid",
+    "oid": "1.3.6.1.4.1.629.219.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsVlanTagsPortPriority": {
+    "name": "nbsVlanTagsPortPriority",
+    "oid": "1.3.6.1.4.1.629.219.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NBS-VLAN-TAGS-MIB",
+      "Source digest sha256:285ac86cccf7b11393c8933db9deac118be9acf88bb955139fe57507682b41e2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NBS-VLAN-TAGS-MIB"
+  }
+}

@@ -1,0 +1,3440 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gslbSiteModule": {
+    "name": "gslbSiteModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426",
+    "class": "moduleidentity"
+  },
+  "site": {
+    "name": "site",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1",
+    "class": "objectidentity"
+  },
+  "siteStatsTable": {
+    "name": "siteStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siteStatsEntry": {
+    "name": "siteStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteStatsSiteName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "siteStatsSlotId": {
+    "name": "siteStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteStatsSiteName": {
+    "name": "siteStatsSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteStatsHits": {
+    "name": "siteStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTable": {
+    "name": "siteOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siteOperEntry": {
+    "name": "siteOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperSiteName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "siteOperSlotId": {
+    "name": "siteOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperSiteName": {
+    "name": "siteOperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperGslbSite": {
+    "name": "siteOperGslbSite",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperState": {
+    "name": "siteOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTotalVipCurrConn": {
+    "name": "siteOperTotalVipCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTypeLastTable": {
+    "name": "siteOperTypeLastTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siteOperTypeLastEntry": {
+    "name": "siteOperTypeLastEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperTypeLastSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperTypeLastSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperTypeLastTypeLastListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "siteOperTypeLastSlotId": {
+    "name": "siteOperTypeLastSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTypeLastSiteName": {
+    "name": "siteOperTypeLastSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTypeLastTypeLastListId": {
+    "name": "siteOperTypeLastTypeLastListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTypeLastType": {
+    "name": "siteOperTypeLastType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperTypeLastLast": {
+    "name": "siteOperTypeLastLast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListTable": {
+    "name": "siteOperClientLdnsListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "siteOperClientLdnsListEntry": {
+    "name": "siteOperClientLdnsListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperClientLdnsListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperClientLdnsListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "siteOperClientLdnsListClientLdnsListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "siteOperClientLdnsListSlotId": {
+    "name": "siteOperClientLdnsListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListSiteName": {
+    "name": "siteOperClientLdnsListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListClientLdnsListListId": {
+    "name": "siteOperClientLdnsListClientLdnsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListClientIp": {
+    "name": "siteOperClientLdnsListClientIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListAge": {
+    "name": "siteOperClientLdnsListAge",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListType": {
+    "name": "siteOperClientLdnsListType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample1": {
+    "name": "siteOperClientLdnsListRdtSample1",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample2": {
+    "name": "siteOperClientLdnsListRdtSample2",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample3": {
+    "name": "siteOperClientLdnsListRdtSample3",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample4": {
+    "name": "siteOperClientLdnsListRdtSample4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample5": {
+    "name": "siteOperClientLdnsListRdtSample5",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample6": {
+    "name": "siteOperClientLdnsListRdtSample6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample7": {
+    "name": "siteOperClientLdnsListRdtSample7",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteOperClientLdnsListRdtSample8": {
+    "name": "siteOperClientLdnsListRdtSample8",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServer": {
+    "name": "ipServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5",
+    "class": "objectidentity"
+  },
+  "ipServerStatsTable": {
+    "name": "ipServerStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipServerStatsEntry": {
+    "name": "ipServerStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerStatsSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerStatsIpServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipServerStatsSlotId": {
+    "name": "ipServerStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerStatsSiteName": {
+    "name": "ipServerStatsSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerStatsIpServerName": {
+    "name": "ipServerStatsIpServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerStatsHits": {
+    "name": "ipServerStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerStatsRecent": {
+    "name": "ipServerStatsRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperTable": {
+    "name": "ipServerOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipServerOperEntry": {
+    "name": "ipServerOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperIpServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipServerOperSlotId": {
+    "name": "ipServerOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperSiteName": {
+    "name": "ipServerOperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerName": {
+    "name": "ipServerOperIpServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServer": {
+    "name": "ipServerOperIpServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpAddress": {
+    "name": "ipServerOperIpAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDesc": {
+    "name": "ipServerOperDesc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperState": {
+    "name": "ipServerOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperServiceIp": {
+    "name": "ipServerOperServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperPortCount": {
+    "name": "ipServerOperPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperVirtualServer": {
+    "name": "ipServerOperVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDisabled": {
+    "name": "ipServerOperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperGslbProtocol": {
+    "name": "ipServerOperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperLocalProtocol": {
+    "name": "ipServerOperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperManuallyHealthCheck": {
+    "name": "ipServerOperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperUseGslbState": {
+    "name": "ipServerOperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDynamic": {
+    "name": "ipServerOperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperHits": {
+    "name": "ipServerOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperRecent": {
+    "name": "ipServerOperRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListTable": {
+    "name": "ipServerOperDrsListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipServerOperDrsListEntry": {
+    "name": "ipServerOperDrsListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListIpServerName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipServerOperDrsListSlotId": {
+    "name": "ipServerOperDrsListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListSiteName": {
+    "name": "ipServerOperDrsListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListIpServerName": {
+    "name": "ipServerOperDrsListIpServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsListListId": {
+    "name": "ipServerOperDrsListDrsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsName": {
+    "name": "ipServerOperDrsListDrsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsIpAddress": {
+    "name": "ipServerOperDrsListDrsIpAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsFqdnName": {
+    "name": "ipServerOperDrsListDrsFqdnName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsState": {
+    "name": "ipServerOperDrsListDrsState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsServiceIp": {
+    "name": "ipServerOperDrsListDrsServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortCount": {
+    "name": "ipServerOperDrsListDrsPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsVirtualServer": {
+    "name": "ipServerOperDrsListDrsVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsDisabled": {
+    "name": "ipServerOperDrsListDrsDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsGslbProtocol": {
+    "name": "ipServerOperDrsListDrsGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsLocalProtocol": {
+    "name": "ipServerOperDrsListDrsLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsManuallyHealthCheck": {
+    "name": "ipServerOperDrsListDrsManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsUseGslbState": {
+    "name": "ipServerOperDrsListDrsUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsDynamic": {
+    "name": "ipServerOperDrsListDrsDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsHits": {
+    "name": "ipServerOperDrsListDrsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsRecent": {
+    "name": "ipServerOperDrsListDrsRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortTable": {
+    "name": "ipServerOperDrsListDrsPortTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortEntry": {
+    "name": "ipServerOperDrsListDrsPortEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsPortSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsPortSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsPortIpServerName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsPortDrsListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperDrsListDrsPortDrsPortListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortSlotId": {
+    "name": "ipServerOperDrsListDrsPortSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortSiteName": {
+    "name": "ipServerOperDrsListDrsPortSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortIpServerName": {
+    "name": "ipServerOperDrsListDrsPortIpServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortDrsListListId": {
+    "name": "ipServerOperDrsListDrsPortDrsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortDrsPortListId": {
+    "name": "ipServerOperDrsListDrsPortDrsPortListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortVport": {
+    "name": "ipServerOperDrsListDrsPortVport",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortVportProtocol": {
+    "name": "ipServerOperDrsListDrsPortVportProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortVportState": {
+    "name": "ipServerOperDrsListDrsPortVportState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperDrsListDrsPortServiceName": {
+    "name": "ipServerOperDrsListDrsPortServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortTable": {
+    "name": "ipServerOperIpServerPortTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortEntry": {
+    "name": "ipServerOperIpServerPortEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperIpServerPortSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperIpServerPortSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperIpServerPortIpServerName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "ipServerOperIpServerPortIpServerPortListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipServerOperIpServerPortSlotId": {
+    "name": "ipServerOperIpServerPortSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortSiteName": {
+    "name": "ipServerOperIpServerPortSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortIpServerName": {
+    "name": "ipServerOperIpServerPortIpServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortIpServerPortListId": {
+    "name": "ipServerOperIpServerPortIpServerPortListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortVport": {
+    "name": "ipServerOperIpServerPortVport",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortVportProtocol": {
+    "name": "ipServerOperIpServerPortVportProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortVportState": {
+    "name": "ipServerOperIpServerPortVportState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipServerOperIpServerPortServiceName": {
+    "name": "ipServerOperIpServerPortServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeRdt": {
+    "name": "activeRdt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.6",
+    "class": "objectidentity"
+  },
+  "easyRdt": {
+    "name": "easyRdt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.7",
+    "class": "objectidentity"
+  },
+  "slbDev": {
+    "name": "slbDev",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8",
+    "class": "objectidentity"
+  },
+  "slbDevOperTable": {
+    "name": "slbDevOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDevOperEntry": {
+    "name": "slbDevOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbDevOperSlotId": {
+    "name": "slbDevOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperSiteName": {
+    "name": "slbDevOperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDeviceName": {
+    "name": "slbDevOperDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevName": {
+    "name": "slbDevOperDevName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevIp": {
+    "name": "slbDevOperDevIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevAttr": {
+    "name": "slbDevOperDevAttr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevAdminPreference": {
+    "name": "slbDevOperDevAdminPreference",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevSessionNum": {
+    "name": "slbDevOperDevSessionNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevSessionUtil": {
+    "name": "slbDevOperDevSessionUtil",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevGwState": {
+    "name": "slbDevOperDevGwState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevIpCnt": {
+    "name": "slbDevOperDevIpCnt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperDevState": {
+    "name": "slbDevOperDevState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListTable": {
+    "name": "slbDevOperClientLdnsListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListEntry": {
+    "name": "slbDevOperClientLdnsListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperClientLdnsListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperClientLdnsListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperClientLdnsListDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "slbDevOperClientLdnsListClientLdnsListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListSlotId": {
+    "name": "slbDevOperClientLdnsListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListSiteName": {
+    "name": "slbDevOperClientLdnsListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListDeviceName": {
+    "name": "slbDevOperClientLdnsListDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListClientLdnsListListId": {
+    "name": "slbDevOperClientLdnsListClientLdnsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListClientIp": {
+    "name": "slbDevOperClientLdnsListClientIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListAge": {
+    "name": "slbDevOperClientLdnsListAge",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListType": {
+    "name": "slbDevOperClientLdnsListType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample1": {
+    "name": "slbDevOperClientLdnsListRdtSample1",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample2": {
+    "name": "slbDevOperClientLdnsListRdtSample2",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample3": {
+    "name": "slbDevOperClientLdnsListRdtSample3",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample4": {
+    "name": "slbDevOperClientLdnsListRdtSample4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample5": {
+    "name": "slbDevOperClientLdnsListRdtSample5",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample6": {
+    "name": "slbDevOperClientLdnsListRdtSample6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample7": {
+    "name": "slbDevOperClientLdnsListRdtSample7",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDevOperClientLdnsListRdtSample8": {
+    "name": "slbDevOperClientLdnsListRdtSample8",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServer": {
+    "name": "vipServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4",
+    "class": "objectidentity"
+  },
+  "vipServerV4": {
+    "name": "vipServerV4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2",
+    "class": "objectidentity"
+  },
+  "vipServerV4StatsTable": {
+    "name": "vipServerV4StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV4StatsEntry": {
+    "name": "vipServerV4StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4StatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4StatsSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4StatsDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4StatsIpv4",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV4StatsSlotId": {
+    "name": "vipServerV4StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4StatsSiteName": {
+    "name": "vipServerV4StatsSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4StatsDeviceName": {
+    "name": "vipServerV4StatsDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4StatsIpv4": {
+    "name": "vipServerV4StatsIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4StatsDevVipHits": {
+    "name": "vipServerV4StatsDevVipHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4StatsDevVipRecent": {
+    "name": "vipServerV4StatsDevVipRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperTable": {
+    "name": "vipServerV4OperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV4OperEntry": {
+    "name": "vipServerV4OperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperIpv4",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV4OperSlotId": {
+    "name": "vipServerV4OperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperSiteName": {
+    "name": "vipServerV4OperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDeviceName": {
+    "name": "vipServerV4OperDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperIpv4": {
+    "name": "vipServerV4OperIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipAddr": {
+    "name": "vipServerV4OperDevVipAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipState": {
+    "name": "vipServerV4OperDevVipState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperNodeName": {
+    "name": "vipServerV4OperNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperServiceIp": {
+    "name": "vipServerV4OperServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperPortCount": {
+    "name": "vipServerV4OperPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperVirtualServer": {
+    "name": "vipServerV4OperVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDisabled": {
+    "name": "vipServerV4OperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperGslbProtocol": {
+    "name": "vipServerV4OperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperLocalProtocol": {
+    "name": "vipServerV4OperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperManuallyHealthCheck": {
+    "name": "vipServerV4OperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperUseGslbState": {
+    "name": "vipServerV4OperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDynamic": {
+    "name": "vipServerV4OperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperShared": {
+    "name": "vipServerV4OperShared",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperHits": {
+    "name": "vipServerV4OperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperRecent": {
+    "name": "vipServerV4OperRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListTable": {
+    "name": "vipServerV4OperDevVipPortListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListEntry": {
+    "name": "vipServerV4OperDevVipPortListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDevVipPortListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDevVipPortListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDevVipPortListDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDevVipPortListIpv4",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV4OperDevVipPortListDevVipPortListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListSlotId": {
+    "name": "vipServerV4OperDevVipPortListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListSiteName": {
+    "name": "vipServerV4OperDevVipPortListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDeviceName": {
+    "name": "vipServerV4OperDevVipPortListDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListIpv4": {
+    "name": "vipServerV4OperDevVipPortListIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortListListId": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortNum": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortState": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortDevCurrConn": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortDevCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortProtocol": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV4OperDevVipPortListDevVipPortServiceName": {
+    "name": "vipServerV4OperDevVipPortListDevVipPortServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6": {
+    "name": "vipServerV6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3",
+    "class": "objectidentity"
+  },
+  "vipServerV6StatsTable": {
+    "name": "vipServerV6StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV6StatsEntry": {
+    "name": "vipServerV6StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6StatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6StatsSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6StatsDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6StatsIpv6",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV6StatsSlotId": {
+    "name": "vipServerV6StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6StatsSiteName": {
+    "name": "vipServerV6StatsSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6StatsDeviceName": {
+    "name": "vipServerV6StatsDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6StatsIpv6": {
+    "name": "vipServerV6StatsIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6StatsDevVipHits": {
+    "name": "vipServerV6StatsDevVipHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6StatsDevVipRecent": {
+    "name": "vipServerV6StatsDevVipRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperTable": {
+    "name": "vipServerV6OperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV6OperEntry": {
+    "name": "vipServerV6OperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperIpv6",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV6OperSlotId": {
+    "name": "vipServerV6OperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperSiteName": {
+    "name": "vipServerV6OperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDeviceName": {
+    "name": "vipServerV6OperDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperIpv6": {
+    "name": "vipServerV6OperIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipAddr": {
+    "name": "vipServerV6OperDevVipAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipState": {
+    "name": "vipServerV6OperDevVipState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperNodeName": {
+    "name": "vipServerV6OperNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperServiceIp": {
+    "name": "vipServerV6OperServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperPortCount": {
+    "name": "vipServerV6OperPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperVirtualServer": {
+    "name": "vipServerV6OperVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDisabled": {
+    "name": "vipServerV6OperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperGslbProtocol": {
+    "name": "vipServerV6OperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperLocalProtocol": {
+    "name": "vipServerV6OperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperManuallyHealthCheck": {
+    "name": "vipServerV6OperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperUseGslbState": {
+    "name": "vipServerV6OperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDynamic": {
+    "name": "vipServerV6OperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperShared": {
+    "name": "vipServerV6OperShared",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperHits": {
+    "name": "vipServerV6OperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperRecent": {
+    "name": "vipServerV6OperRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListTable": {
+    "name": "vipServerV6OperDevVipPortListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListEntry": {
+    "name": "vipServerV6OperDevVipPortListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDevVipPortListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDevVipPortListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDevVipPortListDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDevVipPortListIpv6",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerV6OperDevVipPortListDevVipPortListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListSlotId": {
+    "name": "vipServerV6OperDevVipPortListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListSiteName": {
+    "name": "vipServerV6OperDevVipPortListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDeviceName": {
+    "name": "vipServerV6OperDevVipPortListDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListIpv6": {
+    "name": "vipServerV6OperDevVipPortListIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortListListId": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortNum": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortState": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortDevCurrConn": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortDevCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortProtocol": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerV6OperDevVipPortListDevVipPortServiceName": {
+    "name": "vipServerV6OperDevVipPortListDevVipPortServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerName": {
+    "name": "vipServerName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4",
+    "class": "objectidentity"
+  },
+  "vipServerNameStatsTable": {
+    "name": "vipServerNameStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerNameStatsEntry": {
+    "name": "vipServerNameStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameStatsSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameStatsDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameStatsVipName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerNameStatsSlotId": {
+    "name": "vipServerNameStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameStatsSiteName": {
+    "name": "vipServerNameStatsSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameStatsDeviceName": {
+    "name": "vipServerNameStatsDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameStatsVipName": {
+    "name": "vipServerNameStatsVipName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameStatsDevVipHits": {
+    "name": "vipServerNameStatsDevVipHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameStatsDevVipRecent": {
+    "name": "vipServerNameStatsDevVipRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperTable": {
+    "name": "vipServerNameOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerNameOperEntry": {
+    "name": "vipServerNameOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperVipName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerNameOperSlotId": {
+    "name": "vipServerNameOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperSiteName": {
+    "name": "vipServerNameOperSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDeviceName": {
+    "name": "vipServerNameOperDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperVipName": {
+    "name": "vipServerNameOperVipName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipAddr": {
+    "name": "vipServerNameOperDevVipAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipState": {
+    "name": "vipServerNameOperDevVipState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperNodeName": {
+    "name": "vipServerNameOperNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperServiceIp": {
+    "name": "vipServerNameOperServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperPortCount": {
+    "name": "vipServerNameOperPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperVirtualServer": {
+    "name": "vipServerNameOperVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDisabled": {
+    "name": "vipServerNameOperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperGslbProtocol": {
+    "name": "vipServerNameOperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperLocalProtocol": {
+    "name": "vipServerNameOperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperManuallyHealthCheck": {
+    "name": "vipServerNameOperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperUseGslbState": {
+    "name": "vipServerNameOperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDynamic": {
+    "name": "vipServerNameOperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperShared": {
+    "name": "vipServerNameOperShared",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperHits": {
+    "name": "vipServerNameOperHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperRecent": {
+    "name": "vipServerNameOperRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListTable": {
+    "name": "vipServerNameOperDevVipPortListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListEntry": {
+    "name": "vipServerNameOperDevVipPortListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDevVipPortListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDevVipPortListSiteName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDevVipPortListDeviceName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDevVipPortListVipName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SITE-MIB",
+        "object": "vipServerNameOperDevVipPortListDevVipPortListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListSlotId": {
+    "name": "vipServerNameOperDevVipPortListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListSiteName": {
+    "name": "vipServerNameOperDevVipPortListSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDeviceName": {
+    "name": "vipServerNameOperDevVipPortListDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListVipName": {
+    "name": "vipServerNameOperDevVipPortListVipName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortListListId": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortNum": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortState": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortDevCurrConn": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortDevCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortProtocol": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipServerNameOperDevVipPortListDevVipPortServiceName": {
+    "name": "vipServerNameOperDevVipPortListDevVipPortServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.426.1.8.4.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-GSLB-SITE-MIB",
+      "Source digest sha256:eeba60e3ef311467bc3e5ebe985dc85011389ded5fb3a3ca7015a383471995af",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-GSLB-SITE-MIB"
+  }
+}

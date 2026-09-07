@@ -1,0 +1,51 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ericsson": {
+    "name": "ericsson",
+    "oid": "1.3.6.1.4.1.193",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-17 00:00",
+        "description": "Added email contact address, ericssonModules"
+      },
+      {
+        "revision": "2002-05-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ericssonModules": {
+    "name": "ericssonModules",
+    "oid": "1.3.6.1.4.1.193.183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ERICSSON-TOP-MIB",
+      "Source digest sha256:31a61e4107e8400e72fb9d9fef10f0e7015216a834fa17de02f5e15a84599a74",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ERICSSON-TOP-MIB"
+  }
+}

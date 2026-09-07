@@ -1,0 +1,311 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ateme": {
+    "name": "ateme",
+    "oid": "1.3.6.1.4.1.27338",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-05-15 16:45",
+        "description": "Updated version, adds alarmSystemTime trap."
+      }
+    ]
+  },
+  "oids": {
+    "name": "oids",
+    "oid": "1.3.6.1.4.1.27338.1",
+    "class": "objectidentity"
+  },
+  "titanlive": {
+    "name": "titanlive",
+    "oid": "1.3.6.1.4.1.27338.1.1",
+    "class": "objectidentity"
+  },
+  "titan": {
+    "name": "titan",
+    "oid": "1.3.6.1.4.1.27338.40",
+    "class": "objectidentity"
+  },
+  "mibVersion": {
+    "name": "mibVersion",
+    "oid": "1.3.6.1.4.1.27338.40.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.27338.40.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "titanLiveInfoGroup": {
+    "name": "titanLiveInfoGroup",
+    "oid": "1.3.6.1.4.1.27338.40.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TITAN-MIB",
+        "object": "mibVersion"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "productName"
+      }
+    ],
+    "status": "current"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.27338.40.5",
+    "class": "objectidentity"
+  },
+  "alarmData": {
+    "name": "alarmData",
+    "oid": "1.3.6.1.4.1.27338.40.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmLevel"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmDescription"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmType"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmStatus"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmUID"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmIpAddress"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmServiceName"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmSystemTime"
+      }
+    ],
+    "status": "current"
+  },
+  "trapsGroup": {
+    "name": "trapsGroup",
+    "oid": "1.3.6.1.4.1.27338.40.5.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TITAN-MIB",
+        "object": "alarm"
+      }
+    ],
+    "status": "current"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.27338.40.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmLevel"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmDescription"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmType"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmStatus"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmUID"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmIpAddress"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmServiceName"
+      },
+      {
+        "module": "TITAN-MIB",
+        "object": "alarmSystemTime"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmName": {
+    "name": "alarmName",
+    "oid": "1.3.6.1.4.1.27338.40.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmDescription": {
+    "name": "alarmDescription",
+    "oid": "1.3.6.1.4.1.27338.40.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmType": {
+    "name": "alarmType",
+    "oid": "1.3.6.1.4.1.27338.40.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmStatus": {
+    "name": "alarmStatus",
+    "oid": "1.3.6.1.4.1.27338.40.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmUID": {
+    "name": "alarmUID",
+    "oid": "1.3.6.1.4.1.27338.40.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLevel": {
+    "name": "alarmLevel",
+    "oid": "1.3.6.1.4.1.27338.40.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmIpAddress": {
+    "name": "alarmIpAddress",
+    "oid": "1.3.6.1.4.1.27338.40.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmServiceName": {
+    "name": "alarmServiceName",
+    "oid": "1.3.6.1.4.1.27338.40.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSystemTime": {
+    "name": "alarmSystemTime",
+    "oid": "1.3.6.1.4.1.27338.40.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TITAN-MIB",
+      "Source digest sha256:f7e8dcf731241131a15aadf3f6c77880662453e683d2429512feb075d8f7743c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TITAN-MIB"
+  }
+}

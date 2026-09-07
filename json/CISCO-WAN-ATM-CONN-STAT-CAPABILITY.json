@@ -1,0 +1,444 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanAtmConnStatCapability": {
+    "name": "ciscoWanAtmConnStatCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-08 00:00",
+        "description": "Added cwacsCapabilityAxsmxgV4R00 for 10 Gig. AXSM Module (AXSM-XG)."
+      },
+      {
+        "revision": "2001-03-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cwaConnStatCapabilityAxsmV21R60": {
+    "name": "cwaConnStatCapabilityAxsmV21R60",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.60",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-ATM-CONN-STAT-MIB",
+        "includes": [
+          "cwacsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cwacsIngXmtCLP0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtCLP1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngCLP0CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngCLP1CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEFCI1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvOAM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngOAMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvRM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEOF1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngACR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtCLP0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtCLP1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrCLP0CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrCLP1CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEFCI1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvOAM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrOAMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvRM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEOF1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrACR",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cwAtmConnStatCapabilityAxsmeV2R0170": {
+    "name": "cwAtmConnStatCapabilityAxsmeV2R0170",
+    "oid": "1.3.6.1.4.1.9.7.9999.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.70",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-ATM-CONN-STAT-MIB",
+        "includes": [
+          "cwacsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cwacsIngRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEOF1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEOF1Discard",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cwAtmConnStatCapabilityPxm1eV2R300": {
+    "name": "cwAtmConnStatCapabilityPxm1eV2R300",
+    "oid": "1.3.6.1.4.1.9.7.9999.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-ATM-CONN-STAT-MIB",
+        "includes": [
+          "cwacsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cwacsIngXmtCLP0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtCLP1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngCLP0CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngCLP1CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvEFCI1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvOAM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngOAMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvRM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRMDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngRcvEOF1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEOF1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngACR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvCLP0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvCLP1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrCLP0CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrCLP1CoSDiscard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEFCI1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEOF1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEOF1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrACR",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cwacsCapabilityAxsmxgV4R00": {
+    "name": "cwacsCapabilityAxsmxgV4R00",
+    "oid": "1.3.6.1.4.1.9.7.9999.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8950 Release 4.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-ATM-CONN-STAT-MIB",
+        "includes": [
+          "cwacsGroup1"
+        ],
+        "variations": [
+          {
+            "object": "cwacsIngRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsIngXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtFRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrXmtBRmFsRm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrRcvEOF1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsEgrEOF1Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsHighIngRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsHighIngEFCI0Discard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsHighEgrRcvEFCI0",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cwacsHighEgrEFCI0Discard",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-ATM-CONN-STAT-CAPABILITY",
+      "Source digest sha256:abcbc51c6e6abd8c6b5131e47db9fdcccfccab9910a4f2bccf426f56699bdaaf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-ATM-CONN-STAT-CAPABILITY"
+  }
+}

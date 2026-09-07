@@ -1,0 +1,1299 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "DLINKSW-TC-MIB": [
+      "Dlink2kVlanList"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwNetworkAccessAuthMIB": {
+    "name": "dlinkSwNetworkAccessAuthMIB",
+    "oid": "1.3.6.1.4.1.171.14.151",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "This is the first version of the MIB file for 'Network Access Authentication.' functionality. "
+      }
+    ]
+  },
+  "DlinkAuthMethod": {
+    "name": "DlinkAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dot1x": 2,
+          "macAuth": 3,
+          "webAuth": 4,
+          "jwac": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DlinkAuthMethodList": {
+    "name": "DlinkAuthMethodList",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dot1x": 0,
+        "macAuth": 1,
+        "webAuth": 2,
+        "jwac": 3
+      }
+    },
+    "status": "current"
+  },
+  "DlinkAuthHostMode": {
+    "name": "DlinkAuthHostMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multiHost": 1,
+          "multiAuth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DlinkCompAuthMode": {
+    "name": "DlinkCompAuthMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 1,
+          "macJwac": 2,
+          "macWac": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dNetAccessAuthMIBNotifications": {
+    "name": "dNetAccessAuthMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.151.0",
+    "class": "objectidentity"
+  },
+  "dNetAccessAuthMIBObjects": {
+    "name": "dNetAccessAuthMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.151.1",
+    "class": "objectidentity"
+  },
+  "dNetAccessAuthMIBConformance": {
+    "name": "dNetAccessAuthMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.151.2",
+    "class": "objectidentity"
+  },
+  "dNetAuthSystem": {
+    "name": "dNetAuthSystem",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1",
+    "class": "objectidentity"
+  },
+  "dNetAuthAuthenticator": {
+    "name": "dNetAuthAuthenticator",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2",
+    "class": "objectidentity"
+  },
+  "dNetAuthSession": {
+    "name": "dNetAuthSession",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3",
+    "class": "objectidentity"
+  },
+  "dNetAuthUser": {
+    "name": "dNetAuthUser",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4",
+    "class": "objectidentity"
+  },
+  "dnaMacMoveMode": {
+    "name": "dnaMacMoveMode",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaAuthorizationEnabled": {
+    "name": "dnaAuthorizationEnabled",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaMacFormatCase": {
+    "name": "dnaMacFormatCase",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uppercase": 1,
+          "lowercase": 2
+        }
+      }
+    },
+    "default": {
+      "value": "uppercase",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaMacFormatDelimiter": {
+    "name": "dnaMacFormatDelimiter",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "hyphen": 2,
+          "colon": 3,
+          "dot": 4
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaMacFormatDelimiterNumber": {
+    "name": "dnaMacFormatDelimiterNumber",
+    "oid": "1.3.6.1.4.1.171.14.151.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaMaxAuthedUserLimit": {
+    "name": "dnaMaxAuthedUserLimit",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortConfigTable": {
+    "name": "dnaPortConfigTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaPortConfigEntry": {
+    "name": "dnaPortConfigEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaPortMaxAuthedUserLimit": {
+    "name": "dnaPortMaxAuthedUserLimit",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortAuthHostMode": {
+    "name": "dnaPortAuthHostMode",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthHostMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortAuthVlansFirst2K": {
+    "name": "dnaPortAuthVlansFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortAuthVlansSecond2K": {
+    "name": "dnaPortAuthVlansSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortReauthEnabled": {
+    "name": "dnaPortReauthEnabled",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortReauthInterval": {
+    "name": "dnaPortReauthInterval",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortRestartInterval": {
+    "name": "dnaPortRestartInterval",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortInactivityTimeout": {
+    "name": "dnaPortInactivityTimeout",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortGuestVlanid": {
+    "name": "dnaPortGuestVlanid",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaPortMethodTable": {
+    "name": "dnaPortMethodTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaPortMethodEntry": {
+    "name": "dnaPortMethodEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaPortMethodAvailable": {
+    "name": "dnaPortMethodAvailable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaPortMethodCompAuthMode": {
+    "name": "dnaPortMethodCompAuthMode",
+    "oid": "1.3.6.1.4.1.171.14.151.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkCompAuthMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaSessionTable": {
+    "name": "dnaSessionTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaSessionEntry": {
+    "name": "dnaSessionEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionId": {
+    "name": "dnaSessionId",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaSessionClientMacAddress": {
+    "name": "dnaSessionClientMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionClientAddrType": {
+    "name": "dnaSessionClientAddrType",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionClientAddress": {
+    "name": "dnaSessionClientAddress",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionStatus": {
+    "name": "dnaSessionStatus",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "authenticating": 2,
+          "noMethod": 3,
+          "authenticationSuccess": 4,
+          "authenticationFailed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAuthUserName": {
+    "name": "dnaSessionAuthUserName",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAuthorizedBy": {
+    "name": "dnaSessionAuthorizedBy",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAuthVlan": {
+    "name": "dnaSessionAuthVlan",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAccountingID": {
+    "name": "dnaSessionAccountingID",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAssignVid": {
+    "name": "dnaSessionAssignVid",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAssignPriority": {
+    "name": "dnaSessionAssignPriority",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAssignIngressBandwidth": {
+    "name": "dnaSessionAssignIngressBandwidth",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionAssignEgressBandwidth": {
+    "name": "dnaSessionAssignEgressBandwidth",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionTimeout": {
+    "name": "dnaSessionTimeout",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionTimeLeft": {
+    "name": "dnaSessionTimeLeft",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionInactivityTimeout": {
+    "name": "dnaSessionInactivityTimeout",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionInactivityTimeLeft": {
+    "name": "dnaSessionInactivityTimeLeft",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionTerminateSession": {
+    "name": "dnaSessionTerminateSession",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminate": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaSessionMethodInfoTable": {
+    "name": "dnaSessionMethodInfoTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaSessionMethodInfoEntry": {
+    "name": "dnaSessionMethodInfoEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionMethod": {
+    "name": "dnaSessionMethod",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaSessionMethodState": {
+    "name": "dnaSessionMethodState",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "inProgress": 2,
+          "authcSuccess": 3,
+          "authcFailed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnaSessionTerminateIfTable": {
+    "name": "dnaSessionTerminateIfTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaSessionTerminateIfEntry": {
+    "name": "dnaSessionTerminateIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionTerminateIfMethodList": {
+    "name": "dnaSessionTerminateIfMethodList",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaSessionTerminateMethod": {
+    "name": "dnaSessionTerminateMethod",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaSessionTerminateAll": {
+    "name": "dnaSessionTerminateAll",
+    "oid": "1.3.6.1.4.1.171.14.151.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminateAll": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnaUserTable": {
+    "name": "dnaUserTable",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaUserEntry": {
+    "name": "dnaUserEntry",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnaUserName": {
+    "name": "dnaUserName",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnaUserPassword": {
+    "name": "dnaUserPassword",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnaUserTargetVlanid": {
+    "name": "dnaUserTargetVlanid",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnaUserRowStatus": {
+    "name": "dnaUserRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.151.1.4.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnaMIBCompliances": {
+    "name": "dnaMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.151.2.1",
+    "class": "objectidentity"
+  },
+  "dnaMIBGroups": {
+    "name": "dnaMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2",
+    "class": "objectidentity"
+  },
+  "dnaCompliance": {
+    "name": "dnaCompliance",
+    "oid": "1.3.6.1.4.1.171.14.151.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dnaAuthPortConfigGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaPortMethodGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaSessionGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaSessionMethodInfoGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaMacMoveConfigGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaAuthzConfigGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaMacFormatGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaGuestVlanGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaAuthenticationVlanGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaMaxAuthedUserLimitGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaAccountUserGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      },
+      {
+        "object": "dnaSessionTerminateGroup",
+        "module": "DLINKSW-NETWORK-ACCESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaAuthPortConfigGroup": {
+    "name": "dnaAuthPortConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortAuthHostMode"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortReauthEnabled"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortReauthInterval"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortRestartInterval"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortInactivityTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaPortMethodGroup": {
+    "name": "dnaPortMethodGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortMethodAvailable"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortMethodCompAuthMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionGroup": {
+    "name": "dnaSessionGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionClientMacAddress"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionClientAddrType"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionClientAddress"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionStatus"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAuthUserName"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAuthorizedBy"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAuthVlan"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAccountingID"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAssignVid"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAssignPriority"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAssignIngressBandwidth"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionAssignEgressBandwidth"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTimeout"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTimeLeft"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionInactivityTimeout"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionInactivityTimeLeft"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionMethodInfoGroup": {
+    "name": "dnaSessionMethodInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionMethodState"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaMacMoveConfigGroup": {
+    "name": "dnaMacMoveConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaMacMoveMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaAuthzConfigGroup": {
+    "name": "dnaAuthzConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaAuthorizationEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaMacFormatGroup": {
+    "name": "dnaMacFormatGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaMacFormatCase"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaMacFormatDelimiter"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaMacFormatDelimiterNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaMaxAuthedUserLimitGroup": {
+    "name": "dnaMaxAuthedUserLimitGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaMaxAuthedUserLimit"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortMaxAuthedUserLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaGuestVlanGroup": {
+    "name": "dnaGuestVlanGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortGuestVlanid"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaAuthenticationVlanGroup": {
+    "name": "dnaAuthenticationVlanGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortAuthVlansFirst2K"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaPortAuthVlansSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaSessionTerminateGroup": {
+    "name": "dnaSessionTerminateGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTerminateSession"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTerminateIfMethodList"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTerminateMethod"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaSessionTerminateAll"
+      }
+    ],
+    "status": "current"
+  },
+  "dnaAccountUserGroup": {
+    "name": "dnaAccountUserGroup",
+    "oid": "1.3.6.1.4.1.171.14.151.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaUserPassword"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaUserTargetVlanid"
+      },
+      {
+        "module": "DLINKSW-NETWORK-ACCESS-MIB",
+        "object": "dnaUserRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-NETWORK-ACCESS-MIB",
+      "Source digest sha256:3a9a45f15e89bf085d874c8cb1dd57163101a608a3288192ff97db8160d2b5d8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-NETWORK-ACCESS-MIB"
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "alarmTrap"
+    ],
+    "SIAE-EQUIP-MIB": [
+      "equipIpSnmpAgentAddress"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SIAE-USER-MIB": [
+      "accessControlLoginIpAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "commandLog": {
+    "name": "commandLog",
+    "oid": "1.3.6.1.4.1.3373.1103.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-23 00:00",
+        "description": "Removed alarmTrapNumber from commandLogFtpStatusTrap and IMPORTS. "
+      },
+      {
+        "revision": "2014-06-23 00:00",
+        "description": "Fixed IMPORTS of accessControlLoginIpAddress "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of commandLogMibVersion "
+      },
+      {
+        "revision": "2013-12-18 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "commandLogMibVersion": {
+    "name": "commandLogMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.40.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandLogActionRequest": {
+    "name": "commandLogActionRequest",
+    "oid": "1.3.6.1.4.1.3373.1103.40.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "delete": 1,
+          "read": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogFtpFile": {
+    "name": "commandLogFtpFile",
+    "oid": "1.3.6.1.4.1.3373.1103.40.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogMgmtInterfaceFilter": {
+    "name": "commandLogMgmtInterfaceFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.40.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cli": 0,
+        "web": 1,
+        "snmp": 2,
+        "remoteCli": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogStartTimeFilter": {
+    "name": "commandLogStartTimeFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.40.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogEndTimeFilter": {
+    "name": "commandLogEndTimeFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.40.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogUserNameFilter": {
+    "name": "commandLogUserNameFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.40.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogSourceAddressFilter": {
+    "name": "commandLogSourceAddressFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.40.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogFtpStatus": {
+    "name": "commandLogFtpStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.40.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transferring": 1,
+          "completed": 2,
+          "interrupted": 3,
+          "empty": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandLogFtpStatusTrapNotification": {
+    "name": "commandLogFtpStatusTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.40.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2,
+          "trapEnableWithACK": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandLogLastCommandTime": {
+    "name": "commandLogLastCommandTime",
+    "oid": "1.3.6.1.4.1.3373.1103.40.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandLogLastCommandUser": {
+    "name": "commandLogLastCommandUser",
+    "oid": "1.3.6.1.4.1.3373.1103.40.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandLogFtpStatusTrap": {
+    "name": "commandLogFtpStatusTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.0.4001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-EQUIP-MIB",
+        "object": "equipIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-CLOG-MIB",
+        "object": "commandLogFtpStatus"
+      },
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlLoginIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-CLOG-MIB",
+      "Source digest sha256:28ff298083221e28fa7cb88db3faec44987317eee51f8f1c6130322ea36a874c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-CLOG-MIB"
+  }
+}

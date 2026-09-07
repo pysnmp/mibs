@@ -1,0 +1,2154 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-FTRCO": [
+      "VidList"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfDhcpv4ServerMIB": {
+    "name": "hpicfDhcpv4ServerMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-15 00:00",
+        "description": "Added hpicfDhcpv4ServerOperStatus"
+      },
+      {
+        "revision": "2015-01-28 00:00",
+        "description": "Added hpicfDhcpv4ServerDBFTPort, hpicfDhcpv4ServerDBSFTPUsername, hpicfDhcpv4ServerDBSFTPPassword, hpicfDhcpv4ServerDBValidateSFTPServer"
+      },
+      {
+        "revision": "2014-03-07 00:00",
+        "description": "Added hpicfDhcpv4ServerPoolIsAuthoritative"
+      },
+      {
+        "revision": "2013-04-05 00:00",
+        "description": "The initial version of this MIB module"
+      }
+    ]
+  },
+  "hpicfDhcpv4ServerNotifs": {
+    "name": "hpicfDhcpv4ServerNotifs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerObjects": {
+    "name": "hpicfDhcpv4ServerObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4LeaseDataBase": {
+    "name": "hpicfDhcpv4LeaseDataBase",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4BootpCounters": {
+    "name": "hpicfDhcpv4BootpCounters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4Counters": {
+    "name": "hpicfDhcpv4Counters",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4IpPool": {
+    "name": "hpicfDhcpv4IpPool",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4PoolIpRange": {
+    "name": "hpicfDhcpv4PoolIpRange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4PoolOption": {
+    "name": "hpicfDhcpv4PoolOption",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4PoolDynamicBind": {
+    "name": "hpicfDhcpv4PoolDynamicBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerConflicts": {
+    "name": "hpicfDhcpv4ServerConflicts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerConform": {
+    "name": "hpicfDhcpv4ServerConform",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2",
+    "class": "objectidentity"
+  },
+  "InetAddressIPv4": {
+    "name": "InetAddressIPv4",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerEnable": {
+    "name": "hpicfDhcpv4ServerEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "disableWithClearConfig": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4PingPktNumber": {
+    "name": "hpicfDhcpv4PingPktNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4PingTimeOut": {
+    "name": "hpicfDhcpv4PingTimeOut",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ClearStatistics": {
+    "name": "hpicfDhcpv4ClearStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ClearBindings": {
+    "name": "hpicfDhcpv4ClearBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ClearConflictIP": {
+    "name": "hpicfDhcpv4ClearConflictIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictsLog": {
+    "name": "hpicfDhcpv4ConflictsLog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4TrapEnable": {
+    "name": "hpicfDhcpv4TrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerVlanEnable": {
+    "name": "hpicfDhcpv4ServerVlanEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerOperStatus": {
+    "name": "hpicfDhcpv4ServerOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "paused": 2,
+          "inprogress": 3,
+          "shuttingdown": 4
+        }
+      }
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBFile": {
+    "name": "hpicfDhcpv4ServerDBFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBWriteDelay": {
+    "name": "hpicfDhcpv4ServerDBWriteDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBWriteTimeout": {
+    "name": "hpicfDhcpv4ServerDBWriteTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpServerDBFileWriteAttempts": {
+    "name": "hpicfDhcpServerDBFileWriteAttempts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpServerDBFileWriteFailures": {
+    "name": "hpicfDhcpServerDBFileWriteFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpServerDBFileReadStatus": {
+    "name": "hpicfDhcpServerDBFileReadStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpServerDBFileWriteStatus": {
+    "name": "hpicfDhcpServerDBFileWriteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "delaying": 2,
+          "inProgress": 3,
+          "succeeded": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpServerDBFileLastWriteTime": {
+    "name": "hpicfDhcpServerDBFileLastWriteTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBFTPort": {
+    "name": "hpicfDhcpv4ServerDBFTPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBSFTPUsername": {
+    "name": "hpicfDhcpv4ServerDBSFTPUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBSFTPPassword": {
+    "name": "hpicfDhcpv4ServerDBSFTPPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDBValidateSFTPServer": {
+    "name": "hpicfDhcpv4ServerDBValidateSFTPServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBootpCountRequests": {
+    "name": "hpicfBootpCountRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfBootpCountReplies": {
+    "name": "hpicfBootpCountReplies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountDiscovers": {
+    "name": "hpicfDhcpv4CountDiscovers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountOffers": {
+    "name": "hpicfDhcpv4CountOffers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountRequests": {
+    "name": "hpicfDhcpv4CountRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountDeclines": {
+    "name": "hpicfDhcpv4CountDeclines",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountAcks": {
+    "name": "hpicfDhcpv4CountAcks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountNaks": {
+    "name": "hpicfDhcpv4CountNaks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountReleases": {
+    "name": "hpicfDhcpv4CountReleases",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountInforms": {
+    "name": "hpicfDhcpv4CountInforms",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountBadMsgs": {
+    "name": "hpicfDhcpv4CountBadMsgs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountPools": {
+    "name": "hpicfDhcpv4CountPools",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountAutoBindings": {
+    "name": "hpicfDhcpv4CountAutoBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountStaticBindings": {
+    "name": "hpicfDhcpv4CountStaticBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4CountExpiredOrFreeBindings": {
+    "name": "hpicfDhcpv4CountExpiredOrFreeBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolTable": {
+    "name": "hpicfDhcpv4ServerPoolTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolEntry": {
+    "name": "hpicfDhcpv4ServerPoolEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolName": {
+    "name": "hpicfDhcpv4ServerPoolName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolNetworkAddress": {
+    "name": "hpicfDhcpv4ServerPoolNetworkAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolNetworkAddressMask": {
+    "name": "hpicfDhcpv4ServerPoolNetworkAddressMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolDomainName": {
+    "name": "hpicfDhcpv4ServerPoolDomainName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolNetBIOSNodeType": {
+    "name": "hpicfDhcpv4ServerPoolNetBIOSNodeType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "broadcast": 1,
+          "peerTopeer": 2,
+          "mixed": 3,
+          "hybrid": 4
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolLeaseTime": {
+    "name": "hpicfDhcpv4ServerPoolLeaseTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 86400,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolBootFile": {
+    "name": "hpicfDhcpv4ServerPoolBootFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolLowThreshold": {
+    "name": "hpicfDhcpv4ServerPoolLowThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolHighThreshold": {
+    "name": "hpicfDhcpv4ServerPoolHighThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolFreeAddresses": {
+    "name": "hpicfDhcpv4ServerPoolFreeAddresses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDNSServerAddress": {
+    "name": "hpicfDhcpv4ServerDNSServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNetBIOSNameServer": {
+    "name": "hpicfDhcpv4ServerNetBIOSNameServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDefaultRouter": {
+    "name": "hpicfDhcpv4ServerDefaultRouter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerTFTPServerName": {
+    "name": "hpicfDhcpv4ServerTFTPServerName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerTFTPServerIpAddress": {
+    "name": "hpicfDhcpv4ServerTFTPServerIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerStaticIpAddress": {
+    "name": "hpicfDhcpv4ServerStaticIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerStaticIpAddressMask": {
+    "name": "hpicfDhcpv4ServerStaticIpAddressMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerStaticHardwareAddress": {
+    "name": "hpicfDhcpv4ServerStaticHardwareAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolIsAuthoritative": {
+    "name": "hpicfDhcpv4ServerPoolIsAuthoritative",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolStatus": {
+    "name": "hpicfDhcpv4ServerPoolStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeTable": {
+    "name": "hpicfDhcpv4ServerRangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeEntry": {
+    "name": "hpicfDhcpv4ServerRangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerRangeStartAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeStartAddress": {
+    "name": "hpicfDhcpv4ServerRangeStartAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeEndAddress": {
+    "name": "hpicfDhcpv4ServerRangeEndAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeStatus": {
+    "name": "hpicfDhcpv4ServerRangeStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionTable": {
+    "name": "hpicfDhcpv4ServerPoolOptionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionEntry": {
+    "name": "hpicfDhcpv4ServerPoolOptionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolOptionCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionCode": {
+    "name": "hpicfDhcpv4ServerPoolOptionCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionType": {
+    "name": "hpicfDhcpv4ServerPoolOptionType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "hexString": 1,
+          "asciiString": 2,
+          "ipAddresses": 3
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionData": {
+    "name": "hpicfDhcpv4ServerPoolOptionData",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolOptionStatus": {
+    "name": "hpicfDhcpv4ServerPoolOptionStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingTable": {
+    "name": "hpicfDhcpv4BindingTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingEntry": {
+    "name": "hpicfDhcpv4BindingEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolName",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4BindingIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingIpAddress": {
+    "name": "hpicfDhcpv4BindingIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingHardwareAddress": {
+    "name": "hpicfDhcpv4BindingHardwareAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingType": {
+    "name": "hpicfDhcpv4BindingType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4BindingLifeTime": {
+    "name": "hpicfDhcpv4BindingLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictIPTable": {
+    "name": "hpicfDhcpv4ConflictIPTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictIPEntry": {
+    "name": "hpicfDhcpv4ConflictIPEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ConflictIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictIPAddress": {
+    "name": "hpicfDhcpv4ConflictIPAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictIPDetectionMethod": {
+    "name": "hpicfDhcpv4ConflictIPDetectionMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ping": 1,
+          "gratuitousArp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ConflictIPDetectionTime": {
+    "name": "hpicfDhcpv4ConflictIPDetectionTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNotifyDuplicateIpAddr": {
+    "name": "hpicfDhcpv4ServerNotifyDuplicateIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNotifyDuplicateMac": {
+    "name": "hpicfDhcpv4ServerNotifyDuplicateMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNotifyClientOrServerDetected": {
+    "name": "hpicfDhcpv4ServerNotifyClientOrServerDetected",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerClientPhysicalAddress": {
+    "name": "hpicfDhcpv4ServerClientPhysicalAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerFreeAddressLow": {
+    "name": "hpicfDhcpv4ServerFreeAddressLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolLowThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolFreeAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerFreeAddressHigh": {
+    "name": "hpicfDhcpv4ServerFreeAddressHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolHighThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolFreeAddresses"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerDuplicateAddress": {
+    "name": "hpicfDhcpv4ServerDuplicateAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyDuplicateIpAddr"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyDuplicateMac"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyClientOrServerDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerIfLeaseLimitExceeded": {
+    "name": "hpicfDhcpv4ServerIfLeaseLimitExceeded",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerClientPhysicalAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerCompliances": {
+    "name": "hpicfDhcpv4ServerCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerGroups": {
+    "name": "hpicfDhcpv4ServerGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerCompliances1": {
+    "name": "hpicfDhcpv4ServerCompliances1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.3",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv4ServerCompliance": {
+    "name": "hpicfDhcpv4ServerCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpv4ServerBaseGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerLeaseDataBaseGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBootpCountersGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerCounterGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerPoolGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerRangeGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerOptionGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBindingGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerConflictGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotifyObjectsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotificationsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpv4ServerCompliance1": {
+    "name": "hpicfDhcpv4ServerCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpv4ServerBaseGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBootpCountersGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerCounterGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerPoolGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerRangeGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerOptionGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBindingGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerConflictGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotifyObjectsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotificationsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerLeaseDataBaseGroup1",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpv4ServerCompliance2": {
+    "name": "hpicfDhcpv4ServerCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpv4ServerBootpCountersGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerCounterGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerPoolGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerRangeGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerOptionGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBindingGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerConflictGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotifyObjectsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerNotificationsGroup",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerLeaseDataBaseGroup1",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      },
+      {
+        "object": "hpicfDhcpv4ServerBaseGroup1",
+        "module": "HP-ICF-DHCPV4-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerBaseGroup": {
+    "name": "hpicfDhcpv4ServerBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4PingPktNumber"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4PingTimeOut"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ConflictsLog"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearStatistics"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearBindings"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearConflictIP"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4TrapEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerVlanEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpv4ServerLeaseDataBaseGroup": {
+    "name": "hpicfDhcpv4ServerLeaseDataBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBFile"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileLastWriteTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpv4ServerBootpCountersGroup": {
+    "name": "hpicfDhcpv4ServerBootpCountersGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfBootpCountRequests"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfBootpCountReplies"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerCounterGroup": {
+    "name": "hpicfDhcpv4ServerCounterGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountDiscovers"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountOffers"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountRequests"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountDeclines"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountAcks"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountNaks"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountReleases"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountInforms"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountBadMsgs"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountPools"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountAutoBindings"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountStaticBindings"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4CountExpiredOrFreeBindings"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerPoolGroup": {
+    "name": "hpicfDhcpv4ServerPoolGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolNetworkAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolNetworkAddressMask"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolDomainName"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolNetBIOSNodeType"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolLeaseTime"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolBootFile"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolLowThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolHighThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolFreeAddresses"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDNSServerAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNetBIOSNameServer"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDefaultRouter"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerTFTPServerName"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerTFTPServerIpAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerStaticIpAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerStaticIpAddressMask"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerStaticHardwareAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolIsAuthoritative"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerRangeGroup": {
+    "name": "hpicfDhcpv4ServerRangeGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerRangeEndAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerRangeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerOptionGroup": {
+    "name": "hpicfDhcpv4ServerOptionGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolOptionType"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolOptionData"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolOptionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerBindingGroup": {
+    "name": "hpicfDhcpv4ServerBindingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4BindingHardwareAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4BindingType"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4BindingLifeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerConflictGroup": {
+    "name": "hpicfDhcpv4ServerConflictGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ConflictIPDetectionMethod"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ConflictIPDetectionTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNotifyObjectsGroup": {
+    "name": "hpicfDhcpv4ServerNotifyObjectsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolLowThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolFreeAddresses"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerPoolHighThreshold"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyDuplicateIpAddr"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyDuplicateMac"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerNotifyClientOrServerDetected"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerClientPhysicalAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerNotificationsGroup": {
+    "name": "hpicfDhcpv4ServerNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerFreeAddressLow"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerFreeAddressHigh"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDuplicateAddress"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerIfLeaseLimitExceeded"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerLeaseDataBaseGroup1": {
+    "name": "hpicfDhcpv4ServerLeaseDataBaseGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBFile"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpServerDBFileLastWriteTime"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBFTPort"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBSFTPUsername"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBSFTPPassword"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerDBValidateSFTPServer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpv4ServerBaseGroup1": {
+    "name": "hpicfDhcpv4ServerBaseGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.99.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4PingPktNumber"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4PingTimeOut"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ConflictsLog"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearStatistics"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearBindings"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ClearConflictIP"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4TrapEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerVlanEnable"
+      },
+      {
+        "module": "HP-ICF-DHCPV4-SERVER-MIB",
+        "object": "hpicfDhcpv4ServerOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-DHCPV4-SERVER-MIB",
+      "Source digest sha256:fd851ed80d128b5535a9dbeb07d266d39283d7ae76a0e3373194ec19fad2804d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-DHCPV4-SERVER-MIB"
+  }
+}

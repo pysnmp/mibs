@@ -1,0 +1,224 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxipMcastCapability": {
+    "name": "jnxipMcastCapability",
+    "oid": "1.3.6.1.4.1.2636.11.5",
+    "class": "moduleidentity"
+  },
+  "jnxipMcastCapJunos": {
+    "name": "jnxipMcastCapJunos",
+    "oid": "1.3.6.1.4.1.2636.11.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "All JUNOS Version",
+    "capabilities": [
+      {
+        "module": "IPMCAST-MIB",
+        "includes": [
+          "ipMcastMIBRouteProtoGroup",
+          "ipMcastMIBBasicGroup",
+          "ipMcastMIBSsmGroup",
+          "ipMcastMIBRouteGroup",
+          "ipMcastMIBBoundaryIfGroup",
+          "ipMcastMIBScopeNameGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipMcastRouteProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteRtProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteRtAddressType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteRtAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteRtPrefixLength",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteRtType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unicast": 1,
+                  "multicast": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteNextHopProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteEntryCount",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastDeviceConfigStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastSsmRangeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastSsmRangeStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastInterfaceTtl",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastInterfaceRateLimit",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastInterfaceStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteUpstreamNeighborType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteUpstreamNeighbor",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteInIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteTimeStamp",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteExpiryTime",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteNextHopState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "pruned": 1,
+                  "forwarding": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteNextHopTimeStamp",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastRouteNextHopExpiryTime",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastBoundaryTimeStamp",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastBoundaryDroppedMcastOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastBoundaryDroppedMcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastBoundaryStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastBoundaryStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastZoneScopeDefaultZoneIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipMcastZoneScopeAddressType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipMcastZoneScopeAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipMcastZoneScopeAddressPrefixLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipMcastScopeNameString",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastScopeNameDefault",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastScopeNameStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ipMcastScopeNameStorageType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IPMCAST-MIB-CAPABILITY",
+      "Source digest sha256:b06f3acfa741a9897185c6968d6ccb1960b989d444805d2c67836dfe200c512c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IPMCAST-MIB-CAPABILITY"
+  }
+}

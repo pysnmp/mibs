@@ -1,0 +1,145 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxDot3OamCapability": {
+    "name": "jnxDot3OamCapability",
+    "oid": "1.3.6.1.4.1.2636.11.6",
+    "class": "moduleidentity"
+  },
+  "jnxDot3OamCapJunos": {
+    "name": "jnxDot3OamCapJunos",
+    "oid": "1.3.6.1.4.1.2636.11.6.1",
+    "class": "agentcapabilities",
+    "productrelease": "All JUNOS Version",
+    "capabilities": [
+      {
+        "module": "DOT3-OAM-MIB",
+        "includes": [
+          "dot3OamControlGroup",
+          "dot3OamPeerGroup",
+          "dot3OamStatsBaseGroup",
+          "dot3OamLoopbackGroup",
+          "dot3OamErrSymbolPeriodEventGroup",
+          "dot3OamErrFramePeriodEventGroup",
+          "dot3OamErrFrameEventGroup",
+          "dot3OamErrFrameSecsSummaryEventGroup",
+          "dot3OamFlagEventGroup",
+          "dot3OamEventLogGroup",
+          "dot3OamNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3OamAdminState",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamMode",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamLoopbackStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamLoopbackIgnoreRx",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrSymPeriodWindowHi",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrSymPeriodWindowLo",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrSymPeriodThresholdHi",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrSymPeriodThresholdLo",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrSymPeriodEvNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFramePeriodWindow",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFramePeriodThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFramePeriodEvNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFramePeriodEvNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFrameThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFrameEvNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFrameSecsSummaryWindow",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFrameSecsSummaryThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamErrFrameSecsEvNotifEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamDyingGaspEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3OamCriticalEventEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JNX-DOT3OAM-CAPABILITY",
+      "Source digest sha256:288ecca672e2c63367fa348a52cb1d899a6f744203423f61256aef311dd0068b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JNX-DOT3OAM-CAPABILITY"
+  }
+}

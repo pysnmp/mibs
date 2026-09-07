@@ -1,0 +1,190 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "synoRaid": {
+    "name": "synoRaid",
+    "oid": "1.3.6.1.4.1.6574.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-11 00:00",
+        "description": "Second draft."
+      }
+    ]
+  },
+  "synology": {
+    "name": "synology",
+    "oid": "1.3.6.1.4.1.6574",
+    "class": "objectidentity"
+  },
+  "raidTable": {
+    "name": "raidTable",
+    "oid": "1.3.6.1.4.1.6574.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidEntry": {
+    "name": "raidEntry",
+    "oid": "1.3.6.1.4.1.6574.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNOLOGY-RAID-MIB",
+        "object": "raidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidIndex": {
+    "name": "raidIndex",
+    "oid": "1.3.6.1.4.1.6574.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidName": {
+    "name": "raidName",
+    "oid": "1.3.6.1.4.1.6574.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidStatus": {
+    "name": "raidStatus",
+    "oid": "1.3.6.1.4.1.6574.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidFreeSize": {
+    "name": "raidFreeSize",
+    "oid": "1.3.6.1.4.1.6574.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidTotalSize": {
+    "name": "raidTotalSize",
+    "oid": "1.3.6.1.4.1.6574.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidConformance": {
+    "name": "raidConformance",
+    "oid": "1.3.6.1.4.1.6574.3.2",
+    "class": "objectidentity"
+  },
+  "raidCompliances": {
+    "name": "raidCompliances",
+    "oid": "1.3.6.1.4.1.6574.3.2.1",
+    "class": "objectidentity"
+  },
+  "raidGroups": {
+    "name": "raidGroups",
+    "oid": "1.3.6.1.4.1.6574.3.2.2",
+    "class": "objectidentity"
+  },
+  "raidCompliance": {
+    "name": "raidCompliance",
+    "oid": "1.3.6.1.4.1.6574.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "raidGroup",
+        "module": "SYNOLOGY-RAID-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "raidGroup": {
+    "name": "raidGroup",
+    "oid": "1.3.6.1.4.1.6574.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYNOLOGY-RAID-MIB",
+        "object": "raidName"
+      },
+      {
+        "module": "SYNOLOGY-RAID-MIB",
+        "object": "raidStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SYNOLOGY-RAID-MIB",
+      "Source digest sha256:0dea831c4b3adc593a34a487fe1ab80f033747bf293ead9683d61bab88f4ada7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SYNOLOGY-RAID-MIB"
+  }
+}

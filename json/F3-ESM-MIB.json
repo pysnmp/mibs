@@ -1,0 +1,292 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3ESMMIB": {
+    "name": "f3ESMMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-03 00:00",
+        "description": " Notes from release 201210030000Z, (1)MIB version ready for release FSP150CC 5.6CC."
+      }
+    ]
+  },
+  "f3EsmConfigObjects": {
+    "name": "f3EsmConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1",
+    "class": "objectidentity"
+  },
+  "f3EsmConformance": {
+    "name": "f3EsmConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2",
+    "class": "objectidentity"
+  },
+  "esmConfigTable": {
+    "name": "esmConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmConfigEntry": {
+    "name": "esmConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmConfigIndex": {
+    "name": "esmConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmConfigAssociatedEntity": {
+    "name": "esmConfigAssociatedEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmConfigStorageType": {
+    "name": "esmConfigStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmConfigRowStatus": {
+    "name": "esmConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmNameValuePairTable": {
+    "name": "esmNameValuePairTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmNameValuePairEntry": {
+    "name": "esmNameValuePairEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmNameValuePairName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmNameValuePairName": {
+    "name": "esmNameValuePairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmNameValuePairValue": {
+    "name": "esmNameValuePairValue",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmNameValuePairStorageType": {
+    "name": "esmNameValuePairStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmNameValuePairRowStatus": {
+    "name": "esmNameValuePairRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3EsmCompliances": {
+    "name": "f3EsmCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2.1",
+    "class": "objectidentity"
+  },
+  "f3EsmGroups": {
+    "name": "f3EsmGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2.2",
+    "class": "objectidentity"
+  },
+  "f3EsmCompliance": {
+    "name": "f3EsmCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "esmConfigGroup",
+        "module": "F3-ESM-MIB"
+      },
+      {
+        "object": "esmNameValuePairGroup",
+        "module": "F3-ESM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "esmConfigGroup": {
+    "name": "esmConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmConfigAssociatedEntity"
+      },
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmConfigStorageType"
+      },
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "esmNameValuePairGroup": {
+    "name": "esmNameValuePairGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.23.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmNameValuePairValue"
+      },
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmNameValuePairStorageType"
+      },
+      {
+        "module": "F3-ESM-MIB",
+        "object": "esmNameValuePairRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source F3-ESM-MIB",
+      "Source digest sha256:82c65f1f92af594a2b6ac3f8876383d004e7c643f2380b19565e5f3636bcdc6a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "F3-ESM-MIB"
+  }
+}

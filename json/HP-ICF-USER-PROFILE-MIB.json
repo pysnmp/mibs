@@ -1,0 +1,1296 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch",
+      "hpicfCommon",
+      "hpicfCommonSecurity"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfUsrProfileMIB": {
+    "name": "hpicfUsrProfileMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-16 21:10",
+        "description": "Version 1.5 Created hpicfUsrProfileConfigFilterListTable and hpicfUsrProfileConfigFilterRuleTable. Removed hpicfUsrProfileConfigFilterTable. These changes allow for the requirement that a filter list not be in an active state in order for filter rules to be added/removed/modified."
+      },
+      {
+        "revision": "2007-06-19 21:40",
+        "description": "Version 1.4 Added comment to hpicfUsrProfileConfigBindEntryRowStatus. Changed hpicfUserProfileConfigListEnable to hpicfUserProfileConfigEntryRowStatus. Moved VlanIndex from section Groups in HP-ICF-USER-PROFILE-MIb up to the Import section. Added variable hpicfUsrProfileConfigEntryRowStatus to the HpicfUsrProfileConfigEntry table. Added comment to the Description clause of hpicfUsrProfileConfigPvid. Added comment to the Description clause of hpicfUsrProfileConfigTaggedEgressVlanMap1k Changed range of hpicfUsrProfileSelector from 0..16384 to 1..16384 and added comment to the variable's Description clause."
+      },
+      {
+        "revision": "2007-03-14 23:35",
+        "description": "Version 1.3 Added to hpicfUsrProfileStatsAccessMode to hpicfUsrProfileStatsEntry."
+      },
+      {
+        "revision": "2007-02-06 20:28",
+        "description": "Version 1.2 Added hpicfUsrProfileConfigBindEntryRowStatus to hpicfUsrProfileConfigBindTable."
+      },
+      {
+        "revision": "2005-10-12 00:00",
+        "description": "Version 1.1"
+      },
+      {
+        "revision": "2005-10-05 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfUsrProfileCapability": {
+    "name": "hpicfUsrProfileCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.0",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileConfig": {
+    "name": "hpicfUsrProfileConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileStats": {
+    "name": "hpicfUsrProfileStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileConformance": {
+    "name": "hpicfUsrProfileConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileCapabilityByPortMap": {
+    "name": "hpicfUsrProfileCapabilityByPortMap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileCapabilityByUserMap": {
+    "name": "hpicfUsrProfileCapabilityByUserMap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterListTable": {
+    "name": "hpicfUsrProfileConfigFilterListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterListEntry": {
+    "name": "hpicfUsrProfileConfigFilterListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileFilterListIndex": {
+    "name": "hpicfUsrProfileFilterListIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterListRowStatus": {
+    "name": "hpicfUsrProfileConfigFilterListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterRuleTable": {
+    "name": "hpicfUsrProfileConfigFilterRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterRuleEntry": {
+    "name": "hpicfUsrProfileConfigFilterRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterRuleListIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileFilterRuleListIndex": {
+    "name": "hpicfUsrProfileFilterRuleListIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileFilterRuleIndex": {
+    "name": "hpicfUsrProfileFilterRuleIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterRule": {
+    "name": "hpicfUsrProfileConfigFilterRule",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterRuleRowStatus": {
+    "name": "hpicfUsrProfileConfigFilterRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTable": {
+    "name": "hpicfUsrProfileConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigEntry": {
+    "name": "hpicfUsrProfileConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigIndex": {
+    "name": "hpicfUsrProfileConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigPvid": {
+    "name": "hpicfUsrProfileConfigPvid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigPvidEnable": {
+    "name": "hpicfUsrProfileConfigPvidEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTaggedEgressVlanMap1k": {
+    "name": "hpicfUsrProfileConfigTaggedEgressVlanMap1k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTaggedEgressVlanMap2k": {
+    "name": "hpicfUsrProfileConfigTaggedEgressVlanMap2k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTaggedEgressVlanMap3k": {
+    "name": "hpicfUsrProfileConfigTaggedEgressVlanMap3k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTaggedEgressVlanMap4k": {
+    "name": "hpicfUsrProfileConfigTaggedEgressVlanMap4k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigTaggedEgressVlanEnable": {
+    "name": "hpicfUsrProfileConfigTaggedEgressVlanEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigIngressVlanFilterEnable": {
+    "name": "hpicfUsrProfileConfigIngressVlanFilterEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigPriorityRegenTable": {
+    "name": "hpicfUsrProfileConfigPriorityRegenTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigPriorityRegenTableEnable": {
+    "name": "hpicfUsrProfileConfigPriorityRegenTableEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigMaxIngressBandwidth": {
+    "name": "hpicfUsrProfileConfigMaxIngressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigMaxIngressBandwidthEnable": {
+    "name": "hpicfUsrProfileConfigMaxIngressBandwidthEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigMaxEgressBandwidth": {
+    "name": "hpicfUsrProfileConfigMaxEgressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigMaxEgressBandwidthEnable": {
+    "name": "hpicfUsrProfileConfigMaxEgressBandwidthEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterListIndex": {
+    "name": "hpicfUsrProfileConfigFilterListIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigFilterListEnable": {
+    "name": "hpicfUsrProfileConfigFilterListEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigEntryRowStatus": {
+    "name": "hpicfUsrProfileConfigEntryRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigBindTable": {
+    "name": "hpicfUsrProfileConfigBindTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigBindEntry": {
+    "name": "hpicfUsrProfileConfigBindEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileUserPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileUserMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileUserPortNumber": {
+    "name": "hpicfUsrProfileUserPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileUserMacAddr": {
+    "name": "hpicfUsrProfileUserMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileSelector": {
+    "name": "hpicfUsrProfileSelector",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigBindEntryRowStatus": {
+    "name": "hpicfUsrProfileConfigBindEntryRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigConflictResolveQoS": {
+    "name": "hpicfUsrProfileConfigConflictResolveQoS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-strict": 0,
+          "strict": 1
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigConflictResolveMaxIngressBandwidth": {
+    "name": "hpicfUsrProfileConfigConflictResolveMaxIngressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-strict": 0,
+          "strict": 1
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigConflictResolveMaxEgressBandwidth": {
+    "name": "hpicfUsrProfileConfigConflictResolveMaxEgressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-strict": 0,
+          "strict": 1
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfUsrProfileLastUpdate": {
+    "name": "hpicfUsrProfileLastUpdate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterTable": {
+    "name": "hpicfUsrProfileStatsFilterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterEntry": {
+    "name": "hpicfUsrProfileStatsFilterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterListIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterRule": {
+    "name": "hpicfUsrProfileStatsFilterRule",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterRuleHitCount": {
+    "name": "hpicfUsrProfileStatsFilterRuleHitCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterRuleHitCountEnabled": {
+    "name": "hpicfUsrProfileStatsFilterRuleHitCountEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsTable": {
+    "name": "hpicfUsrProfileStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsEntry": {
+    "name": "hpicfUsrProfileStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileUserPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileUserMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsPvid": {
+    "name": "hpicfUsrProfileStatsPvid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsTaggedEgressVlanMap1k": {
+    "name": "hpicfUsrProfileStatsTaggedEgressVlanMap1k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsTaggedEgressVlanMap2k": {
+    "name": "hpicfUsrProfileStatsTaggedEgressVlanMap2k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsTaggedEgressVlanMap3k": {
+    "name": "hpicfUsrProfileStatsTaggedEgressVlanMap3k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsTaggedEgressVlanMap4k": {
+    "name": "hpicfUsrProfileStatsTaggedEgressVlanMap4k",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsIngressVlanFilterEnable": {
+    "name": "hpicfUsrProfileStatsIngressVlanFilterEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsPriorityRegenTable": {
+    "name": "hpicfUsrProfileStatsPriorityRegenTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsMaxIngressBandwidth": {
+    "name": "hpicfUsrProfileStatsMaxIngressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsMaxEgressBandwidth": {
+    "name": "hpicfUsrProfileStatsMaxEgressBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsFilterListIndex": {
+    "name": "hpicfUsrProfileStatsFilterListIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsAccessMode": {
+    "name": "hpicfUsrProfileStatsAccessMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmp": 1,
+          "dot8021x": 2,
+          "webauth": 3,
+          "macauth": 4,
+          "webmacauth": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfUsrProfileGroup": {
+    "name": "hpicfUsrProfileGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileCompliances": {
+    "name": "hpicfUsrProfileCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfUsrProfileCapabilityGroup": {
+    "name": "hpicfUsrProfileCapabilityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileCapabilityByPortMap"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileCapabilityByUserMap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileConfigGroup": {
+    "name": "hpicfUsrProfileConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterListIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigFilterListRowStatus"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterRuleListIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileFilterRuleIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigFilterRule"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigFilterRuleRowStatus"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigPvid"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigPvidEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigTaggedEgressVlanMap1k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigTaggedEgressVlanMap2k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigTaggedEgressVlanMap3k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigTaggedEgressVlanMap4k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigTaggedEgressVlanEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigIngressVlanFilterEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigPriorityRegenTable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigPriorityRegenTableEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigMaxIngressBandwidth"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigMaxIngressBandwidthEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigMaxEgressBandwidth"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigMaxEgressBandwidthEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigFilterListIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigFilterListEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigEntryRowStatus"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigConflictResolveQoS"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigConflictResolveMaxIngressBandwidth"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileConfigConflictResolveMaxEgressBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileStatsGroup": {
+    "name": "hpicfUsrProfileStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileLastUpdate"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsFilterRule"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsFilterRuleHitCount"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsFilterRuleHitCountEnabled"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsPvid"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsTaggedEgressVlanMap1k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsTaggedEgressVlanMap2k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsTaggedEgressVlanMap3k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsTaggedEgressVlanMap4k"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsIngressVlanFilterEnable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsPriorityRegenTable"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsMaxIngressBandwidth"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsMaxEgressBandwidth"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsFilterListIndex"
+      },
+      {
+        "module": "HP-ICF-USER-PROFILE-MIB",
+        "object": "hpicfUsrProfileStatsAccessMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfUsrProfileCompliance": {
+    "name": "hpicfUsrProfileCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.12.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfUsrProfileCapabilityGroup",
+        "module": "HP-ICF-USER-PROFILE-MIB"
+      },
+      {
+        "object": "hpicfUsrProfileConfigGroup",
+        "module": "HP-ICF-USER-PROFILE-MIB"
+      },
+      {
+        "object": "hpicfUsrProfileStatsGroup",
+        "module": "HP-ICF-USER-PROFILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-USER-PROFILE-MIB",
+      "Source digest sha256:101407efe213b4493d91db606f649d7f9d261467d377a0dea537889e554b1c2c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-USER-PROFILE-MIB"
+  }
+}

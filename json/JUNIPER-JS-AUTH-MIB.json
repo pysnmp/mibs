@@ -1,0 +1,204 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-JS-SMI": [
+      "jnxJsAuth"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxJsAuthMIB": {
+    "name": "jnxJsAuthMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-14 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxJsAuthNotifications": {
+    "name": "jnxJsAuthNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.0",
+    "class": "objectidentity"
+  },
+  "jnxJsAuthObjects": {
+    "name": "jnxJsAuthObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsFwAuthStats": {
+    "name": "jnxJsFwAuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsAuthTrapVars": {
+    "name": "jnxJsAuthTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxJsFwAuthNumPendingUsers": {
+    "name": "jnxJsFwAuthNumPendingUsers",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsFwAuthNumSuccUsers": {
+    "name": "jnxJsFwAuthNumSuccUsers",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsFwAuthNumFailedUsers": {
+    "name": "jnxJsFwAuthNumFailedUsers",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsFwAuthTotalUsers": {
+    "name": "jnxJsFwAuthTotalUsers",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsFwAuthUserName": {
+    "name": "jnxJsFwAuthUserName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsFwAuthServiceDesc": {
+    "name": "jnxJsFwAuthServiceDesc",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsFwAuthReason": {
+    "name": "jnxJsFwAuthReason",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsFwAuthClientIpAddr": {
+    "name": "jnxJsFwAuthClientIpAddr",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsFwAuthFailure": {
+    "name": "jnxJsFwAuthFailure",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-AUTH-MIB",
+        "object": "jnxJsFwAuthUserName"
+      },
+      {
+        "module": "JUNIPER-JS-AUTH-MIB",
+        "object": "jnxJsFwAuthClientIpAddr"
+      },
+      {
+        "module": "JUNIPER-JS-AUTH-MIB",
+        "object": "jnxJsFwAuthServiceDesc"
+      },
+      {
+        "module": "JUNIPER-JS-AUTH-MIB",
+        "object": "jnxJsFwAuthReason"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsFwAuthServiceUp": {
+    "name": "jnxJsFwAuthServiceUp",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxJsFwAuthServiceDown": {
+    "name": "jnxJsFwAuthServiceDown",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxJsFwAuthCapacityExceeded": {
+    "name": "jnxJsFwAuthCapacityExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.2.1.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-JS-AUTH-MIB",
+      "Source digest sha256:49963fd96482635becbff24f52c2b9a3fcd94c8a3c90c1e4748a136b055faf6f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-JS-AUTH-MIB"
+  }
+}

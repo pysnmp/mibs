@@ -1,0 +1,322 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alCertMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alCertGroup",
+      "alStatsCert"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaCertStatsMibModule": {
+    "name": "altigaCertStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.32.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsCertGlobal": {
+    "name": "alStatsCertGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.1",
+    "class": "objectidentity"
+  },
+  "alCertStatsServerTable": {
+    "name": "alCertStatsServerTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alCertStatsServerEntry": {
+    "name": "alCertStatsServerEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alCertStatsServerIndex": {
+    "name": "alCertStatsServerIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerAddress": {
+    "name": "alCertStatsServerAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerPortNumber": {
+    "name": "alCertStatsServerPortNumber",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCertRequests": {
+    "name": "alCertStatsServerCertRequests",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCertRetransmissions": {
+    "name": "alCertStatsServerCertRetransmissions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCertRcvd": {
+    "name": "alCertStatsServerCertRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCertPendingRequests": {
+    "name": "alCertStatsServerCertPendingRequests",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCertTimeouts": {
+    "name": "alCertStatsServerCertTimeouts",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCRLRequests": {
+    "name": "alCertStatsServerCRLRequests",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCRLRetransmissions": {
+    "name": "alCertStatsServerCRLRetransmissions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCRLRcvd": {
+    "name": "alCertStatsServerCRLRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCRLPendingRequests": {
+    "name": "alCertStatsServerCRLPendingRequests",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alCertStatsServerCRLTimeouts": {
+    "name": "alCertStatsServerCRLTimeouts",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.27.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaCertStatsMibConformance": {
+    "name": "altigaCertStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.32.2.1",
+    "class": "objectidentity"
+  },
+  "altigaCertStatsMibCompliances": {
+    "name": "altigaCertStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.32.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaCertStatsMibCompliance": {
+    "name": "altigaCertStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.32.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaCertStatsGroup",
+        "module": "ALTIGA-CERT-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaCertStatsGroup": {
+    "name": "altigaCertStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.27.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerIndex"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerAddress"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerPortNumber"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCertRequests"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCertRetransmissions"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCertRcvd"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCertPendingRequests"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCertTimeouts"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCRLRequests"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCRLRetransmissions"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCRLRcvd"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCRLPendingRequests"
+      },
+      {
+        "module": "ALTIGA-CERT-STATS-MIB",
+        "object": "alCertStatsServerCRLTimeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALTIGA-CERT-STATS-MIB",
+      "Source digest sha256:47909e7ea1ca9ebd04ecba341bcab42fade9009d53e8f14ba2f2e6b9db51828b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALTIGA-CERT-STATS-MIB"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpSwitchAuthorizationMIB": {
+    "name": "hpSwitchAuthorizationMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-29 00:00",
+        "description": "Added hpicfSwitchAuthServerFail notification"
+      },
+      {
+        "revision": "2005-10-05 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfSwitchAuthorizationNotifications": {
+    "name": "hpicfSwitchAuthorizationNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.0",
+    "class": "objectidentity"
+  },
+  "hpicfSwitchAuthServerFail": {
+    "name": "hpicfSwitchAuthServerFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerType"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerIPType"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchAuthorizationConfig": {
+    "name": "hpSwitchAuthorizationConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchAutzServiceTable": {
+    "name": "hpSwitchAutzServiceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchAutzServiceEntry": {
+    "name": "hpSwitchAutzServiceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpSwitchAutzServiceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchAutzServiceType": {
+    "name": "hpSwitchAutzServiceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commands": 1,
+          "exec": 2,
+          "network": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchAutzServicePrimaryMethod": {
+    "name": "hpSwitchAutzServicePrimaryMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "tacacs": 2,
+          "radius": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchAutzServiceSecondaryMethod": {
+    "name": "hpSwitchAutzServiceSecondaryMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "none": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfSwitchAuthObjects": {
+    "name": "hpicfSwitchAuthObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfSwitchAuthServerType": {
+    "name": "hpicfSwitchAuthServerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "tacacs": 2,
+          "other": 9
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSwitchAuthServerIPType": {
+    "name": "hpicfSwitchAuthServerIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfSwitchAuthServerIP": {
+    "name": "hpicfSwitchAuthServerIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpSwitchAuthConfigObjects": {
+    "name": "hpSwitchAuthConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfSwitchAuthServerNotifyEnable": {
+    "name": "hpicfSwitchAuthServerNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchAuthorizationConformance": {
+    "name": "hpSwitchAuthorizationConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchAuthorizationMIBCompliances": {
+    "name": "hpSwitchAuthorizationMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchAuthorizationMIBCompliance": {
+    "name": "hpSwitchAuthorizationMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpSwitchAuthorizationConfigGroup",
+        "module": "HP-AUTZ-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchAuthorizationMIBGroups": {
+    "name": "hpSwitchAuthorizationMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchAuthorizationConfigGroup": {
+    "name": "hpSwitchAuthorizationConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpSwitchAutzServicePrimaryMethod"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpSwitchAutzServiceSecondaryMethod"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSwitchAuthorizationNotificationGroup": {
+    "name": "hpicfSwitchAuthorizationNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerFail"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSwitchAuthorizationObjectsGroup": {
+    "name": "hpicfSwitchAuthorizationObjectsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.32.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerType"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerIPType"
+      },
+      {
+        "module": "HP-AUTZ-MIB",
+        "object": "hpicfSwitchAuthServerIP"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-AUTZ-MIB",
+      "Source digest sha256:5039ebc1565fa432d39fa46565fd3046d106e2620aefb6774ccc2d55a0792e7d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-AUTZ-MIB"
+  }
+}

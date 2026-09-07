@@ -1,0 +1,196 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMobileGatewayMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "jnxMbgDhcpMib": {
+    "name": "jnxMbgDhcpMib",
+    "oid": "1.3.6.1.4.1.2636.3.66.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-30 12:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "jnxMbgDhcpNotifications": {
+    "name": "jnxMbgDhcpNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.0",
+    "class": "objectidentity"
+  },
+  "jnxMbgDhcpObjects": {
+    "name": "jnxMbgDhcpObjects",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1",
+    "class": "objectidentity"
+  },
+  "jnxMbgDhcpNotificationVars": {
+    "name": "jnxMbgDhcpNotificationVars",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1",
+    "class": "objectidentity"
+  },
+  "jnxMbgDhcpServerIP": {
+    "name": "jnxMbgDhcpServerIP",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpLogicalSystemName": {
+    "name": "jnxMbgDhcpLogicalSystemName",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpRoutingInstanceName": {
+    "name": "jnxMbgDhcpRoutingInstanceName",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpProfileName": {
+    "name": "jnxMbgDhcpProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpPoolName": {
+    "name": "jnxMbgDhcpPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpReachability": {
+    "name": "jnxMbgDhcpReachability",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgDhcpServerReachability": {
+    "name": "jnxMbgDhcpServerReachability",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpServerIP"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpLogicalSystemName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpRoutingInstanceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpProfileName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpReachability"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgDhcpAddrPoolExhaust": {
+    "name": "jnxMbgDhcpAddrPoolExhaust",
+    "oid": "1.3.6.1.4.1.2636.3.66.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpServerIP"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpLogicalSystemName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpRoutingInstanceName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpProfileName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+        "object": "jnxMbgDhcpPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-MOBILE-GATEWAY-DHCP-MIB",
+      "Source digest sha256:81ba9e456c3441f62779e0f51a23d857f3af6ff617b75d5da091e1605229e71f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-MOBILE-GATEWAY-DHCP-MIB"
+  }
+}

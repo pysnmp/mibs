@@ -1,0 +1,61 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "deliberant": {
+    "name": "deliberant",
+    "oid": "1.3.6.1.4.1.32761",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-05 00:00",
+        "description": "First revision."
+      }
+    ]
+  },
+  "dlbProducts": {
+    "name": "dlbProducts",
+    "oid": "1.3.6.1.4.1.32761.1",
+    "class": "objectidentity"
+  },
+  "dlbAdmin": {
+    "name": "dlbAdmin",
+    "oid": "1.3.6.1.4.1.32761.2",
+    "class": "objectidentity"
+  },
+  "dlbMgmt": {
+    "name": "dlbMgmt",
+    "oid": "1.3.6.1.4.1.32761.3",
+    "class": "objectidentity"
+  },
+  "dlbExperimental": {
+    "name": "dlbExperimental",
+    "oid": "1.3.6.1.4.1.32761.7",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DELIBERANT-MIB",
+      "Source digest sha256:84cd93d48605d264248b3921a12eb4496094264f9cc6e287c49dd5a28356b839",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DELIBERANT-MIB"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cDot11ContextServicesCapability": {
+    "name": "cDot11ContextServicesCapability",
+    "oid": "1.3.6.1.4.1.9.7.347",
+    "class": "moduleidentity"
+  },
+  "cDot11ContextServicesCapabilityV1": {
+    "name": "cDot11ContextServicesCapabilityV1",
+    "oid": "1.3.6.1.4.1.9.7.347.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MIB",
+        "includes": [
+          "cDot11csConfigGlobalGroup",
+          "cDot11csDescendantInGroup",
+          "cDot11csMnGroup",
+          "cDot11csMIBNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "cDot11csServiceType",
+            "access": "read-only"
+          },
+          {
+            "object": "cDot11csPrimaryRootNodeAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csPrimaryRootNodeAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csSecondaryRootNodeAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csSecondaryRootNodeAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csWdsInstanceInterfaceIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cDot11csWnsEntityName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csWnsSubnetMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csWnsRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusChangeTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusInRegistrations",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusInDeRegistrations",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csStatusSentAdvts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csDescendantInCtkRefreshes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnContextSsid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnContextSystemName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnContextUserId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnContextIpAddressType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnContextIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnParentInIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnRegistrationAge",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnNskExpiryTimeOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csMnCipherNegotiated",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csElectedAsWdsEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csInRegisteredWithWsEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csInDeRegisteredWithWsEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csElectedAsWds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csInRegisteredWithWs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cDot11csInDeRegisteredWithWs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DOT11-CONTEXT-SERVICES-CAPABILITY",
+      "Source digest sha256:a2fadef34d6e8d9f92de9962f03176f811fea39974f2a275d90f2e294ee63873",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DOT11-CONTEXT-SERVICES-CAPABILITY"
+  }
+}

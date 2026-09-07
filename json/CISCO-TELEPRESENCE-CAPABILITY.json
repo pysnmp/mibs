@@ -1,0 +1,143 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTelepresenceCapability": {
+    "name": "ciscoTelepresenceCapability",
+    "oid": "1.3.6.1.4.1.9.7.565",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTelepresenceCapabilityCTSV120": {
+    "name": "ciscoTelepresenceCapabilityCTSV120",
+    "oid": "1.3.6.1.4.1.9.7.565.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.4.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-TELEPRESENCE-MIB",
+        "includes": [
+          "ciscoTpConfigurationGroup",
+          "ciscoTpPeripheralStatusGroup",
+          "ciscoTpEventHistoryGroup",
+          "ciscoTpNotificationGroup",
+          "ciscoTpRS232PeripheralStatusGroup",
+          "ciscoTpPeripheralAttributeGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctpPeripheralErrorHistTableSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ctpPeripheralErrorHistoryIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpPeripheralErrorIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpPeripheralErrorStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpPeripheralErrorTimeStamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailHistTableSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ctpSysUserAuthFailHistoryIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailSourceAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailSourceAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailSourcePort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailUserName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailAccessProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ctpSysUserAuthFailTimeStamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TELEPRESENCE-CAPABILITY",
+      "Source digest sha256:4d46b4735e31005d3cbb1af666fbf93def4604bd814f0c539d12e1108e8e1e48",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TELEPRESENCE-CAPABILITY"
+  }
+}

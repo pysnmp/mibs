@@ -1,0 +1,93 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMemoryPoolCapability": {
+    "name": "ciscoMemoryPoolCapability",
+    "oid": "1.3.6.1.4.1.9.7.338",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-02 00:00",
+        "description": "Corrected existing Agent Capability for IOS XR release 2.0 CRS1"
+      },
+      {
+        "revision": "2005-10-26 00:00",
+        "description": "Added ciscoMemoryPoolCapabilityIOSXRV2R0CRS1 agent capabilities for IOS XR release 2.0 CRS1"
+      },
+      {
+        "revision": "2003-08-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMemoryPoolCapCatOSV08R0101": {
+    "name": "ciscoMemoryPoolCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.338.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-MEMORY-POOL-MIB",
+        "includes": [
+          "ciscoMemoryPoolGroup",
+          "ciscoMemoryPoolUtilizationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMemoryPoolCapabilityIOSXRV2R0CRS1": {
+    "name": "ciscoMemoryPoolCapabilityIOSXRV2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.338.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-MEMORY-POOL-MIB",
+        "includes": [
+          "ciscoMemoryPoolGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoMemoryPoolAlternate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoMemoryPoolLargestFree",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MEMORY-POOL-CAPABILITY",
+      "Source digest sha256:7a45db4c002c5cbde0c475704284eb063ca9d42cb1b94a48f1a933450ac739b4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MEMORY-POOL-CAPABILITY"
+  }
+}

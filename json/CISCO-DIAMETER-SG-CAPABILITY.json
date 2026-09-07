@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDiameterSGCapability": {
+    "name": "ciscoDiameterSGCapability",
+    "oid": "1.3.6.1.4.1.9.7.518",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiameterSGCapabilityV12R0409XG": {
+    "name": "ciscoDiameterSGCapabilityV12R0409XG",
+    "oid": "1.3.6.1.4.1.9.7.518.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(9)XG.",
+    "capabilities": [
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "includes": [
+          "ciscoDiameterSGHostCfgGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdsgServerGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            },
+            "access": "read-create"
+          },
+          {
+            "object": "cdsgServerGroupStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cdsgServerRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            },
+            "access": "read-create"
+          },
+          {
+            "object": "cdsgServerStorageType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DIAMETER-SG-CAPABILITY",
+      "Source digest sha256:6456bd32650edfc341f6e90f33ee5a7b723ad2981459093d1b60d376b201f6b1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DIAMETER-SG-CAPABILITY"
+  }
+}

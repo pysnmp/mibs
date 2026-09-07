@@ -1,0 +1,93 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCableSpectrumCapability": {
+    "name": "ciscoCableSpectrumCapability",
+    "oid": "1.3.6.1.4.1.9.7.999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCableSpectrumCapabilityV12R00": {
+    "name": "ciscoCableSpectrumCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.999.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0",
+    "capabilities": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "includes": [
+          "ccsFlapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCableSpectrumCapabilityV12R01Rev1": {
+    "name": "ciscoCableSpectrumCapabilityV12R01Rev1",
+    "oid": "1.3.6.1.4.1.9.7.999.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(05)EC and 12.2 BC",
+    "capabilities": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "includes": [
+          "ccsFlapGroup",
+          "ccsSpectrumGroup",
+          "ccsUpSpecMgmtGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccsFlapListMaxSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 8191
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CABLE-SPECTRUM-CAPABILITY",
+      "Source digest sha256:3763bc9169aa018738aae2bd9e6b98df5dff1e4546b3feee8a0a3c15637b113d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CABLE-SPECTRUM-CAPABILITY"
+  }
+}

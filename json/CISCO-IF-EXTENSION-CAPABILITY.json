@@ -1,0 +1,459 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIfExtensionCapability": {
+    "name": "ciscoIfExtensionCapability",
+    "oid": "1.3.6.1.4.1.9.7.395",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-03 00:00",
+        "description": "Added ciscoIfExtensionTableIntfGroup3SupR02 and VARIATIONs for cieIfTransceiverFrequencyConfig, cieIfFillPatternConfig, cieIfIgnoreBitErrorsConfig and cieIfIgnoreInterruptThresholdConfig in capability statement ciscoIfExtCapNxOSV06R0201PMDS9000 and ciscoIfExtCapNxOSV06R0202PN7K."
+      },
+      {
+        "revision": "2013-09-05 00:00",
+        "description": "Added agent capability statement ciscoIfExtCapNxOSV06R0201PMDS9000 and ciscoIfExtCapNxOSV06R0202PN7K."
+      },
+      {
+        "revision": "2012-03-01 00:00",
+        "description": "Added ciscoIfExtCapV15R0002SGPCat4K agent capability statement."
+      },
+      {
+        "revision": "2011-03-21 00:00",
+        "description": "Added ciscoIfExtCapNXOSV52R1MDS9000 agent capability statement."
+      },
+      {
+        "revision": "2008-03-24 00:00",
+        "description": "Added ciscoIfExtCapCatOSV08R0701PCat6K agent capability statement."
+      },
+      {
+        "revision": "2007-11-05 00:00",
+        "description": "Added ciscoIfExtCapc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2007-08-30 00:00",
+        "description": "Added ciscoIfExtCapV12R0233SXHPCat6K capability statement."
+      },
+      {
+        "revision": "2007-04-19 00:00",
+        "description": "Added ciscoIfExtCapV12R0229SM1 and ciscoIfExtCapV12R0412MR1 capability statements."
+      },
+      {
+        "revision": "2006-02-21 00:00",
+        "description": "Added capability statement ciscoIfExtCapabilityACSWV03R000 for Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2005-04-14 00:00",
+        "description": "Added capability statement ciscoIfExtCapSanOSV30R1MDS9000."
+      },
+      {
+        "revision": "2005-03-04 00:00",
+        "description": "Added capability statement ciscoIfExtCapV12R0217bSXAPCat6K."
+      },
+      {
+        "revision": "2004-01-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIfExtensionCapV08R0301": {
+    "name": "ciscoIfExtensionCapV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.395.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500 and\n                         Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtDot1qEtherTypeGroup",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtDot1dBaseMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapV12R0217bSXAPCat6K": {
+    "name": "ciscoIfExtCapV12R0217bSXAPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.395.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17b)SXA on Catalyst 6000/6500\n                        and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtDot1qEtherTypeGroup",
+          "ciscoIfExtDot1dBaseMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapSanOSV30R1MDS9000": {
+    "name": "ciscoIfExtCapSanOSV30R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.395.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.0 on Cisco MDS 9000\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTableIntfGroup2",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "ciscoIfExtIfNameMappingGroup",
+          "cieIfStatusListGroup"
+        ],
+        "variations": [
+          {
+            "object": "cieIfDhcpMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfMtu",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapabilityACSWV03R000": {
+    "name": "ciscoIfExtCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.395.4",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtIfNameMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapV12R0229SM1": {
+    "name": "ciscoIfExtCapV12R0229SM1",
+    "oid": "1.3.6.1.4.1.9.7.395.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(29)SM1",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cieIfMtu",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 40,
+                    "max": 2147483647
+                  }
+                ]
+              }
+            },
+            "writesyntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 40,
+                    "max": 2147483647
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapV12R0412MR1": {
+    "name": "ciscoIfExtCapV12R0412MR1",
+    "oid": "1.3.6.1.4.1.9.7.395.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(2)MR1",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtensionAsymmetricalSpeedGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapV12R0233SXHPCat6K": {
+    "name": "ciscoIfExtCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.395.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtDot1qEtherTypeGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtIfNameMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapc4710aceVA1R700": {
+    "name": "ciscoIfExtCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.395.8",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                     for ACE 4710 Application Control Engine \n                     Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtIfNameMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapCatOSV08R0701PCat6K": {
+    "name": "ciscoIfExtCapCatOSV08R0701PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.395.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500 and\n                     Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtDot1qEtherTypeGroup",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "ciscoIfExtUtilIntervalGroup"
+        ],
+        "variations": [
+          {
+            "object": "cieIfInterval",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 30,
+                    "max": 30
+                  },
+                  {
+                    "min": 300,
+                    "max": 300
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapNXOSV52R1MDS9000": {
+    "name": "ciscoIfExtCapNXOSV52R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.395.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NXOS 5.2(1) on MDS 9000.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtDot1qEtherTypeGroup",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "ciscoIfExtUtilIntervalGroup"
+        ],
+        "variations": [
+          {
+            "object": "cieIfInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapV15R0002SGPCat4K": {
+    "name": "ciscoIfExtCapV15R0002SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.395.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(2)SG on Catalyst 4000 family\n                    switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "ciscoIfExtIfNameMappingGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapNxOSV06R0201PMDS9000": {
+    "name": "ciscoIfExtCapNxOSV06R0201PMDS9000",
+    "oid": "1.3.6.1.4.1.9.7.395.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(1) on MDS 9000 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtUtilizationGroup",
+          "ciscoIfExtIfNameMappingGroup",
+          "cieIfStatusListGroup",
+          "cieLinkUpDownNotifEnableGroup",
+          "cieLinkUpDownNotifGroup",
+          "cieDelayedLinkUpDownNotifNotifEnableGroup",
+          "cieDelayedLinkUpDownNotifNotifGroup",
+          "ciscoIfExtensionTableIntfGroup3",
+          "cieIfStatusListGroupSup1",
+          "cieIfVlStatsGroup",
+          "ciscoIfExtensionTableIntfGroup3SupR01",
+          "cieLinkUpDownNotifConfigGroup",
+          "ciscoIfExtensionTableIntfGroup3SupR02"
+        ],
+        "variations": [
+          {
+            "object": "cieIfKeepAliveEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cieIfDhcpMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtCapNxOSV06R0202PN7K": {
+    "name": "ciscoIfExtCapNxOSV06R0202PN7K",
+    "oid": "1.3.6.1.4.1.9.7.395.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(2) on Nexus 7000 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "includes": [
+          "ciscoIfExtensionTablePacketGroup",
+          "ciscoIfExtensionTableIntfGroup",
+          "ciscoIfExtIfNameMappingGroup",
+          "ciscoIfExtDot1dBaseMappingGroup",
+          "cieIfStatusListGroup",
+          "cieLinkUpDownNotifEnableGroup",
+          "cieLinkUpDownNotifGroup",
+          "cieDelayedLinkUpDownNotifNotifEnableGroup",
+          "cieDelayedLinkUpDownNotifNotifGroup",
+          "ciscoIfExtensionTableIntfGroup3",
+          "cieIfStatusListGroupSup1",
+          "cieIfVlStatsGroup",
+          "ciscoIfExtensionTableIntfGroup3SupR01",
+          "cieLinkUpDownNotifConfigGroup",
+          "ciscoIfExtensionTableIntfGroup3SupR02"
+        ],
+        "variations": [
+          {
+            "object": "cieIfKeepAliveEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cieIfDhcpMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cieIfTransceiverFrequencyConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfFillPatternConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfIgnoreBitErrorsConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "cieIfIgnoreInterruptThresholdConfig",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IF-EXTENSION-CAPABILITY",
+      "Source digest sha256:511828583d7e3a861baab3b85baee3c3683883f96c489ed6c8f4fe2ec63a87c7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IF-EXTENSION-CAPABILITY"
+  }
+}

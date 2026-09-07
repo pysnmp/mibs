@@ -1,0 +1,414 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRsvpCapability": {
+    "name": "ciscoRsvpCapability",
+    "oid": "1.3.6.1.4.1.9.7.10000",
+    "class": "moduleidentity"
+  },
+  "ciscoRsvpCapabilityVismV3R00": {
+    "name": "ciscoRsvpCapabilityVismV3R00",
+    "oid": "1.3.6.1.4.1.9.7.10000.1",
+    "class": "agentcapabilities",
+    "productrelease": "VISM Release 3.00",
+    "capabilities": [
+      {
+        "module": "RSVP-MIB",
+        "includes": [
+          "rsvpSessionGroup",
+          "rsvpSenderGroup",
+          "rsvpResvGroup",
+          "rsvpResvFwdGroup",
+          "rsvpIfGroup",
+          "rsvpNbrGroup",
+          "rsvpGenObjectsGroup",
+          "rsvpSenderOutInterfaceGroup"
+        ],
+        "variations": [
+          {
+            "object": "rsvpSenderType",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderDestAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderDestPort",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderPort",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderFlowId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderHopAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderHopLih",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderTSpecRate",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderTSpecPeakRate",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderTSpecBurst",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderTSpecMinTU",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderTSpecMaxTU",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderRSVPHop",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSenderPolicy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecBreak",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecHopCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecPathBw",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecMinLatency",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedSvc",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedBreak",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedCtot",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedDtot",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedCsum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedDsum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedHopCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedPathBw",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedMinLatency",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecGuaranteedMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadSvc",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadBreak",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadHopCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadPathBw",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadMinLatency",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderAdspecCtrlLoadMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvType",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvSenderAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvDestAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvSenderAddrLength",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvDestPort",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvPort",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvHopAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvHopLih",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvInterface",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvService",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTSpecRate",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTSpecPeakRate",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTSpecBurst",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTSpecMinTU",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTSpecMaxTU",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvRSpecRate",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvRSpecSlack",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvScope",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvShared",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvExplicit",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvRSVPHop",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvPolicy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvFlowId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvFwdHopLih",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvFwdPolicy",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvFwdStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvFwdTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpResvFwdFlowId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpIfUdpNbrs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpIfTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpIfRouteDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpIfUdpRequired",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpIfRefreshBlockadeMultiple",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpIfRefreshInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpNbrProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpNbrStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpBadPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "rsvpSenderNewIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvNewIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpResvFwdNewIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "rsvpSessionNewIndex",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RSVP-CAPABILITY",
+      "Source digest sha256:fbc6148461902af056ede5a6ae250801d62f5771b5b8dc4d35c297cb796dda2b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RSVP-CAPABILITY"
+  }
+}

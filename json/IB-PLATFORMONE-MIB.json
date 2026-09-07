@@ -1,0 +1,1522 @@
+{
+  "imports": {
+    "class": "imports",
+    "IB-SMI-MIB": [
+      "IbFloat",
+      "IbIpAddr",
+      "IbString",
+      "ibPlatformOne"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibPlatformModule": {
+    "name": "ibPlatformModule",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2025-02-23 00:00",
+        "description": "We no longer use LCDs in our appliances, so all LCD-related code has been removed from NIOS"
+      },
+      {
+        "revision": "2022-09-12 00:00",
+        "description": "Added continuous serial numbers in the services as bloxtools service was removed"
+      },
+      {
+        "revision": "2021-12-16 00:00",
+        "description": "Remove bloxtools services"
+      },
+      {
+        "revision": "2018-06-12 00:00",
+        "description": "Remove the TEXTUAL-CONVENTION IbSnicCoreNames for IbString type"
+      },
+      {
+        "revision": "2018-03-26 00:00",
+        "description": "Add SNIC CPU Core utilization for the cores"
+      },
+      {
+        "revision": "2016-06-12 00:00",
+        "description": "Add BFD service status"
+      },
+      {
+        "revision": "2016-06-07 00:00",
+        "description": "Add Outbound traps"
+      },
+      {
+        "revision": "2016-05-06 00:00",
+        "description": "Removed ibCPUTemperature OBJECT-TYPE"
+      },
+      {
+        "revision": "2015-11-19 00:00",
+        "description": "Add SNIC interface statistics"
+      },
+      {
+        "revision": "2015-10-29 00:00",
+        "description": "Add Taxii service status"
+      },
+      {
+        "revision": "2015-10-09 00:00",
+        "description": "Add Analytics service status"
+      },
+      {
+        "revision": "2015-05-19 00:00",
+        "description": "Add new float OIDs for CPU temprature"
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Add Cloud API service status"
+      },
+      {
+        "revision": "2013-10-29 00:00",
+        "description": "Add Threat Protection service status info"
+      },
+      {
+        "revision": "2013-10-22 00:00",
+        "description": "Add Discovery Capacity info"
+      },
+      {
+        "revision": "2013-08-02 00:00",
+        "description": "Add Swap Usage info"
+      },
+      {
+        "revision": "2013-05-07 00:00",
+        "description": "Added Discovery status services"
+      },
+      {
+        "revision": "2012-05-24 00:00",
+        "description": "Rename Node1, Node2 to Node, PassiveNode"
+      },
+      {
+        "revision": "2012-04-13 00:00",
+        "description": "Added DNS Cache Acceleration info"
+      },
+      {
+        "revision": "2011-12-02 00:00",
+        "description": "Add support for 8 fans and 8 raid disks"
+      },
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "Added second power-supply service"
+      },
+      {
+        "revision": "2011-05-05 00:00",
+        "description": "Removed Radius service status info"
+      },
+      {
+        "revision": "2010-10-19 00:00",
+        "description": "Added BGP service status info"
+      },
+      {
+        "revision": "2010-07-28 00:00",
+        "description": "Added MIBs for Node status info"
+      },
+      {
+        "revision": "2009-06-05 00:00",
+        "description": "Added MIBs for CPU, Memory usage"
+      },
+      {
+        "revision": "2008-09-29 00:00",
+        "description": "Added security counters"
+      },
+      {
+        "revision": "2005-01-10 00:00",
+        "description": "Added copyright"
+      },
+      {
+        "revision": "2004-05-21 00:00",
+        "description": "Creation of the MIB file"
+      }
+    ]
+  },
+  "ibClusterReplicationStatusTable": {
+    "name": "ibClusterReplicationStatusTable",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibClusterReplicationStatusEntry": {
+    "name": "ibClusterReplicationStatusEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibNodeIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibNodeIPAddress": {
+    "name": "ibNodeIPAddress",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbIpAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeReplicationStatus": {
+    "name": "ibNodeReplicationStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeQueueFromMaster": {
+    "name": "ibNodeQueueFromMaster",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeLastRepTimeFromMaster": {
+    "name": "ibNodeLastRepTimeFromMaster",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeQueueToMaster": {
+    "name": "ibNodeQueueToMaster",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeLastRepTimeToMaster": {
+    "name": "ibNodeLastRepTimeToMaster",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitor": {
+    "name": "ibNetworkMonitor",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "ibHardwareType": {
+    "name": "ibHardwareType",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibHardwareId": {
+    "name": "ibHardwareId",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSerialNumber": {
+    "name": "ibSerialNumber",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNiosVersion": {
+    "name": "ibNiosVersion",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSystemMonitor": {
+    "name": "ibSystemMonitor",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8",
+    "class": "objectidentity"
+  },
+  "ibSystemMonitorCpu": {
+    "name": "ibSystemMonitorCpu",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.1",
+    "class": "objectidentity"
+  },
+  "ibSystemMonitorMem": {
+    "name": "ibSystemMonitorMem",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.2",
+    "class": "objectidentity"
+  },
+  "ibSystemMonitorSwap": {
+    "name": "ibSystemMonitorSwap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.3",
+    "class": "objectidentity"
+  },
+  "ibSystemMonitorSnic": {
+    "name": "ibSystemMonitorSnic",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4",
+    "class": "objectidentity"
+  },
+  "ibSystemMonitorCpuUsage": {
+    "name": "ibSystemMonitorCpuUsage",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSystemMonitorMemUsage": {
+    "name": "ibSystemMonitorMemUsage",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSystemMonitorSwapUsage": {
+    "name": "ibSystemMonitorSwapUsage",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNS": {
+    "name": "ibNetworkMonitorDNS",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSActive": {
+    "name": "ibNetworkMonitorDNSActive",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAA": {
+    "name": "ibNetworkMonitorDNSNonAA",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT1": {
+    "name": "ibNetworkMonitorDNSNonAAT1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.1",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT5": {
+    "name": "ibNetworkMonitorDNSNonAAT5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.2",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT15": {
+    "name": "ibNetworkMonitorDNSNonAAT15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.3",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT60": {
+    "name": "ibNetworkMonitorDNSNonAAT60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.4",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT1440": {
+    "name": "ibNetworkMonitorDNSNonAAT1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.5",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAA": {
+    "name": "ibNetworkMonitorDNSAA",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAAT1": {
+    "name": "ibNetworkMonitorDNSAAT1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAAT5": {
+    "name": "ibNetworkMonitorDNSAAT5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAAT15": {
+    "name": "ibNetworkMonitorDNSAAT15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.3",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAAT60": {
+    "name": "ibNetworkMonitorDNSAAT60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.4",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSAAT1440": {
+    "name": "ibNetworkMonitorDNSAAT1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.5",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSNonAAT1AvgLatency": {
+    "name": "ibNetworkMonitorDNSNonAAT1AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT1Count": {
+    "name": "ibNetworkMonitorDNSNonAAT1Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT5AvgLatency": {
+    "name": "ibNetworkMonitorDNSNonAAT5AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT5Count": {
+    "name": "ibNetworkMonitorDNSNonAAT5Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT15AvgLatency": {
+    "name": "ibNetworkMonitorDNSNonAAT15AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT15Count": {
+    "name": "ibNetworkMonitorDNSNonAAT15Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT60AvgLatency": {
+    "name": "ibNetworkMonitorDNSNonAAT60AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT60Count": {
+    "name": "ibNetworkMonitorDNSNonAAT60Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT1440AvgLatency": {
+    "name": "ibNetworkMonitorDNSNonAAT1440AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSNonAAT1440Count": {
+    "name": "ibNetworkMonitorDNSNonAAT1440Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT1AvgLatency": {
+    "name": "ibNetworkMonitorDNSAAT1AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT1Count": {
+    "name": "ibNetworkMonitorDNSAAT1Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT5AvgLatency": {
+    "name": "ibNetworkMonitorDNSAAT5AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT5Count": {
+    "name": "ibNetworkMonitorDNSAAT5Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT15AvgLatency": {
+    "name": "ibNetworkMonitorDNSAAT15AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT15Count": {
+    "name": "ibNetworkMonitorDNSAAT15Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT60AvgLatency": {
+    "name": "ibNetworkMonitorDNSAAT60AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT60Count": {
+    "name": "ibNetworkMonitorDNSAAT60Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT1440AvgLatency": {
+    "name": "ibNetworkMonitorDNSAAT1440AvgLatency",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSAAT1440Count": {
+    "name": "ibNetworkMonitorDNSAAT1440Count",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurity": {
+    "name": "ibNetworkMonitorDNSSecurity",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort1": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort5": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort15": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort60": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPort1440": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPort1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPortCount": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPortCount",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2",
+    "class": "objectidentity"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid1": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid5": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid15": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid60": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxid1440": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxid1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxidCount": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxidCount",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidPortOnly": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidPortOnly",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxidOnly": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxidOnly",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNetworkMonitorDNSSecurityInvalidTxidAndPort": {
+    "name": "ibNetworkMonitorDNSSecurityInvalidTxidAndPort",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.3.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "IbServiceStates": {
+    "name": "IbServiceStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "working": 1,
+          "warning": 2,
+          "failed": 3,
+          "inactive": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IbServiceNames": {
+    "name": "IbServiceNames",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "dns": 2,
+          "ntp": 3,
+          "tftp": 4,
+          "http-file-dist": 5,
+          "ftp": 6,
+          "node-status": 7,
+          "disk-usage": 8,
+          "enet-lan": 9,
+          "enet-lan2": 10,
+          "enet-ha": 11,
+          "enet-mgmt": 12,
+          "memory": 13,
+          "replication": 14,
+          "db-object": 15,
+          "raid-summary": 16,
+          "raid-disk1": 17,
+          "raid-disk2": 18,
+          "raid-disk3": 19,
+          "raid-disk4": 20,
+          "raid-disk5": 21,
+          "raid-disk6": 22,
+          "raid-disk7": 23,
+          "raid-disk8": 24,
+          "fan1": 25,
+          "fan2": 26,
+          "fan3": 27,
+          "fan4": 28,
+          "fan5": 29,
+          "fan6": 30,
+          "fan7": 31,
+          "fan8": 32,
+          "power-supply1": 33,
+          "power-supply2": 34,
+          "ntp-sync": 35,
+          "cpu1-temp": 36,
+          "cpu2-temp": 37,
+          "sys-temp": 38,
+          "raid-battery": 39,
+          "cpu-usage": 40,
+          "ospf": 41,
+          "bgp": 42,
+          "mgm-service": 43,
+          "subgrid-conn": 44,
+          "network-capacity": 45,
+          "reporting": 46,
+          "dns-cache-acceleration": 47,
+          "ospf6": 48,
+          "swap-usage": 49,
+          "discovery-consolidator": 50,
+          "discovery-collector": 51,
+          "discovery-capacity": 52,
+          "threat-protection": 53,
+          "cloud-api": 54,
+          "threat-insight": 55,
+          "taxii": 56,
+          "bfd": 57,
+          "outbound": 58
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ibMemberServiceStatusTable": {
+    "name": "ibMemberServiceStatusTable",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibMemberServiceStatusEntry": {
+    "name": "ibMemberServiceStatusEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibServiceName": {
+    "name": "ibServiceName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceNames",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibServiceStatus": {
+    "name": "ibServiceStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibServiceDesc": {
+    "name": "ibServiceDesc",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibMemberNodeServiceStatusTable": {
+    "name": "ibMemberNodeServiceStatusTable",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibMemberNodeServiceStatusEntry": {
+    "name": "ibMemberNodeServiceStatusEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibNodeServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibNodeServiceName": {
+    "name": "ibNodeServiceName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceNames",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeServiceStatus": {
+    "name": "ibNodeServiceStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibNodeServiceDesc": {
+    "name": "ibNodeServiceDesc",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibMemberPassiveNodeServiceStatusTable": {
+    "name": "ibMemberPassiveNodeServiceStatusTable",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibMemberPassiveNodeServiceStatusEntry": {
+    "name": "ibMemberPassiveNodeServiceStatusEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibPassiveNodeServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibPassiveNodeServiceName": {
+    "name": "ibPassiveNodeServiceName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceNames",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibPassiveNodeServiceStatus": {
+    "name": "ibPassiveNodeServiceStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbServiceStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibPassiveNodeServiceDesc": {
+    "name": "ibPassiveNodeServiceDesc",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibGridStatus": {
+    "name": "ibGridStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibHaStatus": {
+    "name": "ibHaStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibGridMasterCandStatus": {
+    "name": "ibGridMasterCandStatus",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibGridMasterVIP": {
+    "name": "ibGridMasterVIP",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibGridReplicationState": {
+    "name": "ibGridReplicationState",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibCPU1Temperature": {
+    "name": "ibCPU1Temperature",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbFloat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibCPU2Temperature": {
+    "name": "ibCPU2Temperature",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbFloat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "IbSnicNames": {
+    "name": "IbSnicNames",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lan1": 1,
+          "lan2": 2,
+          "ha": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ibSystemMonitorSnicStatsTable1": {
+    "name": "ibSystemMonitorSnicStatsTable1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibSystemMonitorSnicStatsEntry1": {
+    "name": "ibSystemMonitorSnicStatsEntry1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibSnicName1",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibSnicName1": {
+    "name": "ibSnicName1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbSnicNames",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicRxBits1": {
+    "name": "ibSnicRxBits1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicRxPackets1": {
+    "name": "ibSnicRxPackets1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicTxBits1": {
+    "name": "ibSnicTxBits1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicTxPackets1": {
+    "name": "ibSnicTxPackets1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicDropBits1": {
+    "name": "ibSnicDropBits1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicDropPackets1": {
+    "name": "ibSnicDropPackets1",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSystemMonitorSnicStatsTable5": {
+    "name": "ibSystemMonitorSnicStatsTable5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibSystemMonitorSnicStatsEntry5": {
+    "name": "ibSystemMonitorSnicStatsEntry5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibSnicName5",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibSnicName5": {
+    "name": "ibSnicName5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbSnicNames",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicRxBits5": {
+    "name": "ibSnicRxBits5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicRxPackets5": {
+    "name": "ibSnicRxPackets5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicTxBits5": {
+    "name": "ibSnicTxBits5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicTxPackets5": {
+    "name": "ibSnicTxPackets5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicDropBits5": {
+    "name": "ibSnicDropBits5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicDropPackets5": {
+    "name": "ibSnicDropPackets5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSystemMonitorSnicCpuCoreUtiliz": {
+    "name": "ibSystemMonitorSnicCpuCoreUtiliz",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibSystemMonitorSnicCpuCoreUtilizEntry": {
+    "name": "ibSystemMonitorSnicCpuCoreUtilizEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-PLATFORMONE-MIB",
+        "object": "ibSnicCoreName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibSnicCoreName": {
+    "name": "ibSnicCoreName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicCoreCountIndex": {
+    "name": "ibSnicCoreCountIndex",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibSnicCoreUtilz": {
+    "name": "ibSnicCoreUtilz",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.2.1.8.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IB-PLATFORMONE-MIB",
+      "Source digest sha256:680fad6b063c209523a6bf719c3d2c502c35eecafe94f4cb25936c644010edf7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IB-PLATFORMONE-MIB"
+  }
+}

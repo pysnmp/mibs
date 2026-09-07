@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cggsnCapability": {
+    "name": "cggsnCapability",
+    "oid": "1.3.6.1.4.1.9.7.296",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-10-09 01:00",
+        "description": "Added cggsnCapabilityV12R4M9XG."
+      },
+      {
+        "revision": "2003-04-08 03:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cggsnCapabilityV12R2M8YD": {
+    "name": "cggsnCapabilityV12R2M8YD",
+    "oid": "1.3.6.1.4.1.9.7.296.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MX & 12.2(8)YD",
+    "capabilities": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "includes": [
+          "cGgsnStatisticsGroup",
+          "cGgsnNotifMgmtGroup",
+          "cGgsnConfigurationsGroup",
+          "cGgsnNotifGroup",
+          "cGgsnStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGgsnIpDupProtectRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnDefaultAggregRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnCapabilityV12R2M8YY1": {
+    "name": "cggsnCapabilityV12R2M8YY1",
+    "oid": "1.3.6.1.4.1.9.7.296.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)YY1",
+    "capabilities": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "includes": [
+          "cGgsnStatisticsGroup",
+          "cGgsnNotifMgmtGroup",
+          "cGgsnConfigurationsGroup",
+          "cGgsnNotifGroup",
+          "cGgsnStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGgsnIpDupProtectRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnDefaultAggregRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnCapabilityV12R2M8YW": {
+    "name": "cggsnCapabilityV12R2M8YW",
+    "oid": "1.3.6.1.4.1.9.7.296.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8)YW",
+    "capabilities": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "includes": [
+          "cGgsnStatisticsGroup",
+          "cGgsnNotifMgmtGroup",
+          "cGgsnConfigurationsGroupRev1",
+          "cGgsnNotifGroup",
+          "cGgsnStatusGroup",
+          "cGgsnUmtsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cGgsnIpDupProtectRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnDefaultAggregRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnPlmnAddrRangeRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnCapabilityV12R4M9XG": {
+    "name": "cggsnCapabilityV12R4M9XG",
+    "oid": "1.3.6.1.4.1.9.7.296.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(9)XG",
+    "capabilities": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "includes": [
+          "cGgsnStatisticsGroupRev2",
+          "cGgsnNotifMgmtGroupRev2",
+          "cGgsnConfigurationsGroupRev3",
+          "cGgsnNotifGroupRev3",
+          "cGgsnStatusGroupRev1",
+          "cGgsnNotifInfoGroupRev2",
+          "cGgsnStatusGroupConfigVer",
+          "cGgsnStatisticsGroupR60",
+          "cGgsnStatusGroupR60",
+          "cGgsnNotifInfoGroupR60",
+          "cGgsnConfigurationsGroupR60Rev1",
+          "cGgsnStatusGroupR70"
+        ],
+        "variations": [
+          {
+            "object": "cGgsnIpDupProtectRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnDefaultAggregRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnPlmnAddrRangeRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnSlbVserRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnPcscfRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnServiceModeStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "inService": 1,
+                  "maintenance": 2,
+                  "outOfServiceInProgress": 3,
+                  "outOfService": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cGgsnMemoryThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 1024
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-GGSN-CAPABILITY",
+      "Source digest sha256:79bc9965270304c3f3bfcc67653861080592dfc6ad977dfd4729469a1eeeec43",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-GGSN-CAPABILITY"
+  }
+}

@@ -1,0 +1,1334 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xAuthConfigEntry",
+      "dot1xPaePortEntry",
+      "dot1xPaePortNumber",
+      "dot1xSuppConfigEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "hpicfDot1xMIB": {
+    "name": "hpicfDot1xMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-02 00:00",
+        "description": "Added hpicfDot1xAuthAllowGvrpVlans."
+      },
+      {
+        "revision": "2005-09-21 00:00",
+        "description": "Added hpicfDot1xAuthClientLimit2."
+      },
+      {
+        "revision": "2005-08-05 00:00",
+        "description": "Added import objects."
+      },
+      {
+        "revision": "2004-08-06 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfDot1xMIBObjects": {
+    "name": "hpicfDot1xMIBObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xSystem": {
+    "name": "hpicfDot1xSystem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xAuthenticator": {
+    "name": "hpicfDot1xAuthenticator",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xSupplicant": {
+    "name": "hpicfDot1xSupplicant",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xPaePortTable": {
+    "name": "hpicfDot1xPaePortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xPaePortEntry": {
+    "name": "hpicfDot1xPaePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfDot1xPaePortEntry",
+      "module": "HP-DOT1X-EXTENSIONS-MIB",
+      "object": "dot1xPaePortEntry"
+    },
+    "status": "current"
+  },
+  "hpicfDot1xPaePortAuth": {
+    "name": "hpicfDot1xPaePortAuth",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xPaePortSupp": {
+    "name": "hpicfDot1xPaePortSupp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xAuthConfigTable": {
+    "name": "hpicfDot1xAuthConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xAuthConfigEntry": {
+    "name": "hpicfDot1xAuthConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfDot1xAuthConfigEntry",
+      "module": "HP-DOT1X-EXTENSIONS-MIB",
+      "object": "dot1xAuthConfigEntry"
+    },
+    "status": "current"
+  },
+  "hpicfDot1xAuthAuthVid": {
+    "name": "hpicfDot1xAuthAuthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xAuthUnauthVid": {
+    "name": "hpicfDot1xAuthUnauthVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xAuthUnauthPeriod": {
+    "name": "hpicfDot1xAuthUnauthPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xAuthClientLimit": {
+    "name": "hpicfDot1xAuthClientLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpicfDot1xAuthLogoffPeriod": {
+    "name": "hpicfDot1xAuthLogoffPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999999999
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xAuthClientLimit2": {
+    "name": "hpicfDot1xAuthClientLimit2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthConfigTable": {
+    "name": "hpicfDot1xSMAuthConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthConfigEntry": {
+    "name": "hpicfDot1xSMAuthConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthPaePort",
+        "implied": 0
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthPaePort": {
+    "name": "hpicfDot1xSMAuthPaePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthMacAddr": {
+    "name": "hpicfDot1xSMAuthMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthInitialize": {
+    "name": "hpicfDot1xSMAuthInitialize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthReauthenticate": {
+    "name": "hpicfDot1xSMAuthReauthenticate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthPaeState": {
+    "name": "hpicfDot1xSMAuthPaeState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "disconnected": 2,
+          "connecting": 3,
+          "authenticating": 4,
+          "authenticated": 5,
+          "aborting": 6,
+          "held": 7,
+          "forceAuth": 8,
+          "forceUnauth": 9,
+          "restart": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthBackendAuthState": {
+    "name": "hpicfDot1xSMAuthBackendAuthState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "success": 3,
+          "fail": 4,
+          "timeout": 5,
+          "idle": 6,
+          "initialize": 7,
+          "ignore": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthReAuthPeriod": {
+    "name": "hpicfDot1xSMAuthReAuthPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 3600,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xSMAuthReAuthEnabled": {
+    "name": "hpicfDot1xSMAuthReAuthEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthDiagTable": {
+    "name": "hpicfDot1xAuthDiagTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xAuthDiagEntry": {
+    "name": "hpicfDot1xAuthDiagEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthNumberOfSuccessAuthentication": {
+    "name": "hpicfDot1xAuthNumberOfSuccessAuthentication",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthNumberOfFailedAuthentication": {
+    "name": "hpicfDot1xAuthNumberOfFailedAuthentication",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthStatsTable": {
+    "name": "hpicfDot1xAuthStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xAuthStatsEntry": {
+    "name": "hpicfDot1xAuthStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthPaePort",
+        "implied": 0
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolFramesRx": {
+    "name": "hpicfDot1xAuthEapolFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolFramesTx": {
+    "name": "hpicfDot1xAuthEapolFramesTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolStartFramesRx": {
+    "name": "hpicfDot1xAuthEapolStartFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolLogoffFramesRx": {
+    "name": "hpicfDot1xAuthEapolLogoffFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolRespIdFramesRx": {
+    "name": "hpicfDot1xAuthEapolRespIdFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolRespFramesRx": {
+    "name": "hpicfDot1xAuthEapolRespFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolReqIdFramesTx": {
+    "name": "hpicfDot1xAuthEapolReqIdFramesTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapolReqFramesTx": {
+    "name": "hpicfDot1xAuthEapolReqFramesTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthInvalidEapolFramesRx": {
+    "name": "hpicfDot1xAuthInvalidEapolFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthEapLengthErrorFramesRx": {
+    "name": "hpicfDot1xAuthEapLengthErrorFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthLastEapolFrameVersion": {
+    "name": "hpicfDot1xAuthLastEapolFrameVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthLastEapolFrameSource": {
+    "name": "hpicfDot1xAuthLastEapolFrameSource",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionStatsTable": {
+    "name": "hpicfDot1xAuthSessionStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionStatsEntry": {
+    "name": "hpicfDot1xAuthSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthPaePort",
+        "implied": 0
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionPerPAECountersEnabled": {
+    "name": "hpicfDot1xAuthSessionPerPAECountersEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionOctetsRx": {
+    "name": "hpicfDot1xAuthSessionOctetsRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionOctetsTx": {
+    "name": "hpicfDot1xAuthSessionOctetsTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionFramesRx": {
+    "name": "hpicfDot1xAuthSessionFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionFramesTx": {
+    "name": "hpicfDot1xAuthSessionFramesTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionId": {
+    "name": "hpicfDot1xAuthSessionId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionAuthenticMethod": {
+    "name": "hpicfDot1xAuthSessionAuthenticMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remoteAuthServer": 1,
+          "localAuthServer": 2,
+          "localandremoteAuthServer": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionTime": {
+    "name": "hpicfDot1xAuthSessionTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionStartTime": {
+    "name": "hpicfDot1xAuthSessionStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionStopTime": {
+    "name": "hpicfDot1xAuthSessionStopTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionInactiveTime": {
+    "name": "hpicfDot1xAuthSessionInactiveTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionTerminateCause": {
+    "name": "hpicfDot1xAuthSessionTerminateCause",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supplicantLogoff": 1,
+          "portFailure": 2,
+          "supplicantRestart": 3,
+          "reauthFailed": 4,
+          "authControlForceUnauth": 5,
+          "portReInit": 6,
+          "portAdminDisabled": 7,
+          "notTerminatedYet": 999
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionUserName": {
+    "name": "hpicfDot1xAuthSessionUserName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionIsForwarding": {
+    "name": "hpicfDot1xAuthSessionIsForwarding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionVid": {
+    "name": "hpicfDot1xAuthSessionVid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDot1xAuthAllowGvrpVlans": {
+    "name": "hpicfDot1xAuthAllowGvrpVlans",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xSuppConfigTable": {
+    "name": "hpicfDot1xSuppConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDot1xSuppConfigEntry": {
+    "name": "hpicfDot1xSuppConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfDot1xSuppConfigEntry",
+      "module": "HP-DOT1X-EXTENSIONS-MIB",
+      "object": "dot1xSuppConfigEntry"
+    },
+    "status": "current"
+  },
+  "hpicfDot1xSuppConfigIdentity": {
+    "name": "hpicfDot1xSuppConfigIdentity",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xSuppConfigPassword": {
+    "name": "hpicfDot1xSuppConfigPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDot1xConformance": {
+    "name": "hpicfDot1xConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xGroups": {
+    "name": "hpicfDot1xGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xCompliances": {
+    "name": "hpicfDot1xCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfDot1xPaePortGroup": {
+    "name": "hpicfDot1xPaePortGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xPaePortAuth"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xPaePortSupp"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthConfigGroup": {
+    "name": "hpicfDot1xAuthConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthAuthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthClientLimit"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthLogoffPeriod"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDot1xSMAuthConfigGroup": {
+    "name": "hpicfDot1xSMAuthConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthInitialize"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthReauthenticate"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthPaeState"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthBackendAuthState"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthReAuthPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xSMAuthReAuthEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthDiagGroup": {
+    "name": "hpicfDot1xAuthDiagGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthNumberOfSuccessAuthentication"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthNumberOfFailedAuthentication"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthStatsGroup": {
+    "name": "hpicfDot1xAuthStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolFramesTx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolStartFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolLogoffFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolRespIdFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolRespFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolReqIdFramesTx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapolReqFramesTx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthInvalidEapolFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthEapLengthErrorFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthLastEapolFrameVersion"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthLastEapolFrameSource"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthSessionStatsGroup": {
+    "name": "hpicfDot1xAuthSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionOctetsRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionOctetsTx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionFramesRx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionFramesTx"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionId"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionAuthenticMethod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionTime"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionStartTime"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionStopTime"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionInactiveTime"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionTerminateCause"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionUserName"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionIsForwarding"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthSessionVid"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthConfigGroup2": {
+    "name": "hpicfDot1xAuthConfigGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthAuthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthLogoffPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthClientLimit2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xAuthConfigGroup3": {
+    "name": "hpicfDot1xAuthConfigGroup3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthAuthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthVid"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthUnauthPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthLogoffPeriod"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthClientLimit2"
+      },
+      {
+        "module": "HP-DOT1X-EXTENSIONS-MIB",
+        "object": "hpicfDot1xAuthAllowGvrpVlans"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDot1xCompliance": {
+    "name": "hpicfDot1xCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDot1xPaePortGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthConfigGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xSMAuthConfigGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthSessionStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDot1xCompliance2": {
+    "name": "hpicfDot1xCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDot1xPaePortGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthConfigGroup2",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xSMAuthConfigGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthSessionStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDot1xCompliance3": {
+    "name": "hpicfDot1xCompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.25.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDot1xPaePortGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthConfigGroup3",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xSMAuthConfigGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      },
+      {
+        "object": "hpicfDot1xAuthSessionStatsGroup",
+        "module": "HP-DOT1X-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-DOT1X-EXTENSIONS-MIB",
+      "Source digest sha256:f62a897425bb5e9fa7242fe90dee554a19b69b43cbba667150e1ecc258c563ef",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-DOT1X-EXTENSIONS-MIB"
+  }
+}

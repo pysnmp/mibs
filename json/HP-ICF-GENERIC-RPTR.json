@@ -1,0 +1,2491 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfGenRptrTrapsPrefix",
+      "hpicfGenericRepeater",
+      "hpicfObjectModules",
+      "icfHub"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "hpicfGenRptrMib": {
+    "name": "hpicfGenRptrMib",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-06-09 22:37",
+        "description": "Added learnLimitedContinuous mode to hpSecPtLearnMode."
+      },
+      {
+        "revision": "2000-11-03 07:17",
+        "description": "Deprecate hpSecPtPreventEavesdrop. Update division name."
+      },
+      {
+        "revision": "1998-07-23 01:03",
+        "description": "Added the hpicfGenRptrBridgeGroup. Updated compliances."
+      },
+      {
+        "revision": "1997-03-06 03:37",
+        "description": "Added the hpicfGenRptrSwitchConfigGroup. Added NOTIFICATION-GROUP information."
+      },
+      {
+        "revision": "1996-09-10 02:28",
+        "description": "Split this MIB module from the former monolithic hp-icf MIB. Added the hpicfGenRptrInfoGroup, the hpicfGenRptrBkpLinkGroup, and the hpicfGenRptrPortMappingGroup."
+      },
+      {
+        "revision": "1995-10-23 23:47",
+        "description": "Version of MIB module that added support for the HPJ2413A and HPJ2415A 100VG hubs, and the HPJ2414B agent module. Added the hpicfGenRptrSecPtGroup."
+      },
+      {
+        "revision": "1995-01-18 00:00",
+        "description": "Version of MIB module that added support for the HPJ2410A 100VG repeater and the HPJ2414A agent module. Added the hpicfGenRptrBasicGroup."
+      },
+      {
+        "revision": "1993-07-09 00:00",
+        "description": "Initial version of this MIB module. Released with the HPJ2355A hub."
+      }
+    ]
+  },
+  "hpGRpBasic": {
+    "name": "hpGRpBasic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1",
+    "class": "objectidentity"
+  },
+  "hpGRpBasicGlobal": {
+    "name": "hpGRpBasicGlobal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1",
+    "class": "objectidentity"
+  },
+  "hpGRpSelfHealEnable": {
+    "name": "hpGRpSelfHealEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpRepeaterTable": {
+    "name": "hpGRpRepeaterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpRepeaterEntry": {
+    "name": "hpGRpRepeaterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpRepeaterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpGRpRepeaterIndex": {
+    "name": "hpGRpRepeaterIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpRepeaterIfIndex": {
+    "name": "hpGRpRepeaterIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpGRpRepeaterName": {
+    "name": "hpGRpRepeaterName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpRepeaterVlanIndex": {
+    "name": "hpGRpRepeaterVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hubSecurity": {
+    "name": "hubSecurity",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10",
+    "class": "objectidentity"
+  },
+  "hubSecurePortTable": {
+    "name": "hubSecurePortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hubSecurePortEntry": {
+    "name": "hubSecurePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hubSecPtGroupIndex": {
+    "name": "hubSecPtGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubSecPtPortIndex": {
+    "name": "hubSecPtPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubSecPtSecurityAddress": {
+    "name": "hubSecPtSecurityAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hubSecPtAuthorizedAddress": {
+    "name": "hubSecPtAuthorizedAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubSecPtPreventEavesdrop": {
+    "name": "hubSecPtPreventEavesdrop",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hubSecPtAlarmEnable": {
+    "name": "hubSecPtAlarmEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hubSecPtIntrusionFlag": {
+    "name": "hubSecPtIntrusionFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intrusion": 1,
+          "noIntrusion": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hubIntruderLogTable": {
+    "name": "hubIntruderLogTable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hubIntruderLogEntry": {
+    "name": "hubIntruderLogEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hubIntruderIndex": {
+    "name": "hubIntruderIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderGroup": {
+    "name": "hubIntruderGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderPort": {
+    "name": "hubIntruderPort",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderAddress": {
+    "name": "hubIntruderAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderTime": {
+    "name": "hubIntruderTime",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderType": {
+    "name": "hubIntruderType",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "address": 1,
+          "training": 2,
+          "both": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hubIntruderTrainingViolation": {
+    "name": "hubIntruderTrainingViolation",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noViolation": 1,
+          "promiscuousViolation": 2,
+          "repeaterViolation": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSecurePortTable": {
+    "name": "hpSecurePortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecurePortEntry": {
+    "name": "hpSecurePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSecPtGroupIndex": {
+    "name": "hpSecPtGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecPtPortIndex": {
+    "name": "hpSecPtPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecPtAddressLimit": {
+    "name": "hpSecPtAddressLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSecPtLearnMode": {
+    "name": "hpSecPtLearnMode",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learnContinuous": 1,
+          "learnFirstN": 2,
+          "learnFirstNConditionally": 3,
+          "configureSpecific": 4,
+          "learn8021xAuthorized": 5,
+          "learnLimitedContinuous": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSecPtPreventEavesdrop": {
+    "name": "hpSecPtPreventEavesdrop",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpSecPtAlarmEnable": {
+    "name": "hpSecPtAlarmEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "sendTrap": 2,
+          "sendTrapAndDisablePort": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSecPtIntrusionFlag": {
+    "name": "hpSecPtIntrusionFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intrusion": 1,
+          "noIntrusion": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSecureCfgAddrTable": {
+    "name": "hpSecureCfgAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecureCfgAddrEntry": {
+    "name": "hpSecureCfgAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecCfgAddrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecCfgAddrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecCfgAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSecCfgAddrGroupIndex": {
+    "name": "hpSecCfgAddrGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecCfgAddrPortIndex": {
+    "name": "hpSecCfgAddrPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecCfgAddress": {
+    "name": "hpSecCfgAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecCfgStatus": {
+    "name": "hpSecCfgStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpSecureAuthAddrTable": {
+    "name": "hpSecureAuthAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecureAuthAddrEntry": {
+    "name": "hpSecureAuthAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecAuthAddrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecAuthAddrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecAuthAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSecAuthAddrGroupIndex": {
+    "name": "hpSecAuthAddrGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecAuthAddrPortIndex": {
+    "name": "hpSecAuthAddrPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSecAuthAddress": {
+    "name": "hpSecAuthAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.2.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfGRpBackupLinks": {
+    "name": "hpicfGRpBackupLinks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2",
+    "class": "objectidentity"
+  },
+  "hpicfBackupLinkNextIndex": {
+    "name": "hpicfBackupLinkNextIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBackupLinkTable": {
+    "name": "hpicfBackupLinkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBackupLinkEntry": {
+    "name": "hpicfBackupLinkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfBackupLinkIndex": {
+    "name": "hpicfBackupLinkIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBackupLinkPrimaryGroup": {
+    "name": "hpicfBackupLinkPrimaryGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkPrimaryPort": {
+    "name": "hpicfBackupLinkPrimaryPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkBackupGroup": {
+    "name": "hpicfBackupLinkBackupGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkBackupPort": {
+    "name": "hpicfBackupLinkBackupPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkAddress": {
+    "name": "hpicfBackupLinkAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkTestTime": {
+    "name": "hpicfBackupLinkTestTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkConsecFailures": {
+    "name": "hpicfBackupLinkConsecFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkState": {
+    "name": "hpicfBackupLinkState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "usingPrimary": 2,
+          "usingBackup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfBackupLinkFailEventIndex": {
+    "name": "hpicfBackupLinkFailEventIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBackupLinkStatus": {
+    "name": "hpicfBackupLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpGRpPortMapping": {
+    "name": "hpGRpPortMapping",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3",
+    "class": "objectidentity"
+  },
+  "hpGRpPMSegmentTable": {
+    "name": "hpGRpPMSegmentTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMSegmentEntry": {
+    "name": "hpGRpPMSegmentEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpGRpPMSegmentIndex": {
+    "name": "hpGRpPMSegmentIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMCurrentRptrIndex": {
+    "name": "hpGRpPMCurrentRptrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpPMSegAllowedRptrTable": {
+    "name": "hpGRpPMSegAllowedRptrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMSegAllowedRptrEntry": {
+    "name": "hpGRpPMSegAllowedRptrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMSegmentIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMSegAllowedRptrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpGRpPMSegAllowedRptrIndex": {
+    "name": "hpGRpPMSegAllowedRptrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpGRpPMPortTable": {
+    "name": "hpGRpPMPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMPortEntry": {
+    "name": "hpGRpPMPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpGRpPMPortGroupIndex": {
+    "name": "hpGRpPMPortGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMPortIndex": {
+    "name": "hpGRpPMPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMPortEntPhysicalIndex": {
+    "name": "hpGRpPMPortEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpGRpPMPortCurrentRptrIndex": {
+    "name": "hpGRpPMPortCurrentRptrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpPMPortAllowedRptrTable": {
+    "name": "hpGRpPMPortAllowedRptrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpGRpPMPortAllowedRptrEntry": {
+    "name": "hpGRpPMPortAllowedRptrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortAllowedRptrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpGRpPMPortAllowedRptrIndex": {
+    "name": "hpGRpPMPortAllowedRptrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpGRpLoadBalancing": {
+    "name": "hpGRpLoadBalancing",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.4",
+    "class": "objectidentity"
+  },
+  "hpGRpPortMapAutoConfigEnable": {
+    "name": "hpGRpPortMapAutoConfigEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpLoadBalanceNow": {
+    "name": "hpGRpLoadBalanceNow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cantUndo": 1,
+          "balancing": 2,
+          "completed": 3,
+          "undoLast": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpGRpLastLoadBalanceTime": {
+    "name": "hpGRpLastLoadBalanceTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfGRpSwitchConfig": {
+    "name": "hpicfGRpSwitchConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5",
+    "class": "objectidentity"
+  },
+  "hpicfGRpSwitchTable": {
+    "name": "hpicfGRpSwitchTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfGRpSwitchEntry": {
+    "name": "hpicfGRpSwitchEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGRpSwitchIndex": {
+    "name": "hpicfGRpSwitchIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfGRpSwitchType": {
+    "name": "hpicfGRpSwitchType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfGRpSwitchEntPhysicalIndex": {
+    "name": "hpicfGRpSwitchEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkCount": {
+    "name": "hpicfGRpSwitchLinkCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfGRpSwitchStatus": {
+    "name": "hpicfGRpSwitchStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkTable": {
+    "name": "hpicfGRpSwitchLinkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkEntry": {
+    "name": "hpicfGRpSwitchLinkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkIndex": {
+    "name": "hpicfGRpSwitchLinkIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkRptrGroup": {
+    "name": "hpicfGRpSwitchLinkRptrGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkRptrPort": {
+    "name": "hpicfGRpSwitchLinkRptrPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfGRpSwitchLinkState": {
+    "name": "hpicfGRpSwitchLinkState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "redundant": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfGRpCurrentPrimarySwitch": {
+    "name": "hpicfGRpCurrentPrimarySwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfGRpDesiredPrimarySwitch": {
+    "name": "hpicfGRpDesiredPrimarySwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfGRpBridge": {
+    "name": "hpicfGRpBridge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.6",
+    "class": "objectidentity"
+  },
+  "hpGRpBridgeAdminStatus": {
+    "name": "hpGRpBridgeAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfIntrusionTrap": {
+    "name": "hpicfIntrusionTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.12.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderType"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTrainingViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfBackupLinkTrap": {
+    "name": "hpicfBackupLinkTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.12.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrConformance": {
+    "name": "hpicfGenRptrConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1",
+    "class": "objectidentity"
+  },
+  "hpicfGenRptrCompliances": {
+    "name": "hpicfGenRptrCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfGenRptrGroups": {
+    "name": "hpicfGenRptrGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfHubSecurityCompliance": {
+    "name": "hpicfHubSecurityCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfHubSecurityGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrBasicCompliance": {
+    "name": "hpicfGenRptrBasicCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGenRptrBasicGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrSecurityCompliance": {
+    "name": "hpicfGenRptrSecurityCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGenRptrSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrCompliance": {
+    "name": "hpicfGenRptrCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGenRptrBasicGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrInfoGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrPortMappingGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrLoadBalanceGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrCompliance2": {
+    "name": "hpicfGenRptrCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGenRptrBasicGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrInfoGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrPortMappingGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrLoadBalanceGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSwitchConfigGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrCompliance3": {
+    "name": "hpicfGenRptrCompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfGenRptrBasicGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrInfoGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSecNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBkpLinkNotifyGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrPortMappingGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrLoadBalanceGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrSwitchConfigGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      },
+      {
+        "object": "hpicfGenRptrBridgeGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrMultiSecOnlyCompliance": {
+    "name": "hpicfGenRptrMultiSecOnlyCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSecPtGroup",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrMultiSecOnlyCompliance2": {
+    "name": "hpicfGenRptrMultiSecOnlyCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfSecPtGroup2",
+        "module": "HP-ICF-GENERIC-RPTR"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHubSecurityGroup": {
+    "name": "hpicfHubSecurityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtGroupIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPortIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtSecurityAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtAuthorizedAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtAlarmEnable"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtIntrusionFlag"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrBasicGroup": {
+    "name": "hpicfGenRptrBasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpSelfHealEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrSecPtGroup": {
+    "name": "hpicfGenRptrSecPtGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtGroupIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPortIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtSecurityAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtAuthorizedAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtPreventEavesdrop"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtAlarmEnable"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubSecPtIntrusionFlag"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTime"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderType"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTrainingViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrInfoGroup": {
+    "name": "hpicfGenRptrInfoGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpRepeaterIfIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpRepeaterName"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpRepeaterVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrBkpLinkGroup": {
+    "name": "hpicfGenRptrBkpLinkGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkNextIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkPrimaryGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkPrimaryPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkBackupGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkBackupPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkTestTime"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkConsecFailures"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkState"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkFailEventIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrPortMappingGroup": {
+    "name": "hpicfGenRptrPortMappingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMCurrentRptrIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMSegAllowedRptrIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortEntPhysicalIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortCurrentRptrIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPMPortAllowedRptrIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpPortMapAutoConfigEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrLoadBalanceGroup": {
+    "name": "hpicfGenRptrLoadBalanceGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpLoadBalanceNow"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpLastLoadBalanceTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrSwitchConfigGroup": {
+    "name": "hpicfGenRptrSwitchConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchType"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchEntPhysicalIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchLinkCount"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchStatus"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchLinkRptrGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchLinkRptrPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpSwitchLinkState"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpCurrentPrimarySwitch"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfGRpDesiredPrimarySwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrSecNotifyGroup": {
+    "name": "hpicfGenRptrSecNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfIntrusionTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfGenRptrBkpLinkNotifyGroup": {
+    "name": "hpicfGenRptrBkpLinkNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpicfBackupLinkTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSecPtGroup": {
+    "name": "hpicfSecPtGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtAddressLimit"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtLearnMode"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtPreventEavesdrop"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtAlarmEnable"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtIntrusionFlag"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecCfgStatus"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecAuthAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTime"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderType"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTrainingViolation"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfGenRptrBridgeGroup": {
+    "name": "hpicfGenRptrBridgeGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpGRpBridgeAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfSecPtGroup2": {
+    "name": "hpicfSecPtGroup2",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.8.1.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtAddressLimit"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtLearnMode"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtAlarmEnable"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecPtIntrusionFlag"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecCfgStatus"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hpSecAuthAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderIndex"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderGroup"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderPort"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderAddress"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTime"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderType"
+      },
+      {
+        "module": "HP-ICF-GENERIC-RPTR",
+        "object": "hubIntruderTrainingViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-GENERIC-RPTR",
+      "Source digest sha256:53c3ffba758f643330ab8f03effc6215918c9f2df7ec46b0c158993607b49649",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-GENERIC-RPTR"
+  }
+}

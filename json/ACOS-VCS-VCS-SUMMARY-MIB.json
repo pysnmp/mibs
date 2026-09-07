@@ -1,0 +1,589 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vcsVcsSummaryModule": {
+    "name": "vcsVcsSummaryModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15",
+    "class": "moduleidentity"
+  },
+  "vcsSummary": {
+    "name": "vcsSummary",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1",
+    "class": "objectidentity"
+  },
+  "vcsSummaryOperTable": {
+    "name": "vcsSummaryOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperEntry": {
+    "name": "vcsSummaryOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperSlotId": {
+    "name": "vcsSummaryOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsEnabled": {
+    "name": "vcsSummaryOperVcsEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperChassisId": {
+    "name": "vcsSummaryOperChassisId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMulticastAddr": {
+    "name": "vcsSummaryOperMulticastAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMulticastPort": {
+    "name": "vcsSummaryOperMulticastPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVersion": {
+    "name": "vcsSummaryOperVersion",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVmasterMaintenanceInterval": {
+    "name": "vcsSummaryOperVmasterMaintenanceInterval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVmasterMaintenanceLeft": {
+    "name": "vcsSummaryOperVmasterMaintenanceLeft",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListTable": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListEntry": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperVcsHandshakeCompletedListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListSlotId": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted": {
+    "name": "vcsSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListTable": {
+    "name": "vcsSummaryOperFloatingIpv4ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListEntry": {
+    "name": "vcsSummaryOperFloatingIpv4ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperFloatingIpv4ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperFloatingIpv4ListFloatingIpv4ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListSlotId": {
+    "name": "vcsSummaryOperFloatingIpv4ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListFloatingIpv4ListListId": {
+    "name": "vcsSummaryOperFloatingIpv4ListFloatingIpv4ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListFloatingIpv4": {
+    "name": "vcsSummaryOperFloatingIpv4ListFloatingIpv4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv4ListFloatingIpv4Mask": {
+    "name": "vcsSummaryOperFloatingIpv4ListFloatingIpv4Mask",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListTable": {
+    "name": "vcsSummaryOperFloatingIpv6ListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListEntry": {
+    "name": "vcsSummaryOperFloatingIpv6ListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperFloatingIpv6ListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperFloatingIpv6ListFloatingIpv6ListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListSlotId": {
+    "name": "vcsSummaryOperFloatingIpv6ListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListFloatingIpv6ListListId": {
+    "name": "vcsSummaryOperFloatingIpv6ListFloatingIpv6ListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListFloatingIpv6": {
+    "name": "vcsSummaryOperFloatingIpv6ListFloatingIpv6",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperFloatingIpv6ListFloatingIpv6Prefix": {
+    "name": "vcsSummaryOperFloatingIpv6ListFloatingIpv6Prefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListTable": {
+    "name": "vcsSummaryOperMemberListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListEntry": {
+    "name": "vcsSummaryOperMemberListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperMemberListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperMemberListMemberListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListSlotId": {
+    "name": "vcsSummaryOperMemberListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListMemberListListId": {
+    "name": "vcsSummaryOperMemberListMemberListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListId": {
+    "name": "vcsSummaryOperMemberListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListState": {
+    "name": "vcsSummaryOperMemberListState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListPriority": {
+    "name": "vcsSummaryOperMemberListPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListPort": {
+    "name": "vcsSummaryOperMemberListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListLocation": {
+    "name": "vcsSummaryOperMemberListLocation",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListTable": {
+    "name": "vcsSummaryOperMemberListIpListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListEntry": {
+    "name": "vcsSummaryOperMemberListIpListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperMemberListIpListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperMemberListIpListMemberListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-VCS-VCS-SUMMARY-MIB",
+        "object": "vcsSummaryOperMemberListIpListIpListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListSlotId": {
+    "name": "vcsSummaryOperMemberListIpListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListMemberListListId": {
+    "name": "vcsSummaryOperMemberListIpListMemberListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListIpListListId": {
+    "name": "vcsSummaryOperMemberListIpListIpListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcsSummaryOperMemberListIpListIp": {
+    "name": "vcsSummaryOperMemberListIpListIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.15.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VCS-VCS-SUMMARY-MIB",
+      "Source digest sha256:edd83f6469405219850e39d07c0887fa4d5d77f1d94ac6bc2d6b9ad2e2d1a7a0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VCS-VCS-SUMMARY-MIB"
+  }
+}

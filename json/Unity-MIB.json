@@ -1,0 +1,348 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "unity": {
+    "name": "unity",
+    "oid": "1.3.6.1.4.1.1139.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-08-26 00:00",
+        "description": "Original release"
+      }
+    ]
+  },
+  "emc": {
+    "name": "emc",
+    "oid": "1.3.6.1.4.1.1139",
+    "class": "objectidentity"
+  },
+  "unityObjects": {
+    "name": "unityObjects",
+    "oid": "1.3.6.1.4.1.1139.103.1",
+    "class": "objectidentity"
+  },
+  "unityTrap": {
+    "name": "unityTrap",
+    "oid": "1.3.6.1.4.1.1139.103.1.18",
+    "class": "objectidentity"
+  },
+  "unityTrapVariable": {
+    "name": "unityTrapVariable",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1",
+    "class": "objectidentity"
+  },
+  "unityTrapNode": {
+    "name": "unityTrapNode",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unityTrapComponent": {
+    "name": "unityTrapComponent",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unityTrapSymptomID": {
+    "name": "unityTrapSymptomID",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unityTrapSymptomText": {
+    "name": "unityTrapSymptomText",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unityTrapTimeStamp": {
+    "name": "unityTrapTimeStamp",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unityGenericTrap": {
+    "name": "unityGenericTrap",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "unityGenericTrapEmergency": {
+    "name": "unityGenericTrapEmergency",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapAlert": {
+    "name": "unityGenericTrapAlert",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapCritical": {
+    "name": "unityGenericTrapCritical",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapError": {
+    "name": "unityGenericTrapError",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapWarning": {
+    "name": "unityGenericTrapWarning",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapNotice": {
+    "name": "unityGenericTrapNotice",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapInformational": {
+    "name": "unityGenericTrapInformational",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "unityGenericTrapDebug": {
+    "name": "unityGenericTrapDebug",
+    "oid": "1.3.6.1.4.1.1139.103.1.18.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapNode"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapComponent"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomID"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapSymptomText"
+      },
+      {
+        "module": "Unity-MIB",
+        "object": "unityTrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Unity-MIB",
+      "Source digest sha256:38b42a517533d3d76c1d3ebf48e5fd7dbcae8922d827a812dd1aa8beed151252",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Unity-MIB"
+  }
+}

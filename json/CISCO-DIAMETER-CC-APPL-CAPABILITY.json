@@ -1,0 +1,151 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDiameterCCACapability": {
+    "name": "ciscoDiameterCCACapability",
+    "oid": "1.3.6.1.4.1.9.7.516",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiameterCCACapabilityV12R0409XG": {
+    "name": "ciscoDiameterCCACapabilityV12R0409XG",
+    "oid": "1.3.6.1.4.1.9.7.516.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(9)XG.",
+    "capabilities": [
+      {
+        "module": "CISCO-DIAMETER-CC-APPL-MIB",
+        "includes": [
+          "ciscoDiameterCCAHostCfgGroup",
+          "ciscoDiameterCCAPeerCfgGroup",
+          "ciscoDiameterCCAPeerStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdccaHostIpAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaHostIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaHostId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerVendorStorageType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerFirmwareRevision",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerVendorRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsCCRDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsCCADropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsRARDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsRAADropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsSTRDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsSTADropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsAAROut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsAARDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsAAAIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsAAADropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsASRDropped",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdccaPeerStatsASADropped",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DIAMETER-CC-APPL-CAPABILITY",
+      "Source digest sha256:6e4eaa3628d35cb36721ca4f3b8ada3c5ac6540a983e887cebdec2f251da03ce",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DIAMETER-CC-APPL-CAPABILITY"
+  }
+}

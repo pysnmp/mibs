@@ -1,0 +1,840 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgnv6L4Module": {
+    "name": "cgnv6L4Module",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417",
+    "class": "moduleidentity"
+  },
+  "l4": {
+    "name": "l4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1",
+    "class": "objectidentity"
+  },
+  "l4StatsTable": {
+    "name": "l4StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "l4StatsEntry": {
+    "name": "l4StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-L4-MIB",
+        "object": "l4StatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l4StatsSlotId": {
+    "name": "l4StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNoFwdRoute": {
+    "name": "l4StatsNoFwdRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNoRevRoute": {
+    "name": "l4StatsNoRevRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsOutOfSessionMemory": {
+    "name": "l4StatsOutOfSessionMemory",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsTcpRstSent": {
+    "name": "l4StatsTcpRstSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpipIcmpReplySent": {
+    "name": "l4StatsIpipIcmpReplySent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIcmpFilteredSent": {
+    "name": "l4StatsIcmpFilteredSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIcmpHostUnreachableSent": {
+    "name": "l4StatsIcmpHostUnreachableSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIcmpReplyNoSessionDrop": {
+    "name": "l4StatsIcmpReplyNoSessionDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpipTruncated": {
+    "name": "l4StatsIpipTruncated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpSrcInvalidUnicast": {
+    "name": "l4StatsIpSrcInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpDstInvalidUnicast": {
+    "name": "l4StatsIpDstInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpv6SrcInvalidUnicast": {
+    "name": "l4StatsIpv6SrcInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpv6DstInvalidUnicast": {
+    "name": "l4StatsIpv6DstInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsRateDropResetUnkn": {
+    "name": "l4StatsRateDropResetUnkn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsBadL3Protocol": {
+    "name": "l4StatsBadL3Protocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsSpecialIpv4NoRoute": {
+    "name": "l4StatsSpecialIpv4NoRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsSpecialIpv6NoRoute": {
+    "name": "l4StatsSpecialIpv6NoRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIcmpReplySent": {
+    "name": "l4StatsIcmpReplySent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIcmpv6ReplySent": {
+    "name": "l4StatsIcmpv6ReplySent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsOutOfStateDropped": {
+    "name": "l4StatsOutOfStateDropped",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsTtlExceededSent": {
+    "name": "l4StatsTtlExceededSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsCrossCpuAlgGreNoMatch": {
+    "name": "l4StatsCrossCpuAlgGreNoMatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsCrossCpuAlgGrePreprocessErr": {
+    "name": "l4StatsCrossCpuAlgGrePreprocessErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsLsnFastSetup": {
+    "name": "l4StatsLsnFastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsLsnFastSetupErr": {
+    "name": "l4StatsLsnFastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNat64FastSetup": {
+    "name": "l4StatsNat64FastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNat64FastSetupErr": {
+    "name": "l4StatsNat64FastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsDsliteFastSetup": {
+    "name": "l4StatsDsliteFastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsDsliteFastSetupErr": {
+    "name": "l4StatsDsliteFastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFastSetupDelayedErr": {
+    "name": "l4StatsFastSetupDelayedErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFastSetupMtuTooSmall": {
+    "name": "l4StatsFastSetupMtuTooSmall",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNat44FastSetup": {
+    "name": "l4StatsFixedNat44FastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNat44FastSetupErr": {
+    "name": "l4StatsFixedNat44FastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNat64FastSetup": {
+    "name": "l4StatsFixedNat64FastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNat64FastSetupErr": {
+    "name": "l4StatsFixedNat64FastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNatDsliteFastSetup": {
+    "name": "l4StatsFixedNatDsliteFastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNatDsliteFastSetupErr": {
+    "name": "l4StatsFixedNatDsliteFastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNatFastSetupDelayedErr": {
+    "name": "l4StatsFixedNatFastSetupDelayedErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFixedNatFastSetupMtuTooSmall": {
+    "name": "l4StatsFixedNatFastSetupMtuTooSmall",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsStaticNatFastSetup": {
+    "name": "l4StatsStaticNatFastSetup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsStaticNatFastSetupErr": {
+    "name": "l4StatsStaticNatFastSetupErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsDstNatNeededDrop": {
+    "name": "l4StatsDstNatNeededDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsInvalidNat64TranslatedAddr": {
+    "name": "l4StatsInvalidNat64TranslatedAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsTcpRstLoopDrop": {
+    "name": "l4StatsTcpRstLoopDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsStaticNatAlloc": {
+    "name": "l4StatsStaticNatAlloc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsStaticNatFree": {
+    "name": "l4StatsStaticNatFree",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsProcessL4": {
+    "name": "l4StatsProcessL4",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsPreprocessError": {
+    "name": "l4StatsPreprocessError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsProcessSpecial": {
+    "name": "l4StatsProcessSpecial",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsProcessContinue": {
+    "name": "l4StatsProcessContinue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsProcessError": {
+    "name": "l4StatsProcessError",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFwMatchNoRuleDrop": {
+    "name": "l4StatsFwMatchNoRuleDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsIpUnknownProcess": {
+    "name": "l4StatsIpUnknownProcess",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsSrcNatPoolNotFound": {
+    "name": "l4StatsSrcNatPoolNotFound",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsDstNatPoolNotFound": {
+    "name": "l4StatsDstNatPoolNotFound",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsL3IpSrcInvalidUnicast": {
+    "name": "l4StatsL3IpSrcInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsL3IpDstInvalidUnicast": {
+    "name": "l4StatsL3IpDstInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsL3Ipv6SrcInvalidUnicast": {
+    "name": "l4StatsL3Ipv6SrcInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsL3Ipv6DstInvalidUnicast": {
+    "name": "l4StatsL3Ipv6DstInvalidUnicast",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFwZoneMismatchReroutingDrop": {
+    "name": "l4StatsFwZoneMismatchReroutingDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNatRangeListAclDeny": {
+    "name": "l4StatsNatRangeListAclDeny",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsNatRangeListAclPermit": {
+    "name": "l4StatsNatRangeListAclPermit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l4StatsFwNextActionIncorrectDrop": {
+    "name": "l4StatsFwNextActionIncorrectDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.417.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CGNV6-L4-MIB",
+      "Source digest sha256:5372a86b3596b389603626f7d6c15be4b82899fcd3b5731f2dcc5586761bb276",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CGNV6-L4-MIB"
+  }
+}

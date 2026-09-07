@@ -1,0 +1,334 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoBootHwDiagsMIB": {
+    "name": "ciscoBootHwDiagsMIB",
+    "oid": "1.3.6.1.4.1.9.9.696",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoBootHwDiagsMIBNotifs": {
+    "name": "ciscoBootHwDiagsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.696.0",
+    "class": "objectidentity"
+  },
+  "ciscoBootHwDiagsMIBObjects": {
+    "name": "ciscoBootHwDiagsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.696.1",
+    "class": "objectidentity"
+  },
+  "ciscoBootHwDiagsMIBConform": {
+    "name": "ciscoBootHwDiagsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.696.2",
+    "class": "objectidentity"
+  },
+  "ciscoBootHwDiagsMIBCurrentBank": {
+    "name": "ciscoBootHwDiagsMIBCurrentBank",
+    "oid": "1.3.6.1.4.1.9.9.696.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBTestTable": {
+    "name": "ciscoBootHwDiagsMIBTestTable",
+    "oid": "1.3.6.1.4.1.9.9.696.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBTestEntry": {
+    "name": "ciscoBootHwDiagsMIBTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.696.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBTestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBTestIndex": {
+    "name": "ciscoBootHwDiagsMIBTestIndex",
+    "oid": "1.3.6.1.4.1.9.9.696.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBTestName": {
+    "name": "ciscoBootHwDiagsMIBTestName",
+    "oid": "1.3.6.1.4.1.9.9.696.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBTable": {
+    "name": "ciscoBootHwDiagsMIBTable",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBEntry": {
+    "name": "ciscoBootHwDiagsMIBEntry",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBTestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBBankIndex": {
+    "name": "ciscoBootHwDiagsMIBBankIndex",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBLastBootExecuted": {
+    "name": "ciscoBootHwDiagsMIBLastBootExecuted",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBLastBootPassed": {
+    "name": "ciscoBootHwDiagsMIBLastBootPassed",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBNextBootConfigured": {
+    "name": "ciscoBootHwDiagsMIBNextBootConfigured",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBNextBootArmed": {
+    "name": "ciscoBootHwDiagsMIBNextBootArmed",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBConfigCode": {
+    "name": "ciscoBootHwDiagsMIBConfigCode",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBResultCode": {
+    "name": "ciscoBootHwDiagsMIBResultCode",
+    "oid": "1.3.6.1.4.1.9.9.696.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBCompliances": {
+    "name": "ciscoBootHwDiagsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.696.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoBootHwDiagsMIBGroups": {
+    "name": "ciscoBootHwDiagsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.696.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoBootHwDiagsMIBCompliance": {
+    "name": "ciscoBootHwDiagsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.696.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBootHwDiagsMIBMainObjectGroup",
+        "module": "CISCO-BOOT-HWDIAGS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBootHwDiagsMIBMainObjectGroup": {
+    "name": "ciscoBootHwDiagsMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.696.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBCurrentBank"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBTestName"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBLastBootExecuted"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBLastBootPassed"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBNextBootConfigured"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBNextBootArmed"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBConfigCode"
+      },
+      {
+        "module": "CISCO-BOOT-HWDIAGS-MIB",
+        "object": "ciscoBootHwDiagsMIBResultCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-BOOT-HWDIAGS-MIB",
+      "Source digest sha256:695dbcf2fa49f76642fa74aa18804bf82a51a1c7e12f0e296a969763ca97f80f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-BOOT-HWDIAGS-MIB"
+  }
+}

@@ -1,0 +1,1696 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1StackMgr"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1StackMgrMIB": {
+    "name": "alcatelIND1StackMgrMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "New trap alaStackMgrIncompatiblelLicenseTrap has been added."
+      },
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "Added alaStackMgrOperStackingMode and alaStackMgrAdminStackingMode objects. Added AlaStackMgrStackingMode TEXTUAL-CONVENTION."
+      },
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "Updated copyright information."
+      },
+      {
+        "revision": "2005-07-15 00:00",
+        "description": "New trap alaStackMgrBadMixTrap has been added. AlaStackMgrSlotState & AlaStackMgrLinkNumber textual convention have been modified."
+      },
+      {
+        "revision": "2004-07-01 00:00",
+        "description": "Updates on definitions for link states. Updates on pass through slot range."
+      },
+      {
+        "revision": "2004-04-23 00:00",
+        "description": "New trap alaStackMgrOutOfPassThruSlotsTrap has been added."
+      },
+      {
+        "revision": "2004-04-08 00:00",
+        "description": "alaStackMgrPassThruTrap has been split in three traps to assure backwards compatibility with previous releases of the OmniSwitch products."
+      },
+      {
+        "revision": "2004-04-04 00:00",
+        "description": "-Command action and command status objects added to the chassis table. -Link state textual conventions have been updated."
+      },
+      {
+        "revision": "2004-03-22 00:00",
+        "description": "Objects to handle information about token usage."
+      },
+      {
+        "revision": "2004-03-08 00:00",
+        "description": "Objects to support the pass through mode added."
+      },
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1StackMgrMIBObjects": {
+    "name": "alcatelIND1StackMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1StackMgrMIBConformance": {
+    "name": "alcatelIND1StackMgrMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1StackMgrTrapObjects": {
+    "name": "alcatelIND1StackMgrTrapObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3",
+    "class": "objectidentity"
+  },
+  "alaStackMgrTraps": {
+    "name": "alaStackMgrTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4",
+    "class": "objectidentity"
+  },
+  "AlaStackMgrLinkNumber": {
+    "name": "AlaStackMgrLinkNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkA27": 27,
+          "linkB28": 28,
+          "linkA51": 51,
+          "linkB52": 52,
+          "linkA31": 31,
+          "linkB32": 32,
+          "linkA25": 25,
+          "linkB26": 26,
+          "linkA29": 29,
+          "linkB30": 30,
+          "linkA": 1,
+          "linkB": 2,
+          "linkA11": 11,
+          "linkB12": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrNINumber": {
+    "name": "AlaStackMgrNINumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrLinkStatus": {
+    "name": "AlaStackMgrLinkStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrSlotRole": {
+    "name": "AlaStackMgrSlotRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassigned": 0,
+          "primary": 1,
+          "secondary": 2,
+          "idle": 3,
+          "standalone": 4,
+          "passthrough": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrStackStatus": {
+    "name": "AlaStackMgrStackStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loop": 1,
+          "noloop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrSlotState": {
+    "name": "AlaStackMgrSlotState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "duplicateSlot": 2,
+          "clearedSlot": 3,
+          "outOfSlots": 4,
+          "outOfTokens": 5,
+          "badMix": 6,
+          "inc-Lic": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrCommandAction": {
+    "name": "AlaStackMgrCommandAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSignificant": 0,
+          "clearSlot": 1,
+          "clearSlotImmediately": 2,
+          "reloadAny": 3,
+          "reloadPassThru": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrCommandStatus": {
+    "name": "AlaStackMgrCommandStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSignificant": 0,
+          "clearSlotInProgress": 1,
+          "clearSlotFailed": 2,
+          "clearSlotSuccess": 3,
+          "setSlotInProgress": 4,
+          "setSlotFailed": 5,
+          "setSlotSuccess": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrStackingMode": {
+    "name": "AlaStackMgrStackingMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stackable": 1,
+          "standalone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrStackMode": {
+    "name": "AlaStackMgrStackMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "os6850": 1,
+          "os6850e": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaStackMgrLicenseType": {
+    "name": "AlaStackMgrLicenseType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSignificant": 0,
+          "metro": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaSSPTableSlotNINumber": {
+    "name": "AlaSSPTableSlotNINumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 8
+          },
+          {
+            "min": 255,
+            "max": 255
+          },
+          {
+            "min": 1001,
+            "max": 1008
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AlaSSPTableSspOpStatus": {
+    "name": "AlaSSPTableSspOpStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "active": 1,
+          "protection": 2,
+          "notinstack": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alaStackMgrChassisTable": {
+    "name": "alaStackMgrChassisTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrChassisEntry": {
+    "name": "alaStackMgrChassisEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrSlotNINumber": {
+    "name": "alaStackMgrSlotNINumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrSlotCMMNumber": {
+    "name": "alaStackMgrSlotCMMNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrChasRole": {
+    "name": "alaStackMgrChasRole",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrSlotRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrLocalLinkStateA": {
+    "name": "alaStackMgrLocalLinkStateA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrRemoteNISlotA": {
+    "name": "alaStackMgrRemoteNISlotA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrRemoteLinkA": {
+    "name": "alaStackMgrRemoteLinkA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrLocalLinkStateB": {
+    "name": "alaStackMgrLocalLinkStateB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrRemoteNISlotB": {
+    "name": "alaStackMgrRemoteNISlotB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrRemoteLinkB": {
+    "name": "alaStackMgrRemoteLinkB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrChasState": {
+    "name": "alaStackMgrChasState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrSlotState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrSavedSlotNINumber": {
+    "name": "alaStackMgrSavedSlotNINumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaStackMgrCommandAction": {
+    "name": "alaStackMgrCommandAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrCommandAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaStackMgrCommandStatus": {
+    "name": "alaStackMgrCommandStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrCommandStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrOperStackingMode": {
+    "name": "alaStackMgrOperStackingMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrStackingMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrAdminStackingMode": {
+    "name": "alaStackMgrAdminStackingMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrStackingMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaStackMgrStatsTable": {
+    "name": "alaStackMgrStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStatsEntry": {
+    "name": "alaStackMgrStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatLinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStatLinkNumber": {
+    "name": "alaStackMgrStatLinkNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStatPktsRx": {
+    "name": "alaStackMgrStatPktsRx",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStatPktsTx": {
+    "name": "alaStackMgrStatPktsTx",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStatErrorsRx": {
+    "name": "alaStackMgrStatErrorsRx",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStatErrorsTx": {
+    "name": "alaStackMgrStatErrorsTx",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStatDelayFromLastMsg": {
+    "name": "alaStackMgrStatDelayFromLastMsg",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStackStatus": {
+    "name": "alaStackMgrStackStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrStackStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrTokensUsed": {
+    "name": "alaStackMgrTokensUsed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrTokensAvailable": {
+    "name": "alaStackMgrTokensAvailable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteTable": {
+    "name": "alaStackMgrStaticRouteTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteEntry": {
+    "name": "alaStackMgrStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteSrcStartIf",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteSrcEndIf",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteDstStartIf",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteDstEndIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteSrcStartIf": {
+    "name": "alaStackMgrStaticRouteSrcStartIf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteSrcEndIf": {
+    "name": "alaStackMgrStaticRouteSrcEndIf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteDstStartIf": {
+    "name": "alaStackMgrStaticRouteDstStartIf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteDstEndIf": {
+    "name": "alaStackMgrStaticRouteDstEndIf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStaticRoutePort": {
+    "name": "alaStackMgrStaticRoutePort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkNumber",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaStackMgrStaticRoutePortState": {
+    "name": "alaStackMgrStaticRoutePortState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteStatus": {
+    "name": "alaStackMgrStaticRouteStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "value": "on",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteRowStatus": {
+    "name": "alaStackMgrStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaStackMgrStackModeTable": {
+    "name": "alaStackMgrStackModeTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrStackModeEntry": {
+    "name": "alaStackMgrStackModeEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStackModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStackModeIndex": {
+    "name": "alaStackMgrStackModeIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaStackMgrAdminStackMode": {
+    "name": "alaStackMgrAdminStackMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrStackMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaStackMgrOperStackMode": {
+    "name": "alaStackMgrOperStackMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrStackMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrCmdAction": {
+    "name": "alaStackMgrCmdAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reloadAny": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSSPHelperGlobalConfig": {
+    "name": "alaSSPHelperGlobalConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaSspHelperStatus": {
+    "name": "alaSspHelperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSspHelperqAggregateTable": {
+    "name": "alaSspHelperqAggregateTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaSspHelperqAggregateEntry": {
+    "name": "alaSspHelperqAggregateEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaSspHelperAggregateId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaSspHelperAggregateId": {
+    "name": "alaSspHelperAggregateId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaSspHelperAggregateStatus": {
+    "name": "alaSspHelperAggregateStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSSPConfigInfo": {
+    "name": "alaSSPConfigInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8",
+    "class": "objectidentity"
+  },
+  "alaSspConfigStatus": {
+    "name": "alaSspConfigStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSspLinkaggId": {
+    "name": "alaSspLinkaggId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSspGuardTimer": {
+    "name": "alaSspGuardTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSspUpTime": {
+    "name": "alaSspUpTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaSspStateUpTime": {
+    "name": "alaSspStateUpTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaSSPStateTable": {
+    "name": "alaSSPStateTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaSSPStateEntry": {
+    "name": "alaSSPStateEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaSSPTableSlotNINumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaSSPTableSlotNINumber": {
+    "name": "alaSSPTableSlotNINumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaSSPTableSlotNINumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaSSPTableSspOpStatus": {
+    "name": "alaSSPTableSspOpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaSSPTableSspOpStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaStackMgrTrapLinkNumber": {
+    "name": "alaStackMgrTrapLinkNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaStackMgrPrimary": {
+    "name": "alaStackMgrPrimary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaStackMgrSecondary": {
+    "name": "alaStackMgrSecondary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrNINumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaStackMgrPrimaryLicense": {
+    "name": "alaStackMgrPrimaryLicense",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaStackMgrLicenseType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaStackMgrDuplicateSlotTrap": {
+    "name": "alaStackMgrDuplicateSlotTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrNeighborChangeTrap": {
+    "name": "alaStackMgrNeighborChangeTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStackStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrTrapLinkNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrRoleChangeTrap": {
+    "name": "alaStackMgrRoleChangeTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrPrimary"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSecondary"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrDuplicateRoleTrap": {
+    "name": "alaStackMgrDuplicateRoleTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrChasRole"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrClearedSlotTrap": {
+    "name": "alaStackMgrClearedSlotTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrOutOfSlotsTrap": {
+    "name": "alaStackMgrOutOfSlotsTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alaStackMgrOutOfTokensTrap": {
+    "name": "alaStackMgrOutOfTokensTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrOutOfPassThruSlotsTrap": {
+    "name": "alaStackMgrOutOfPassThruSlotsTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alaStackMgrBadMixTrap": {
+    "name": "alaStackMgrBadMixTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrIncompatibleLicenseTrap": {
+    "name": "alaStackMgrIncompatibleLicenseTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrPrimaryLicense"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackSplitProtectionTrap": {
+    "name": "alaStackSplitProtectionTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackSplitRecoveryTrap": {
+    "name": "alaStackSplitRecoveryTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1StackMgrMIBGroups": {
+    "name": "alcatelIND1StackMgrMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1StackMgrMIBCompliances": {
+    "name": "alcatelIND1StackMgrMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaStackMgrCfgMgrGroup": {
+    "name": "alaStackMgrCfgMgrGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotNINumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSlotCMMNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrChasRole"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrLocalLinkStateA"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrRemoteNISlotA"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrRemoteLinkA"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrLocalLinkStateB"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrRemoteNISlotB"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrRemoteLinkB"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrChasState"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSavedSlotNINumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrCommandAction"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrCommandStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrOperStackingMode"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrAdminStackingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrNotificationGroup": {
+    "name": "alaStackMgrNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrDuplicateSlotTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrNeighborChangeTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrRoleChangeTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrDuplicateRoleTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrClearedSlotTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrOutOfSlotsTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrOutOfTokensTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrOutOfPassThruSlotsTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrBadMixTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrIncompatibleLicenseTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackSplitProtectionTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackSplitRecoveryTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStackModeGroup": {
+    "name": "alaStackMgrStackModeGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrAdminStackMode"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrOperStackMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrTrapGroup": {
+    "name": "alaStackMgrTrapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrPrimary"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrSecondary"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStackStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrTrapLinkNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStatGroup": {
+    "name": "alaStackMgrStatGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatLinkNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatPktsRx"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatPktsTx"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatErrorsRx"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatErrorsTx"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStatDelayFromLastMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrStaticRouteGroup": {
+    "name": "alaStackMgrStaticRouteGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRoutePort"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRoutePortState"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrStaticRouteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackMgrMIBObjectsGroup": {
+    "name": "alaStackMgrMIBObjectsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrTokensAvailable"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaStackMgrTokensUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "alaStackSplitProtectionGroup": {
+    "name": "alaStackSplitProtectionGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaSspHelperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaSspHelperAggregateId"
+      },
+      {
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB",
+        "object": "alaSspHelperAggregateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1StackMgrMIBCompliance": {
+    "name": "alcatelIND1StackMgrMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaStackMgrCfgMgrGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrNotificationGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrStackModeGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrTrapGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrStatGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrStaticRouteGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackMgrMIBObjectsGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaSSPConfigInfo",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      },
+      {
+        "object": "alaStackSplitProtectionGroup",
+        "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-STACK-MANAGER-MIB",
+      "Source digest sha256:9befc476bee721299d7850052e42d10dd4e83e285051f3383d35153795490fc1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-STACK-MANAGER-MIB"
+  }
+}

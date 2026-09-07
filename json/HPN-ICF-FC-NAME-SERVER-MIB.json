@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-FC-TC-MIB": [
+      "HpnicfFcNameId"
+    ],
+    "HPN-ICF-VSAN-MIB": [
+      "hpnicfSan",
+      "hpnicfVsanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpnicfFcNameServer": {
+    "name": "hpnicfFcNameServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-03 10:18",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hpnicfFcNameServerMibObjects": {
+    "name": "hpnicfFcNameServerMibObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1",
+    "class": "objectidentity"
+  },
+  "hpnicfFcNsNotification": {
+    "name": "hpnicfFcNsNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfFcNsNotificationPrefix": {
+    "name": "hpnicfFcNsNotificationPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.0",
+    "class": "objectidentity"
+  },
+  "hpnicfFcNsNotificationSwitch": {
+    "name": "hpnicfFcNsNotificationSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfFcNsObjsForNotification": {
+    "name": "hpnicfFcNsObjsForNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfFcNsPortLoginNotify": {
+    "name": "hpnicfFcNsPortLoginNotify",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-VSAN-MIB",
+        "object": "hpnicfVsanIndex"
+      },
+      {
+        "module": "HPN-ICF-FC-NAME-SERVER-MIB",
+        "object": "hpnicfFcNsLocalSwitchWWN"
+      },
+      {
+        "module": "HPN-ICF-FC-NAME-SERVER-MIB",
+        "object": "hpnicfFcNsFloginPortWWN"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfFcNsPortLogoutNotify": {
+    "name": "hpnicfFcNsPortLogoutNotify",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-VSAN-MIB",
+        "object": "hpnicfVsanIndex"
+      },
+      {
+        "module": "HPN-ICF-FC-NAME-SERVER-MIB",
+        "object": "hpnicfFcNsLocalSwitchWWN"
+      },
+      {
+        "module": "HPN-ICF-FC-NAME-SERVER-MIB",
+        "object": "hpnicfFcNsFloginPortWWN"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfFcNsPortLoginNotifyEnable": {
+    "name": "hpnicfFcNsPortLoginNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfFcNsPortLogoutNotifyEnable": {
+    "name": "hpnicfFcNsPortLogoutNotifyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfFcNsLocalSwitchWWN": {
+    "name": "hpnicfFcNsLocalSwitchWWN",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfFcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfFcNsFloginPortWWN": {
+    "name": "hpnicfFcNsFloginPortWWN",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.127.10.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfFcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-FC-NAME-SERVER-MIB",
+      "Source digest sha256:79e0a83ed941a1d24b64351e3ee2d6cdfaf11ad1e7da3a19b084c44cb6042066",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-FC-NAME-SERVER-MIB"
+  }
+}

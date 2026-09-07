@@ -1,0 +1,306 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TWOWCOM-SMI": [
+      "twowcom"
+    ]
+  },
+  "commonVarbinds": {
+    "name": "commonVarbinds",
+    "oid": "1.3.6.1.4.1.21529.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-05-26 12:00",
+        "description": "Version 0.7 - removed commonVarbindsCompliance (1.3.6.1.4.1.21529.11.1.10)"
+      },
+      {
+        "revision": "2010-02-17 16:00",
+        "description": "Version 0.6 - new Textual convention: Unsigned16x"
+      },
+      {
+        "revision": "2009-02-06 13:30",
+        "description": "Version 0.5 - new Textual convention: Integer32d3"
+      },
+      {
+        "revision": "2008-04-28 15:17",
+        "description": "Version 0.4 - syntax chanded in the textual convention 'ValidFlag' object: old: 0 -> yes; 1 -> no new: 0 -> undefined; 1 -> no; 2 -> yes"
+      },
+      {
+        "revision": "2008-03-26 15:36",
+        "description": "Version 0.3 - new Textual convention: FloatString"
+      },
+      {
+        "revision": "2007-04-26 08:52",
+        "description": "Version 0.2 - new Textual convention: SelectOnOff - new Textual convention: FaultOK"
+      },
+      {
+        "revision": "2006-10-26 16:13",
+        "description": "Version 0.1"
+      }
+    ]
+  },
+  "Integer32d": {
+    "name": "Integer32d",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Integer32d1": {
+    "name": "Integer32d1",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "Integer32d2": {
+    "name": "Integer32d2",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "Integer32d3": {
+    "name": "Integer32d3",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "Integer32h": {
+    "name": "Integer32h",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "ValidFlag": {
+    "name": "ValidFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ActiveNotActive": {
+    "name": "ActiveNotActive",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "active": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SelectOnOff": {
+    "name": "SelectOnOff",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FaultOK": {
+    "name": "FaultOK",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "fault": 1,
+          "ok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SelectYesNo": {
+    "name": "SelectYesNo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FloatString": {
+    "name": "FloatString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1d.1d1dEE1a1d1d",
+    "status": "current"
+  },
+  "Unsigned16x": {
+    "name": "Unsigned16x",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "4x",
+    "status": "current"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.21529.11",
+    "class": "objectidentity"
+  },
+  "commonGroup": {
+    "name": "commonGroup",
+    "oid": "1.3.6.1.4.1.21529.11.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "mibRelease"
+      }
+    ],
+    "status": "current"
+  },
+  "eventTimeStamp": {
+    "name": "eventTimeStamp",
+    "oid": "1.3.6.1.4.1.21529.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventPriority": {
+    "name": "eventPriority",
+    "oid": "1.3.6.1.4.1.21529.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventCounter": {
+    "name": "eventCounter",
+    "oid": "1.3.6.1.4.1.21529.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mibRelease": {
+    "name": "mibRelease",
+    "oid": "1.3.6.1.4.1.21529.11.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TWOWCOM-COMMONVARBINDS",
+      "Source digest sha256:9985efa1e8e45d9bf9d9bbd9b049a39a8e00dedde4f953d090e9d0dd4a81da7d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TWOWCOM-COMMONVARBINDS"
+  }
+}

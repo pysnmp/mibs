@@ -1,0 +1,2012 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "HpSwitchPortType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpSwitchStatistics": {
+    "name": "hpSwitchStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9",
+    "class": "objectidentity"
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "VlanID": {
+    "name": "VlanID",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "hpSwitchIpxStat": {
+    "name": "hpSwitchIpxStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchIpxStatTable": {
+    "name": "hpSwitchIpxStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatEntry": {
+    "name": "hpSwitchIpxStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchIpxStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatIndex": {
+    "name": "hpSwitchIpxStatIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatNodeAddr": {
+    "name": "hpSwitchIpxStatNodeAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatGatewayAddr": {
+    "name": "hpSwitchIpxStatGatewayAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatGatewayEncap": {
+    "name": "hpSwitchIpxStatGatewayEncap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernetII": 1,
+          "ieee8022": 2,
+          "snap": 3,
+          "ieee8023Raw": 4,
+          "noGateway": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchIpxStatAdminStatus": {
+    "name": "hpSwitchIpxStatAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchIpStat": {
+    "name": "hpSwitchIpStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchIpStatTimepAdminStatus": {
+    "name": "hpSwitchIpStatTimepAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatTimepServerAddr": {
+    "name": "hpSwitchIpStatTimepServerAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatTimepPollInterval": {
+    "name": "hpSwitchIpStatTimepPollInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatTable": {
+    "name": "hpSwitchIpStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatEntry": {
+    "name": "hpSwitchIpStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchIpStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatIndex": {
+    "name": "hpSwitchIpStatIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatAddr": {
+    "name": "hpSwitchIpStatAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatMask": {
+    "name": "hpSwitchIpStatMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatGatewayAddr": {
+    "name": "hpSwitchIpStatGatewayAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchIpStatAdminStatus": {
+    "name": "hpSwitchIpStatAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "bootp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hpSwitchFdbInfo": {
+    "name": "hpSwitchFdbInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4",
+    "class": "objectidentity"
+  },
+  "hpSwitchVlanFdbAddrTable": {
+    "name": "hpSwitchVlanFdbAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchVlanFdbAddrEntry": {
+    "name": "hpSwitchVlanFdbAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchVlanFdbId",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchVlanFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchVlanFdbId": {
+    "name": "hpSwitchVlanFdbId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchVlanFdbAddress": {
+    "name": "hpSwitchVlanFdbAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchVlanFdbPort": {
+    "name": "hpSwitchVlanFdbPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchPortFdbAddrTable": {
+    "name": "hpSwitchPortFdbAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchPortFdbAddrEntry": {
+    "name": "hpSwitchPortFdbAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchPortFdbId",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchPortFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchPortFdbId": {
+    "name": "hpSwitchPortFdbId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchPortFdbAddress": {
+    "name": "hpSwitchPortFdbAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchStpStat": {
+    "name": "hpSwitchStpStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.5",
+    "class": "objectidentity"
+  },
+  "hpSwitchStpStatAdminStatus": {
+    "name": "hpSwitchStpStatAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchMiscStat": {
+    "name": "hpSwitchMiscStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.6",
+    "class": "objectidentity"
+  },
+  "hpSwitchCpuStat": {
+    "name": "hpSwitchCpuStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragStat": {
+    "name": "hpSwitchFddiIpFragStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7",
+    "class": "objectidentity"
+  },
+  "hpSwitchFddiIpFragStatTable": {
+    "name": "hpSwitchFddiIpFragStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragStatEntry": {
+    "name": "hpSwitchFddiIpFragStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchFddiIpFragStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragStatIndex": {
+    "name": "hpSwitchFddiIpFragStatIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragFramesFragmented": {
+    "name": "hpSwitchFddiIpFragFramesFragmented",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragFramesCreated": {
+    "name": "hpSwitchFddiIpFragFramesCreated",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiIpFragFrameErrors": {
+    "name": "hpSwitchFddiIpFragFrameErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemStat": {
+    "name": "hpSwitchFddiSystemStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8",
+    "class": "objectidentity"
+  },
+  "hpSwitchFddiSystemStatTable": {
+    "name": "hpSwitchFddiSystemStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemStatEntry": {
+    "name": "hpSwitchFddiSystemStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchFddiSystemStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemStatIndex": {
+    "name": "hpSwitchFddiSystemStatIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemOsVersion": {
+    "name": "hpSwitchFddiSystemOsVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemRomVersion": {
+    "name": "hpSwitchFddiSystemRomVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemMemoryTotal": {
+    "name": "hpSwitchFddiSystemMemoryTotal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemMemoryFree": {
+    "name": "hpSwitchFddiSystemMemoryFree",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemCpuUtil": {
+    "name": "hpSwitchFddiSystemCpuUtil",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemBuildDirectory": {
+    "name": "hpSwitchFddiSystemBuildDirectory",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 80,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemBuildDate": {
+    "name": "hpSwitchFddiSystemBuildDate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFddiSystemBuildNumber": {
+    "name": "hpSwitchFddiSystemBuildNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStats": {
+    "name": "hpABCStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9",
+    "class": "objectidentity"
+  },
+  "hpABCStatsTable": {
+    "name": "hpABCStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpABCStatsEntry": {
+    "name": "hpABCStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpABCStatsVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpABCStatsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpABCStatsVlanIndex": {
+    "name": "hpABCStatsVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsPortIndex": {
+    "name": "hpABCStatsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsPortType": {
+    "name": "hpABCStatsPortType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpSwitchPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsArpReplies": {
+    "name": "hpABCStatsArpReplies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsIpxReplies": {
+    "name": "hpABCStatsIpxReplies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsIpRipControl": {
+    "name": "hpABCStatsIpRipControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "notforwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpABCStatsIpxRipSapControl": {
+    "name": "hpABCStatsIpxRipSapControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "notforwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStats": {
+    "name": "hpIgmpStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10",
+    "class": "objectidentity"
+  },
+  "hpIgmpStatsTable": {
+    "name": "hpIgmpStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsEntry": {
+    "name": "hpIgmpStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsActiveGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpIgmpStatsVlanIndex": {
+    "name": "hpIgmpStatsVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsActiveGroupAddr": {
+    "name": "hpIgmpStatsActiveGroupAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsReports": {
+    "name": "hpIgmpStatsReports",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsQueries": {
+    "name": "hpIgmpStatsQueries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsQuerierAccessPort": {
+    "name": "hpIgmpStatsQuerierAccessPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortTable": {
+    "name": "hpIgmpStatsPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpIgmpStatsPortEntry": {
+    "name": "hpIgmpStatsPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsActiveGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpIgmpStatsPortIndex": {
+    "name": "hpIgmpStatsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpIgmpStatsPortType": {
+    "name": "hpIgmpStatsPortType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpSwitchPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpIgmpStatsPortAccess": {
+    "name": "hpIgmpStatsPortAccess",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2,
+          "host-router": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpIgmpStatsPortTable2": {
+    "name": "hpIgmpStatsPortTable2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortEntry2": {
+    "name": "hpIgmpStatsPortEntry2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsActiveGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpIgmpStatsPortIndex2",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortIndex2": {
+    "name": "hpIgmpStatsPortIndex2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortType2": {
+    "name": "hpIgmpStatsPortType2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpSwitchPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortAccess2": {
+    "name": "hpIgmpStatsPortAccess2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2,
+          "host-router": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortAgeTimer2": {
+    "name": "hpIgmpStatsPortAgeTimer2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpIgmpStatsPortLeaveTimer2": {
+    "name": "hpIgmpStatsPortLeaveTimer2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLdbalStats": {
+    "name": "hpLdbalStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11",
+    "class": "objectidentity"
+  },
+  "hpLdbalStatsPortTable": {
+    "name": "hpLdbalStatsPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpLdbalStatsPortEntry": {
+    "name": "hpLdbalStatsPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpLdbalStatsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpLdbalStatsPortIndex": {
+    "name": "hpLdbalStatsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLdbalStatsPortState": {
+    "name": "hpLdbalStatsPortState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "error": 2,
+          "initial": 3,
+          "notEstablished": 4,
+          "established": 5,
+          "topologyError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLdbalStatsAdjacentSwitch": {
+    "name": "hpLdbalStatsAdjacentSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpLdbalStatsPeerPort": {
+    "name": "hpLdbalStatsPeerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchMacStats": {
+    "name": "hpSwitchMacStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.12",
+    "class": "objectidentity"
+  },
+  "hpSwitchFdbAddressCount": {
+    "name": "hpSwitchFdbAddressCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFlowControlStatus": {
+    "name": "hpSwitchFlowControlStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.13",
+    "class": "objectidentity"
+  },
+  "hpSwitchFlowControlStatusTable": {
+    "name": "hpSwitchFlowControlStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchFlowControlStatusEntry": {
+    "name": "hpSwitchFlowControlStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchFlowControlStatusPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchFlowControlStatusPortIndex": {
+    "name": "hpSwitchFlowControlStatusPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchFlowControlState": {
+    "name": "hpSwitchFlowControlState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "on-rx": 3,
+          "on-tx": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunk": {
+    "name": "hpFECStatsTrunk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14",
+    "class": "objectidentity"
+  },
+  "hpFECStatsTrunkTable": {
+    "name": "hpFECStatsTrunkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkEntry": {
+    "name": "hpFECStatsTrunkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpFECStatsTrunkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkIndex": {
+    "name": "hpFECStatsTrunkIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkName": {
+    "name": "hpFECStatsTrunkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkNegotiationStatus": {
+    "name": "hpFECStatsTrunkNegotiationStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successful": 1,
+          "failed": 2,
+          "initialized": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkForwardingMode": {
+    "name": "hpFECStatsTrunkForwardingMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sa-only": 1,
+          "sa-da": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsTrunkFlushPktsEchoed": {
+    "name": "hpFECStatsTrunkFlushPktsEchoed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPort": {
+    "name": "hpFECStatsPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15",
+    "class": "objectidentity"
+  },
+  "hpFECStatsPortTable": {
+    "name": "hpFECStatsPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortEntry": {
+    "name": "hpFECStatsPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpFECStatsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpFECStatsPortIndex": {
+    "name": "hpFECStatsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortTrunkNumber": {
+    "name": "hpFECStatsPortTrunkNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortTrunkName": {
+    "name": "hpFECStatsPortTrunkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortMode": {
+    "name": "hpFECStatsPortMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "forwarding": 2,
+          "blocking": 3,
+          "up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortNegotiationStatus": {
+    "name": "hpFECStatsPortNegotiationStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successful": 1,
+          "failed": 2,
+          "initialized": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortHellosSent": {
+    "name": "hpFECStatsPortHellosSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortHellosReceived": {
+    "name": "hpFECStatsPortHellosReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortMySlowHello": {
+    "name": "hpFECStatsPortMySlowHello",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 1,
+          "slow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortMyAutoMode": {
+    "name": "hpFECStatsPortMyAutoMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "desirable": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortPartner": {
+    "name": "hpFECStatsPortPartner",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFECStatsPortFlushPktsEchoed": {
+    "name": "hpFECStatsPortFlushPktsEchoed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGvrpStats": {
+    "name": "hpGvrpStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16",
+    "class": "objectidentity"
+  },
+  "hpGvrpStatsTable": {
+    "name": "hpGvrpStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpGvrpStatsEntry": {
+    "name": "hpGvrpStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpGvrpStatsVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpGvrpStatsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpGvrpStatsVlanIndex": {
+    "name": "hpGvrpStatsVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGvrpStatsPortIndex": {
+    "name": "hpGvrpStatsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGvrpStatsPortVlanMember": {
+    "name": "hpGvrpStatsPortVlanMember",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpGvrpPortIfOperStatus": {
+    "name": "hpGvrpPortIfOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpPortGvrpCtrlStatus": {
+    "name": "hpPortGvrpCtrlStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learn": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStats": {
+    "name": "hpSshStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17",
+    "class": "objectidentity"
+  },
+  "hpSshStatsTable": {
+    "name": "hpSshStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSshStatsEntry": {
+    "name": "hpSshStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSshStatsSesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSshStatsSesIndex": {
+    "name": "hpSshStatsSesIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStatsSesType": {
+    "name": "hpSshStatsSesType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "console": 1,
+          "telnet": 2,
+          "ssh": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStatsSourceIpPort": {
+    "name": "hpSshStatsSourceIpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpSshStatsSesVersion": {
+    "name": "hpSshStatsSesVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "noConnect": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStatsSourceIpType": {
+    "name": "hpSshStatsSourceIpType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStatsSourceIpAddress": {
+    "name": "hpSshStatsSourceIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSshStatsSourceIpPortNum": {
+    "name": "hpSshStatsSourceIpPortNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchPhysicalPort": {
+    "name": "hpSwitchPhysicalPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.18",
+    "class": "objectidentity"
+  },
+  "hpSwitchPhysicalPortTable": {
+    "name": "hpSwitchPhysicalPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpSwitchPhysicalPortEntry": {
+    "name": "hpSwitchPhysicalPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STATISTICS-MIB",
+        "object": "hpSwitchPhysicalPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpSwitchPhysicalPortIndex": {
+    "name": "hpSwitchPhysicalPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpSwitchPhysicalPortType": {
+    "name": "hpSwitchPhysicalPortType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpSwitchPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source STATISTICS-MIB",
+      "Source digest sha256:880fdf333ea0cede12c0e031bfe084765e0d9561b91bd567b55766805a1667d5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "STATISTICS-MIB"
+  }
+}

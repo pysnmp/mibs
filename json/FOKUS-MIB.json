@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fokus": {
+    "name": "fokus",
+    "oid": "1.3.6.1.4.1.12325",
+    "class": "moduleidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FOKUS-MIB",
+      "Source digest sha256:fa0c8448e68943bb9745a751f5f61572bb2ac7de646b04475a39426fc4524859",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FOKUS-MIB"
+  }
+}

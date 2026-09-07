@@ -1,0 +1,384 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "NMS-SMI": [
+      "nmsEPONGroup",
+      "nmsMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "opticalPortPower": {
+    "name": "opticalPortPower",
+    "oid": "1.3.6.1.4.1.3320.9.183",
+    "class": "objectidentity"
+  },
+  "opticalPortPowerTable": {
+    "name": "opticalPortPowerTable",
+    "oid": "1.3.6.1.4.1.3320.9.183.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "opticalPortPowerEntry": {
+    "name": "opticalPortPowerEntry",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "opIfIndex": {
+    "name": "opIfIndex",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfDescr": {
+    "name": "opIfDescr",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfAdminStatus": {
+    "name": "opIfAdminStatus",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfOperStatus": {
+    "name": "opIfOperStatus",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfRxPowerCurr": {
+    "name": "opIfRxPowerCurr",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfRxPowerULimit": {
+    "name": "opIfRxPowerULimit",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfRxPowerLLimit": {
+    "name": "opIfRxPowerLLimit",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfTxPowerCurr": {
+    "name": "opIfTxPowerCurr",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfTxPowerULimit": {
+    "name": "opIfTxPowerULimit",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfTxPowerLLimit": {
+    "name": "opIfTxPowerLLimit",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfUploadBERLimit": {
+    "name": "opIfUploadBERLimit",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfPowerTrapStatus": {
+    "name": "opIfPowerTrapStatus",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "off": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "opIfTemperature": {
+    "name": "opIfTemperature",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfVolt": {
+    "name": "opIfVolt",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfCurrent": {
+    "name": "opIfCurrent",
+    "oid": "1.3.6.1.4.1.3320.9.183.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "opIfTransMode": {
+    "name": "opIfTransMode",
+    "oid": "1.3.6.1.4.1.3320.9.183.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upload": 1,
+          "download": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "opIfTransPowerAlarm": {
+    "name": "opIfTransPowerAlarm",
+    "oid": "1.3.6.1.4.1.3320.9.183.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "over": 1,
+          "below": 2,
+          "normal": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "opIfBERStatus": {
+    "name": "opIfBERStatus",
+    "oid": "1.3.6.1.4.1.3320.9.183.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exception": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nmsOpIfPowerThresNotifications": {
+    "name": "nmsOpIfPowerThresNotifications",
+    "oid": "1.3.6.1.4.1.3320.9.183.5",
+    "class": "objectidentity"
+  },
+  "nmsOpIfPowerThresNotification": {
+    "name": "nmsOpIfPowerThresNotification",
+    "oid": "1.3.6.1.4.1.3320.9.183.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfIndex"
+      },
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfDescr"
+      },
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfTransMode"
+      },
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfTransPowerAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "opIfUploadBERNotifications": {
+    "name": "opIfUploadBERNotifications",
+    "oid": "1.3.6.1.4.1.3320.9.183.6",
+    "class": "objectidentity"
+  },
+  "opIfUploadBERNotification": {
+    "name": "opIfUploadBERNotification",
+    "oid": "1.3.6.1.4.1.3320.9.183.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfIndex"
+      },
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfDescr"
+      },
+      {
+        "module": "NMS-OPTICAL-PORT-MIB",
+        "object": "opIfBERStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NMS-OPTICAL-PORT-MIB",
+      "Source digest sha256:07f584336b1e92d9631273fe4a2ee7831a3c57de5a9e5cc30377ef86f088aaf0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NMS-OPTICAL-PORT-MIB"
+  }
+}

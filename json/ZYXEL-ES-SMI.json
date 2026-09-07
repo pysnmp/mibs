@@ -1,0 +1,86 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "zyxel": {
+    "name": "zyxel",
+    "oid": "1.3.6.1.4.1.890",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.890.1",
+    "class": "objectidentity"
+  },
+  "enterpriseSolution": {
+    "name": "enterpriseSolution",
+    "oid": "1.3.6.1.4.1.890.1.15",
+    "class": "moduleidentity"
+  },
+  "esAgentCapability": {
+    "name": "esAgentCapability",
+    "oid": "1.3.6.1.4.1.890.1.15.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esConformance": {
+    "name": "esConformance",
+    "oid": "1.3.6.1.4.1.890.1.15.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esMgmt": {
+    "name": "esMgmt",
+    "oid": "1.3.6.1.4.1.890.1.15.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esProductSpecific": {
+    "name": "esProductSpecific",
+    "oid": "1.3.6.1.4.1.890.1.15.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esPartnerProducts": {
+    "name": "esPartnerProducts",
+    "oid": "1.3.6.1.4.1.890.1.15.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tenders": {
+    "name": "tenders",
+    "oid": "1.3.6.1.4.1.890.1.15.4.4",
+    "class": "objectidentity"
+  },
+  "zyxelNAS": {
+    "name": "zyxelNAS",
+    "oid": "1.3.6.1.4.1.890.1.15.4.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ZYXEL-ES-SMI",
+      "Source digest sha256:7a4fbb51bc8002781ee5edeb4a467475b3ebd8269bce1fe3ef72249c4a3c73df",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ZYXEL-ES-SMI"
+  }
+}

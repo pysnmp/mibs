@@ -1,0 +1,175 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesFileTransferMIB": {
+    "name": "cienaCesFileTransferMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2011-02-02 00:00",
+        "description": "Initial creation. "
+      }
+    ]
+  },
+  "cienaCesFileTransferMIBObjects": {
+    "name": "cienaCesFileTransferMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1",
+    "class": "objectidentity"
+  },
+  "cienaCesFileTransfer": {
+    "name": "cienaCesFileTransfer",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesFileTransferMIBNotificationPrefix": {
+    "name": "cienaCesFileTransferMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.16",
+    "class": "objectidentity"
+  },
+  "cienaCesFileTransferMIBNotifications": {
+    "name": "cienaCesFileTransferMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.16.0",
+    "class": "objectidentity"
+  },
+  "cienaCesFTransferRemoteFilename": {
+    "name": "cienaCesFTransferRemoteFilename",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesFTransferLocalFilename": {
+    "name": "cienaCesFTransferLocalFilename",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesFTransferNotificationStatus": {
+    "name": "cienaCesFTransferNotificationStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileAlreadyExist": 1,
+          "tftpServerNotFound": 2,
+          "fileGetError": 3,
+          "filePutError": 4,
+          "fileSystemError": 5,
+          "fileContentsInvalid": 6,
+          "flashOffline": 7,
+          "badFileCrc": 8,
+          "allFilesSkipped": 9,
+          "serverIpAddrInvalid": 10,
+          "filePathInvalid": 11,
+          "fileNameInvalid": 12,
+          "sourceNotFound": 13,
+          "fileNameNeeded": 14,
+          "notEnoughSpace": 15,
+          "putSuccessful": 16,
+          "downloadSuccess": 17,
+          "internalError": 18,
+          "noStatus": 0
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesFTransferNotificationInfo": {
+    "name": "cienaCesFTransferNotificationInfo",
+    "oid": "1.3.6.1.4.1.1271.2.1.15.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesFTransferCompletion": {
+    "name": "cienaCesFTransferCompletion",
+    "oid": "1.3.6.1.4.1.1271.2.2.16.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-FILE-TRANSFER-MIB",
+        "object": "cienaCesFTransferRemoteFilename"
+      },
+      {
+        "module": "CIENA-CES-FILE-TRANSFER-MIB",
+        "object": "cienaCesFTransferLocalFilename"
+      },
+      {
+        "module": "CIENA-CES-FILE-TRANSFER-MIB",
+        "object": "cienaCesFTransferNotificationStatus"
+      },
+      {
+        "module": "CIENA-CES-FILE-TRANSFER-MIB",
+        "object": "cienaCesFTransferNotificationInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-CES-FILE-TRANSFER-MIB",
+      "Source digest sha256:d29f1d854854dd52a0c093d4ec29c9132663f644cc8ee0b1cfe2bfc7f064c7ef",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-CES-FILE-TRANSFER-MIB"
+  }
+}

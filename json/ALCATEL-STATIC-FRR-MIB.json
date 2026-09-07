@@ -1,0 +1,514 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1MplsFrr"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressType"
+    ],
+    "MPLS-LSR-MIB": [
+      "MplsLabel",
+      "MplsObjectOwner"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "TIMETRA-TC-MIB": [
+      "TmnxOperState"
+    ]
+  },
+  "alcatelStaticFrrMIBModule": {
+    "name": "alcatelStaticFrrMIBModule",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1909-02-02 00:00",
+        "description": "Rev 1.0 28 Mar 2009 00:00 1.0 release of the ALCATEL-STATIC-FRR-MIB."
+      }
+    ]
+  },
+  "alcatelStaticFrrMIBModuleObjs": {
+    "name": "alcatelStaticFrrMIBModuleObjs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentTable": {
+    "name": "vRtrStaticFrrMplsInSegmentTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentEntry": {
+    "name": "vRtrStaticFrrMplsInSegmentEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsInSegmentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsInSegmentLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentIfIndex": {
+    "name": "vRtrStaticFrrMplsInSegmentIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentLabel": {
+    "name": "vRtrStaticFrrMplsInSegmentLabel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentNPop": {
+    "name": "vRtrStaticFrrMplsInSegmentNPop",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentXCIndex": {
+    "name": "vRtrStaticFrrMplsInSegmentXCIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentOwner": {
+    "name": "vRtrStaticFrrMplsInSegmentOwner",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsObjectOwner",
+      "class": "type"
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsInSegmentRowStatus": {
+    "name": "vRtrStaticFrrMplsInSegmentRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentIndexNext": {
+    "name": "vRtrStaticFrrMplsOutSegmentIndexNext",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentTable": {
+    "name": "vRtrStaticFrrMplsOutSegmentTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentEntry": {
+    "name": "vRtrStaticFrrMplsOutSegmentEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentIndex": {
+    "name": "vRtrStaticFrrMplsOutSegmentIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentIfIndex": {
+    "name": "vRtrStaticFrrMplsOutSegmentIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentPushTopLabel": {
+    "name": "vRtrStaticFrrMplsOutSegmentPushTopLabel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentTopLabel": {
+    "name": "vRtrStaticFrrMplsOutSegmentTopLabel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentNextHopIpAddrType": {
+    "name": "vRtrStaticFrrMplsOutSegmentNextHopIpAddrType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentNextHopIpv4Addr": {
+    "name": "vRtrStaticFrrMplsOutSegmentNextHopIpv4Addr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentXCIndex": {
+    "name": "vRtrStaticFrrMplsOutSegmentXCIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentOwner": {
+    "name": "vRtrStaticFrrMplsOutSegmentOwner",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsObjectOwner",
+      "class": "type"
+    },
+    "default": {
+      "value": "unknown",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsOutSegmentRowStatus": {
+    "name": "vRtrStaticFrrMplsOutSegmentRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCIndexNext": {
+    "name": "vRtrStaticFrrMplsXCIndexNext",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCTable": {
+    "name": "vRtrStaticFrrMplsXCTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCEntry": {
+    "name": "vRtrStaticFrrMplsXCEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsXCIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsInSegmentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsInSegmentLabel",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-STATIC-FRR-MIB",
+        "object": "vRtrStaticFrrMplsOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCIndex": {
+    "name": "vRtrStaticFrrMplsXCIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCOwner": {
+    "name": "vRtrStaticFrrMplsXCOwner",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsObjectOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCRowStatus": {
+    "name": "vRtrStaticFrrMplsXCRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCAdminStatus": {
+    "name": "vRtrStaticFrrMplsXCAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vRtrStaticFrrMplsXCOperStatus": {
+    "name": "vRtrStaticFrrMplsXCOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-STATIC-FRR-MIB",
+      "Source digest sha256:0bf30d1d1d754dfe4885134dc948d44e8fb82f36872cd25401d7d786ca5f8e60",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-STATIC-FRR-MIB"
+  }
+}

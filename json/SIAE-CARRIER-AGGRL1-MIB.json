@@ -1,0 +1,357 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "carrierAggr": {
+    "name": "carrierAggr",
+    "oid": "1.3.6.1.4.1.3373.1103.104",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-08-23 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "carrierAggrMibVersion": {
+    "name": "carrierAggrMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.104.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierAggrSensorTable": {
+    "name": "carrierAggrSensorTable",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "carrierAggrSensorEntry": {
+    "name": "carrierAggrSensorEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-CARRIER-AGGRL1-MIB",
+        "object": "carrierAggrSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "carrierAggrSensorIndex": {
+    "name": "carrierAggrSensorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierAggrSensorRowstatus": {
+    "name": "carrierAggrSensorRowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorAdminStatus": {
+    "name": "carrierAggrSensorAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "default": {
+      "value": "down",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorIfIndex": {
+    "name": "carrierAggrSensorIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorHitlessCapability": {
+    "name": "carrierAggrSensorHitlessCapability",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hitlessAvailable": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierAggrSensorHitlessBehaviour": {
+    "name": "carrierAggrSensorHitlessBehaviour",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorHitlessMode": {
+    "name": "carrierAggrSensorHitlessMode",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorHitlessProfile": {
+    "name": "carrierAggrSensorHitlessProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrSensorHitlessStatus": {
+    "name": "carrierAggrSensorHitlessStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.104.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "goodZone": 1,
+          "hitlessZone": 2,
+          "badZone": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierAggrActuatorTable": {
+    "name": "carrierAggrActuatorTable",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "carrierAggrActuatorEntry": {
+    "name": "carrierAggrActuatorEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-CARRIER-AGGRL1-MIB",
+        "object": "carrierAggrActuatorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "carrierAggrActuatorIndex": {
+    "name": "carrierAggrActuatorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierAggrActuatorRowStatus": {
+    "name": "carrierAggrActuatorRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrActuatorAdminStatus": {
+    "name": "carrierAggrActuatorAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "default": {
+      "value": "down",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrActuatorIfIndex": {
+    "name": "carrierAggrActuatorIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrActuatorSensorIndex": {
+    "name": "carrierAggrActuatorSensorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "carrierAggrActuatorConcIpAddr": {
+    "name": "carrierAggrActuatorConcIpAddr",
+    "oid": "1.3.6.1.4.1.3373.1103.104.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-CARRIER-AGGRL1-MIB",
+      "Source digest sha256:9bfa1f620feab6b08eb8c47af47e1a4acfee4acf9e43c10ae161ff771a714b20",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-CARRIER-AGGRL1-MIB"
+  }
+}

@@ -1,0 +1,5786 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "broadsoft": {
+    "name": "broadsoft",
+    "oid": "1.3.6.1.4.1.6431",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-09-19 14:31",
+        "description": ""
+      }
+    ]
+  },
+  "broadworks": {
+    "name": "broadworks",
+    "oid": "1.3.6.1.4.1.6431.1",
+    "class": "objectidentity"
+  },
+  "nsExecutionServer": {
+    "name": "nsExecutionServer",
+    "oid": "1.3.6.1.4.1.6431.1.5",
+    "class": "objectidentity"
+  },
+  "nsProvisioningServer": {
+    "name": "nsProvisioningServer",
+    "oid": "1.3.6.1.4.1.6431.1.9",
+    "class": "objectidentity"
+  },
+  "networkServer": {
+    "name": "networkServer",
+    "oid": "1.3.6.1.4.1.6431.1.11",
+    "class": "objectidentity"
+  },
+  "nsProtocol": {
+    "name": "nsProtocol",
+    "oid": "1.3.6.1.4.1.6431.1.11.1",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.6431.1.5.1",
+    "class": "objectidentity"
+  },
+  "processing": {
+    "name": "processing",
+    "oid": "1.3.6.1.4.1.6431.1.5.2",
+    "class": "objectidentity"
+  },
+  "protocol": {
+    "name": "protocol",
+    "oid": "1.3.6.1.4.1.6431.1.5.3",
+    "class": "objectidentity"
+  },
+  "persistency": {
+    "name": "persistency",
+    "oid": "1.3.6.1.4.1.6431.1.5.4",
+    "class": "objectidentity"
+  },
+  "management": {
+    "name": "management",
+    "oid": "1.3.6.1.4.1.6431.1.5.5",
+    "class": "objectidentity"
+  },
+  "serviceControlProxy": {
+    "name": "serviceControlProxy",
+    "oid": "1.3.6.1.4.1.6431.1.5.6",
+    "class": "objectidentity"
+  },
+  "concurrent": {
+    "name": "concurrent",
+    "oid": "1.3.6.1.4.1.6431.1.5.7",
+    "class": "objectidentity"
+  },
+  "bwNSMibConformance": {
+    "name": "bwNSMibConformance",
+    "oid": "1.3.6.1.4.1.6431.1.5.100",
+    "class": "objectidentity"
+  },
+  "psSystem": {
+    "name": "psSystem",
+    "oid": "1.3.6.1.4.1.6431.1.9.1",
+    "class": "objectidentity"
+  },
+  "psProtocol": {
+    "name": "psProtocol",
+    "oid": "1.3.6.1.4.1.6431.1.9.3",
+    "class": "objectidentity"
+  },
+  "psPersistency": {
+    "name": "psPersistency",
+    "oid": "1.3.6.1.4.1.6431.1.9.4",
+    "class": "objectidentity"
+  },
+  "psConcurrent": {
+    "name": "psConcurrent",
+    "oid": "1.3.6.1.4.1.6431.1.9.5",
+    "class": "objectidentity"
+  },
+  "licensing": {
+    "name": "licensing",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11",
+    "class": "objectidentity"
+  },
+  "bwNbTimePeriodWithLicenseViolations": {
+    "name": "bwNbTimePeriodWithLicenseViolations",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNbTransactionInViolation": {
+    "name": "bwNbTransactionInViolation",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNbThresholdAlarmSent": {
+    "name": "bwNbThresholdAlarmSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNbNonInviteTimePeriodWithLicenseViolations": {
+    "name": "bwNbNonInviteTimePeriodWithLicenseViolations",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNbNonInviteTransactionInViolation": {
+    "name": "bwNbNonInviteTransactionInViolation",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNbNonInviteThresholdAlarmSent": {
+    "name": "bwNbNonInviteThresholdAlarmSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStats": {
+    "name": "internalStats",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12",
+    "class": "objectidentity"
+  },
+  "bwNSSystemInternalQueueResets": {
+    "name": "bwNSSystemInternalQueueResets",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTable": {
+    "name": "bwNSSystemInternalQueueTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueEntry": {
+    "name": "bwNSSystemInternalQueueEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueIndex": {
+    "name": "bwNSSystemInternalQueueIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueName": {
+    "name": "bwNSSystemInternalQueueName",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueSize": {
+    "name": "bwNSSystemInternalQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTimeAvg": {
+    "name": "bwNSSystemInternalQueueTimeAvg",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTimeMin": {
+    "name": "bwNSSystemInternalQueueTimeMin",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTimeMax": {
+    "name": "bwNSSystemInternalQueueTimeMax",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTimeMaxTimestamp": {
+    "name": "bwNSSystemInternalQueueTimeMaxTimestamp",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bwNSSystemInternalQueueLengthCurrent": {
+    "name": "bwNSSystemInternalQueueLengthCurrent",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueLengthAvg": {
+    "name": "bwNSSystemInternalQueueLengthAvg",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueLengthMax": {
+    "name": "bwNSSystemInternalQueueLengthMax",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueLengthMaxTimestamp": {
+    "name": "bwNSSystemInternalQueueLengthMaxTimestamp",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "bwNSSystemInternalQueueTimeMaxTimestampMSB": {
+    "name": "bwNSSystemInternalQueueTimeMaxTimestampMSB",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueLengthMaxTimestampMSB": {
+    "name": "bwNSSystemInternalQueueLengthMaxTimestampMSB",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueLengthMaxTimestampLSB": {
+    "name": "bwNSSystemInternalQueueLengthMaxTimestampLSB",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSystemInternalQueueTimeMaxTimestampLSB": {
+    "name": "bwNSSystemInternalQueueTimeMaxTimestampLSB",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.12.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "overloadStats": {
+    "name": "overloadStats",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13",
+    "class": "objectidentity"
+  },
+  "bwNSCurrentCallOverloadZone": {
+    "name": "bwNSCurrentCallOverloadZone",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSNumCallYellowZoneOverloadTrans": {
+    "name": "bwNSNumCallYellowZoneOverloadTrans",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNumCallRedZoneOverloadTrans": {
+    "name": "bwNSNumCallRedZoneOverloadTrans",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCurrentNonCallOverloadZone": {
+    "name": "bwNSCurrentNonCallOverloadZone",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSNumNonCallYellowZoneOverloadTrans": {
+    "name": "bwNSNumNonCallYellowZoneOverloadTrans",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNumNonCallRedZoneOverloadTrans": {
+    "name": "bwNSNumNonCallRedZoneOverloadTrans",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNumDiscardedMessage": {
+    "name": "bwNSNumDiscardedMessage",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSTimeLastDiscardedMessage": {
+    "name": "bwNSTimeLastDiscardedMessage",
+    "oid": "1.3.6.1.4.1.6431.1.5.1.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "policies": {
+    "name": "policies",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3",
+    "class": "objectidentity"
+  },
+  "publicPolicyStatTable": {
+    "name": "publicPolicyStatTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicPolicyStatEntry": {
+    "name": "publicPolicyStatEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pubPolStatID": {
+    "name": "pubPolStatID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pubPolStatPolicyName": {
+    "name": "pubPolStatPolicyName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pubPolStatNbInstances": {
+    "name": "pubPolStatNbInstances",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pubPolStatNbRequests": {
+    "name": "pubPolStatNbRequests",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pubPolStatNbRequestsFailures": {
+    "name": "pubPolStatNbRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pubPolStatNbRequestsResults": {
+    "name": "pubPolStatNbRequestsResults",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "privatePolicyStatTable": {
+    "name": "privatePolicyStatTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "privatePolicyStatEntry": {
+    "name": "privatePolicyStatEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "privPolStatID": {
+    "name": "privPolStatID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "privPolStatEnterpriseName": {
+    "name": "privPolStatEnterpriseName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "privPolStatPolicyName": {
+    "name": "privPolStatPolicyName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "privPolStatNbRequests": {
+    "name": "privPolStatNbRequests",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "privPolStatNbRequestsFailures": {
+    "name": "privPolStatNbRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "privPolStatNbRequestsResults": {
+    "name": "privPolStatNbRequestsResults",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "policyInfoTable": {
+    "name": "policyInfoTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyInfoEntry": {
+    "name": "policyInfoEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polInfoID": {
+    "name": "polInfoID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polInfoEnterpriseName": {
+    "name": "polInfoEnterpriseName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polInfoPolicyName": {
+    "name": "polInfoPolicyName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polInfoInfoName": {
+    "name": "polInfoInfoName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polInfoNbOccurences": {
+    "name": "polInfoNbOccurences",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNbPolicyRequests": {
+    "name": "bwNbPolicyRequests",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNbPolicyRequestFailures": {
+    "name": "bwNbPolicyRequestFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neStatTable": {
+    "name": "neStatTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "neStatEntry": {
+    "name": "neStatEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "neStatID": {
+    "name": "neStatID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "neStatName": {
+    "name": "neStatName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neStatNbSIPRequests": {
+    "name": "neStatNbSIPRequests",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neStatNbSIPRequestsFailures": {
+    "name": "neStatNbSIPRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neStatNbMSSRequests": {
+    "name": "neStatNbMSSRequests",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neStatNbMSSRequestsFailures": {
+    "name": "neStatNbMSSRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "errorStatTable": {
+    "name": "errorStatTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errorStatEntry": {
+    "name": "errorStatEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "errStatID": {
+    "name": "errStatID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "errStatName": {
+    "name": "errStatName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "errStatNbOccurences": {
+    "name": "errStatNbOccurences",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCallpCallsPerSecond": {
+    "name": "bwNSCallpCallsPerSecond",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierStatTable": {
+    "name": "carrierStatTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "carrierStatEntry": {
+    "name": "carrierStatEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierStatID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwCarrierStatID": {
+    "name": "bwCarrierStatID",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwCarrierName": {
+    "name": "bwCarrierName",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwCarrierCic": {
+    "name": "bwCarrierCic",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwCarrierNbIntraLataCalls": {
+    "name": "bwCarrierNbIntraLataCalls",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCarrierNbInterLataCalls": {
+    "name": "bwCarrierNbInterLataCalls",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwCarrierNbInternationalCalls": {
+    "name": "bwCarrierNbInternationalCalls",
+    "oid": "1.3.6.1.4.1.6431.1.5.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sip": {
+    "name": "sip",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1",
+    "class": "objectidentity"
+  },
+  "bwNSSipStatsInviteIns": {
+    "name": "bwNSSipStatsInviteIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsAckIns": {
+    "name": "bwNSSipStatsAckIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsInviteResponsesTable": {
+    "name": "bwNSSipStatsInviteResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsCancelIns": {
+    "name": "bwNSSipStatsCancelIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterIns": {
+    "name": "bwNSSipStatsRegisterIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyIns": {
+    "name": "bwNSSipStatsNotifyIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeIns": {
+    "name": "bwNSSipStatsSubscribeIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsMessageIns": {
+    "name": "bwNSSipStatsMessageIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsInfoIns": {
+    "name": "bwNSSipStatsInfoIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsIns": {
+    "name": "bwNSSipStatsOptionsIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsResponsesTable": {
+    "name": "bwNSSipStatsOptionsResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterResponsesTable": {
+    "name": "bwNSSipStatsRegisterResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsInfoResponsesTable": {
+    "name": "bwNSSipStatsInfoResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyResponsesTable": {
+    "name": "bwNSSipStatsNotifyResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeResponsesTable": {
+    "name": "bwNSSipStatsSubscribeResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsMessageResponsesTable": {
+    "name": "bwNSSipStatsMessageResponsesTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsFailures": {
+    "name": "bwNSSipStatsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsActiveTcpConnections": {
+    "name": "bwNSSipStatsActiveTcpConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSSipStatsTcpIns": {
+    "name": "bwNSSipStatsTcpIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsTcpOuts": {
+    "name": "bwNSSipStatsTcpOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsTcpFailures": {
+    "name": "bwNSSipStatsTcpFailures",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsUdpIns": {
+    "name": "bwNSSipStatsUdpIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsUdpOuts": {
+    "name": "bwNSSipStatsUdpOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSIPReclaimedStaleTcpConnections": {
+    "name": "bwNSSIPReclaimedStaleTcpConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "congestionManagement": {
+    "name": "congestionManagement",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25",
+    "class": "objectidentity"
+  },
+  "bwNSSipStatsInviteResponsesEntry": {
+    "name": "bwNSSipStatsInviteResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInviteResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsInviteResponseCodeValue": {
+    "name": "bwNSSipStatsInviteResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsInviteResponseOuts": {
+    "name": "bwNSSipStatsInviteResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsResponsesEntry": {
+    "name": "bwNSSipStatsOptionsResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsResponseCodeValue": {
+    "name": "bwNSSipStatsOptionsResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsResponseIns": {
+    "name": "bwNSSipStatsOptionsResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsOptionsResponseOuts": {
+    "name": "bwNSSipStatsOptionsResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterResponsesEntry": {
+    "name": "bwNSSipStatsRegisterResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterResponseCodeValue": {
+    "name": "bwNSSipStatsRegisterResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterResponseIns": {
+    "name": "bwNSSipStatsRegisterResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsRegisterResponseOuts": {
+    "name": "bwNSSipStatsRegisterResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsInfoResponsesEntry": {
+    "name": "bwNSSipStatsInfoResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsInfoResponseCodeValue": {
+    "name": "bwNSSipStatsInfoResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsInfoResponseIns": {
+    "name": "bwNSSipStatsInfoResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsInfoResponseOuts": {
+    "name": "bwNSSipStatsInfoResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyResponsesEntry": {
+    "name": "bwNSSipStatsNotifyResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyResponseCodeValue": {
+    "name": "bwNSSipStatsNotifyResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyResponseIns": {
+    "name": "bwNSSipStatsNotifyResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsNotifyResponseOuts": {
+    "name": "bwNSSipStatsNotifyResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeResponsesEntry": {
+    "name": "bwNSSipStatsSubscribeResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeResponseCodeValue": {
+    "name": "bwNSSipStatsSubscribeResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeResponseIns": {
+    "name": "bwNSSipStatsSubscribeResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsSubscribeResponseOuts": {
+    "name": "bwNSSipStatsSubscribeResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsMessageResponsesEntry": {
+    "name": "bwNSSipStatsMessageResponsesEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageResponseCodeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSSipStatsMessageResponseCodeValue": {
+    "name": "bwNSSipStatsMessageResponseCodeValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSSipStatsMessageResponseIns": {
+    "name": "bwNSSipStatsMessageResponseIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSSipStatsMessageResponseOuts": {
+    "name": "bwNSSipStatsMessageResponseOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborTable": {
+    "name": "bwNSCongestionManagementNeighborTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborEntry": {
+    "name": "bwNSCongestionManagementNeighborEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborIndex": {
+    "name": "bwNSCongestionManagementNeighborIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborIpAddress": {
+    "name": "bwNSCongestionManagementNeighborIpAddress",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborInviteIn": {
+    "name": "bwNSCongestionManagementNeighborInviteIn",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborRegisterIn": {
+    "name": "bwNSCongestionManagementNeighborRegisterIn",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborOptionsIn": {
+    "name": "bwNSCongestionManagementNeighborOptionsIn",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborOptionsOut": {
+    "name": "bwNSCongestionManagementNeighborOptionsOut",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborSubscribeNotifyIn": {
+    "name": "bwNSCongestionManagementNeighborSubscribeNotifyIn",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighbor5xxIn": {
+    "name": "bwNSCongestionManagementNeighbor5xxIn",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborCallpRequestInRate": {
+    "name": "bwNSCongestionManagementNeighborCallpRequestInRate",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborNonCallpRequestInRate": {
+    "name": "bwNSCongestionManagementNeighborNonCallpRequestInRate",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborState": {
+    "name": "bwNSCongestionManagementNeighborState",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCongestionManagementNeighborCapability": {
+    "name": "bwNSCongestionManagementNeighborCapability",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.1.25.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nrs": {
+    "name": "nrs",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2",
+    "class": "objectidentity"
+  },
+  "bwNSNbInvalidMessagesReceived": {
+    "name": "bwNSNbInvalidMessagesReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbRequestsReceived": {
+    "name": "bwNSNbRequestsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbResponsesReceived": {
+    "name": "bwNSNbResponsesReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbErrorsReceived": {
+    "name": "bwNSNbErrorsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbRequestsSent": {
+    "name": "bwNSNbRequestsSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbResponsesSent": {
+    "name": "bwNSNbResponsesSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbErrorsSent": {
+    "name": "bwNSNbErrorsSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbRequestsResent": {
+    "name": "bwNSNbRequestsResent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbResponsesResent": {
+    "name": "bwNSNbResponsesResent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNbRequestsUnanswered": {
+    "name": "bwNSNbRequestsUnanswered",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTable": {
+    "name": "bwNSNRSStatsTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSNRSStatsEntry": {
+    "name": "bwNSNRSStatsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSNRSStatsTableIndex": {
+    "name": "bwNSNRSStatsTableIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableProtocolName": {
+    "name": "bwNSNRSStatsTableProtocolName",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbRequestsReceived": {
+    "name": "bwNSNRSStatsTableNbRequestsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbResponsesReceived": {
+    "name": "bwNSNRSStatsTableNbResponsesReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbErrorsReceived": {
+    "name": "bwNSNRSStatsTableNbErrorsReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbRequestsSent": {
+    "name": "bwNSNRSStatsTableNbRequestsSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbResponsesSent": {
+    "name": "bwNSNRSStatsTableNbResponsesSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbErrorsSent": {
+    "name": "bwNSNRSStatsTableNbErrorsSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbRequestsResent": {
+    "name": "bwNSNRSStatsTableNbRequestsResent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbResponsesResent": {
+    "name": "bwNSNRSStatsTableNbResponsesResent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSNRSStatsTableNbRequestsUnanswered": {
+    "name": "bwNSNRSStatsTableNbRequestsUnanswered",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.2.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callLog": {
+    "name": "callLog",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.6",
+    "class": "objectidentity"
+  },
+  "calllogNbEnterprises": {
+    "name": "calllogNbEnterprises",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "calllogNbClients": {
+    "name": "calllogNbClients",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsXSCommonCommStats": {
+    "name": "nsXSCommonCommStats",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7",
+    "class": "objectidentity"
+  },
+  "bwNSCommonCommXSStatsTable": {
+    "name": "bwNSCommonCommXSStatsTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSCommonCommXSStatsEntry": {
+    "name": "bwNSCommonCommXSStatsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSCommonCommXSStatsIndex": {
+    "name": "bwNSCommonCommXSStatsIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommXSHost": {
+    "name": "bwNSCommonCommXSHost",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommXSInterface": {
+    "name": "bwNSCommonCommXSInterface",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommXSProtocol": {
+    "name": "bwNSCommonCommXSProtocol",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommXSAcceptedOutboundConnections": {
+    "name": "bwNSCommonCommXSAcceptedOutboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSAcceptedInboundConnections": {
+    "name": "bwNSCommonCommXSAcceptedInboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSRejectedOutboundConnections": {
+    "name": "bwNSCommonCommXSRejectedOutboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSRejectedInboundConnections": {
+    "name": "bwNSCommonCommXSRejectedInboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSOutputMessagesProcessed": {
+    "name": "bwNSCommonCommXSOutputMessagesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSInputMessagesProcessed": {
+    "name": "bwNSCommonCommXSInputMessagesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSOutputCommunicationErrors": {
+    "name": "bwNSCommonCommXSOutputCommunicationErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommXSInputCommunicationErrors": {
+    "name": "bwNSCommonCommXSInputCommunicationErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorTable": {
+    "name": "bwNSXSMonitoringExecutorTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorEntry": {
+    "name": "bwNSXSMonitoringExecutorEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorIndex": {
+    "name": "bwNSXSMonitoringExecutorIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorName": {
+    "name": "bwNSXSMonitoringExecutorName",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorCurrentPoolSize": {
+    "name": "bwNSXSMonitoringExecutorCurrentPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorMaxPoolSize": {
+    "name": "bwNSXSMonitoringExecutorMaxPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorAvgActiveThreads": {
+    "name": "bwNSXSMonitoringExecutorAvgActiveThreads",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorTaskQueueSize": {
+    "name": "bwNSXSMonitoringExecutorTaskQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorNbTasksRun": {
+    "name": "bwNSXSMonitoringExecutorNbTasksRun",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorNbWarnings": {
+    "name": "bwNSXSMonitoringExecutorNbWarnings",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorNbErrors": {
+    "name": "bwNSXSMonitoringExecutorNbErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorLongestTaskMs": {
+    "name": "bwNSXSMonitoringExecutorLongestTaskMs",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSMonitoringExecutorLongestTaskName": {
+    "name": "bwNSXSMonitoringExecutorLongestTaskName",
+    "oid": "1.3.6.1.4.1.6431.1.5.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tcp": {
+    "name": "tcp",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8",
+    "class": "objectidentity"
+  },
+  "bwNSXSTcpServersStatsTable": {
+    "name": "bwNSXSTcpServersStatsTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSXSTcpServersStatsEntry": {
+    "name": "bwNSXSTcpServersStatsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSTcpServersStatsIndex": {
+    "name": "bwNSXSTcpServersStatsIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTcpServersName": {
+    "name": "bwNSXSTcpServersName",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbConnectionsAccepted": {
+    "name": "bwNSXSTcpServersNbConnectionsAccepted",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbConnectionsRefused": {
+    "name": "bwNSXSTcpServersNbConnectionsRefused",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbConnectionsInitiated": {
+    "name": "bwNSXSTcpServersNbConnectionsInitiated",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbConnectionsClosed": {
+    "name": "bwNSXSTcpServersNbConnectionsClosed",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbBytesSent": {
+    "name": "bwNSXSTcpServersNbBytesSent",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbBytesReceived": {
+    "name": "bwNSXSTcpServersNbBytesReceived",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersOutgoingQueueSize": {
+    "name": "bwNSXSTcpServersOutgoingQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTcpServersIncomingQueueSize": {
+    "name": "bwNSXSTcpServersIncomingQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbBytesSentSecure": {
+    "name": "bwNSXSTcpServersNbBytesSentSecure",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTcpServersNbBytesReceivedSecure": {
+    "name": "bwNSXSTcpServersNbBytesReceivedSecure",
+    "oid": "1.3.6.1.4.1.6431.1.5.3.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "perNSNbOpenedTransactions": {
+    "name": "perNSNbOpenedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "perNSNbCommittedTransactions": {
+    "name": "perNSNbCommittedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "perNSNbFailedTransactions": {
+    "name": "perNSNbFailedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "perNSNbCriticalErrors": {
+    "name": "perNSNbCriticalErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timesTen": {
+    "name": "timesTen",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1",
+    "class": "objectidentity"
+  },
+  "ttNSNbConnectionsCreated": {
+    "name": "ttNSNbConnectionsCreated",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ttNSConnectionPoolSize": {
+    "name": "ttNSConnectionPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ttNSNbBackdoorUpdates": {
+    "name": "ttNSNbBackdoorUpdates",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ttNSNbFailedCheckpoints": {
+    "name": "ttNSNbFailedCheckpoints",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "bwNSXSAvgUpdateTime": {
+    "name": "bwNSXSAvgUpdateTime",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSAvgRowsUpdated": {
+    "name": "bwNSXSAvgRowsUpdated",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSAvgQueryTime": {
+    "name": "bwNSXSAvgQueryTime",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSAvgRowsQueried": {
+    "name": "bwNSXSAvgRowsQueried",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSUpdateCount": {
+    "name": "bwNSXSUpdateCount",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSQueryCount": {
+    "name": "bwNSXSQueryCount",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTTHWMTable": {
+    "name": "bwNSXSTTHWMTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSXSTTHWMEntry": {
+    "name": "bwNSXSTTHWMEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTTHWMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSTTHWMIndex": {
+    "name": "bwNSXSTTHWMIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTTHWMName": {
+    "name": "bwNSXSTTHWMName",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSXSTTHWMValue": {
+    "name": "bwNSXSTTHWMValue",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTTHWMTimestamp": {
+    "name": "bwNSXSTTHWMTimestamp",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSXSTTHWMStackTrace": {
+    "name": "bwNSXSTTHWMStackTrace",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xsRemoteXla": {
+    "name": "xsRemoteXla",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.5",
+    "class": "objectidentity"
+  },
+  "xsNSRemoteXlaNbTimesConnected": {
+    "name": "xsNSRemoteXlaNbTimesConnected",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xsNSRemoteXlaNbTimesDisconnected": {
+    "name": "xsNSRemoteXlaNbTimesDisconnected",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xsNSRemoteXlaUpdatesProcessed": {
+    "name": "xsNSRemoteXlaUpdatesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xsNSRemoteXlaUpdatesPending": {
+    "name": "xsNSRemoteXlaUpdatesPending",
+    "oid": "1.3.6.1.4.1.6431.1.5.4.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resetAllNSCounters": {
+    "name": "resetAllNSCounters",
+    "oid": "1.3.6.1.4.1.6431.1.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemNbGrps": {
+    "name": "systemNbGrps",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbDNs": {
+    "name": "systemNbDNs",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbURLs": {
+    "name": "systemNbURLs",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbProfiles": {
+    "name": "systemNbProfiles",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbRoutingNEs": {
+    "name": "systemNbRoutingNEs",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbResourceNEs": {
+    "name": "systemNbResourceNEs",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbEnterprises": {
+    "name": "systemNbEnterprises",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbUnassignedDNs": {
+    "name": "systemNbUnassignedDNs",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbExts": {
+    "name": "systemNbExts",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbSites": {
+    "name": "systemNbSites",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNbHostingNes": {
+    "name": "systemNbHostingNes",
+    "oid": "1.3.6.1.4.1.6431.1.9.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "synchAPI": {
+    "name": "synchAPI",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3",
+    "class": "objectidentity"
+  },
+  "syncNbUpdatesRequests": {
+    "name": "syncNbUpdatesRequests",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncNbUpdatesRequestsFailures": {
+    "name": "syncNbUpdatesRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncNbOpenedSessions": {
+    "name": "syncNbOpenedSessions",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncNbAuthorizationFailures": {
+    "name": "syncNbAuthorizationFailures",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncNbActiveSessions": {
+    "name": "syncNbActiveSessions",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oamp": {
+    "name": "oamp",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.4",
+    "class": "objectidentity"
+  },
+  "oampNbActiveSessions": {
+    "name": "oampNbActiveSessions",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oss": {
+    "name": "oss",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5",
+    "class": "objectidentity"
+  },
+  "ossNbUpdatesRequests": {
+    "name": "ossNbUpdatesRequests",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbUpdatesRequestsFailures": {
+    "name": "ossNbUpdatesRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbQueriesRequests": {
+    "name": "ossNbQueriesRequests",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbQueriesRequestsFailures": {
+    "name": "ossNbQueriesRequestsFailures",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbOpenedSessions": {
+    "name": "ossNbOpenedSessions",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbAuthorizationFailures": {
+    "name": "ossNbAuthorizationFailures",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ossNbActiveSessions": {
+    "name": "ossNbActiveSessions",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsPSCommonCommStats": {
+    "name": "nsPSCommonCommStats",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6",
+    "class": "objectidentity"
+  },
+  "bwNSCommonCommPSStatsTable": {
+    "name": "bwNSCommonCommPSStatsTable",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSCommonCommPSStatsEntry": {
+    "name": "bwNSCommonCommPSStatsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSCommonCommPSStatsIndex": {
+    "name": "bwNSCommonCommPSStatsIndex",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommPSHost": {
+    "name": "bwNSCommonCommPSHost",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommPSInterface": {
+    "name": "bwNSCommonCommPSInterface",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommPSProtocol": {
+    "name": "bwNSCommonCommPSProtocol",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSCommonCommPSAcceptedOutboundConnections": {
+    "name": "bwNSCommonCommPSAcceptedOutboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSAcceptedInboundConnections": {
+    "name": "bwNSCommonCommPSAcceptedInboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSRejectedOutboundConnections": {
+    "name": "bwNSCommonCommPSRejectedOutboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSRejectedInboundConnections": {
+    "name": "bwNSCommonCommPSRejectedInboundConnections",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSOutputMessagesProcessed": {
+    "name": "bwNSCommonCommPSOutputMessagesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSInputMessagesProcessed": {
+    "name": "bwNSCommonCommPSInputMessagesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSOutputCommunicationErrors": {
+    "name": "bwNSCommonCommPSOutputCommunicationErrors",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSCommonCommPSInputCommunicationErrors": {
+    "name": "bwNSCommonCommPSInputCommunicationErrors",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorTable": {
+    "name": "bwNSPSMonitoringExecutorTable",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorEntry": {
+    "name": "bwNSPSMonitoringExecutorEntry",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorIndex": {
+    "name": "bwNSPSMonitoringExecutorIndex",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorName": {
+    "name": "bwNSPSMonitoringExecutorName",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorCurrentPoolSize": {
+    "name": "bwNSPSMonitoringExecutorCurrentPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorMaxPoolSize": {
+    "name": "bwNSPSMonitoringExecutorMaxPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorAvgActiveThreads": {
+    "name": "bwNSPSMonitoringExecutorAvgActiveThreads",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorTaskQueueSize": {
+    "name": "bwNSPSMonitoringExecutorTaskQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorNbTasksRun": {
+    "name": "bwNSPSMonitoringExecutorNbTasksRun",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorNbWarnings": {
+    "name": "bwNSPSMonitoringExecutorNbWarnings",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorNbErrors": {
+    "name": "bwNSPSMonitoringExecutorNbErrors",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorLongestTaskMs": {
+    "name": "bwNSPSMonitoringExecutorLongestTaskMs",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSMonitoringExecutorLongestTaskName": {
+    "name": "bwNSPSMonitoringExecutorLongestTaskName",
+    "oid": "1.3.6.1.4.1.6431.1.9.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsTcp": {
+    "name": "nsTcp",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7",
+    "class": "objectidentity"
+  },
+  "bwNSPSTcpServersStatsTable": {
+    "name": "bwNSPSTcpServersStatsTable",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSPSTcpServersStatsEntry": {
+    "name": "bwNSPSTcpServersStatsEntry",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSPSTcpServersStatsIndex": {
+    "name": "bwNSPSTcpServersStatsIndex",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTcpServersName": {
+    "name": "bwNSPSTcpServersName",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbConnectionsAccepted": {
+    "name": "bwNSPSTcpServersNbConnectionsAccepted",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbConnectionsRefused": {
+    "name": "bwNSPSTcpServersNbConnectionsRefused",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbConnectionsInitiated": {
+    "name": "bwNSPSTcpServersNbConnectionsInitiated",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbConnectionsClosed": {
+    "name": "bwNSPSTcpServersNbConnectionsClosed",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbBytesSent": {
+    "name": "bwNSPSTcpServersNbBytesSent",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbBytesReceived": {
+    "name": "bwNSPSTcpServersNbBytesReceived",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersOutgoingQueueSize": {
+    "name": "bwNSPSTcpServersOutgoingQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTcpServersIncomingQueueSize": {
+    "name": "bwNSPSTcpServersIncomingQueueSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbBytesSentSecure": {
+    "name": "bwNSPSTcpServersNbBytesSentSecure",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTcpServersNbBytesReceivedSecure": {
+    "name": "bwNSPSTcpServersNbBytesReceivedSecure",
+    "oid": "1.3.6.1.4.1.6431.1.9.3.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSPerNbOpenedTransactions": {
+    "name": "psNSPerNbOpenedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSPerNbCommittedTransactions": {
+    "name": "psNSPerNbCommittedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSPerNbFailedTransactions": {
+    "name": "psNSPerNbFailedTransactions",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSPerNbCriticalErrors": {
+    "name": "psNSPerNbCriticalErrors",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psTimesTen": {
+    "name": "psTimesTen",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1",
+    "class": "objectidentity"
+  },
+  "psNSTtNbConnectionsCreated": {
+    "name": "psNSTtNbConnectionsCreated",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSTtConnectionPoolSize": {
+    "name": "psNSTtConnectionPoolSize",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "psNSTtNbBackdoorUpdates": {
+    "name": "psNSTtNbBackdoorUpdates",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "psNSTtNbFailedCheckpoints": {
+    "name": "psNSTtNbFailedCheckpoints",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "bwNSPSAvgUpdateTime": {
+    "name": "bwNSPSAvgUpdateTime",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSAvgRowsUpdated": {
+    "name": "bwNSPSAvgRowsUpdated",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSAvgQueryTime": {
+    "name": "bwNSPSAvgQueryTime",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSAvgRowsQueried": {
+    "name": "bwNSPSAvgRowsQueried",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSUpdateCount": {
+    "name": "bwNSPSUpdateCount",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSQueryCount": {
+    "name": "bwNSPSQueryCount",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psRemoteXla": {
+    "name": "psRemoteXla",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.5",
+    "class": "objectidentity"
+  },
+  "psNSRemoteXlaNbTimesConnected": {
+    "name": "psNSRemoteXlaNbTimesConnected",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSRemoteXlaNbTimesDisconnected": {
+    "name": "psNSRemoteXlaNbTimesDisconnected",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSRemoteXlaUpdatesProcessed": {
+    "name": "psNSRemoteXlaUpdatesProcessed",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psNSRemoteXlaUpdatesPending": {
+    "name": "psNSRemoteXlaUpdatesPending",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTTHWMTable": {
+    "name": "bwNSPSTTHWMTable",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwNSPSTTHWMEntry": {
+    "name": "bwNSPSTTHWMEntry",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTTHWMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSPSTTHWMIndex": {
+    "name": "bwNSPSTTHWMIndex",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTTHWMName": {
+    "name": "bwNSPSTTHWMName",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwNSPSTTHWMValue": {
+    "name": "bwNSPSTTHWMValue",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTTHWMTimestamp": {
+    "name": "bwNSPSTTHWMTimestamp",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSPSTTHWMStackTrace": {
+    "name": "bwNSPSTTHWMStackTrace",
+    "oid": "1.3.6.1.4.1.6431.1.9.4.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scpSystemModule": {
+    "name": "scpSystemModule",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.1",
+    "class": "objectidentity"
+  },
+  "scpCapModule": {
+    "name": "scpCapModule",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2",
+    "class": "objectidentity"
+  },
+  "bwSCProxyStatsACLViolationCount": {
+    "name": "bwSCProxyStatsACLViolationCount",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsSCPMessageIns": {
+    "name": "bwSCProxyStatsSCPMessageIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsSCPMessageOuts": {
+    "name": "bwSCProxyStatsSCPMessageOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsSCPMessageErrors": {
+    "name": "bwSCProxyStatsSCPMessageErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsASTable": {
+    "name": "bwSCProxyStatsASTable",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSCProxyStatsASEntry": {
+    "name": "bwSCProxyStatsASEntry",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwSCProxyStatsASIndex": {
+    "name": "bwSCProxyStatsASIndex",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwSCProxyStatsASAddr": {
+    "name": "bwSCProxyStatsASAddr",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwSCProxyStatsASMessageIns": {
+    "name": "bwSCProxyStatsASMessageIns",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsASMessageOuts": {
+    "name": "bwSCProxyStatsASMessageOuts",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwSCProxyStatsASMessageErrors": {
+    "name": "bwSCProxyStatsASMessageErrors",
+    "oid": "1.3.6.1.4.1.6431.1.5.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locationApi": {
+    "name": "locationApi",
+    "oid": "1.3.6.1.4.1.6431.1.11.1.1",
+    "class": "objectidentity"
+  },
+  "bwUserLocationRequests": {
+    "name": "bwUserLocationRequests",
+    "oid": "1.3.6.1.4.1.6431.1.11.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwUserLocationRequestSuccess": {
+    "name": "bwUserLocationRequestSuccess",
+    "oid": "1.3.6.1.4.1.6431.1.11.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwUserLocationRequestUnknownUser": {
+    "name": "bwUserLocationRequestUnknownUser",
+    "oid": "1.3.6.1.4.1.6431.1.11.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwUserLocationRequestFailures": {
+    "name": "bwUserLocationRequestFailures",
+    "oid": "1.3.6.1.4.1.6431.1.11.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwNSMibGroups": {
+    "name": "bwNSMibGroups",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1",
+    "class": "objectidentity"
+  },
+  "bwNSMibCompliancy": {
+    "name": "bwNSMibCompliancy",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.2",
+    "class": "objectidentity"
+  },
+  "bwNsLicensingGroup": {
+    "name": "bwNsLicensingGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNbTimePeriodWithLicenseViolations"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNbTransactionInViolation"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNbThresholdAlarmSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueResets"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsSystemQueueStatsGroup": {
+    "name": "bwNsSystemQueueStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueResets"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTimeAvg"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTimeMin"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTimeMax"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTimeMaxTimestampMSB"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueLengthCurrent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueLengthAvg"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueLengthMax"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueLengthMaxTimestampMSB"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueLengthMaxTimestampLSB"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSystemInternalQueueTimeMaxTimestampLSB"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsGenericPolicyStatsGroup": {
+    "name": "bwNsGenericPolicyStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "publicPolicyStatTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatPolicyName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatNbInstances"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatNbRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatNbRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "pubPolStatNbRequestsResults"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privatePolicyStatTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatEnterpriseName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatPolicyName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatNbRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatNbRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "privPolStatNbRequestsResults"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "policyInfoTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoEnterpriseName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoPolicyName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoInfoName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "polInfoNbOccurences"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNbPolicyRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNbPolicyRequestFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsNeStatsGroup": {
+    "name": "bwNsNeStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatNbSIPRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatNbSIPRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatNbMSSRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "neStatNbMSSRequestsFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsErrorStatsGroup": {
+    "name": "bwNsErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errorStatTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errorStatEntry"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errStatID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errStatName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "errStatNbOccurences"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsCallPStatsGroup": {
+    "name": "bwNsCallPStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCallpCallsPerSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsCarrierStatsGroup": {
+    "name": "bwNsCarrierStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "carrierStatTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "carrierStatEntry"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierStatID"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierCic"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierNbIntraLataCalls"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierNbInterLataCalls"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwCarrierNbInternationalCalls"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsSipStatsGroup": {
+    "name": "bwNsSipStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInviteIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsAckIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInviteResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsCancelIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageResponsesTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsActiveTcpConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsTcpIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsTcpOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsTcpFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsUdpIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsUdpOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInviteResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInviteResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsOptionsResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsRegisterResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsInfoResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsNotifyResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsSubscribeResponseOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageResponseCodeValue"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageResponseIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSSipStatsMessageResponseOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsNrsStatsGroup": {
+    "name": "bwNsNrsStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbInvalidMessagesReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbRequestsReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbResponsesReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbErrorsReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbRequestsSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbResponsesSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbErrorsSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbRequestsResent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbResponsesResent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNbRequestsUnanswered"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableProtocolName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbRequestsReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbResponsesReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbErrorsReceived"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbRequestsSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbResponsesSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbErrorsSent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbRequestsResent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbResponsesResent"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNRSStatsTableNbRequestsUnanswered"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsCallLogsStatsGroup": {
+    "name": "bwNsCallLogsStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "calllogNbEnterprises"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "calllogNbClients"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsXSPersistencyStatsGroup": {
+    "name": "bwNsXSPersistencyStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "perNSNbOpenedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "perNSNbCommittedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "perNSNbFailedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "perNSNbCriticalErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ttNSNbConnectionsCreated"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ttNSConnectionPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ttNSNbBackdoorUpdates"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ttNSNbFailedCheckpoints"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "xsNSRemoteXlaNbTimesConnected"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "xsNSRemoteXlaNbTimesDisconnected"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "xsNSRemoteXlaUpdatesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "xsNSRemoteXlaUpdatesPending"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsMoCountersGroup": {
+    "name": "bwNsMoCountersGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "resetAllNSCounters"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsSystemGroup": {
+    "name": "bwNsSystemGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbGrps"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbDNs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbURLs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbProfiles"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbRoutingNEs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbResourceNEs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbEnterprises"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbUnassignedDNs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbExts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbSites"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "systemNbHostingNes"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsSyncAPIGroup": {
+    "name": "bwNsSyncAPIGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "syncNbUpdatesRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "syncNbUpdatesRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "syncNbOpenedSessions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "syncNbAuthorizationFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "syncNbActiveSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsOamGroup": {
+    "name": "bwNsOamGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "oampNbActiveSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsOssGroup": {
+    "name": "bwNsOssGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbUpdatesRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbUpdatesRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbQueriesRequests"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbQueriesRequestsFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbOpenedSessions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbAuthorizationFailures"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "ossNbActiveSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsPSPersistencyStatsGroup": {
+    "name": "bwNsPSPersistencyStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSPerNbOpenedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSPerNbCommittedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSPerNbFailedTransactions"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSPerNbCriticalErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSTtNbConnectionsCreated"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSTtConnectionPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSTtNbBackdoorUpdates"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSTtNbFailedCheckpoints"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSRemoteXlaNbTimesConnected"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSRemoteXlaNbTimesDisconnected"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSRemoteXlaUpdatesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "psNSRemoteXlaUpdatesPending"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsScpStatsGroup": {
+    "name": "bwNsScpStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsACLViolationCount"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsSCPMessageIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsSCPMessageOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsSCPMessageErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASAddr"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASMessageIns"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASMessageOuts"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwSCProxyStatsASMessageErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsXsBcctGroup": {
+    "name": "bwNsXsBcctGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSStatsTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSStatsIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSHost"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSInterface"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSProtocol"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSAcceptedOutboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSAcceptedInboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSRejectedOutboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSRejectedInboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSOutputMessagesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSInputMessagesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSOutputCommunicationErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommXSInputCommunicationErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsPsBcctGroup": {
+    "name": "bwNsPsBcctGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSStatsTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSStatsIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSHost"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSInterface"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSProtocol"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSAcceptedOutboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSAcceptedInboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSRejectedOutboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSRejectedInboundConnections"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSOutputMessagesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSInputMessagesProcessed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSOutputCommunicationErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCommonCommPSInputCommunicationErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSTcpStatsGroup": {
+    "name": "bwNSXSTcpStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersStatsTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersStatsIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersNbConnectionsAccepted"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersNbConnectionsClosed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersOutgoingQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersIncomingQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersNbBytesSentSecure"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSTcpServersNbBytesReceivedSecure"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSPSTcpStatsGroup": {
+    "name": "bwNSPSTcpStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersStatsTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersStatsIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersNbConnectionsAccepted"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersNbConnectionsClosed"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersOutgoingQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersIncomingQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersNbBytesSentSecure"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSTcpServersNbBytesReceivedSecure"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSConcurrentFrameworkStatsGroup": {
+    "name": "bwNSXSConcurrentFrameworkStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorCurrentPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorMaxPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorAvgActiveThreads"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorTaskQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorNbTasksRun"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorNbWarnings"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorNbErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorLongestTaskMs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSXSMonitoringExecutorLongestTaskName"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSPSConcurrentFrameworkStatsGroup": {
+    "name": "bwNSPSConcurrentFrameworkStatsGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorName"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorCurrentPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorMaxPoolSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorAvgActiveThreads"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorTaskQueueSize"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorNbTasksRun"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorNbWarnings"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorNbErrors"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorLongestTaskMs"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSPSMonitoringExecutorLongestTaskName"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNSXSCongestionManagementGroup": {
+    "name": "bwNSXSCongestionManagementGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCurrentCallOverloadZone"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNumCallYellowZoneOverloadTrans"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNumCallRedZoneOverloadTrans"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCurrentNonCallOverloadZone"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNumNonCallYellowZoneOverloadTrans"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNumNonCallRedZoneOverloadTrans"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSNumDiscardedMessage"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSTimeLastDiscardedMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "bwSIPCongestionManagementGroup": {
+    "name": "bwSIPCongestionManagementGroup",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborTable"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborIndex"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborIpAddress"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborInviteIn"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborRegisterIn"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborOptionsIn"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborOptionsOut"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborSubscribeNotifyIn"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighbor5xxIn"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborCallpRequestInRate"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborNonCallpRequestInRate"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborState"
+      },
+      {
+        "module": "BW-BroadworksNetworkServer",
+        "object": "bwNSCongestionManagementNeighborCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "bwNsBasicCompliance": {
+    "name": "bwNsBasicCompliance",
+    "oid": "1.3.6.1.4.1.6431.1.5.100.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bwNsLicensingGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsSystemQueueStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsGenericPolicyStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsNeStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsErrorStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsCallPStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsCarrierStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsSipStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsNrsStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsCallLogsStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsXSPersistencyStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsMoCountersGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsSystemGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsSyncAPIGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsOamGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsOssGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsPSPersistencyStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNsScpStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNSXSTcpStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNSPSTcpStatsGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwNSXSCongestionManagementGroup",
+        "module": "BW-BroadworksNetworkServer"
+      },
+      {
+        "object": "bwSIPCongestionManagementGroup",
+        "module": "BW-BroadworksNetworkServer"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BW-BroadworksNetworkServer",
+      "Source digest sha256:dd2f539df7e7a84c47303bbbb7e6aabbf7eb0aee15996367c5bf2baea7573e31",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BW-BroadworksNetworkServer"
+  }
+}

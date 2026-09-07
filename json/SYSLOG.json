@@ -1,0 +1,97 @@
+{
+  "imports": {
+    "class": "imports",
+    "ExaltComProducts": [
+      "radioConfig"
+    ],
+    "ExaltComm": [
+      "SyslogEnableT",
+      "SyslogFilterSelectT"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "advSystemConfig": {
+    "name": "advSystemConfig",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "syslogCfg": {
+    "name": "syslogCfg",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "syslogEnable": {
+    "name": "syslogEnable",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogEnableT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogRemoteIpAddr": {
+    "name": "syslogRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogFilterSelect": {
+    "name": "syslogFilterSelect",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogFilterSelectT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitSyslogSettings": {
+    "name": "commitSyslogSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.5.6.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SYSLOG",
+      "Source digest sha256:8d58831831cbe72e14ab98567d1501b873b005e4a6f66b1d914d7473e7cc98fc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SYSLOG"
+  }
+}

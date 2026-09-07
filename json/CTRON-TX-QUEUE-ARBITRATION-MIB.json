@@ -1,0 +1,157 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctTxQArb"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctTxQArbConfig": {
+    "name": "ctTxQArbConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1",
+    "class": "objectidentity"
+  },
+  "ctTxQBufferConfig": {
+    "name": "ctTxQBufferConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.2",
+    "class": "objectidentity"
+  },
+  "ctTxQPortGroupMapTable": {
+    "name": "ctTxQPortGroupMapTable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctTxQPortGroupEntry": {
+    "name": "ctTxQPortGroupEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctTxQPortGroup": {
+    "name": "ctTxQPortGroup",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctTxQArbTable": {
+    "name": "ctTxQArbTable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctTxQArbEntry": {
+    "name": "ctTxQArbEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-TX-QUEUE-ARBITRATION-MIB",
+        "object": "ctTxQPortGroup",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctTxQArbNumQueues": {
+    "name": "ctTxQArbNumQueues",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctTxQArbNumSlices": {
+    "name": "ctTxQArbNumSlices",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctTxQArbSetting": {
+    "name": "ctTxQArbSetting",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctTxQBufferOptimizeEnable": {
+    "name": "ctTxQBufferOptimizeEnable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-TX-QUEUE-ARBITRATION-MIB",
+      "Source digest sha256:60855efa56097041d029a37b4675e3b80b6b28350bd294b3e0ef83557d12245a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-TX-QUEUE-ARBITRATION-MIB"
+  }
+}

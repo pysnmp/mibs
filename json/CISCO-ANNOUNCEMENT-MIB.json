@@ -1,0 +1,653 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "cmgwIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAnnouncementMIB": {
+    "name": "ciscoAnnouncementMIB",
+    "oid": "1.3.6.1.4.1.9.9.8888",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-25 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoAnnouncementMIBNotifs": {
+    "name": "ciscoAnnouncementMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.8888.0",
+    "class": "objectidentity"
+  },
+  "ciscoAnnouncementMIBObjects": {
+    "name": "ciscoAnnouncementMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.8888.1",
+    "class": "objectidentity"
+  },
+  "ciscoAnnouncementMIBConformance": {
+    "name": "ciscoAnnouncementMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.8888.2",
+    "class": "objectidentity"
+  },
+  "cannoGeneric": {
+    "name": "cannoGeneric",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1",
+    "class": "objectidentity"
+  },
+  "cannoControlConfig": {
+    "name": "cannoControlConfig",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1",
+    "class": "objectidentity"
+  },
+  "cannoAudioFileConfig": {
+    "name": "cannoAudioFileConfig",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2",
+    "class": "objectidentity"
+  },
+  "cannoControlTable": {
+    "name": "cannoControlTable",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cannoControlEntry": {
+    "name": "cannoControlEntry",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cannoAudioFileServerName": {
+    "name": "cannoAudioFileServerName",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoDnResolution": {
+    "name": "cannoDnResolution",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internalOnly": 1,
+          "externalOnly": 2
+        }
+      }
+    },
+    "default": {
+      "value": "internalOnly",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoIpAddressType": {
+    "name": "cannoIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "value": "ipv4",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoIpAddress": {
+    "name": "cannoIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "value": "00000000",
+      "format": "hex"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoAgeTime": {
+    "name": "cannoAgeTime",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10080,
+      "format": "decimal"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoSubDirPath": {
+    "name": "cannoSubDirPath",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoReqTimeout": {
+    "name": "cannoReqTimeout",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoMaxPermanent": {
+    "name": "cannoMaxPermanent",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 41,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cannoAudioFileTable": {
+    "name": "cannoAudioFileTable",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cannoAudioFileEntry": {
+    "name": "cannoAudioFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cannoAudioFileNumber": {
+    "name": "cannoAudioFileNumber",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cannoAudioFileDescr": {
+    "name": "cannoAudioFileDescr",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileName": {
+    "name": "cannoAudioFileName",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileStatus": {
+    "name": "cannoAudioFileStatus",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cached": 1,
+          "loading": 2,
+          "invalidFile": 3,
+          "loadFailed": 4,
+          "notCached": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cannoAudioFileOperStatus": {
+    "name": "cannoAudioFileOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inPlaying": 1,
+          "notPlaying": 2,
+          "delPending": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cannoAudioFilePlayNoc": {
+    "name": "cannoAudioFilePlayNoc",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileDuration": {
+    "name": "cannoAudioFileDuration",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "10 milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileType": {
+    "name": "cannoAudioFileType",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "default": {
+      "value": "dynamic",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileAge": {
+    "name": "cannoAudioFileAge",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cannoAudioFileAdminDeletion": {
+    "name": "cannoAudioFileAdminDeletion",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gracefully": 1,
+          "forcefully": 2
+        }
+      }
+    },
+    "default": {
+      "value": "gracefully",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoAudioFileRowStatus": {
+    "name": "cannoAudioFileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.8888.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cannoMIBCompliances": {
+    "name": "cannoMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.8888.2.1",
+    "class": "objectidentity"
+  },
+  "cannoMIBGroups": {
+    "name": "cannoMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.8888.2.2",
+    "class": "objectidentity"
+  },
+  "cannoMIBCompliance": {
+    "name": "cannoMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.8888.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cannoControlGroup",
+        "module": "CISCO-ANNOUNCEMENT-MIB"
+      },
+      {
+        "object": "cannoAudioFileGroup",
+        "module": "CISCO-ANNOUNCEMENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cannoControlGroup": {
+    "name": "cannoControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.8888.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileServerName"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoDnResolution"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoIpAddressType"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoIpAddress"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAgeTime"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoSubDirPath"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoReqTimeout"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoMaxPermanent"
+      }
+    ],
+    "status": "current"
+  },
+  "cannoAudioFileGroup": {
+    "name": "cannoAudioFileGroup",
+    "oid": "1.3.6.1.4.1.9.9.8888.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileDescr"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileName"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileStatus"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileOperStatus"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFilePlayNoc"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileDuration"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileType"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileAge"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileAdminDeletion"
+      },
+      {
+        "module": "CISCO-ANNOUNCEMENT-MIB",
+        "object": "cannoAudioFileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ANNOUNCEMENT-MIB",
+      "Source digest sha256:96dd73f3cbf21a6a6fdb5337630ecc9852542be6a50fb00c1d45b17635a9df45",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ANNOUNCEMENT-MIB"
+  }
+}

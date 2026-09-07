@@ -1,0 +1,1658 @@
+{
+  "imports": {
+    "class": "imports",
+    "APPLETALK-MIB": [
+      "atportIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "IP-MIB": [
+      "ipAdEntAddr"
+    ],
+    "RFC1213-MIB": [
+      "egpNeighAddr",
+      "ipRouteDest"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "ZYXEL-MIB": [
+      "prestigeCommon"
+    ]
+  },
+  "prestigeSystem": {
+    "name": "prestigeSystem",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "prestigeDynDns": {
+    "name": "prestigeDynDns",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "prestigeLAN": {
+    "name": "prestigeLAN",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "prestigeStaticRoute": {
+    "name": "prestigeStaticRoute",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "prestigeFilterConfig": {
+    "name": "prestigeFilterConfig",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "prestigeXDSL": {
+    "name": "prestigeXDSL",
+    "oid": "1.3.6.1.4.1.890.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "prestigeTraps": {
+    "name": "prestigeTraps",
+    "oid": "1.3.6.1.4.1.890.1.2.1.99",
+    "class": "objectidentity"
+  },
+  "sysRasFWVersion": {
+    "name": "sysRasFWVersion",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysHWVersion": {
+    "name": "sysHWVersion",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysModemVersion": {
+    "name": "sysModemVersion",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysSysName": {
+    "name": "sysSysName",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysLocation": {
+    "name": "sysLocation",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysConatctPersion": {
+    "name": "sysConatctPersion",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysProtocolRouteIp": {
+    "name": "sysProtocolRouteIp",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysProtocolBridge": {
+    "name": "sysProtocolBridge",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysDomainName": {
+    "name": "sysDomainName",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sysReset": {
+    "name": "sysReset",
+    "oid": "1.3.6.1.4.1.890.1.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsActiveStatus": {
+    "name": "ddnsActiveStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsServiceProvider": {
+    "name": "ddnsServiceProvider",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dyndns": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsHost": {
+    "name": "ddnsHost",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsEmail": {
+    "name": "ddnsEmail",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsUser": {
+    "name": "ddnsUser",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsPassword": {
+    "name": "ddnsPassword",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddnsEnableWildcard": {
+    "name": "ddnsEnableWildcard",
+    "oid": "1.3.6.1.4.1.890.1.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanFilter": {
+    "name": "lanFilter",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "lanDHCP": {
+    "name": "lanDHCP",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "lanTcpIp": {
+    "name": "lanTcpIp",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3",
+    "class": "objectidentity"
+  },
+  "lanWireless": {
+    "name": "lanWireless",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4",
+    "class": "objectidentity"
+  },
+  "inProtocolFilterSet": {
+    "name": "inProtocolFilterSet",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inDeviceFilterSet": {
+    "name": "inDeviceFilterSet",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outProtocolFilterSet": {
+    "name": "outProtocolFilterSet",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outDeviceFilterSet": {
+    "name": "outDeviceFilterSet",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpStatus": {
+    "name": "dhcpStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "server": 2,
+          "relay": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpStartIpAddr": {
+    "name": "dhcpStartIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpPoolSize": {
+    "name": "dhcpPoolSize",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpPrimaryDnsServer": {
+    "name": "dhcpPrimaryDnsServer",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpSecondaryDnsServer": {
+    "name": "dhcpSecondaryDnsServer",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dhcpRemoteDhcpServer": {
+    "name": "dhcpRemoteDhcpServer",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanIpAddress": {
+    "name": "lanIpAddress",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanIpSubnetMask": {
+    "name": "lanIpSubnetMask",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanIpRipDirection": {
+    "name": "lanIpRipDirection",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "both": 2,
+          "in": 3,
+          "out": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanIpRipVersion": {
+    "name": "lanIpRipVersion",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ohter": 1,
+          "rip1": 2,
+          "rip2B": 3,
+          "rip2M": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lanIpMulticast": {
+    "name": "lanIpMulticast",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "igmpv1": 2,
+          "igmpv2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanTable": {
+    "name": "wlanTable",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wlanEntry": {
+    "name": "wlanEntry",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "wlanCardID",
+        "implied": 0
+      },
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "wlanESSID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wlanEssStatus": {
+    "name": "wlanEssStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanCardID": {
+    "name": "wlanCardID",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanESSID": {
+    "name": "wlanESSID",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanHideESSID": {
+    "name": "wlanHideESSID",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanChannelID": {
+    "name": "wlanChannelID",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanRTSThreshold": {
+    "name": "wlanRTSThreshold",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanFragThreshold": {
+    "name": "wlanFragThreshold",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanWEPStatus": {
+    "name": "wlanWEPStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "WEP-64-bit": 3,
+          "WEP-128-bit": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanDefaultKey": {
+    "name": "wlanDefaultKey",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanWepKey1": {
+    "name": "wlanWepKey1",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanWepKey2": {
+    "name": "wlanWepKey2",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanWepKey3": {
+    "name": "wlanWepKey3",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wlanWepKey4": {
+    "name": "wlanWepKey4",
+    "oid": "1.3.6.1.4.1.890.1.2.1.3.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteTable": {
+    "name": "ipStaticRouteTable",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipStaticRouteEntry": {
+    "name": "ipStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "ipStaticRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipStaticRouteIndex": {
+    "name": "ipStaticRouteIndex",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipStaticRouteName": {
+    "name": "ipStaticRouteName",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteActiveStatus": {
+    "name": "ipStaticRouteActiveStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteDestIpAddr": {
+    "name": "ipStaticRouteDestIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteSubnetMask": {
+    "name": "ipStaticRouteSubnetMask",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteGatewayIpAddr": {
+    "name": "ipStaticRouteGatewayIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteMetric": {
+    "name": "ipStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipStaticRoutePirvate": {
+    "name": "ipStaticRoutePirvate",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteTable": {
+    "name": "bridgeStaticRouteTable",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteEntry": {
+    "name": "bridgeStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "bridgeStaticRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteIndex": {
+    "name": "bridgeStaticRouteIndex",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteName": {
+    "name": "bridgeStaticRouteName",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteActiveStatus": {
+    "name": "bridgeStaticRouteActiveStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteEtherAddr": {
+    "name": "bridgeStaticRouteEtherAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteIpAddr": {
+    "name": "bridgeStaticRouteIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "bridgeStaticRouteGatewayNode": {
+    "name": "bridgeStaticRouteGatewayNode",
+    "oid": "1.3.6.1.4.1.890.1.2.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterSetTable": {
+    "name": "filterSetTable",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "filterSetEntry": {
+    "name": "filterSetEntry",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "filterSetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "filterSetIndex": {
+    "name": "filterSetIndex",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterSetComment": {
+    "name": "filterSetComment",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleTable": {
+    "name": "filterRuleTable",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "filterRuleEntry": {
+    "name": "filterRuleEntry",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "filterSetIndex",
+        "implied": 0
+      },
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "filterRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "filterRuleIndex": {
+    "name": "filterRuleIndex",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterRuleActiveStatus": {
+    "name": "filterRuleActiveStatus",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleType": {
+    "name": "filterRuleType",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tcpIp": 2,
+          "generic": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleIpProtocol": {
+    "name": "filterRuleIpProtocol",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleIpSourceRoute": {
+    "name": "filterRuleIpSourceRoute",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleDestIpAddr": {
+    "name": "filterRuleDestIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleDestIpMask": {
+    "name": "filterRuleDestIpMask",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleDestPort": {
+    "name": "filterRuleDestPort",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleDestPortComp": {
+    "name": "filterRuleDestPortComp",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "equal": 2,
+          "notequal": 3,
+          "less": 4,
+          "greater": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleSourceIpAddr": {
+    "name": "filterRuleSourceIpAddr",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleSourceIpMask": {
+    "name": "filterRuleSourceIpMask",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleSourcePort": {
+    "name": "filterRuleSourcePort",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleSourcePortComp": {
+    "name": "filterRuleSourcePortComp",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "equal": 2,
+          "notequal": 3,
+          "less": 4,
+          "greater": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleTcpEstab": {
+    "name": "filterRuleTcpEstab",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleGenericOffset": {
+    "name": "filterRuleGenericOffset",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleGenericLength": {
+    "name": "filterRuleGenericLength",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleGenericMask": {
+    "name": "filterRuleGenericMask",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleGenericValue": {
+    "name": "filterRuleGenericValue",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleMore": {
+    "name": "filterRuleMore",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "yes": 2,
+          "no": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleLog": {
+    "name": "filterRuleLog",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "actMatched": 2,
+          "atcNotMatch": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleActMatched": {
+    "name": "filterRuleActMatched",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "checkNextRule": 2,
+          "forward": 3,
+          "drop": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "filterRuleActNotMatched": {
+    "name": "filterRuleActNotMatched",
+    "oid": "1.3.6.1.4.1.890.1.2.1.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "checkNextRule": 2,
+          "forward": 3,
+          "drop": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "whyReboot": {
+    "name": "whyReboot",
+    "oid": "1.3.6.1.4.1.890.1.2.1.99.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.890.1.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-PRESTIGE-MIB",
+        "object": "whyReboot"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ZYXEL-PRESTIGE-MIB",
+      "Source digest sha256:e2f7ed35e22e69c8366724aee6f119d72cc42db579b825fd599aad3ca37a432f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ZYXEL-PRESTIGE-MIB"
+  }
+}

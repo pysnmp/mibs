@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniNsLookupAgent": {
+    "name": "juniNsLookupAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-28 22:22",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniNsLookupAgentV1": {
+    "name": "juniNsLookupAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.27.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the NS Lookup component of the JUNOSe SNMP agent.  This\n        version of the NS Lookup component is supported in JUNOSe 3.0 and\n        subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "DISMAN-NSLOOKUP-MIB",
+        "includes": [
+          "lookupGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-NS-Lookup-CONF",
+      "Source digest sha256:14d8aa6c055a61f931fa00be8ddf6ab5b0538cd54b55363a90480df0930665b3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-NS-Lookup-CONF"
+  }
+}

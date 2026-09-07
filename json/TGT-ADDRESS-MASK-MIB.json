@@ -1,0 +1,93 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-TARGET-MIB": [
+      "snmpTargetAddrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpResearch": {
+    "name": "snmpResearch",
+    "oid": "1.3.6.1.4.1.99",
+    "class": "objectidentity"
+  },
+  "snmpResearchMIBs": {
+    "name": "snmpResearchMIBs",
+    "oid": "1.3.6.1.4.1.99.12",
+    "class": "objectidentity"
+  },
+  "tgtAddressMaskMIB": {
+    "name": "tgtAddressMaskMIB",
+    "oid": "1.3.6.1.4.1.99.12.36",
+    "class": "moduleidentity"
+  },
+  "tgtAddressMaskObjects": {
+    "name": "tgtAddressMaskObjects",
+    "oid": "1.3.6.1.4.1.99.12.36.1",
+    "class": "objectidentity"
+  },
+  "tgtAddressMaskConformance": {
+    "name": "tgtAddressMaskConformance",
+    "oid": "1.3.6.1.4.1.99.12.36.3",
+    "class": "objectidentity"
+  },
+  "tgtAddressMaskTable": {
+    "name": "tgtAddressMaskTable",
+    "oid": "1.3.6.1.4.1.99.12.36.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tgtAddressMaskEntry": {
+    "name": "tgtAddressMaskEntry",
+    "oid": "1.3.6.1.4.1.99.12.36.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "tgtAddressMaskEntry",
+      "module": "TGT-ADDRESS-MASK-MIB",
+      "object": "snmpTargetAddrEntry"
+    },
+    "status": "current"
+  },
+  "tgtAddressMask": {
+    "name": "tgtAddressMask",
+    "oid": "1.3.6.1.4.1.99.12.36.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TGT-ADDRESS-MASK-MIB",
+      "Source digest sha256:756f93b19ef5ac18ff1188fe8e74c5a475cf9be64156ddbc3266302b7c2a7116",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TGT-ADDRESS-MASK-MIB"
+  }
+}

@@ -1,0 +1,4037 @@
+{
+  "imports": {
+    "class": "imports",
+    "CPQHOST-MIB": [
+      "compaq",
+      "cpqHoTrapFlags"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cpqSsStorageSys": {
+    "name": "cpqSsStorageSys",
+    "oid": "1.3.6.1.4.1.232.8",
+    "class": "objectidentity"
+  },
+  "cpqSsMibRev": {
+    "name": "cpqSsMibRev",
+    "oid": "1.3.6.1.4.1.232.8.1",
+    "class": "objectidentity"
+  },
+  "cpqSsDrvBox": {
+    "name": "cpqSsDrvBox",
+    "oid": "1.3.6.1.4.1.232.8.2",
+    "class": "objectidentity"
+  },
+  "cpqSsTrap": {
+    "name": "cpqSsTrap",
+    "oid": "1.3.6.1.4.1.232.8.3",
+    "class": "objectidentity"
+  },
+  "cpqSsRaidSystem": {
+    "name": "cpqSsRaidSystem",
+    "oid": "1.3.6.1.4.1.232.8.4",
+    "class": "objectidentity"
+  },
+  "cpqSsBoxExtended": {
+    "name": "cpqSsBoxExtended",
+    "oid": "1.3.6.1.4.1.232.8.2.2",
+    "class": "objectidentity"
+  },
+  "cpqSsMibRevMajor": {
+    "name": "cpqSsMibRevMajor",
+    "oid": "1.3.6.1.4.1.232.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsMibRevMinor": {
+    "name": "cpqSsMibRevMinor",
+    "oid": "1.3.6.1.4.1.232.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsMibCondition": {
+    "name": "cpqSsMibCondition",
+    "oid": "1.3.6.1.4.1.232.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxTable": {
+    "name": "cpqSsDrvBoxTable",
+    "oid": "1.3.6.1.4.1.232.8.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxEntry": {
+    "name": "cpqSsDrvBoxEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsBoxCntlrIndex": {
+    "name": "cpqSsBoxCntlrIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxBusIndex": {
+    "name": "cpqSsBoxBusIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxType": {
+    "name": "cpqSsBoxType",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "proLiant": 2,
+          "proLiant2": 3,
+          "proLiant2Internal": 4,
+          "proLiant2DuplexTop": 5,
+          "proLiant2DuplexBottom": 6,
+          "proLiant2InternalDuplexTop": 7,
+          "proLiant2InternalDuplexBottom": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsBoxModel": {
+    "name": "cpqSsBoxModel",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxFWRev": {
+    "name": "cpqSsBoxFWRev",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxVendor": {
+    "name": "cpqSsBoxVendor",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxFanStatus": {
+    "name": "cpqSsBoxFanStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "failed": 3,
+          "noFan": 4,
+          "degraded": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxCondition": {
+    "name": "cpqSsBoxCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxTempStatus": {
+    "name": "cpqSsBoxTempStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4,
+          "noTemp": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxSidePanelStatus": {
+    "name": "cpqSsBoxSidePanelStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "sidePanelInPlace": 2,
+          "sidePanelRemoved": 3,
+          "noSidePanelStatus": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxFltTolPwrSupplyStatus": {
+    "name": "cpqSsBoxFltTolPwrSupplyStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4,
+          "noFltTolPower": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxBackPlaneVersion": {
+    "name": "cpqSsBoxBackPlaneVersion",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "proLiant": 2,
+          "proLiant2": 3,
+          "proLiant3": 4,
+          "proLiant4": 5,
+          "proLiant5": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxTotalBays": {
+    "name": "cpqSsBoxTotalBays",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxPlacement": {
+    "name": "cpqSsBoxPlacement",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxDuplexOption": {
+    "name": "cpqSsBoxDuplexOption",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notDuplexed": 2,
+          "duplexTop": 3,
+          "duplexBottom": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxBoardRevision": {
+    "name": "cpqSsBoxBoardRevision",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxSerialNumber": {
+    "name": "cpqSsBoxSerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxCntlrHwLocation": {
+    "name": "cpqSsBoxCntlrHwLocation",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxBackplaneSpeed": {
+    "name": "cpqSsBoxBackplaneSpeed",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ultra3": 2,
+          "ultra320": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxConnectionType": {
+    "name": "cpqSsBoxConnectionType",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "scsiAttached": 2,
+          "sasAttached": 3,
+          "sataAttached": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxHostConnector": {
+    "name": "cpqSsBoxHostConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxBoxOnConnector": {
+    "name": "cpqSsBoxBoxOnConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxLocationString": {
+    "name": "cpqSsBoxLocationString",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxInitiatorSasAddress": {
+    "name": "cpqSsBoxInitiatorSasAddress",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxTargetSasAddress": {
+    "name": "cpqSsBoxTargetSasAddress",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxLocalManageIpAddress": {
+    "name": "cpqSsBoxLocalManageIpAddress",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxPartnerManageIpAddress": {
+    "name": "cpqSsBoxPartnerManageIpAddress",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxConnectionStatus": {
+    "name": "cpqSsBoxConnectionStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notSupported": 2,
+          "connected": 3,
+          "notConnected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxTargetBasedManagement": {
+    "name": "cpqSsBoxTargetBasedManagement",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tbmNotSupported": 2,
+          "tbmSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxGSIStatus": {
+    "name": "cpqSsBoxGSIStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBoxGSIMessages": {
+    "name": "cpqSsBoxGSIMessages",
+    "oid": "1.3.6.1.4.1.232.8.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisTable": {
+    "name": "cpqSsChassisTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsChassisEntry": {
+    "name": "cpqSsChassisEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsChassisIndex": {
+    "name": "cpqSsChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisConnectionType": {
+    "name": "cpqSsChassisConnectionType",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "fibreAttached": 2,
+          "scsiAttached": 3,
+          "iScsiAttached": 4,
+          "sasAttached": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisSerialNumber": {
+    "name": "cpqSsChassisSerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisName": {
+    "name": "cpqSsChassisName",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisSystemBoardSerNum": {
+    "name": "cpqSsChassisSystemBoardSerNum",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisSystemBoardRev": {
+    "name": "cpqSsChassisSystemBoardRev",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisPowerBoardSerNum": {
+    "name": "cpqSsChassisPowerBoardSerNum",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisPowerBoardRev": {
+    "name": "cpqSsChassisPowerBoardRev",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisScsiBoardSerNum": {
+    "name": "cpqSsChassisScsiBoardSerNum",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisScsiBoardRev": {
+    "name": "cpqSsChassisScsiBoardRev",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisOverallCondition": {
+    "name": "cpqSsChassisOverallCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisPowerSupplyCondition": {
+    "name": "cpqSsChassisPowerSupplyCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisFanCondition": {
+    "name": "cpqSsChassisFanCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisTemperatureCondition": {
+    "name": "cpqSsChassisTemperatureCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisFcaCntlrCondition": {
+    "name": "cpqSsChassisFcaCntlrCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisFcaLogicalDriveCondition": {
+    "name": "cpqSsChassisFcaLogicalDriveCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisFcaPhysDrvCondition": {
+    "name": "cpqSsChassisFcaPhysDrvCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisTime": {
+    "name": "cpqSsChassisTime",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisModel": {
+    "name": "cpqSsChassisModel",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ra4x00": 2,
+          "msa1000": 3,
+          "smartArrayClusterStorage": 4,
+          "enterpriseModularArray": 5,
+          "enterpriseVirtualArray": 6,
+          "msa500G2": 7,
+          "msa20": 8,
+          "msa1500cs": 9,
+          "msa1510i": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisBackplaneCondition": {
+    "name": "cpqSsChassisBackplaneCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisFcaTapeDrvCondition": {
+    "name": "cpqSsChassisFcaTapeDrvCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisRsoStatus": {
+    "name": "cpqSsChassisRsoStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notSupported": 2,
+          "notConfigured": 3,
+          "disabled": 4,
+          "daemonDownDisabled": 5,
+          "ok": 6,
+          "daemonDownActive": 7,
+          "noSecondary": 8,
+          "daemonDownNoSecondary": 9,
+          "linkDown": 10,
+          "daemonDownLinkDown": 11,
+          "secondaryRunningAuto": 12,
+          "secondaryRunningUser": 13,
+          "evTimeoutError": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisRsoCondition": {
+    "name": "cpqSsChassisRsoCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisScsiIoModuleType": {
+    "name": "cpqSsChassisScsiIoModuleType",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "io2port": 2,
+          "io4portUpgradeFirmware": 3,
+          "io4port": 4,
+          "io2port320": 5,
+          "io4port320": 6,
+          "io1port320": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisPreferredPathMode": {
+    "name": "cpqSsChassisPreferredPathMode",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notActiveActive": 2,
+          "automatic": 3,
+          "manual": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsChassisProductId": {
+    "name": "cpqSsChassisProductId",
+    "oid": "1.3.6.1.4.1.232.8.2.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsIoSlotTable": {
+    "name": "cpqSsIoSlotTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsIoSlotEntry": {
+    "name": "cpqSsIoSlotEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsIoSlotChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsIoSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsIoSlotChassisIndex": {
+    "name": "cpqSsIoSlotChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsIoSlotIndex": {
+    "name": "cpqSsIoSlotIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsIoSlotControllerType": {
+    "name": "cpqSsIoSlotControllerType",
+    "oid": "1.3.6.1.4.1.232.8.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notInstalled": 2,
+          "unknownBoard": 3,
+          "fibreArray": 4,
+          "scsiArray": 5,
+          "noSlot": 6,
+          "iScsiArray": 7,
+          "sasArray": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyTable": {
+    "name": "cpqSsPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyEntry": {
+    "name": "cpqSsPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyChassisIndex": {
+    "name": "cpqSsPowerSupplyChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyIndex": {
+    "name": "cpqSsPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyBay": {
+    "name": "cpqSsPowerSupplyBay",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "powerBay1": 2,
+          "powerBay2": 3,
+          "composite": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyStatus": {
+    "name": "cpqSsPowerSupplyStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notInstalled": 2,
+          "ok": 3,
+          "failed": 4,
+          "degraded": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyUpsStatus": {
+    "name": "cpqSsPowerSupplyUpsStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noUps": 2,
+          "ok": 3,
+          "powerFailed": 4,
+          "batteryLow": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyCondition": {
+    "name": "cpqSsPowerSupplyCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplySerialNumber": {
+    "name": "cpqSsPowerSupplySerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyBoardRevision": {
+    "name": "cpqSsPowerSupplyBoardRevision",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsPowerSupplyFirmwareRevision": {
+    "name": "cpqSsPowerSupplyFirmwareRevision",
+    "oid": "1.3.6.1.4.1.232.8.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleTable": {
+    "name": "cpqSsFanModuleTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleEntry": {
+    "name": "cpqSsFanModuleEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleChassisIndex": {
+    "name": "cpqSsFanModuleChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleIndex": {
+    "name": "cpqSsFanModuleIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleStatus": {
+    "name": "cpqSsFanModuleStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notInstalled": 2,
+          "ok": 3,
+          "degraded": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleCondition": {
+    "name": "cpqSsFanModuleCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleLocation": {
+    "name": "cpqSsFanModuleLocation",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "fanBay": 2,
+          "composite": 3,
+          "fanBay2": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleSerialNumber": {
+    "name": "cpqSsFanModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanModuleBoardRevision": {
+    "name": "cpqSsFanModuleBoardRevision",
+    "oid": "1.3.6.1.4.1.232.8.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorTable": {
+    "name": "cpqSsTempSensorTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorEntry": {
+    "name": "cpqSsTempSensorEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTempSensorChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorChassisIndex": {
+    "name": "cpqSsTempSensorChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorIndex": {
+    "name": "cpqSsTempSensorIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorStatus": {
+    "name": "cpqSsTempSensorStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorCondition": {
+    "name": "cpqSsTempSensorCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorLocation": {
+    "name": "cpqSsTempSensorLocation",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "fanBay": 2,
+          "backplane": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorCurrentValue": {
+    "name": "cpqSsTempSensorCurrentValue",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorLimitValue": {
+    "name": "cpqSsTempSensorLimitValue",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTempSensorHysteresisValue": {
+    "name": "cpqSsTempSensorHysteresisValue",
+    "oid": "1.3.6.1.4.1.232.8.2.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneTable": {
+    "name": "cpqSsBackplaneTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneEntry": {
+    "name": "cpqSsBackplaneEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneChassisIndex": {
+    "name": "cpqSsBackplaneChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneIndex": {
+    "name": "cpqSsBackplaneIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneFWRev": {
+    "name": "cpqSsBackplaneFWRev",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneDriveBays": {
+    "name": "cpqSsBackplaneDriveBays",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneDuplexOption": {
+    "name": "cpqSsBackplaneDuplexOption",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notDuplexed": 2,
+          "duplexTop": 3,
+          "duplexBottom": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneCondition": {
+    "name": "cpqSsBackplaneCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneVersion": {
+    "name": "cpqSsBackplaneVersion",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneVendor": {
+    "name": "cpqSsBackplaneVendor",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneModel": {
+    "name": "cpqSsBackplaneModel",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneFanStatus": {
+    "name": "cpqSsBackplaneFanStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notInstalled": 2,
+          "ok": 3,
+          "degraded": 4,
+          "failed": 5,
+          "notSupported": 6,
+          "degraded-Fan1Failed": 7,
+          "degraded-Fan2Failed": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneTempStatus": {
+    "name": "cpqSsBackplaneTempStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noTemp": 2,
+          "ok": 3,
+          "degraded": 4,
+          "failed": 5,
+          "notSupported": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneFtpsStatus": {
+    "name": "cpqSsBackplaneFtpsStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noFltTolPower": 2,
+          "ok": 3,
+          "degraded": 4,
+          "failed": 5,
+          "notSupported": 6,
+          "noFltTolPower-Bay1Missing": 7,
+          "noFltTolPower-Bay2Missing": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneSerialNumber": {
+    "name": "cpqSsBackplaneSerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplanePlacement": {
+    "name": "cpqSsBackplanePlacement",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneBoardRevision": {
+    "name": "cpqSsBackplaneBoardRevision",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneSpeed": {
+    "name": "cpqSsBackplaneSpeed",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ultra3": 2,
+          "ultra320": 3,
+          "sata": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneConnectionType": {
+    "name": "cpqSsBackplaneConnectionType",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "scsiAttached": 2,
+          "sasAttached": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneConnector": {
+    "name": "cpqSsBackplaneConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneOnConnector": {
+    "name": "cpqSsBackplaneOnConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsBackplaneLocationString": {
+    "name": "cpqSsBackplaneLocationString",
+    "oid": "1.3.6.1.4.1.232.8.2.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentTable": {
+    "name": "cpqSsFibreAttachmentTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentEntry": {
+    "name": "cpqSsFibreAttachmentEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFibreAttachmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentIndex": {
+    "name": "cpqSsFibreAttachmentIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentHostControllerIndex": {
+    "name": "cpqSsFibreAttachmentHostControllerIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentHostControllerPort": {
+    "name": "cpqSsFibreAttachmentHostControllerPort",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentDeviceType": {
+    "name": "cpqSsFibreAttachmentDeviceType",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "storageBox": 2,
+          "tapeController": 3,
+          "fibreChannelSwitch": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentDeviceIndex": {
+    "name": "cpqSsFibreAttachmentDeviceIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFibreAttachmentDevicePort": {
+    "name": "cpqSsFibreAttachmentDevicePort",
+    "oid": "1.3.6.1.4.1.232.8.2.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentTable": {
+    "name": "cpqSsScsiAttachmentTable",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentEntry": {
+    "name": "cpqSsScsiAttachmentEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsScsiAttachmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentIndex": {
+    "name": "cpqSsScsiAttachmentIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentControllerIndex": {
+    "name": "cpqSsScsiAttachmentControllerIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentControllerPort": {
+    "name": "cpqSsScsiAttachmentControllerPort",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentControllerTarget": {
+    "name": "cpqSsScsiAttachmentControllerTarget",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentControllerLun": {
+    "name": "cpqSsScsiAttachmentControllerLun",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentChassisIndex": {
+    "name": "cpqSsScsiAttachmentChassisIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentChassisIoSlot": {
+    "name": "cpqSsScsiAttachmentChassisIoSlot",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentPathStatus": {
+    "name": "cpqSsScsiAttachmentPathStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "offline": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsScsiAttachmentPathCondition": {
+    "name": "cpqSsScsiAttachmentPathCondition",
+    "oid": "1.3.6.1.4.1.232.8.2.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathTable": {
+    "name": "cpqSsDrvBoxPathTable",
+    "oid": "1.3.6.1.4.1.232.8.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathEntry": {
+    "name": "cpqSsDrvBoxPathEntry",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsDrvBoxPathCntlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsDrvBoxPathBoxIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsDrvBoxPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathCntlrIndex": {
+    "name": "cpqSsDrvBoxPathCntlrIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathBoxIndex": {
+    "name": "cpqSsDrvBoxPathBoxIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathIndex": {
+    "name": "cpqSsDrvBoxPathIndex",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathStatus": {
+    "name": "cpqSsDrvBoxPathStatus",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "linkDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathCurrentRole": {
+    "name": "cpqSsDrvBoxPathCurrentRole",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "alternate": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathHostConnector": {
+    "name": "cpqSsDrvBoxPathHostConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathBoxOnConnector": {
+    "name": "cpqSsDrvBoxPathBoxOnConnector",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsDrvBoxPathLocationString": {
+    "name": "cpqSsDrvBoxPathLocationString",
+    "oid": "1.3.6.1.4.1.232.8.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsTrapPkts": {
+    "name": "cpqSsTrapPkts",
+    "oid": "1.3.6.1.4.1.232.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsTrapLogMaxSize": {
+    "name": "cpqSsTrapLogMaxSize",
+    "oid": "1.3.6.1.4.1.232.8.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsTrapLogTable": {
+    "name": "cpqSsTrapLogTable",
+    "oid": "1.3.6.1.4.1.232.8.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpqSsTrapLogEntry": {
+    "name": "cpqSsTrapLogEntry",
+    "oid": "1.3.6.1.4.1.232.8.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTrapLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpqSsTrapLogIndex": {
+    "name": "cpqSsTrapLogIndex",
+    "oid": "1.3.6.1.4.1.232.8.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsTrapType": {
+    "name": "cpqSsTrapType",
+    "oid": "1.3.6.1.4.1.232.8.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpqSsFanStatusChange": 1,
+          "cpqSs2FanStatusChange": 8001,
+          "cpqSsTempFailed": 8002,
+          "cpqSsTempDegraded": 8003,
+          "cpqSsTempOk": 8004,
+          "cpqSsSidePanelInPlace": 8005,
+          "cpqSsSidePanelRemoved": 8006
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsTrapTime": {
+    "name": "cpqSsTrapTime",
+    "oid": "1.3.6.1.4.1.232.8.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSsRaidSystemTable": {
+    "name": "cpqSsRaidSystemTable",
+    "oid": "1.3.6.1.4.1.232.8.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemEntry": {
+    "name": "cpqSsRaidSystemEntry",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsRaidSystemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemIndex": {
+    "name": "cpqSsRaidSystemIndex",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemName": {
+    "name": "cpqSsRaidSystemName",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemStatus": {
+    "name": "cpqSsRaidSystemStatus",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "agentNotRunning": 2,
+          "good": 3,
+          "warning": 4,
+          "communicationLoss": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemCondition": {
+    "name": "cpqSsRaidSystemCondition",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemCntlr1SerialNumber": {
+    "name": "cpqSsRaidSystemCntlr1SerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsRaidSystemCntlr2SerialNumber": {
+    "name": "cpqSsRaidSystemCntlr2SerialNumber",
+    "oid": "1.3.6.1.4.1.232.8.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSsFanStatusChange": {
+    "name": "cpqSsFanStatusChange",
+    "oid": "1.3.6.1.4.1.232.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFanStatus"
+      }
+    ]
+  },
+  "cpqSs2FanStatusChange": {
+    "name": "cpqSs2FanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFanStatus"
+      }
+    ]
+  },
+  "cpqSsTempFailed": {
+    "name": "cpqSsTempFailed",
+    "oid": "1.3.6.1.4.1.232.0.8002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSsTempDegraded": {
+    "name": "cpqSsTempDegraded",
+    "oid": "1.3.6.1.4.1.232.0.8003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSsTempOk": {
+    "name": "cpqSsTempOk",
+    "oid": "1.3.6.1.4.1.232.0.8004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSsSidePanelInPlace": {
+    "name": "cpqSsSidePanelInPlace",
+    "oid": "1.3.6.1.4.1.232.0.8005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSidePanelStatus"
+      }
+    ]
+  },
+  "cpqSsSidePanelRemoved": {
+    "name": "cpqSsSidePanelRemoved",
+    "oid": "1.3.6.1.4.1.232.0.8006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSidePanelStatus"
+      }
+    ]
+  },
+  "cpqSsPwrSupplyDegraded": {
+    "name": "cpqSsPwrSupplyDegraded",
+    "oid": "1.3.6.1.4.1.232.0.8007",
+    "class": "notificationtype"
+  },
+  "cpqSs3FanStatusChange": {
+    "name": "cpqSs3FanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFanStatus"
+      }
+    ]
+  },
+  "cpqSs3TempFailed": {
+    "name": "cpqSs3TempFailed",
+    "oid": "1.3.6.1.4.1.232.0.8009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSs3TempDegraded": {
+    "name": "cpqSs3TempDegraded",
+    "oid": "1.3.6.1.4.1.232.0.8010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSs3TempOk": {
+    "name": "cpqSs3TempOk",
+    "oid": "1.3.6.1.4.1.232.0.8011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSs3SidePanelInPlace": {
+    "name": "cpqSs3SidePanelInPlace",
+    "oid": "1.3.6.1.4.1.232.0.8012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSidePanelStatus"
+      }
+    ]
+  },
+  "cpqSs3SidePanelRemoved": {
+    "name": "cpqSs3SidePanelRemoved",
+    "oid": "1.3.6.1.4.1.232.0.8013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSidePanelStatus"
+      }
+    ]
+  },
+  "cpqSs3PwrSupplyDegraded": {
+    "name": "cpqSs3PwrSupplyDegraded",
+    "oid": "1.3.6.1.4.1.232.0.8014",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      }
+    ]
+  },
+  "cpqSs4PwrSupplyDegraded": {
+    "name": "cpqSs4PwrSupplyDegraded",
+    "oid": "1.3.6.1.4.1.232.0.8015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFltTolPwrSupplyStatus"
+      }
+    ]
+  },
+  "cpqSsExFanStatusChange": {
+    "name": "cpqSsExFanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleStatus"
+      }
+    ]
+  },
+  "cpqSsExPowerSupplyStatusChange": {
+    "name": "cpqSsExPowerSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyBay"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyStatus"
+      }
+    ]
+  },
+  "cpqSsExPowerSupplyUpsStatusChange": {
+    "name": "cpqSsExPowerSupplyUpsStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8018",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyBay"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyUpsStatus"
+      }
+    ]
+  },
+  "cpqSsExTempSensorStatusChange": {
+    "name": "cpqSsExTempSensorStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8019",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTempSensorLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTempSensorStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsTempSensorCurrentValue"
+      }
+    ]
+  },
+  "cpqSsEx2FanStatusChange": {
+    "name": "cpqSsEx2FanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8020",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsFanModuleBoardRevision"
+      }
+    ]
+  },
+  "cpqSsEx2PowerSupplyStatusChange": {
+    "name": "cpqSsEx2PowerSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8021",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyBay"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplySerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyBoardRevision"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsPowerSupplyFirmwareRevision"
+      }
+    ]
+  },
+  "cpqSsExBackplaneFanStatusChange": {
+    "name": "cpqSsExBackplaneFanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8022",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneFanStatus"
+      }
+    ]
+  },
+  "cpqSsExBackplaneTempStatusChange": {
+    "name": "cpqSsExBackplaneTempStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8023",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneTempStatus"
+      }
+    ]
+  },
+  "cpqSsExBackplanePowerSupplyStatusChange": {
+    "name": "cpqSsExBackplanePowerSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8024",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBackplaneFtpsStatus"
+      }
+    ]
+  },
+  "cpqSsExRecoveryServerStatusChange": {
+    "name": "cpqSsExRecoveryServerStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8025",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisName"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisTime"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisRsoStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsChassisIndex"
+      }
+    ]
+  },
+  "cpqSs5FanStatusChange": {
+    "name": "cpqSs5FanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8026",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFanStatus"
+      }
+    ]
+  },
+  "cpqSs5TempStatusChange": {
+    "name": "cpqSs5TempStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8027",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      }
+    ]
+  },
+  "cpqSs5PwrSupplyStatusChange": {
+    "name": "cpqSs5PwrSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8028",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFltTolPwrSupplyStatus"
+      }
+    ]
+  },
+  "cpqSs6FanStatusChange": {
+    "name": "cpqSs6FanStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8029",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFanStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocationString"
+      }
+    ]
+  },
+  "cpqSs6TempStatusChange": {
+    "name": "cpqSs6TempStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8030",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTempStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocationString"
+      }
+    ]
+  },
+  "cpqSs6PwrSupplyStatusChange": {
+    "name": "cpqSs6PwrSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8031",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxFltTolPwrSupplyStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocationString"
+      }
+    ]
+  },
+  "cpqSsConnectionStatusChange": {
+    "name": "cpqSsConnectionStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8032",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxConnectionStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocationString"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxTargetSasAddress"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocalManageIpAddress"
+      }
+    ]
+  },
+  "cpqSsGSIStatusChange": {
+    "name": "cpqSsGSIStatusChange",
+    "oid": "1.3.6.1.4.1.232.0.8033",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrHwLocation"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxCntlrIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxBusIndex"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxVendor"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxModel"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxSerialNumber"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxGSIStatus"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxGSIMessages"
+      },
+      {
+        "module": "CPQSTSYS-MIB",
+        "object": "cpqSsBoxLocationString"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CPQSTSYS-MIB",
+      "Source digest sha256:f75465e9b1c57b8432f6ebb463135337859bf7812319377a440b15cde7c9aba4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CPQSTSYS-MIB"
+  }
+}

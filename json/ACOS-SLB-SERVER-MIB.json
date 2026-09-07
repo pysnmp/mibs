@@ -1,0 +1,2719 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbServerModule": {
+    "name": "slbServerModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318",
+    "class": "moduleidentity"
+  },
+  "server": {
+    "name": "server",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1",
+    "class": "objectidentity"
+  },
+  "serverStatsTable": {
+    "name": "serverStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serverStatsEntry": {
+    "name": "serverStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serverStatsSlotId": {
+    "name": "serverStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsName": {
+    "name": "serverStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsCurrConn": {
+    "name": "serverStatsCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalConn": {
+    "name": "serverStatsTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsFwdPkt": {
+    "name": "serverStatsFwdPkt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsRevPkt": {
+    "name": "serverStatsRevPkt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsPeakConn": {
+    "name": "serverStatsPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalReq": {
+    "name": "serverStatsTotalReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalReqSucc": {
+    "name": "serverStatsTotalReqSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsCurrSslConn": {
+    "name": "serverStatsCurrSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalSslConn": {
+    "name": "serverStatsTotalSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalFwdBytes": {
+    "name": "serverStatsTotalFwdBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalRevBytes": {
+    "name": "serverStatsTotalRevBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalFwdPkts": {
+    "name": "serverStatsTotalFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsTotalRevPkts": {
+    "name": "serverStatsTotalRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsIpOnlyLbFwdBytes": {
+    "name": "serverStatsIpOnlyLbFwdBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsIpOnlyLbRevBytes": {
+    "name": "serverStatsIpOnlyLbRevBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsIpOnlyLbFwdPkts": {
+    "name": "serverStatsIpOnlyLbFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverStatsIpOnlyLbRevPkts": {
+    "name": "serverStatsIpOnlyLbRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperTable": {
+    "name": "serverOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serverOperEntry": {
+    "name": "serverOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serverOperSlotId": {
+    "name": "serverOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperName": {
+    "name": "serverOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperState": {
+    "name": "serverOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperCreationType": {
+    "name": "serverOperCreationType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDnsUpdateTime": {
+    "name": "serverOperDnsUpdateTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperServerTtl": {
+    "name": "serverOperServerTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperSrvGatewayArp": {
+    "name": "serverOperSrvGatewayArp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperIsAutocreate": {
+    "name": "serverOperIsAutocreate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperSlowStartConnLimit": {
+    "name": "serverOperSlowStartConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperCurrConnRate": {
+    "name": "serverOperCurrConnRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperConnRateUnit": {
+    "name": "serverOperConnRateUnit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperCurrObserveRate": {
+    "name": "serverOperCurrObserveRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDisable": {
+    "name": "serverOperDisable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperWeight": {
+    "name": "serverOperWeight",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListTable": {
+    "name": "serverOperDrsListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serverOperDrsListEntry": {
+    "name": "serverOperDrsListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverOperDrsListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverOperDrsListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "serverOperDrsListDrsListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serverOperDrsListSlotId": {
+    "name": "serverOperDrsListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListName": {
+    "name": "serverOperDrsListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsListListId": {
+    "name": "serverOperDrsListDrsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsName": {
+    "name": "serverOperDrsListDrsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsHost": {
+    "name": "serverOperDrsListDrsHost",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsServerIpv6Addr": {
+    "name": "serverOperDrsListDrsServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsState": {
+    "name": "serverOperDrsListDrsState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsCreationType": {
+    "name": "serverOperDrsListDrsCreationType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsDnsUpdateTime": {
+    "name": "serverOperDrsListDrsDnsUpdateTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsServerTtl": {
+    "name": "serverOperDrsListDrsServerTtl",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsSrvGatewayArp": {
+    "name": "serverOperDrsListDrsSrvGatewayArp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsIsAutocreate": {
+    "name": "serverOperDrsListDrsIsAutocreate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsSlowStartConnLimit": {
+    "name": "serverOperDrsListDrsSlowStartConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsCurrConnRate": {
+    "name": "serverOperDrsListDrsCurrConnRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsConnRateUnit": {
+    "name": "serverOperDrsListDrsConnRateUnit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsCurrObserveRate": {
+    "name": "serverOperDrsListDrsCurrObserveRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsDisable": {
+    "name": "serverOperDrsListDrsDisable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsCurrConn": {
+    "name": "serverOperDrsListDrsCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsCurrReq": {
+    "name": "serverOperDrsListDrsCurrReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotConn": {
+    "name": "serverOperDrsListDrsTotConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotReq": {
+    "name": "serverOperDrsListDrsTotReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotReqSuc": {
+    "name": "serverOperDrsListDrsTotReqSuc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotFwdBytes": {
+    "name": "serverOperDrsListDrsTotFwdBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotFwdPkts": {
+    "name": "serverOperDrsListDrsTotFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotRevBytes": {
+    "name": "serverOperDrsListDrsTotRevBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsTotRevPkts": {
+    "name": "serverOperDrsListDrsTotRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsPeakConn": {
+    "name": "serverOperDrsListDrsPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serverOperDrsListDrsWeight": {
+    "name": "serverOperDrsListDrsWeight",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "port": {
+    "name": "port",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4",
+    "class": "objectidentity"
+  },
+  "portStatsTable": {
+    "name": "portStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsEntry": {
+    "name": "portStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portStatsPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portStatsProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portStatsSlotId": {
+    "name": "portStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsName": {
+    "name": "portStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsPort": {
+    "name": "portStatsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsProtocol": {
+    "name": "portStatsProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsCurrConn": {
+    "name": "portStatsCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsCurrReq": {
+    "name": "portStatsCurrReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalReq": {
+    "name": "portStatsTotalReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalReqSucc": {
+    "name": "portStatsTotalReqSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalFwdBytes": {
+    "name": "portStatsTotalFwdBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalFwdPkts": {
+    "name": "portStatsTotalFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalRevBytes": {
+    "name": "portStatsTotalRevBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalRevPkts": {
+    "name": "portStatsTotalRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalConn": {
+    "name": "portStatsTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsLastTotalConn": {
+    "name": "portStatsLastTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsPeakConn": {
+    "name": "portStatsPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsResp200": {
+    "name": "portStatsEsResp200",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsResp300": {
+    "name": "portStatsEsResp300",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsResp400": {
+    "name": "portStatsEsResp400",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsResp500": {
+    "name": "portStatsEsResp500",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsRespOther": {
+    "name": "portStatsEsRespOther",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsReqCount": {
+    "name": "portStatsEsReqCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsRespCount": {
+    "name": "portStatsEsRespCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsEsRespInvalidHttp": {
+    "name": "portStatsEsRespInvalidHttp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalRevPktsInspected": {
+    "name": "portStatsTotalRevPktsInspected",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalRevPktsInspectedGoodStatusCode": {
+    "name": "portStatsTotalRevPktsInspectedGoodStatusCode",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResponseTime": {
+    "name": "portStatsResponseTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsFastestRspTime": {
+    "name": "portStatsFastestRspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsSlowestRspTime": {
+    "name": "portStatsSlowestRspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsCurrSslConn": {
+    "name": "portStatsCurrSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTotalSslConn": {
+    "name": "portStatsTotalSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsRespCount": {
+    "name": "portStatsRespCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResp1xx": {
+    "name": "portStatsResp1xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResp2xx": {
+    "name": "portStatsResp2xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResp3xx": {
+    "name": "portStatsResp3xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResp4xx": {
+    "name": "portStatsResp4xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsResp5xx": {
+    "name": "portStatsResp5xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsRespOther": {
+    "name": "portStatsRespOther",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsRespLatency": {
+    "name": "portStatsRespLatency",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsCurrPconn": {
+    "name": "portStatsCurrPconn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperTable": {
+    "name": "portOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperEntry": {
+    "name": "portOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperSlotId": {
+    "name": "portOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperName": {
+    "name": "portOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperPort": {
+    "name": "portOperPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperProtocol": {
+    "name": "portOperProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperState": {
+    "name": "portOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperCurrConnRate": {
+    "name": "portOperCurrConnRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperConnRateUnit": {
+    "name": "portOperConnRateUnit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperSlowStartConnLimit": {
+    "name": "portOperSlowStartConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperCurrObserveRate": {
+    "name": "portOperCurrObserveRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDownGracePeriodAllowed": {
+    "name": "portOperDownGracePeriodAllowed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperCurrentTime": {
+    "name": "portOperCurrentTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDownTimeGracePeriod": {
+    "name": "portOperDownTimeGracePeriod",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDiameterEnabled": {
+    "name": "portOperDiameterEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperEsRespTime": {
+    "name": "portOperEsRespTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperInbandHmReassignNum": {
+    "name": "portOperInbandHmReassignNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDisable": {
+    "name": "portOperDisable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperHmKey": {
+    "name": "portOperHmKey",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperHmIndex": {
+    "name": "portOperHmIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperSoftDownTime": {
+    "name": "portOperSoftDownTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAflowConnLimit": {
+    "name": "portOperAflowConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAflowQueueSize": {
+    "name": "portOperAflowQueueSize",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperResvConn": {
+    "name": "portOperResvConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperPoolName": {
+    "name": "portOperPoolName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListTable": {
+    "name": "portOperAutoNatAddrListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListEntry": {
+    "name": "portOperAutoNatAddrListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperAutoNatAddrListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperAutoNatAddrListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperAutoNatAddrListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperAutoNatAddrListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperAutoNatAddrListAutoNatAddrListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperAutoNatAddrListSlotId": {
+    "name": "portOperAutoNatAddrListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListName": {
+    "name": "portOperAutoNatAddrListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListPort": {
+    "name": "portOperAutoNatAddrListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListProtocol": {
+    "name": "portOperAutoNatAddrListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListAutoNatAddrListListId": {
+    "name": "portOperAutoNatAddrListAutoNatAddrListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListAutoNatIp": {
+    "name": "portOperAutoNatAddrListAutoNatIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListVrid": {
+    "name": "portOperAutoNatAddrListVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListHaGroupId": {
+    "name": "portOperAutoNatAddrListHaGroupId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListIpRr": {
+    "name": "portOperAutoNatAddrListIpRr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListPortsConsumed": {
+    "name": "portOperAutoNatAddrListPortsConsumed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListPortsConsumedTotal": {
+    "name": "portOperAutoNatAddrListPortsConsumedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListPortsFreedTotal": {
+    "name": "portOperAutoNatAddrListPortsFreedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperAutoNatAddrListAllocFailed": {
+    "name": "portOperAutoNatAddrListAllocFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListTable": {
+    "name": "portOperDrsAutoNatListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListEntry": {
+    "name": "portOperDrsAutoNatListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperDrsAutoNatListSlotId": {
+    "name": "portOperDrsAutoNatListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListName": {
+    "name": "portOperDrsAutoNatListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListPort": {
+    "name": "portOperDrsAutoNatListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListProtocol": {
+    "name": "portOperDrsAutoNatListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatListListId": {
+    "name": "portOperDrsAutoNatListDrsAutoNatListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsName": {
+    "name": "portOperDrsAutoNatListDrsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsPort": {
+    "name": "portOperDrsAutoNatListDrsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListTable": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListEntry": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListSlotId": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListName": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListPort": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListProtocol": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListAutoNatIp": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListAutoNatIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListVrid": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListHaGroupId": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListHaGroupId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListIpRr": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListIpRr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumed": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumedTotal": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListPortsFreedTotal": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListPortsFreedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsAutoNatListDrsAutoNatAddressListAllocFailed": {
+    "name": "portOperDrsAutoNatListDrsAutoNatAddressListAllocFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListTable": {
+    "name": "portOperNatPoolAddrListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListEntry": {
+    "name": "portOperNatPoolAddrListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperNatPoolAddrListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperNatPoolAddrListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperNatPoolAddrListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperNatPoolAddrListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperNatPoolAddrListNatPoolAddrListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperNatPoolAddrListSlotId": {
+    "name": "portOperNatPoolAddrListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListName": {
+    "name": "portOperNatPoolAddrListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListPort": {
+    "name": "portOperNatPoolAddrListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListProtocol": {
+    "name": "portOperNatPoolAddrListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListNatPoolAddrListListId": {
+    "name": "portOperNatPoolAddrListNatPoolAddrListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListNatIp": {
+    "name": "portOperNatPoolAddrListNatIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListPortsConsumed": {
+    "name": "portOperNatPoolAddrListPortsConsumed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListPortsConsumedTotal": {
+    "name": "portOperNatPoolAddrListPortsConsumedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListPortsFreedTotal": {
+    "name": "portOperNatPoolAddrListPortsFreedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNatPoolAddrListAllocFailed": {
+    "name": "portOperNatPoolAddrListAllocFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListTable": {
+    "name": "portOperDrsIpNatListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperDrsIpNatListEntry": {
+    "name": "portOperDrsIpNatListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListDrsIpNatListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperDrsIpNatListSlotId": {
+    "name": "portOperDrsIpNatListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListName": {
+    "name": "portOperDrsIpNatListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListPort": {
+    "name": "portOperDrsIpNatListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListProtocol": {
+    "name": "portOperDrsIpNatListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListDrsIpNatListListId": {
+    "name": "portOperDrsIpNatListDrsIpNatListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListDrsName": {
+    "name": "portOperDrsIpNatListDrsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListDrsPort": {
+    "name": "portOperDrsIpNatListDrsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListPoolName": {
+    "name": "portOperDrsIpNatListPoolName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListTable": {
+    "name": "portOperDrsIpNatListNatPoolAddrListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListEntry": {
+    "name": "portOperDrsIpNatListNatPoolAddrListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVER-MIB",
+        "object": "portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListSlotId": {
+    "name": "portOperDrsIpNatListNatPoolAddrListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListName": {
+    "name": "portOperDrsIpNatListNatPoolAddrListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListPort": {
+    "name": "portOperDrsIpNatListNatPoolAddrListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListProtocol": {
+    "name": "portOperDrsIpNatListNatPoolAddrListProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId": {
+    "name": "portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId": {
+    "name": "portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListNatIp": {
+    "name": "portOperDrsIpNatListNatPoolAddrListNatIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListPortsConsumed": {
+    "name": "portOperDrsIpNatListNatPoolAddrListPortsConsumed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListPortsConsumedTotal": {
+    "name": "portOperDrsIpNatListNatPoolAddrListPortsConsumedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListPortsFreedTotal": {
+    "name": "portOperDrsIpNatListNatPoolAddrListPortsFreedTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDrsIpNatListNatPoolAddrListAllocFailed": {
+    "name": "portOperDrsIpNatListNatPoolAddrListAllocFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.318.1.4.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SERVER-MIB",
+      "Source digest sha256:d13a3acb8ce6c28c6e34069ae3e159dc521334f2b12a004d4256a58febf9e54f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SERVER-MIB"
+  }
+}

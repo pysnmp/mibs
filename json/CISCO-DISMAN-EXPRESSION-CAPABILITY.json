@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cdismanExpressionCapability": {
+    "name": "cdismanExpressionCapability",
+    "oid": "1.3.6.1.4.1.9.7.484",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cdismanExpressionCapIOSXRV3R2R0CRS1": {
+    "name": "cdismanExpressionCapIOSXRV3R2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.484.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "DISMAN-EXPRESSION-MIB",
+        "includes": [
+          "dismanExpressionResourceGroup",
+          "dismanExpressionDefinitionGroup",
+          "dismanExpressionValueGroup"
+        ],
+        "variations": [
+          {
+            "object": "expObjectDeltaDiscontinuityID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "expObjectDiscontinuityIDWildcard",
+            "access": "not-implemented"
+          },
+          {
+            "object": "expObjectDiscontinuityIDType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DISMAN-EXPRESSION-CAPABILITY",
+      "Source digest sha256:bf3d0c5086752e82a849bf8a9c06738915112186cd0c12dc156031c2806ff14f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DISMAN-EXPRESSION-CAPABILITY"
+  }
+}

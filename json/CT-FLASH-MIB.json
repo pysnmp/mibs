@@ -1,0 +1,446 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctFlash"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "flashStatus": {
+    "name": "flashStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1",
+    "class": "objectidentity"
+  },
+  "flashFile": {
+    "name": "flashFile",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2",
+    "class": "objectidentity"
+  },
+  "flashCmd": {
+    "name": "flashCmd",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3",
+    "class": "objectidentity"
+  },
+  "flashVolumeStatusTable": {
+    "name": "flashVolumeStatusTable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "flashVolumeStatusEntry": {
+    "name": "flashVolumeStatusEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FLASH-MIB",
+        "object": "flashVolume",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "flashVolume": {
+    "name": "flashVolume",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashVolFiles": {
+    "name": "flashVolFiles",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashVolSpace": {
+    "name": "flashVolSpace",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashFileTable": {
+    "name": "flashFileTable",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "flashFileEntry": {
+    "name": "flashFileEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CT-FLASH-MIB",
+        "object": "flashVolume",
+        "implied": 0
+      },
+      {
+        "module": "CT-FLASH-MIB",
+        "object": "flashFileID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "flashFileID": {
+    "name": "flashFileID",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashFilename": {
+    "name": "flashFilename",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashFileVersion": {
+    "name": "flashFileVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashFileType": {
+    "name": "flashFileType",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intelHex": 1,
+          "intelHexCompressed": 2,
+          "iEEE695": 3,
+          "eLF": 4,
+          "table": 5,
+          "dLL": 6,
+          "bOOT": 7,
+          "binary": 8,
+          "binaryCompressed": 9,
+          "taggedData": 10,
+          "package": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashFileSize": {
+    "name": "flashFileSize",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashCmdPath": {
+    "name": "flashCmdPath",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdNetAddress": {
+    "name": "flashCmdNetAddress",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdVolume": {
+    "name": "flashCmdVolume",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdOperation": {
+    "name": "flashCmdOperation",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "install": 1,
+          "download": 2,
+          "upload": 3,
+          "cleanup": 4,
+          "delete": 5,
+          "none": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdStatus": {
+    "name": "flashCmdStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "other": 2,
+          "flashVerifyServer": 3,
+          "flashCleanup": 4,
+          "downLoadActive": 5,
+          "upLoadActive": 6,
+          "completeError": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashCmdError": {
+    "name": "flashCmdError",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oK": 1,
+          "deleteFailed": 2,
+          "fileSystem": 3,
+          "tFTPerror": 4,
+          "corruptFile": 5,
+          "dupFlashName": 6,
+          "noFlashFile": 7,
+          "flashAlloc": 8,
+          "maxFiles": 9,
+          "invalidName": 10,
+          "protocolErr": 11,
+          "serverLost": 12,
+          "noNetFile": 13,
+          "noNetAccess": 14,
+          "netDiskFull": 15,
+          "dupNetFile": 16,
+          "parseError": 17,
+          "invalidType": 18,
+          "invalidCmd": 19,
+          "invalidModId": 20,
+          "noServerIP": 21,
+          "socketError": 22,
+          "blockSequence": 23,
+          "bufferError": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "flashCmdFile": {
+    "name": "flashCmdFile",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdVersion": {
+    "name": "flashCmdVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdType": {
+    "name": "flashCmdType",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intelHex": 1,
+          "intelHexCompressed": 2,
+          "iEEE695": 3,
+          "eLF": 4,
+          "table": 5,
+          "dLL": 6,
+          "bOOT": 7,
+          "binary": 8,
+          "binaryCompressed": 9,
+          "taggedData": 10,
+          "package": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashCmdSize": {
+    "name": "flashCmdSize",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flashBlockCount": {
+    "name": "flashBlockCount",
+    "oid": "1.3.6.1.4.1.52.4.1.5.10.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CT-FLASH-MIB",
+      "Source digest sha256:fc100325f7a2e7bcd654224e2587b7d4f8256ff43310f2f6a76e6a140c7901c8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CT-FLASH-MIB"
+  }
+}

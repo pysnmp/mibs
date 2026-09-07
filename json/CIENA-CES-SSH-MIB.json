@@ -1,0 +1,72 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesSSHMIB": {
+    "name": "cienaCesSSHMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.41",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2016-08-22 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesSSHMIBObjects": {
+    "name": "cienaCesSSHMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.41.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSSHServerGlobal": {
+    "name": "cienaCesSSHServerGlobal",
+    "oid": "1.3.6.1.4.1.1271.2.1.41.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSSHServerAdminState": {
+    "name": "cienaCesSSHServerAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.41.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-CES-SSH-MIB",
+      "Source digest sha256:37b9ff0e760a565b1090981150bcab123bb1fa7f0d9a161f3ecdcf8396e5c139",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-CES-SSH-MIB"
+  }
+}

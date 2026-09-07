@@ -1,0 +1,1796 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfIpDhcpSnoop": {
+    "name": "hpicfIpDhcpSnoop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-01 00:00",
+        "description": "Added objects hpicfDhcpSnoopClearBindings, hpicfDhcpSnoopClearBindingsIpType, hpicfDhcpSnoopClearBindingsIpAddr, hpicfDhcpSnoopClearBindingsPort, hpicfDhcpSnoopClearBindingsVlan. Also added group hpicfDhcpSnoopClearBindingsOptionsGroup and compliance hpicfDhcpSnoopCompliance10."
+      },
+      {
+        "revision": "2016-01-29 00:00",
+        "description": "Added object hpicfDhcpSnoopAllowOverwriteBinding. Added group hpicfDhcpSnoopAllowOverwriteBindingGroup and compliance hpicfDhcpSnoopCompliance9."
+      },
+      {
+        "revision": "2015-06-12 00:00",
+        "description": "Added object hpicfDhcpSnoopBindingsSecVlan."
+      },
+      {
+        "revision": "2013-06-12 00:00",
+        "description": "Added object hpicfDhcpSnoopClearStats.Added group hpicfDhcpSnoopClearStatsOptionsGroup and compliance hpicfDhcpSnoopClearStatsCompliance."
+      },
+      {
+        "revision": "2013-05-02 00:00",
+        "description": "Added MIB objects hpicfDhcpSnoopPortMaxbind, hpicfDhcpSnoopPortStaticBinding, hpicfDhcpSnoopPortDynamicBinding and hpicfDhcpSnoopMaxbindPktsDropped for Max-Bindings , Created groups hpicfDhcpSnoopPktsGroup1 and hpicfDhcpSnoopMaxbindingGroup and Compliances hpicfDhcpSnoopCompliance6 and hpicfDhcpSnoopCompliance7 added."
+      },
+      {
+        "revision": "2013-02-10 00:00",
+        "description": "Added hpicfDhcpSnoopPktsSent, hpicfDhcpSnoopPktsReceived, hpicfDhcpSnoopPktsDropped, Group hpicfDhcpSnoopPktsGroup and Compliance hpicfDhcpSnoopCompliance4."
+      },
+      {
+        "revision": "2007-08-24 00:00",
+        "description": "Added hpicfDhcpSnoopErrantReply notification."
+      },
+      {
+        "revision": "2006-07-06 00:38",
+        "description": "Add support for static IP address bindings."
+      },
+      {
+        "revision": "2006-03-18 00:38",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfDhcpSnoopNotifications": {
+    "name": "hpicfDhcpSnoopNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.0",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopErrantReply": {
+    "name": "hpicfDhcpSnoopErrantReply",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopNotifyCount"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcMAC"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcIPType"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpDhcpSnoopObjects": {
+    "name": "hpicfIpDhcpSnoopObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1",
+    "class": "objectidentity"
+  },
+  "hpicfIpDhcpSnoopConfig": {
+    "name": "hpicfIpDhcpSnoopConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopGlobalCfg": {
+    "name": "hpicfDhcpSnoopGlobalCfg",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopEnable": {
+    "name": "hpicfDhcpSnoopEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopVlanEnable": {
+    "name": "hpicfDhcpSnoopVlanEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopVerifyMac": {
+    "name": "hpicfDhcpSnoopVerifyMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseFile": {
+    "name": "hpicfDhcpSnoopDatabaseFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseWriteDelay": {
+    "name": "hpicfDhcpSnoopDatabaseWriteDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseWriteTimeout": {
+    "name": "hpicfDhcpSnoopDatabaseWriteTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopOpt82Insert": {
+    "name": "hpicfDhcpSnoopOpt82Insert",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopOpt82Policy": {
+    "name": "hpicfDhcpSnoopOpt82Policy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keep": 1,
+          "replace": 2,
+          "drop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopOpt82RemoteId": {
+    "name": "hpicfDhcpSnoopOpt82RemoteId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "subnetIP": 2,
+          "mgmtIP": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopErrantReplyEnable": {
+    "name": "hpicfDhcpSnoopErrantReplyEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseFTPort": {
+    "name": "hpicfDhcpSnoopDatabaseFTPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseSFTPUsername": {
+    "name": "hpicfDhcpSnoopDatabaseSFTPUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseSFTPPassword": {
+    "name": "hpicfDhcpSnoopDatabaseSFTPPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDatabaseValidateSFTPServer": {
+    "name": "hpicfDhcpSnoopDatabaseValidateSFTPServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopAllowOverwriteBinding": {
+    "name": "hpicfDhcpSnoopAllowOverwriteBinding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortTable": {
+    "name": "hpicfDhcpSnoopPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortEntry": {
+    "name": "hpicfDhcpSnoopPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortTrust": {
+    "name": "hpicfDhcpSnoopPortTrust",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortMaxbind": {
+    "name": "hpicfDhcpSnoopPortMaxbind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortStaticBinding": {
+    "name": "hpicfDhcpSnoopPortStaticBinding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPortDynamicBinding": {
+    "name": "hpicfDhcpSnoopPortDynamicBinding",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServerTable": {
+    "name": "hpicfDhcpSnoopServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServerEntry": {
+    "name": "hpicfDhcpSnoopServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServerAddrType": {
+    "name": "hpicfDhcpSnoopServerAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServerAddress": {
+    "name": "hpicfDhcpSnoopServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServerStatus": {
+    "name": "hpicfDhcpSnoopServerStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsTable": {
+    "name": "hpicfIpStaticBindingsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsEntry": {
+    "name": "hpicfIpStaticBindingsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsVlan": {
+    "name": "hpicfIpStaticBindingsVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsAddrType": {
+    "name": "hpicfIpStaticBindingsAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsAddress": {
+    "name": "hpicfIpStaticBindingsAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsMacAddress": {
+    "name": "hpicfIpStaticBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsInterface": {
+    "name": "hpicfIpStaticBindingsInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpStaticBindingsStatus": {
+    "name": "hpicfIpStaticBindingsStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfIpDhcpSnoopStatus": {
+    "name": "hpicfIpDhcpSnoopStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopGlobalStats": {
+    "name": "hpicfDhcpSnoopGlobalStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopCSForwards": {
+    "name": "hpicfDhcpSnoopCSForwards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCSMACMismatches": {
+    "name": "hpicfDhcpSnoopCSMACMismatches",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCSUntrustedOpt82s": {
+    "name": "hpicfDhcpSnoopCSUntrustedOpt82s",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCSBadReleases": {
+    "name": "hpicfDhcpSnoopCSBadReleases",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCSUntrustedDestPorts": {
+    "name": "hpicfDhcpSnoopCSUntrustedDestPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopSCForwards": {
+    "name": "hpicfDhcpSnoopSCForwards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopSCUntrustedPorts": {
+    "name": "hpicfDhcpSnoopSCUntrustedPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopSCUntrustedServers": {
+    "name": "hpicfDhcpSnoopSCUntrustedServers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopSCOpt82Failures": {
+    "name": "hpicfDhcpSnoopSCOpt82Failures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDBFileWriteAttempts": {
+    "name": "hpicfDhcpSnoopDBFileWriteAttempts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDBFileWriteFailures": {
+    "name": "hpicfDhcpSnoopDBFileWriteFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDBFileReadStatus": {
+    "name": "hpicfDhcpSnoopDBFileReadStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDBFileWriteStatus": {
+    "name": "hpicfDhcpSnoopDBFileWriteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "delaying": 2,
+          "inProgress": 3,
+          "succeeded": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDBFileLastWriteTime": {
+    "name": "hpicfDhcpSnoopDBFileLastWriteTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPktsSent": {
+    "name": "hpicfDhcpSnoopPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPktsReceived": {
+    "name": "hpicfDhcpSnoopPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPktsDropped": {
+    "name": "hpicfDhcpSnoopPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopMaxbindPktsDropped": {
+    "name": "hpicfDhcpSnoopMaxbindPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsTable": {
+    "name": "hpicfDhcpSnoopBindingsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsEntry": {
+    "name": "hpicfDhcpSnoopBindingsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsVlan": {
+    "name": "hpicfDhcpSnoopBindingsVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsMacAddress": {
+    "name": "hpicfDhcpSnoopBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsAddrType": {
+    "name": "hpicfDhcpSnoopBindingsAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsAddress": {
+    "name": "hpicfDhcpSnoopBindingsAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsInterface": {
+    "name": "hpicfDhcpSnoopBindingsInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsLeaseTime": {
+    "name": "hpicfDhcpSnoopBindingsLeaseTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsType": {
+    "name": "hpicfDhcpSnoopBindingsType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopBindingsSecVlan": {
+    "name": "hpicfDhcpSnoopBindingsSecVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopNotifyObjects": {
+    "name": "hpicfDhcpSnoopNotifyObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.3",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopNotifyCount": {
+    "name": "hpicfDhcpSnoopNotifyCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopErrantSrcMAC": {
+    "name": "hpicfDhcpSnoopErrantSrcMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopErrantSrcIPType": {
+    "name": "hpicfDhcpSnoopErrantSrcIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopErrantSrcIP": {
+    "name": "hpicfDhcpSnoopErrantSrcIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearStatsOptions": {
+    "name": "hpicfDhcpSnoopClearStatsOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopClearStats": {
+    "name": "hpicfDhcpSnoopClearStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsOptions": {
+    "name": "hpicfDhcpSnoopClearBindingsOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopClearBindings": {
+    "name": "hpicfDhcpSnoopClearBindings",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsIpType": {
+    "name": "hpicfDhcpSnoopClearBindingsIpType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsIpAddr": {
+    "name": "hpicfDhcpSnoopClearBindingsIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsPort": {
+    "name": "hpicfDhcpSnoopClearBindingsPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsVlan": {
+    "name": "hpicfDhcpSnoopClearBindingsVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpSnoopConformance": {
+    "name": "hpicfDhcpSnoopConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2",
+    "class": "objectidentity"
+  },
+  "hpicfIpDhcpSnoopGroups": {
+    "name": "hpicfIpDhcpSnoopGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopBaseGroup": {
+    "name": "hpicfDhcpSnoopBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopEnable"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopVlanEnable"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopVerifyMac"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPortTrust"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopCSForwards"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopCSMACMismatches"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopCSBadReleases"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopCSUntrustedDestPorts"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopSCForwards"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopSCUntrustedPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopOpt82Group": {
+    "name": "hpicfDhcpSnoopOpt82Group",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopOpt82Insert"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopOpt82Policy"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopOpt82RemoteId"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopCSUntrustedOpt82s"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopSCOpt82Failures"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopServersGroup": {
+    "name": "hpicfDhcpSnoopServersGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopServerStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopSCUntrustedServers"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDbaseFileGroup": {
+    "name": "hpicfDhcpSnoopDbaseFileGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseFile"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileLastWriteTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpSnoopBindingsGroup": {
+    "name": "hpicfDhcpSnoopBindingsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsInterface"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsLeaseTime"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsType"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsSecVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopStaticBindingsGroup": {
+    "name": "hpicfDhcpSnoopStaticBindingsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsMacAddress"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsInterface"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfIpStaticBindingsStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopBindingsType"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopNotifyObjsGroup": {
+    "name": "hpicfDhcpSnoopNotifyObjsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopNotifyCount"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcMAC"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcIPType"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantSrcIP"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantReplyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopNotificationGroup": {
+    "name": "hpicfDhcpSnoopNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopErrantReply"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPktsGroup": {
+    "name": "hpicfDhcpSnoopPktsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearStatsOptionsGroup": {
+    "name": "hpicfDhcpSnoopClearStatsOptionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopMaxbindingGroup": {
+    "name": "hpicfDhcpSnoopMaxbindingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPortMaxbind"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPortStaticBinding"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPortDynamicBinding"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopPktsGroup1": {
+    "name": "hpicfDhcpSnoopPktsGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopMaxbindPktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopDbaseFileGroup1": {
+    "name": "hpicfDhcpSnoopDbaseFileGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseFile"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseWriteDelay"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseWriteTimeout"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteAttempts"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteFailures"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileReadStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileWriteStatus"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDBFileLastWriteTime"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseFTPort"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseSFTPUsername"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseSFTPPassword"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopDatabaseValidateSFTPServer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopAllowOverwriteBindingGroup": {
+    "name": "hpicfDhcpSnoopAllowOverwriteBindingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopAllowOverwriteBinding"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearBindingsOptionsGroup": {
+    "name": "hpicfDhcpSnoopClearBindingsOptionsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearBindings"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearBindingsIpType"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearBindingsIpAddr"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearBindingsPort"
+      },
+      {
+        "module": "HP-ICF-DHCP-SNOOP-MIB",
+        "object": "hpicfDhcpSnoopClearBindingsVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliances": {
+    "name": "hpicfDhcpSnoopCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpSnoopCompliance": {
+    "name": "hpicfDhcpSnoopCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopBaseGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopOpt82Group",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopServersGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopDbaseFileGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpSnoopCompliance2": {
+    "name": "hpicfDhcpSnoopCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopBaseGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopOpt82Group",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopServersGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopDbaseFileGroup1",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopStaticBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance3": {
+    "name": "hpicfDhcpSnoopCompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopNotifyObjsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopNotificationGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance4": {
+    "name": "hpicfDhcpSnoopCompliance4",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopPktsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopClearStatsCompliance": {
+    "name": "hpicfDhcpSnoopClearStatsCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopClearStatsOptionsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance6": {
+    "name": "hpicfDhcpSnoopCompliance6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopBaseGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopOpt82Group",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopServersGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopDbaseFileGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopStaticBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopMaxbindingGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpSnoopCompliance7": {
+    "name": "hpicfDhcpSnoopCompliance7",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopPktsGroup1",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance8": {
+    "name": "hpicfDhcpSnoopCompliance8",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopBaseGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopOpt82Group",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopServersGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopDbaseFileGroup1",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopStaticBindingsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      },
+      {
+        "object": "hpicfDhcpSnoopMaxbindingGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance9": {
+    "name": "hpicfDhcpSnoopCompliance9",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopAllowOverwriteBindingGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpSnoopCompliance10": {
+    "name": "hpicfDhcpSnoopCompliance10",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.34.2.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpSnoopClearBindingsOptionsGroup",
+        "module": "HP-ICF-DHCP-SNOOP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-DHCP-SNOOP-MIB",
+      "Source digest sha256:12cc8056bbe03347f15e47c1149d4733eae49d6822abf262b6e918c4574476f9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-DHCP-SNOOP-MIB"
+  }
+}

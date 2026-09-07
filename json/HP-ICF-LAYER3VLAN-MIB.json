@@ -1,0 +1,140 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfLayer3VlanConfigMIB": {
+    "name": "hpicfLayer3VlanConfigMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfLayer3VlanConfig": {
+    "name": "hpicfLayer3VlanConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.1",
+    "class": "objectidentity"
+  },
+  "hpicfLayer3VlanConfigConformance": {
+    "name": "hpicfLayer3VlanConfigConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.2",
+    "class": "objectidentity"
+  },
+  "hpicfLayer3VlanConfigTable": {
+    "name": "hpicfLayer3VlanConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfLayer3VlanConfigEntry": {
+    "name": "hpicfLayer3VlanConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLayer3VlanStatus": {
+    "name": "hpicfLayer3VlanStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfL3VlanConfigMIBCompliances": {
+    "name": "hpicfL3VlanConfigMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfLayer3VlanConfigMIBGroups": {
+    "name": "hpicfLayer3VlanConfigMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfL3VlanConfigMIBCompliance": {
+    "name": "hpicfL3VlanConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfLayer3VlanConfigGroup",
+        "module": "HP-ICF-LAYER3VLAN-MIB"
+      },
+      {
+        "object": "hpicfLayer3VlanConfigGroup",
+        "module": "HP-ICF-LAYER3VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfLayer3VlanConfigGroup": {
+    "name": "hpicfLayer3VlanConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.70.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-LAYER3VLAN-MIB",
+        "object": "hpicfLayer3VlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-LAYER3VLAN-MIB",
+      "Source digest sha256:e814c483fc140a842b24200e52a5a3fe9a2c34bd52b4afb27410375ee1d5e586",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-LAYER3VLAN-MIB"
+  }
+}

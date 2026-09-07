@@ -1,0 +1,83 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ubiquoss": {
+    "name": "ubiquoss",
+    "oid": "1.3.6.1.4.1.7800",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1906-07-13 00:00",
+        "description": "New oid assignments for Ubiquoss MIB."
+      },
+      {
+        "revision": "1904-04-22 00:00",
+        "description": "New oid assignments for LocusNetworks switchAgent MIB."
+      },
+      {
+        "revision": "1901-10-09 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2008-06-22 13:08",
+        "description": "Epon Group MIB"
+      }
+    ]
+  },
+  "lnsProducts": {
+    "name": "lnsProducts",
+    "oid": "1.3.6.1.4.1.7800.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiMgmt": {
+    "name": "ubiMgmt",
+    "oid": "1.3.6.1.4.1.7800.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lnsKtEmsAgnt": {
+    "name": "lnsKtEmsAgnt",
+    "oid": "1.3.6.1.4.1.7800.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "switchAgent": {
+    "name": "switchAgent",
+    "oid": "1.3.6.1.4.1.7800.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiEponGroupMIB": {
+    "name": "ubiEponGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.2.500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBIQUOSS-SMI",
+      "Source digest sha256:161de8d284eaa696ee1018ffa2e6f6766abd0e3b5ba9e36a89e7a47a14f45979",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBIQUOSS-SMI"
+  }
+}

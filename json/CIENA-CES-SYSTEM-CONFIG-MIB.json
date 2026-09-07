@@ -1,0 +1,285 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesSystemConfigMIB": {
+    "name": "cienaCesSystemConfigMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2016-10-28 00:00",
+        "description": "Added cienaCesCommandFileCompletedNotification and cienaCesCommandFileFailedNotification."
+      },
+      {
+        "revision": "2010-05-10 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "FileName": {
+    "name": "FileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "cienaCesSystemConfigMIBObjects": {
+    "name": "cienaCesSystemConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigNotifAttrs": {
+    "name": "cienaCesSystemConfigNotifAttrs",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigMIBNotificationPrefix": {
+    "name": "cienaCesSystemConfigMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.14",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigMIBNotifications": {
+    "name": "cienaCesSystemConfigMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.14.0",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigMIBConformance": {
+    "name": "cienaCesSystemConfigMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.3",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigCompliances": {
+    "name": "cienaCesSystemConfigCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigMIBGroups": {
+    "name": "cienaCesSystemConfigMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSystemConfigFileName": {
+    "name": "cienaCesSystemConfigFileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSystemConfigErrLineNum": {
+    "name": "cienaCesSystemConfigErrLineNum",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSystemConfigErrStr": {
+    "name": "cienaCesSystemConfigErrStr",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSystemConfigErrLinesTotal": {
+    "name": "cienaCesSystemConfigErrLinesTotal",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesCommandFileHost": {
+    "name": "cienaCesCommandFileHost",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesCommandFileName": {
+    "name": "cienaCesCommandFileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesCommandFileError": {
+    "name": "cienaCesCommandFileError",
+    "oid": "1.3.6.1.4.1.1271.2.1.14.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesImproperCmdInConfigFile": {
+    "name": "cienaCesImproperCmdInConfigFile",
+    "oid": "1.3.6.1.4.1.1271.2.2.14.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesSystemConfigFileName"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesSystemConfigErrLinesTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesCommandFileCompletedNotification": {
+    "name": "cienaCesCommandFileCompletedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.14.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesCommandFileHost"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesCommandFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesCommandFileFailedNotification": {
+    "name": "cienaCesCommandFileFailedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.14.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesCommandFileHost"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesCommandFileName"
+      },
+      {
+        "module": "CIENA-CES-SYSTEM-CONFIG-MIB",
+        "object": "cienaCesCommandFileError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-CES-SYSTEM-CONFIG-MIB",
+      "Source digest sha256:3536b313408cd3258f172f269fb2caeab7bc97c62262308e65fb4a4178a79b64",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-CES-SYSTEM-CONFIG-MIB"
+  }
+}

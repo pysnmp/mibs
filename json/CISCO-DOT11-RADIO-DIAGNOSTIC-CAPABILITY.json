@@ -1,0 +1,53 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDot11RadioDiagCapability": {
+    "name": "ciscoDot11RadioDiagCapability",
+    "oid": "1.3.6.1.4.1.9.7.335",
+    "class": "moduleidentity"
+  },
+  "ciscoDot11RadioDiagCapabilityV1": {
+    "name": "ciscoDot11RadioDiagCapabilityV1",
+    "oid": "1.3.6.1.4.1.9.7.335.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "CISCO-DOT11-RADIO-DIAGNOSTIC-MIB",
+        "includes": [
+          "cDot11RadioDiagConfigGlobalGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DOT11-RADIO-DIAGNOSTIC-CAPABILITY",
+      "Source digest sha256:7c36f6092b8c825a1ccafa29af8a2062f42991c669c3802f398bee4b97aa0d31",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DOT11-RADIO-DIAGNOSTIC-CAPABILITY"
+  }
+}

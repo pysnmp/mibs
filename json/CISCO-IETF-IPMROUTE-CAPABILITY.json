@@ -1,0 +1,91 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfIpMrouteCapability": {
+    "name": "ciscoIetfIpMrouteCapability",
+    "oid": "1.3.6.1.4.1.9.7.442",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIetfIpMrouteCapV320CRS1": {
+    "name": "cIetfIpMrouteCapV320CRS1",
+    "oid": "1.3.6.1.4.1.9.7.442.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-IPMROUTE-MIB",
+        "includes": [
+          "cIpMRouteMIBBasicGroup",
+          "cIpMRouteMIBHopCountGroup",
+          "cIpMRouteMIBBoundaryGroup",
+          "cIpMRouteMIBPktsOutGroup",
+          "cIpMRouteMIBHCInterfaceGroup",
+          "cIpMRouteMIBRouteGroup",
+          "cIpMRouteMIBPktsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cIpMRouteExpiryTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cIpMRouteRtProto",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cIpMRouteNextHopPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cIpMRouteInterfaceRateLimit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cIpMRouteInterfaceProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cIpMRouteScopeNameTable",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-IPMROUTE-CAPABILITY",
+      "Source digest sha256:a632880b25d1ce54c1a1ff4f81683e46b948a7fdfd694e9c173290e57f7713b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-IPMROUTE-CAPABILITY"
+  }
+}

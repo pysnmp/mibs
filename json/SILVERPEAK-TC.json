@@ -1,0 +1,108 @@
+{
+  "imports": {
+    "class": "imports",
+    "SILVERPEAK-SMI": [
+      "silverpeakModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "silverpeakTextualConventions": {
+    "name": "silverpeakTextualConventions",
+    "oid": "1.3.6.1.4.1.23867.2.1",
+    "class": "moduleidentity"
+  },
+  "SilverpeakDescription": {
+    "name": "SilverpeakDescription",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SilverpeakYesNo": {
+    "name": "SilverpeakYesNo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SilverpeakSeqNum": {
+    "name": "SilverpeakSeqNum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SilverpeakAlarmSeverity": {
+    "name": "SilverpeakAlarmSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "info": 0,
+          "warning": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4,
+          "cleared": 5,
+          "acknowledged": 6,
+          "unacknowledged": 7,
+          "indeterminate": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SILVERPEAK-TC",
+      "Source digest sha256:d466ba6e6784fa6ba19112962be88d70e42687a94f042c5cf52c144ce2e3d2f0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SILVERPEAK-TC"
+  }
+}

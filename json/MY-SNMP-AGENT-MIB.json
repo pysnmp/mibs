@@ -1,0 +1,441 @@
+{
+  "imports": {
+    "class": "imports",
+    "MY-SMI": [
+      "myMgmt"
+    ],
+    "MY-TC": [
+      "ConfigStatus",
+      "MyTrapType"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mySnmpAgentMIB": {
+    "name": "mySnmpAgentMIB",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "mySnmpAgentMIBObjects": {
+    "name": "mySnmpAgentMIBObjects",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1",
+    "class": "objectidentity"
+  },
+  "mySnmpCommunityObjects": {
+    "name": "mySnmpCommunityObjects",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1",
+    "class": "objectidentity"
+  },
+  "mySnmpTrapObjects": {
+    "name": "mySnmpTrapObjects",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2",
+    "class": "objectidentity"
+  },
+  "Community": {
+    "name": "Community",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "myCommunityMaxNum": {
+    "name": "myCommunityMaxNum",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myCommunityTable": {
+    "name": "myCommunityTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myCommunityEntry": {
+    "name": "myCommunityEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myCommunityName": {
+    "name": "myCommunityName",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Community",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myCommunityWritable": {
+    "name": "myCommunityWritable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readonly": 1,
+          "writable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "readonly",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myCommunityUserIpAddr": {
+    "name": "myCommunityUserIpAddr",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myCommunityEnableIpAddrAuthen": {
+    "name": "myCommunityEnableIpAddrAuthen",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myCommunityStatus": {
+    "name": "myCommunityStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "myTrapDstMaxNumber": {
+    "name": "myTrapDstMaxNumber",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myTrapDstTable": {
+    "name": "myTrapDstTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myTrapDstEntry": {
+    "name": "myTrapDstEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myTrapDstAddr": {
+    "name": "myTrapDstAddr",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myTrapDstCommunity": {
+    "name": "myTrapDstCommunity",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Community",
+      "class": "type"
+    },
+    "default": {
+      "value": "public",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myTrapDstSendTrapClass": {
+    "name": "myTrapDstSendTrapClass",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpv1-Trap": 1,
+          "snmpv2c-Trap": 2
+        }
+      }
+    },
+    "default": {
+      "value": "snmpv1-Trap",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "myTrapDstEntryStatus": {
+    "name": "myTrapDstEntryStatus",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "myTrapActionTable": {
+    "name": "myTrapActionTable",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "myTrapActionEntry": {
+    "name": "myTrapActionEntry",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "myTrapType": {
+    "name": "myTrapType",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MyTrapType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "myTrapAction": {
+    "name": "myTrapAction",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "sendtrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mySnmpAgentMIBConformance": {
+    "name": "mySnmpAgentMIBConformance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2",
+    "class": "objectidentity"
+  },
+  "mySnmpAgentMIBCompliances": {
+    "name": "mySnmpAgentMIBCompliances",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "mySnmpAgentMIBGroups": {
+    "name": "mySnmpAgentMIBGroups",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "mySnmpAgentMIBCompliance": {
+    "name": "mySnmpAgentMIBCompliance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "myCommunityMIBGroup",
+        "module": "MY-SNMP-AGENT-MIB"
+      },
+      {
+        "object": "mySnmpTrapMIBGroup",
+        "module": "MY-SNMP-AGENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "myCommunityMIBGroup": {
+    "name": "myCommunityMIBGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityMaxNum"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityName"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityWritable"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityUserIpAddr"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityEnableIpAddrAuthen"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myCommunityStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mySnmpTrapMIBGroup": {
+    "name": "mySnmpTrapMIBGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.5.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstSendTrapClass"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstMaxNumber"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstAddr"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstCommunity"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapDstEntryStatus"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapType"
+      },
+      {
+        "module": "MY-SNMP-AGENT-MIB",
+        "object": "myTrapAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MY-SNMP-AGENT-MIB",
+      "Source digest sha256:a4b339d5156fefece2b9b86af2340cfbcd1d76bd96de5b91c2c5ac2c6ee9f417",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MY-SNMP-AGENT-MIB"
+  }
+}

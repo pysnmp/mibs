@@ -1,0 +1,1576 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEnvMonCapability": {
+    "name": "ciscoEnvMonCapability",
+    "oid": "1.3.6.1.4.1.9.7.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-16 00:00",
+        "description": "Added agent capabilities for Wireless LAN Controllers."
+      },
+      {
+        "revision": "2009-01-05 00:00",
+        "description": "Added agent capabilities for TelePresence platforms."
+      },
+      {
+        "revision": "2007-05-18 00:00",
+        "description": "The following capability statements have been added: 1. ciscoEnvMonCapV12R05TP28xx 2. ciscoEnvMonCapV12R05TP3825 3. ciscoEnvMonCapV12R05TP3845 4. ciscoEnvMonCapV12R05TP1841Rev1 ciscoEnvMonCapV12R05TP1841 has been made obsolete by ciscoEnvMonCapV12R05TP1841Rev1. ciscoEnvMonCapV12R05TPMARS has been updated to indicate the platforms this capability statement is applicable to."
+      },
+      {
+        "revision": "2006-12-12 00:00",
+        "description": "Added VARIATION for ciscoEnvMonMIBGroupRev, ciscoEnvMonMIBMiscNotifGroup and ciscoEnvMonStatChangeNotifGroup with PCBU platform routers (180x, 181x, 1841 & 2801)."
+      },
+      {
+        "revision": "2006-07-19 00:00",
+        "description": "Added VARIATION for ciscoEnvMonStatChangeNotifGroup to MARs platform routers (26xx, 28xx, 37xx, 38xx, IAD243x and VG224)."
+      },
+      {
+        "revision": "2006-04-19 00:00",
+        "description": "Added VARIATION for ciscoEnvMonTemperatureLastShutdown to agent capability statement ciscoEnvMonCapV12R0119ECat6K."
+      },
+      {
+        "revision": "2004-12-16 01:00",
+        "description": "Added agent capabilities for 38xx, 37xx, 26xx, 28xx, VG224 and IAD243x platforms."
+      },
+      {
+        "revision": "2004-03-26 00:00",
+        "description": "Added agent capability statements ciscoEnvMonCapCatOSV08R0101Cat6k, ciscoEnvMonCapCatOSV08R0101Cat4k, ciscoEnvMonCapV12R0119ECat6K."
+      },
+      {
+        "revision": "1996-11-12 00:00",
+        "description": "Added agent capabilities for platform c3600."
+      },
+      {
+        "revision": "1995-01-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEnvMonCapabilityV10R03": {
+    "name": "ciscoEnvMonCapabilityV10R03",
+    "oid": "1.3.6.1.4.1.9.7.33.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.3",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoEnvMonCapabilityV11R02": {
+    "name": "ciscoEnvMonCapabilityV11R02",
+    "oid": "1.3.6.1.4.1.9.7.33.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 11.2 on mid-range platforms C3600.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "warning": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ciscoEnvMonSupplyState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "warning": 2,
+                  "critical": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapCatOSV08R0101Cat6k": {
+    "name": "ciscoEnvMonCapCatOSV08R0101Cat6k",
+    "oid": "1.3.6.1.4.1.9.7.33.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonEnableStatChangeGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapCatOSV08R0101Cat4k": {
+    "name": "ciscoEnvMonCapCatOSV08R0101Cat4k",
+    "oid": "1.3.6.1.4.1.9.7.33.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000/4500\n                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonEnableStatChangeGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R0119ECat6K": {
+    "name": "ciscoEnvMonCapV12R0119ECat6K",
+    "oid": "1.3.6.1.4.1.9.7.33.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(19E) on Catalyst 6000/6500\n                       and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonEnableStatChangeGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP37xx": {
+    "name": "ciscoEnvMonCapV12R04TP37xx",
+    "oid": "1.3.6.1.4.1.9.7.33.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c37xx devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP28xx": {
+    "name": "ciscoEnvMonCapV12R04TP28xx",
+    "oid": "1.3.6.1.4.1.9.7.33.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c28xx devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP26xx": {
+    "name": "ciscoEnvMonCapV12R04TP26xx",
+    "oid": "1.3.6.1.4.1.9.7.33.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c26xx devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TPIAD243x": {
+    "name": "ciscoEnvMonCapV12R04TPIAD243x",
+    "oid": "1.3.6.1.4.1.9.7.33.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on IAD243x devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TPVG224": {
+    "name": "ciscoEnvMonCapV12R04TPVG224",
+    "oid": "1.3.6.1.4.1.9.7.33.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on VG224 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP3825": {
+    "name": "ciscoEnvMonCapV12R04TP3825",
+    "oid": "1.3.6.1.4.1.9.7.33.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c3825 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP3845": {
+    "name": "ciscoEnvMonCapV12R04TP3845",
+    "oid": "1.3.6.1.4.1.9.7.33.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c3845 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R04TP2691": {
+    "name": "ciscoEnvMonCapV12R04TP2691",
+    "oid": "1.3.6.1.4.1.9.7.33.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4T on c2691 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TPMARS": {
+    "name": "ciscoEnvMonCapV12R05TPMARS",
+    "oid": "1.3.6.1.4.1.9.7.33.14",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on MARS devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP180x": {
+    "name": "ciscoEnvMonCapV12R05TP180x",
+    "oid": "1.3.6.1.4.1.9.7.33.15",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on 180x PCBU devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplySource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP181x": {
+    "name": "ciscoEnvMonCapV12R05TP181x",
+    "oid": "1.3.6.1.4.1.9.7.33.16",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on 181x PCBU devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplySource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP1841": {
+    "name": "ciscoEnvMonCapV12R05TP1841",
+    "oid": "1.3.6.1.4.1.9.7.33.17",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on 1841 & 2801 PCBU devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoEnvMonCapV12R05TP28xx": {
+    "name": "ciscoEnvMonCapV12R05TP28xx",
+    "oid": "1.3.6.1.4.1.9.7.33.18",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on c28xx devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableRedundantSupplyNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableVoltageNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableTemperatureNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP3825": {
+    "name": "ciscoEnvMonCapV12R05TP3825",
+    "oid": "1.3.6.1.4.1.9.7.33.19",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on c3825 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonEnableShutdownNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableRedundantSupplyNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP3845": {
+    "name": "ciscoEnvMonCapV12R05TP3845",
+    "oid": "1.3.6.1.4.1.9.7.33.20",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on c3845 devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup",
+          "ciscoEnvMonMIBMiscNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonEnableShutdownNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapV12R05TP1841Rev1": {
+    "name": "ciscoEnvMonCapV12R05TP1841Rev1",
+    "oid": "1.3.6.1.4.1.9.7.33.21",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.5T on 1841 and 2801 PCBU devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBMiscNotifGroup",
+          "ciscoEnvMonStatChangeNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableVoltageNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonVoltageNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableTemperatureNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableRedundantSupplyNotification",
+            "access": "read-only"
+          },
+          {
+            "object": "ciscoEnvMonRedundantSupplyNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTempStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapabilityCTSV140": {
+    "name": "ciscoEnvMonCapabilityCTSV140",
+    "oid": "1.3.6.1.4.1.9.7.33.22",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.4.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplySource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnvMonCapabilityWLCV70": {
+    "name": "ciscoEnvMonCapabilityWLCV70",
+    "oid": "1.3.6.1.4.1.9.7.33.23",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Wireless LAN Controller version 7.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENVMON-MIB",
+        "includes": [
+          "ciscoEnvMonMIBGroupRev",
+          "ciscoEnvMonMIBNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciscoEnvMonPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageStatusValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdLow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageThresholdHigh",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltageState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonTemperatureLastShutdown",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyStatusDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplyState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSupplySource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonAlarmContacts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonEnableShutdownNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonVoltStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonFanStatusChangeNotif",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ciscoEnvMonSuppStatusChangeNotif",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENVMON-CAPABILITY",
+      "Source digest sha256:61d59b37dbe162b751722ae0093b5e3b7ad60df88462c767643fc5cb5fa69ac8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENVMON-CAPABILITY"
+  }
+}

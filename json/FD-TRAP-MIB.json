@@ -1,0 +1,416 @@
+{
+  "imports": {
+    "class": "imports",
+    "EPON-EOC-MIB": [
+      "epon"
+    ],
+    "FD-OLT-MIB": [
+      "linkIdExhaust",
+      "linkOnLineStatus",
+      "onuIdExhaust"
+    ],
+    "FD-ONU-MIB": [
+      "onuOnLineStatus",
+      "uniPortLink",
+      "uniPortRstpState"
+    ],
+    "FD-PERFORMANCE-MIB": [
+      "oltTrafficChangeVal",
+      "onuTrafficChangeVal",
+      "swSniPortTrafficChangeVal"
+    ],
+    "FD-SWITCH-MIB": [
+      "sfpPlugStauts",
+      "swPortLinkState"
+    ],
+    "FD-SYSTEM-MIB": [
+      "fanStatusBit",
+      "loginTimeout",
+      "nonAuthOnuMac",
+      "ponCardRunningStatus",
+      "powerStatusBit",
+      "userAccessDeviceMap",
+      "userEntryRowStatus",
+      "userId",
+      "userName",
+      "userPassword",
+      "userPermission"
+    ],
+    "RMON-MIB": [
+      "alarmValue"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eponTraps": {
+    "name": "eponTraps",
+    "oid": "1.3.6.1.4.1.34592.1.3.6",
+    "class": "moduleidentity"
+  },
+  "eponTrapsPrefix": {
+    "name": "eponTrapsPrefix",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0",
+    "class": "objectidentity"
+  },
+  "sniSFPStatusChange": {
+    "name": "sniSFPStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "sfpPlugStauts"
+      }
+    ],
+    "status": "current"
+  },
+  "sniPortLinkChange": {
+    "name": "sniPortLinkChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "swPortLinkState"
+      }
+    ],
+    "status": "current"
+  },
+  "powerStatusChange": {
+    "name": "powerStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "powerStatusBit"
+      }
+    ],
+    "status": "current"
+  },
+  "fanStatusChange": {
+    "name": "fanStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "fanStatusBit"
+      }
+    ],
+    "status": "current"
+  },
+  "ponRunningStatusChange": {
+    "name": "ponRunningStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardRunningStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "onuLinkStatusChange": {
+    "name": "onuLinkStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-OLT-MIB",
+        "object": "linkOnLineStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "onuOnlineStatusChange": {
+    "name": "onuOnlineStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuOnLineStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "onuPortStatusChange": {
+    "name": "onuPortStatusChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortLink"
+      }
+    ],
+    "status": "current"
+  },
+  "swSniPortTrafficChange": {
+    "name": "swSniPortTrafficChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniPortTrafficChangeVal"
+      }
+    ],
+    "status": "current"
+  },
+  "oltTrafficChange": {
+    "name": "oltTrafficChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltTrafficChangeVal"
+      }
+    ],
+    "status": "current"
+  },
+  "onuTrafficChange": {
+    "name": "onuTrafficChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuTrafficChangeVal"
+      }
+    ],
+    "status": "current"
+  },
+  "linkIdResourceExhaust": {
+    "name": "linkIdResourceExhaust",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-OLT-MIB",
+        "object": "linkIdExhaust"
+      }
+    ],
+    "status": "current"
+  },
+  "onuIdResourceExhaust": {
+    "name": "onuIdResourceExhaust",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-OLT-MIB",
+        "object": "onuIdExhaust"
+      }
+    ],
+    "status": "current"
+  },
+  "illegalRegisterAlarm": {
+    "name": "illegalRegisterAlarm",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "nonAuthOnuMac"
+      }
+    ],
+    "status": "current"
+  },
+  "onuPortRstpStateChange": {
+    "name": "onuPortRstpStateChange",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortRstpState"
+      }
+    ],
+    "status": "current"
+  },
+  "rmonEventThreshold": {
+    "name": "rmonEventThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RMON-MIB",
+        "object": "alarmValue"
+      }
+    ],
+    "status": "current"
+  },
+  "onuDyingGasp": {
+    "name": "onuDyingGasp",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuOnLineStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "onuPortLoopBack": {
+    "name": "onuPortLoopBack",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortLink"
+      }
+    ],
+    "status": "current"
+  },
+  "oltSystemReboot": {
+    "name": "oltSystemReboot",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "fdTrapConformance": {
+    "name": "fdTrapConformance",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.1",
+    "class": "objectidentity"
+  },
+  "fdTrapGroups": {
+    "name": "fdTrapGroups",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "fdTrapGroup": {
+    "name": "fdTrapGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.1.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "sniSFPStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "sniPortLinkChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "powerStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "fanStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "ponRunningStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuLinkStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuOnlineStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuPortStatusChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "swSniPortTrafficChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "oltTrafficChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuTrafficChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuPortRstpStateChange"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuDyingGasp"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "rmonEventThreshold"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuPortLoopBack"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "oltSystemReboot"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "illegalRegisterAlarm"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "linkIdResourceExhaust"
+      },
+      {
+        "module": "FD-TRAP-MIB",
+        "object": "onuIdResourceExhaust"
+      }
+    ],
+    "status": "current"
+  },
+  "fdTrapCompliances": {
+    "name": "fdTrapCompliances",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "fdTrapCompliance": {
+    "name": "fdTrapCompliance",
+    "oid": "1.3.6.1.4.1.34592.1.3.6.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fdTrapGroup",
+        "module": "FD-TRAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FD-TRAP-MIB",
+      "Source digest sha256:e66dce52128e025ffd9b0bde1612ffe917f55a879a3bae27e39fab8b6213d9ab",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FD-TRAP-MIB"
+  }
+}

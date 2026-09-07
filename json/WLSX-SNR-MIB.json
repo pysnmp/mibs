@@ -1,0 +1,440 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "PhysAddress",
+      "RowStatus",
+      "StorageType",
+      "TAddress",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval",
+      "TruthValue"
+    ],
+    "WLSX-MON-MIB": [
+      "monPhyAddress",
+      "monRadioNumber",
+      "monitoredApBSSID",
+      "monitoredStaPhyAddress"
+    ]
+  },
+  "wlsxSNRMIB": {
+    "name": "wlsxSNRMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxSNRGroup": {
+    "name": "wlsxSNRGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1",
+    "class": "objectidentity"
+  },
+  "wlsxAPSnrTable": {
+    "name": "wlsxAPSnrTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxAPSnrEntry": {
+    "name": "wlsxAPSnrEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSnrAverageSignalStrength": {
+    "name": "apSnrAverageSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrSignalPkts": {
+    "name": "apSnrSignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrHighestRxSignalStrength": {
+    "name": "apSnrHighestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrLowestRxSignalStrength": {
+    "name": "apSnrLowestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrSampleTime": {
+    "name": "apSnrSampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStaSnrTable": {
+    "name": "wlsxStaSnrTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxStaSnrEntry": {
+    "name": "wlsxStaSnrEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "staSnrAverageSignalStrength": {
+    "name": "staSnrAverageSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrSignalPkts": {
+    "name": "staSnrSignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrHighestRxSignalStrength": {
+    "name": "staSnrHighestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrLowestRxSignalStrength": {
+    "name": "staSnrLowestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrSampleTime": {
+    "name": "staSnrSampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxAPSnrBSSIDTable": {
+    "name": "wlsxAPSnrBSSIDTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxAPSnrBSSIDEntry": {
+    "name": "wlsxAPSnrBSSIDEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSnrBSSIDAverageSignalStrength": {
+    "name": "apSnrBSSIDAverageSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrBSSIDSignalPkts": {
+    "name": "apSnrBSSIDSignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrBSSIDHighestRxSignalStrength": {
+    "name": "apSnrBSSIDHighestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrBSSIDLowestRxSignalStrength": {
+    "name": "apSnrBSSIDLowestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSnrBSSIDSampleTime": {
+    "name": "apSnrBSSIDSampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStaSnrPhyTable": {
+    "name": "wlsxStaSnrPhyTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxStaSnrPhyEntry": {
+    "name": "wlsxStaSnrPhyEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "staSnrPhyAverageSignalStrength": {
+    "name": "staSnrPhyAverageSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrPhySignalPkts": {
+    "name": "staSnrPhySignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrPhyHighestRxSignalStrength": {
+    "name": "staSnrPhyHighestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrPhyLowestRxSignalStrength": {
+    "name": "staSnrPhyLowestRxSignalStrength",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "staSnrPhySampleTime": {
+    "name": "staSnrPhySampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WLSX-SNR-MIB",
+      "Source digest sha256:2e29a09df5dfee63b1ed9f08490ed6ee105f86d9a6c46bd164f73419f67f6da0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WLSX-SNR-MIB"
+  }
+}

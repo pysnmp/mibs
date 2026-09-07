@@ -1,0 +1,88 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwNetworkProtocolPortProtectMIB": {
+    "name": "dlinkSwNetworkProtocolPortProtectMIB",
+    "oid": "1.3.6.1.4.1.171.14.194",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-11-27 00:00",
+        "description": " This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dNetworkProtocolPortProtectObjects": {
+    "name": "dNetworkProtocolPortProtectObjects",
+    "oid": "1.3.6.1.4.1.171.14.194.1",
+    "class": "objectidentity"
+  },
+  "dNetworkProtocolPortProtectCtrl": {
+    "name": "dNetworkProtocolPortProtectCtrl",
+    "oid": "1.3.6.1.4.1.171.14.194.1.1",
+    "class": "objectidentity"
+  },
+  "dNetworkProtocolPortProtectTCPState": {
+    "name": "dNetworkProtocolPortProtectTCPState",
+    "oid": "1.3.6.1.4.1.171.14.194.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNetworkProtocolPortProtectUDPState": {
+    "name": "dNetworkProtocolPortProtectUDPState",
+    "oid": "1.3.6.1.4.1.171.14.194.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-NETWORK-PROTOCOL-PORT-PROTECT-MIB",
+      "Source digest sha256:9d84a846c2af76d1bf12c39dc384a19eb13285b1c7b4df63ad8dc779cfd02f64",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-NETWORK-PROTOCOL-PORT-PROTECT-MIB"
+  }
+}

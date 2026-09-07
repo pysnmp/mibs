@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpActCapability": {
+    "name": "ciscoItpActCapability",
+    "oid": "1.3.6.1.4.1.9.7.219",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-10-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpActCapabilityV12R024MB1": {
+    "name": "ciscoItpActCapabilityV12R024MB1",
+    "oid": "1.3.6.1.4.1.9.7.219.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "includes": [
+          "cItpActMtp3Group",
+          "cItpActGttGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-ACT-CAPABILITY",
+      "Source digest sha256:4df5f0351e685e3d89c84e22813f83f2334bc8e3bee65ab5980142b2cef96ca5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-ACT-CAPABILITY"
+  }
+}

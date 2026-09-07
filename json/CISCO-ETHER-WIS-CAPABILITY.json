@@ -1,0 +1,71 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEtherWisCapability": {
+    "name": "ciscoEtherWisCapability",
+    "oid": "1.3.6.1.4.1.9.7.531",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-23 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEtherWisCapabilityV120S": {
+    "name": "ciscoEtherWisCapabilityV120S",
+    "oid": "1.3.6.1.4.1.9.7.531.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0S for GSR.",
+    "capabilities": [
+      {
+        "module": "ETHER-WIS",
+        "includes": [
+          "etherWisSectionGroup",
+          "etherWisPathGroup",
+          "etherWisFarEndPathGroup"
+        ],
+        "variations": [
+          {
+            "object": "etherWisSectionCurrentJ0Transmitted",
+            "access": "read-only"
+          },
+          {
+            "object": "etherWisPathCurrentJ1Transmitted",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ETHER-WIS-CAPABILITY",
+      "Source digest sha256:4a348217d2d502fe8176dcf2febac962870126fe58d8c20bc6925c2d2eb239a4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ETHER-WIS-CAPABILITY"
+  }
+}

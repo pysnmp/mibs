@@ -1,0 +1,240 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPppoeAgent": {
+    "name": "juniPppoeAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-27 10:23",
+        "description": "Added unknownAction configuration support in PPPoE service name table"
+      },
+      {
+        "revision": "2005-08-03 20:58",
+        "description": "Added Interface Lockout configuration and state support."
+      },
+      {
+        "revision": "2005-07-13 11:40",
+        "description": "Added MTU control object."
+      },
+      {
+        "revision": "2004-06-14 20:48",
+        "description": "Added PADR Remote Circuit Id Capture support."
+      },
+      {
+        "revision": "2003-03-10 18:48",
+        "description": "Replaced invalid session counter with separate PADI and PADR invalid session counters. Added invalid length and invalid tag length counters. Added ServiceName table support."
+      },
+      {
+        "revision": "2002-12-23 19:41",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-10-01 18:37",
+        "description": "Added PADN counter."
+      },
+      {
+        "revision": "2002-08-19 15:14",
+        "description": "Added PADI flag support."
+      },
+      {
+        "revision": "2001-06-19 14:27",
+        "description": "Added AC-NAME and duplicate MAC address indicator objects."
+      },
+      {
+        "revision": "2001-04-02 19:21",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniPppoeAgentV1": {
+    "name": "juniPppoeAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component was supported in JUNOSe 3.0 thru 3.2.2\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup2",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV2": {
+    "name": "juniPppoeAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component was supported in JUNOSe 3.2.3 through 3.x\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup3",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV3": {
+    "name": "juniPppoeAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component was supported in JUNOSe 4.0 system\n        releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup4",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV4": {
+    "name": "juniPppoeAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component was supported in JUNOSe 4.1 through 5.0\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup5",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV5": {
+    "name": "juniPppoeAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component was supported in JUNOSe 5.1 through 7.0\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup6",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup",
+          "juniPPPoEServiceNameTableGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV6": {
+    "name": "juniPppoeAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component is supported in JUNOSe 7.0 system\n        release.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup7",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup",
+          "juniPPPoEServiceNameTableGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV7": {
+    "name": "juniPppoeAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component is supported in JUNOSe 7.0.1 through 7.1\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup8",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup",
+          "juniPPPoEServiceNameTableGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV8": {
+    "name": "juniPppoeAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component is supported in JUNOSe 7.2 through 9.3 \n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup9",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup",
+          "juniPPPoEServiceNameTableGroup",
+          "juniPPPoELockoutTableGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppoeAgentV9": {
+    "name": "juniPppoeAgentV9",
+    "oid": "1.3.6.1.4.1.4874.5.2.33.9",
+    "class": "agentcapabilities",
+    "productrelease": "Version 9 of the PPPoE component of the JUNOSe SNMP agent.  This\n        version of the PPPoE component is supported in JUNOSe 10.1 and subsequent\n        system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-PPPOE-MIB",
+        "includes": [
+          "juniPPPoEGroup9",
+          "juniPPPoESubIfGroup2",
+          "juniPPPoESummaryGroup",
+          "juniPPPoEServiceNameTableGroup1",
+          "juniPPPoELockoutTableGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-PPPoE-CONF",
+      "Source digest sha256:bbe9078a620a3249ad5863f801fd6e93fddf2d3a372d2669cc88e9b2a99623c1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-PPPoE-CONF"
+  }
+}

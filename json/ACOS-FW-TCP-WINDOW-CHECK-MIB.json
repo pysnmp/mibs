@@ -1,0 +1,96 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fwTcpWindowCheckModule": {
+    "name": "fwTcpWindowCheckModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484",
+    "class": "moduleidentity"
+  },
+  "tcpWindowCheck": {
+    "name": "tcpWindowCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484.1",
+    "class": "objectidentity"
+  },
+  "tcpWindowCheckStatsTable": {
+    "name": "tcpWindowCheckStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tcpWindowCheckStatsEntry": {
+    "name": "tcpWindowCheckStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-TCP-WINDOW-CHECK-MIB",
+        "object": "tcpWindowCheckStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tcpWindowCheckStatsSlotId": {
+    "name": "tcpWindowCheckStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tcpWindowCheckStatsOutsideWindow": {
+    "name": "tcpWindowCheckStatsOutsideWindow",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.484.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-FW-TCP-WINDOW-CHECK-MIB",
+      "Source digest sha256:97571fb4b406732ef5060586bac2777c7ad919b5ece82608aa49b4a3065d8dfe",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-FW-TCP-WINDOW-CHECK-MIB"
+  }
+}

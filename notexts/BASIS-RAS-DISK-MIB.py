@@ -1,0 +1,31 @@
+#
+# PySNMP MIB module BASIS-RAS-DISK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source BASIS-RAS-DISK-MIB
+# Source digest sha256:10db717529af3db027c423e24acaa6bfc9f3e4645f629a75cb5a7d8c58457d2e
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+axisDiagnostics, = mibBuilder.importSymbols("BASIS-MIB", "axisDiagnostics")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rasDsk = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 6, 2))
+rasDskStatus = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rasDskStatus.setStatus('mandatory')
+dskHealth = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("pass", 1), ("fail", 2), ("unknown", 3), ("testInProgress", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dskHealth.setStatus('mandatory')
+standbyDskHealth = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("pass", 1), ("fail", 2), ("unknown", 3), ("testInProgress", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: standbyDskHealth.setStatus('mandatory')
+wakeupInterval = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(12, 168)).clone(12)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wakeupInterval.setStatus('mandatory')
+lastTime = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lastTime.setStatus('mandatory')
+numBadSectors = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 6), Integer32().clone(0)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: numBadSectors.setStatus('mandatory')
+crptdPRIfiles = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 7), Integer32().clone(0)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crptdPRIfiles.setStatus('mandatory')
+crptdFWfiles = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 2, 8), Integer32().clone(0)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crptdFWfiles.setStatus('mandatory')
+mibBuilder.exportSymbols("BASIS-RAS-DISK-MIB", crptdFWfiles=crptdFWfiles, crptdPRIfiles=crptdPRIfiles, dskHealth=dskHealth, lastTime=lastTime, numBadSectors=numBadSectors, rasDsk=rasDsk, rasDskStatus=rasDskStatus, standbyDskHealth=standbyDskHealth, wakeupInterval=wakeupInterval)

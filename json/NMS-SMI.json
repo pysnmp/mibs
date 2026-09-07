@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nms": {
+    "name": "nms",
+    "oid": "1.3.6.1.4.1.3320",
+    "class": "moduleidentity"
+  },
+  "nmsProducts": {
+    "name": "nmsProducts",
+    "oid": "1.3.6.1.4.1.3320.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmslocal": {
+    "name": "nmslocal",
+    "oid": "1.3.6.1.4.1.3320.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmstemporary": {
+    "name": "nmstemporary",
+    "oid": "1.3.6.1.4.1.3320.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsMgmt": {
+    "name": "nmsMgmt",
+    "oid": "1.3.6.1.4.1.3320.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsModules": {
+    "name": "nmsModules",
+    "oid": "1.3.6.1.4.1.3320.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPolicyAuto": {
+    "name": "nmsPolicyAuto",
+    "oid": "1.3.6.1.4.1.3320.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPibToMib": {
+    "name": "nmsPibToMib",
+    "oid": "1.3.6.1.4.1.3320.18.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsWorkGroup": {
+    "name": "nmsWorkGroup",
+    "oid": "1.3.6.1.4.1.3320.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsEPONGroup": {
+    "name": "nmsEPONGroup",
+    "oid": "1.3.6.1.4.1.3320.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPTNGroup": {
+    "name": "nmsPTNGroup",
+    "oid": "1.3.6.1.4.1.3320.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NMS-SMI",
+      "Source digest sha256:657ba512c6506d917501f0ba4dec6757cbec640972c1741928350ff5c6981717",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NMS-SMI"
+  }
+}

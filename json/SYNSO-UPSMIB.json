@@ -1,0 +1,1401 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "synso": {
+    "name": "synso",
+    "oid": "1.3.6.1.4.1.9557",
+    "class": "objectidentity"
+  },
+  "synsoUpsSoftware": {
+    "name": "synsoUpsSoftware",
+    "oid": "1.3.6.1.4.1.9557.1",
+    "class": "objectidentity"
+  },
+  "syupsBasicSetting": {
+    "name": "syupsBasicSetting",
+    "oid": "1.3.6.1.4.1.9557.1.1",
+    "class": "objectidentity"
+  },
+  "syupsPlatForm": {
+    "name": "syupsPlatForm",
+    "oid": "1.3.6.1.4.1.9557.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsFeatureTable": {
+    "name": "syupsFeatureTable",
+    "oid": "1.3.6.1.4.1.9557.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsFeatureEntry": {
+    "name": "syupsFeatureEntry",
+    "oid": "1.3.6.1.4.1.9557.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsFeature",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsFeature": {
+    "name": "syupsFeature",
+    "oid": "1.3.6.1.4.1.9557.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSupportInfo": {
+    "name": "syupsSupportInfo",
+    "oid": "1.3.6.1.4.1.9557.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSystemStartTime": {
+    "name": "syupsSystemStartTime",
+    "oid": "1.3.6.1.4.1.9557.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSignalType": {
+    "name": "syupsSignalType",
+    "oid": "1.3.6.1.4.1.9557.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basicSignal": 0,
+          "smartSignal": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsBasicSignalDefinition": {
+    "name": "syupsBasicSignalDefinition",
+    "oid": "1.3.6.1.4.1.9557.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsUpsComPort": {
+    "name": "syupsUpsComPort",
+    "oid": "1.3.6.1.4.1.9557.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsModemComPort": {
+    "name": "syupsModemComPort",
+    "oid": "1.3.6.1.4.1.9557.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsUpsExtension": {
+    "name": "syupsUpsExtension",
+    "oid": "1.3.6.1.4.1.9557.1.2",
+    "class": "objectidentity"
+  },
+  "syupsUpsAlarm": {
+    "name": "syupsUpsAlarm",
+    "oid": "1.3.6.1.4.1.9557.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSerialNo": {
+    "name": "syupsSerialNo",
+    "oid": "1.3.6.1.4.1.9557.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsConfigBatteryVoltage": {
+    "name": "syupsConfigBatteryVoltage",
+    "oid": "1.3.6.1.4.1.9557.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsBatteryReplaceDate": {
+    "name": "syupsBatteryReplaceDate",
+    "oid": "1.3.6.1.4.1.9557.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNoOutlet": {
+    "name": "syupsNoOutlet",
+    "oid": "1.3.6.1.4.1.9557.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsOutletParamter": {
+    "name": "syupsOutletParamter",
+    "oid": "1.3.6.1.4.1.9557.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsShutdownDepend": {
+    "name": "syupsShutdownDepend",
+    "oid": "1.3.6.1.4.1.9557.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEnableAutoSave": {
+    "name": "syupsEnableAutoSave",
+    "oid": "1.3.6.1.4.1.9557.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsShutdownOsDelay": {
+    "name": "syupsShutdownOsDelay",
+    "oid": "1.3.6.1.4.1.9557.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsShutdownUpsDelay": {
+    "name": "syupsShutdownUpsDelay",
+    "oid": "1.3.6.1.4.1.9557.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsSaveConfig": {
+    "name": "syupsSaveConfig",
+    "oid": "1.3.6.1.4.1.9557.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNoOutlets": {
+    "name": "syupsNoOutlets",
+    "oid": "1.3.6.1.4.1.9557.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsOutletTable": {
+    "name": "syupsOutletTable",
+    "oid": "1.3.6.1.4.1.9557.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsOutletEntry": {
+    "name": "syupsOutletEntry",
+    "oid": "1.3.6.1.4.1.9557.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsOutletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsOutletIndex": {
+    "name": "syupsOutletIndex",
+    "oid": "1.3.6.1.4.1.9557.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsOutletDescription": {
+    "name": "syupsOutletDescription",
+    "oid": "1.3.6.1.4.1.9557.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsOutletShutdownDelay": {
+    "name": "syupsOutletShutdownDelay",
+    "oid": "1.3.6.1.4.1.9557.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsOutletShutdownDepend": {
+    "name": "syupsOutletShutdownDepend",
+    "oid": "1.3.6.1.4.1.9557.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsOutletOperator": {
+    "name": "syupsOutletOperator",
+    "oid": "1.3.6.1.4.1.9557.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEventAction": {
+    "name": "syupsEventAction",
+    "oid": "1.3.6.1.4.1.9557.1.3",
+    "class": "objectidentity"
+  },
+  "syupsNoEventActionEntries": {
+    "name": "syupsNoEventActionEntries",
+    "oid": "1.3.6.1.4.1.9557.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsEventActionTable": {
+    "name": "syupsEventActionTable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsEventActionEntry": {
+    "name": "syupsEventActionEntry",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsEventId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsEventId": {
+    "name": "syupsEventId",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsLogEnable": {
+    "name": "syupsLogEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNotifyEnable": {
+    "name": "syupsNotifyEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNotifyDelay": {
+    "name": "syupsNotifyDelay",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNotifyMessage": {
+    "name": "syupsNotifyMessage",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNotifyPeriod": {
+    "name": "syupsNotifyPeriod",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsNotifyUsers": {
+    "name": "syupsNotifyUsers",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEmailEnable": {
+    "name": "syupsEmailEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEmailDelay": {
+    "name": "syupsEmailDelay",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEmailMessage": {
+    "name": "syupsEmailMessage",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEmailUsers": {
+    "name": "syupsEmailUsers",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsPageEnable": {
+    "name": "syupsPageEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsPageDelay": {
+    "name": "syupsPageDelay",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsPageMessage": {
+    "name": "syupsPageMessage",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsPageUsers": {
+    "name": "syupsPageUsers",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsCommandEnable": {
+    "name": "syupsCommandEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsCommandDelay": {
+    "name": "syupsCommandDelay",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsCommandFile": {
+    "name": "syupsCommandFile",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsShutdownEnable": {
+    "name": "syupsShutdownEnable",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsShutdownDelay": {
+    "name": "syupsShutdownDelay",
+    "oid": "1.3.6.1.4.1.9557.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsHistory": {
+    "name": "syupsHistory",
+    "oid": "1.3.6.1.4.1.9557.1.4",
+    "class": "objectidentity"
+  },
+  "syupsMaxEventFileLength": {
+    "name": "syupsMaxEventFileLength",
+    "oid": "1.3.6.1.4.1.9557.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsEventNumRecords": {
+    "name": "syupsEventNumRecords",
+    "oid": "1.3.6.1.4.1.9557.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsEventTable": {
+    "name": "syupsEventTable",
+    "oid": "1.3.6.1.4.1.9557.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsEventEntry": {
+    "name": "syupsEventEntry",
+    "oid": "1.3.6.1.4.1.9557.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsEventIndex": {
+    "name": "syupsEventIndex",
+    "oid": "1.3.6.1.4.1.9557.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsEventRecord": {
+    "name": "syupsEventRecord",
+    "oid": "1.3.6.1.4.1.9557.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsDataRecordInterval": {
+    "name": "syupsDataRecordInterval",
+    "oid": "1.3.6.1.4.1.9557.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsMaxDataFileLength": {
+    "name": "syupsMaxDataFileLength",
+    "oid": "1.3.6.1.4.1.9557.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsDataNumRecords": {
+    "name": "syupsDataNumRecords",
+    "oid": "1.3.6.1.4.1.9557.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsDataTable": {
+    "name": "syupsDataTable",
+    "oid": "1.3.6.1.4.1.9557.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsDataEntry": {
+    "name": "syupsDataEntry",
+    "oid": "1.3.6.1.4.1.9557.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsDataIndex": {
+    "name": "syupsDataIndex",
+    "oid": "1.3.6.1.4.1.9557.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsDataRecord": {
+    "name": "syupsDataRecord",
+    "oid": "1.3.6.1.4.1.9557.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsHistoryOperator": {
+    "name": "syupsHistoryOperator",
+    "oid": "1.3.6.1.4.1.9557.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsScopeSettings": {
+    "name": "syupsScopeSettings",
+    "oid": "1.3.6.1.4.1.9557.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsSchedule": {
+    "name": "syupsSchedule",
+    "oid": "1.3.6.1.4.1.9557.1.5",
+    "class": "objectidentity"
+  },
+  "syupsNoSchEntries": {
+    "name": "syupsNoSchEntries",
+    "oid": "1.3.6.1.4.1.9557.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchOperator": {
+    "name": "syupsSchOperator",
+    "oid": "1.3.6.1.4.1.9557.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsSchTable": {
+    "name": "syupsSchTable",
+    "oid": "1.3.6.1.4.1.9557.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsSchEntry": {
+    "name": "syupsSchEntry",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsSchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsSchIndex": {
+    "name": "syupsSchIndex",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchStartDate": {
+    "name": "syupsSchStartDate",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchStartTime": {
+    "name": "syupsSchStartTime",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchWeekDay": {
+    "name": "syupsSchWeekDay",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchAction": {
+    "name": "syupsSchAction",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsSchRepeat": {
+    "name": "syupsSchRepeat",
+    "oid": "1.3.6.1.4.1.9557.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "once": 1,
+          "daily": 2,
+          "weekly": 3,
+          "monthly": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsCoworker": {
+    "name": "syupsCoworker",
+    "oid": "1.3.6.1.4.1.9557.1.6",
+    "class": "objectidentity"
+  },
+  "syupsNoAccessControl": {
+    "name": "syupsNoAccessControl",
+    "oid": "1.3.6.1.4.1.9557.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsAccessControlOperator": {
+    "name": "syupsAccessControlOperator",
+    "oid": "1.3.6.1.4.1.9557.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsAccessControlTable": {
+    "name": "syupsAccessControlTable",
+    "oid": "1.3.6.1.4.1.9557.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsAccessControlEntry": {
+    "name": "syupsAccessControlEntry",
+    "oid": "1.3.6.1.4.1.9557.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsAccessControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsAccessControlIndex": {
+    "name": "syupsAccessControlIndex",
+    "oid": "1.3.6.1.4.1.9557.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsAccessControlSetting": {
+    "name": "syupsAccessControlSetting",
+    "oid": "1.3.6.1.4.1.9557.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsNoTrapReceiver": {
+    "name": "syupsNoTrapReceiver",
+    "oid": "1.3.6.1.4.1.9557.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsTrapReceiverOperator": {
+    "name": "syupsTrapReceiverOperator",
+    "oid": "1.3.6.1.4.1.9557.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syupsTrapReceiverTable": {
+    "name": "syupsTrapReceiverTable",
+    "oid": "1.3.6.1.4.1.9557.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "syupsTrapReceiverEntry": {
+    "name": "syupsTrapReceiverEntry",
+    "oid": "1.3.6.1.4.1.9557.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "syupsTrapReceiverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "syupsTrapReceiverIndex": {
+    "name": "syupsTrapReceiverIndex",
+    "oid": "1.3.6.1.4.1.9557.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsTrapReceiverSetting": {
+    "name": "syupsTrapReceiverSetting",
+    "oid": "1.3.6.1.4.1.9557.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syupsTraps": {
+    "name": "syupsTraps",
+    "oid": "1.3.6.1.4.1.9557.1.7",
+    "class": "objectidentity"
+  },
+  "syupsTrapOverTemperature": {
+    "name": "syupsTrapOverTemperature",
+    "oid": "1.3.6.1.4.1.9557.1.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsBatteryTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsTrapOverCurrent": {
+    "name": "syupsTrapOverCurrent",
+    "oid": "1.3.6.1.4.1.9557.1.7.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsInputCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsTrapOverVoltage": {
+    "name": "syupsTrapOverVoltage",
+    "oid": "1.3.6.1.4.1.9557.1.7.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsInputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsTrapUnderVoltage": {
+    "name": "syupsTrapUnderVoltage",
+    "oid": "1.3.6.1.4.1.9557.1.7.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsInputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsOffFrequency": {
+    "name": "syupsOffFrequency",
+    "oid": "1.3.6.1.4.1.9557.1.7.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsInputFrequency"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsLowBattery": {
+    "name": "syupsLowBattery",
+    "oid": "1.3.6.1.4.1.9557.1.7.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsBatteryStatus"
+      },
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsBatteryVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "syupsBadBattery": {
+    "name": "syupsBadBattery",
+    "oid": "1.3.6.1.4.1.9557.1.7.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsBatteryStatus"
+      },
+      {
+        "module": "SYNSO-UPSMIB",
+        "object": "upsBatteryVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SYNSO-UPSMIB",
+      "Source digest sha256:44b822415dc74cf3ff277dd37d7c1c9822002574de19c984a3c06b8a8bfeff96",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SYNSO-UPSMIB"
+  }
+}

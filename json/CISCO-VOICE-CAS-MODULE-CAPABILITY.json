@@ -1,0 +1,65 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceCasModuleCapability": {
+    "name": "ciscoVoiceCasModuleCapability",
+    "oid": "1.3.6.1.4.1.9.7.401",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cvcmCapabilityV321": {
+    "name": "cvcmCapabilityV321",
+    "oid": "1.3.6.1.4.1.9.7.401.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco VISM Release 3.2.1",
+    "capabilities": [
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "includes": [
+          "cvcmCasBitGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvcmABCDIncomingPattern",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-CAS-MODULE-CAPABILITY",
+      "Source digest sha256:083495059f87452794b90db1800f95966e1a717c8f91af1dbe58e0da4cb7f1cc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-CAS-MODULE-CAPABILITY"
+  }
+}

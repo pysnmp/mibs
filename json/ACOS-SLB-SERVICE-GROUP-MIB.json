@@ -1,0 +1,1534 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbServiceGroupModule": {
+    "name": "slbServiceGroupModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319",
+    "class": "moduleidentity"
+  },
+  "serviceGroup": {
+    "name": "serviceGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1",
+    "class": "objectidentity"
+  },
+  "serviceGroupStatsTable": {
+    "name": "serviceGroupStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceGroupStatsEntry": {
+    "name": "serviceGroupStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupStatsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceGroupStatsSlotId": {
+    "name": "serviceGroupStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsName": {
+    "name": "serviceGroupStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServerSelectionFailDrop": {
+    "name": "serviceGroupStatsServerSelectionFailDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServerSelectionFailReset": {
+    "name": "serviceGroupStatsServerSelectionFailReset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServicePeakConn": {
+    "name": "serviceGroupStatsServicePeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceHealthyHost": {
+    "name": "serviceGroupStatsServiceHealthyHost",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceUnhealthyHost": {
+    "name": "serviceGroupStatsServiceUnhealthyHost",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceReqCount": {
+    "name": "serviceGroupStatsServiceReqCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceRespCount": {
+    "name": "serviceGroupStatsServiceRespCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceResp2xx": {
+    "name": "serviceGroupStatsServiceResp2xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceResp3xx": {
+    "name": "serviceGroupStatsServiceResp3xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceResp4xx": {
+    "name": "serviceGroupStatsServiceResp4xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceResp5xx": {
+    "name": "serviceGroupStatsServiceResp5xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupStatsServiceCurrConnOverflow": {
+    "name": "serviceGroupStatsServiceCurrConnOverflow",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperTable": {
+    "name": "serviceGroupOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceGroupOperEntry": {
+    "name": "serviceGroupOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceGroupOperSlotId": {
+    "name": "serviceGroupOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperName": {
+    "name": "serviceGroupOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperState": {
+    "name": "serviceGroupOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperServersUp": {
+    "name": "serviceGroupOperServersUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperServersDown": {
+    "name": "serviceGroupOperServersDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperServersDisable": {
+    "name": "serviceGroupOperServersDisable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperServersTotal": {
+    "name": "serviceGroupOperServersTotal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperStatelessCurrentRate": {
+    "name": "serviceGroupOperStatelessCurrentRate",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperStatelessCurrentUsage": {
+    "name": "serviceGroupOperStatelessCurrentUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperStatelessState": {
+    "name": "serviceGroupOperStatelessState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperStatelessType": {
+    "name": "serviceGroupOperStatelessType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperHmDsrEnableAllVip": {
+    "name": "serviceGroupOperHmDsrEnableAllVip",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperPriAffinityPriority": {
+    "name": "serviceGroupOperPriAffinityPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperFilter": {
+    "name": "serviceGroupOperFilter",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListTable": {
+    "name": "serviceGroupOperSgmListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListEntry": {
+    "name": "serviceGroupOperSgmListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupOperSgmListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupOperSgmListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "serviceGroupOperSgmListSgmListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceGroupOperSgmListSlotId": {
+    "name": "serviceGroupOperSgmListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListName": {
+    "name": "serviceGroupOperSgmListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListSgmListListId": {
+    "name": "serviceGroupOperSgmListSgmListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListSgmName": {
+    "name": "serviceGroupOperSgmListSgmName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceGroupOperSgmListSgmPort": {
+    "name": "serviceGroupOperSgmListSgmPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reset": {
+    "name": "reset",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.4",
+    "class": "objectidentity"
+  },
+  "member": {
+    "name": "member",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5",
+    "class": "objectidentity"
+  },
+  "memberStatsTable": {
+    "name": "memberStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memberStatsEntry": {
+    "name": "memberStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberStatsServiceGroupName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberStatsName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberStatsPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memberStatsSlotId": {
+    "name": "memberStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsServiceGroupName": {
+    "name": "memberStatsServiceGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsName": {
+    "name": "memberStatsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsPort": {
+    "name": "memberStatsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsCurrConn": {
+    "name": "memberStatsCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalFwdBytes": {
+    "name": "memberStatsTotalFwdBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalFwdPkts": {
+    "name": "memberStatsTotalFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalRevBytes": {
+    "name": "memberStatsTotalRevBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalRevPkts": {
+    "name": "memberStatsTotalRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalConn": {
+    "name": "memberStatsTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalRevPktsInspected": {
+    "name": "memberStatsTotalRevPktsInspected",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalRevPktsInspectedStatusCode2xx": {
+    "name": "memberStatsTotalRevPktsInspectedStatusCode2xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalRevPktsInspectedStatusCodeNon5xx": {
+    "name": "memberStatsTotalRevPktsInspectedStatusCodeNon5xx",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsCurrReq": {
+    "name": "memberStatsCurrReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalReq": {
+    "name": "memberStatsTotalReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalReqSucc": {
+    "name": "memberStatsTotalReqSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsPeakConn": {
+    "name": "memberStatsPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsResponseTime": {
+    "name": "memberStatsResponseTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsFastestRspTime": {
+    "name": "memberStatsFastestRspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsSlowestRspTime": {
+    "name": "memberStatsSlowestRspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsCurrSslConn": {
+    "name": "memberStatsCurrSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsTotalSslConn": {
+    "name": "memberStatsTotalSslConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsCurrConnOverflow": {
+    "name": "memberStatsCurrConnOverflow",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberStatsStateFlaps": {
+    "name": "memberStatsStateFlaps",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperTable": {
+    "name": "memberOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memberOperEntry": {
+    "name": "memberOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperServiceGroupName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memberOperSlotId": {
+    "name": "memberOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperServiceGroupName": {
+    "name": "memberOperServiceGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperName": {
+    "name": "memberOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperPort": {
+    "name": "memberOperPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperState": {
+    "name": "memberOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperHmKey": {
+    "name": "memberOperHmKey",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperHmIndex": {
+    "name": "memberOperHmIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListTable": {
+    "name": "memberOperDrsListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memberOperDrsListEntry": {
+    "name": "memberOperDrsListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperDrsListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperDrsListServiceGroupName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperDrsListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperDrsListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperDrsListDrsListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memberOperDrsListSlotId": {
+    "name": "memberOperDrsListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListServiceGroupName": {
+    "name": "memberOperDrsListServiceGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListName": {
+    "name": "memberOperDrsListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListPort": {
+    "name": "memberOperDrsListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsListListId": {
+    "name": "memberOperDrsListDrsListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsName": {
+    "name": "memberOperDrsListDrsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsState": {
+    "name": "memberOperDrsListDrsState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsHmKey": {
+    "name": "memberOperDrsListDrsHmKey",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsHmIndex": {
+    "name": "memberOperDrsListDrsHmIndex",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsPort": {
+    "name": "memberOperDrsListDrsPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsPriority": {
+    "name": "memberOperDrsListDrsPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsCurrConn": {
+    "name": "memberOperDrsListDrsCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsPersConn": {
+    "name": "memberOperDrsListDrsPersConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsTotalConn": {
+    "name": "memberOperDrsListDrsTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsCurrReq": {
+    "name": "memberOperDrsListDrsCurrReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsTotalReq": {
+    "name": "memberOperDrsListDrsTotalReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsTotalReqSucc": {
+    "name": "memberOperDrsListDrsTotalReqSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsRevPkts": {
+    "name": "memberOperDrsListDrsRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsFwdPkts": {
+    "name": "memberOperDrsListDrsFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsRevBts": {
+    "name": "memberOperDrsListDrsRevBts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsFwdBts": {
+    "name": "memberOperDrsListDrsFwdBts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsPeakConn": {
+    "name": "memberOperDrsListDrsPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsRspTime": {
+    "name": "memberOperDrsListDrsRspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsFrspTime": {
+    "name": "memberOperDrsListDrsFrspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperDrsListDrsSrspTime": {
+    "name": "memberOperDrsListDrsSrspTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListTable": {
+    "name": "memberOperAltListTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memberOperAltListEntry": {
+    "name": "memberOperAltListEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperAltListSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperAltListServiceGroupName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperAltListName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperAltListPort",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SERVICE-GROUP-MIB",
+        "object": "memberOperAltListAltListListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memberOperAltListSlotId": {
+    "name": "memberOperAltListSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListServiceGroupName": {
+    "name": "memberOperAltListServiceGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListName": {
+    "name": "memberOperAltListName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListPort": {
+    "name": "memberOperAltListPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltListListId": {
+    "name": "memberOperAltListAltListListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltName": {
+    "name": "memberOperAltListAltName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltPort": {
+    "name": "memberOperAltListAltPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltState": {
+    "name": "memberOperAltListAltState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltCurrConn": {
+    "name": "memberOperAltListAltCurrConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltTotalConn": {
+    "name": "memberOperAltListAltTotalConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltRevPkts": {
+    "name": "memberOperAltListAltRevPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltFwdPkts": {
+    "name": "memberOperAltListAltFwdPkts",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memberOperAltListAltPeakConn": {
+    "name": "memberOperAltListAltPeakConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.319.1.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SERVICE-GROUP-MIB",
+      "Source digest sha256:0535b041629d27ae35ab93f56fe83fd39d0699701cd29408383b95afb9c28b2c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SERVICE-GROUP-MIB"
+  }
+}

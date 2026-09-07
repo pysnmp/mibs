@@ -1,0 +1,155 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "hwSysClockMIB": {
+    "name": "hwSysClockMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.205",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-07-25 00:00",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "huaweiClockObjects": {
+    "name": "huaweiClockObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1",
+    "class": "objectidentity"
+  },
+  "hwLocalClock": {
+    "name": "hwLocalClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwUTCClock": {
+    "name": "hwUTCClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "huaweiClockNotifications": {
+    "name": "huaweiClockNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.2",
+    "class": "objectidentity"
+  },
+  "hwClockChanged": {
+    "name": "hwClockChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwUTCClock"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiClockMIBConformance": {
+    "name": "huaweiClockMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3",
+    "class": "objectidentity"
+  },
+  "hwClockMIBCompliances": {
+    "name": "hwClockMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.1",
+    "class": "objectidentity"
+  },
+  "hwClockMIBCompliance": {
+    "name": "hwClockMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwClockSetGroup",
+        "module": "HUAWEI-SYS-CLOCK-MIB"
+      },
+      {
+        "object": "hwClockNotificationGroup",
+        "module": "HUAWEI-SYS-CLOCK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiClockMIBGroups": {
+    "name": "huaweiClockMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2",
+    "class": "objectidentity"
+  },
+  "hwClockSetGroup": {
+    "name": "hwClockSetGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwLocalClock"
+      },
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwUTCClock"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClockNotificationGroup": {
+    "name": "hwClockNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwClockChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-SYS-CLOCK-MIB",
+      "Source digest sha256:ffe7bf1885c5bd2a3138f0d42d01b3d118aff6efa8064bf9e1f4d734cf630992",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-SYS-CLOCK-MIB"
+  }
+}

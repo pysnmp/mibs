@@ -1,0 +1,246 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwSwitchPortMIB": {
+    "name": "dlinkSwSwitchPortMIB",
+    "oid": "1.3.6.1.4.1.171.14.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-04 00:00",
+        "description": " This is the first version of the MIB file "
+      }
+    ]
+  },
+  "dSwPortNotifications": {
+    "name": "dSwPortNotifications",
+    "oid": "1.3.6.1.4.1.171.14.11.0",
+    "class": "objectidentity"
+  },
+  "dSwPortObjects": {
+    "name": "dSwPortObjects",
+    "oid": "1.3.6.1.4.1.171.14.11.1",
+    "class": "objectidentity"
+  },
+  "dSwPortConformance": {
+    "name": "dSwPortConformance",
+    "oid": "1.3.6.1.4.1.171.14.11.2",
+    "class": "objectidentity"
+  },
+  "dSwPortIfTable": {
+    "name": "dSwPortIfTable",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dSwPortIfEntry": {
+    "name": "dSwPortIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dSwPortIfB1000baseTCtrl": {
+    "name": "dSwPortIfB1000baseTCtrl",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "b1000baseTMaster": 2,
+          "b1000baseTSlave": 3
+        }
+      }
+    },
+    "default": {
+      "value": "b1000baseTMaster",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSwPortIfB10GbaseTCtrl": {
+    "name": "dSwPortIfB10GbaseTCtrl",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "b10GbaseTMaster": 2,
+          "b10GbaseTSlave": 3
+        }
+      }
+    },
+    "default": {
+      "value": "b10GbaseTMaster",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSwPortIfMdix": {
+    "name": "dSwPortIfMdix",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "normal": 2,
+          "cross": 3
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSwPortIfJumboFrameSize": {
+    "name": "dSwPortIfJumboFrameSize",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1536,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSwPortIfSpeedAutoDowngrade": {
+    "name": "dSwPortIfSpeedAutoDowngrade",
+    "oid": "1.3.6.1.4.1.171.14.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dSwPortCompliances": {
+    "name": "dSwPortCompliances",
+    "oid": "1.3.6.1.4.1.171.14.11.2.1",
+    "class": "objectidentity"
+  },
+  "dSwPortCompliance": {
+    "name": "dSwPortCompliance",
+    "oid": "1.3.6.1.4.1.171.14.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dSwPortBasicGroup",
+        "module": "DLINKSW-SWITCHPORT-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfSpeedAutoDowngrade",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "dSwPortGroups": {
+    "name": "dSwPortGroups",
+    "oid": "1.3.6.1.4.1.171.14.11.2.2",
+    "class": "objectidentity"
+  },
+  "dSwPortBasicGroup": {
+    "name": "dSwPortBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfB1000baseTCtrl"
+      },
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfB10GbaseTCtrl"
+      },
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfMdix"
+      },
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfJumboFrameSize"
+      },
+      {
+        "module": "DLINKSW-SWITCHPORT-MIB",
+        "object": "dSwPortIfSpeedAutoDowngrade"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-SWITCHPORT-MIB",
+      "Source digest sha256:33b11c21201766acffc0eae9d0f29143a9849756313edc63fe94cebb61dd8a80",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-SWITCHPORT-MIB"
+  }
+}

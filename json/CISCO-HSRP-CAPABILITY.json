@@ -1,0 +1,188 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoHsrpCapability": {
+    "name": "ciscoHsrpCapability",
+    "oid": "1.3.6.1.4.1.9.7.10000",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-27 00:00",
+        "description": "Added agent capability for IOS-XR 3.6"
+      },
+      {
+        "revision": "1998-08-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoHsrpCapabilityV12R0": {
+    "name": "ciscoHsrpCapabilityV12R0",
+    "oid": "1.3.6.1.4.1.9.7.10000.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(3)T",
+    "capabilities": [
+      {
+        "module": "CISCO-HSRP-MIB",
+        "includes": [
+          "cHsrpGlobalConfig",
+          "cHsrpGroup"
+        ],
+        "variations": [
+          {
+            "object": "cHsrpConfigTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpAuth",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPreempt",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPreemptDelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpConfiguredHelloTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpConfiguredHoldTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpVirtualIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpEntryRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHsrpCapabilityV3R6CRS1": {
+    "name": "ciscoHsrpCapabilityV3R6CRS1",
+    "oid": "1.3.6.1.4.1.9.7.10000.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.6 on CRS-1",
+    "capabilities": [
+      {
+        "module": "CISCO-HSRP-MIB",
+        "includes": [
+          "cHsrpGlobalConfig",
+          "cHsrpGroup"
+        ],
+        "variations": [
+          {
+            "object": "cHsrpConfigTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpAuth",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPreempt",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpPreemptDelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpUseConfiguredTimers",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpConfiguredHelloTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpConfiguredHoldTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpLearnedHelloTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpLearnedHoldTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpVirtualIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpUseConfigVirtualIpAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpActiveRouter",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpStandbyRouter",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpStandbyState",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpVirtualMacAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cHsrpGrpEntryRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-HSRP-CAPABILITY",
+      "Source digest sha256:d005aa787f9ea157f063e99466be2b8df0269e4982bd54d5009b702ac4c1fdd2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-HSRP-CAPABILITY"
+  }
+}

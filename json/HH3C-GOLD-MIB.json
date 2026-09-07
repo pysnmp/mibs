@@ -1,0 +1,243 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cGold": {
+    "name": "hh3cGold",
+    "oid": "1.3.6.1.4.1.25506.2.203",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-03-13 15:02",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cGoldTrap": {
+    "name": "hh3cGoldTrap",
+    "oid": "1.3.6.1.4.1.25506.2.203.1",
+    "class": "objectidentity"
+  },
+  "hh3cGoldTrapOjbects": {
+    "name": "hh3cGoldTrapOjbects",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.0",
+    "class": "objectidentity"
+  },
+  "hh3cGoldLipcLinkFail": {
+    "name": "hh3cGoldLipcLinkFail",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceChassisID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceSlotID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceCpuID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestChassisID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestSlotID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkRecover": {
+    "name": "hh3cGoldLipcLinkRecover",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceChassisID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceSlotID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkSourceCpuID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestChassisID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestSlotID"
+      },
+      {
+        "module": "HH3C-GOLD-MIB",
+        "object": "hh3cGoldLipcLinkDestCpuID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cGoldTrapObjectDefinitions": {
+    "name": "hh3cGoldTrapObjectDefinitions",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cGoldLipcLinkSourceChassisID": {
+    "name": "hh3cGoldLipcLinkSourceChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkSourceSlotID": {
+    "name": "hh3cGoldLipcLinkSourceSlotID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkSourceCpuID": {
+    "name": "hh3cGoldLipcLinkSourceCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkDestChassisID": {
+    "name": "hh3cGoldLipcLinkDestChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkDestSlotID": {
+    "name": "hh3cGoldLipcLinkDestSlotID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cGoldLipcLinkDestCpuID": {
+    "name": "hh3cGoldLipcLinkDestCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.203.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-GOLD-MIB",
+      "Source digest sha256:25abb81154d55e7e94c86b4e1f5cb7098224cf4325dc4dedd43e42c7c8663a67",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-GOLD-MIB"
+  }
+}

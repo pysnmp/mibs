@@ -1,0 +1,182 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxScu": {
+    "name": "jnxScu",
+    "oid": "1.3.6.1.4.1.2636.3.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-02-25 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "jnxScuStats": {
+    "name": "jnxScuStats",
+    "oid": "1.3.6.1.4.1.2636.3.16.1",
+    "class": "objectidentity"
+  },
+  "jnxScuStatsTable": {
+    "name": "jnxScuStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxScuStatsEntry": {
+    "name": "jnxScuStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SCU-MIB",
+        "object": "jnxScuStatsDstIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SCU-MIB",
+        "object": "jnxScuStatsAddrFamily",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SCU-MIB",
+        "object": "jnxScuStatsClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxScuStatsDstIfIndex": {
+    "name": "jnxScuStatsDstIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxScuStatsAddrFamily": {
+    "name": "jnxScuStatsAddrFamily",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxScuStatsClassName": {
+    "name": "jnxScuStatsClassName",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 112
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxScuStatsPackets": {
+    "name": "jnxScuStatsPackets",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxScuStatsBytes": {
+    "name": "jnxScuStatsBytes",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxScuStatsClName": {
+    "name": "jnxScuStatsClName",
+    "oid": "1.3.6.1.4.1.2636.3.16.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 112
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-SCU-MIB",
+      "Source digest sha256:59d0a45d4849eb0142dd57c4241550de90f6305a3ef5fe654a59248f4b011a8c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-SCU-MIB"
+  }
+}

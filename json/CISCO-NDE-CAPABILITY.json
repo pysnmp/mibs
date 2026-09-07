@@ -1,0 +1,117 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNdeCapability": {
+    "name": "ciscoNdeCapability",
+    "oid": "1.3.6.1.4.1.9.7.328",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-04 00:00",
+        "description": "Added agent capability object ciscoNdeCapV12R0250SYPCat6kPfc4."
+      },
+      {
+        "revision": "2004-01-27 00:00",
+        "description": "Added agent capability object ciscoNdeCapCatOSV08R0301."
+      },
+      {
+        "revision": "2003-08-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNdeCapabilityV12R0119E": {
+    "name": "ciscoNdeCapabilityV12R0119E",
+    "oid": "1.3.6.1.4.1.9.7.328.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(19E) on Catalyst 6000/6500 \n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-NDE-MIB",
+        "includes": [
+          "cndeCollectorConfigurationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cndeCollectorAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNdeCapCatOSV08R0301": {
+    "name": "ciscoNdeCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.328.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500 \n                    and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-NDE-MIB",
+        "includes": [
+          "cndeCollectorConfigurationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cndeCollectorAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNdeCapV12R0250SYPCat6kPfc4": {
+    "name": "ciscoNdeCapV12R0250SYPCat6kPfc4",
+    "oid": "1.3.6.1.4.1.9.7.328.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500 \n                    series devices with PFC4 card.",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-NDE-CAPABILITY",
+      "Source digest sha256:da01bb47817fb8286934ecdc32bb2f8ad556c88f147c6310c59db1a14bc3c97a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-NDE-CAPABILITY"
+  }
+}

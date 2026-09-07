@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciena": {
+    "name": "ciena",
+    "oid": "1.3.6.1.4.1.1271",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-03-01 07:56",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2019-03-01 07:56",
+        "description": "Updated for cienaGenericMIBs and cienaOpterametro."
+      },
+      {
+        "revision": "2019-03-01 07:56",
+        "description": "Fixed miscellaneous spelling and description errors."
+      },
+      {
+        "revision": "2019-03-01 07:56",
+        "description": "Fixed the revision and description minor errors."
+      },
+      {
+        "revision": "2019-03-01 07:56",
+        "description": "Initial creation of MIB file structure for Ciena Packet Networking Products."
+      }
+    ]
+  },
+  "cienaCes": {
+    "name": "cienaCes",
+    "oid": "1.3.6.1.4.1.1271.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaCommon": {
+    "name": "cienaCommon",
+    "oid": "1.3.6.1.4.1.1271.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaProducts": {
+    "name": "cienaProducts",
+    "oid": "1.3.6.1.4.1.1271.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaCesStatistics": {
+    "name": "cienaCesStatistics",
+    "oid": "1.3.6.1.4.1.1271.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaCesNotifications": {
+    "name": "cienaCesNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaCesNotificationsControlModule": {
+    "name": "cienaCesNotificationsControlModule",
+    "oid": "1.3.6.1.4.1.1271.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaCesConfig": {
+    "name": "cienaCesConfig",
+    "oid": "1.3.6.1.4.1.1271.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaGenericMIBs": {
+    "name": "cienaGenericMIBs",
+    "oid": "1.3.6.1.4.1.1271.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cienaOpterametro": {
+    "name": "cienaOpterametro",
+    "oid": "1.3.6.1.4.1.1271.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-SMI",
+      "Source digest sha256:5a8b3e9e29cc8263bda912039e4e16d5c404ea621e0df3161d8fc107c7f62ccd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-SMI"
+  }
+}

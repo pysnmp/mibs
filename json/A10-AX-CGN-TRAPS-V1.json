@@ -1,0 +1,335 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "axLogging",
+      "axNotification"
+    ],
+    "A10-AX-NOTIF-OBJ": [
+      "axNotificationIpAddressType",
+      "axNotificationLsnCurrentUsage",
+      "axNotificationLsnExceededTimes",
+      "axNotificationLsnFixedNatPortMappingFileChangeType",
+      "axNotificationLsnFixedNatPortMappingFileName",
+      "axNotificationLsnIpAddress",
+      "axNotificationLsnPoolName",
+      "axNotificationLsnProtoType",
+      "axNotificationMsg",
+      "axNotificationPartitionName",
+      "axNotifications"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axLsnNotifications": {
+    "name": "axLsnNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4",
+    "class": "objectidentity"
+  },
+  "axLsnNatAllPortUsageReachThreshold": {
+    "name": "axLsnNatAllPortUsageReachThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnProtoType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnCurrentUsage"
+      }
+    ]
+  },
+  "axLsnIpAllPortExhausted": {
+    "name": "axLsnIpAllPortExhausted",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnIpAddress"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnProtoType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      }
+    ]
+  },
+  "axLsnTrafficIcmpUserQuotasExceed": {
+    "name": "axLsnTrafficIcmpUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficUdpUserQuotasExceed": {
+    "name": "axLsnTrafficUdpUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficTcpUserQuotasExceed": {
+    "name": "axLsnTrafficTcpUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficEspUserQuotasExceed": {
+    "name": "axLsnTrafficEspUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficNatPortUnavailable": {
+    "name": "axLsnTrafficNatPortUnavailable",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficNewUserResourceUnavailable": {
+    "name": "axLsnTrafficNewUserResourceUnavailable",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficUdpExtendedUserQuotasExceed": {
+    "name": "axLsnTrafficUdpExtendedUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficTcpExtendedUserQuotasExceed": {
+    "name": "axLsnTrafficTcpExtendedUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnTrafficNewUserQuotasCreationFailed": {
+    "name": "axLsnTrafficNewUserQuotasCreationFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnFullconeCreationFailed": {
+    "name": "axLsnFullconeCreationFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnSessionUserQuotasExceed": {
+    "name": "axLsnSessionUserQuotasExceed",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnPoolName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnExceededTimes"
+      }
+    ]
+  },
+  "axLsnFixedNatPortMappingFileChange": {
+    "name": "axLsnFixedNatPortMappingFileChange",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.4.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnFixedNatPortMappingFileName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLsnFixedNatPortMappingFileChangeType"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-AX-CGN-TRAPS-V1",
+      "Source digest sha256:2831e33f155a5423a9a7c0dc6bab89e7dc9e82943efcd5e3361beeab545345a3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-AX-CGN-TRAPS-V1"
+  }
+}

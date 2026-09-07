@@ -1,0 +1,145 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC1155-SMI": [
+      "iso"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "experimental",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "TruthValue": {
+    "name": "TruthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    }
+  },
+  "NESlotValue": {
+    "name": "NESlotValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "ModuleWidthValue": {
+    "name": "ModuleWidthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "PerceivedSeverityValue": {
+    "name": "PerceivedSeverityValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notification": 0,
+          "alarm": 2,
+          "warning": 3,
+          "clear": 5
+        }
+      }
+    }
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "mgmt": {
+    "name": "mgmt",
+    "oid": "1.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "bktelSystems": {
+    "name": "bktelSystems",
+    "oid": "1.3.6.1.4.1.7501",
+    "class": "objectidentity"
+  },
+  "hfc": {
+    "name": "hfc",
+    "oid": "1.3.6.1.4.1.7501.1",
+    "class": "objectidentity"
+  },
+  "ne": {
+    "name": "ne",
+    "oid": "1.3.6.1.4.1.7501.1.1",
+    "class": "objectidentity"
+  },
+  "modules": {
+    "name": "modules",
+    "oid": "1.3.6.1.4.1.7501.1.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BKTEL-HFC862-BASE-MIB",
+      "Source digest sha256:0d80e2a1be64c07141970f8f1a9b2d36cbc797b15660c30515264a7eabbe6a8c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BKTEL-HFC862-BASE-MIB"
+  }
+}

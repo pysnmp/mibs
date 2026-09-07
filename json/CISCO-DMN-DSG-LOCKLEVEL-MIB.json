@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DMN-DSG-ROOT-MIB": [
+      "ciscoDSGUtilities"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDSGLockLevel": {
+    "name": "ciscoDSGLockLevel",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-30 11:00",
+        "description": "V01.00.03 2010-08-30 Updated for adherence to SNMPv2 format."
+      },
+      {
+        "revision": "2010-06-28 06:00",
+        "description": "V01.00.02 2010-06-28 Updated the description for lockLevel."
+      },
+      {
+        "revision": "2010-05-24 06:30",
+        "description": "V01.00.01 2010-05-24 Updated the options for lockLevel."
+      },
+      {
+        "revision": "2009-12-20 12:00",
+        "description": "V01.00.00 2009-12-20 Initial Version."
+      }
+    ]
+  },
+  "lockLevel": {
+    "name": "lockLevel",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lockLevelPWD": {
+    "name": "lockLevelPWD",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lockLevelPWDCUR": {
+    "name": "lockLevelPWDCUR",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lockLevelPWDNEW": {
+    "name": "lockLevelPWDNEW",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lockLevelPWDCONF": {
+    "name": "lockLevelPWDCONF",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DMN-DSG-LOCKLEVEL-MIB",
+      "Source digest sha256:2b43cf3b647dece7e66b22f8015ac64071b4e072af3871c6da1aa701aa66ca2a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DMN-DSG-LOCKLEVEL-MIB"
+  }
+}

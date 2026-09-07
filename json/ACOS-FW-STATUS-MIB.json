@@ -1,0 +1,156 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "fwStatusModule": {
+    "name": "fwStatusModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487",
+    "class": "moduleidentity"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1",
+    "class": "objectidentity"
+  },
+  "statusOperTable": {
+    "name": "statusOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statusOperEntry": {
+    "name": "statusOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-FW-STATUS-MIB",
+        "object": "statusOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statusOperSlotId": {
+    "name": "statusOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperCurrentActiveRuleSet": {
+    "name": "statusOperCurrentActiveRuleSet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPreviousSuccessfulCompilationAttempt": {
+    "name": "statusOperPreviousSuccessfulCompilationAttempt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperPreviousSuccessfulCompilationDuration": {
+    "name": "statusOperPreviousSuccessfulCompilationDuration",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperMostRecentCompilationAttempt": {
+    "name": "statusOperMostRecentCompilationAttempt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperMostRecentCompilationStatus": {
+    "name": "statusOperMostRecentCompilationStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statusOperInternal": {
+    "name": "statusOperInternal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.487.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-FW-STATUS-MIB",
+      "Source digest sha256:a01b7605de3cac493de2baf18552e6fbf085f3c178143223e1bfa413a825f861",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-FW-STATUS-MIB"
+  }
+}

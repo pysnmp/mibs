@@ -1,0 +1,902 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "CISCO-VPDN-MGMT-MIB": [
+      "cvpdnSessionAttrEntry",
+      "cvpdnTunnelAttrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoVpdnMgmtExtMIB": {
+    "name": "ciscoVpdnMgmtExtMIB",
+    "oid": "1.3.6.1.4.1.9.10.51",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "This revision involves the following changes to table cvpdnTunnelExtTable. 1] Deprecated cvpdnTunnelBytesIn, cvpdnTunnelBytesOut 32-bit counters. 2] Added new OIDs cvpdnTunnelBytesIn64, cvpdnTunnelBytesOut64 64-bit counters."
+      },
+      {
+        "revision": "2007-06-04 00:00",
+        "description": "Corrected the format of LAST-UPDATED and REVISION fields."
+      },
+      {
+        "revision": "1999-04-14 00:00",
+        "description": "Original version of this MIB."
+      }
+    ]
+  },
+  "ciscoVpdnMgmtExtMIBObjects": {
+    "name": "ciscoVpdnMgmtExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.51.1",
+    "class": "objectidentity"
+  },
+  "cvpdnTunnelExtInfo": {
+    "name": "cvpdnTunnelExtInfo",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1",
+    "class": "objectidentity"
+  },
+  "cvpdnSessionExtInfo": {
+    "name": "cvpdnSessionExtInfo",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2",
+    "class": "objectidentity"
+  },
+  "cvpdnTunnelExtTable": {
+    "name": "cvpdnTunnelExtTable",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpdnTunnelExtEntry": {
+    "name": "cvpdnTunnelExtEntry",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "cvpdnTunnelExtEntry",
+      "module": "CISCO-VPDN-MGMT-EXT-MIB",
+      "object": "cvpdnTunnelAttrEntry"
+    },
+    "status": "current"
+  },
+  "cvpdnTunnelLocalPort": {
+    "name": "cvpdnTunnelLocalPort",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelRemotePort": {
+    "name": "cvpdnTunnelRemotePort",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelLastChange": {
+    "name": "cvpdnTunnelLastChange",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelPacketsOut": {
+    "name": "cvpdnTunnelPacketsOut",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelBytesOut": {
+    "name": "cvpdnTunnelBytesOut",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cvpdnTunnelPacketsIn": {
+    "name": "cvpdnTunnelPacketsIn",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelBytesIn": {
+    "name": "cvpdnTunnelBytesIn",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cvpdnTunnelBytesIn64": {
+    "name": "cvpdnTunnelBytesIn64",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnTunnelBytesOut64": {
+    "name": "cvpdnTunnelBytesOut64",
+    "oid": "1.3.6.1.4.1.9.10.51.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionExtTable": {
+    "name": "cvpdnSessionExtTable",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpdnSessionExtEntry": {
+    "name": "cvpdnSessionExtEntry",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "cvpdnSessionExtEntry",
+      "module": "CISCO-VPDN-MGMT-EXT-MIB",
+      "object": "cvpdnSessionAttrEntry"
+    },
+    "status": "current"
+  },
+  "cvpdnSessionRemoteId": {
+    "name": "cvpdnSessionRemoteId",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionInterfaceName": {
+    "name": "cvpdnSessionInterfaceName",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionLastChange": {
+    "name": "cvpdnSessionLastChange",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionOutOfOrderPackets": {
+    "name": "cvpdnSessionOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionSequencing": {
+    "name": "cvpdnSessionSequencing",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionSendSequence": {
+    "name": "cvpdnSessionSendSequence",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRecvSequence": {
+    "name": "cvpdnSessionRecvSequence",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRemoteSendSequence": {
+    "name": "cvpdnSessionRemoteSendSequence",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRemoteRecvSequence": {
+    "name": "cvpdnSessionRemoteRecvSequence",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionSentZLB": {
+    "name": "cvpdnSessionSentZLB",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRecvZLB": {
+    "name": "cvpdnSessionRecvZLB",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionSentRBits": {
+    "name": "cvpdnSessionSentRBits",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRecvRBits": {
+    "name": "cvpdnSessionRecvRBits",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionLocalWindowSize": {
+    "name": "cvpdnSessionLocalWindowSize",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRemoteWindowSize": {
+    "name": "cvpdnSessionRemoteWindowSize",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionCurrentWindowSize": {
+    "name": "cvpdnSessionCurrentWindowSize",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionMinimumWindowSize": {
+    "name": "cvpdnSessionMinimumWindowSize",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionATOTimeouts": {
+    "name": "cvpdnSessionATOTimeouts",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "msecs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionOutGoingQueueSize": {
+    "name": "cvpdnSessionOutGoingQueueSize",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionCalculationType": {
+    "name": "cvpdnSessionCalculationType",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionAdaptiveTimeOut": {
+    "name": "cvpdnSessionAdaptiveTimeOut",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "msecs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionRoundTripTime": {
+    "name": "cvpdnSessionRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "msecs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionPktProcessingDelay": {
+    "name": "cvpdnSessionPktProcessingDelay",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpdnSessionZLBTime": {
+    "name": "cvpdnSessionZLBTime",
+    "oid": "1.3.6.1.4.1.9.10.51.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "msecs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoVpdnMgtExtMIBNotificationPrefix": {
+    "name": "ciscoVpdnMgtExtMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.51.2",
+    "class": "objectidentity"
+  },
+  "ciscoVpdnMgmtExtMIBConformance": {
+    "name": "ciscoVpdnMgmtExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.51.3",
+    "class": "objectidentity"
+  },
+  "ciscoVpdnMgmtExtMIBCompliances": {
+    "name": "ciscoVpdnMgmtExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.51.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVpdnMgmtExtMIBGroups": {
+    "name": "ciscoVpdnMgmtExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.51.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoVpdnMgmtExtMIBBasicCompliance": {
+    "name": "ciscoVpdnMgmtExtMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.9.10.51.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvpdnTunnelExtGroup",
+        "module": "CISCO-VPDN-MGMT-EXT-MIB"
+      },
+      {
+        "object": "cvpdnSessionExtGroup",
+        "module": "CISCO-VPDN-MGMT-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVpdnMgmtExtMIBBasicComplianceV2": {
+    "name": "ciscoVpdnMgmtExtMIBBasicComplianceV2",
+    "oid": "1.3.6.1.4.1.9.10.51.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvpdnSessionExtGroup",
+        "module": "CISCO-VPDN-MGMT-EXT-MIB"
+      },
+      {
+        "object": "cvpdnTunnelExtGroupV2",
+        "module": "CISCO-VPDN-MGMT-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvpdnTunnelExtGroup": {
+    "name": "cvpdnTunnelExtGroup",
+    "oid": "1.3.6.1.4.1.9.10.51.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelLocalPort"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelRemotePort"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelLastChange"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelPacketsIn"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelPacketsOut"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelBytesIn"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelBytesOut"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cvpdnSessionExtGroup": {
+    "name": "cvpdnSessionExtGroup",
+    "oid": "1.3.6.1.4.1.9.10.51.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRemoteId"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionInterfaceName"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionLastChange"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionSequencing"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionSendSequence"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRecvSequence"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRemoteSendSequence"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRemoteRecvSequence"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionSentZLB"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRecvZLB"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionSentRBits"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRecvRBits"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionLocalWindowSize"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRemoteWindowSize"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionCurrentWindowSize"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionMinimumWindowSize"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionATOTimeouts"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionOutGoingQueueSize"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionCalculationType"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionAdaptiveTimeOut"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionRoundTripTime"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionPktProcessingDelay"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnSessionZLBTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cvpdnTunnelExtGroupV2": {
+    "name": "cvpdnTunnelExtGroupV2",
+    "oid": "1.3.6.1.4.1.9.10.51.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelLocalPort"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelRemotePort"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelLastChange"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelPacketsOut"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelPacketsIn"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelBytesIn64"
+      },
+      {
+        "module": "CISCO-VPDN-MGMT-EXT-MIB",
+        "object": "cvpdnTunnelBytesOut64"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VPDN-MGMT-EXT-MIB",
+      "Source digest sha256:339ab5545cbb1dac1447b2ca013555c4430e932a8c414aaaa4c4599a601a47d9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VPDN-MGMT-EXT-MIB"
+  }
+}

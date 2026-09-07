@@ -1,0 +1,31 @@
+#
+# PySNMP MIB module WLSX-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source WLSX-STATS-MIB
+# Source digest sha256:bb879faaec6910737e6036fb7a1b2a384b9039253e23332d65e1485837efdcd3
+# Produced by pysmi-2.3.0
+#
+wlsxEnterpriseMibModules, = mibBuilder.importSymbols("ARUBA-MIB", "wlsxEnterpriseMibModules")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, snmpModules = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "snmpModules")
+DisplayString, MacAddress, PhysAddress, RowStatus, StorageType, TAddress, TDomain, TextualConvention, TestAndIncr, TimeInterval, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "PhysAddress", "RowStatus", "StorageType", "TAddress", "TDomain", "TextualConvention", "TestAndIncr", "TimeInterval", "TruthValue")
+wlsxStatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15))
+wlsxStatsMIB.setRevisions(('2020-08-14 17:45',))
+if mibBuilder.loadTexts: wlsxStatsMIB.setLastUpdated('2020-08-14 17:45')
+if mibBuilder.loadTexts: wlsxStatsMIB.setOrganization('Aruba, a Hewlett Packard Enterprise company')
+wlsxStatsOpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1))
+wlsxStatsRequestTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: wlsxStatsRequestTable.setStatus('current')
+wlsxStatsRequestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "WLSX-STATS-MIB", "wlsxStatsIndex"))
+if mibBuilder.loadTexts: wlsxStatsRequestEntry.setStatus('current')
+wlsxStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 1), Integer32()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: wlsxStatsIndex.setStatus('current')
+wlsxStatsReqType = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsReqType.setStatus('current')
+wlsxStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsInterval.setStatus('current')
+wlsxStatsCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 15, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxStatsCookie.setStatus('current')
+mibBuilder.exportSymbols("WLSX-STATS-MIB", PYSNMP_MODULE_ID=wlsxStatsMIB, wlsxStatsCookie=wlsxStatsCookie, wlsxStatsIndex=wlsxStatsIndex, wlsxStatsInterval=wlsxStatsInterval, wlsxStatsMIB=wlsxStatsMIB, wlsxStatsOpGroup=wlsxStatsOpGroup, wlsxStatsReqType=wlsxStatsReqType, wlsxStatsRequestEntry=wlsxStatsRequestEntry, wlsxStatsRequestTable=wlsxStatsRequestTable)

@@ -1,0 +1,521 @@
+ALT-DEV-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	DisplayString
+		FROM SNMPv2-TC
+	sysUpTime
+		FROM SNMPv2-MIB
+	enterprises,
+	Integer32,
+	IpAddress,
+	OBJECT-TYPE,
+	MODULE-IDENTITY,
+	NOTIFICATION-TYPE
+		FROM SNMPv2-SMI
+	OBJECT-GROUP,
+	NOTIFICATION-GROUP,
+	MODULE-COMPLIANCE
+		FROM SNMPv2-CONF
+;
+
+altergyInc MODULE-IDENTITY
+	LAST-UPDATED "202002121940Z"
+	ORGANIZATION "www.altergy.com"
+	CONTACT-INFO
+	 "postal:	Matthew Ellington
+			140 Blue Ravine
+			Folsom, CA  95630
+
+	email:		matthew.ellington@altergy.com"
+	DESCRIPTION
+	    "MIB objects for Altergy fuel cell and reformer"
+	REVISION
+		"202002121940Z"
+	DESCRIPTION
+		"First draft"
+	::= { enterprises 52248 }
+
+altergyConformance OBJECT IDENTIFIER ::= { altergyInc 99 }
+
+altergyGroups OBJECT IDENTIFIER ::= { altergyConformance 1 }
+
+altergyCompliances OBJECT IDENTIFIER ::= { altergyConformance 2 }
+
+basicCompliance MODULE-COMPLIANCE
+	STATUS		current
+	DESCRIPTION	"ALT2-DEV-MIB MODULE-COMPLIANCE."
+	MODULE -- this module
+	MANDATORY-GROUPS {	altergyDevGroup1,
+				altergyDevGroup2,
+				altergyDevGroup3,
+				altergyDevGroup4,
+				altergyDevTrapGroup }
+	::= { altergyCompliances 1 }
+
+altergyDevGroup1 OBJECT-GROUP
+    OBJECTS {	altergyDevFWVer,
+		altergyDevState,
+		altergyDevVbus,
+		altergyDevIout,
+		altergyDevAlarmStr,
+		altergyDevImax,
+		altergyDevTboard,
+		altergyDevPpump,
+		altergyDevTburner,
+		altergyDevTexhaust,
+		altergyDevTpurifier }
+    STATUS	current
+    DESCRIPTION	"Information scalars for fuel cell engine."
+    ::= { altergyGroups 1 }
+
+altergyDevGroup2 OBJECT-GROUP
+    OBJECTS {	altergyDevAlarm0,
+		altergyDevAlarm1,
+		altergyDevAlarm2,
+		altergyDevAlarm3,
+		altergyDevFuelPressA,
+		altergyDevFuelPressB,
+		altergyDevAdc0,
+		altergyDevAdc1,
+		altergyDevAdc2,
+		altergyDevAdc3,
+		altergyDevDigIn0,
+		altergyDevDigIn1,
+		altergyDevDigIn2,
+		altergyDevDigIn3,
+		altergyDevDigOut0,
+		altergyDevDigOut1,
+		altergyDevIntTankLevel,
+		altergyDevExtTankLevel }
+    STATUS	current
+    DESCRIPTION	"Information arrays for fuel cell engine."
+    ::= { altergyGroups 2 }
+
+altergyDevGroup3 OBJECT-GROUP
+    OBJECTS  {	altergyDevVset,
+		altergyDevIset,
+		altergyDevMode,
+		altergyDevVon,
+		altergyDevVoff }
+    STATUS	current
+    DESCRIPTION
+            "Operational scalars group for fuel cell engine."
+    ::= { altergyGroups 3 }
+
+altergyDevGroup4 OBJECT-GROUP
+    OBJECTS  {	altergyDevIp,
+		altergyDevGateway,
+		altergyDevNetmask }
+    STATUS	current
+    DESCRIPTION
+            "Network settings for the fuel cell engine."
+    ::= { altergyGroups 4 }
+
+altergyDevTrapGroup NOTIFICATION-GROUP
+    NOTIFICATIONS  {	altergyTrapStart,
+			altergyTrapStop,
+			altergyTrapStartDR,
+			altergyTrapStopDR,
+			altergyTrapHold,
+			altergyTrapOperational,
+			altergyTrapSoftReset,
+			altergyTrapHardReset,
+			altergyTrapOpCleared,
+			altergyTrapFuelWarnA,
+			altergyTrapWarn1Cleared,
+			altergyTrapFuelWarnB,
+			altergyTrapWarn2Cleared }
+    STATUS	current
+    DESCRIPTION
+            "Device traps."
+    ::= { altergyGroups 5 }
+
+altergyDevInfoScalars	OBJECT IDENTIFIER ::= { altergyInc 1 }
+
+altergyDevInfoArrays	OBJECT IDENTIFIER ::= { altergyInc 2 }
+
+altergyDevAlarm		OBJECT IDENTIFIER ::= {altergyDevInfoArrays 1 }
+altergyDevFuelPress	OBJECT IDENTIFIER ::= {altergyDevInfoArrays 2 }
+altergyDevAdc		OBJECT IDENTIFIER ::= {altergyDevInfoArrays 3 }
+altergyDevDigIn		OBJECT IDENTIFIER ::= {altergyDevInfoArrays 4 }
+altergyDevDigOut	OBJECT IDENTIFIER ::= {altergyDevInfoArrays 5 }
+altergyDevTankLevel	OBJECT IDENTIFIER ::= {altergyDevInfoArrays 10 }
+
+altergyDevOpSettings	OBJECT IDENTIFIER ::= { altergyInc 5 }
+
+altergyDevNetSettings	OBJECT IDENTIFIER ::= { altergyInc 10 }
+
+altergyDevTraps		OBJECT IDENTIFIER ::= { altergyInc 50 }
+
+altergyDevFWVer		OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Device firmware string."
+	::= {altergyDevInfoScalars 1}
+
+altergyDevState	OBJECT-TYPE
+	SYNTAX	INTEGER {	resetInit(0),		reset(1),
+				selfcheckInit(9),	selfcheck(10),
+				offlineInit(11),	offline(12),
+				leakCheckInit(14),	leakCheck(15),
+				warmupInit(17),		warmup(18),
+				idleInit(19),		idle(20),
+				startStackInit(29),	startStack(30),
+				refreshInit(48),	refresh(50),
+				startFanInit(59),	startFan(60),
+				checkVoutInit(64),	checkVout(65),
+				startPCSInit(69),	startPCS(70),
+				runInit(79),		run(80),
+				tripInit(84),		trip(85),
+				shutdownInit(89),	shutdown(90),
+				healthCheckInit(100),healthCheck(102),
+				stackCoolInit(104),	stackCool(105),
+				stackLoadInit(107),	stackLoad(108),
+				bleedLineInit(109),	bleedLine(110),
+				airPurgeInit(129),	airPurge(130),
+				badConfigInit(194),	badConfig(195),
+				bootInit(196),		boot(197),
+				stopInit(198),		stop(199),
+				bufferPrepInit(219),bufferPrep(220),
+				vacuumInit(229),	vacuum(230),
+				cooldownInit(239),	cooldown(240),
+				serviceinit(251),	service(252),
+				testinit(254),		test(255)	}
+
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Device state enum."
+	::= {altergyDevInfoScalars 2}
+
+altergyDevVbus		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"The system bus voltage in dV."
+	::= {altergyDevInfoScalars 3}
+
+altergyDevIout		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"The system output current in dA."
+	::= {altergyDevInfoScalars 4}
+
+altergyDevAlarmStr	OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Fuel cell/reformer alarms as a string."
+	::= {altergyDevInfoScalars 5}
+
+altergyDevImax		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Maximum output current during this session in dA."
+	::= {altergyDevInfoScalars 6}
+
+altergyDevTboard	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Temperature of the main board in C."
+	::= {altergyDevInfoScalars 7}
+
+altergyDevBoardSN	OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Serial number of the main board."
+	::= {altergyDevInfoScalars 8}
+
+altergyDevPpump		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Pump pressure in PSI."
+	::= {altergyDevInfoScalars 20}
+
+altergyDevTburner	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Temperature of the burner in C."
+	::= {altergyDevInfoScalars 21}
+
+altergyDevTexhaust	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Temperature of the exhaust in C."
+	::= {altergyDevInfoScalars 22}
+
+altergyDevTpurifier	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Temperature of the purifier in C."
+	::= {altergyDevInfoScalars 23}
+	
+altergyDevAlarm0	OBJECT-TYPE
+	SYNTAX		OCTET STRING (SIZE(4))
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Hex value of fuel cell/reformer alarm0."
+	::= {altergyDevAlarm 1}
+	
+altergyDevAlarm1	OBJECT-TYPE
+	SYNTAX		OCTET STRING (SIZE(4))
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Hex value of fuel cell/reformer alarm1."
+	::= {altergyDevAlarm 2}
+	
+altergyDevAlarm2	OBJECT-TYPE
+	SYNTAX		OCTET STRING (SIZE(4))
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Hex value of fuel cell/reformer alarm2."
+	::= {altergyDevAlarm 3}
+	
+altergyDevAlarm3	OBJECT-TYPE
+	SYNTAX		OCTET STRING (SIZE(4))
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Hex value of fuel cell/reformer alarm3."
+	::= {altergyDevAlarm 4}
+
+altergyDevFuelPressA	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Fuel pressure bank A in PSI."
+	::= {altergyDevFuelPress 1}
+
+altergyDevFuelPressB	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Fuel pressure bank B in PSI."
+	::= {altergyDevFuelPress 2}
+	
+altergyDevAdc0		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"ADC channel 0 value in millivolts."
+	::= {altergyDevAdc 1}
+	
+altergyDevAdc1		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"ADC channel 1 value in millivolts."
+	::= {altergyDevAdc 2}
+	
+altergyDevAdc2		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"ADC channel 2 value in millivolts."
+	::= {altergyDevAdc 3}
+	
+altergyDevAdc3		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"ADC channel 3 value in millivolts."
+	::= {altergyDevAdc 4}
+	
+altergyDevDigIn0	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital input 0 state."
+	::= {altergyDevDigIn 1}
+	
+altergyDevDigIn1	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital input 1 state."
+	::= {altergyDevDigIn 2}
+	
+altergyDevDigIn2	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital input 2 state."
+	::= {altergyDevDigIn 3}
+	
+altergyDevDigIn3	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital input 3 value."
+	::= {altergyDevDigIn 4}
+	
+altergyDevDigOut0	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital output 0 state."
+	::= {altergyDevDigOut 1}
+	
+altergyDevDigOut1	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Digital output 1 state."
+	::= {altergyDevDigOut 2}
+	
+altergyDevIntTankLevel	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"Internal fuel tank level in percent."
+	::= {altergyDevTankLevel 1}
+	
+altergyDevExtTankLevel	OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"External fuel tank level in percent."
+	::= {altergyDevTankLevel 2}
+
+altergyDevVset		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Fuel cell PCS voltage setpoint in dV."
+	::= {altergyDevOpSettings 1}
+
+altergyDevIset		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Fuel cell PCS current limit in dA."
+	::= {altergyDevOpSettings 2}
+
+altergyDevMode		OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Fuel cell mode (manual|telecom|ups)."
+	::= {altergyDevOpSettings 3}
+
+altergyDevVon		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Telecom on voltage in dV."
+	::= {altergyDevOpSettings 4}
+
+altergyDevVoff		OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Telecom off voltage in dV."
+	::= {altergyDevOpSettings 5}
+
+altergyDevIp		OBJECT-TYPE
+	SYNTAX		IpAddress
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Device ip address."
+	::= {altergyDevNetSettings 1}
+
+altergyDevGateway	OBJECT-TYPE
+	SYNTAX		IpAddress
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Device network gateway."
+	::= {altergyDevNetSettings 2}
+
+altergyDevNetmask	OBJECT-TYPE
+	SYNTAX		IpAddress
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Device network subnet mask."
+	::= {altergyDevNetSettings 3}
+
+altergyTrapStart NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Run Mode Started"
+	::= { altergyDevTraps 6065 }
+
+altergyTrapStop NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Run Mode Stopped"
+	::= { altergyDevTraps 6066 }
+
+altergyTrapStartDR NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Dormancy Refresh Started"
+	::= { altergyDevTraps 6067 }
+
+altergyTrapStopDR NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Dormancy Refresh Stopped"
+	::= { altergyDevTraps 6068 }
+
+altergyTrapHold NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Hold Alarm"
+	::= { altergyDevTraps 6069 }
+
+altergyTrapOperational NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Operational Alarm."
+	::= { altergyDevTraps 6070 }
+
+altergyTrapSoftReset NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Soft reset."
+	::= { altergyDevTraps 6071 }
+
+altergyTrapHardReset NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Hard reset."
+	::= { altergyDevTraps 6072 }
+
+altergyTrapOpCleared NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Operational alarm has cleared."
+	::= { altergyDevTraps 6073 }
+
+altergyTrapFuelWarnA NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Low fuel warning bank A."
+	::= { altergyDevTraps 7070 }
+
+altergyTrapWarn1Cleared NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Low fuel warning bank A cleared."
+	::= { altergyDevTraps 7071 }
+
+altergyTrapFuelWarnB NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Low fuel warning bank B."
+	::= { altergyDevTraps 7072 }
+
+altergyTrapWarn2Cleared NOTIFICATION-TYPE
+	OBJECTS { sysUpTime }
+	STATUS current
+	DESCRIPTION "Low fuel warning bank B cleared."
+	::= { altergyDevTraps 7073 }
+
+END

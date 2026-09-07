@@ -1,0 +1,124 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "peplink": {
+    "name": "peplink",
+    "oid": "1.3.6.1.4.1.23695",
+    "class": "objectidentity"
+  },
+  "productMib": {
+    "name": "productMib",
+    "oid": "1.3.6.1.4.1.23695.200",
+    "class": "objectidentity"
+  },
+  "generalMib": {
+    "name": "generalMib",
+    "oid": "1.3.6.1.4.1.23695.200.1",
+    "class": "objectidentity"
+  },
+  "lanMib": {
+    "name": "lanMib",
+    "oid": "1.3.6.1.4.1.23695.200.1.3",
+    "class": "objectidentity"
+  },
+  "lanInfo": {
+    "name": "lanInfo",
+    "oid": "1.3.6.1.4.1.23695.200.1.3.1",
+    "class": "moduleidentity"
+  },
+  "PortSpeedType": {
+    "name": "PortSpeedType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "auto": 1,
+          "fullDulplex10": 2,
+          "halfDulplex10": 3,
+          "fullDulplex100": 4,
+          "halfDulplex100": 5,
+          "fullDulplex1000": 6,
+          "halfDulplex1000": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "lanStatus": {
+    "name": "lanStatus",
+    "oid": "1.3.6.1.4.1.23695.200.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "lanIp": {
+    "name": "lanIp",
+    "oid": "1.3.6.1.4.1.23695.200.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lanSubnetMask": {
+    "name": "lanSubnetMask",
+    "oid": "1.3.6.1.4.1.23695.200.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lanSpeed": {
+    "name": "lanSpeed",
+    "oid": "1.3.6.1.4.1.23695.200.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSpeedType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LAN",
+      "Source digest sha256:e874c92db774b560c709076acf7f0b5b9e453982a66f814be919b0690a158e9f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LAN"
+  }
+}

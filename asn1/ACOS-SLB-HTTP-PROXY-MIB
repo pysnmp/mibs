@@ -1,0 +1,6289 @@
+ACOS-SLB-HTTP-PROXY-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbHttpProxyModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbHttpProxyModule OID for ACOS"
+				::=  {  acosSchema 356 }
+
+httpProxy		 OBJECT IDENTIFIER ::= { slbHttpProxyModule 1}
+
+httpProxyStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF HttpProxyStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure HTTP Proxy global from object 'slb.http-proxy'"
+	::= {httpProxy 1}
+
+httpProxyStatsEntry OBJECT-TYPE
+	SYNTAX HttpProxyStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The httpProxyStats stats entry"
+	INDEX {
+		httpProxyStatsSlotId
+	}
+	::= { httpProxyStatsTable 1 }
+
+HttpProxyStatsEntry ::=
+	SEQUENCE {
+		httpProxyStatsSlotId Integer32,
+		httpProxyStatsNum	 CounterBasedGauge64,
+		httpProxyStatsCurrProxy	 CounterBasedGauge64,
+		httpProxyStatsTotalProxy	 CounterBasedGauge64,
+		httpProxyStatsReq	 CounterBasedGauge64,
+		httpProxyStatsReqSucc	 CounterBasedGauge64,
+		httpProxyStatsNoproxy	 CounterBasedGauge64,
+		httpProxyStatsClientRst	 CounterBasedGauge64,
+		httpProxyStatsServerRst	 CounterBasedGauge64,
+		httpProxyStatsNotuple	 CounterBasedGauge64,
+		httpProxyStatsParsereqFail	 CounterBasedGauge64,
+		httpProxyStatsSvrselFail	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFail	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailBuff	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailRport	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailRoute	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailPersist	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailServer	 CounterBasedGauge64,
+		httpProxyStatsFwdreqFailTuple	 CounterBasedGauge64,
+		httpProxyStatsFwdreqdataFail	 CounterBasedGauge64,
+		httpProxyStatsReqRetran	 CounterBasedGauge64,
+		httpProxyStatsReqOfo	 CounterBasedGauge64,
+		httpProxyStatsServerResel	 CounterBasedGauge64,
+		httpProxyStatsSvrPremClose	 CounterBasedGauge64,
+		httpProxyStatsNewSvrconn	 CounterBasedGauge64,
+		httpProxyStatsSnatFail	 CounterBasedGauge64,
+		httpProxyStatsTcpoutrst	 CounterBasedGauge64,
+		httpProxyStatsFullProxy	 CounterBasedGauge64,
+		httpProxyStatsFullProxyPost	 CounterBasedGauge64,
+		httpProxyStatsFullProxyPipeline	 CounterBasedGauge64,
+		httpProxyStatsFullProxyFpgaErr	 CounterBasedGauge64,
+		httpProxyStatsReqOverLimit	 CounterBasedGauge64,
+		httpProxyStatsReqRateOverLimit	 CounterBasedGauge64,
+		httpProxyStatsL4Switching	 CounterBasedGauge64,
+		httpProxyStatsCookieSwitching	 CounterBasedGauge64,
+		httpProxyStatsAflexSwitching	 CounterBasedGauge64,
+		httpProxyStatsHttpPolicySwitching	 CounterBasedGauge64,
+		httpProxyStatsUrlSwitching	 CounterBasedGauge64,
+		httpProxyStatsHostSwitching	 CounterBasedGauge64,
+		httpProxyStatsLbSwitching	 CounterBasedGauge64,
+		httpProxyStatsL4SwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsCookieSwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsAflexSwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsHttpPolicySwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsUrlSwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsHostSwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsLbSwitchingOk	 CounterBasedGauge64,
+		httpProxyStatsL4SwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsCookieSwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsAflexSwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsHttpPolicySwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsUrlSwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsHostSwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsLbSwitchingEnqueue	 CounterBasedGauge64,
+		httpProxyStatsRetry503	 CounterBasedGauge64,
+		httpProxyStatsAflexRetry	 CounterBasedGauge64,
+		httpProxyStatsAflexLbReselect	 CounterBasedGauge64,
+		httpProxyStatsAflexLbReselectOk	 CounterBasedGauge64,
+		httpProxyStatsClientRstRequest	 CounterBasedGauge64,
+		httpProxyStatsClientRstConnecting	 CounterBasedGauge64,
+		httpProxyStatsClientRstConnected	 CounterBasedGauge64,
+		httpProxyStatsClientRstResponse	 CounterBasedGauge64,
+		httpProxyStatsServerRstRequest	 CounterBasedGauge64,
+		httpProxyStatsServerRstConnecting	 CounterBasedGauge64,
+		httpProxyStatsServerRstConnected	 CounterBasedGauge64,
+		httpProxyStatsServerRstResponse	 CounterBasedGauge64,
+		httpProxyStatsInvalidHeader	 CounterBasedGauge64,
+		httpProxyStatsTooManyHeaders	 CounterBasedGauge64,
+		httpProxyStatsLineTooLong	 CounterBasedGauge64,
+		httpProxyStatsHeaderNameTooLong	 CounterBasedGauge64,
+		httpProxyStatsWrongRespHeader	 CounterBasedGauge64,
+		httpProxyStatsHeaderInsert	 CounterBasedGauge64,
+		httpProxyStatsHeaderDelete	 CounterBasedGauge64,
+		httpProxyStatsInsertClientIp	 CounterBasedGauge64,
+		httpProxyStatsNegativeReqRemain	 CounterBasedGauge64,
+		httpProxyStatsNegativeRespRemain	 CounterBasedGauge64,
+		httpProxyStatsLargeCookie	 CounterBasedGauge64,
+		httpProxyStatsLargeCookieHeader	 CounterBasedGauge64,
+		httpProxyStatsHugeCookie	 CounterBasedGauge64,
+		httpProxyStatsHugeCookieHeader	 CounterBasedGauge64,
+		httpProxyStatsParseCookieFail	 CounterBasedGauge64,
+		httpProxyStatsParseSetcookieFail	 CounterBasedGauge64,
+		httpProxyStatsAsmCookieFail	 CounterBasedGauge64,
+		httpProxyStatsAsmCookieHeaderFail	 CounterBasedGauge64,
+		httpProxyStatsAsmSetcookieFail	 CounterBasedGauge64,
+		httpProxyStatsAsmSetcookieHeaderFail	 CounterBasedGauge64,
+		httpProxyStatsClientReqUnexpFlag	 CounterBasedGauge64,
+		httpProxyStatsConnectingFin	 CounterBasedGauge64,
+		httpProxyStatsConnectingFinRetrans	 CounterBasedGauge64,
+		httpProxyStatsConnectingFinOfo	 CounterBasedGauge64,
+		httpProxyStatsConnectingRst	 CounterBasedGauge64,
+		httpProxyStatsConnectingRstRetrans	 CounterBasedGauge64,
+		httpProxyStatsConnectingRstOfo	 CounterBasedGauge64,
+		httpProxyStatsConnectingAck	 CounterBasedGauge64,
+		httpProxyStatsPktsOfo	 CounterBasedGauge64,
+		httpProxyStatsPktsRetrans	 CounterBasedGauge64,
+		httpProxyStatsPktsRetransAckFinwait	 CounterBasedGauge64,
+		httpProxyStatsPktsRetransFin	 CounterBasedGauge64,
+		httpProxyStatsPktsRetransRst	 CounterBasedGauge64,
+		httpProxyStatsPktsRetransPush	 CounterBasedGauge64,
+		httpProxyStatsStaleSess	 CounterBasedGauge64,
+		httpProxyStatsServerReselFailed	 CounterBasedGauge64,
+		httpProxyStatsCompressionBefore	 CounterBasedGauge64,
+		httpProxyStatsCompressionAfter	 CounterBasedGauge64,
+		httpProxyStatsResponse1xx	 CounterBasedGauge64,
+		httpProxyStatsResponse100	 CounterBasedGauge64,
+		httpProxyStatsResponse101	 CounterBasedGauge64,
+		httpProxyStatsResponse102	 CounterBasedGauge64,
+		httpProxyStatsResponse2xx	 CounterBasedGauge64,
+		httpProxyStatsResponse200	 CounterBasedGauge64,
+		httpProxyStatsResponse201	 CounterBasedGauge64,
+		httpProxyStatsResponse202	 CounterBasedGauge64,
+		httpProxyStatsResponse203	 CounterBasedGauge64,
+		httpProxyStatsResponse204	 CounterBasedGauge64,
+		httpProxyStatsResponse205	 CounterBasedGauge64,
+		httpProxyStatsResponse206	 CounterBasedGauge64,
+		httpProxyStatsResponse207	 CounterBasedGauge64,
+		httpProxyStatsResponse3xx	 CounterBasedGauge64,
+		httpProxyStatsResponse300	 CounterBasedGauge64,
+		httpProxyStatsResponse301	 CounterBasedGauge64,
+		httpProxyStatsResponse302	 CounterBasedGauge64,
+		httpProxyStatsResponse303	 CounterBasedGauge64,
+		httpProxyStatsResponse304	 CounterBasedGauge64,
+		httpProxyStatsResponse305	 CounterBasedGauge64,
+		httpProxyStatsResponse306	 CounterBasedGauge64,
+		httpProxyStatsResponse307	 CounterBasedGauge64,
+		httpProxyStatsResponse4xx	 CounterBasedGauge64,
+		httpProxyStatsResponse400	 CounterBasedGauge64,
+		httpProxyStatsResponse401	 CounterBasedGauge64,
+		httpProxyStatsResponse402	 CounterBasedGauge64,
+		httpProxyStatsResponse403	 CounterBasedGauge64,
+		httpProxyStatsResponse404	 CounterBasedGauge64,
+		httpProxyStatsResponse405	 CounterBasedGauge64,
+		httpProxyStatsResponse406	 CounterBasedGauge64,
+		httpProxyStatsResponse407	 CounterBasedGauge64,
+		httpProxyStatsResponse408	 CounterBasedGauge64,
+		httpProxyStatsResponse409	 CounterBasedGauge64,
+		httpProxyStatsResponse410	 CounterBasedGauge64,
+		httpProxyStatsResponse411	 CounterBasedGauge64,
+		httpProxyStatsResponse412	 CounterBasedGauge64,
+		httpProxyStatsResponse413	 CounterBasedGauge64,
+		httpProxyStatsResponse414	 CounterBasedGauge64,
+		httpProxyStatsResponse415	 CounterBasedGauge64,
+		httpProxyStatsResponse416	 CounterBasedGauge64,
+		httpProxyStatsResponse417	 CounterBasedGauge64,
+		httpProxyStatsResponse418	 CounterBasedGauge64,
+		httpProxyStatsResponse422	 CounterBasedGauge64,
+		httpProxyStatsResponse423	 CounterBasedGauge64,
+		httpProxyStatsResponse424	 CounterBasedGauge64,
+		httpProxyStatsResponse425	 CounterBasedGauge64,
+		httpProxyStatsResponse426	 CounterBasedGauge64,
+		httpProxyStatsResponse449	 CounterBasedGauge64,
+		httpProxyStatsResponse450	 CounterBasedGauge64,
+		httpProxyStatsResponse5xx	 CounterBasedGauge64,
+		httpProxyStatsResponse500	 CounterBasedGauge64,
+		httpProxyStatsResponse501	 CounterBasedGauge64,
+		httpProxyStatsResponse502	 CounterBasedGauge64,
+		httpProxyStatsResponse503	 CounterBasedGauge64,
+		httpProxyStatsResponse504	 CounterBasedGauge64,
+		httpProxyStatsResponse505	 CounterBasedGauge64,
+		httpProxyStatsResponse506	 CounterBasedGauge64,
+		httpProxyStatsResponse507	 CounterBasedGauge64,
+		httpProxyStatsResponse508	 CounterBasedGauge64,
+		httpProxyStatsResponse509	 CounterBasedGauge64,
+		httpProxyStatsResponse510	 CounterBasedGauge64,
+		httpProxyStatsResponse6xx	 CounterBasedGauge64,
+		httpProxyStatsResponseUnknown	 CounterBasedGauge64,
+		httpProxyStatsReqHttp10	 CounterBasedGauge64,
+		httpProxyStatsReqHttp11	 CounterBasedGauge64,
+		httpProxyStatsResponseHttp10	 CounterBasedGauge64,
+		httpProxyStatsResponseHttp11	 CounterBasedGauge64,
+		httpProxyStatsReqGet	 CounterBasedGauge64,
+		httpProxyStatsReqHead	 CounterBasedGauge64,
+		httpProxyStatsReqPut	 CounterBasedGauge64,
+		httpProxyStatsReqPost	 CounterBasedGauge64,
+		httpProxyStatsReqTrace	 CounterBasedGauge64,
+		httpProxyStatsReqOptions	 CounterBasedGauge64,
+		httpProxyStatsReqConnect	 CounterBasedGauge64,
+		httpProxyStatsReqDelete	 CounterBasedGauge64,
+		httpProxyStatsReqUnknown	 CounterBasedGauge64,
+		httpProxyStatsReqContentLen	 CounterBasedGauge64,
+		httpProxyStatsRspContentLen	 CounterBasedGauge64,
+		httpProxyStatsRspChunk	 CounterBasedGauge64,
+		httpProxyStatsReqChunk	 CounterBasedGauge64,
+		httpProxyStatsCompressRsp	 CounterBasedGauge64,
+		httpProxyStatsCompressDelAcceptEnc	 CounterBasedGauge64,
+		httpProxyStatsCompressRespAlreadyCompressed	 CounterBasedGauge64,
+		httpProxyStatsCompressContentTypeExcluded	 CounterBasedGauge64,
+		httpProxyStatsCompressNoContentType	 CounterBasedGauge64,
+		httpProxyStatsCompressRespLtMin	 CounterBasedGauge64,
+		httpProxyStatsCompressRespNoClOrCe	 CounterBasedGauge64,
+		httpProxyStatsCompressRatioTooHigh	 CounterBasedGauge64,
+		httpProxyStatsCacheRsp	 CounterBasedGauge64,
+		httpProxyStatsCloseOnDdos	 CounterBasedGauge64,
+		httpProxyStatsReqHttp10Keepalive	 CounterBasedGauge64,
+		httpProxyStatsReqSz1k	 CounterBasedGauge64,
+		httpProxyStatsReqSz2k	 CounterBasedGauge64,
+		httpProxyStatsReqSz4k	 CounterBasedGauge64,
+		httpProxyStatsReqSz8k	 CounterBasedGauge64,
+		httpProxyStatsReqSz16k	 CounterBasedGauge64,
+		httpProxyStatsReqSz32k	 CounterBasedGauge64,
+		httpProxyStatsReqSz64k	 CounterBasedGauge64,
+		httpProxyStatsReqSz256k	 CounterBasedGauge64,
+		httpProxyStatsReqSzGt256k	 CounterBasedGauge64,
+		httpProxyStatsRspSz1k	 CounterBasedGauge64,
+		httpProxyStatsRspSz2k	 CounterBasedGauge64,
+		httpProxyStatsRspSz4k	 CounterBasedGauge64,
+		httpProxyStatsRspSz8k	 CounterBasedGauge64,
+		httpProxyStatsRspSz16k	 CounterBasedGauge64,
+		httpProxyStatsRspSz32k	 CounterBasedGauge64,
+		httpProxyStatsRspSz64k	 CounterBasedGauge64,
+		httpProxyStatsRspSz256k	 CounterBasedGauge64,
+		httpProxyStatsRspSzGt256k	 CounterBasedGauge64,
+		httpProxyStatsChunkSz512	 CounterBasedGauge64,
+		httpProxyStatsChunkSz1k	 CounterBasedGauge64,
+		httpProxyStatsChunkSz2k	 CounterBasedGauge64,
+		httpProxyStatsChunkSz4k	 CounterBasedGauge64,
+		httpProxyStatsChunkSzGt4k	 CounterBasedGauge64,
+		httpProxyStatsPconnConnecting	 CounterBasedGauge64,
+		httpProxyStatsPconnConnected	 CounterBasedGauge64,
+		httpProxyStatsPconnConnectingFailed	 CounterBasedGauge64,
+		httpProxyStatsChunkBad	 CounterBasedGauge64,
+		httpProxyStatsReq10u	 CounterBasedGauge64,
+		httpProxyStatsReq20u	 CounterBasedGauge64,
+		httpProxyStatsReq50u	 CounterBasedGauge64,
+		httpProxyStatsReq100u	 CounterBasedGauge64,
+		httpProxyStatsReq200u	 CounterBasedGauge64,
+		httpProxyStatsReq500u	 CounterBasedGauge64,
+		httpProxyStatsReq1m	 CounterBasedGauge64,
+		httpProxyStatsReq2m	 CounterBasedGauge64,
+		httpProxyStatsReq5m	 CounterBasedGauge64,
+		httpProxyStatsReq10m	 CounterBasedGauge64,
+		httpProxyStatsReq20m	 CounterBasedGauge64,
+		httpProxyStatsReq50m	 CounterBasedGauge64,
+		httpProxyStatsReq100m	 CounterBasedGauge64,
+		httpProxyStatsReq200m	 CounterBasedGauge64,
+		httpProxyStatsReq500m	 CounterBasedGauge64,
+		httpProxyStatsReq1s	 CounterBasedGauge64,
+		httpProxyStatsReq2s	 CounterBasedGauge64,
+		httpProxyStatsReq5s	 CounterBasedGauge64,
+		httpProxyStatsReqOver5s	 CounterBasedGauge64,
+		httpProxyStatsInsertClientPort	 CounterBasedGauge64,
+		httpProxyStatsReqTrack	 CounterBasedGauge64,
+		httpProxyStatsConnectReq	 CounterBasedGauge64,
+		httpProxyStatsReqEnterSsli	 CounterBasedGauge64,
+		httpProxyStatsNonHttpBypass	 CounterBasedGauge64,
+		httpProxyStatsDecompressionBefore	 CounterBasedGauge64,
+		httpProxyStatsDecompressionAfter	 CounterBasedGauge64,
+		httpProxyStatsReqHttp2	 CounterBasedGauge64,
+		httpProxyStatsResponseHttp2	 CounterBasedGauge64,
+		httpProxyStatsReqTimeoutRetry	 CounterBasedGauge64,
+		httpProxyStatsReqTimeoutClose	 CounterBasedGauge64,
+		httpProxyStatsDohReq	 CounterBasedGauge64,
+		httpProxyStatsDohReqGet	 CounterBasedGauge64,
+		httpProxyStatsDohReqPost	 CounterBasedGauge64,
+		httpProxyStatsDohNonDohReq	 CounterBasedGauge64,
+		httpProxyStatsDohNonDohReqGet	 CounterBasedGauge64,
+		httpProxyStatsDohNonDohReqPost	 CounterBasedGauge64,
+		httpProxyStatsDohResp	 CounterBasedGauge64,
+		httpProxyStatsDohTcResp	 CounterBasedGauge64,
+		httpProxyStatsDohUdpDnsReq	 CounterBasedGauge64,
+		httpProxyStatsDohUdpDnsResp	 CounterBasedGauge64,
+		httpProxyStatsDohTcpDnsReq	 CounterBasedGauge64,
+		httpProxyStatsDohTcpDnsResp	 CounterBasedGauge64,
+		httpProxyStatsDohReqSendFailed	 CounterBasedGauge64,
+		httpProxyStatsDohRespSendFailed	 CounterBasedGauge64,
+		httpProxyStatsDohMallocFail	 CounterBasedGauge64,
+		httpProxyStatsDohReqUdpRetry	 CounterBasedGauge64,
+		httpProxyStatsDohReqUdpRetryFail	 CounterBasedGauge64,
+		httpProxyStatsDohReqTcpRetry	 CounterBasedGauge64,
+		httpProxyStatsDohReqTcpRetryFail	 CounterBasedGauge64,
+		httpProxyStatsDohSnatFailed	 CounterBasedGauge64,
+		httpProxyStatsDohPathNotFound	 CounterBasedGauge64,
+		httpProxyStatsDohGetDnsArgFailed	 CounterBasedGauge64,
+		httpProxyStatsDohGetBase64DecodeFailed	 CounterBasedGauge64,
+		httpProxyStatsDohPostContentTypeMismatch	 CounterBasedGauge64,
+		httpProxyStatsDohPostPayloadNotFound	 CounterBasedGauge64,
+		httpProxyStatsDohPostPayloadExtractFailed	 CounterBasedGauge64,
+		httpProxyStatsDohNonDohMethod	 CounterBasedGauge64,
+		httpProxyStatsDohTcpSendFailed	 CounterBasedGauge64,
+		httpProxyStatsDohUdpSendFailed	 CounterBasedGauge64,
+		httpProxyStatsDohQueryTimeOut	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeA	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeAaaa	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeNs	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeCname	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeAny	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeSrv	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeMx	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeSoa	 CounterBasedGauge64,
+		httpProxyStatsDohDnsQueryTypeOthers	 CounterBasedGauge64,
+		httpProxyStatsDohRespSetupFailed	 CounterBasedGauge64,
+		httpProxyStatsDohRespHeaderAllocFailed	 CounterBasedGauge64,
+		httpProxyStatsDohRespQueFailed	 CounterBasedGauge64,
+		httpProxyStatsDohRespUdpFrags	 CounterBasedGauge64,
+		httpProxyStatsDohRespTcpFrags	 CounterBasedGauge64,
+		httpProxyStatsDohServSelFailed	 CounterBasedGauge64,
+		httpProxyStatsDohRetryWTcp	 CounterBasedGauge64,
+		httpProxyStatsDohGetUriTooLong	 CounterBasedGauge64,
+		httpProxyStatsDohPostPayloadTooLarge	 CounterBasedGauge64,
+		httpProxyStatsDohDnsMalformedQuery	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeErrFormat	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeErrServer	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeErrName	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeErrType	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeRefuse	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeYxdomain	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeYxrrset	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeNxrrset	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeNotauth	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeNotzone	 CounterBasedGauge64,
+		httpProxyStatsDohDnsRespRcodeOther	 CounterBasedGauge64,
+		httpProxyStatsCompressionBeforeBr	 CounterBasedGauge64,
+		httpProxyStatsCompressionAfterBr	 CounterBasedGauge64,
+		httpProxyStatsCompressionBeforeTotal	 CounterBasedGauge64,
+		httpProxyStatsCompressionAfterTotal	 CounterBasedGauge64,
+		httpProxyStatsDecompressionBeforeBr	 CounterBasedGauge64,
+		httpProxyStatsDecompressionAfterBr	 CounterBasedGauge64,
+		httpProxyStatsDecompressionBeforeTotal	 CounterBasedGauge64,
+		httpProxyStatsDecompressionAfterTotal	 CounterBasedGauge64,
+		httpProxyStatsCompressRspBr	 CounterBasedGauge64,
+		httpProxyStatsCompressRspTotal	 CounterBasedGauge64,
+		httpProxyStatsH2upContentLengthAlias	 CounterBasedGauge64,
+		httpProxyStatsMalformedH2upHeaderValue	 CounterBasedGauge64,
+		httpProxyStatsMalformedH2upSchemeValue	 CounterBasedGauge64,
+		httpProxyStatsH2upWithTransferEncoding	 CounterBasedGauge64,
+		httpProxyStatsMultipleContentLength	 CounterBasedGauge64,
+		httpProxyStatsMultipleTransferEncoding	 CounterBasedGauge64,
+		httpProxyStatsTransferEncodingAndContentLength	 CounterBasedGauge64,
+		httpProxyStatsGetAndPayload	 CounterBasedGauge64,
+		httpProxyStatsH2upWithHostAndAuth	 CounterBasedGauge64,
+		httpProxyStatsReqHttp3	 CounterBasedGauge64,
+		httpProxyStatsResponseHttp3	 CounterBasedGauge64,
+		httpProxyStatsHeaderFilterRuleHit	 CounterBasedGauge64,
+		httpProxyStatsHttp1ClientIdleTimeout	 CounterBasedGauge64,
+		httpProxyStatsHttp2ClientIdleTimeout	 CounterBasedGauge64,
+		httpProxyStatsHttpDisallowedMethods	 CounterBasedGauge64,
+		httpProxyStatsHttpAllowedMethods	 CounterBasedGauge64,
+		httpProxyStatsUpgradeToNewProxy	 CounterBasedGauge64,
+		httpProxyStatsDelH2cHeader	 CounterBasedGauge64,
+		httpProxyStatsReqHttp11NewProxy	 CounterBasedGauge64,
+		httpProxyStatsTransactionLimited	 CounterBasedGauge64
+	}
+
+httpProxyStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { httpProxyStatsEntry 1 }
+
+httpProxyStatsNum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "num"
+	::= { httpProxyStatsEntry 2 }
+
+httpProxyStatsCurrProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_proxy"
+	::= { httpProxyStatsEntry 3 }
+
+httpProxyStatsTotalProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_proxy"
+	::= { httpProxyStatsEntry 4 }
+
+httpProxyStatsReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req"
+	::= { httpProxyStatsEntry 5 }
+
+httpProxyStatsReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_succ"
+	::= { httpProxyStatsEntry 6 }
+
+httpProxyStatsNoproxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "noproxy"
+	::= { httpProxyStatsEntry 7 }
+
+httpProxyStatsClientRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst"
+	::= { httpProxyStatsEntry 8 }
+
+httpProxyStatsServerRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst"
+	::= { httpProxyStatsEntry 9 }
+
+httpProxyStatsNotuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "notuple"
+	::= { httpProxyStatsEntry 10 }
+
+httpProxyStatsParsereqFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "parsereq_fail"
+	::= { httpProxyStatsEntry 11 }
+
+httpProxyStatsSvrselFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "svrsel_fail"
+	::= { httpProxyStatsEntry 12 }
+
+httpProxyStatsFwdreqFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail"
+	::= { httpProxyStatsEntry 13 }
+
+httpProxyStatsFwdreqFailBuff OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_buff"
+	::= { httpProxyStatsEntry 14 }
+
+httpProxyStatsFwdreqFailRport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_rport"
+	::= { httpProxyStatsEntry 15 }
+
+httpProxyStatsFwdreqFailRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_route"
+	::= { httpProxyStatsEntry 16 }
+
+httpProxyStatsFwdreqFailPersist OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_persist"
+	::= { httpProxyStatsEntry 17 }
+
+httpProxyStatsFwdreqFailServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_server"
+	::= { httpProxyStatsEntry 18 }
+
+httpProxyStatsFwdreqFailTuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreq_fail_tuple"
+	::= { httpProxyStatsEntry 19 }
+
+httpProxyStatsFwdreqdataFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwdreqdata_fail"
+	::= { httpProxyStatsEntry 20 }
+
+httpProxyStatsReqRetran OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_retran"
+	::= { httpProxyStatsEntry 21 }
+
+httpProxyStatsReqOfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_ofo"
+	::= { httpProxyStatsEntry 22 }
+
+httpProxyStatsServerResel OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_resel"
+	::= { httpProxyStatsEntry 23 }
+
+httpProxyStatsSvrPremClose OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "svr_prem_close"
+	::= { httpProxyStatsEntry 24 }
+
+httpProxyStatsNewSvrconn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "new_svrconn"
+	::= { httpProxyStatsEntry 25 }
+
+httpProxyStatsSnatFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_fail"
+	::= { httpProxyStatsEntry 26 }
+
+httpProxyStatsTcpoutrst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcpoutrst"
+	::= { httpProxyStatsEntry 27 }
+
+httpProxyStatsFullProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "full_proxy"
+	::= { httpProxyStatsEntry 28 }
+
+httpProxyStatsFullProxyPost OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "full_proxy_post"
+	::= { httpProxyStatsEntry 29 }
+
+httpProxyStatsFullProxyPipeline OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "full_proxy_pipeline"
+	::= { httpProxyStatsEntry 30 }
+
+httpProxyStatsFullProxyFpgaErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "full_proxy_fpga_err"
+	::= { httpProxyStatsEntry 31 }
+
+httpProxyStatsReqOverLimit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_over_limit"
+	::= { httpProxyStatsEntry 32 }
+
+httpProxyStatsReqRateOverLimit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_rate_over_limit"
+	::= { httpProxyStatsEntry 33 }
+
+httpProxyStatsL4Switching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_switching"
+	::= { httpProxyStatsEntry 34 }
+
+httpProxyStatsCookieSwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cookie_switching"
+	::= { httpProxyStatsEntry 35 }
+
+httpProxyStatsAflexSwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_switching"
+	::= { httpProxyStatsEntry 36 }
+
+httpProxyStatsHttpPolicySwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_policy_switching"
+	::= { httpProxyStatsEntry 37 }
+
+httpProxyStatsUrlSwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "url_switching"
+	::= { httpProxyStatsEntry 38 }
+
+httpProxyStatsHostSwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "host_switching"
+	::= { httpProxyStatsEntry 39 }
+
+httpProxyStatsLbSwitching OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lb_switching"
+	::= { httpProxyStatsEntry 40 }
+
+httpProxyStatsL4SwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_switching_ok"
+	::= { httpProxyStatsEntry 41 }
+
+httpProxyStatsCookieSwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cookie_switching_ok"
+	::= { httpProxyStatsEntry 42 }
+
+httpProxyStatsAflexSwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_switching_ok"
+	::= { httpProxyStatsEntry 43 }
+
+httpProxyStatsHttpPolicySwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_policy_switching_ok"
+	::= { httpProxyStatsEntry 44 }
+
+httpProxyStatsUrlSwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "url_switching_ok"
+	::= { httpProxyStatsEntry 45 }
+
+httpProxyStatsHostSwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "host_switching_ok"
+	::= { httpProxyStatsEntry 46 }
+
+httpProxyStatsLbSwitchingOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lb_switching_ok"
+	::= { httpProxyStatsEntry 47 }
+
+httpProxyStatsL4SwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_switching_enqueue"
+	::= { httpProxyStatsEntry 48 }
+
+httpProxyStatsCookieSwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cookie_switching_enqueue"
+	::= { httpProxyStatsEntry 49 }
+
+httpProxyStatsAflexSwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_switching_enqueue"
+	::= { httpProxyStatsEntry 50 }
+
+httpProxyStatsHttpPolicySwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_policy_switching_enqueue"
+	::= { httpProxyStatsEntry 51 }
+
+httpProxyStatsUrlSwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "url_switching_enqueue"
+	::= { httpProxyStatsEntry 52 }
+
+httpProxyStatsHostSwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "host_switching_enqueue"
+	::= { httpProxyStatsEntry 53 }
+
+httpProxyStatsLbSwitchingEnqueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lb_switching_enqueue"
+	::= { httpProxyStatsEntry 54 }
+
+httpProxyStatsRetry503 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "retry_503"
+	::= { httpProxyStatsEntry 55 }
+
+httpProxyStatsAflexRetry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_retry"
+	::= { httpProxyStatsEntry 56 }
+
+httpProxyStatsAflexLbReselect OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_lb_reselect"
+	::= { httpProxyStatsEntry 57 }
+
+httpProxyStatsAflexLbReselectOk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex_lb_reselect_ok"
+	::= { httpProxyStatsEntry 58 }
+
+httpProxyStatsClientRstRequest OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_request"
+	::= { httpProxyStatsEntry 59 }
+
+httpProxyStatsClientRstConnecting OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_connecting"
+	::= { httpProxyStatsEntry 60 }
+
+httpProxyStatsClientRstConnected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_connected"
+	::= { httpProxyStatsEntry 61 }
+
+httpProxyStatsClientRstResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_response"
+	::= { httpProxyStatsEntry 62 }
+
+httpProxyStatsServerRstRequest OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_request"
+	::= { httpProxyStatsEntry 63 }
+
+httpProxyStatsServerRstConnecting OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_connecting"
+	::= { httpProxyStatsEntry 64 }
+
+httpProxyStatsServerRstConnected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_connected"
+	::= { httpProxyStatsEntry 65 }
+
+httpProxyStatsServerRstResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_response"
+	::= { httpProxyStatsEntry 66 }
+
+httpProxyStatsInvalidHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid_header"
+	::= { httpProxyStatsEntry 67 }
+
+httpProxyStatsTooManyHeaders OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "too_many_headers"
+	::= { httpProxyStatsEntry 68 }
+
+httpProxyStatsLineTooLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "line_too_long"
+	::= { httpProxyStatsEntry 69 }
+
+httpProxyStatsHeaderNameTooLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "header_name_too_long"
+	::= { httpProxyStatsEntry 70 }
+
+httpProxyStatsWrongRespHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "wrong_resp_header"
+	::= { httpProxyStatsEntry 71 }
+
+httpProxyStatsHeaderInsert OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "header_insert"
+	::= { httpProxyStatsEntry 72 }
+
+httpProxyStatsHeaderDelete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "header_delete"
+	::= { httpProxyStatsEntry 73 }
+
+httpProxyStatsInsertClientIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "insert_client_ip"
+	::= { httpProxyStatsEntry 74 }
+
+httpProxyStatsNegativeReqRemain OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "negative_req_remain"
+	::= { httpProxyStatsEntry 75 }
+
+httpProxyStatsNegativeRespRemain OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "negative_resp_remain"
+	::= { httpProxyStatsEntry 76 }
+
+httpProxyStatsLargeCookie OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "large_cookie"
+	::= { httpProxyStatsEntry 77 }
+
+httpProxyStatsLargeCookieHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "large_cookie_header"
+	::= { httpProxyStatsEntry 78 }
+
+httpProxyStatsHugeCookie OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "huge_cookie"
+	::= { httpProxyStatsEntry 79 }
+
+httpProxyStatsHugeCookieHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "huge_cookie_header"
+	::= { httpProxyStatsEntry 80 }
+
+httpProxyStatsParseCookieFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "parse_cookie_fail"
+	::= { httpProxyStatsEntry 81 }
+
+httpProxyStatsParseSetcookieFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "parse_setcookie_fail"
+	::= { httpProxyStatsEntry 82 }
+
+httpProxyStatsAsmCookieFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "asm_cookie_fail"
+	::= { httpProxyStatsEntry 83 }
+
+httpProxyStatsAsmCookieHeaderFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "asm_cookie_header_fail"
+	::= { httpProxyStatsEntry 84 }
+
+httpProxyStatsAsmSetcookieFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "asm_setcookie_fail"
+	::= { httpProxyStatsEntry 85 }
+
+httpProxyStatsAsmSetcookieHeaderFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "asm_setcookie_header_fail"
+	::= { httpProxyStatsEntry 86 }
+
+httpProxyStatsClientReqUnexpFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_req_unexp_flag"
+	::= { httpProxyStatsEntry 87 }
+
+httpProxyStatsConnectingFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_fin"
+	::= { httpProxyStatsEntry 88 }
+
+httpProxyStatsConnectingFinRetrans OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_fin_retrans"
+	::= { httpProxyStatsEntry 89 }
+
+httpProxyStatsConnectingFinOfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_fin_ofo"
+	::= { httpProxyStatsEntry 90 }
+
+httpProxyStatsConnectingRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_rst"
+	::= { httpProxyStatsEntry 91 }
+
+httpProxyStatsConnectingRstRetrans OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_rst_retrans"
+	::= { httpProxyStatsEntry 92 }
+
+httpProxyStatsConnectingRstOfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_rst_ofo"
+	::= { httpProxyStatsEntry 93 }
+
+httpProxyStatsConnectingAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connecting_ack"
+	::= { httpProxyStatsEntry 94 }
+
+httpProxyStatsPktsOfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_ofo"
+	::= { httpProxyStatsEntry 95 }
+
+httpProxyStatsPktsRetrans OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_retrans"
+	::= { httpProxyStatsEntry 96 }
+
+httpProxyStatsPktsRetransAckFinwait OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_retrans_ack_finwait"
+	::= { httpProxyStatsEntry 97 }
+
+httpProxyStatsPktsRetransFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_retrans_fin"
+	::= { httpProxyStatsEntry 98 }
+
+httpProxyStatsPktsRetransRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_retrans_rst"
+	::= { httpProxyStatsEntry 99 }
+
+httpProxyStatsPktsRetransPush OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pkts_retrans_push"
+	::= { httpProxyStatsEntry 100 }
+
+httpProxyStatsStaleSess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stale_sess"
+	::= { httpProxyStatsEntry 101 }
+
+httpProxyStatsServerReselFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_resel_failed"
+	::= { httpProxyStatsEntry 102 }
+
+httpProxyStatsCompressionBefore OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_before"
+	::= { httpProxyStatsEntry 103 }
+
+httpProxyStatsCompressionAfter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_after"
+	::= { httpProxyStatsEntry 104 }
+
+httpProxyStatsResponse1xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_1xx"
+	::= { httpProxyStatsEntry 105 }
+
+httpProxyStatsResponse100 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_100"
+	::= { httpProxyStatsEntry 106 }
+
+httpProxyStatsResponse101 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_101"
+	::= { httpProxyStatsEntry 107 }
+
+httpProxyStatsResponse102 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_102"
+	::= { httpProxyStatsEntry 108 }
+
+httpProxyStatsResponse2xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_2xx"
+	::= { httpProxyStatsEntry 109 }
+
+httpProxyStatsResponse200 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_200"
+	::= { httpProxyStatsEntry 110 }
+
+httpProxyStatsResponse201 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_201"
+	::= { httpProxyStatsEntry 111 }
+
+httpProxyStatsResponse202 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_202"
+	::= { httpProxyStatsEntry 112 }
+
+httpProxyStatsResponse203 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_203"
+	::= { httpProxyStatsEntry 113 }
+
+httpProxyStatsResponse204 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_204"
+	::= { httpProxyStatsEntry 114 }
+
+httpProxyStatsResponse205 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_205"
+	::= { httpProxyStatsEntry 115 }
+
+httpProxyStatsResponse206 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_206"
+	::= { httpProxyStatsEntry 116 }
+
+httpProxyStatsResponse207 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_207"
+	::= { httpProxyStatsEntry 117 }
+
+httpProxyStatsResponse3xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_3xx"
+	::= { httpProxyStatsEntry 118 }
+
+httpProxyStatsResponse300 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_300"
+	::= { httpProxyStatsEntry 119 }
+
+httpProxyStatsResponse301 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_301"
+	::= { httpProxyStatsEntry 120 }
+
+httpProxyStatsResponse302 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_302"
+	::= { httpProxyStatsEntry 121 }
+
+httpProxyStatsResponse303 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_303"
+	::= { httpProxyStatsEntry 122 }
+
+httpProxyStatsResponse304 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_304"
+	::= { httpProxyStatsEntry 123 }
+
+httpProxyStatsResponse305 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_305"
+	::= { httpProxyStatsEntry 124 }
+
+httpProxyStatsResponse306 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_306"
+	::= { httpProxyStatsEntry 125 }
+
+httpProxyStatsResponse307 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_307"
+	::= { httpProxyStatsEntry 126 }
+
+httpProxyStatsResponse4xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_4xx"
+	::= { httpProxyStatsEntry 127 }
+
+httpProxyStatsResponse400 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_400"
+	::= { httpProxyStatsEntry 128 }
+
+httpProxyStatsResponse401 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_401"
+	::= { httpProxyStatsEntry 129 }
+
+httpProxyStatsResponse402 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_402"
+	::= { httpProxyStatsEntry 130 }
+
+httpProxyStatsResponse403 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_403"
+	::= { httpProxyStatsEntry 131 }
+
+httpProxyStatsResponse404 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_404"
+	::= { httpProxyStatsEntry 132 }
+
+httpProxyStatsResponse405 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_405"
+	::= { httpProxyStatsEntry 133 }
+
+httpProxyStatsResponse406 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_406"
+	::= { httpProxyStatsEntry 134 }
+
+httpProxyStatsResponse407 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_407"
+	::= { httpProxyStatsEntry 135 }
+
+httpProxyStatsResponse408 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_408"
+	::= { httpProxyStatsEntry 136 }
+
+httpProxyStatsResponse409 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_409"
+	::= { httpProxyStatsEntry 137 }
+
+httpProxyStatsResponse410 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_410"
+	::= { httpProxyStatsEntry 138 }
+
+httpProxyStatsResponse411 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_411"
+	::= { httpProxyStatsEntry 139 }
+
+httpProxyStatsResponse412 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_412"
+	::= { httpProxyStatsEntry 140 }
+
+httpProxyStatsResponse413 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_413"
+	::= { httpProxyStatsEntry 141 }
+
+httpProxyStatsResponse414 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_414"
+	::= { httpProxyStatsEntry 142 }
+
+httpProxyStatsResponse415 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_415"
+	::= { httpProxyStatsEntry 143 }
+
+httpProxyStatsResponse416 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_416"
+	::= { httpProxyStatsEntry 144 }
+
+httpProxyStatsResponse417 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_417"
+	::= { httpProxyStatsEntry 145 }
+
+httpProxyStatsResponse418 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_418"
+	::= { httpProxyStatsEntry 146 }
+
+httpProxyStatsResponse422 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_422"
+	::= { httpProxyStatsEntry 147 }
+
+httpProxyStatsResponse423 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_423"
+	::= { httpProxyStatsEntry 148 }
+
+httpProxyStatsResponse424 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_424"
+	::= { httpProxyStatsEntry 149 }
+
+httpProxyStatsResponse425 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_425"
+	::= { httpProxyStatsEntry 150 }
+
+httpProxyStatsResponse426 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_426"
+	::= { httpProxyStatsEntry 151 }
+
+httpProxyStatsResponse449 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_449"
+	::= { httpProxyStatsEntry 152 }
+
+httpProxyStatsResponse450 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_450"
+	::= { httpProxyStatsEntry 153 }
+
+httpProxyStatsResponse5xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_5xx"
+	::= { httpProxyStatsEntry 154 }
+
+httpProxyStatsResponse500 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_500"
+	::= { httpProxyStatsEntry 155 }
+
+httpProxyStatsResponse501 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_501"
+	::= { httpProxyStatsEntry 156 }
+
+httpProxyStatsResponse502 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_502"
+	::= { httpProxyStatsEntry 157 }
+
+httpProxyStatsResponse503 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_503"
+	::= { httpProxyStatsEntry 158 }
+
+httpProxyStatsResponse504 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_504"
+	::= { httpProxyStatsEntry 159 }
+
+httpProxyStatsResponse505 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_505"
+	::= { httpProxyStatsEntry 160 }
+
+httpProxyStatsResponse506 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_506"
+	::= { httpProxyStatsEntry 161 }
+
+httpProxyStatsResponse507 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_507"
+	::= { httpProxyStatsEntry 162 }
+
+httpProxyStatsResponse508 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_508"
+	::= { httpProxyStatsEntry 163 }
+
+httpProxyStatsResponse509 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_509"
+	::= { httpProxyStatsEntry 164 }
+
+httpProxyStatsResponse510 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_510"
+	::= { httpProxyStatsEntry 165 }
+
+httpProxyStatsResponse6xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_6xx"
+	::= { httpProxyStatsEntry 166 }
+
+httpProxyStatsResponseUnknown OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_unknown"
+	::= { httpProxyStatsEntry 167 }
+
+httpProxyStatsReqHttp10 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http10"
+	::= { httpProxyStatsEntry 168 }
+
+httpProxyStatsReqHttp11 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http11"
+	::= { httpProxyStatsEntry 169 }
+
+httpProxyStatsResponseHttp10 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_http10"
+	::= { httpProxyStatsEntry 170 }
+
+httpProxyStatsResponseHttp11 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_http11"
+	::= { httpProxyStatsEntry 171 }
+
+httpProxyStatsReqGet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_get"
+	::= { httpProxyStatsEntry 172 }
+
+httpProxyStatsReqHead OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_head"
+	::= { httpProxyStatsEntry 173 }
+
+httpProxyStatsReqPut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_put"
+	::= { httpProxyStatsEntry 174 }
+
+httpProxyStatsReqPost OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_post"
+	::= { httpProxyStatsEntry 175 }
+
+httpProxyStatsReqTrace OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_trace"
+	::= { httpProxyStatsEntry 176 }
+
+httpProxyStatsReqOptions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_options"
+	::= { httpProxyStatsEntry 177 }
+
+httpProxyStatsReqConnect OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_connect"
+	::= { httpProxyStatsEntry 178 }
+
+httpProxyStatsReqDelete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_delete"
+	::= { httpProxyStatsEntry 179 }
+
+httpProxyStatsReqUnknown OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_unknown"
+	::= { httpProxyStatsEntry 180 }
+
+httpProxyStatsReqContentLen OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_content_len"
+	::= { httpProxyStatsEntry 181 }
+
+httpProxyStatsRspContentLen OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_content_len"
+	::= { httpProxyStatsEntry 182 }
+
+httpProxyStatsRspChunk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_chunk"
+	::= { httpProxyStatsEntry 183 }
+
+httpProxyStatsReqChunk OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_chunk"
+	::= { httpProxyStatsEntry 184 }
+
+httpProxyStatsCompressRsp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_rsp"
+	::= { httpProxyStatsEntry 185 }
+
+httpProxyStatsCompressDelAcceptEnc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_del_accept_enc"
+	::= { httpProxyStatsEntry 186 }
+
+httpProxyStatsCompressRespAlreadyCompressed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_resp_already_compressed"
+	::= { httpProxyStatsEntry 187 }
+
+httpProxyStatsCompressContentTypeExcluded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_content_type_excluded"
+	::= { httpProxyStatsEntry 188 }
+
+httpProxyStatsCompressNoContentType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_no_content_type"
+	::= { httpProxyStatsEntry 189 }
+
+httpProxyStatsCompressRespLtMin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_resp_lt_min"
+	::= { httpProxyStatsEntry 190 }
+
+httpProxyStatsCompressRespNoClOrCe OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_resp_no_cl_or_ce"
+	::= { httpProxyStatsEntry 191 }
+
+httpProxyStatsCompressRatioTooHigh OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_ratio_too_high"
+	::= { httpProxyStatsEntry 192 }
+
+httpProxyStatsCacheRsp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cache_rsp"
+	::= { httpProxyStatsEntry 193 }
+
+httpProxyStatsCloseOnDdos OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "close_on_ddos"
+	::= { httpProxyStatsEntry 194 }
+
+httpProxyStatsReqHttp10Keepalive OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http10_keepalive"
+	::= { httpProxyStatsEntry 195 }
+
+httpProxyStatsReqSz1k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_1k"
+	::= { httpProxyStatsEntry 196 }
+
+httpProxyStatsReqSz2k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_2k"
+	::= { httpProxyStatsEntry 197 }
+
+httpProxyStatsReqSz4k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_4k"
+	::= { httpProxyStatsEntry 198 }
+
+httpProxyStatsReqSz8k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_8k"
+	::= { httpProxyStatsEntry 199 }
+
+httpProxyStatsReqSz16k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_16k"
+	::= { httpProxyStatsEntry 200 }
+
+httpProxyStatsReqSz32k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_32k"
+	::= { httpProxyStatsEntry 201 }
+
+httpProxyStatsReqSz64k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_64k"
+	::= { httpProxyStatsEntry 202 }
+
+httpProxyStatsReqSz256k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_256k"
+	::= { httpProxyStatsEntry 203 }
+
+httpProxyStatsReqSzGt256k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_sz_gt_256k"
+	::= { httpProxyStatsEntry 204 }
+
+httpProxyStatsRspSz1k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_1k"
+	::= { httpProxyStatsEntry 205 }
+
+httpProxyStatsRspSz2k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_2k"
+	::= { httpProxyStatsEntry 206 }
+
+httpProxyStatsRspSz4k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_4k"
+	::= { httpProxyStatsEntry 207 }
+
+httpProxyStatsRspSz8k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_8k"
+	::= { httpProxyStatsEntry 208 }
+
+httpProxyStatsRspSz16k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_16k"
+	::= { httpProxyStatsEntry 209 }
+
+httpProxyStatsRspSz32k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_32k"
+	::= { httpProxyStatsEntry 210 }
+
+httpProxyStatsRspSz64k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_64k"
+	::= { httpProxyStatsEntry 211 }
+
+httpProxyStatsRspSz256k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_256k"
+	::= { httpProxyStatsEntry 212 }
+
+httpProxyStatsRspSzGt256k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rsp_sz_gt_256k"
+	::= { httpProxyStatsEntry 213 }
+
+httpProxyStatsChunkSz512 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_sz_512"
+	::= { httpProxyStatsEntry 214 }
+
+httpProxyStatsChunkSz1k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_sz_1k"
+	::= { httpProxyStatsEntry 215 }
+
+httpProxyStatsChunkSz2k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_sz_2k"
+	::= { httpProxyStatsEntry 216 }
+
+httpProxyStatsChunkSz4k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_sz_4k"
+	::= { httpProxyStatsEntry 217 }
+
+httpProxyStatsChunkSzGt4k OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_sz_gt_4k"
+	::= { httpProxyStatsEntry 218 }
+
+httpProxyStatsPconnConnecting OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pconn_connecting"
+	::= { httpProxyStatsEntry 219 }
+
+httpProxyStatsPconnConnected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pconn_connected"
+	::= { httpProxyStatsEntry 220 }
+
+httpProxyStatsPconnConnectingFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pconn_connecting_failed"
+	::= { httpProxyStatsEntry 221 }
+
+httpProxyStatsChunkBad OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chunk_bad"
+	::= { httpProxyStatsEntry 222 }
+
+httpProxyStatsReq10u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_10u"
+	::= { httpProxyStatsEntry 223 }
+
+httpProxyStatsReq20u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_20u"
+	::= { httpProxyStatsEntry 224 }
+
+httpProxyStatsReq50u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_50u"
+	::= { httpProxyStatsEntry 225 }
+
+httpProxyStatsReq100u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_100u"
+	::= { httpProxyStatsEntry 226 }
+
+httpProxyStatsReq200u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_200u"
+	::= { httpProxyStatsEntry 227 }
+
+httpProxyStatsReq500u OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_500u"
+	::= { httpProxyStatsEntry 228 }
+
+httpProxyStatsReq1m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_1m"
+	::= { httpProxyStatsEntry 229 }
+
+httpProxyStatsReq2m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_2m"
+	::= { httpProxyStatsEntry 230 }
+
+httpProxyStatsReq5m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_5m"
+	::= { httpProxyStatsEntry 231 }
+
+httpProxyStatsReq10m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_10m"
+	::= { httpProxyStatsEntry 232 }
+
+httpProxyStatsReq20m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_20m"
+	::= { httpProxyStatsEntry 233 }
+
+httpProxyStatsReq50m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_50m"
+	::= { httpProxyStatsEntry 234 }
+
+httpProxyStatsReq100m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_100m"
+	::= { httpProxyStatsEntry 235 }
+
+httpProxyStatsReq200m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_200m"
+	::= { httpProxyStatsEntry 236 }
+
+httpProxyStatsReq500m OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_500m"
+	::= { httpProxyStatsEntry 237 }
+
+httpProxyStatsReq1s OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_1s"
+	::= { httpProxyStatsEntry 238 }
+
+httpProxyStatsReq2s OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_2s"
+	::= { httpProxyStatsEntry 239 }
+
+httpProxyStatsReq5s OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_5s"
+	::= { httpProxyStatsEntry 240 }
+
+httpProxyStatsReqOver5s OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_over_5s"
+	::= { httpProxyStatsEntry 241 }
+
+httpProxyStatsInsertClientPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "insert_client_port"
+	::= { httpProxyStatsEntry 242 }
+
+httpProxyStatsReqTrack OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_track"
+	::= { httpProxyStatsEntry 243 }
+
+httpProxyStatsConnectReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connect_req"
+	::= { httpProxyStatsEntry 244 }
+
+httpProxyStatsReqEnterSsli OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_enter_ssli"
+	::= { httpProxyStatsEntry 245 }
+
+httpProxyStatsNonHttpBypass OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "non_http_bypass"
+	::= { httpProxyStatsEntry 246 }
+
+httpProxyStatsDecompressionBefore OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_before"
+	::= { httpProxyStatsEntry 247 }
+
+httpProxyStatsDecompressionAfter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_after"
+	::= { httpProxyStatsEntry 248 }
+
+httpProxyStatsReqHttp2 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http2"
+	::= { httpProxyStatsEntry 249 }
+
+httpProxyStatsResponseHttp2 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_http2"
+	::= { httpProxyStatsEntry 250 }
+
+httpProxyStatsReqTimeoutRetry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_timeout_retry"
+	::= { httpProxyStatsEntry 251 }
+
+httpProxyStatsReqTimeoutClose OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_timeout_close"
+	::= { httpProxyStatsEntry 252 }
+
+httpProxyStatsDohReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req"
+	::= { httpProxyStatsEntry 253 }
+
+httpProxyStatsDohReqGet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_get"
+	::= { httpProxyStatsEntry 254 }
+
+httpProxyStatsDohReqPost OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_post"
+	::= { httpProxyStatsEntry 255 }
+
+httpProxyStatsDohNonDohReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_non_doh_req"
+	::= { httpProxyStatsEntry 256 }
+
+httpProxyStatsDohNonDohReqGet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_non_doh_req_get"
+	::= { httpProxyStatsEntry 257 }
+
+httpProxyStatsDohNonDohReqPost OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_non_doh_req_post"
+	::= { httpProxyStatsEntry 258 }
+
+httpProxyStatsDohResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp"
+	::= { httpProxyStatsEntry 259 }
+
+httpProxyStatsDohTcResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_tc_resp"
+	::= { httpProxyStatsEntry 260 }
+
+httpProxyStatsDohUdpDnsReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_udp_dns_req"
+	::= { httpProxyStatsEntry 261 }
+
+httpProxyStatsDohUdpDnsResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_udp_dns_resp"
+	::= { httpProxyStatsEntry 262 }
+
+httpProxyStatsDohTcpDnsReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_tcp_dns_req"
+	::= { httpProxyStatsEntry 263 }
+
+httpProxyStatsDohTcpDnsResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_tcp_dns_resp"
+	::= { httpProxyStatsEntry 264 }
+
+httpProxyStatsDohReqSendFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_send_failed"
+	::= { httpProxyStatsEntry 265 }
+
+httpProxyStatsDohRespSendFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_send_failed"
+	::= { httpProxyStatsEntry 266 }
+
+httpProxyStatsDohMallocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_malloc_fail"
+	::= { httpProxyStatsEntry 267 }
+
+httpProxyStatsDohReqUdpRetry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_udp_retry"
+	::= { httpProxyStatsEntry 268 }
+
+httpProxyStatsDohReqUdpRetryFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_udp_retry_fail"
+	::= { httpProxyStatsEntry 269 }
+
+httpProxyStatsDohReqTcpRetry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_tcp_retry"
+	::= { httpProxyStatsEntry 270 }
+
+httpProxyStatsDohReqTcpRetryFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_req_tcp_retry_fail"
+	::= { httpProxyStatsEntry 271 }
+
+httpProxyStatsDohSnatFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_snat_failed"
+	::= { httpProxyStatsEntry 272 }
+
+httpProxyStatsDohPathNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_path_not_found"
+	::= { httpProxyStatsEntry 273 }
+
+httpProxyStatsDohGetDnsArgFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_get_dns_arg_failed"
+	::= { httpProxyStatsEntry 274 }
+
+httpProxyStatsDohGetBase64DecodeFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_get_base64_decode_failed"
+	::= { httpProxyStatsEntry 275 }
+
+httpProxyStatsDohPostContentTypeMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_post_content_type_mismatch"
+	::= { httpProxyStatsEntry 276 }
+
+httpProxyStatsDohPostPayloadNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_post_payload_not_found"
+	::= { httpProxyStatsEntry 277 }
+
+httpProxyStatsDohPostPayloadExtractFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_post_payload_extract_failed"
+	::= { httpProxyStatsEntry 278 }
+
+httpProxyStatsDohNonDohMethod OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_non_doh_method"
+	::= { httpProxyStatsEntry 279 }
+
+httpProxyStatsDohTcpSendFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_tcp_send_failed"
+	::= { httpProxyStatsEntry 280 }
+
+httpProxyStatsDohUdpSendFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_udp_send_failed"
+	::= { httpProxyStatsEntry 281 }
+
+httpProxyStatsDohQueryTimeOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_query_time_out"
+	::= { httpProxyStatsEntry 282 }
+
+httpProxyStatsDohDnsQueryTypeA OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_a"
+	::= { httpProxyStatsEntry 283 }
+
+httpProxyStatsDohDnsQueryTypeAaaa OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_aaaa"
+	::= { httpProxyStatsEntry 284 }
+
+httpProxyStatsDohDnsQueryTypeNs OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_ns"
+	::= { httpProxyStatsEntry 285 }
+
+httpProxyStatsDohDnsQueryTypeCname OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_cname"
+	::= { httpProxyStatsEntry 286 }
+
+httpProxyStatsDohDnsQueryTypeAny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_any"
+	::= { httpProxyStatsEntry 287 }
+
+httpProxyStatsDohDnsQueryTypeSrv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_srv"
+	::= { httpProxyStatsEntry 288 }
+
+httpProxyStatsDohDnsQueryTypeMx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_mx"
+	::= { httpProxyStatsEntry 289 }
+
+httpProxyStatsDohDnsQueryTypeSoa OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_soa"
+	::= { httpProxyStatsEntry 290 }
+
+httpProxyStatsDohDnsQueryTypeOthers OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_query_type_others"
+	::= { httpProxyStatsEntry 291 }
+
+httpProxyStatsDohRespSetupFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_setup_failed"
+	::= { httpProxyStatsEntry 292 }
+
+httpProxyStatsDohRespHeaderAllocFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_header_alloc_failed"
+	::= { httpProxyStatsEntry 293 }
+
+httpProxyStatsDohRespQueFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_que_failed"
+	::= { httpProxyStatsEntry 294 }
+
+httpProxyStatsDohRespUdpFrags OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_udp_frags"
+	::= { httpProxyStatsEntry 295 }
+
+httpProxyStatsDohRespTcpFrags OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_resp_tcp_frags"
+	::= { httpProxyStatsEntry 296 }
+
+httpProxyStatsDohServSelFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_serv_sel_failed"
+	::= { httpProxyStatsEntry 297 }
+
+httpProxyStatsDohRetryWTcp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_retry_w_tcp"
+	::= { httpProxyStatsEntry 298 }
+
+httpProxyStatsDohGetUriTooLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_get_uri_too_long"
+	::= { httpProxyStatsEntry 299 }
+
+httpProxyStatsDohPostPayloadTooLarge OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_post_payload_too_large"
+	::= { httpProxyStatsEntry 300 }
+
+httpProxyStatsDohDnsMalformedQuery OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_malformed_query"
+	::= { httpProxyStatsEntry 301 }
+
+httpProxyStatsDohDnsRespRcodeErrFormat OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_err_format"
+	::= { httpProxyStatsEntry 302 }
+
+httpProxyStatsDohDnsRespRcodeErrServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_err_server"
+	::= { httpProxyStatsEntry 303 }
+
+httpProxyStatsDohDnsRespRcodeErrName OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_err_name"
+	::= { httpProxyStatsEntry 304 }
+
+httpProxyStatsDohDnsRespRcodeErrType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_err_type"
+	::= { httpProxyStatsEntry 305 }
+
+httpProxyStatsDohDnsRespRcodeRefuse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_refuse"
+	::= { httpProxyStatsEntry 306 }
+
+httpProxyStatsDohDnsRespRcodeYxdomain OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_yxdomain"
+	::= { httpProxyStatsEntry 307 }
+
+httpProxyStatsDohDnsRespRcodeYxrrset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_yxrrset"
+	::= { httpProxyStatsEntry 308 }
+
+httpProxyStatsDohDnsRespRcodeNxrrset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_nxrrset"
+	::= { httpProxyStatsEntry 309 }
+
+httpProxyStatsDohDnsRespRcodeNotauth OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_notauth"
+	::= { httpProxyStatsEntry 310 }
+
+httpProxyStatsDohDnsRespRcodeNotzone OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_notzone"
+	::= { httpProxyStatsEntry 311 }
+
+httpProxyStatsDohDnsRespRcodeOther OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "doh_dns_resp_rcode_other"
+	::= { httpProxyStatsEntry 312 }
+
+httpProxyStatsCompressionBeforeBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_before_br"
+	::= { httpProxyStatsEntry 313 }
+
+httpProxyStatsCompressionAfterBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_after_br"
+	::= { httpProxyStatsEntry 314 }
+
+httpProxyStatsCompressionBeforeTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_before_total"
+	::= { httpProxyStatsEntry 315 }
+
+httpProxyStatsCompressionAfterTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compression_after_total"
+	::= { httpProxyStatsEntry 316 }
+
+httpProxyStatsDecompressionBeforeBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_before_br"
+	::= { httpProxyStatsEntry 317 }
+
+httpProxyStatsDecompressionAfterBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_after_br"
+	::= { httpProxyStatsEntry 318 }
+
+httpProxyStatsDecompressionBeforeTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_before_total"
+	::= { httpProxyStatsEntry 319 }
+
+httpProxyStatsDecompressionAfterTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "decompression_after_total"
+	::= { httpProxyStatsEntry 320 }
+
+httpProxyStatsCompressRspBr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_rsp_br"
+	::= { httpProxyStatsEntry 321 }
+
+httpProxyStatsCompressRspTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "compress_rsp_total"
+	::= { httpProxyStatsEntry 322 }
+
+httpProxyStatsH2upContentLengthAlias OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "h2up_content_length_alias"
+	::= { httpProxyStatsEntry 323 }
+
+httpProxyStatsMalformedH2upHeaderValue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "malformed_h2up_header_value"
+	::= { httpProxyStatsEntry 324 }
+
+httpProxyStatsMalformedH2upSchemeValue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "malformed_h2up_scheme_value"
+	::= { httpProxyStatsEntry 325 }
+
+httpProxyStatsH2upWithTransferEncoding OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "h2up_with_transfer_encoding"
+	::= { httpProxyStatsEntry 326 }
+
+httpProxyStatsMultipleContentLength OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multiple_content_length"
+	::= { httpProxyStatsEntry 327 }
+
+httpProxyStatsMultipleTransferEncoding OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multiple_transfer_encoding"
+	::= { httpProxyStatsEntry 328 }
+
+httpProxyStatsTransferEncodingAndContentLength OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transfer_encoding_and_content_length"
+	::= { httpProxyStatsEntry 329 }
+
+httpProxyStatsGetAndPayload OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "get_and_payload"
+	::= { httpProxyStatsEntry 330 }
+
+httpProxyStatsH2upWithHostAndAuth OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "h2up_with_host_and_auth"
+	::= { httpProxyStatsEntry 331 }
+
+httpProxyStatsReqHttp3 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http3"
+	::= { httpProxyStatsEntry 332 }
+
+httpProxyStatsResponseHttp3 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_http3"
+	::= { httpProxyStatsEntry 333 }
+
+httpProxyStatsHeaderFilterRuleHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "header_filter_rule_hit"
+	::= { httpProxyStatsEntry 334 }
+
+httpProxyStatsHttp1ClientIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http1_client_idle_timeout"
+	::= { httpProxyStatsEntry 335 }
+
+httpProxyStatsHttp2ClientIdleTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http2_client_idle_timeout"
+	::= { httpProxyStatsEntry 336 }
+
+httpProxyStatsHttpDisallowedMethods OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_disallowed_methods"
+	::= { httpProxyStatsEntry 337 }
+
+httpProxyStatsHttpAllowedMethods OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http_allowed_methods"
+	::= { httpProxyStatsEntry 338 }
+
+httpProxyStatsUpgradeToNewProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "upgrade_to_new_proxy"
+	::= { httpProxyStatsEntry 339 }
+
+httpProxyStatsDelH2cHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "del_h2c_header"
+	::= { httpProxyStatsEntry 340 }
+
+httpProxyStatsReqHttp11NewProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "req_http11_new_proxy"
+	::= { httpProxyStatsEntry 341 }
+
+httpProxyStatsTransactionLimited OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transaction_limited"
+	::= { httpProxyStatsEntry 342 }
+
+httpProxyOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF HttpProxyOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure HTTP Proxy global from object 'slb.http-proxy'"
+	::= {httpProxy 2}
+
+httpProxyOperEntry OBJECT-TYPE
+	SYNTAX HttpProxyOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The httpProxyOper entry"
+	INDEX {
+		httpProxyOperSlotId
+	}
+	::= { httpProxyOperTable 1 }
+
+HttpProxyOperEntry ::=
+	SEQUENCE {
+		httpProxyOperSlotId Integer32,
+		httpProxyOperCpuCount	 Integer32,
+		httpProxyOperDebugFields	 DisplayString
+	}
+
+httpProxyOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { httpProxyOperEntry 1 }
+
+httpProxyOperCpuCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-count"
+	::= { httpProxyOperEntry 2 }
+
+httpProxyOperDebugFields OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "debug_fields"
+	::= { httpProxyOperEntry 3 }
+
+httpProxyOperHttpProxyCpuListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF HttpProxyOperHttpProxyCpuListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure HTTP Proxy global from object 'slb.http-proxy'"
+	::= {httpProxy 3}
+
+httpProxyOperHttpProxyCpuListEntry OBJECT-TYPE
+	SYNTAX HttpProxyOperHttpProxyCpuListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The httpProxyOperHttpProxyCpuList entry:http-proxy-cpu-list"
+	INDEX {
+		httpProxyOperHttpProxyCpuListSlotId,
+		httpProxyOperHttpProxyCpuListHttpProxyCpuListListId
+	}
+	::= { httpProxyOperHttpProxyCpuListTable 1}
+
+HttpProxyOperHttpProxyCpuListEntry ::=
+	SEQUENCE {
+		httpProxyOperHttpProxyCpuListSlotId Integer32,
+		httpProxyOperHttpProxyCpuListHttpProxyCpuListListId Integer32,
+		httpProxyOperHttpProxyCpuListCurrProxy	Integer32,
+		httpProxyOperHttpProxyCpuListTotalProxy	Integer32,
+		httpProxyOperHttpProxyCpuListReq	Integer32,
+		httpProxyOperHttpProxyCpuListConnectReq	Integer32,
+		httpProxyOperHttpProxyCpuListReqEnterSsli	Integer32,
+		httpProxyOperHttpProxyCpuListReqSucc	Integer32,
+		httpProxyOperHttpProxyCpuListCacheRsp	Integer32,
+		httpProxyOperHttpProxyCpuListNoproxy	Integer32,
+		httpProxyOperHttpProxyCpuListNotuple	Integer32,
+		httpProxyOperHttpProxyCpuListParsereqFail	Integer32,
+		httpProxyOperHttpProxyCpuListSvrselFail	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqdataFail	Integer32,
+		httpProxyOperHttpProxyCpuListReqRetran	Integer32,
+		httpProxyOperHttpProxyCpuListReqOfo	Integer32,
+		httpProxyOperHttpProxyCpuListServerResel	Integer32,
+		httpProxyOperHttpProxyCpuListSvrPremClose	Integer32,
+		httpProxyOperHttpProxyCpuListNewSvrconn	Integer32,
+		httpProxyOperHttpProxyCpuListSnatFail	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionBefore	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionAfter	Integer32,
+		httpProxyOperHttpProxyCpuListReqOverLimit	Integer32,
+		httpProxyOperHttpProxyCpuListReqRateOverLimit	Integer32,
+		httpProxyOperHttpProxyCpuListCloseOnDdos	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionBefore	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionAfter	Integer32,
+		httpProxyOperHttpProxyCpuListClientRst	Integer32,
+		httpProxyOperHttpProxyCpuListServerRst	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFail	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailBuff	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailRport	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailRoute	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailPersist	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailServer	Integer32,
+		httpProxyOperHttpProxyCpuListFwdreqFailTuple	Integer32,
+		httpProxyOperHttpProxyCpuListL4Switching	Integer32,
+		httpProxyOperHttpProxyCpuListCookieSwitching	Integer32,
+		httpProxyOperHttpProxyCpuListAflexSwitching	Integer32,
+		httpProxyOperHttpProxyCpuListUrlSwitching	Integer32,
+		httpProxyOperHttpProxyCpuListHostSwitching	Integer32,
+		httpProxyOperHttpProxyCpuListLbSwitching	Integer32,
+		httpProxyOperHttpProxyCpuListHttpPolicySwitching	Integer32,
+		httpProxyOperHttpProxyCpuListL4SwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListCookieSwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListAflexSwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListUrlSwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListHostSwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListLbSwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListHttpPolicySwitchingOk	Integer32,
+		httpProxyOperHttpProxyCpuListL4SwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListCookieSwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListAflexSwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListUrlSwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListHostSwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListLbSwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListHttpPolicySwitchingEnqueue	Integer32,
+		httpProxyOperHttpProxyCpuListNonHttpBypass	Integer32,
+		httpProxyOperHttpProxyCpuListClientRstRequest	Integer32,
+		httpProxyOperHttpProxyCpuListClientRstConnecting	Integer32,
+		httpProxyOperHttpProxyCpuListClientRstConnected	Integer32,
+		httpProxyOperHttpProxyCpuListClientRstResponse	Integer32,
+		httpProxyOperHttpProxyCpuListServerRstRequest	Integer32,
+		httpProxyOperHttpProxyCpuListServerRstConnecting	Integer32,
+		httpProxyOperHttpProxyCpuListServerRstConnected	Integer32,
+		httpProxyOperHttpProxyCpuListServerRstResponse	Integer32,
+		httpProxyOperHttpProxyCpuListClientReqUnexpFlag	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingFin	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingFinRetrans	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingFinOfo	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingRst	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingRstRetrans	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingRstOfo	Integer32,
+		httpProxyOperHttpProxyCpuListConnectingAck	Integer32,
+		httpProxyOperHttpProxyCpuListPktsOfo	Integer32,
+		httpProxyOperHttpProxyCpuListPktsRetrans	Integer32,
+		httpProxyOperHttpProxyCpuListStaleSess	Integer32,
+		httpProxyOperHttpProxyCpuListServerReselFailed	Integer32,
+		httpProxyOperHttpProxyCpuListLargeCookie	Integer32,
+		httpProxyOperHttpProxyCpuListLargeCookieHeader	Integer32,
+		httpProxyOperHttpProxyCpuListHugeCookie	Integer32,
+		httpProxyOperHttpProxyCpuListHugeCookieHeader	Integer32,
+		httpProxyOperHttpProxyCpuListParseCookieFail	Integer32,
+		httpProxyOperHttpProxyCpuListParseSetcookieFail	Integer32,
+		httpProxyOperHttpProxyCpuListAsmCookieFail	Integer32,
+		httpProxyOperHttpProxyCpuListAsmCookieHeaderFail	Integer32,
+		httpProxyOperHttpProxyCpuListAsmSetcookieFail	Integer32,
+		httpProxyOperHttpProxyCpuListAsmSetcookieHeaderFail	Integer32,
+		httpProxyOperHttpProxyCpuListInvalidHeader	Integer32,
+		httpProxyOperHttpProxyCpuListTooManyHeaders	Integer32,
+		httpProxyOperHttpProxyCpuListLineTooLong	Integer32,
+		httpProxyOperHttpProxyCpuListHeaderNameTooLong	Integer32,
+		httpProxyOperHttpProxyCpuListWrongRespHeader	Integer32,
+		httpProxyOperHttpProxyCpuListHeaderInsert	Integer32,
+		httpProxyOperHttpProxyCpuListHeaderDelete	Integer32,
+		httpProxyOperHttpProxyCpuListInsertClientIp	Integer32,
+		httpProxyOperHttpProxyCpuListInsertClientPort	Integer32,
+		httpProxyOperHttpProxyCpuListSkipInsertClientIp	Integer32,
+		httpProxyOperHttpProxyCpuListSkipInsertClientPort	Integer32,
+		httpProxyOperHttpProxyCpuListNegativeReqRemain	Integer32,
+		httpProxyOperHttpProxyCpuListNegativeRespRemain	Integer32,
+		httpProxyOperHttpProxyCpuListRetry503	Integer32,
+		httpProxyOperHttpProxyCpuListAflexRetry	Integer32,
+		httpProxyOperHttpProxyCpuListAflexLbReselect	Integer32,
+		httpProxyOperHttpProxyCpuListAflexLbReselectOk	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp10	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp11	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp11NewProxy	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp2	Integer32,
+		httpProxyOperHttpProxyCpuListResponseHttp2	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp3	Integer32,
+		httpProxyOperHttpProxyCpuListResponseHttp3	Integer32,
+		httpProxyOperHttpProxyCpuListReqGet	Integer32,
+		httpProxyOperHttpProxyCpuListReqHead	Integer32,
+		httpProxyOperHttpProxyCpuListReqPut	Integer32,
+		httpProxyOperHttpProxyCpuListReqPost	Integer32,
+		httpProxyOperHttpProxyCpuListReqTrace	Integer32,
+		httpProxyOperHttpProxyCpuListReqTrack	Integer32,
+		httpProxyOperHttpProxyCpuListReqOptions	Integer32,
+		httpProxyOperHttpProxyCpuListReqConnect	Integer32,
+		httpProxyOperHttpProxyCpuListReqDelete	Integer32,
+		httpProxyOperHttpProxyCpuListReqUnknown	Integer32,
+		httpProxyOperHttpProxyCpuListResponseHttp10	Integer32,
+		httpProxyOperHttpProxyCpuListResponseHttp11	Integer32,
+		httpProxyOperHttpProxyCpuListResponse1xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponse100	Integer32,
+		httpProxyOperHttpProxyCpuListResponse101	Integer32,
+		httpProxyOperHttpProxyCpuListResponse102	Integer32,
+		httpProxyOperHttpProxyCpuListResponse2xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponse200	Integer32,
+		httpProxyOperHttpProxyCpuListResponse201	Integer32,
+		httpProxyOperHttpProxyCpuListResponse202	Integer32,
+		httpProxyOperHttpProxyCpuListResponse203	Integer32,
+		httpProxyOperHttpProxyCpuListResponse204	Integer32,
+		httpProxyOperHttpProxyCpuListResponse205	Integer32,
+		httpProxyOperHttpProxyCpuListResponse206	Integer32,
+		httpProxyOperHttpProxyCpuListResponse207	Integer32,
+		httpProxyOperHttpProxyCpuListResponse3xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponse300	Integer32,
+		httpProxyOperHttpProxyCpuListResponse301	Integer32,
+		httpProxyOperHttpProxyCpuListResponse302	Integer32,
+		httpProxyOperHttpProxyCpuListResponse303	Integer32,
+		httpProxyOperHttpProxyCpuListResponse304	Integer32,
+		httpProxyOperHttpProxyCpuListResponse305	Integer32,
+		httpProxyOperHttpProxyCpuListResponse306	Integer32,
+		httpProxyOperHttpProxyCpuListResponse307	Integer32,
+		httpProxyOperHttpProxyCpuListResponse4xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponse400	Integer32,
+		httpProxyOperHttpProxyCpuListResponse401	Integer32,
+		httpProxyOperHttpProxyCpuListResponse402	Integer32,
+		httpProxyOperHttpProxyCpuListResponse403	Integer32,
+		httpProxyOperHttpProxyCpuListResponse404	Integer32,
+		httpProxyOperHttpProxyCpuListResponse405	Integer32,
+		httpProxyOperHttpProxyCpuListResponse406	Integer32,
+		httpProxyOperHttpProxyCpuListResponse407	Integer32,
+		httpProxyOperHttpProxyCpuListResponse408	Integer32,
+		httpProxyOperHttpProxyCpuListResponse409	Integer32,
+		httpProxyOperHttpProxyCpuListResponse410	Integer32,
+		httpProxyOperHttpProxyCpuListResponse411	Integer32,
+		httpProxyOperHttpProxyCpuListResponse412	Integer32,
+		httpProxyOperHttpProxyCpuListResponse413	Integer32,
+		httpProxyOperHttpProxyCpuListResponse414	Integer32,
+		httpProxyOperHttpProxyCpuListResponse415	Integer32,
+		httpProxyOperHttpProxyCpuListResponse416	Integer32,
+		httpProxyOperHttpProxyCpuListResponse417	Integer32,
+		httpProxyOperHttpProxyCpuListResponse418	Integer32,
+		httpProxyOperHttpProxyCpuListResponse422	Integer32,
+		httpProxyOperHttpProxyCpuListResponse423	Integer32,
+		httpProxyOperHttpProxyCpuListResponse424	Integer32,
+		httpProxyOperHttpProxyCpuListResponse425	Integer32,
+		httpProxyOperHttpProxyCpuListResponse426	Integer32,
+		httpProxyOperHttpProxyCpuListResponse449	Integer32,
+		httpProxyOperHttpProxyCpuListResponse450	Integer32,
+		httpProxyOperHttpProxyCpuListResponse5xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponse500	Integer32,
+		httpProxyOperHttpProxyCpuListResponse501	Integer32,
+		httpProxyOperHttpProxyCpuListResponse502	Integer32,
+		httpProxyOperHttpProxyCpuListResponse503	Integer32,
+		httpProxyOperHttpProxyCpuListResponse504	Integer32,
+		httpProxyOperHttpProxyCpuListResponse504Ax	Integer32,
+		httpProxyOperHttpProxyCpuListResponse505	Integer32,
+		httpProxyOperHttpProxyCpuListResponse506	Integer32,
+		httpProxyOperHttpProxyCpuListResponse507	Integer32,
+		httpProxyOperHttpProxyCpuListResponse508	Integer32,
+		httpProxyOperHttpProxyCpuListResponse509	Integer32,
+		httpProxyOperHttpProxyCpuListResponse510	Integer32,
+		httpProxyOperHttpProxyCpuListResponse6xx	Integer32,
+		httpProxyOperHttpProxyCpuListResponseUnknown	Integer32,
+		httpProxyOperHttpProxyCpuListReq10u	Integer32,
+		httpProxyOperHttpProxyCpuListReq20u	Integer32,
+		httpProxyOperHttpProxyCpuListReq50u	Integer32,
+		httpProxyOperHttpProxyCpuListReq100u	Integer32,
+		httpProxyOperHttpProxyCpuListReq200u	Integer32,
+		httpProxyOperHttpProxyCpuListReq500u	Integer32,
+		httpProxyOperHttpProxyCpuListReq1m	Integer32,
+		httpProxyOperHttpProxyCpuListReq2m	Integer32,
+		httpProxyOperHttpProxyCpuListReq5m	Integer32,
+		httpProxyOperHttpProxyCpuListReq10m	Integer32,
+		httpProxyOperHttpProxyCpuListReq20m	Integer32,
+		httpProxyOperHttpProxyCpuListReq50m	Integer32,
+		httpProxyOperHttpProxyCpuListReq100m	Integer32,
+		httpProxyOperHttpProxyCpuListReq200m	Integer32,
+		httpProxyOperHttpProxyCpuListReq500m	Integer32,
+		httpProxyOperHttpProxyCpuListReq1s	Integer32,
+		httpProxyOperHttpProxyCpuListReq2s	Integer32,
+		httpProxyOperHttpProxyCpuListReq5s	Integer32,
+		httpProxyOperHttpProxyCpuListReqOver5s	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz1k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz2k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz4k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz8k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz16k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz32k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz64k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSz256k	Integer32,
+		httpProxyOperHttpProxyCpuListReqSzGt256k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz1k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz2k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz4k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz8k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz16k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz32k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz64k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSz256k	Integer32,
+		httpProxyOperHttpProxyCpuListRspSzGt256k	Integer32,
+		httpProxyOperHttpProxyCpuListChunkSz512	Integer32,
+		httpProxyOperHttpProxyCpuListChunkSz1k	Integer32,
+		httpProxyOperHttpProxyCpuListChunkSz2k	Integer32,
+		httpProxyOperHttpProxyCpuListChunkSz4k	Integer32,
+		httpProxyOperHttpProxyCpuListChunkSzGt4k	Integer32,
+		httpProxyOperHttpProxyCpuListPktsRetransAckFinwait	Integer32,
+		httpProxyOperHttpProxyCpuListPktsRetransFin	Integer32,
+		httpProxyOperHttpProxyCpuListPktsRetransRst	Integer32,
+		httpProxyOperHttpProxyCpuListPktsRetransPush	Integer32,
+		httpProxyOperHttpProxyCpuListPconnConnecting	Integer32,
+		httpProxyOperHttpProxyCpuListPconnConnected	Integer32,
+		httpProxyOperHttpProxyCpuListPconnConnectingFailed	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRsp	Integer32,
+		httpProxyOperHttpProxyCpuListCompressDelAcceptEnc	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRespAlreadyCompressed	Integer32,
+		httpProxyOperHttpProxyCpuListCompressContentTypeExcluded	Integer32,
+		httpProxyOperHttpProxyCpuListCompressNoContentType	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRespLtMin	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRespNoClOrCe	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRatioTooHigh	Integer32,
+		httpProxyOperHttpProxyCpuListRspContentLen	Integer32,
+		httpProxyOperHttpProxyCpuListReqContentLen	Integer32,
+		httpProxyOperHttpProxyCpuListRspChunk	Integer32,
+		httpProxyOperHttpProxyCpuListReqHttp10Keepalive	Integer32,
+		httpProxyOperHttpProxyCpuListChunkBad	Integer32,
+		httpProxyOperHttpProxyCpuListWsHandshakeReq	Integer32,
+		httpProxyOperHttpProxyCpuListWsHandshakeResp	Integer32,
+		httpProxyOperHttpProxyCpuListWsClientPackets	Integer32,
+		httpProxyOperHttpProxyCpuListWsServerPackets	Integer32,
+		httpProxyOperHttpProxyCpuListReqTimeoutRetry	Integer32,
+		httpProxyOperHttpProxyCpuListReqTimeoutClose	Integer32,
+		httpProxyOperHttpProxyCpuListDohReq	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqGet	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqPost	Integer32,
+		httpProxyOperHttpProxyCpuListDohNonDohReq	Integer32,
+		httpProxyOperHttpProxyCpuListDohNonDohReqGet	Integer32,
+		httpProxyOperHttpProxyCpuListDohNonDohReqPost	Integer32,
+		httpProxyOperHttpProxyCpuListDohResp	Integer32,
+		httpProxyOperHttpProxyCpuListDohTcResp	Integer32,
+		httpProxyOperHttpProxyCpuListDohUdpDnsReq	Integer32,
+		httpProxyOperHttpProxyCpuListDohUdpDnsResp	Integer32,
+		httpProxyOperHttpProxyCpuListDohTcpDnsReq	Integer32,
+		httpProxyOperHttpProxyCpuListDohTcpDnsResp	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqSendFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespSendFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohMallocFail	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqUdpRetry	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqUdpRetryFail	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqTcpRetry	Integer32,
+		httpProxyOperHttpProxyCpuListDohReqTcpRetryFail	Integer32,
+		httpProxyOperHttpProxyCpuListDohSnatFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohPathNotFound	Integer32,
+		httpProxyOperHttpProxyCpuListDohGetDnsArgFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohGetBase64DecodeFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohPostContentTypeMismatch	Integer32,
+		httpProxyOperHttpProxyCpuListDohPostPayloadNotFound	Integer32,
+		httpProxyOperHttpProxyCpuListDohPostPayloadExtractFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohNonDohMethod	Integer32,
+		httpProxyOperHttpProxyCpuListDohTcpSendFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohUdpSendFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohQueryTimeOut	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeA	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeAaaa	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeNs	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeCname	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeAny	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeSrv	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeMx	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeSoa	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsQueryTypeOthers	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespSetupFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespHeaderAllocFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespQueFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespUdpFrags	Integer32,
+		httpProxyOperHttpProxyCpuListDohRespTcpFrags	Integer32,
+		httpProxyOperHttpProxyCpuListDohServSelFailed	Integer32,
+		httpProxyOperHttpProxyCpuListDohRetryWTcp	Integer32,
+		httpProxyOperHttpProxyCpuListDohGetUriTooLong	Integer32,
+		httpProxyOperHttpProxyCpuListDohPostPayloadTooLarge	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsMalformedQuery	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrFormat	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrServer	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrName	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrType	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeRefuse	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeYxdomain	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeYxrrset	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeNxrrset	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeNotauth	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeNotzone	Integer32,
+		httpProxyOperHttpProxyCpuListDohDnsRespRcodeOther	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionBeforeBr	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionAfterBr	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionBeforeTotal	Integer32,
+		httpProxyOperHttpProxyCpuListCompressionAfterTotal	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionBeforeBr	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionAfterBr	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionBeforeTotal	Integer32,
+		httpProxyOperHttpProxyCpuListDecompressionAfterTotal	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRspBr	Integer32,
+		httpProxyOperHttpProxyCpuListCompressRspTotal	Integer32,
+		httpProxyOperHttpProxyCpuListH2upContentLengthAlias	Integer32,
+		httpProxyOperHttpProxyCpuListMalformedH2upHeaderValue	Integer32,
+		httpProxyOperHttpProxyCpuListMalformedH2upSchemeValue	Integer32,
+		httpProxyOperHttpProxyCpuListH2upWithTransferEncoding	Integer32,
+		httpProxyOperHttpProxyCpuListMultipleContentLength	Integer32,
+		httpProxyOperHttpProxyCpuListMultipleTransferEncoding	Integer32,
+		httpProxyOperHttpProxyCpuListTransferEncodingAndContentLength	Integer32,
+		httpProxyOperHttpProxyCpuListGetAndPayload	Integer32,
+		httpProxyOperHttpProxyCpuListH2upWithHostAndAuth	Integer32,
+		httpProxyOperHttpProxyCpuListHeaderFilterRuleHit	Integer32,
+		httpProxyOperHttpProxyCpuListHttp1ClientIdleTimeout	Integer32,
+		httpProxyOperHttpProxyCpuListHttp2ClientIdleTimeout	Integer32,
+		httpProxyOperHttpProxyCpuListHttpDisallowedMethods	Integer32,
+		httpProxyOperHttpProxyCpuListHttpAllowedMethods	Integer32,
+		httpProxyOperHttpProxyCpuListUpgradeToNewProxy	Integer32,
+		httpProxyOperHttpProxyCpuListDelH2cHeader	Integer32,
+		httpProxyOperHttpProxyCpuListTransactionLimited	Integer32
+	}
+
+httpProxyOperHttpProxyCpuListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { httpProxyOperHttpProxyCpuListEntry 1}
+
+httpProxyOperHttpProxyCpuListHttpProxyCpuListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { httpProxyOperHttpProxyCpuListEntry 2}
+
+httpProxyOperHttpProxyCpuListCurrProxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"curr_proxy"
+	::= { httpProxyOperHttpProxyCpuListEntry 3}
+
+httpProxyOperHttpProxyCpuListTotalProxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total_proxy"
+	::= { httpProxyOperHttpProxyCpuListEntry 4}
+
+httpProxyOperHttpProxyCpuListReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req"
+	::= { httpProxyOperHttpProxyCpuListEntry 5}
+
+httpProxyOperHttpProxyCpuListConnectReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connect_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 6}
+
+httpProxyOperHttpProxyCpuListReqEnterSsli OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_enter_ssli"
+	::= { httpProxyOperHttpProxyCpuListEntry 7}
+
+httpProxyOperHttpProxyCpuListReqSucc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_succ"
+	::= { httpProxyOperHttpProxyCpuListEntry 8}
+
+httpProxyOperHttpProxyCpuListCacheRsp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cache_rsp"
+	::= { httpProxyOperHttpProxyCpuListEntry 9}
+
+httpProxyOperHttpProxyCpuListNoproxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"noproxy"
+	::= { httpProxyOperHttpProxyCpuListEntry 10}
+
+httpProxyOperHttpProxyCpuListNotuple OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"notuple"
+	::= { httpProxyOperHttpProxyCpuListEntry 11}
+
+httpProxyOperHttpProxyCpuListParsereqFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"parsereq_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 12}
+
+httpProxyOperHttpProxyCpuListSvrselFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"svrsel_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 13}
+
+httpProxyOperHttpProxyCpuListFwdreqdataFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreqdata_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 14}
+
+httpProxyOperHttpProxyCpuListReqRetran OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_retran"
+	::= { httpProxyOperHttpProxyCpuListEntry 15}
+
+httpProxyOperHttpProxyCpuListReqOfo OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_ofo"
+	::= { httpProxyOperHttpProxyCpuListEntry 16}
+
+httpProxyOperHttpProxyCpuListServerResel OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_resel"
+	::= { httpProxyOperHttpProxyCpuListEntry 17}
+
+httpProxyOperHttpProxyCpuListSvrPremClose OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"svr_prem_close"
+	::= { httpProxyOperHttpProxyCpuListEntry 18}
+
+httpProxyOperHttpProxyCpuListNewSvrconn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"new_svrconn"
+	::= { httpProxyOperHttpProxyCpuListEntry 19}
+
+httpProxyOperHttpProxyCpuListSnatFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 20}
+
+httpProxyOperHttpProxyCpuListCompressionBefore OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_before"
+	::= { httpProxyOperHttpProxyCpuListEntry 21}
+
+httpProxyOperHttpProxyCpuListCompressionAfter OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_after"
+	::= { httpProxyOperHttpProxyCpuListEntry 22}
+
+httpProxyOperHttpProxyCpuListReqOverLimit OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_over_limit"
+	::= { httpProxyOperHttpProxyCpuListEntry 23}
+
+httpProxyOperHttpProxyCpuListReqRateOverLimit OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_rate_over_limit"
+	::= { httpProxyOperHttpProxyCpuListEntry 24}
+
+httpProxyOperHttpProxyCpuListCloseOnDdos OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"close_on_ddos"
+	::= { httpProxyOperHttpProxyCpuListEntry 25}
+
+httpProxyOperHttpProxyCpuListDecompressionBefore OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_before"
+	::= { httpProxyOperHttpProxyCpuListEntry 26}
+
+httpProxyOperHttpProxyCpuListDecompressionAfter OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_after"
+	::= { httpProxyOperHttpProxyCpuListEntry 27}
+
+httpProxyOperHttpProxyCpuListClientRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_rst"
+	::= { httpProxyOperHttpProxyCpuListEntry 28}
+
+httpProxyOperHttpProxyCpuListServerRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_rst"
+	::= { httpProxyOperHttpProxyCpuListEntry 29}
+
+httpProxyOperHttpProxyCpuListFwdreqFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 30}
+
+httpProxyOperHttpProxyCpuListFwdreqFailBuff OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_buff"
+	::= { httpProxyOperHttpProxyCpuListEntry 31}
+
+httpProxyOperHttpProxyCpuListFwdreqFailRport OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_rport"
+	::= { httpProxyOperHttpProxyCpuListEntry 32}
+
+httpProxyOperHttpProxyCpuListFwdreqFailRoute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_route"
+	::= { httpProxyOperHttpProxyCpuListEntry 33}
+
+httpProxyOperHttpProxyCpuListFwdreqFailPersist OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_persist"
+	::= { httpProxyOperHttpProxyCpuListEntry 34}
+
+httpProxyOperHttpProxyCpuListFwdreqFailServer OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_server"
+	::= { httpProxyOperHttpProxyCpuListEntry 35}
+
+httpProxyOperHttpProxyCpuListFwdreqFailTuple OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fwdreq_fail_tuple"
+	::= { httpProxyOperHttpProxyCpuListEntry 36}
+
+httpProxyOperHttpProxyCpuListL4Switching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 37}
+
+httpProxyOperHttpProxyCpuListCookieSwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cookie_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 38}
+
+httpProxyOperHttpProxyCpuListAflexSwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 39}
+
+httpProxyOperHttpProxyCpuListUrlSwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"url_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 40}
+
+httpProxyOperHttpProxyCpuListHostSwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"host_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 41}
+
+httpProxyOperHttpProxyCpuListLbSwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"lb_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 42}
+
+httpProxyOperHttpProxyCpuListHttpPolicySwitching OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http_policy_switching"
+	::= { httpProxyOperHttpProxyCpuListEntry 341}
+
+httpProxyOperHttpProxyCpuListL4SwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 43}
+
+httpProxyOperHttpProxyCpuListCookieSwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cookie_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 44}
+
+httpProxyOperHttpProxyCpuListAflexSwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 45}
+
+httpProxyOperHttpProxyCpuListUrlSwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"url_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 46}
+
+httpProxyOperHttpProxyCpuListHostSwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"host_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 47}
+
+httpProxyOperHttpProxyCpuListLbSwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"lb_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 48}
+
+httpProxyOperHttpProxyCpuListHttpPolicySwitchingOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http_policy_switching_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 342}
+
+httpProxyOperHttpProxyCpuListL4SwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 49}
+
+httpProxyOperHttpProxyCpuListCookieSwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cookie_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 50}
+
+httpProxyOperHttpProxyCpuListAflexSwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 51}
+
+httpProxyOperHttpProxyCpuListUrlSwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"url_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 52}
+
+httpProxyOperHttpProxyCpuListHostSwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"host_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 53}
+
+httpProxyOperHttpProxyCpuListLbSwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"lb_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 54}
+
+httpProxyOperHttpProxyCpuListHttpPolicySwitchingEnqueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http_policy_switching_enqueue"
+	::= { httpProxyOperHttpProxyCpuListEntry 343}
+
+httpProxyOperHttpProxyCpuListNonHttpBypass OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"non_http_bypass"
+	::= { httpProxyOperHttpProxyCpuListEntry 55}
+
+httpProxyOperHttpProxyCpuListClientRstRequest OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_rst_request"
+	::= { httpProxyOperHttpProxyCpuListEntry 56}
+
+httpProxyOperHttpProxyCpuListClientRstConnecting OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_rst_connecting"
+	::= { httpProxyOperHttpProxyCpuListEntry 57}
+
+httpProxyOperHttpProxyCpuListClientRstConnected OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_rst_connected"
+	::= { httpProxyOperHttpProxyCpuListEntry 58}
+
+httpProxyOperHttpProxyCpuListClientRstResponse OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_rst_response"
+	::= { httpProxyOperHttpProxyCpuListEntry 59}
+
+httpProxyOperHttpProxyCpuListServerRstRequest OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_rst_request"
+	::= { httpProxyOperHttpProxyCpuListEntry 60}
+
+httpProxyOperHttpProxyCpuListServerRstConnecting OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_rst_connecting"
+	::= { httpProxyOperHttpProxyCpuListEntry 61}
+
+httpProxyOperHttpProxyCpuListServerRstConnected OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_rst_connected"
+	::= { httpProxyOperHttpProxyCpuListEntry 62}
+
+httpProxyOperHttpProxyCpuListServerRstResponse OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_rst_response"
+	::= { httpProxyOperHttpProxyCpuListEntry 63}
+
+httpProxyOperHttpProxyCpuListClientReqUnexpFlag OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client_req_unexp_flag"
+	::= { httpProxyOperHttpProxyCpuListEntry 64}
+
+httpProxyOperHttpProxyCpuListConnectingFin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_fin"
+	::= { httpProxyOperHttpProxyCpuListEntry 65}
+
+httpProxyOperHttpProxyCpuListConnectingFinRetrans OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_fin_retrans"
+	::= { httpProxyOperHttpProxyCpuListEntry 66}
+
+httpProxyOperHttpProxyCpuListConnectingFinOfo OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_fin_ofo"
+	::= { httpProxyOperHttpProxyCpuListEntry 67}
+
+httpProxyOperHttpProxyCpuListConnectingRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_rst"
+	::= { httpProxyOperHttpProxyCpuListEntry 68}
+
+httpProxyOperHttpProxyCpuListConnectingRstRetrans OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_rst_retrans"
+	::= { httpProxyOperHttpProxyCpuListEntry 69}
+
+httpProxyOperHttpProxyCpuListConnectingRstOfo OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_rst_ofo"
+	::= { httpProxyOperHttpProxyCpuListEntry 70}
+
+httpProxyOperHttpProxyCpuListConnectingAck OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connecting_ack"
+	::= { httpProxyOperHttpProxyCpuListEntry 71}
+
+httpProxyOperHttpProxyCpuListPktsOfo OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_ofo"
+	::= { httpProxyOperHttpProxyCpuListEntry 72}
+
+httpProxyOperHttpProxyCpuListPktsRetrans OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_retrans"
+	::= { httpProxyOperHttpProxyCpuListEntry 73}
+
+httpProxyOperHttpProxyCpuListStaleSess OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"stale_sess"
+	::= { httpProxyOperHttpProxyCpuListEntry 74}
+
+httpProxyOperHttpProxyCpuListServerReselFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_resel_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 75}
+
+httpProxyOperHttpProxyCpuListLargeCookie OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"large_cookie"
+	::= { httpProxyOperHttpProxyCpuListEntry 76}
+
+httpProxyOperHttpProxyCpuListLargeCookieHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"large_cookie_header"
+	::= { httpProxyOperHttpProxyCpuListEntry 77}
+
+httpProxyOperHttpProxyCpuListHugeCookie OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"huge_cookie"
+	::= { httpProxyOperHttpProxyCpuListEntry 78}
+
+httpProxyOperHttpProxyCpuListHugeCookieHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"huge_cookie_header"
+	::= { httpProxyOperHttpProxyCpuListEntry 79}
+
+httpProxyOperHttpProxyCpuListParseCookieFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"parse_cookie_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 80}
+
+httpProxyOperHttpProxyCpuListParseSetcookieFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"parse_setcookie_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 81}
+
+httpProxyOperHttpProxyCpuListAsmCookieFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"asm_cookie_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 82}
+
+httpProxyOperHttpProxyCpuListAsmCookieHeaderFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"asm_cookie_header_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 83}
+
+httpProxyOperHttpProxyCpuListAsmSetcookieFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"asm_setcookie_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 84}
+
+httpProxyOperHttpProxyCpuListAsmSetcookieHeaderFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"asm_setcookie_header_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 85}
+
+httpProxyOperHttpProxyCpuListInvalidHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"invalid_header"
+	::= { httpProxyOperHttpProxyCpuListEntry 86}
+
+httpProxyOperHttpProxyCpuListTooManyHeaders OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"too_many_headers"
+	::= { httpProxyOperHttpProxyCpuListEntry 87}
+
+httpProxyOperHttpProxyCpuListLineTooLong OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"line_too_long"
+	::= { httpProxyOperHttpProxyCpuListEntry 88}
+
+httpProxyOperHttpProxyCpuListHeaderNameTooLong OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"header_name_too_long"
+	::= { httpProxyOperHttpProxyCpuListEntry 89}
+
+httpProxyOperHttpProxyCpuListWrongRespHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"wrong_resp_header"
+	::= { httpProxyOperHttpProxyCpuListEntry 90}
+
+httpProxyOperHttpProxyCpuListHeaderInsert OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"header_insert"
+	::= { httpProxyOperHttpProxyCpuListEntry 91}
+
+httpProxyOperHttpProxyCpuListHeaderDelete OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"header_delete"
+	::= { httpProxyOperHttpProxyCpuListEntry 92}
+
+httpProxyOperHttpProxyCpuListInsertClientIp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"insert_client_ip"
+	::= { httpProxyOperHttpProxyCpuListEntry 93}
+
+httpProxyOperHttpProxyCpuListInsertClientPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"insert_client_port"
+	::= { httpProxyOperHttpProxyCpuListEntry 94}
+
+httpProxyOperHttpProxyCpuListSkipInsertClientIp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"skip_insert_client_ip"
+	::= { httpProxyOperHttpProxyCpuListEntry 95}
+
+httpProxyOperHttpProxyCpuListSkipInsertClientPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"skip_insert_client_port"
+	::= { httpProxyOperHttpProxyCpuListEntry 96}
+
+httpProxyOperHttpProxyCpuListNegativeReqRemain OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"negative_req_remain"
+	::= { httpProxyOperHttpProxyCpuListEntry 97}
+
+httpProxyOperHttpProxyCpuListNegativeRespRemain OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"negative_resp_remain"
+	::= { httpProxyOperHttpProxyCpuListEntry 98}
+
+httpProxyOperHttpProxyCpuListRetry503 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"retry_503"
+	::= { httpProxyOperHttpProxyCpuListEntry 99}
+
+httpProxyOperHttpProxyCpuListAflexRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_retry"
+	::= { httpProxyOperHttpProxyCpuListEntry 100}
+
+httpProxyOperHttpProxyCpuListAflexLbReselect OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_lb_reselect"
+	::= { httpProxyOperHttpProxyCpuListEntry 101}
+
+httpProxyOperHttpProxyCpuListAflexLbReselectOk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_lb_reselect_ok"
+	::= { httpProxyOperHttpProxyCpuListEntry 102}
+
+httpProxyOperHttpProxyCpuListReqHttp10 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http10"
+	::= { httpProxyOperHttpProxyCpuListEntry 103}
+
+httpProxyOperHttpProxyCpuListReqHttp11 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http11"
+	::= { httpProxyOperHttpProxyCpuListEntry 104}
+
+httpProxyOperHttpProxyCpuListReqHttp11NewProxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http11_new_proxy"
+	::= { httpProxyOperHttpProxyCpuListEntry 105}
+
+httpProxyOperHttpProxyCpuListReqHttp2 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http2"
+	::= { httpProxyOperHttpProxyCpuListEntry 106}
+
+httpProxyOperHttpProxyCpuListResponseHttp2 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_http2"
+	::= { httpProxyOperHttpProxyCpuListEntry 107}
+
+httpProxyOperHttpProxyCpuListReqHttp3 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http3"
+	::= { httpProxyOperHttpProxyCpuListEntry 108}
+
+httpProxyOperHttpProxyCpuListResponseHttp3 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_http3"
+	::= { httpProxyOperHttpProxyCpuListEntry 109}
+
+httpProxyOperHttpProxyCpuListReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_get"
+	::= { httpProxyOperHttpProxyCpuListEntry 110}
+
+httpProxyOperHttpProxyCpuListReqHead OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_head"
+	::= { httpProxyOperHttpProxyCpuListEntry 111}
+
+httpProxyOperHttpProxyCpuListReqPut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_put"
+	::= { httpProxyOperHttpProxyCpuListEntry 112}
+
+httpProxyOperHttpProxyCpuListReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_post"
+	::= { httpProxyOperHttpProxyCpuListEntry 113}
+
+httpProxyOperHttpProxyCpuListReqTrace OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_trace"
+	::= { httpProxyOperHttpProxyCpuListEntry 114}
+
+httpProxyOperHttpProxyCpuListReqTrack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_track"
+	::= { httpProxyOperHttpProxyCpuListEntry 115}
+
+httpProxyOperHttpProxyCpuListReqOptions OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_options"
+	::= { httpProxyOperHttpProxyCpuListEntry 116}
+
+httpProxyOperHttpProxyCpuListReqConnect OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_connect"
+	::= { httpProxyOperHttpProxyCpuListEntry 117}
+
+httpProxyOperHttpProxyCpuListReqDelete OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_delete"
+	::= { httpProxyOperHttpProxyCpuListEntry 118}
+
+httpProxyOperHttpProxyCpuListReqUnknown OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_unknown"
+	::= { httpProxyOperHttpProxyCpuListEntry 119}
+
+httpProxyOperHttpProxyCpuListResponseHttp10 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_http10"
+	::= { httpProxyOperHttpProxyCpuListEntry 120}
+
+httpProxyOperHttpProxyCpuListResponseHttp11 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_http11"
+	::= { httpProxyOperHttpProxyCpuListEntry 121}
+
+httpProxyOperHttpProxyCpuListResponse1xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_1xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 122}
+
+httpProxyOperHttpProxyCpuListResponse100 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_100"
+	::= { httpProxyOperHttpProxyCpuListEntry 123}
+
+httpProxyOperHttpProxyCpuListResponse101 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_101"
+	::= { httpProxyOperHttpProxyCpuListEntry 124}
+
+httpProxyOperHttpProxyCpuListResponse102 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_102"
+	::= { httpProxyOperHttpProxyCpuListEntry 125}
+
+httpProxyOperHttpProxyCpuListResponse2xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_2xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 126}
+
+httpProxyOperHttpProxyCpuListResponse200 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_200"
+	::= { httpProxyOperHttpProxyCpuListEntry 127}
+
+httpProxyOperHttpProxyCpuListResponse201 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_201"
+	::= { httpProxyOperHttpProxyCpuListEntry 128}
+
+httpProxyOperHttpProxyCpuListResponse202 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_202"
+	::= { httpProxyOperHttpProxyCpuListEntry 129}
+
+httpProxyOperHttpProxyCpuListResponse203 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_203"
+	::= { httpProxyOperHttpProxyCpuListEntry 130}
+
+httpProxyOperHttpProxyCpuListResponse204 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_204"
+	::= { httpProxyOperHttpProxyCpuListEntry 131}
+
+httpProxyOperHttpProxyCpuListResponse205 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_205"
+	::= { httpProxyOperHttpProxyCpuListEntry 132}
+
+httpProxyOperHttpProxyCpuListResponse206 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_206"
+	::= { httpProxyOperHttpProxyCpuListEntry 133}
+
+httpProxyOperHttpProxyCpuListResponse207 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_207"
+	::= { httpProxyOperHttpProxyCpuListEntry 134}
+
+httpProxyOperHttpProxyCpuListResponse3xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_3xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 135}
+
+httpProxyOperHttpProxyCpuListResponse300 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_300"
+	::= { httpProxyOperHttpProxyCpuListEntry 136}
+
+httpProxyOperHttpProxyCpuListResponse301 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_301"
+	::= { httpProxyOperHttpProxyCpuListEntry 137}
+
+httpProxyOperHttpProxyCpuListResponse302 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_302"
+	::= { httpProxyOperHttpProxyCpuListEntry 138}
+
+httpProxyOperHttpProxyCpuListResponse303 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_303"
+	::= { httpProxyOperHttpProxyCpuListEntry 139}
+
+httpProxyOperHttpProxyCpuListResponse304 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_304"
+	::= { httpProxyOperHttpProxyCpuListEntry 140}
+
+httpProxyOperHttpProxyCpuListResponse305 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_305"
+	::= { httpProxyOperHttpProxyCpuListEntry 141}
+
+httpProxyOperHttpProxyCpuListResponse306 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_306"
+	::= { httpProxyOperHttpProxyCpuListEntry 142}
+
+httpProxyOperHttpProxyCpuListResponse307 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_307"
+	::= { httpProxyOperHttpProxyCpuListEntry 143}
+
+httpProxyOperHttpProxyCpuListResponse4xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_4xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 144}
+
+httpProxyOperHttpProxyCpuListResponse400 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_400"
+	::= { httpProxyOperHttpProxyCpuListEntry 145}
+
+httpProxyOperHttpProxyCpuListResponse401 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_401"
+	::= { httpProxyOperHttpProxyCpuListEntry 146}
+
+httpProxyOperHttpProxyCpuListResponse402 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_402"
+	::= { httpProxyOperHttpProxyCpuListEntry 147}
+
+httpProxyOperHttpProxyCpuListResponse403 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_403"
+	::= { httpProxyOperHttpProxyCpuListEntry 148}
+
+httpProxyOperHttpProxyCpuListResponse404 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_404"
+	::= { httpProxyOperHttpProxyCpuListEntry 149}
+
+httpProxyOperHttpProxyCpuListResponse405 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_405"
+	::= { httpProxyOperHttpProxyCpuListEntry 150}
+
+httpProxyOperHttpProxyCpuListResponse406 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_406"
+	::= { httpProxyOperHttpProxyCpuListEntry 151}
+
+httpProxyOperHttpProxyCpuListResponse407 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_407"
+	::= { httpProxyOperHttpProxyCpuListEntry 152}
+
+httpProxyOperHttpProxyCpuListResponse408 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_408"
+	::= { httpProxyOperHttpProxyCpuListEntry 153}
+
+httpProxyOperHttpProxyCpuListResponse409 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_409"
+	::= { httpProxyOperHttpProxyCpuListEntry 154}
+
+httpProxyOperHttpProxyCpuListResponse410 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_410"
+	::= { httpProxyOperHttpProxyCpuListEntry 155}
+
+httpProxyOperHttpProxyCpuListResponse411 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_411"
+	::= { httpProxyOperHttpProxyCpuListEntry 156}
+
+httpProxyOperHttpProxyCpuListResponse412 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_412"
+	::= { httpProxyOperHttpProxyCpuListEntry 157}
+
+httpProxyOperHttpProxyCpuListResponse413 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_413"
+	::= { httpProxyOperHttpProxyCpuListEntry 158}
+
+httpProxyOperHttpProxyCpuListResponse414 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_414"
+	::= { httpProxyOperHttpProxyCpuListEntry 159}
+
+httpProxyOperHttpProxyCpuListResponse415 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_415"
+	::= { httpProxyOperHttpProxyCpuListEntry 160}
+
+httpProxyOperHttpProxyCpuListResponse416 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_416"
+	::= { httpProxyOperHttpProxyCpuListEntry 161}
+
+httpProxyOperHttpProxyCpuListResponse417 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_417"
+	::= { httpProxyOperHttpProxyCpuListEntry 162}
+
+httpProxyOperHttpProxyCpuListResponse418 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_418"
+	::= { httpProxyOperHttpProxyCpuListEntry 163}
+
+httpProxyOperHttpProxyCpuListResponse422 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_422"
+	::= { httpProxyOperHttpProxyCpuListEntry 164}
+
+httpProxyOperHttpProxyCpuListResponse423 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_423"
+	::= { httpProxyOperHttpProxyCpuListEntry 165}
+
+httpProxyOperHttpProxyCpuListResponse424 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_424"
+	::= { httpProxyOperHttpProxyCpuListEntry 166}
+
+httpProxyOperHttpProxyCpuListResponse425 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_425"
+	::= { httpProxyOperHttpProxyCpuListEntry 167}
+
+httpProxyOperHttpProxyCpuListResponse426 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_426"
+	::= { httpProxyOperHttpProxyCpuListEntry 168}
+
+httpProxyOperHttpProxyCpuListResponse449 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_449"
+	::= { httpProxyOperHttpProxyCpuListEntry 169}
+
+httpProxyOperHttpProxyCpuListResponse450 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_450"
+	::= { httpProxyOperHttpProxyCpuListEntry 170}
+
+httpProxyOperHttpProxyCpuListResponse5xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_5xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 171}
+
+httpProxyOperHttpProxyCpuListResponse500 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_500"
+	::= { httpProxyOperHttpProxyCpuListEntry 172}
+
+httpProxyOperHttpProxyCpuListResponse501 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_501"
+	::= { httpProxyOperHttpProxyCpuListEntry 173}
+
+httpProxyOperHttpProxyCpuListResponse502 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_502"
+	::= { httpProxyOperHttpProxyCpuListEntry 174}
+
+httpProxyOperHttpProxyCpuListResponse503 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_503"
+	::= { httpProxyOperHttpProxyCpuListEntry 175}
+
+httpProxyOperHttpProxyCpuListResponse504 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_504"
+	::= { httpProxyOperHttpProxyCpuListEntry 176}
+
+httpProxyOperHttpProxyCpuListResponse504Ax OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_504_ax"
+	::= { httpProxyOperHttpProxyCpuListEntry 177}
+
+httpProxyOperHttpProxyCpuListResponse505 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_505"
+	::= { httpProxyOperHttpProxyCpuListEntry 178}
+
+httpProxyOperHttpProxyCpuListResponse506 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_506"
+	::= { httpProxyOperHttpProxyCpuListEntry 179}
+
+httpProxyOperHttpProxyCpuListResponse507 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_507"
+	::= { httpProxyOperHttpProxyCpuListEntry 180}
+
+httpProxyOperHttpProxyCpuListResponse508 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_508"
+	::= { httpProxyOperHttpProxyCpuListEntry 181}
+
+httpProxyOperHttpProxyCpuListResponse509 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_509"
+	::= { httpProxyOperHttpProxyCpuListEntry 182}
+
+httpProxyOperHttpProxyCpuListResponse510 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_510"
+	::= { httpProxyOperHttpProxyCpuListEntry 183}
+
+httpProxyOperHttpProxyCpuListResponse6xx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_6xx"
+	::= { httpProxyOperHttpProxyCpuListEntry 184}
+
+httpProxyOperHttpProxyCpuListResponseUnknown OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"response_unknown"
+	::= { httpProxyOperHttpProxyCpuListEntry 185}
+
+httpProxyOperHttpProxyCpuListReq10u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_10u"
+	::= { httpProxyOperHttpProxyCpuListEntry 186}
+
+httpProxyOperHttpProxyCpuListReq20u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_20u"
+	::= { httpProxyOperHttpProxyCpuListEntry 187}
+
+httpProxyOperHttpProxyCpuListReq50u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_50u"
+	::= { httpProxyOperHttpProxyCpuListEntry 188}
+
+httpProxyOperHttpProxyCpuListReq100u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_100u"
+	::= { httpProxyOperHttpProxyCpuListEntry 189}
+
+httpProxyOperHttpProxyCpuListReq200u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_200u"
+	::= { httpProxyOperHttpProxyCpuListEntry 190}
+
+httpProxyOperHttpProxyCpuListReq500u OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_500u"
+	::= { httpProxyOperHttpProxyCpuListEntry 191}
+
+httpProxyOperHttpProxyCpuListReq1m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_1m"
+	::= { httpProxyOperHttpProxyCpuListEntry 192}
+
+httpProxyOperHttpProxyCpuListReq2m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_2m"
+	::= { httpProxyOperHttpProxyCpuListEntry 193}
+
+httpProxyOperHttpProxyCpuListReq5m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_5m"
+	::= { httpProxyOperHttpProxyCpuListEntry 194}
+
+httpProxyOperHttpProxyCpuListReq10m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_10m"
+	::= { httpProxyOperHttpProxyCpuListEntry 195}
+
+httpProxyOperHttpProxyCpuListReq20m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_20m"
+	::= { httpProxyOperHttpProxyCpuListEntry 196}
+
+httpProxyOperHttpProxyCpuListReq50m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_50m"
+	::= { httpProxyOperHttpProxyCpuListEntry 197}
+
+httpProxyOperHttpProxyCpuListReq100m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_100m"
+	::= { httpProxyOperHttpProxyCpuListEntry 198}
+
+httpProxyOperHttpProxyCpuListReq200m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_200m"
+	::= { httpProxyOperHttpProxyCpuListEntry 199}
+
+httpProxyOperHttpProxyCpuListReq500m OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_500m"
+	::= { httpProxyOperHttpProxyCpuListEntry 200}
+
+httpProxyOperHttpProxyCpuListReq1s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_1s"
+	::= { httpProxyOperHttpProxyCpuListEntry 201}
+
+httpProxyOperHttpProxyCpuListReq2s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_2s"
+	::= { httpProxyOperHttpProxyCpuListEntry 202}
+
+httpProxyOperHttpProxyCpuListReq5s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_5s"
+	::= { httpProxyOperHttpProxyCpuListEntry 203}
+
+httpProxyOperHttpProxyCpuListReqOver5s OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_over_5s"
+	::= { httpProxyOperHttpProxyCpuListEntry 204}
+
+httpProxyOperHttpProxyCpuListReqSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_1k"
+	::= { httpProxyOperHttpProxyCpuListEntry 205}
+
+httpProxyOperHttpProxyCpuListReqSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_2k"
+	::= { httpProxyOperHttpProxyCpuListEntry 206}
+
+httpProxyOperHttpProxyCpuListReqSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_4k"
+	::= { httpProxyOperHttpProxyCpuListEntry 207}
+
+httpProxyOperHttpProxyCpuListReqSz8k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_8k"
+	::= { httpProxyOperHttpProxyCpuListEntry 208}
+
+httpProxyOperHttpProxyCpuListReqSz16k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_16k"
+	::= { httpProxyOperHttpProxyCpuListEntry 209}
+
+httpProxyOperHttpProxyCpuListReqSz32k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_32k"
+	::= { httpProxyOperHttpProxyCpuListEntry 210}
+
+httpProxyOperHttpProxyCpuListReqSz64k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_64k"
+	::= { httpProxyOperHttpProxyCpuListEntry 211}
+
+httpProxyOperHttpProxyCpuListReqSz256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_256k"
+	::= { httpProxyOperHttpProxyCpuListEntry 212}
+
+httpProxyOperHttpProxyCpuListReqSzGt256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_sz_gt_256k"
+	::= { httpProxyOperHttpProxyCpuListEntry 213}
+
+httpProxyOperHttpProxyCpuListRspSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_1k"
+	::= { httpProxyOperHttpProxyCpuListEntry 214}
+
+httpProxyOperHttpProxyCpuListRspSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_2k"
+	::= { httpProxyOperHttpProxyCpuListEntry 215}
+
+httpProxyOperHttpProxyCpuListRspSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_4k"
+	::= { httpProxyOperHttpProxyCpuListEntry 216}
+
+httpProxyOperHttpProxyCpuListRspSz8k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_8k"
+	::= { httpProxyOperHttpProxyCpuListEntry 217}
+
+httpProxyOperHttpProxyCpuListRspSz16k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_16k"
+	::= { httpProxyOperHttpProxyCpuListEntry 218}
+
+httpProxyOperHttpProxyCpuListRspSz32k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_32k"
+	::= { httpProxyOperHttpProxyCpuListEntry 219}
+
+httpProxyOperHttpProxyCpuListRspSz64k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_64k"
+	::= { httpProxyOperHttpProxyCpuListEntry 220}
+
+httpProxyOperHttpProxyCpuListRspSz256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_256k"
+	::= { httpProxyOperHttpProxyCpuListEntry 221}
+
+httpProxyOperHttpProxyCpuListRspSzGt256k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_sz_gt_256k"
+	::= { httpProxyOperHttpProxyCpuListEntry 222}
+
+httpProxyOperHttpProxyCpuListChunkSz512 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_512"
+	::= { httpProxyOperHttpProxyCpuListEntry 223}
+
+httpProxyOperHttpProxyCpuListChunkSz1k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_1k"
+	::= { httpProxyOperHttpProxyCpuListEntry 224}
+
+httpProxyOperHttpProxyCpuListChunkSz2k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_2k"
+	::= { httpProxyOperHttpProxyCpuListEntry 225}
+
+httpProxyOperHttpProxyCpuListChunkSz4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_4k"
+	::= { httpProxyOperHttpProxyCpuListEntry 226}
+
+httpProxyOperHttpProxyCpuListChunkSzGt4k OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_sz_gt_4k"
+	::= { httpProxyOperHttpProxyCpuListEntry 227}
+
+httpProxyOperHttpProxyCpuListPktsRetransAckFinwait OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_retrans_ack_finwait"
+	::= { httpProxyOperHttpProxyCpuListEntry 228}
+
+httpProxyOperHttpProxyCpuListPktsRetransFin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_retrans_fin"
+	::= { httpProxyOperHttpProxyCpuListEntry 229}
+
+httpProxyOperHttpProxyCpuListPktsRetransRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_retrans_rst"
+	::= { httpProxyOperHttpProxyCpuListEntry 230}
+
+httpProxyOperHttpProxyCpuListPktsRetransPush OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pkts_retrans_push"
+	::= { httpProxyOperHttpProxyCpuListEntry 231}
+
+httpProxyOperHttpProxyCpuListPconnConnecting OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pconn_connecting"
+	::= { httpProxyOperHttpProxyCpuListEntry 232}
+
+httpProxyOperHttpProxyCpuListPconnConnected OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pconn_connected"
+	::= { httpProxyOperHttpProxyCpuListEntry 233}
+
+httpProxyOperHttpProxyCpuListPconnConnectingFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pconn_connecting_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 234}
+
+httpProxyOperHttpProxyCpuListCompressRsp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_rsp"
+	::= { httpProxyOperHttpProxyCpuListEntry 235}
+
+httpProxyOperHttpProxyCpuListCompressDelAcceptEnc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_del_accept_enc"
+	::= { httpProxyOperHttpProxyCpuListEntry 236}
+
+httpProxyOperHttpProxyCpuListCompressRespAlreadyCompressed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_resp_already_compressed"
+	::= { httpProxyOperHttpProxyCpuListEntry 237}
+
+httpProxyOperHttpProxyCpuListCompressContentTypeExcluded OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_content_type_excluded"
+	::= { httpProxyOperHttpProxyCpuListEntry 238}
+
+httpProxyOperHttpProxyCpuListCompressNoContentType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_no_content_type"
+	::= { httpProxyOperHttpProxyCpuListEntry 239}
+
+httpProxyOperHttpProxyCpuListCompressRespLtMin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_resp_lt_min"
+	::= { httpProxyOperHttpProxyCpuListEntry 240}
+
+httpProxyOperHttpProxyCpuListCompressRespNoClOrCe OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_resp_no_cl_or_ce"
+	::= { httpProxyOperHttpProxyCpuListEntry 241}
+
+httpProxyOperHttpProxyCpuListCompressRatioTooHigh OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_ratio_too_high"
+	::= { httpProxyOperHttpProxyCpuListEntry 242}
+
+httpProxyOperHttpProxyCpuListRspContentLen OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_content_len"
+	::= { httpProxyOperHttpProxyCpuListEntry 243}
+
+httpProxyOperHttpProxyCpuListReqContentLen OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_content_len"
+	::= { httpProxyOperHttpProxyCpuListEntry 244}
+
+httpProxyOperHttpProxyCpuListRspChunk OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rsp_chunk"
+	::= { httpProxyOperHttpProxyCpuListEntry 245}
+
+httpProxyOperHttpProxyCpuListReqHttp10Keepalive OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_http10_keepalive"
+	::= { httpProxyOperHttpProxyCpuListEntry 246}
+
+httpProxyOperHttpProxyCpuListChunkBad OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"chunk_bad"
+	::= { httpProxyOperHttpProxyCpuListEntry 247}
+
+httpProxyOperHttpProxyCpuListWsHandshakeReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_handshake_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 248}
+
+httpProxyOperHttpProxyCpuListWsHandshakeResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_handshake_resp"
+	::= { httpProxyOperHttpProxyCpuListEntry 249}
+
+httpProxyOperHttpProxyCpuListWsClientPackets OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_client_packets"
+	::= { httpProxyOperHttpProxyCpuListEntry 250}
+
+httpProxyOperHttpProxyCpuListWsServerPackets OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ws_server_packets"
+	::= { httpProxyOperHttpProxyCpuListEntry 251}
+
+httpProxyOperHttpProxyCpuListReqTimeoutRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_timeout_retry"
+	::= { httpProxyOperHttpProxyCpuListEntry 252}
+
+httpProxyOperHttpProxyCpuListReqTimeoutClose OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"req_timeout_close"
+	::= { httpProxyOperHttpProxyCpuListEntry 253}
+
+httpProxyOperHttpProxyCpuListDohReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 254}
+
+httpProxyOperHttpProxyCpuListDohReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_get"
+	::= { httpProxyOperHttpProxyCpuListEntry 255}
+
+httpProxyOperHttpProxyCpuListDohReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_post"
+	::= { httpProxyOperHttpProxyCpuListEntry 256}
+
+httpProxyOperHttpProxyCpuListDohNonDohReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 257}
+
+httpProxyOperHttpProxyCpuListDohNonDohReqGet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req_get"
+	::= { httpProxyOperHttpProxyCpuListEntry 258}
+
+httpProxyOperHttpProxyCpuListDohNonDohReqPost OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_req_post"
+	::= { httpProxyOperHttpProxyCpuListEntry 259}
+
+httpProxyOperHttpProxyCpuListDohResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp"
+	::= { httpProxyOperHttpProxyCpuListEntry 260}
+
+httpProxyOperHttpProxyCpuListDohTcResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tc_resp"
+	::= { httpProxyOperHttpProxyCpuListEntry 261}
+
+httpProxyOperHttpProxyCpuListDohUdpDnsReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_dns_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 262}
+
+httpProxyOperHttpProxyCpuListDohUdpDnsResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_dns_resp"
+	::= { httpProxyOperHttpProxyCpuListEntry 263}
+
+httpProxyOperHttpProxyCpuListDohTcpDnsReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_dns_req"
+	::= { httpProxyOperHttpProxyCpuListEntry 264}
+
+httpProxyOperHttpProxyCpuListDohTcpDnsResp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_dns_resp"
+	::= { httpProxyOperHttpProxyCpuListEntry 265}
+
+httpProxyOperHttpProxyCpuListDohReqSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_send_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 266}
+
+httpProxyOperHttpProxyCpuListDohRespSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_send_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 267}
+
+httpProxyOperHttpProxyCpuListDohMallocFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_malloc_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 268}
+
+httpProxyOperHttpProxyCpuListDohReqUdpRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_udp_retry"
+	::= { httpProxyOperHttpProxyCpuListEntry 269}
+
+httpProxyOperHttpProxyCpuListDohReqUdpRetryFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_udp_retry_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 270}
+
+httpProxyOperHttpProxyCpuListDohReqTcpRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_tcp_retry"
+	::= { httpProxyOperHttpProxyCpuListEntry 271}
+
+httpProxyOperHttpProxyCpuListDohReqTcpRetryFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_req_tcp_retry_fail"
+	::= { httpProxyOperHttpProxyCpuListEntry 272}
+
+httpProxyOperHttpProxyCpuListDohSnatFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_snat_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 273}
+
+httpProxyOperHttpProxyCpuListDohPathNotFound OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_path_not_found"
+	::= { httpProxyOperHttpProxyCpuListEntry 274}
+
+httpProxyOperHttpProxyCpuListDohGetDnsArgFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_dns_arg_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 275}
+
+httpProxyOperHttpProxyCpuListDohGetBase64DecodeFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_base64_decode_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 276}
+
+httpProxyOperHttpProxyCpuListDohPostContentTypeMismatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_content_type_mismatch"
+	::= { httpProxyOperHttpProxyCpuListEntry 277}
+
+httpProxyOperHttpProxyCpuListDohPostPayloadNotFound OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_not_found"
+	::= { httpProxyOperHttpProxyCpuListEntry 278}
+
+httpProxyOperHttpProxyCpuListDohPostPayloadExtractFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_extract_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 279}
+
+httpProxyOperHttpProxyCpuListDohNonDohMethod OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_non_doh_method"
+	::= { httpProxyOperHttpProxyCpuListEntry 280}
+
+httpProxyOperHttpProxyCpuListDohTcpSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_tcp_send_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 281}
+
+httpProxyOperHttpProxyCpuListDohUdpSendFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_udp_send_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 282}
+
+httpProxyOperHttpProxyCpuListDohQueryTimeOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_query_time_out"
+	::= { httpProxyOperHttpProxyCpuListEntry 283}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeA OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_a"
+	::= { httpProxyOperHttpProxyCpuListEntry 284}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeAaaa OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_aaaa"
+	::= { httpProxyOperHttpProxyCpuListEntry 285}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeNs OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_ns"
+	::= { httpProxyOperHttpProxyCpuListEntry 286}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeCname OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_cname"
+	::= { httpProxyOperHttpProxyCpuListEntry 287}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeAny OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_any"
+	::= { httpProxyOperHttpProxyCpuListEntry 288}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeSrv OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_srv"
+	::= { httpProxyOperHttpProxyCpuListEntry 289}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeMx OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_mx"
+	::= { httpProxyOperHttpProxyCpuListEntry 290}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeSoa OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_soa"
+	::= { httpProxyOperHttpProxyCpuListEntry 291}
+
+httpProxyOperHttpProxyCpuListDohDnsQueryTypeOthers OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_query_type_others"
+	::= { httpProxyOperHttpProxyCpuListEntry 292}
+
+httpProxyOperHttpProxyCpuListDohRespSetupFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_setup_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 293}
+
+httpProxyOperHttpProxyCpuListDohRespHeaderAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_header_alloc_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 294}
+
+httpProxyOperHttpProxyCpuListDohRespQueFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_que_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 295}
+
+httpProxyOperHttpProxyCpuListDohRespUdpFrags OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_udp_frags"
+	::= { httpProxyOperHttpProxyCpuListEntry 296}
+
+httpProxyOperHttpProxyCpuListDohRespTcpFrags OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_resp_tcp_frags"
+	::= { httpProxyOperHttpProxyCpuListEntry 297}
+
+httpProxyOperHttpProxyCpuListDohServSelFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_serv_sel_failed"
+	::= { httpProxyOperHttpProxyCpuListEntry 298}
+
+httpProxyOperHttpProxyCpuListDohRetryWTcp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_retry_w_tcp"
+	::= { httpProxyOperHttpProxyCpuListEntry 299}
+
+httpProxyOperHttpProxyCpuListDohGetUriTooLong OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_get_uri_too_long"
+	::= { httpProxyOperHttpProxyCpuListEntry 300}
+
+httpProxyOperHttpProxyCpuListDohPostPayloadTooLarge OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_post_payload_too_large"
+	::= { httpProxyOperHttpProxyCpuListEntry 301}
+
+httpProxyOperHttpProxyCpuListDohDnsMalformedQuery OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_malformed_query"
+	::= { httpProxyOperHttpProxyCpuListEntry 302}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrFormat OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_format"
+	::= { httpProxyOperHttpProxyCpuListEntry 303}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrServer OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_server"
+	::= { httpProxyOperHttpProxyCpuListEntry 304}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrName OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_name"
+	::= { httpProxyOperHttpProxyCpuListEntry 305}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeErrType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_err_type"
+	::= { httpProxyOperHttpProxyCpuListEntry 306}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeRefuse OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_refuse"
+	::= { httpProxyOperHttpProxyCpuListEntry 307}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeYxdomain OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_yxdomain"
+	::= { httpProxyOperHttpProxyCpuListEntry 308}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeYxrrset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_yxrrset"
+	::= { httpProxyOperHttpProxyCpuListEntry 309}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeNxrrset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_nxrrset"
+	::= { httpProxyOperHttpProxyCpuListEntry 310}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeNotauth OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_notauth"
+	::= { httpProxyOperHttpProxyCpuListEntry 311}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeNotzone OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_notzone"
+	::= { httpProxyOperHttpProxyCpuListEntry 312}
+
+httpProxyOperHttpProxyCpuListDohDnsRespRcodeOther OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"doh_dns_resp_rcode_other"
+	::= { httpProxyOperHttpProxyCpuListEntry 313}
+
+httpProxyOperHttpProxyCpuListCompressionBeforeBr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_before_br"
+	::= { httpProxyOperHttpProxyCpuListEntry 314}
+
+httpProxyOperHttpProxyCpuListCompressionAfterBr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_after_br"
+	::= { httpProxyOperHttpProxyCpuListEntry 315}
+
+httpProxyOperHttpProxyCpuListCompressionBeforeTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_before_total"
+	::= { httpProxyOperHttpProxyCpuListEntry 316}
+
+httpProxyOperHttpProxyCpuListCompressionAfterTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compression_after_total"
+	::= { httpProxyOperHttpProxyCpuListEntry 317}
+
+httpProxyOperHttpProxyCpuListDecompressionBeforeBr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_before_br"
+	::= { httpProxyOperHttpProxyCpuListEntry 318}
+
+httpProxyOperHttpProxyCpuListDecompressionAfterBr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_after_br"
+	::= { httpProxyOperHttpProxyCpuListEntry 319}
+
+httpProxyOperHttpProxyCpuListDecompressionBeforeTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_before_total"
+	::= { httpProxyOperHttpProxyCpuListEntry 320}
+
+httpProxyOperHttpProxyCpuListDecompressionAfterTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"decompression_after_total"
+	::= { httpProxyOperHttpProxyCpuListEntry 321}
+
+httpProxyOperHttpProxyCpuListCompressRspBr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_rsp_br"
+	::= { httpProxyOperHttpProxyCpuListEntry 322}
+
+httpProxyOperHttpProxyCpuListCompressRspTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"compress_rsp_total"
+	::= { httpProxyOperHttpProxyCpuListEntry 323}
+
+httpProxyOperHttpProxyCpuListH2upContentLengthAlias OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"h2up_content_length_alias"
+	::= { httpProxyOperHttpProxyCpuListEntry 324}
+
+httpProxyOperHttpProxyCpuListMalformedH2upHeaderValue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"malformed_h2up_header_value"
+	::= { httpProxyOperHttpProxyCpuListEntry 325}
+
+httpProxyOperHttpProxyCpuListMalformedH2upSchemeValue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"malformed_h2up_scheme_value"
+	::= { httpProxyOperHttpProxyCpuListEntry 326}
+
+httpProxyOperHttpProxyCpuListH2upWithTransferEncoding OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"h2up_with_transfer_encoding"
+	::= { httpProxyOperHttpProxyCpuListEntry 327}
+
+httpProxyOperHttpProxyCpuListMultipleContentLength OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"multiple_content_length"
+	::= { httpProxyOperHttpProxyCpuListEntry 328}
+
+httpProxyOperHttpProxyCpuListMultipleTransferEncoding OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"multiple_transfer_encoding"
+	::= { httpProxyOperHttpProxyCpuListEntry 329}
+
+httpProxyOperHttpProxyCpuListTransferEncodingAndContentLength OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"transfer_encoding_and_content_length"
+	::= { httpProxyOperHttpProxyCpuListEntry 330}
+
+httpProxyOperHttpProxyCpuListGetAndPayload OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"get_and_payload"
+	::= { httpProxyOperHttpProxyCpuListEntry 331}
+
+httpProxyOperHttpProxyCpuListH2upWithHostAndAuth OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"h2up_with_host_and_auth"
+	::= { httpProxyOperHttpProxyCpuListEntry 332}
+
+httpProxyOperHttpProxyCpuListHeaderFilterRuleHit OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"header_filter_rule_hit"
+	::= { httpProxyOperHttpProxyCpuListEntry 333}
+
+httpProxyOperHttpProxyCpuListHttp1ClientIdleTimeout OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http1_client_idle_timeout"
+	::= { httpProxyOperHttpProxyCpuListEntry 334}
+
+httpProxyOperHttpProxyCpuListHttp2ClientIdleTimeout OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http2_client_idle_timeout"
+	::= { httpProxyOperHttpProxyCpuListEntry 335}
+
+httpProxyOperHttpProxyCpuListHttpDisallowedMethods OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http_disallowed_methods"
+	::= { httpProxyOperHttpProxyCpuListEntry 336}
+
+httpProxyOperHttpProxyCpuListHttpAllowedMethods OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"http_allowed_methods"
+	::= { httpProxyOperHttpProxyCpuListEntry 337}
+
+httpProxyOperHttpProxyCpuListUpgradeToNewProxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"upgrade_to_new_proxy"
+	::= { httpProxyOperHttpProxyCpuListEntry 338}
+
+httpProxyOperHttpProxyCpuListDelH2cHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"del_h2c_header"
+	::= { httpProxyOperHttpProxyCpuListEntry 339}
+
+httpProxyOperHttpProxyCpuListTransactionLimited OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"transaction_limited"
+	::= { httpProxyOperHttpProxyCpuListEntry 340}
+
+END
+

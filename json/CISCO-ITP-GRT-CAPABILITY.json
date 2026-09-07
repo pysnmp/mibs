@@ -1,0 +1,124 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpGrtCapability": {
+    "name": "ciscoItpGrtCapability",
+    "oid": "1.3.6.1.4.1.9.7.309",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-25 00:00",
+        "description": "Added ciscoGrtCapabilityV12R0411SW capability statements."
+      },
+      {
+        "revision": "2006-10-13 00:00",
+        "description": "Added ciscoGrtCapabilityV12R0218IXA capability statement. Added cosmetic changes to MIB sections."
+      },
+      {
+        "revision": "2003-07-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGrtCapabilityV12R0204MB10": {
+    "name": "ciscoGrtCapabilityV12R0204MB10",
+    "oid": "1.3.6.1.4.1.9.7.309.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB10",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "includes": [
+          "ciscoGrtInstGroup",
+          "ciscoGrtDestGroup",
+          "ciscoGrtRouteGroup",
+          "ciscoGrtNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgrtRouteAdminStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtCapabilityV12R0218IXA": {
+    "name": "ciscoGrtCapabilityV12R0218IXA",
+    "oid": "1.3.6.1.4.1.9.7.309.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)IXA",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "includes": [
+          "ciscoGrtInstGroup",
+          "ciscoGrtDestGroup",
+          "ciscoGrtRouteGroup",
+          "ciscoGrtNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgrtRouteAdminStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtCapabilityV12R0411SW": {
+    "name": "ciscoGrtCapabilityV12R0411SW",
+    "oid": "1.3.6.1.4.1.9.7.309.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(11)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "includes": [
+          "ciscoGrtInstGroup",
+          "ciscoGrtDestGroup",
+          "ciscoGrtRouteGroup",
+          "ciscoGrtNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgrtRouteAdminStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-GRT-CAPABILITY",
+      "Source digest sha256:a643459bd5a877d0dcad38d6ab542ab751e29ca003f1d6d32dcecfe814ce9ea7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-GRT-CAPABILITY"
+  }
+}

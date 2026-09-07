@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "snMacAuth": {
+    "name": "snMacAuth",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-25 00:00",
+        "description": ""
+      }
+    ]
+  },
+  "snMacAuthGlobal": {
+    "name": "snMacAuthGlobal",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.1",
+    "class": "objectidentity"
+  },
+  "snMacAuthClearGlobalCmd": {
+    "name": "snMacAuthClearGlobalCmd",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snMacAuthGlobalConfigState": {
+    "name": "snMacAuthGlobalConfigState",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snMacAuthClearIfCmdTable": {
+    "name": "snMacAuthClearIfCmdTable",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthClearIfCmdEntry": {
+    "name": "snMacAuthClearIfCmdEntry",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthClearIfCmdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snMacAuthClearIfCmdIfIndex": {
+    "name": "snMacAuthClearIfCmdIfIndex",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthClearIfCmdAction": {
+    "name": "snMacAuthClearIfCmdAction",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snMacAuthTable": {
+    "name": "snMacAuthTable",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthEntry": {
+    "name": "snMacAuthEntry",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthVlanId",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snMacAuthIfIndex": {
+    "name": "snMacAuthIfIndex",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthVlanId": {
+    "name": "snMacAuthVlanId",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthMac": {
+    "name": "snMacAuthMac",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthState": {
+    "name": "snMacAuthState",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authenticate": 1,
+          "unauthenticate": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snMacAuthTimeStamp": {
+    "name": "snMacAuthTimeStamp",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snMacAuthAge": {
+    "name": "snMacAuthAge",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snMacAuthDot1x": {
+    "name": "snMacAuthDot1x",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snMacAuthClearMacSessionTable": {
+    "name": "snMacAuthClearMacSessionTable",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthClearMacSessionEntry": {
+    "name": "snMacAuthClearMacSessionEntry",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthClearMacSessionIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+        "object": "snMacAuthClearMacSessionMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snMacAuthClearMacSessionIfIndex": {
+    "name": "snMacAuthClearMacSessionIfIndex",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthClearMacSessionMac": {
+    "name": "snMacAuthClearMacSessionMac",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snMacAuthClearMacSessionAction": {
+    "name": "snMacAuthClearMacSessionAction",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.28.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FOUNDRY-SN-MAC-AUTHENTICATION-MIB",
+      "Source digest sha256:3f66c237dcd0635c15c32d56af3842bd5f23bdddfe84bea5565a673531ba267f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FOUNDRY-SN-MAC-AUTHENTICATION-MIB"
+  }
+}

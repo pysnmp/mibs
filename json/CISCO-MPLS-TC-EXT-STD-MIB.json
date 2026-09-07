@@ -1,0 +1,109 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "mplsStdMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmplsTcExtStdMIB": {
+    "name": "cmplsTcExtStdMIB",
+    "oid": "1.3.6.1.4.1.9.10.144",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-22 00:00",
+        "description": "MPLS Textual Convention Extensions"
+      }
+    ]
+  },
+  "CMplsGlobalId": {
+    "name": "CMplsGlobalId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CMplsNodeId": {
+    "name": "CMplsNodeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CMplsIccId": {
+    "name": "CMplsIccId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CMplsLocalId": {
+    "name": "CMplsLocalId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MPLS-TC-EXT-STD-MIB",
+      "Source digest sha256:86a0d46ff971fb4a119673d008c788a222e46e2b68882608cf3b9ab596c581c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MPLS-TC-EXT-STD-MIB"
+  }
+}

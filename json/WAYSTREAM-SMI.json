@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "waystream": {
+    "name": "waystream",
+    "oid": "1.3.6.1.4.1.9303",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-10 11:00",
+        "description": "Company name change: In October 2015 PacketFront Network Products was renamed Waystream. In this update all PacketFront were changed to Waystream and all pf* to ws*."
+      },
+      {
+        "revision": "2011-01-11 18:01",
+        "description": "Updated company name"
+      },
+      {
+        "revision": "2009-03-23 10:39",
+        "description": "Updated telephone number in contact-info"
+      },
+      {
+        "revision": "2008-01-17 14:05",
+        "description": "Correct warnings in imports"
+      },
+      {
+        "revision": "2007-05-11 12:28",
+        "description": "Created from PACKETFRONT-MIB.mib"
+      }
+    ]
+  },
+  "wsProduct": {
+    "name": "wsProduct",
+    "oid": "1.3.6.1.4.1.9303.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsConfig": {
+    "name": "wsConfig",
+    "oid": "1.3.6.1.4.1.9303.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipdConfig": {
+    "name": "ipdConfig",
+    "oid": "1.3.6.1.4.1.9303.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsExperiment": {
+    "name": "wsExperiment",
+    "oid": "1.3.6.1.4.1.9303.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsMgmt": {
+    "name": "wsMgmt",
+    "oid": "1.3.6.1.4.1.9303.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsModules": {
+    "name": "wsModules",
+    "oid": "1.3.6.1.4.1.9303.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pfSW": {
+    "name": "pfSW",
+    "oid": "1.3.6.1.4.1.9303.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WAYSTREAM-SMI",
+      "Source digest sha256:be0cb686c8046eec2190cd88cf01615a269c8dda7db696238fd399eaf33ec436",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WAYSTREAM-SMI"
+  }
+}

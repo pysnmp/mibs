@@ -1,0 +1,366 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "IpxAddress": {
+    "name": "IpxAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    }
+  },
+  "novell": {
+    "name": "novell",
+    "oid": "1.3.6.1.4.1.23",
+    "class": "objectidentity"
+  },
+  "mibDoc": {
+    "name": "mibDoc",
+    "oid": "1.3.6.1.4.1.23.2",
+    "class": "objectidentity"
+  },
+  "tcpx": {
+    "name": "tcpx",
+    "oid": "1.3.6.1.4.1.23.2.29",
+    "class": "objectidentity"
+  },
+  "tcpxTcp": {
+    "name": "tcpxTcp",
+    "oid": "1.3.6.1.4.1.23.2.29.1",
+    "class": "objectidentity"
+  },
+  "tcpxUdp": {
+    "name": "tcpxUdp",
+    "oid": "1.3.6.1.4.1.23.2.29.2",
+    "class": "objectidentity"
+  },
+  "tcpIpxConnTable": {
+    "name": "tcpIpxConnTable",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tcpIpxConnEntry": {
+    "name": "tcpIpxConnEntry",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TCPIPX-MIB",
+        "object": "tcpIpxConnLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "TCPIPX-MIB",
+        "object": "tcpIpxConnLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "TCPIPX-MIB",
+        "object": "tcpIpxConnRemAddress",
+        "implied": 0
+      },
+      {
+        "module": "TCPIPX-MIB",
+        "object": "tcpIpxConnRemPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tcpIpxConnState": {
+    "name": "tcpIpxConnState",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "synSent": 3,
+          "synReceived": 4,
+          "established": 5,
+          "finWait1": 6,
+          "finWait2": 7,
+          "closeWait": 8,
+          "lastAck": 9,
+          "closing": 10,
+          "timeWait": 11,
+          "deleteTCB": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tcpIpxConnLocalAddress": {
+    "name": "tcpIpxConnLocalAddress",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpxAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpIpxConnLocalPort": {
+    "name": "tcpIpxConnLocalPort",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpIpxConnRemAddress": {
+    "name": "tcpIpxConnRemAddress",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpxAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpIpxConnRemPort": {
+    "name": "tcpIpxConnRemPort",
+    "oid": "1.3.6.1.4.1.23.2.29.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "udpIpxTable": {
+    "name": "udpIpxTable",
+    "oid": "1.3.6.1.4.1.23.2.29.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "udpIpxEntry": {
+    "name": "udpIpxEntry",
+    "oid": "1.3.6.1.4.1.23.2.29.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TCPIPX-MIB",
+        "object": "udpIpxLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "TCPIPX-MIB",
+        "object": "udpIpxLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "udpIpxLocalAddress": {
+    "name": "udpIpxLocalAddress",
+    "oid": "1.3.6.1.4.1.23.2.29.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpxAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "udpIpxLocalPort": {
+    "name": "udpIpxLocalPort",
+    "oid": "1.3.6.1.4.1.23.2.29.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpUnspecConnTable": {
+    "name": "tcpUnspecConnTable",
+    "oid": "1.3.6.1.4.1.23.2.29.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tcpUnspecConnEntry": {
+    "name": "tcpUnspecConnEntry",
+    "oid": "1.3.6.1.4.1.23.2.29.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TCPIPX-MIB",
+        "object": "tcpUnspecConnLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tcpUnspecConnState": {
+    "name": "tcpUnspecConnState",
+    "oid": "1.3.6.1.4.1.23.2.29.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "listen": 2,
+          "deleteTCB": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tcpUnspecConnLocalPort": {
+    "name": "tcpUnspecConnLocalPort",
+    "oid": "1.3.6.1.4.1.23.2.29.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "udpUnspecTable": {
+    "name": "udpUnspecTable",
+    "oid": "1.3.6.1.4.1.23.2.29.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "udpUnspecEntry": {
+    "name": "udpUnspecEntry",
+    "oid": "1.3.6.1.4.1.23.2.29.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TCPIPX-MIB",
+        "object": "udpUnspecLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "udpUnspecLocalPort": {
+    "name": "udpUnspecLocalPort",
+    "oid": "1.3.6.1.4.1.23.2.29.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TCPIPX-MIB",
+      "Source digest sha256:9e83df4e1fdcd311a73e7f0c9a17dedc8195fb81529a8109b5afafe2d7d377f8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TCPIPX-MIB"
+  }
+}

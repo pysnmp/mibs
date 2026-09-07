@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMacAuthBypassCapability": {
+    "name": "ciscoMacAuthBypassCapability",
+    "oid": "1.3.6.1.4.1.9.7.574",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-09 00:00",
+        "description": "Added capability statement ciscoMabCapV12R0252SGPCat4K. Added more VARIATION for ciscoMabCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-10-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMabCapV12R0233SXIPCat6K": {
+    "name": "ciscoMabCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.574.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-AUTH-BYPASS-MIB",
+        "includes": [
+          "cmabIfConfigGroup",
+          "cmabClientInfoGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMabCapV12R0252SGPCat4K": {
+    "name": "ciscoMabCapV12R0252SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.574.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(52)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-MAC-AUTH-BYPASS-MIB",
+        "includes": [
+          "cmabIfConfigGroup",
+          "cmabClientInfoGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MAC-AUTH-BYPASS-CAPABILITY",
+      "Source digest sha256:3bfe73ac68d810c36783082455e79e676108b62199791d8286039b792154d695",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MAC-AUTH-BYPASS-CAPABILITY"
+  }
+}

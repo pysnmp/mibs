@@ -1,0 +1,645 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnPlatform"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MODULE-IDEntry",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gbnPlatformChassis": {
+    "name": "gbnPlatformChassis",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1911-05-04 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "gbnChassis": {
+    "name": "gbnChassis",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "gbnBoard": {
+    "name": "gbnBoard",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "gbnChassisTrap": {
+    "name": "gbnChassisTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3",
+    "class": "objectidentity"
+  },
+  "chassisVersion": {
+    "name": "chassisVersion",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisSerialNo": {
+    "name": "chassisSerialNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisType": {
+    "name": "chassisType",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s8600-04": 0,
+          "s8600-08": 1,
+          "s8600-16": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisSlotAppTable": {
+    "name": "chassisSlotAppTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chassisSlotAppEntry": {
+    "name": "chassisSlotAppEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNPlatformChassis-MIB",
+        "object": "slotNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slotNum": {
+    "name": "slotNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotApp": {
+    "name": "slotApp",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "forLineboard": 1,
+          "forControlboard": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerTable": {
+    "name": "powerTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerEntry": {
+    "name": "powerEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNPlatformChassis-MIB",
+        "object": "powerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerIndex": {
+    "name": "powerIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "power0": 0,
+          "power1": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerInsertedStaus": {
+    "name": "powerInsertedStaus",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 0,
+          "inserted": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerRunningStatus": {
+    "name": "powerRunningStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notGood": 0,
+          "good": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardTable": {
+    "name": "boardTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boardEntry": {
+    "name": "boardEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNPlatformChassis-MIB",
+        "object": "boardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boardIndex": {
+    "name": "boardIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardStatus": {
+    "name": "boardStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInsert": 0,
+          "insertAsMaster": 1,
+          "insertAsSlave": 2,
+          "insertButUnconnected": 3,
+          "insertAndConnected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardType": {
+    "name": "boardType",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "controlboard0": 1,
+          "lineboard0fiber": 2,
+          "lineboard1copper": 3,
+          "lineboard2copper": 4,
+          "lineboard3fiber": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardIfNum": {
+    "name": "boardIfNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardProdSerialNo": {
+    "name": "boardProdSerialNo",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardSoftwarePlate": {
+    "name": "boardSoftwarePlate",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardSoftwareVersion": {
+    "name": "boardSoftwareVersion",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardSoftwareCompiledTime": {
+    "name": "boardSoftwareCompiledTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardCpuDescription": {
+    "name": "boardCpuDescription",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardFlashDescription": {
+    "name": "boardFlashDescription",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardHardwareVersion": {
+    "name": "boardHardwareVersion",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardBootromVersion": {
+    "name": "boardBootromVersion",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardCpuIdle": {
+    "name": "boardCpuIdle",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardMemorySize": {
+    "name": "boardMemorySize",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardMemoryIdle": {
+    "name": "boardMemoryIdle",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardSysReset": {
+    "name": "boardSysReset",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boardIfIndexTable": {
+    "name": "boardIfIndexTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boardIfIndexEntry": {
+    "name": "boardIfIndexEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNPlatformChassis-MIB",
+        "object": "boardNumber",
+        "implied": 0
+      },
+      {
+        "module": "GBNPlatformChassis-MIB",
+        "object": "boardPortLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boardNumber": {
+    "name": "boardNumber",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardPortLocalIndex": {
+    "name": "boardPortLocalIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boardIfIndex": {
+    "name": "boardIfIndex",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerRemoveTrap": {
+    "name": "powerRemoveTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "powerInsertTrap": {
+    "name": "powerInsertTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "fanRemoveTrap": {
+    "name": "fanRemoveTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "fanInsertTrap": {
+    "name": "fanInsertTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardRemoveTrap": {
+    "name": "boardRemoveTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardInsertTrap": {
+    "name": "boardInsertTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardConnectedTrap": {
+    "name": "boardConnectedTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardUnconnectedTrap": {
+    "name": "boardUnconnectedTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardRoletoSlaveTrap": {
+    "name": "boardRoletoSlaveTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "boardRoletoMasterTrap": {
+    "name": "boardRoletoMasterTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "powerRunningNoGoodTrap": {
+    "name": "powerRunningNoGoodTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "powerRunningGoodTrap": {
+    "name": "powerRunningGoodTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarmPowerNoInsertTrap": {
+    "name": "alarmPowerNoInsertTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarmControlNoInsertTrap": {
+    "name": "alarmControlNoInsertTrap",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.3.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gbnSwitchOver": {
+    "name": "gbnSwitchOver",
+    "oid": "1.3.6.1.4.1.13464.1.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "switchover": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNPlatformChassis-MIB",
+      "Source digest sha256:cd72870b532d7468b6c5dd19443c5b847a2ea09b51b1078d43d9724796dcec49",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNPlatformChassis-MIB"
+  }
+}

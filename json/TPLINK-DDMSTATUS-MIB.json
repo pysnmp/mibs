@@ -1,0 +1,249 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TPLINK-DDMMANAGE-MIB": [
+      "tplinkDdmManageMIBObjects"
+    ]
+  },
+  "ddmStatus": {
+    "name": "ddmStatus",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ddmStatusTable": {
+    "name": "ddmStatusTable",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ddmStatusEntry": {
+    "name": "ddmStatusEntry",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ddmStatusPort": {
+    "name": "ddmStatusPort",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusTemperature": {
+    "name": "ddmStatusTemperature",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusVoltage": {
+    "name": "ddmStatusVoltage",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusBiasCurrent": {
+    "name": "ddmStatusBiasCurrent",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusTxPow": {
+    "name": "ddmStatusTxPow",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusRxPow": {
+    "name": "ddmStatusRxPow",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusDataReady": {
+    "name": "ddmStatusDataReady",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusLossSignal": {
+    "name": "ddmStatusLossSignal",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmStatusTxFault": {
+    "name": "ddmStatusTxFault",
+    "oid": "1.3.6.1.4.1.11863.6.96.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TPLINK-DDMSTATUS-MIB",
+      "Source digest sha256:7a1677d2d5a495e0771b0a97699ac73f5c757c0c0d5b78c46ddc835d30fb45f2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TPLINK-DDMSTATUS-MIB"
+  }
+}

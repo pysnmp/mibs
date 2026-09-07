@@ -1,0 +1,979 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "axLogging",
+      "axNotification"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axNotificationObjects": {
+    "name": "axNotificationObjects",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1",
+    "class": "objectidentity"
+  },
+  "axNotifications": {
+    "name": "axNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2",
+    "class": "objectidentity"
+  },
+  "axNotificationMsg": {
+    "name": "axNotificationMsg",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSLBServer": {
+    "name": "axNotificationSLBServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSLBPort": {
+    "name": "axNotificationSLBPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSLBCurConns": {
+    "name": "axNotificationSLBCurConns",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationVirtualServer": {
+    "name": "axNotificationVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationVirtualServerPort": {
+    "name": "axNotificationVirtualServerPort",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationVirtualServerPortType": {
+    "name": "axNotificationVirtualServerPortType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firewall": 1,
+          "tcp": 2,
+          "udp": 3,
+          "rtsp": 8,
+          "ftp": 9,
+          "mms": 10,
+          "fastHTTP": 12,
+          "http": 14,
+          "https": 15,
+          "sslProxy": 16,
+          "smtp": 17,
+          "sip": 11,
+          "sips": 19,
+          "sip-TCP": 18,
+          "others": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationDroppedPackets": {
+    "name": "axNotificationDroppedPackets",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationConfiguredThreshold": {
+    "name": "axNotificationConfiguredThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationCurrentUsage": {
+    "name": "axNotificationCurrentUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationConnLimit": {
+    "name": "axNotificationConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationTrunkID": {
+    "name": "axNotificationTrunkID",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPortThreshold": {
+    "name": "axNotificationPortThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationCurrentUpPorts": {
+    "name": "axNotificationCurrentUpPorts",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationFanName": {
+    "name": "axNotificationFanName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPowerSupplyName": {
+    "name": "axNotificationPowerSupplyName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationHAGroup": {
+    "name": "axNotificationHAGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSLBServiceGroupName": {
+    "name": "axNotificationSLBServiceGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPartitionId": {
+    "name": "axNotificationPartitionId",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationVrid": {
+    "name": "axNotificationVrid",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPartitionName": {
+    "name": "axNotificationPartitionName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbSiteName": {
+    "name": "axNotificationGslbSiteName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbSiteSlbDeviceName": {
+    "name": "axNotificationGslbSiteSlbDeviceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbSiteIpServerAddr": {
+    "name": "axNotificationGslbSiteIpServerAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbServiceIpName": {
+    "name": "axNotificationGslbServiceIpName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbServiceIpAddr": {
+    "name": "axNotificationGslbServiceIpAddr",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbServiceIpPortType": {
+    "name": "axNotificationGslbServiceIpPortType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbZoneName": {
+    "name": "axNotificationGslbZoneName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbZoneServiceProto": {
+    "name": "axNotificationGslbZoneServiceProto",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbZoneServiceName": {
+    "name": "axNotificationGslbZoneServiceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbGroupName": {
+    "name": "axNotificationGslbGroupName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationGslbGroupEntity": {
+    "name": "axNotificationGslbGroupEntity",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLicensedModuleName": {
+    "name": "axNotificationLicensedModuleName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationShutdownReason": {
+    "name": "axNotificationShutdownReason",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tooHighSystemTemperature": 1,
+          "insufficientPowerSupply": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationIpAddressType": {
+    "name": "axNotificationIpAddressType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLicenseDisableDuration": {
+    "name": "axNotificationLicenseDisableDuration",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSslServerCertificateErrCounter": {
+    "name": "axNotificationSslServerCertificateErrCounter",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationServerSelectionFailureReason": {
+    "name": "axNotificationServerSelectionFailureReason",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationConnectionTypeName": {
+    "name": "axNotificationConnectionTypeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSlbObjectChange": {
+    "name": "axNotificationSlbObjectChange",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationCertificateName": {
+    "name": "axNotificationCertificateName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationDateTime": {
+    "name": "axNotificationDateTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSLBServerPortType": {
+    "name": "axNotificationSLBServerPortType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 2,
+          "udp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPartitionResourceName": {
+    "name": "axNotificationPartitionResourceName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPartitionResourceUsageLevel": {
+    "name": "axNotificationPartitionResourceUsageLevel",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "below": 1,
+          "above": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationTacacsServerHost": {
+    "name": "axNotificationTacacsServerHost",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationUpDown": {
+    "name": "axNotificationUpDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationTrueFalse": {
+    "name": "axNotificationTrueFalse",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnIpAddress": {
+    "name": "axNotificationLsnIpAddress",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnProtoType": {
+    "name": "axNotificationLsnProtoType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 2,
+          "udp": 3,
+          "icmp": 4,
+          "icmpV6": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnCurrentUsage": {
+    "name": "axNotificationLsnCurrentUsage",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnPoolName": {
+    "name": "axNotificationLsnPoolName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnExceededTimes": {
+    "name": "axNotificationLsnExceededTimes",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnFixedNatPortMappingFileName": {
+    "name": "axNotificationLsnFixedNatPortMappingFileName",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLsnFixedNatPortMappingFileChangeType": {
+    "name": "axNotificationLsnFixedNatPortMappingFileChangeType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2,
+          "reconfigure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationOldVcsState": {
+    "name": "axNotificationOldVcsState",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vmasterCandidate": 0,
+          "activatingSlave": 1,
+          "vBlade": 2,
+          "vMaster": 3,
+          "vMasterTakeover": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationNewVcsState": {
+    "name": "axNotificationNewVcsState",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vmasterCandidate": 0,
+          "activatingSlave": 1,
+          "vBlade": 2,
+          "vMaster": 3,
+          "vMasterTakeover": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationChassisInfo": {
+    "name": "axNotificationChassisInfo",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSlbThresholdResourceId": {
+    "name": "axNotificationSlbThresholdResourceId",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "natPoolAddrCount": 1,
+          "realServerCount": 2,
+          "realPortCount": 3,
+          "serviceGroupCount": 4,
+          "virtualServerCount": 5,
+          "virutalServerPortCount": 6,
+          "httpTemplateCount": 7,
+          "proxyTemplateCount": 8,
+          "connReuseTemplateCount": 9,
+          "fastTcpTemplateCount": 10,
+          "fastUdpTemplateCount": 11,
+          "clientSslTemplateCount": 12,
+          "serverSslTemplateCount": 13,
+          "persistCookieTemplateCount": 14,
+          "persistSrcipTemplateCount": 15,
+          "healthMonitorCount": 16,
+          "pbslbSubnetCount": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationScaleOutDeviceId": {
+    "name": "axNotificationScaleOutDeviceId",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationScaleOutStatus": {
+    "name": "axNotificationScaleOutStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationScaleOutNumberOfDevice": {
+    "name": "axNotificationScaleOutNumberOfDevice",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationScaleOutTrafficMapType": {
+    "name": "axNotificationScaleOutTrafficMapType",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationThresholdLevel": {
+    "name": "axNotificationThresholdLevel",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "below": 1,
+          "above": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationLicenseCapacity": {
+    "name": "axNotificationLicenseCapacity",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationSeverity": {
+    "name": "axNotificationSeverity",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "critical": 2,
+          "warning": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "axNotificationPercentage": {
+    "name": "axNotificationPercentage",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.1.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-AX-NOTIF-OBJ",
+      "Source digest sha256:1144e709a7bbb63c558246ed5f0cbec32710d57241270bf431232811dbae8d56",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-AX-NOTIF-OBJ"
+  }
+}

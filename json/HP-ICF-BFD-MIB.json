@@ -1,0 +1,475 @@
+{
+  "imports": {
+    "class": "imports",
+    "BFD-STD-MIB": [
+      "bfdObjects",
+      "bfdSessEntry"
+    ],
+    "BFD-TC-STD-MIB": [
+      "BfdIntervalTC",
+      "BfdMultiplierTC"
+    ],
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IANA-BFD-TC-STD-MIB": [
+      "IANAbfdSessAuthenticationKeyTC",
+      "IANAbfdSessAuthenticationTypeTC"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfBfd": {
+    "name": "hpicfBfd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-28 10:00",
+        "description": "Added Static Support on Application ID to create BFD Sessions on Static Routes"
+      },
+      {
+        "revision": "2010-10-28 10:00",
+        "description": "The MIB module for managing the BFD sessions"
+      }
+    ]
+  },
+  "hpicfBfdObjects": {
+    "name": "hpicfBfdObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1",
+    "class": "objectidentity"
+  },
+  "hpicfBfdConformance": {
+    "name": "hpicfBfdConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2",
+    "class": "objectidentity"
+  },
+  "hpicfBfdScalarObjects": {
+    "name": "hpicfBfdScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfBfdEchoSrcIpAddType": {
+    "name": "hpicfBfdEchoSrcIpAddType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBfdEchoSrcIpAdd": {
+    "name": "hpicfBfdEchoSrcIpAdd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigTable": {
+    "name": "hpicfBfdSessConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigEntry": {
+    "name": "hpicfBfdSessConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfBfdSessConfigIfIndex": {
+    "name": "hpicfBfdSessConfigIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigDesiredMinTxInterval": {
+    "name": "hpicfBfdSessConfigDesiredMinTxInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdIntervalTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigReqMinRxInterval": {
+    "name": "hpicfBfdSessConfigReqMinRxInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdIntervalTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigReqMinEchoRxInterval": {
+    "name": "hpicfBfdSessConfigReqMinEchoRxInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdIntervalTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigDetectMult": {
+    "name": "hpicfBfdSessConfigDetectMult",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdMultiplierTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigAuthPresFlag": {
+    "name": "hpicfBfdSessConfigAuthPresFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigAuthenticationType": {
+    "name": "hpicfBfdSessConfigAuthenticationType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAbfdSessAuthenticationTypeTC",
+      "class": "type"
+    },
+    "default": {
+      "value": "noAuthentication",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigAuthenticationKeyID": {
+    "name": "hpicfBfdSessConfigAuthenticationKeyID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigAuthenticationKey": {
+    "name": "hpicfBfdSessConfigAuthenticationKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAbfdSessAuthenticationKeyTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigAuthEncPwd": {
+    "name": "hpicfBfdSessConfigAuthEncPwd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAbfdSessAuthenticationKeyTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessConfigRowStatus": {
+    "name": "hpicfBfdSessConfigRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessTable": {
+    "name": "hpicfBfdSessTable",
+    "oid": "1.3.6.1.2.1.222.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfBfdSessEntry": {
+    "name": "hpicfBfdSessEntry",
+    "oid": "1.3.6.1.2.1.222.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfBfdSessEntry",
+      "module": "HP-ICF-BFD-MIB",
+      "object": "bfdSessEntry"
+    },
+    "status": "current"
+  },
+  "hpicfBfdSessApplicationID": {
+    "name": "hpicfBfdSessApplicationID",
+    "oid": "1.3.6.1.2.1.222.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ospf": 1,
+          "vrrp": 2,
+          "bgp": 3,
+          "multiple": 4,
+          "static": 5
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessStaus": {
+    "name": "hpicfBfdSessStaus",
+    "oid": "1.3.6.1.2.1.222.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdSessClearStats": {
+    "name": "hpicfBfdSessClearStats",
+    "oid": "1.3.6.1.2.1.222.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfBfdGroups": {
+    "name": "hpicfBfdGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfBfdCompliances": {
+    "name": "hpicfBfdCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfBfdCompliance": {
+    "name": "hpicfBfdCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfBfdSessGroup",
+        "module": "HP-ICF-BFD-MIB"
+      },
+      {
+        "object": "hpicfBfdScalarGroup",
+        "module": "HP-ICF-BFD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfBfdSessGroup": {
+    "name": "hpicfBfdSessGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigDesiredMinTxInterval"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigReqMinRxInterval"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigReqMinEchoRxInterval"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigDetectMult"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigAuthPresFlag"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigAuthenticationType"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigAuthenticationKeyID"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigAuthenticationKey"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigAuthEncPwd"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessConfigRowStatus"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessApplicationID"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessStaus"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdSessClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfBfdScalarGroup": {
+    "name": "hpicfBfdScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.120.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdEchoSrcIpAddType"
+      },
+      {
+        "module": "HP-ICF-BFD-MIB",
+        "object": "hpicfBfdEchoSrcIpAdd"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-BFD-MIB",
+      "Source digest sha256:98ec12a1cb30f0a33c5e7757ed6b62c227a56a506511057f80de681522aac4fe",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-BFD-MIB"
+  }
+}

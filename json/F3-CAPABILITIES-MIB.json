@@ -1,0 +1,6454 @@
+{
+  "imports": {
+    "class": "imports",
+    "CM-COMMON-MIB": [
+      "f3Capabilities"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrAnyOrNone"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "f3CapabilityMIB": {
+    "name": "f3CapabilityMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-18 00:00",
+        "description": " Notes from release 202002180000Z - Added f3Rfc2544Capabilities Notes from release 201903110000Z - Added f3NidXG118PROACSHCapabilities Notes from release 201809240000Z - Added f3NidXG118PROSHCapabilities Notes from release 201804190000Z - Added f3NidXG116PROHCapabilities Notes from release 201107080000Z -Added capabilities for ethernetNTEGE206CardFineGrainedPmInterval, ethernetNTEGE201SyncECardFineGrainedPmInterval, ethernetNTEGE201CardFineGrainedPmInterval, ethernetNTEGE206FCardFineGrainedPmInterval Notes from release 201106010000Z -First release of the agent capabilities with R5.2.1CC."
+      }
+    ]
+  },
+  "f3CapabilityDefinitions": {
+    "name": "f3CapabilityDefinitions",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "f3BaseStandardsCapabilities": {
+    "name": "f3BaseStandardsCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipDefaultTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInReceives",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInHdrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInAddrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipForwDatagrams",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipInDelivers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipOutRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipOutNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipReasmTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipReasmReqds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipReasmOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipReasmFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipFragOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipFragFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipFragCreates",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaNetAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipNetToMediaType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipRoutingDiscards",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "includes": [
+          "snmpEngineGroup"
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup",
+          "snmpNotificationGroup",
+          "snmpObsoleteGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "ipForwardCidrRouteGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipCidrRouteIfIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteType",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteInfo",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteNextHopAS",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteMetric1",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteMetric2",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteMetric3",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteMetric4",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteMetric5",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ipCidrRouteStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardIfEntityCapabilities": {
+    "name": "f3StandardIfEntityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifVHCPacketGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityGeneralGroup",
+          "entityNotificationsGroup",
+          "entityPhysical2Group"
+        ],
+        "variations": [
+          {
+            "object": "entPhysicalSerialNum",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardTargetNotifCapabilities": {
+    "name": "f3StandardTargetNotifCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - Standard Interface and Entity capabilities ",
+    "capabilities": [
+      {
+        "module": "SNMP-NOTIFICATION-MIB",
+        "includes": [
+          "snmpNotifyGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpNotifyTag",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "snmpNotifyRowStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "includes": [
+          "snmpTargetBasicGroup",
+          "snmpTargetResponseGroup",
+          "snmpTargetCommandResponderGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpTargetAddrRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "snmpTargetAddrStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "snmpTargetParamsRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "snmpTargetParamsStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardSecurityCapabilities": {
+    "name": "f3StandardSecurityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "SNMP-USER-BASED-SM-MIB",
+        "includes": [
+          "usmMIBBasicGroup"
+        ],
+        "variations": [
+          {
+            "object": "usmUserStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "usmUserStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardRMONCapabilities": {
+    "name": "f3StandardRMONCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "RMON-MIB",
+        "includes": [
+          "rmonEtherStatsGroup",
+          "rmonHistoryControlGroup",
+          "rmonHistoryControlGroup",
+          "rmonEthernetHistoryGroup",
+          "rmonAlarmGroup",
+          "rmonNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "fallingAlarm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "etherStatsDataSource",
+            "access": "read-only"
+          },
+          {
+            "object": "etherStatsOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "etherStatsStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "valid": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "historyControlDataSource",
+            "access": "read-only"
+          },
+          {
+            "object": "historyControlBucketsRequested",
+            "access": "read-only"
+          },
+          {
+            "object": "historyControlInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "historyControlOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "historyControlStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "valid": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "alarmInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmVariable",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmSampleType",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmStartupAlarm",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmRisingThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmRisingEventIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "alarmStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "valid": 1
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "RMON2-MIB",
+        "includes": [
+          "probeInformationGroup",
+          "probeConfigurationGroup"
+        ],
+        "variations": [
+          {
+            "object": "probeDownloadFile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadTFTPServer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "probeDownloadStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemInitString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemHangUpString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemConnectResp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialModemNoConnectResp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialDialoutTimeout",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigIPAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigSubnetMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netConfigStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "netDefaultGateway",
+            "access": "not-implemented"
+          },
+          {
+            "object": "trapDestCommunity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "trapDestProtocol",
+            "access": "not-implemented"
+          },
+          {
+            "object": "trapDestAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "trapDestOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "trapDestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectDestIpAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectDialString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchConnectSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchDisconnectSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectSwitchResetSeq",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "serialConnectStatus",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "HC-ALARM-MIB",
+        "includes": [
+          "hcAlarmControlGroup",
+          "hcAlarmNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "hcFallingAlarm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hcAlarmInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmVariable",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmSampleType",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmStartupAlarm",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmRisingThreshAbsValueLo",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmRisingThreshAbsValueHi",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmRisingThresholdValStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmRisingEventIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "hcAlarmStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "includes": [
+          "etherStatsHighCapacityGroup",
+          "etherHistoryHighCapacityGroup",
+          "hcRMONInformationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardCfmCapabilities": {
+    "name": "f3StandardCfmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "includes": [
+          "dot1agCfmStackGroup",
+          "dot1agCfmDefaultMdGroup",
+          "dot1agCfmVlanIdGroup",
+          "dot1agCfmConfigErrorListGroup",
+          "dot1agCfmMdGroup",
+          "dot1agCfmMaGroup",
+          "dot1agCfmMepGroup",
+          "dot1agCfmMepDbGroup",
+          "dot1agCfmNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1agCfmDefaultMdDefIdPermission",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sendIdNone": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmDefaultMdIdPermission",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sendIdNone": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMdMhfIdPermission",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sendIdNone": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaCompIdPermission",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "sendIdNone": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmVlanRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMdRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaNetRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaCompRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMaMepListRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMepRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "dot1agCfmMepFngState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepFngAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMepFngResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmFaultAlarm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1agCfmMaCompNumberOfVids",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardBridgeCapabilities": {
+    "name": "f3StandardBridgeCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "BRIDGE-MIB",
+        "includes": [
+          "dot1dBaseBridgeGroup",
+          "dot1dBasePortGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1dBasePortDelayExceededDiscards",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "includes": [
+          "qBridgeBaseGroup",
+          "qBridgePortGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1qPortGvrpFailedRegistrations",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1qPortGvrpLastPduOrigin",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1qGvrpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPvid",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortAcceptableFrameTypes",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortIngressFiltering",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortGvrpStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "P-BRIDGE-MIB",
+        "includes": [
+          "pBridgeExtCapGroup",
+          "pBridgeDeviceGmrpGroup",
+          "pBridgeDevicePriorityGroup",
+          "pBridgeDefaultPriorityGroup",
+          "pBridgeRegenPriorityGroup",
+          "pBridgePriorityGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1dTrafficClassesEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dGmrpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dPortDefaultUserPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dPortNumTrafficClasses",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "EtherLike-MIB",
+        "includes": [
+          "etherStatsGroup",
+          "etherDuplexGroup",
+          "etherControlGroup",
+          "etherControlPauseGroup",
+          "etherRateControlGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3StatsFCSErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsSingleCollisionFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsMultipleCollisionFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsSQETestErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsDeferredTransmissions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsLateCollisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsExcessiveCollisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsInternalMacTransmitErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsCarrierSenseErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsInternalMacReceiveErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsEtherChipSet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3ControlInUnknownOpcodes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3InPauseFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3OutPauseFrames",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3StandardLAGCapabilities": {
+    "name": "f3StandardLAGCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortListGroup",
+          "dot3adAggPortGroup",
+          "dot3adAggPortStatsGroup",
+          "dot3adAggPortDebugGroup",
+          "dot3adTablesLastChangedGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3adAggPortActorAdminKey",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortActorOperKey",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminPort",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminPortPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminSystemID",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminSystemPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot3adAggPortPartnerAdminKey",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3CommonVendorSpecificCapabilities": {
+    "name": "f3CommonVendorSpecificCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.9",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "ADVA-MIB",
+        "includes": [
+          "eventsGroup",
+          "neInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "neTrapsinkAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkCommunity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkUserName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neMibVariant",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neManufacturer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neDateAndTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neMemorySizeTotal",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neMemorySizeFree",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neStorageIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neStorageDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neStorageCapacity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neStorageAvailable",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "includes": [
+          "cmAlmObjectGroup",
+          "cmAlmNotifGroup"
+        ]
+      },
+      {
+        "module": "CM-PROTECTION-MIB",
+        "includes": [
+          "cmProtObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmFacProtGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFacProtGroupStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "CM-SA-MIB",
+        "includes": [
+          "cmServAssuranceGenNotifGroup"
+        ]
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "includes": [
+          "cmSecurityObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmSecurityUserRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmSecurityUserStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "CM-IP-MIB",
+        "includes": [
+          "ipGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmStaticRouteRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmARPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmProxyARPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmProxyARPStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelQosQueueProfile",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3FacilityCapabilities": {
+    "name": "f3FacilityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.10",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "ethernetAccessPortGroup",
+          "ethernetNetworkPortGroup",
+          "ethernetMgmtPortGroup",
+          "bitsPortGroup",
+          "trafficGroup",
+          "prioMapGroup",
+          "pcpEncodeGroup",
+          "cpdV2Group",
+          "f3Gps10MhzPortGroup",
+          "f3PulsePerSecondPortGroup",
+          "f3TimeOfDayPortGroup",
+          "f3PolicerEnvelopeGroup",
+          "cmNetPortExpDeGroup",
+          "cmNetPortIpPrecDeGroup",
+          "cmNetPortEncapPcpDeGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmEthernetAccPortLinkLossFwdSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmEthernetAccPortOamAdminDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetAccPortRxPauseDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetNetPortLinkLossFwdSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmEthernetNetPortOamAdminDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetNetPortRxPauseDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFlowRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFlowStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosFlowPolicerRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosFlowPolicerStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosShaperCIR",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperCBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEIR",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperCIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosShaperStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmAccPortQosShaperCIRLo",
+            "access": "read-only"
+          },
+          {
+            "object": "cmAccPortQosShaperCBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmAccPortQosShaperEIRLo",
+            "access": "read-only"
+          },
+          {
+            "object": "cmAccPortQosShaperEBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmAccPortQosShaperCIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "cmAccPortQosShaperEIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "f3PulsePerSecondPortInputRate",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "CM-PERFORMANCE-MIB",
+        "includes": [
+          "cmPerfNotifGroup",
+          "ethernetAccessPortPMGroup",
+          "ethernetNetworkPortPMGroup",
+          "trafficPMGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmEthernetNetPortStatsL2PTRxFramesEncap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetNetPortStatsL2PTTxFramesDecap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetNetPortHistoryL2PTRxFramesEncap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetNetPortHistoryL2PTTxFramesDecap",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid206Capabilities": {
+    "name": "f3Nid206Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.11",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe206CardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE206CardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid201SyncECapabilities": {
+    "name": "f3Nid201SyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.12",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe201SyncECardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE201SyncECardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid201NonSyncECapabilities": {
+    "name": "f3Nid201NonSyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.13",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe201NonSyncECardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE201CardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid206FCapabilities": {
+    "name": "f3Nid206FCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.14",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe206FCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE206FCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid112Capabilities": {
+    "name": "f3Nid112Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.15",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe112CardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE112CardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114Capabilities": {
+    "name": "f3Nid114Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.16",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe114CardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE114CardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EcpaCapabilities": {
+    "name": "f3EcpaCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.17",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-SA-MIB",
+        "includes": [
+          "cmEcpaGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EsaCapabilities": {
+    "name": "f3EsaCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.18",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-SA-MIB",
+        "includes": [
+          "cmEsaGroup",
+          "cmServAssuranceEsaNotifGroup"
+        ],
+        "variations": [
+          {
+            "object": "esaProbePktSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 64,
+                    "max": 1512
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "esaProbeRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeSOAMPktSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  },
+                  {
+                    "min": 64,
+                    "max": 2000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "esaProbeScheduleGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeScheduleGroupStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "esaReflectorRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "esaReflectorStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeCOSConfigRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeCOSConfigStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeDestinationRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "esaProbeDestinationStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3BridgeCapabilitiesCmHub": {
+    "name": "f3BridgeCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.19",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "BRIDGE-MIB",
+        "includes": [
+          "dot1dBaseBridgeGroup",
+          "dot1dBasePortGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1dBasePortDelayExceededDiscards",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "includes": [
+          "qBridgeBaseGroup",
+          "qBridgePortGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1qPortGvrpFailedRegistrations",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1qPortGvrpLastPduOrigin",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot1qGvrpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPvid",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortAcceptableFrameTypes",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortIngressFiltering",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1qPortGvrpStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "P-BRIDGE-MIB",
+        "includes": [
+          "pBridgeExtCapGroup",
+          "pBridgeDeviceGmrpGroup",
+          "pBridgeDevicePriorityGroup",
+          "pBridgeDefaultPriorityGroup",
+          "pBridgePriorityGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot1dTrafficClassesEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dGmrpStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dPortDefaultUserPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "dot1dPortNumTrafficClasses",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "EtherLike-MIB",
+        "includes": [
+          "etherStatsGroup",
+          "etherDuplexGroup",
+          "etherControlGroup",
+          "etherControlPauseGroup",
+          "etherRateControlGroup"
+        ],
+        "variations": [
+          {
+            "object": "dot3StatsFCSErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsSingleCollisionFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsMultipleCollisionFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsSQETestErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsDeferredTransmissions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsLateCollisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsExcessiveCollisions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsInternalMacTransmitErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsCarrierSenseErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsInternalMacReceiveErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3StatsEtherChipSet",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3ControlInUnknownOpcodes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3InPauseFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dot3OutPauseFrames",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3CommonVendorSpecificCapabilitiesCmHub": {
+    "name": "f3CommonVendorSpecificCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.20",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "ADVA-MIB",
+        "includes": [
+          "eventsGroup"
+        ],
+        "variations": [
+          {
+            "object": "neTrapsinkAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkCommunity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "neTrapsinkUserName",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroupCmHub",
+          "cmSystemNotifGroup"
+        ]
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "includes": [
+          "cmAlmObjectGroup",
+          "cmAlmNotifGroup"
+        ]
+      },
+      {
+        "module": "CM-PROTECTION-MIB",
+        "includes": [
+          "cmProtObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmFacProtGroupRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFacProtGroupStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "CM-SA-MIB",
+        "includes": [
+          "cmServAssuranceGenNotifGroup"
+        ]
+      },
+      {
+        "module": "CM-TOPOLOGY-MIB",
+        "includes": [
+          "cmTopologyObjectGroup"
+        ]
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "includes": [
+          "cmSecurityObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmSecurityUserRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmSecurityUserStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "CM-IP-MIB",
+        "includes": [
+          "ipGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmStaticRouteRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmARPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmProxyARPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmProxyARPStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ipManagementTunnelQosQueueProfile",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3FacilityCapabilitiesCmHub": {
+    "name": "f3FacilityCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.21",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "ethernetAccessPortGroup",
+          "ethernetNetworkPortGroup",
+          "ethernetMgmtPortGroup",
+          "bitsPortGroup",
+          "trafficGroupCmHub"
+        ],
+        "variations": [
+          {
+            "object": "cmEthernetAccPortLinkLossFwdSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmEthernetAccPortOamAdminDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetAccPortRxPauseDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetNetPortLinkLossFwdSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmEthernetNetPortOamAdminDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmEthernetNetPortRxPauseDisposition",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "discard": 1,
+                  "peer": 2,
+                  "pass-thru": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFlowRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmFlowStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosShaperCIR",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperCBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEIR",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEBS",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperCIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperEIRHi",
+            "access": "read-only"
+          },
+          {
+            "object": "cmQosShaperRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmQosShaperStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "module": "CM-PERFORMANCE-MIB",
+        "includes": [
+          "cmPerfNotifGroupCmHub",
+          "ethernetAccessPortPMGroup",
+          "ethernetNetworkPortPMGroup",
+          "trafficPMGroupCmHub"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EntityCmHubCapabilities": {
+    "name": "f3EntityCmHubCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.22",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "fanGroup",
+          "hubshelfGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid206VCapabilities": {
+    "name": "f3Nid206VCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.23",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe206VCardGroup",
+          "ge4ECCCardGroup",
+          "ge4SCCCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGE206VCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG210Capabilities": {
+    "name": "f3NidXG210Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.24",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg210CardGroup",
+          "xg1XCCCardGroup",
+          "xg1SCCCardGroup",
+          "ge8SCCCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG210CardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3PtpCapabilities": {
+    "name": "f3PtpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.25",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-PTP-MIB",
+        "includes": [
+          "f3PtpObjectGroup",
+          "f3PtpPerfObjectGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3PseudoWireCapabilities": {
+    "name": "f3PseudoWireCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.26",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "pseudoWireCardOcnStmCardGroup",
+          "pseudoWireCardE1T1CardGroup"
+        ]
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "ocnStmGroup",
+          "stsVcPathGroup",
+          "vtVcPathGroup",
+          "e1t1InterfaceGroup"
+        ],
+        "variations": [
+          {
+            "object": "ocnStmSfpLaserWaveLengthPicometer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ocnStmInsertingAIS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stsVcPathInsertingAIS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stsVcPathBerExcThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stsVcPathBerDegThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "stsVcPathTrailTraceFormat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vtVcPathInsertingAIS",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vtVcPathBerExcThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vtVcPathBerDegThreshold",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vtVcPathTrailTraceFormat",
+            "access": "not-implemented"
+          },
+          {
+            "object": "e1t1InsertingAIS",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "CM-PERFORMANCE-MIB",
+        "includes": [
+          "ocnStmPortPerfGroup",
+          "stsVcPathPerfGroup",
+          "vtVcPathPerfGroup",
+          "e1T1PerfGroup"
+        ]
+      },
+      {
+        "module": "F3-PWE3-MIB",
+        "includes": [
+          "f3Pwe3ObjectGroup",
+          "f3Pwe3PerfObjectGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3DS1Capabilities": {
+    "name": "f3DS1Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.27",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "DS1-MIB",
+        "includes": [
+          "ds1NearEndConfigGroup",
+          "ds1NearEndOptionalConfigGroup",
+          "ds1NearEndStatisticsGroup",
+          "ds1FarEndGroup"
+        ],
+        "variations": [
+          {
+            "object": "dsx1TimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1ValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineType",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx1SendCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1SignalMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TransmitClockSource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Fdl",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1InvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LineLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1LoopbackStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Ds1ChannelNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1Channelization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1CurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1IntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalSEFSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1TotalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndCurrentDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndInvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndIntervalDMs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalCSSs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalBESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx1FarEndTotalDMs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3SonetCapabilities": {
+    "name": "f3SonetCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.28",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "SONET-MIB",
+        "includes": [
+          "sonetMediumStuff2",
+          "sonetSectionStuff2",
+          "sonetLineStuff2",
+          "sonetFarEndLineStuff2",
+          "sonetPathStuff2",
+          "sonetFarEndPathStuff2",
+          "sonetVTStuff2",
+          "sonetFarEndVTStuff2"
+        ],
+        "variations": [
+          {
+            "object": "sonetMediumType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumLineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumLineType",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumCircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetMediumInvalidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetMediumLoopbackConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetSESthresholdSet",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetSectionCurrentStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetLineCurrentStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetPathCurrentWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetPathCurrentStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetFarEndPathIntervalESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetFarEndPathIntervalSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetFarEndPathIntervalCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetFarEndPathIntervalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetFarEndPathIntervalValidData",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sonetVTCurrentWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "sonetVTCurrentStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncECapabilities": {
+    "name": "f3SyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.29",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-SYNC-MIB",
+        "includes": [
+          "f3SyncObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "f3SyncRefRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "f3SyncRefStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3CfmCapabilities": {
+    "name": "f3CfmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.30",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-CFM-MIB",
+        "includes": [
+          "cfmGenGroup",
+          "cfmMepGroup",
+          "cfmPortShaperGroup",
+          "cfmServerMepGroup"
+        ],
+        "variations": [
+          {
+            "object": "cfmServerMepRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cfmServerMepStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3LAGCapabilities": {
+    "name": "f3LAGCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.31",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-LAG-MIB",
+        "includes": [
+          "f3LagObjectGroup"
+        ],
+        "variations": [
+          {
+            "object": "f3LagRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "f3LagStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "f3LagPortRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "f3LagPortStorageType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "nonVolatile": 3
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3PBBCapabilities": {
+    "name": "f3PBBCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.32",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-PBB-MIB",
+        "includes": [
+          "f3PbbConfigGroup",
+          "f3PbbStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid1804Capabilities": {
+    "name": "f3Nid1804Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.33",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteT1804CardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTET1804CardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGESyncProbeCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid3204Capabilities": {
+    "name": "f3Nid3204Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.34",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteT3204CardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTET3204CardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3BertCapabilities": {
+    "name": "f3BertCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.35",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-SA-MIB",
+        "includes": [
+          "cmBertGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidSyncProbeCapabilities": {
+    "name": "f3NidSyncProbeCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.36",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "nteGeSyncProbeCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEGESyncProbeCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3SyncJackCapabilities": {
+    "name": "f3SyncJackCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.37",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-SYNCJACK-MIB",
+        "includes": [
+          "f3SyncJObjectGroup",
+          "f3SyncJPerfObjectGroup",
+          "f3SyncJNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EsmCapabilities": {
+    "name": "f3EsmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.38",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-ESM-MIB",
+        "includes": [
+          "esmConfigGroup",
+          "esmNameValuePairGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3AMPClientCapabilities": {
+    "name": "f3AMPClientCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.39",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-AMP-MIB",
+        "includes": [
+          "f3AmpConfigGroup",
+          "f3AmpStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3AMPServerCapabilities": {
+    "name": "f3AMPServerCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.40",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-AMP-MIB",
+        "includes": [
+          "f3AmpConfigGroup",
+          "f3AmpStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114HCapabilities": {
+    "name": "f3Nid114HCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.41",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe114HCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTEGE114HCardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114PHCapabilities": {
+    "name": "f3Nid114PHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.42",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe114PHCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTEGE114PHCardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3ERPCapabilities": {
+    "name": "f3ERPCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.43",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-ERP-MIB",
+        "includes": [
+          "f3ErpGroupGroup",
+          "f3ErpUnitGroup",
+          "f3ErpUnitStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "f3ErpGroupMaxFpNum",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3ShgCapabilities": {
+    "name": "f3ShgCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.44",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-SHG-MIB",
+        "includes": [
+          "f3ShgGroup",
+          "f3ShgMemberPortGroup",
+          "f3ShgMemberFlowGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114SCapabilities": {
+    "name": "f3Nid114SCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.45",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe114SCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTEGE114SCardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114SHCapabilities": {
+    "name": "f3Nid114SHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.46",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteGe114SHCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ethernetNTEGE114SHCardFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Ipv6Capabilities": {
+    "name": "f3Ipv6Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.47",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-IP-MIB",
+        "includes": [
+          "ipv6Group"
+        ],
+        "variations": [
+          {
+            "object": "cmProxyNDPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmProxyNDPStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmNDPRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmNDPStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cmIpv6OverIpv4TunnelRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmIpv6OverIpv4TunnelStorageType",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "IPV6-MIB",
+        "includes": [
+          "ipv6GeneralGroup"
+        ],
+        "variations": [
+          {
+            "object": "ipv6Forwarding",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6DefaultHopLimit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6Interfaces",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfDescr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfLowerLayer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfEffectiveMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfReasmMaxSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfIdentifier",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfIdentifierLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfPhysicalAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInReceives",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInHdrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInTooBigErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInNoRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInAddrErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInTruncatedPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInDelivers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutForwDatagrams",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutRequests",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutFragCreates",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmReqds",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmOKs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsReasmFails",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsInMcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfStatsOutMcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixOnLinkFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAutonomousFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAdvPreferredLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPrefixAdvValidLifetime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrPfxLength",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrAnycastFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6AddrStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6DiscardedRoutes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6NetToMediaPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6NetToMediaType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfNetToMediaState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6IfNetToMediaLastUpdated",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6NetToMediaValid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipv6RouteValid",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3SatCapabilities": {
+    "name": "f3SatCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.48",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-SAT-MIB",
+        "includes": [
+          "cmSatGroup"
+        ],
+        "variations": [
+          {
+            "object": "satControlRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "satControlStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "satStreamRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "satStreamStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "satSacProfileRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "satSacProfileStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "satResponderSessionRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "satResponderSessionStorageType",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3JdsuCapabilities": {
+    "name": "f3JdsuCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.49",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "ethernetAccessPortJdsuExtGroup",
+          "ethernetNetworkPortJdsuExtGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3PortMirrorCapabilities": {
+    "name": "f3PortMirrorCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.50",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-PORTMIRROR-MIB",
+        "includes": [
+          "f3MirrorSessionGroup",
+          "f3PortMirrorAccPortExtGroup",
+          "f3MonitorPortStatsGroup",
+          "f3MirrorSessionStatsTable",
+          "f3PortMirrorEgressMonitorFpGroup",
+          "f3PortMirrorAclRuleGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3JdsuGeneratorCapabilities": {
+    "name": "f3JdsuGeneratorCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.51",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-JDSU-MIB",
+        "includes": [
+          "f3JdsuGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3TwampCapabilities": {
+    "name": "f3TwampCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.52",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-TWAMP-MIB",
+        "includes": [
+          "f3TwampIpInterfaceGroup",
+          "f3TwampServerGroup",
+          "f3TwampServerSessionReflectorGroup",
+          "f3TwampSessionReflectorGroup",
+          "f3TwampSessionGroup",
+          "f3TwampControlClientGroup",
+          "f3TwampControlClientSessionSenderGroup",
+          "f3TwampSessionSenderGroup",
+          "f3TwampStatisticsGroup",
+          "f3TwampDistributionStatisticsGroup",
+          "f3TwampThresholdGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfCapabilities": {
+    "name": "f3OspfCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.53",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "OSPF-MIB",
+        "includes": [
+          "ospfBasicGroup2",
+          "ospfNbrGroup2",
+          "ospfLsdbGroup",
+          "ospfAsLsdbGroup"
+        ],
+        "variations": [
+          {
+            "object": "ospfAreaBdrRtrStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfTOSSupport",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfOriginateNewLsas",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRxNewLsas",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfExtLsdbLimit",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfMulticastExtensions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfExitOverflowInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfDemandExtensions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRFC1583Compatibility",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfOpaqueLsaSupport",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfReferenceBandwidth",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRestartSupport",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRestartInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRestartStrictLsaChecking",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRestartStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfRestartExitReason",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfAsLsaCount",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfAsLsaCksumSum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfStubRouterSupport",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfStubRouterAdvertisement",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrOptions",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrEvents",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrLsRetransQLen",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbmaNbrPermanence",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrHelloSuppressed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrRestartHelperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrRestartHelperAge",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ospfNbrRestartHelperExitReason",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "includes": [
+          "f3OspfRouterGroup",
+          "f3OspfAreaGroup",
+          "f3OspfIpInterfaceExtGroup",
+          "f3OspfIpMgmtTunnelExtGroup",
+          "f3OspfNbrExtGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Mef35Capabilities": {
+    "name": "f3Mef35Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.54",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "includes": [
+          "mefSoamLmCfgMandatoryGroup",
+          "mefSoamLmCfgOptionalGroup",
+          "mefSoamLmCurrentAvailStatsMandatoryGroup",
+          "mefSoamLmCurrentAvailStatsOptionalGroup",
+          "mefSoamLmCurrentStatsMandatoryGroup",
+          "mefSoamLmCurrentStatsOptionalGroup",
+          "mefSoamLmHistoryAvailStatsMandatoryGroup",
+          "mefSoamLmHistoryAvailStatsOptionalGroup",
+          "mefSoamLmHistoryStatsMandatoryGroup",
+          "mefSoamLmHistoryStatsOptionalGroup",
+          "mefSoamDmCfgMandatoryGroup",
+          "mefSoamDmCfgOptionalGroup",
+          "mefSoamDmCurrentStatsMandatoryGroup",
+          "mefSoamDmCurrentStatsOptionalGroup",
+          "mefSoamDmHistoryStatsMandatoryGroup",
+          "mefSoamDmHistoryStatsOptionalGroup",
+          "mefSoamDmCfgMeasBinMandatoryGroup",
+          "mefSoamDmCurrentStatsBinsMandatoryGroup",
+          "mefSoamDmHistoryStatsBinsMandatoryGroup"
+        ],
+        "variations": [
+          {
+            "object": "mefSoamLmCfgType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgMeasurementEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgMessagePeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgFrameSize",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgDataPattern",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgTestTlvIncluded",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgTestTlvPattern",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCfgMeasurementInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgNumIntervalsStored",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgDestMacAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgDestMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgDestIsMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgStartTimeType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgFixedStartDateAndTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgRelativeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCfgStopTimeType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgFixedStopDateAndTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgRelativeStopTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCfgRepetitionTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAlignMeasurementIntervals",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAlignMeasurementOffset",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAvailabilityMeasurementInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAvailabilityNumConsecutiveMeasPdus",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAvailabilityFlrThreshold",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAvailabilityNumConsecutiveIntervals",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgAvailabilityNumConsecutiveHighFlr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCfgSessionType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgSessionStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgHistoryClear",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCfgRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentAvailStatsForwardHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentAvailStatsBackwardHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentAvailStatsForwardConsecutiveHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryAvailStatsForwardHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryAvailStatsBackwardHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryAvailStatsForwardConsecutiveHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentStatsSoamPdusSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmCurrentStatsSoamPdusReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryStatsSoamPdusSent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamLmHistoryStatsSoamPdusReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamDmCfgType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamLmCfgType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgMeasurementEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgMessagePeriod",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgFrameSize",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgDataPattern",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgTestTlvIncluded",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgTestTlvPattern",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamDmCfgMeasurementInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgNumIntervalsStored",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgDestMacAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgDestMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgDestIsMepId",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgStartTimeType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgFixedStartDateAndTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgRelativeStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamDmCfgStopTimeType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgFixedStopDateAndTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgRelativeStopTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamDmCfgRepetitionTime",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgAlignMeasurementIntervals",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgAlignMeasurementOffset",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgNumMeasBinsPerFrameDelayInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgInterFrameDelayVariationSelectionOffset",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgSessionType",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgSessionStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "mefSoamDmCfgHistoryClear",
+            "access": "not-implemented"
+          },
+          {
+            "object": "mefSoamDmCfgRowStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid112ProCapabilities": {
+    "name": "f3Nid112ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.55",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe112ProCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid112ProMCapabilities": {
+    "name": "f3Nid112ProMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.56",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe112ProMCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProCapabilities": {
+    "name": "f3Nid114ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.57",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114ProCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProCCapabilities": {
+    "name": "f3Nid114ProCCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.58",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114ProCCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProSHCapabilities": {
+    "name": "f3Nid114ProSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.59",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114ProSHCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProCSHCapabilities": {
+    "name": "f3Nid114ProCSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.60",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114ProCSHCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProHECapabilities": {
+    "name": "f3Nid114ProHECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.61",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114ProHECardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid112ProHCapabilities": {
+    "name": "f3Nid112ProHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.62",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe112ProHCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConnectGuardCapabilities": {
+    "name": "f3ConnectGuardCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.63",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-CONNECTGUARD-MIB",
+        "includes": [
+          "f3ConnectGuardObjectsGroup",
+          "f3ConnectGuardPerfGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "includes": [
+          "secyIfCtrlGroup",
+          "secyTxSCGroup",
+          "secyTxSAGroup",
+          "secyRxSCGroup",
+          "secyRxSAGroup",
+          "secyCipherSuiteGroup",
+          "secyTxSAStatsGroup",
+          "secyRxSAStatsGroup",
+          "secyTxSCStatsGroup",
+          "secyRxSCStatsGroup",
+          "secyStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "secyIfProtectFramesEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfValidateFrames",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfReplayProtectEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfReplayProtectWindow",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfCurrentCipherSuite",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfAdminPt2PtMAC",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfIncludeSCIEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfUseESEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "secyIfUseSCBEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "secyRxSANextPN",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteId",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteName",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteCapability",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteProtection",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteProtectionOffset",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteDataLengthChange",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteICVLength",
+            "access": "read-only"
+          },
+          {
+            "object": "secyCipherSuiteRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3L3Capabilities": {
+    "name": "f3L3Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.64",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-L3-MIB",
+        "includes": [
+          "f3L3ObjectsGroup",
+          "f3L3PerfGroup"
+        ],
+        "variations": [
+          {
+            "object": "f3VrfIpVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3VrfPingIpv6Destination",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3VrfTraceRouteIpv6Destination",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosPolicerStatsFMYD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosPolicerHistoryFMYD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperStatsBR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperStatsFR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperStatsABRRLR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperHistoryBR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperHistoryFR",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmL3QosShaperHistoryABRRLR",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114GCapabilities": {
+    "name": "f3Nid114GCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.65",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe114GCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3BfdCapabilities": {
+    "name": "f3BfdCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.66",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-BFD-MIB",
+        "includes": [
+          "f3BfdConfigGroup"
+        ]
+      },
+      {
+        "module": "BFD-STD-MIB",
+        "includes": [
+          "bfdSessionGroup",
+          "bfdSessionReadOnlyGroup",
+          "bfdSessionPerfGroup"
+        ],
+        "variations": [
+          {
+            "object": "bfdAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdNotificationsEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessIndexNext",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessEchoSourceUdpPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessDemandModeDesiredFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessControlPlaneIndepFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessGTSM",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessGTSMTTL",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessReqMinEchoRxInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessNegotiatedEchoInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessAuthPresFlag",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessAuthenticationType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessAuthenticationKeyID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessPerfEchoPktIn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessPerfEchoPktOut",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessPerfEchoPktDrop",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessPerfEchoPktDropLastTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "bfdSessPerfDiscTime",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EoMplsCapabilities": {
+    "name": "f3EoMplsCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.67",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-EOMPLS-MIB",
+        "includes": [
+          "f3EoMplsConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3FpmCapabilities": {
+    "name": "f3FpmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.68",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "cmMPFlowGroup",
+          "cmMPFlowMemberGroup"
+        ]
+      },
+      {
+        "module": "F3-FPM-MIB",
+        "includes": [
+          "f3AccFlowPointGroup",
+          "f3AccFpQosShaperGroup",
+          "f3AccFpQosPolicerGroup",
+          "f3MPFlowExtGroup",
+          "f3AccFlowPointCpdV2Group",
+          "f3AccFlowPointLearningConfigGroup",
+          "f3NetFlowPointGroup",
+          "f3NetFpQosShaperGroup",
+          "f3NetFpQosPolicerGroup",
+          "f3NetFlowPointCpdV2Group",
+          "f3NetFlowPointLearningConfigGroup",
+          "f3AccFlowPointPerfGroup",
+          "f3NetFlowPointPerfGroup",
+          "f3MPFlowPerfGroup",
+          "f3AccFpQosShaperPerfGroup",
+          "f3NetFpQosShaperPerfGroup",
+          "f3AccFpQosPolicerPerfGroup",
+          "f3NetFpQosPolicerPerfGroup",
+          "f3FpmPerfNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProVMHCapabilities": {
+    "name": "f3Nid114ProVMHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.69",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE114ProVmHCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProVMCHCapabilities": {
+    "name": "f3Nid114ProVMCHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.70",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE114ProVmCHCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProVMCSHCapabilities": {
+    "name": "f3Nid114ProVMCSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.71",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE114ProVmCSHCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidGe101ProCapabilities": {
+    "name": "f3NidGe101ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.72",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGe101ProCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidGo102ProSCapabilities": {
+    "name": "f3NidGo102ProSCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.73",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGo102ProSCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidGo102ProSPCapabilities": {
+    "name": "f3NidGo102ProSPCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.74",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGo102ProSPCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidCx101Pro30ACapabilities": {
+    "name": "f3NidCx101Pro30ACapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.75",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteCx101Pro30ACardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidCx102Pro30ACapabilities": {
+    "name": "f3NidCx102Pro30ACapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.76",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteCx102Pro30ACardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3IpfixCapabilities": {
+    "name": "f3IpfixCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.77",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-IPFIX-MIB",
+        "includes": [
+          "f3IPFIXGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3VxlanCapabilities": {
+    "name": "f3VxlanCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.78",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-VXLAN-MIB",
+        "includes": [
+          "f3VXLANConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3GreCapabilities": {
+    "name": "f3GreCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.79",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-GRE-MIB",
+        "includes": [
+          "f3GreConfigGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NtpCapabilities": {
+    "name": "f3NtpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.80",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-NTP-MIB",
+        "includes": [
+          "f3NtpObjectGroup",
+          "f3NtpPerfObjectGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3ElpCapabilities": {
+    "name": "f3ElpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.81",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-ELP-MIB",
+        "includes": [
+          "f3ElpGroupGroup",
+          "f3ElpUnitGroup",
+          "f3ElpUnitStatsGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG116PROCapabilities": {
+    "name": "f3NidXG116PROCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.82",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg116ProCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG116PROCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG120PROCapabilities": {
+    "name": "f3NidXG120PROCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.83",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg120ProCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG120PROCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3FacilityCapabilitiesXGPRO": {
+    "name": "f3FacilityCapabilitiesXGPRO",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.84",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-FACILITY-MIB",
+        "includes": [
+          "ethernetMgmtPortGroup",
+          "cmEthernetTrafficPortPcpGroup",
+          "cmEthernetTrafficPortGroup",
+          "cmFlowPointGroup",
+          "cmPrioMapV2ProfileGroup",
+          "cmPrioMapV2IngressPrioMappingGroup",
+          "cmEthernetTrafficPortJdsuExtGroup",
+          "f3FpQosShaperGroup",
+          "f3FpQosPolicerGroup",
+          "cpdV2TrafficPortGroup",
+          "cmMPFlowGroup",
+          "cmMPFlowMemberGroup",
+          "f3AclRuleGroup",
+          "f3EthernetTrafficPortExpDeGroup",
+          "cmTrafficPortQosShaperGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmEthernetTrafficPortIngressPrioMapMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortSvcType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortTagFrameControl",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortSfpLaserWaveLengthPicometer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortDeleteEntitiesAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortMaxMpFpNum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortJdsuLoopbackEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortJdsuLoopbackVlanId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortMcastRateLimitEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortMcastRateLimitSpeedLo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortMcastRateLimitSpeedHi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortBcastRateLimitEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortBcastRateLimitSpeedLo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortBcastRateLimitSpeedHi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortCombinedRateLimitEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortCombinedRateLimitSpeedLo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortCombinedRateLimitSpeedHi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortIngressCOSPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortIngressPopPriorityVidEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortEgressPopPriorityVidEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortPriorityVlanId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointColorMarkingSupported",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointAssociatedAclProfile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointWfqQid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointWfqOutPriority",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "CM-PERFORMANCE-MIB",
+        "includes": [
+          "cmXgProPerfNotifGroup",
+          "cmEthernetTrafficPortPerfGroup",
+          "flowPointPmGroup",
+          "f3FpQosShaperPerfGroup",
+          "f3FpQosPolicerPerfGroup",
+          "f3AclRulePerfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmEthernetTrafficPortStatsATFD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsPSC",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsFmcd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsFbcd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsAclDropNoMatch",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsAclFwd2Cpu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortStatsDhcpDropNoAssocIf",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryATFD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryPSC",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryFmcd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryFbcd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryAclDropNoMatch",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryAclFwd2Cpu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmEthernetTrafficPortHistoryDhcpDropNoAssocIf",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFREDD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFACLD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFMYD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFMGD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsBT",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointStatsFLD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFREDD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFACLD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFMYD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFMGD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFD",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryBT",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cmFlowPointHistoryFLD",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3EoMplsCapabilitiesXG": {
+    "name": "f3EoMplsCapabilitiesXG",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.85",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-EOMPLS-MIB",
+        "includes": [
+          "f3EoMplsConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "f3NetPortExtEoMplsSrcIp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwEncapsulationEntity",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwDSCPMapControl",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwStatsIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwStatsIntervalType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwStatsValid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwStatsAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwStatsTtlEqual0Drop",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwHistoryIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwHistoryTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwHistoryValid",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwHistoryAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwHistoryTtlEqual0Drop",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdInterval",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdVariable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdValueLo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdValueHi",
+            "access": "not-implemented"
+          },
+          {
+            "object": "f3EoMplsPwThresholdMonValue",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid112ProVMCapabilities": {
+    "name": "f3Nid112ProVMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.86",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE112ProVmCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemCommonCapabilities": {
+    "name": "f3SystemCommonCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.87",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG116PROHCapabilities": {
+    "name": "f3NidXG116PROHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.88",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg116ProHCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG116PROHCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidGo102ProSMCapabilities": {
+    "name": "f3NidGo102ProSMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.89",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGo102ProSMCardGroup"
+        ]
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "includes": [
+          "cmSystemObjectGroup",
+          "cmSystemNotifGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG118PROSHCapabilities": {
+    "name": "f3NidXG118PROSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.90",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg118ProSHCardGroup",
+          "serverCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG118PROSHCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3L3CapabilitiesGE": {
+    "name": "f3L3CapabilitiesGE",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.91",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-L3-MIB",
+        "includes": [
+          "f3L3ObjectsGroup",
+          "f3L3PerfGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3L3TrafficOSPFCapabilties": {
+    "name": "f3L3TrafficOSPFCapabilties",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.92",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-L3-MIB",
+        "includes": [
+          "f3L3TrafficOspfGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3L3TrafficBGPCapabilties": {
+    "name": "f3L3TrafficBGPCapabilties",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.93",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-L3-MIB",
+        "includes": [
+          "f3L3TrafficBgpGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3L3TrafficIPv6Capabilities": {
+    "name": "f3L3TrafficIPv6Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.94",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-L3-MIB",
+        "includes": [
+          "f3L3TrafficIPv6Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG118PROACSHCapabilities": {
+    "name": "f3NidXG118PROACSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.95",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg118ProacSHCardGroup",
+          "serverCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG118PROACSHCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Nid114ProVMSHCapabilities": {
+    "name": "f3Nid114ProVMSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.96",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE114ProVmSHCardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidGe104Capabilities": {
+    "name": "f3NidGe104Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.97",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "nteGE104CardGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3NidXG120PROSHCapabilities": {
+    "name": "f3NidXG120PROSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.98",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "capabilities": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "includes": [
+          "commonEntityGroup",
+          "psuGroup",
+          "nteXg120ProSHCardGroup"
+        ],
+        "variations": [
+          {
+            "object": "neRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "neStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "neFineGrainedPmInterval",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "interval-15min": 1,
+                  "interval-5min": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ethernetNTEXG120PROSHCardFineGrainedPmInterval",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "f3Rfc2544Capabilities": {
+    "name": "f3Rfc2544Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.99",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "capabilities": [
+      {
+        "module": "F3-RFC2544-MIB",
+        "includes": [
+          "f3Rfc2544Group"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source F3-CAPABILITIES-MIB",
+      "Source digest sha256:254a3ba75386bdd27273dc0c1563e58e35e876ac752f4e7a31e24545deb67e87",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "F3-CAPABILITIES-MIB"
+  }
+}

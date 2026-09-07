@@ -1,0 +1,240 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "IMA-MIB": [
+      "MilliSeconds"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImaCapability": {
+    "name": "ciscoImaCapability",
+    "oid": "1.3.6.1.4.1.9.7.257",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-08-15 00:00",
+        "description": "Added ciscoImaAxsmeCapabilityV3R00 for Enhanced ATM Switch Service Module(AXSM-E), and Enhanced Processor Switch Module 1(PXM1E) uplink."
+      },
+      {
+        "revision": "2002-04-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImaAxsmeCapabilityV3R00": {
+    "name": "ciscoImaAxsmeCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.257.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0",
+    "capabilities": [
+      {
+        "module": "IMA-MIB",
+        "includes": [
+          "imaGroupGroup",
+          "imaLinkGroup",
+          "imaGroupIntervalGroup",
+          "imaLinkIntervalGroup"
+        ],
+        "variations": [
+          {
+            "object": "imaGroupNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaAlarmStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaAlarmType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaGroupSymmetry",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "symmetricOperation": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "imaGroupMinNumTxLinks",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 16
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "imaGroupMinNumRxLinks",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 16
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "imaGroupLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaGroupDiffDelayMax",
+            "syntax": {
+              "type": "MilliSeconds",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 275
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "imaGroupAlphaValue",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "imaGroupBetaValue",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "imaGroupGammaValue",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "imaLinkCurrentNeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkCurrentNeRxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkCurrentFeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkCurrentFeRxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkIntervalNeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkIntervalNeRxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkIntervalFeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkIntervalFeRxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkTotalNeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkTotalNeRxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkTotalFeTxNumFailures",
+            "access": "not-implemented"
+          },
+          {
+            "object": "imaLinkTotalFeRxNumFailures",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IMA-CAPABILITY",
+      "Source digest sha256:43e46c24ff568adc78c1f0841ccd7c7013c70b140e085bf9877ba72f247dd73d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IMA-CAPABILITY"
+  }
+}

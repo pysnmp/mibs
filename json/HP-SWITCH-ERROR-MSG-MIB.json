@@ -1,0 +1,253 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpSwitchErrorMsgMIB": {
+    "name": "hpSwitchErrorMsgMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-06 00:00",
+        "description": "First Revision"
+      }
+    ]
+  },
+  "hpSwitchErrorMsgObjects": {
+    "name": "hpSwitchErrorMsgObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchErrorMsgTable": {
+    "name": "hpSwitchErrorMsgTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchErrorMsgEntry": {
+    "name": "hpSwitchErrorMsgEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchErrorEntityType",
+        "implied": 0
+      },
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchErrorEntityHandle",
+        "implied": 0
+      },
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchErrorSnmpSeqCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchErrorEntityType": {
+    "name": "hpSwitchErrorEntityType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "others": 1,
+          "cliSession": 2,
+          "webSession": 3,
+          "ipV4Address": 4,
+          "ipV6Address": 5,
+          "oaApplication": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchErrorEntityHandle": {
+    "name": "hpSwitchErrorEntityHandle",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchErrorSnmpSeqCode": {
+    "name": "hpSwitchErrorSnmpSeqCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchErrorTime": {
+    "name": "hpSwitchErrorTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchErrorFailedOID": {
+    "name": "hpSwitchErrorFailedOID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchEntityErrorMsg": {
+    "name": "hpSwitchEntityErrorMsg",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchSnmpErrorCode": {
+    "name": "hpSwitchSnmpErrorCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchErrorMsgMIBConformance": {
+    "name": "hpSwitchErrorMsgMIBConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchErrorMsgMIBCompliances": {
+    "name": "hpSwitchErrorMsgMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.2.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchErrorMsgMIBGroups": {
+    "name": "hpSwitchErrorMsgMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.2.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchErrorMsgMIBCompliance": {
+    "name": "hpSwitchErrorMsgMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpSwitchErrorMsgMIBGroup",
+        "module": "HP-SWITCH-ERROR-MSG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchErrorMsgMIBGroup": {
+    "name": "hpSwitchErrorMsgMIBGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.68.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchErrorTime"
+      },
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchErrorFailedOID"
+      },
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchEntityErrorMsg"
+      },
+      {
+        "module": "HP-SWITCH-ERROR-MSG-MIB",
+        "object": "hpSwitchSnmpErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-SWITCH-ERROR-MSG-MIB",
+      "Source digest sha256:ff2a2764439a095429fdcf51502aa9ec4b7216d6ad24afffe4a798d0bd7e8815",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-SWITCH-ERROR-MSG-MIB"
+  }
+}

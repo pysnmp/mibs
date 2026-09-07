@@ -1,0 +1,615 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "ENTITY-STATE-MIB": [
+      "EntityStandbyStatus"
+    ],
+    "HP-ICF-OID": [
+      "hpicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfHighAvailability": {
+    "name": "hpicfHighAvailability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-05 00:00",
+        "description": "Added hpicfHAPreferredActiveManagement to hpicfHAConfigObjects. And added hpicfHAConfigGroup1 and deprecated hpicfHAConfigGroup and hpicfHACompliance"
+      },
+      {
+        "revision": "2012-05-15 00:00",
+        "description": "Added hpicfHAMgmtModuleBackUpState to the table hpicfHAMgmtModuleTable.Added hpicfHAMgmtModuleGroup, hpicfHACompliance2 and deprecated hpicfHAMgmtModuleGroup and hpicfHACompliance1."
+      },
+      {
+        "revision": "2009-10-18 00:00",
+        "description": "Added hpicfHAFailOverLogTable and hpicfHAMgmtModuleTable."
+      },
+      {
+        "revision": "2009-09-06 00:00",
+        "description": "Added hpicfHAContinuousFwdingTime and Removed hpicfHARedundancyWarmStandby scalar mib and added it as enum to hpicfHARedundancyManagementModuleMode."
+      },
+      {
+        "revision": "2009-08-21 00:00",
+        "description": "Added hpicfHARedundancyWarmStandby scalar mib."
+      },
+      {
+        "revision": "2006-09-05 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "hpicfHAConfigObjects": {
+    "name": "hpicfHAConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.1",
+    "class": "objectidentity"
+  },
+  "hpicfHAStatusObjects": {
+    "name": "hpicfHAStatusObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpicfHAConformance": {
+    "name": "hpicfHAConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3",
+    "class": "objectidentity"
+  },
+  "hpicfHARedundancyManagementModuleMode": {
+    "name": "hpicfHARedundancyManagementModuleMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "warmStandby": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfHAContinuousFwdingTime": {
+    "name": "hpicfHAContinuousFwdingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfHAPreferredActiveManagement": {
+    "name": "hpicfHAPreferredActiveManagement",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "management-module1": 1,
+          "management-module2": 2
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfHAMgmtRedundancyFailureReason": {
+    "name": "hpicfHAMgmtRedundancyFailureReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRedundantModule": 1,
+          "noFailure": 2,
+          "unknownReason": 3,
+          "mismatchOS": 4,
+          "failedSelftest": 5,
+          "communicationFailure": 6,
+          "redundancyDisable": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtFailovers": {
+    "name": "hpicfHAMgmtFailovers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHALastFailoverTime": {
+    "name": "hpicfHALastFailoverTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAFailOverLogTable": {
+    "name": "hpicfHAFailOverLogTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfHAFailOverLogEntry": {
+    "name": "hpicfHAFailOverLogEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAFailOverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAFailOverIndex": {
+    "name": "hpicfHAFailOverIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfHAFailOverMgmtModule": {
+    "name": "hpicfHAFailOverMgmtModule",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAFailOverState": {
+    "name": "hpicfHAFailOverState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAFailOverTime": {
+    "name": "hpicfHAFailOverTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAFailOverReason": {
+    "name": "hpicfHAFailOverReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "switchoverReq": 1,
+          "buttonReq": 2,
+          "crashReq": 3,
+          "activeReset": 4,
+          "altReset": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleTable": {
+    "name": "hpicfHAMgmtModuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleEntry": {
+    "name": "hpicfHAMgmtModuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleState": {
+    "name": "hpicfHAMgmtModuleState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityStandbyStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleCardUpSince": {
+    "name": "hpicfHAMgmtModuleCardUpSince",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleStateSince": {
+    "name": "hpicfHAMgmtModuleStateSince",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleRedundancyState": {
+    "name": "hpicfHAMgmtModuleRedundancyState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 1,
+          "active": 2,
+          "disabled": 3,
+          "syncing": 4,
+          "warmStandby": 5,
+          "hitless": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleBackUpState": {
+    "name": "hpicfHAMgmtModuleBackUpState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "unknown": 1,
+          "waiting": 2,
+          "realtimeBackupToSlave": 3,
+          "slaveIsAbsent": 4,
+          "batchBackup": 5,
+          "receivingRealtimeData": 6,
+          "offline": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfHACompliances": {
+    "name": "hpicfHACompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfHAGroups": {
+    "name": "hpicfHAGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfHACompliance": {
+    "name": "hpicfHACompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfHAConfigGroup",
+        "module": "HpicfHighAvailability-MIB"
+      },
+      {
+        "object": "hpicfHAStatusGroup",
+        "module": "HpicfHighAvailability-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfHACompliance1": {
+    "name": "hpicfHACompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfHAFailOverGroup",
+        "module": "HpicfHighAvailability-MIB"
+      },
+      {
+        "object": "hpicfHAMgmtModuleGroup",
+        "module": "HpicfHighAvailability-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfHACompliance2": {
+    "name": "hpicfHACompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfHAFailOverGroup",
+        "module": "HpicfHighAvailability-MIB"
+      },
+      {
+        "object": "hpicfHAMgmtModuleGroup1",
+        "module": "HpicfHighAvailability-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHACompliance3": {
+    "name": "hpicfHACompliance3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfHAConfigGroup1",
+        "module": "HpicfHighAvailability-MIB"
+      },
+      {
+        "object": "hpicfHAStatusGroup",
+        "module": "HpicfHighAvailability-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAConfigGroup": {
+    "name": "hpicfHAConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHARedundancyManagementModuleMode"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAContinuousFwdingTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfHAStatusGroup": {
+    "name": "hpicfHAStatusGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtRedundancyFailureReason"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtFailovers"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHALastFailoverTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAFailOverGroup": {
+    "name": "hpicfHAFailOverGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAFailOverMgmtModule"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAFailOverState"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAFailOverTime"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAFailOverReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAMgmtModuleGroup": {
+    "name": "hpicfHAMgmtModuleGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleState"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleCardUpSince"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleStateSince"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleRedundancyState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfHAMgmtModuleGroup1": {
+    "name": "hpicfHAMgmtModuleGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleState"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleCardUpSince"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleStateSince"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleRedundancyState"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAMgmtModuleBackUpState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfHAConfigGroup1": {
+    "name": "hpicfHAConfigGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.11.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHARedundancyManagementModuleMode"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAContinuousFwdingTime"
+      },
+      {
+        "module": "HpicfHighAvailability-MIB",
+        "object": "hpicfHAPreferredActiveManagement"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HpicfHighAvailability-MIB",
+      "Source digest sha256:832ee3a4c6f1c66164f07519a6ce9659849e014b18bb57ceeb72baa7c6f52836",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HpicfHighAvailability-MIB"
+  }
+}

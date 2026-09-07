@@ -1,0 +1,163 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIeee8021CfmExtCapability": {
+    "name": "ciscoIeee8021CfmExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.576",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIeee8021CfmExtCapCatOSV08R0702": {
+    "name": "ciscoIeee8021CfmExtCapCatOSV08R0702",
+    "oid": "1.3.6.1.4.1.9.7.576.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(2).",
+    "capabilities": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "includes": [
+          "ciceCfmGlobalObjectsGroup",
+          "ciceCfmLtrConfigGroup",
+          "ciceCfmMaNetGroup",
+          "ciceCfmInterfaceGroup",
+          "ciceCfmMipGroup",
+          "ciceCfmMacEnableGroup"
+        ],
+        "variations": [
+          {
+            "object": "ciceCfmLtrHoldTime",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2880
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ciceCfmLtrSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 4095
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ciceCfmMaNetLossThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 255
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ciceCfmMipMdLevel",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 7
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ciceCfmMipStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ciceCfmMipRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ciceCfmMacEnableStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ciceCfmMacEnableRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IEEE8021-CFM-EXT-CAPABILITY",
+      "Source digest sha256:042b5aa9f1eec6e2e115c8af7337577af648413c3067bedfadc6510b1173b6b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IEEE8021-CFM-EXT-CAPABILITY"
+  }
+}

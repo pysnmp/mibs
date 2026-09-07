@@ -1,0 +1,470 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SIAE-ALARM-MIB": [
+      "AlarmSeverityCode",
+      "AlarmStatus"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "llf": {
+    "name": "llf",
+    "oid": "1.3.6.1.4.1.3373.1103.85",
+    "class": "moduleidentity"
+  },
+  "llfMibVersion": {
+    "name": "llfMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.85.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfTable": {
+    "name": "llfTable",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llfEntry": {
+    "name": "llfEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llfIndex": {
+    "name": "llfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llfEnable": {
+    "name": "llfEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfUnidirectionalFault": {
+    "name": "llfUnidirectionalFault",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfDelayTime": {
+    "name": "llfDelayTime",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfProtectionMode": {
+    "name": "llfProtectionMode",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfAlarm": {
+    "name": "llfAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfRowStatus": {
+    "name": "llfRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.85.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfMapTable": {
+    "name": "llfMapTable",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llfMapEntry": {
+    "name": "llfMapEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfMapLinkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfMapPolIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfMapCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llfMapLinkIndex": {
+    "name": "llfMapLinkIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfMapPolIndex": {
+    "name": "llfMapPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfMapCircuitIndex": {
+    "name": "llfMapCircuitIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfMapLosInsertion": {
+    "name": "llfMapLosInsertion",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfMapInsertionMode": {
+    "name": "llfMapInsertionMode",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "group": 2
+        }
+      }
+    },
+    "default": {
+      "value": "single",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfMapSignalFail": {
+    "name": "llfMapSignalFail",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfMapRowStatus": {
+    "name": "llfMapRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.85.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfCircuitTable": {
+    "name": "llfCircuitTable",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llfCircuitEntry": {
+    "name": "llfCircuitEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfCircuitLinkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfCircuitPolIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-LLF-MIB",
+        "object": "llfCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llfCircuitLinkIndex": {
+    "name": "llfCircuitLinkIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfCircuitPolIndex": {
+    "name": "llfCircuitPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfCircuitIndex": {
+    "name": "llfCircuitIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfCircuitLinkLabel": {
+    "name": "llfCircuitLinkLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llfCircuitRowStatus": {
+    "name": "llfCircuitRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.85.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llfAlarmSeverityCode": {
+    "name": "llfAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.85.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "value": "majorTrapEnable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-LLF-MIB",
+      "Source digest sha256:fb94d6dfadf568e156e5755333b82683ab4fa7cd117a3206859d9db77177fd0a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-LLF-MIB"
+  }
+}

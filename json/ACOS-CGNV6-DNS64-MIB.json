@@ -1,0 +1,264 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgnv6Dns64Module": {
+    "name": "cgnv6Dns64Module",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420",
+    "class": "moduleidentity"
+  },
+  "dns64": {
+    "name": "dns64",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1",
+    "class": "objectidentity"
+  },
+  "dns64StatsTable": {
+    "name": "dns64StatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dns64StatsEntry": {
+    "name": "dns64StatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CGNV6-DNS64-MIB",
+        "object": "dns64StatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dns64StatsSlotId": {
+    "name": "dns64StatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsQuery": {
+    "name": "dns64StatsQuery",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsQueryBadPkt": {
+    "name": "dns64StatsQueryBadPkt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsQueryChg": {
+    "name": "dns64StatsQueryChg",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsQueryParallel": {
+    "name": "dns64StatsQueryParallel",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsQueryPassive": {
+    "name": "dns64StatsQueryPassive",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsResp": {
+    "name": "dns64StatsResp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespBadPkt": {
+    "name": "dns64StatsRespBadPkt",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespBadQr": {
+    "name": "dns64StatsRespBadQr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespChg": {
+    "name": "dns64StatsRespChg",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespErr": {
+    "name": "dns64StatsRespErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespEmpty": {
+    "name": "dns64StatsRespEmpty",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsRespLocal": {
+    "name": "dns64StatsRespLocal",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsAdjust": {
+    "name": "dns64StatsAdjust",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsCache": {
+    "name": "dns64StatsCache",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns64StatsDrop": {
+    "name": "dns64StatsDrop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.420.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CGNV6-DNS64-MIB",
+      "Source digest sha256:2d72201428ce9e213327fbba39965a50695a4cbcd0210195c0a6e1010a35c5e4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CGNV6-DNS64-MIB"
+  }
+}

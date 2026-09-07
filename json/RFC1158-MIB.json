@@ -1,0 +1,97 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "mgmt"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "mib_2": {
+    "name": "mib_2",
+    "oid": "1.3.6.1.2.1",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "interfaces": {
+    "name": "interfaces",
+    "oid": "1.3.6.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "at": {
+    "name": "at",
+    "oid": "1.3.6.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "icmp": {
+    "name": "icmp",
+    "oid": "1.3.6.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "tcp": {
+    "name": "tcp",
+    "oid": "1.3.6.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "udp": {
+    "name": "udp",
+    "oid": "1.3.6.1.2.1.7",
+    "class": "objectidentity"
+  },
+  "egp": {
+    "name": "egp",
+    "oid": "1.3.6.1.2.1.8",
+    "class": "objectidentity"
+  },
+  "transmission": {
+    "name": "transmission",
+    "oid": "1.3.6.1.2.1.10",
+    "class": "objectidentity"
+  },
+  "snmp": {
+    "name": "snmp",
+    "oid": "1.3.6.1.2.1.11",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RFC1158-MIB",
+      "Source digest sha256:cb0929e5063976b4084dd32c164e471a690c31c0b606e15e4d968b0a8199c641",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RFC1158-MIB"
+  }
+}

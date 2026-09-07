@@ -1,0 +1,720 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "VRRPV3-MIB": [
+      "vrrpv3AssociatedIpAddrEntry",
+      "vrrpv3OperationsEntry",
+      "vrrpv3OperationsInetAddrType",
+      "vrrpv3OperationsVrId"
+    ]
+  },
+  "hpicfVrrpv3MIB": {
+    "name": "hpicfVrrpv3MIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-16 00:00",
+        "description": "Added an object to support the bfd protocol operations under vrrp. Added hpicfVrrpv3VrBfdIPAddr."
+      },
+      {
+        "revision": "2012-11-21 00:00",
+        "description": "Added statistics objects."
+      },
+      {
+        "revision": "2012-10-25 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfVrrpv3Operations": {
+    "name": "hpicfVrrpv3Operations",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpv3ErrorObjects": {
+    "name": "hpicfVrrpv3ErrorObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpv3Conformance": {
+    "name": "hpicfVrrpv3Conformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpv3IPv4AdminStatus": {
+    "name": "hpicfVrrpv3IPv4AdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv6AdminStatus": {
+    "name": "hpicfVrrpv3IPv6AdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3OperationsTable": {
+    "name": "hpicfVrrpv3OperationsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpv3OperationsEntry": {
+    "name": "hpicfVrrpv3OperationsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfVrrpv3OperationsEntry",
+      "module": "HP-ICF-VRRPV3-MIB",
+      "object": "vrrpv3OperationsEntry"
+    },
+    "status": "current"
+  },
+  "hpicfVrrpv3VrMode": {
+    "name": "hpicfVrrpv3VrMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "owner": 1,
+          "backup": 2,
+          "uninitialized": 3
+        }
+      }
+    },
+    "default": {
+      "value": "uninitialized",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrPreemptDelayTime": {
+    "name": "hpicfVrrpv3VrPreemptDelayTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrControl": {
+    "name": "hpicfVrrpv3VrControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failback": 1,
+          "failover": 2,
+          "failoverWithMonitoring": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "default": {
+      "value": "invalid",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrRespondToPing": {
+    "name": "hpicfVrrpv3VrRespondToPing",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3Version": {
+    "name": "hpicfVrrpv3Version",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrNullAuthCompatibility": {
+    "name": "hpicfVrrpv3VrNullAuthCompatibility",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrBfdIPAddr": {
+    "name": "hpicfVrrpv3VrBfdIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3TrackTable": {
+    "name": "hpicfVrrpv3TrackTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpv3TrackEntry": {
+    "name": "hpicfVrrpv3TrackEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsVrId",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrTrackType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrTrackEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVrrpv3VrTrackType": {
+    "name": "hpicfVrrpv3VrTrackType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "trunk": 2,
+          "vlan": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpv3VrTrackEntity": {
+    "name": "hpicfVrrpv3VrTrackEntity",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpv3TrackRowStatus": {
+    "name": "hpicfVrrpv3TrackRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfVrrpv3StatsTable": {
+    "name": "hpicfVrrpv3StatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfVrrpv3StatsEntry": {
+    "name": "hpicfVrrpv3StatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfVrrpv3StatsEntry",
+      "module": "HP-ICF-VRRPV3-MIB",
+      "object": "vrrpv3OperationsEntry"
+    },
+    "status": "current"
+  },
+  "hpicfVrrpv3StatsNearFailovers": {
+    "name": "hpicfVrrpv3StatsNearFailovers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3RespondToPing": {
+    "name": "hpicfVrrpv3RespondToPing",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3RemoveConfig": {
+    "name": "hpicfVrrpv3RemoveConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3Nonstop": {
+    "name": "hpicfVrrpv3Nonstop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3NotificationCntl": {
+    "name": "hpicfVrrpv3NotificationCntl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv4RouterChecksumErrors": {
+    "name": "hpicfVrrpv3IPv4RouterChecksumErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv6RouterChecksumErrors": {
+    "name": "hpicfVrrpv3IPv6RouterChecksumErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv4RouterVersionErrors": {
+    "name": "hpicfVrrpv3IPv4RouterVersionErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv6RouterVersionErrors": {
+    "name": "hpicfVrrpv3IPv6RouterVersionErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv4RouterVrIdErrors": {
+    "name": "hpicfVrrpv3IPv4RouterVrIdErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3IPv6RouterVrIdErrors": {
+    "name": "hpicfVrrpv3IPv6RouterVrIdErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfVrrpv3MIBCompliances": {
+    "name": "hpicfVrrpv3MIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpv3MIBGroups": {
+    "name": "hpicfVrrpv3MIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfVrrpv3MIBCompliance": {
+    "name": "hpicfVrrpv3MIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfVrrpv3OperGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      },
+      {
+        "object": "hpicfVrrpv3TrackGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      },
+      {
+        "object": "hpicfVrrpv3BfdGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      },
+      {
+        "object": "hpicfVrrpv3OperGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      },
+      {
+        "object": "hpicfVrrpv3TrackGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      },
+      {
+        "object": "hpicfVrrpv3BfdGroup",
+        "module": "HP-ICF-VRRPV3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVrrpv3OperGroup": {
+    "name": "hpicfVrrpv3OperGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv4AdminStatus"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv6AdminStatus"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3Version"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrMode"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrRespondToPing"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrPreemptDelayTime"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrControl"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3StatsNearFailovers"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrNullAuthCompatibility"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3RespondToPing"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3RemoveConfig"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3Nonstop"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3NotificationCntl"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv4RouterChecksumErrors"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv6RouterChecksumErrors"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv4RouterVersionErrors"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv6RouterVersionErrors"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv4RouterVrIdErrors"
+      },
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3IPv6RouterVrIdErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVrrpv3TrackGroup": {
+    "name": "hpicfVrrpv3TrackGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3TrackRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfVrrpv3BfdGroup": {
+    "name": "hpicfVrrpv3BfdGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.90.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-VRRPV3-MIB",
+        "object": "hpicfVrrpv3VrBfdIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-VRRPV3-MIB",
+      "Source digest sha256:dcb301206710d692bd5d15694e06510ce16d0c39ed7baade0811b542a1f3add0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-VRRPV3-MIB"
+  }
+}

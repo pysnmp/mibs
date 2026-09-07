@@ -1,0 +1,56 @@
+#
+# PySNMP MIB module ALCATEL-IND1-SSH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ALCATEL-IND1-SSH-MIB
+# Source digest sha256:62676a0c8b1e2e4957615731eb1fde56105494ac576ad29a19b7e4e35397391f
+# Produced by pysmi-2.3.0
+#
+softentIND1Ssh, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1Ssh")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelIND1SshMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1))
+alcatelIND1SshMIB.setRevisions(('2019-10-07 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: alcatelIND1SshMIB.setRevisionsDescriptions(('Updated the latest contact and Copyright information for ALE USA Inc.',))
+if mibBuilder.loadTexts: alcatelIND1SshMIB.setLastUpdated('2019-10-07 00:00')
+if mibBuilder.loadTexts: alcatelIND1SshMIB.setOrganization('ALE USA Inc')
+if mibBuilder.loadTexts: alcatelIND1SshMIB.setContactInfo('Please consult with Customer Service to ensure the most appropriate\n\t     version of this document is used with the products in question:\n \n\t\t\t    Alcatel-Lucent Enterprise,\n\t\t\t       26801 West Agoura Road\n\t\t\t    Agoura Hills, CA  91301-5122\n\t\t\t      United States Of America\n\t\n\t    Telephone:               +1 800 995 2696 \t\t\t\t                \n\t\n\t    Electronic Mail:         ebg_global_supportcenter@al-enterprise.com\n\t    World Wide Web:          https://www.al-enterprise.com')
+if mibBuilder.loadTexts: alcatelIND1SshMIB.setDescription('This module describes an authoritative enterprise-specific \n             SSH Management Information Base (MIB):\n         \n                 For the OmniSwitch Product Line\n                 SSH Subsystem.\n         \n             The right to make changes in specification and other information\n             contained in this document without prior notice is reserved.\n         \n             No liability shall be assumed for any incidental, indirect, special, or\n             consequential damages whatsoever arising from or related to this\n             document or the information contained herein.\n         \n             Vendors, end-users, and other interested parties are granted\n             non-exclusive license to use this specification in connection with\n             management of the products for which it is intended to be used.\n         \n                          Copyright (C) ALE USA Inc. 2014-2019\n\t\t\t  Copyright (C) 1995-2013 Alcatel-Lucent\n                          ALL RIGHTS RESERVED WORLDWIDE')
+alcatelIND1SshMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 1))
+if mibBuilder.loadTexts: alcatelIND1SshMIBObjects.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1SshMIBObjects.setDescription('Branch For SNMP Agent Subsystem Managed Objects.')
+alcatelIND1SshMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 2))
+if mibBuilder.loadTexts: alcatelIND1SshMIBConformance.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1SshMIBConformance.setDescription('Branch For SSH Subsystem Conformance Information.')
+alcatelIND1SshMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1SshMIBGroups.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1SshMIBGroups.setDescription('Branch For SSH Subsystem Units Of Conformance.')
+alcatelIND1SshMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1SshMIBCompliances.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1SshMIBCompliances.setDescription('Branch For SSH Subsystem Compliance Statements.')
+alaSshAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaSshAdminStatus.setStatus('current')
+if mibBuilder.loadTexts: alaSshAdminStatus.setDescription('Indicates whether the SSH service is enabled on the switch.')
+alaScpSftpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaScpSftpAdminStatus.setStatus('current')
+if mibBuilder.loadTexts: alaScpSftpAdminStatus.setDescription('Indicates whether the SCP/SFTP service is enabled \n\t\t  on the switch.')
+alaSshPubKeyEnforceAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaSshPubKeyEnforceAdminStatus.setStatus('current')
+if mibBuilder.loadTexts: alaSshPubKeyEnforceAdminStatus.setDescription('Indicates whether the Public Key Authentication is enforced \n\t\t  on the switch.')
+alaSshPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaSshPortNumber.setStatus('current')
+if mibBuilder.loadTexts: alaSshPortNumber.setDescription('Indicates the SSH port number')
+alcatelIND1SshMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-SSH-MIB", "alaSshConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1SshMIBCompliance = alcatelIND1SshMIBCompliance.setStatus('current')
+if mibBuilder.loadTexts: alcatelIND1SshMIBCompliance.setDescription('Compliance statement for SSH Subsystem.')
+alaSshConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 39, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-SSH-MIB", "alaSshAdminStatus"), ("ALCATEL-IND1-SSH-MIB", "alaScpSftpAdminStatus"), ("ALCATEL-IND1-SSH-MIB", "alaSshPubKeyEnforceAdminStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaSshConfigGroup = alaSshConfigGroup.setStatus('current')
+if mibBuilder.loadTexts: alaSshConfigGroup.setDescription('Collection of objects for SSH configuration.')
+mibBuilder.exportSymbols("ALCATEL-IND1-SSH-MIB", PYSNMP_MODULE_ID=alcatelIND1SshMIB, alaScpSftpAdminStatus=alaScpSftpAdminStatus, alaSshAdminStatus=alaSshAdminStatus, alaSshConfigGroup=alaSshConfigGroup, alaSshPortNumber=alaSshPortNumber, alaSshPubKeyEnforceAdminStatus=alaSshPubKeyEnforceAdminStatus, alcatelIND1SshMIB=alcatelIND1SshMIB, alcatelIND1SshMIBCompliance=alcatelIND1SshMIBCompliance, alcatelIND1SshMIBCompliances=alcatelIND1SshMIBCompliances, alcatelIND1SshMIBConformance=alcatelIND1SshMIBConformance, alcatelIND1SshMIBGroups=alcatelIND1SshMIBGroups, alcatelIND1SshMIBObjects=alcatelIND1SshMIBObjects)

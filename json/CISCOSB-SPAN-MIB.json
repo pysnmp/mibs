@@ -1,0 +1,317 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "rndNotifications",
+      "switch001"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "SpanDestinationPortType": {
+    "name": "SpanDestinationPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitor-only": 1,
+          "network": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SpanSourceType": {
+    "name": "SpanSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "vlan": 2,
+          "flow": 3,
+          "remote-vlan": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SpanSourceDirection": {
+    "name": "SpanSourceDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rx": 1,
+          "tx": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SpanDestinationReflectorType": {
+    "name": "SpanDestinationReflectorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "span": 1,
+          "rspan-start": 2,
+          "rspan-final": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSpan": {
+    "name": "rlSpan",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-25 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlSpanMibVersion": {
+    "name": "rlSpanMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSpanDestinationTable": {
+    "name": "rlSpanDestinationTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanDestinationEntry": {
+    "name": "rlSpanDestinationEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SPAN-MIB",
+        "object": "rlSpanDestinationSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSpanDestinationSessionId": {
+    "name": "rlSpanDestinationSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanDestinationIfIndex": {
+    "name": "rlSpanDestinationIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanDestinationIsReflector": {
+    "name": "rlSpanDestinationIsReflector",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanDestinationReflectorType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanDestinationPortType": {
+    "name": "rlSpanDestinationPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanDestinationPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanDestinationRemoteVlanId": {
+    "name": "rlSpanDestinationRemoteVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanDestinationRowStatus": {
+    "name": "rlSpanDestinationRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanSourceTable": {
+    "name": "rlSpanSourceTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanSourceEntry": {
+    "name": "rlSpanSourceEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SPAN-MIB",
+        "object": "rlSpanSourceSessionId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SPAN-MIB",
+        "object": "rlSpanSourceType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SPAN-MIB",
+        "object": "rlSpanSourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSpanSourceSessionId": {
+    "name": "rlSpanSourceSessionId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanSourceType": {
+    "name": "rlSpanSourceType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanSourceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanSourceIndex": {
+    "name": "rlSpanSourceIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSpanSourceDirection": {
+    "name": "rlSpanSourceDirection",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanSourceDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSpanSourceRowStatus": {
+    "name": "rlSpanSourceRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.219.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOSB-SPAN-MIB",
+      "Source digest sha256:c90a158b892129f6054d34979d3538e47d00e6ef5bba5e12e4da9fb4de88d497",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOSB-SPAN-MIB"
+  }
+}

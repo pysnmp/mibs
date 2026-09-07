@@ -1,0 +1,297 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVmpsCapability": {
+    "name": "ciscoVmpsCapability",
+    "oid": "1.3.6.1.4.1.9.7.365",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-04-07 00:00",
+        "description": "Added capability statement ciscoVmpsCapCatOSV08R0401."
+      },
+      {
+        "revision": "2004-03-12 00:00",
+        "description": "Added capability statement ciscoVmpsCapCatOSV08R0301."
+      },
+      {
+        "revision": "2003-10-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVmpsCapCatOSV08R0101": {
+    "name": "ciscoVmpsCapCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.365.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "includes": [
+          "ciscoVlanMemberPolicyServerGroup",
+          "ciscoVlanMemberPolicyServerRcpGroup"
+        ],
+        "variations": [
+          {
+            "object": "vmpsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsConfigFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 32
+                  }
+                ]
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "vmpsRcpRemoteUserName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 40
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vmpsMacConfigVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsMacConfigStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsVlanConfigStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVmpsCapCatOSV08R0301": {
+    "name": "ciscoVmpsCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.365.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) for Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "includes": [
+          "ciscoVlanMemberPolicyServerGroup",
+          "ciscoVlanMemberPolicyServerRcpGroup",
+          "ciscoVmpsAutoBackupGroup"
+        ],
+        "variations": [
+          {
+            "object": "vmpsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsConfigFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 32
+                  }
+                ]
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "vmpsRcpRemoteUserName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 40
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vmpsMacConfigVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsMacConfigStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsVlanConfigStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsAutoBackupFileName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 7,
+                    "max": 94
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVmpsCapCatOSV08R0401": {
+    "name": "ciscoVmpsCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.365.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "includes": [
+          "ciscoVlanMemberPolicyServerGroup",
+          "ciscoVlanMemberPolicyServerRcpGroup",
+          "ciscoVlanMemberPolicyServerRcpGroup2",
+          "ciscoVmpsAutoBackupGroup"
+        ],
+        "variations": [
+          {
+            "object": "vmpsRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsConfigFileName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 32
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vmpsRcpRemoteUserName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 40
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vmpsRcpRemoteUserName2",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 40
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "vmpsMacConfigVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsMacConfigStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsVlanConfigStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "vmpsAutoBackupFileName",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 7,
+                    "max": 94
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VMPS-CAPABILITY",
+      "Source digest sha256:894d4a9c88394fd96005a9648c0f0fff1c6bdf05760b221e09af878cf0ac3223",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VMPS-CAPABILITY"
+  }
+}

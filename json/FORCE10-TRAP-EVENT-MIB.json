@@ -1,0 +1,402 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORCE10-SMI": [
+      "f10Mgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowPointer",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "f10TrapEventMib": {
+    "name": "f10TrapEventMib",
+    "oid": "1.3.6.1.4.1.6027.3.6",
+    "class": "moduleidentity"
+  },
+  "f10TrapEventObjects": {
+    "name": "f10TrapEventObjects",
+    "oid": "1.3.6.1.4.1.6027.3.6.1",
+    "class": "objectidentity"
+  },
+  "f10HistoryTrapEvent": {
+    "name": "f10HistoryTrapEvent",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "f10ActiveTrapEvent": {
+    "name": "f10ActiveTrapEvent",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "f10TrapVarbindEvent": {
+    "name": "f10TrapVarbindEvent",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3",
+    "class": "objectidentity"
+  },
+  "f10ChassisTrapEventId": {
+    "name": "f10ChassisTrapEventId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10LastTrapEventSeqId": {
+    "name": "f10LastTrapEventSeqId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MaxHistoryTableSize": {
+    "name": "f10MaxHistoryTableSize",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10HistoryTrapEventTable": {
+    "name": "f10HistoryTrapEventTable",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10HistoryTrapEventEntry": {
+    "name": "f10HistoryTrapEventEntry",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-TRAP-EVENT-MIB",
+        "object": "historyTrapEventSeqId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "historyTrapEventSeqId": {
+    "name": "historyTrapEventSeqId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyTrapEventSeverity": {
+    "name": "historyTrapEventSeverity",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyTrapEventType": {
+    "name": "historyTrapEventType",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyTrapEventMsg": {
+    "name": "historyTrapEventMsg",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyTrapEventOid": {
+    "name": "historyTrapEventOid",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyTrapEventSlotPort": {
+    "name": "historyTrapEventSlotPort",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyTrapEventTimeStamp": {
+    "name": "historyTrapEventTimeStamp",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ActiveTrapEventTable": {
+    "name": "f10ActiveTrapEventTable",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10ActiveTrapEventEntry": {
+    "name": "f10ActiveTrapEventEntry",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-TRAP-EVENT-MIB",
+        "object": "activeTrapEventSeqId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "activeTrapEventSeqId": {
+    "name": "activeTrapEventSeqId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeTrapEventSeverity": {
+    "name": "activeTrapEventSeverity",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeTrapEventType": {
+    "name": "activeTrapEventType",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeTrapEventMsg": {
+    "name": "activeTrapEventMsg",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeTrapEventOid": {
+    "name": "activeTrapEventOid",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeTrapEventSlotPort": {
+    "name": "activeTrapEventSlotPort",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeTrapEventTimeStamp": {
+    "name": "activeTrapEventTimeStamp",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10TrapEventVarbindTable": {
+    "name": "f10TrapEventVarbindTable",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10TrapEventVarbindEntry": {
+    "name": "f10TrapEventVarbindEntry",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-TRAP-EVENT-MIB",
+        "object": "trapEventVarbindSeqId",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-TRAP-EVENT-MIB",
+        "object": "trapEventVarbindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trapEventVarbindSeqId": {
+    "name": "trapEventVarbindSeqId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapEventVarbindId": {
+    "name": "trapEventVarbindId",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapEventVarbindOid": {
+    "name": "trapEventVarbindOid",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapEventVarbindType": {
+    "name": "trapEventVarbindType",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapEventVarbindValue": {
+    "name": "trapEventVarbindValue",
+    "oid": "1.3.6.1.4.1.6027.3.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FORCE10-TRAP-EVENT-MIB",
+      "Source digest sha256:43943164b809a43c30109a73e087999863cacf7e6b085b1936f0fee77a7743b4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FORCE10-TRAP-EVENT-MIB"
+  }
+}

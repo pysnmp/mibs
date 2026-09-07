@@ -1,0 +1,308 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "UTFString"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eqlInternalModule": {
+    "name": "eqlInternalModule",
+    "oid": "1.3.6.1.4.1.12740.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-28 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlInternalObjects": {
+    "name": "eqlInternalObjects",
+    "oid": "1.3.6.1.4.1.12740.27.1",
+    "class": "objectidentity"
+  },
+  "eqlMonitorTable": {
+    "name": "eqlMonitorTable",
+    "oid": "1.3.6.1.4.1.12740.27.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMonitorEntry": {
+    "name": "eqlMonitorEntry",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLINTERNAL-MIB",
+        "object": "eqlMonitorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMonitorIndex": {
+    "name": "eqlMonitorIndex",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMonitorRowStatus": {
+    "name": "eqlMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorUUID": {
+    "name": "eqlMonitorUUID",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorServerName": {
+    "name": "eqlMonitorServerName",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorDomainName": {
+    "name": "eqlMonitorDomainName",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorInetAddressType": {
+    "name": "eqlMonitorInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorInetAddress": {
+    "name": "eqlMonitorInetAddress",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorSupportAssist": {
+    "name": "eqlMonitorSupportAssist",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supportAssistNone": 0,
+          "supportAssistInstalledNotEnabled": 1,
+          "supportAssistEnabled": 2,
+          "supportAssistCommunicatingWithDell": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorTimestamp": {
+    "name": "eqlMonitorTimestamp",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorSupportAssistTimestamp": {
+    "name": "eqlMonitorSupportAssistTimestamp",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorLicensingTimestamp": {
+    "name": "eqlMonitorLicensingTimestamp",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorDescription": {
+    "name": "eqlMonitorDescription",
+    "oid": "1.3.6.1.4.1.12740.27.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMonitorStatusTable": {
+    "name": "eqlMonitorStatusTable",
+    "oid": "1.3.6.1.4.1.12740.27.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMonitorStatusEntry": {
+    "name": "eqlMonitorStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.27.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLINTERNAL-MIB",
+        "object": "eqlMonitorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMonitorStatusReminder": {
+    "name": "eqlMonitorStatusReminder",
+    "oid": "1.3.6.1.4.1.12740.27.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitoringExpired": 0,
+          "monitoringCurrent": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EQLINTERNAL-MIB",
+      "Source digest sha256:41f49782cfb687ef8f3d2c0e77a91bef0c90ea263c076c84692aea41fef5c0a8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EQLINTERNAL-MIB"
+  }
+}

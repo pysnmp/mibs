@@ -1,0 +1,851 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfRipng": {
+    "name": "hpicfRipng",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-11 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfRipngNotifications": {
+    "name": "hpicfRipngNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.0",
+    "class": "objectidentity"
+  },
+  "hpicfRipngObjects": {
+    "name": "hpicfRipngObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipngConformance": {
+    "name": "hpicfRipngConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2",
+    "class": "objectidentity"
+  },
+  "hpicfRipngBaseScalars": {
+    "name": "hpicfRipngBaseScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipngGlobalRouteChanges": {
+    "name": "hpicfRipngGlobalRouteChanges",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngGlobalQueries": {
+    "name": "hpicfRipngGlobalQueries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngAdminStatus": {
+    "name": "hpicfRipngAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngDefaultMetric": {
+    "name": "hpicfRipngDefaultMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngDistance": {
+    "name": "hpicfRipngDistance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 120,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngUpdateTime": {
+    "name": "hpicfRipngUpdateTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngTimeoutTime": {
+    "name": "hpicfRipngTimeoutTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 180,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngGarbageCollectTime": {
+    "name": "hpicfRipngGarbageCollectTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 120,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngNotificationEnable": {
+    "name": "hpicfRipngNotificationEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfRipngIfConfTable": {
+    "name": "hpicfRipngIfConfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngIfConfEntry": {
+    "name": "hpicfRipngIfConfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngIfConfIndex": {
+    "name": "hpicfRipngIfConfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngIfConfInstId": {
+    "name": "hpicfRipngIfConfInstId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngIfConfMetric": {
+    "name": "hpicfRipngIfConfMetric",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipngIfConfStatus": {
+    "name": "hpicfRipngIfConfStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipngIfConfSrcAddressType": {
+    "name": "hpicfRipngIfConfSrcAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngIfConfSrcAddress": {
+    "name": "hpicfRipngIfConfSrcAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngIfConfDoPoisonReverse": {
+    "name": "hpicfRipngIfConfDoPoisonReverse",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfRipngPeerTable": {
+    "name": "hpicfRipngPeerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngPeerEntry": {
+    "name": "hpicfRipngPeerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPeerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPeerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngPeerAddressType": {
+    "name": "hpicfRipngPeerAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngPeerAddress": {
+    "name": "hpicfRipngPeerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfRipngPeerLastUpdate": {
+    "name": "hpicfRipngPeerLastUpdate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngPeerRcvBadPackets": {
+    "name": "hpicfRipngPeerRcvBadPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfRipngNotificationEntry": {
+    "name": "hpicfRipngNotificationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4",
+    "class": "objectidentity"
+  },
+  "hpicfRipngConfigErrorType": {
+    "name": "hpicfRipngConfigErrorType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "badVersion": 1,
+          "badIPtype": 2,
+          "badHop": 3,
+          "badField": 4,
+          "ownPkt": 5,
+          "noError": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRipngPacketType": {
+    "name": "hpicfRipngPacketType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "nullPacket": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRipngPacketSrcType": {
+    "name": "hpicfRipngPacketSrcType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRipngPacketSrc": {
+    "name": "hpicfRipngPacketSrc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRipngIfState": {
+    "name": "hpicfRipngIfState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpicfRipngIfStateChange": {
+    "name": "hpicfRipngIfStateChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfSrcAddress"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngIfConfigError": {
+    "name": "hpicfRipngIfConfigError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfSrcAddress"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfState"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketSrc"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngConfigErrorType"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngIfRxBadPacket": {
+    "name": "hpicfRipngIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfSrcAddress"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfState"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketSrc"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngCompliances": {
+    "name": "hpicfRipngCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfRipngGroups": {
+    "name": "hpicfRipngGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfRipngCompliance": {
+    "name": "hpicfRipngCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfRipngBaseScalarsGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngIfConfGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngPeerGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngBaseScalarsGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngIfConfGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngPeerGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngNotificationObjectGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      },
+      {
+        "object": "hpicfRipngNotificationGroup",
+        "module": "HP-ICF-RIPNG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngBaseScalarsGroup": {
+    "name": "hpicfRipngBaseScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngGlobalRouteChanges"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngGlobalQueries"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngAdminStatus"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngDefaultMetric"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngDistance"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngUpdateTime"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngTimeoutTime"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngGarbageCollectTime"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngIfConfGroup": {
+    "name": "hpicfRipngIfConfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfMetric"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfStatus"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfSrcAddressType"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfSrcAddress"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfDoPoisonReverse"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngPeerGroup": {
+    "name": "hpicfRipngPeerGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPeerLastUpdate"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPeerRcvBadPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngNotificationObjectGroup": {
+    "name": "hpicfRipngNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngConfigErrorType"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketType"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketSrcType"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngPacketSrc"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfRipngNotificationGroup": {
+    "name": "hpicfRipngNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.113.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfStateChange"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfConfigError"
+      },
+      {
+        "module": "HP-ICF-RIPNG-MIB",
+        "object": "hpicfRipngIfRxBadPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-RIPNG-MIB",
+      "Source digest sha256:c442895a6cfa69906e429f61e08ad324388c8dc73ce3b7b7fd0c258029fff5c8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-RIPNG-MIB"
+  }
+}

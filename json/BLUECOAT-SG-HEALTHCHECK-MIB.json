@@ -1,0 +1,306 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECOAT-MIB": [
+      "blueCoatMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "deviceHealthCheckMIB": {
+    "name": "deviceHealthCheckMIB",
+    "oid": "1.3.6.1.4.1.3417.2.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-22 03:00",
+        "description": "Added OID for time of last health check."
+      },
+      {
+        "revision": "2013-05-21 03:00",
+        "description": "Added OIDs for device health check table."
+      },
+      {
+        "revision": "2007-11-05 03:00",
+        "description": "Minor corrections and reformatting. Changed the trap OID for compatibility with SNMPv1."
+      },
+      {
+        "revision": "2002-08-28 03:00",
+        "description": "Initial revision of this MIB."
+      }
+    ]
+  },
+  "deviceHealthCheckMIBObjects": {
+    "name": "deviceHealthCheckMIBObjects",
+    "oid": "1.3.6.1.4.1.3417.2.7.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBNotifs": {
+    "name": "deviceHealthCheckMIBNotifs",
+    "oid": "1.3.6.1.4.1.3417.2.7.2",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBConformance": {
+    "name": "deviceHealthCheckMIBConformance",
+    "oid": "1.3.6.1.4.1.3417.2.7.3",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBNotifsPrefix": {
+    "name": "deviceHealthCheckMIBNotifsPrefix",
+    "oid": "1.3.6.1.4.1.3417.2.7.2.0",
+    "class": "objectidentity"
+  },
+  "HealthCheckMessageString": {
+    "name": "HealthCheckMessageString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "deviceHealthCheckStringValues": {
+    "name": "deviceHealthCheckStringValues",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckValues": {
+    "name": "deviceHealthCheckValues",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMessage": {
+    "name": "deviceHealthCheckMessage",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthCheckMessageString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHealthCheckValueTable": {
+    "name": "deviceHealthCheckValueTable",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceHealthCheckValueEntry": {
+    "name": "deviceHealthCheckValueEntry",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "HealthCheckStatus": {
+    "name": "HealthCheckStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "okWithErrors": 3,
+          "okForSomeIPs": 4,
+          "okButFailing": 5,
+          "checkFailed": 6,
+          "dnsFailed": 7,
+          "okOnAltServer": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "deviceHealthCheckName": {
+    "name": "deviceHealthCheckName",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHealthCheckState": {
+    "name": "deviceHealthCheckState",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthCheckStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHealthCheckTime": {
+    "name": "deviceHealthCheckTime",
+    "oid": "1.3.6.1.4.1.3417.2.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHealthCheckTrap": {
+    "name": "deviceHealthCheckTrap",
+    "oid": "1.3.6.1.4.1.3417.2.7.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthCheckMIBCompliances": {
+    "name": "deviceHealthCheckMIBCompliances",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBGroups": {
+    "name": "deviceHealthCheckMIBGroups",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.2",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBNotifGroups": {
+    "name": "deviceHealthCheckMIBNotifGroups",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.3",
+    "class": "objectidentity"
+  },
+  "deviceHealthCheckMIBCompliance": {
+    "name": "deviceHealthCheckMIBCompliance",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "deviceHealthCheckMIBGroup",
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckName",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckState",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckTime",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckMessage",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthCheckMIBGroup": {
+    "name": "deviceHealthCheckMIBGroup",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckName"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckState"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckTime"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthCheckMIBNotifGroup": {
+    "name": "deviceHealthCheckMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.3417.2.7.3.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHCHECK-MIB",
+        "object": "deviceHealthCheckTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BLUECOAT-SG-HEALTHCHECK-MIB",
+      "Source digest sha256:f23c8bf187b076ce417b5d117ddc2b45b32a0bab84c2983e9805bd406c75918b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BLUECOAT-SG-HEALTHCHECK-MIB"
+  }
+}

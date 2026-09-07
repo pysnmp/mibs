@@ -1,0 +1,221 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfCoreDumpMIB": {
+    "name": "hpicfCoreDumpMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-13 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfCoreDumpObjects": {
+    "name": "hpicfCoreDumpObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1",
+    "class": "objectidentity"
+  },
+  "hpicfCoreDumpConformance": {
+    "name": "hpicfCoreDumpConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.2",
+    "class": "objectidentity"
+  },
+  "hpicfCoreDumpConfig": {
+    "name": "hpicfCoreDumpConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfCoreDumpTable": {
+    "name": "hpicfCoreDumpTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfCoreDumpEntry": {
+    "name": "hpicfCoreDumpEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-CORE-DUMP-MIB",
+        "object": "hpicfCoreDumpModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfCoreDumpModule": {
+    "name": "hpicfCoreDumpModule",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfCoreDumpMmStatus": {
+    "name": "hpicfCoreDumpMmStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfCoreDumpImStatus": {
+    "name": "hpicfCoreDumpImStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfCoreDumpTftpServerAddressType": {
+    "name": "hpicfCoreDumpTftpServerAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfCoreDumpTftpServerAddress": {
+    "name": "hpicfCoreDumpTftpServerAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfCoreDumpConfigGroups": {
+    "name": "hpicfCoreDumpConfigGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfCoreDumpCompliances": {
+    "name": "hpicfCoreDumpCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfCoreDumpConfigGroup": {
+    "name": "hpicfCoreDumpConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-CORE-DUMP-MIB",
+        "object": "hpicfCoreDumpMmStatus"
+      },
+      {
+        "module": "HP-ICF-CORE-DUMP-MIB",
+        "object": "hpicfCoreDumpImStatus"
+      },
+      {
+        "module": "HP-ICF-CORE-DUMP-MIB",
+        "object": "hpicfCoreDumpTftpServerAddress"
+      },
+      {
+        "module": "HP-ICF-CORE-DUMP-MIB",
+        "object": "hpicfCoreDumpTftpServerAddressType"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfCoreDumpCompliance": {
+    "name": "hpicfCoreDumpCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.1.14.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfCoreDumpConfigGroup",
+        "module": "HP-ICF-CORE-DUMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-CORE-DUMP-MIB",
+      "Source digest sha256:84cb9f4e179059e6b8963197257c515b3eac2fe1c4ce5047a78ce1d14d779408",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-CORE-DUMP-MIB"
+  }
+}

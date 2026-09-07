@@ -1,0 +1,132 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity"
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.674.10893",
+    "class": "objectidentity"
+  },
+  "sanRoot": {
+    "name": "sanRoot",
+    "oid": "1.3.6.1.4.1.674.10893.2",
+    "class": "objectidentity"
+  },
+  "sanAppliance": {
+    "name": "sanAppliance",
+    "oid": "1.3.6.1.4.1.674.10893.2.1",
+    "class": "objectidentity"
+  },
+  "sanApplGlobalStatus": {
+    "name": "sanApplGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "normal": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sanApplEvts": {
+    "name": "sanApplEvts",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200",
+    "class": "objectidentity"
+  },
+  "sanApplName": {
+    "name": "sanApplName",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sanApplFailed": {
+    "name": "sanApplFailed",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplNormal": {
+    "name": "sanApplNormal",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplStarted": {
+    "name": "sanApplStarted",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplStopped": {
+    "name": "sanApplStopped",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SanAppliance-MIB",
+      "Source digest sha256:292b7323e9b8e440289b8998cbbd8a47efe350266d04f2906bb68974ca1e232d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SanAppliance-MIB"
+  }
+}

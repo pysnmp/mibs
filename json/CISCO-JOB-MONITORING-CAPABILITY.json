@@ -1,0 +1,155 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoJobMonitoringCapability": {
+    "name": "ciscoJobMonitoringCapability",
+    "oid": "1.3.6.1.4.1.9.7.557",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoJobMonitoringCapabilityV12R04": {
+    "name": "ciscoJobMonitoringCapabilityV12R04",
+    "oid": "1.3.6.1.4.1.9.7.557.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4",
+    "capabilities": [
+      {
+        "module": "Job-Monitoring-MIB",
+        "includes": [
+          "jmGeneralGroup",
+          "jmJobGroup",
+          "jmAttributeGroup"
+        ],
+        "variations": [
+          {
+            "object": "jmGeneralOldestActiveJobIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmGeneralNewestActiveJobIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmGeneralJobPersistence",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmGeneralAttributePersistence",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmJobState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 2,
+                  "pending": 3,
+                  "processing": 5,
+                  "canceled": 7,
+                  "aborted": 8,
+                  "completed": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "jmJobStateReasons1",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmNumberOfInterveningJobs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmJobKOctetsPerCopyRequested",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmJobKOctetsProcessed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmJobImpressionsPerCopyRequested",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmJobImpressionsCompleted",
+            "access": "not-implemented"
+          },
+          {
+            "object": "jmAttributeTypeIndex",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "jobNaturalLanguageTag": 9,
+                  "jobURI": 20,
+                  "jobName": 23,
+                  "jobServiceTypes": 24,
+                  "deviceNameRequested": 30,
+                  "physicalDevice": 32,
+                  "fileName": 34,
+                  "documentName": 35
+                }
+              }
+            }
+          },
+          {
+            "object": "jmAttributeInstanceIndex",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 32767
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-JOB-MONITORING-CAPABILITY",
+      "Source digest sha256:e8f10d7c4c896368daae88de57867027bd66df0b38702fcc4e6dbde6813b6430",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-JOB-MONITORING-CAPABILITY"
+  }
+}

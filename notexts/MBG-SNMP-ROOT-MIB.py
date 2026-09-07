@@ -1,0 +1,22 @@
+#
+# PySNMP MIB module MBG-SNMP-ROOT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source MBG-SNMP-ROOT-MIB
+# Source digest sha256:fee17ee531e44e374d8cceea1476099ae79bcac8a9c62356b0f905c2bc501e4d
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mbgSnmpRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 5597))
+mbgSnmpRoot.setRevisions(('2012-01-25 07:45', '2011-10-14 06:30',))
+if mibBuilder.loadTexts: mbgSnmpRoot.setLastUpdated('2012-01-25 07:45')
+if mibBuilder.loadTexts: mbgSnmpRoot.setOrganization('Meinberg Radio Clocks GmbH & Co. KG')
+class MeinbergSwitch(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("off", 0), ("on", 1))
+
+mibBuilder.exportSymbols("MBG-SNMP-ROOT-MIB", MeinbergSwitch=MeinbergSwitch, PYSNMP_MODULE_ID=mbgSnmpRoot, mbgSnmpRoot=mbgSnmpRoot)

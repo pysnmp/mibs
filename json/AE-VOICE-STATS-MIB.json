@@ -1,0 +1,834 @@
+{
+  "imports": {
+    "class": "imports",
+    "AE-ALARM-TABLE-MIB": [
+      "pSeries"
+    ],
+    "AE-TC": [
+      "AeClearAction",
+      "AeHookState",
+      "AeRtpEncodeType",
+      "AeRtpPacketSize",
+      "AeSipCallStatus",
+      "AeVoiceSvcIndex",
+      "AeVoipCfgState",
+      "AeVoipIpLineStatus",
+      "AeVoipServerStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "aeVoiceStatsModule": {
+    "name": "aeVoiceStatsModule",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-29 00:00",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "aeVoiceStatusTable": {
+    "name": "aeVoiceStatusTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aeVoiceStatusEntry": {
+    "name": "aeVoiceStatusEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-VOICE-STATS-MIB",
+        "object": "aeVoiceStatusServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aeVoiceStatusServiceIndex": {
+    "name": "aeVoiceStatusServiceIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoiceSvcIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusConfigStatus": {
+    "name": "aeVoiceStatusConfigStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoipCfgState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusServerStatus": {
+    "name": "aeVoiceStatusServerStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoipServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusCallState": {
+    "name": "aeVoiceStatusCallState",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeSipCallStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusHookState": {
+    "name": "aeVoiceStatusHookState",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeHookState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusIpLineStatus": {
+    "name": "aeVoiceStatusIpLineStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoipIpLineStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusEncodeType": {
+    "name": "aeVoiceStatusEncodeType",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeRtpEncodeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusRtpPacketSize": {
+    "name": "aeVoiceStatusRtpPacketSize",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeRtpPacketSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusActive911Call": {
+    "name": "aeVoiceStatusActive911Call",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusLocalUdpPort": {
+    "name": "aeVoiceStatusLocalUdpPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusRemIpAddr": {
+    "name": "aeVoiceStatusRemIpAddr",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusRemUdpPort": {
+    "name": "aeVoiceStatusRemUdpPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusSecRemIpAddr": {
+    "name": "aeVoiceStatusSecRemIpAddr",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusSecRemUdpPort": {
+    "name": "aeVoiceStatusSecRemUdpPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceStatusQos": {
+    "name": "aeVoiceStatusQos",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersTable": {
+    "name": "aeVoiceCountersTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aeVoiceCountersEntry": {
+    "name": "aeVoiceCountersEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-VOICE-STATS-MIB",
+        "object": "aeVoiceCountersServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aeVoiceCountersServiceIndex": {
+    "name": "aeVoiceCountersServiceIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoiceSvcIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersDhcpAttempts": {
+    "name": "aeVoiceCountersDhcpAttempts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersDhcpAcks": {
+    "name": "aeVoiceCountersDhcpAcks",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersDhcpNacks": {
+    "name": "aeVoiceCountersDhcpNacks",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRegAttempts": {
+    "name": "aeVoiceCountersRegAttempts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRegChallenges": {
+    "name": "aeVoiceCountersRegChallenges",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRegRejects": {
+    "name": "aeVoiceCountersRegRejects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRegGrants": {
+    "name": "aeVoiceCountersRegGrants",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersInCallAttempts": {
+    "name": "aeVoiceCountersInCallAttempts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersInCallCompletions": {
+    "name": "aeVoiceCountersInCallCompletions",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersInCallBusy": {
+    "name": "aeVoiceCountersInCallBusy",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersInCallPeerDisconnects": {
+    "name": "aeVoiceCountersInCallPeerDisconnects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersInCallOntDisconnects": {
+    "name": "aeVoiceCountersInCallOntDisconnects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersOutCallAttempts": {
+    "name": "aeVoiceCountersOutCallAttempts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersOutCallCompletions": {
+    "name": "aeVoiceCountersOutCallCompletions",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersOutCallBusy": {
+    "name": "aeVoiceCountersOutCallBusy",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersOutCallPeerDisconnects": {
+    "name": "aeVoiceCountersOutCallPeerDisconnects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersOutCallOntDisconnects": {
+    "name": "aeVoiceCountersOutCallOntDisconnects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersE911CallAttempts": {
+    "name": "aeVoiceCountersE911CallAttempts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersE911CallCompletions": {
+    "name": "aeVoiceCountersE911CallCompletions",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersE911CallBusy": {
+    "name": "aeVoiceCountersE911CallBusy",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersE911CallPeerDisconnects": {
+    "name": "aeVoiceCountersE911CallPeerDisconnects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersE911CallOnHooks": {
+    "name": "aeVoiceCountersE911CallOnHooks",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersVmwiNotifyMsgsWaiting": {
+    "name": "aeVoiceCountersVmwiNotifyMsgsWaiting",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersVmwiNotifyNoMsgsWaiting": {
+    "name": "aeVoiceCountersVmwiNotifyNoMsgsWaiting",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRtpPktsSent": {
+    "name": "aeVoiceCountersRtpPktsSent",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRtpPktsRecv": {
+    "name": "aeVoiceCountersRtpPktsRecv",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRtpNullIPSent": {
+    "name": "aeVoiceCountersRtpNullIPSent",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersRtpNullIPRecv": {
+    "name": "aeVoiceCountersRtpNullIPRecv",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersActiveCallCntr": {
+    "name": "aeVoiceCountersActiveCallCntr",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceCountersClearCounters": {
+    "name": "aeVoiceCountersClearCounters",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeClearAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeVoiceErrorsTable": {
+    "name": "aeVoiceErrorsTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aeVoiceErrorsEntry": {
+    "name": "aeVoiceErrorsEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-VOICE-STATS-MIB",
+        "object": "aeVoiceErrorsServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aeVoiceErrorsServiceIndex": {
+    "name": "aeVoiceErrorsServiceIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeVoiceSvcIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsRecvErrors": {
+    "name": "aeVoiceErrorsRecvErrors",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsXmitErrors": {
+    "name": "aeVoiceErrorsXmitErrors",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsMissingRtp": {
+    "name": "aeVoiceErrorsMissingRtp",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsSequenceErr": {
+    "name": "aeVoiceErrorsSequenceErr",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsDropOuts": {
+    "name": "aeVoiceErrorsDropOuts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsUnderRuns": {
+    "name": "aeVoiceErrorsUnderRuns",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsListens": {
+    "name": "aeVoiceErrorsListens",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsRecvComfortNoisePkts": {
+    "name": "aeVoiceErrorsRecvComfortNoisePkts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsRecvBadSrcPorts": {
+    "name": "aeVoiceErrorsRecvBadSrcPorts",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeVoiceErrorsClearErrors": {
+    "name": "aeVoiceErrorsClearErrors",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeClearAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AE-VOICE-STATS-MIB",
+      "Source digest sha256:bcec5e547302851a95e39ea0eb065b24f002cfa6cf1595d483a71e1e823eb93e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AE-VOICE-STATS-MIB"
+  }
+}

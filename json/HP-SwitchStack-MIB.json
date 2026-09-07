@@ -1,0 +1,925 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpSwitchVirtualStackMib": {
+    "name": "hpSwitchVirtualStackMib",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-03 23:44",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hpSwitchStackConfig": {
+    "name": "hpSwitchStackConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchStackAdminStatus": {
+    "name": "hpSwitchStackAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "candidate": 1,
+          "disabled": 2,
+          "member": 3,
+          "command": 4,
+          "pending": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackCommandAddr": {
+    "name": "hpSwitchStackCommandAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackName": {
+    "name": "hpSwitchStackName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackPropagate": {
+    "name": "hpSwitchStackPropagate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackAutoJoin": {
+    "name": "hpSwitchStackAutoJoin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackAutoGrab": {
+    "name": "hpSwitchStackAutoGrab",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchStackConfigMemberTable": {
+    "name": "hpSwitchStackConfigMemberTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchStackConfigMemberEntry": {
+    "name": "hpSwitchStackConfigMemberEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackMemberSwitchNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchStackMemberSwitchNum": {
+    "name": "hpSwitchStackMemberSwitchNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchStackMemberMacAddr": {
+    "name": "hpSwitchStackMemberMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpSwitchStackMemberPassword": {
+    "name": "hpSwitchStackMemberPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpSwitchStackMemberEntryStatus": {
+    "name": "hpSwitchStackMemberEntryStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpStackStats": {
+    "name": "hpStackStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3",
+    "class": "objectidentity"
+  },
+  "hpStackStatsName": {
+    "name": "hpStackStatsName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMembersNum": {
+    "name": "hpStackStatsMembersNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMembersUnreachable": {
+    "name": "hpStackStatsMembersUnreachable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMemberID": {
+    "name": "hpStackStatsMemberID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMgmtIpAddr": {
+    "name": "hpStackStatsMgmtIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsStackingStatus": {
+    "name": "hpStackStatsStackingStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "joined": 1,
+          "pending": 2,
+          "noReponse": 3,
+          "notCommand": 4,
+          "stackFull": 5,
+          "remoteFailure": 6,
+          "unknownFailure": 7,
+          "evicted": 8,
+          "commandUp": 9,
+          "commandDown": 10,
+          "unusedStatus": 11,
+          "undiscovered": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMembersTable": {
+    "name": "hpStackStatsMembersTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpStackStatsMemberEntry": {
+    "name": "hpStackStatsMemberEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberSwitchIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpStackStatsMemberSwitchIndx": {
+    "name": "hpStackStatsMemberSwitchIndx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMemberMacAddr": {
+    "name": "hpStackStatsMemberMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMemberSystemName": {
+    "name": "hpStackStatsMemberSystemName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMemberDeviceType": {
+    "name": "hpStackStatsMemberDeviceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpStackStatsMemberOperStatus": {
+    "name": "hpStackStatsMemberOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "joined": 2,
+          "noReponse": 3,
+          "stackingDisabled": 4,
+          "invalidPassword": 5,
+          "commanderAnotherStack": 6,
+          "remoteFailure": 7,
+          "unknownFailure": 8,
+          "rejected": 9,
+          "memberUp": 10,
+          "memberDown": 11,
+          "commanderThisStack": 12,
+          "unusedStatus": 13,
+          "undiscovered": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchDiscoveryConfig": {
+    "name": "hpSwitchDiscoveryConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.5",
+    "class": "objectidentity"
+  },
+  "hpSwitchDiscoveryAdminStatus": {
+    "name": "hpSwitchDiscoveryAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSwitchDiscoveryTransmissionInterval": {
+    "name": "hpSwitchDiscoveryTransmissionInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpDiscoverStatsCandidatesTable": {
+    "name": "hpDiscoverStatsCandidatesTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpDiscoverStatsCandidateEntry": {
+    "name": "hpDiscoverStatsCandidateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsCandidateMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpDiscoverStatsCandidateMacAddr": {
+    "name": "hpDiscoverStatsCandidateMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsCandidateSystemName": {
+    "name": "hpDiscoverStatsCandidateSystemName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsCandidateDeviceType": {
+    "name": "hpDiscoverStatsCandidateDeviceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsTable": {
+    "name": "hpDiscoverStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpDiscoverStatsEntry": {
+    "name": "hpDiscoverStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpDiscoverStatsSwitchIndex": {
+    "name": "hpDiscoverStatsSwitchIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsSwitchStackName": {
+    "name": "hpDiscoverStatsSwitchStackName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsSwitchMacAddr": {
+    "name": "hpDiscoverStatsSwitchMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsSwitchSystemName": {
+    "name": "hpDiscoverStatsSwitchSystemName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDiscoverStatsSwitchStatus": {
+    "name": "hpDiscoverStatsSwitchStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchVirtualStackMibConformance": {
+    "name": "hpSwitchVirtualStackMibConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8",
+    "class": "objectidentity"
+  },
+  "hpSwitchVirtualStackMibCompliances": {
+    "name": "hpSwitchVirtualStackMibCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchVirtualStackMibGroups": {
+    "name": "hpSwitchVirtualStackMibGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchVirtualStackMibCompliance": {
+    "name": "hpSwitchVirtualStackMibCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpSwitchStackConfigGroup",
+        "module": "HP-SwitchStack-MIB"
+      },
+      {
+        "object": "hpSwitchStackStatsGroup",
+        "module": "HP-SwitchStack-MIB"
+      },
+      {
+        "object": "hpSwitchDiscoverConfigGroup",
+        "module": "HP-SwitchStack-MIB"
+      },
+      {
+        "object": "hpDiscoverStatsGroup",
+        "module": "HP-SwitchStack-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchStackConfigGroup": {
+    "name": "hpSwitchStackConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackAdminStatus"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackCommandAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackPropagate"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackAutoJoin"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackAutoGrab"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackMemberSwitchNum"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackMemberMacAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackMemberPassword"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchStackMemberEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchStackStatsGroup": {
+    "name": "hpSwitchStackStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMembersNum"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMembersUnreachable"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberID"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMgmtIpAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsStackingStatus"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberSwitchIndx"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberMacAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberSystemName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberDeviceType"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpStackStatsMemberOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchDiscoverConfigGroup": {
+    "name": "hpSwitchDiscoverConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchDiscoveryAdminStatus"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpSwitchDiscoveryTransmissionInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hpDiscoverStatsGroup": {
+    "name": "hpDiscoverStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.10.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsCandidateMacAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsCandidateSystemName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsCandidateDeviceType"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchIndex"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchStackName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchMacAddr"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchSystemName"
+      },
+      {
+        "module": "HP-SwitchStack-MIB",
+        "object": "hpDiscoverStatsSwitchStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-SwitchStack-MIB",
+      "Source digest sha256:2f1cd2d54c4c307ccf11f1e5711ff306b6206a1536071bce8aba2d3968c96ed3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-SwitchStack-MIB"
+  }
+}

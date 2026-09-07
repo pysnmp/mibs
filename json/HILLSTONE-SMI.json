@@ -1,0 +1,348 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hillstone": {
+    "name": "hillstone",
+    "oid": "1.3.6.1.4.1.28557",
+    "class": "moduleidentity"
+  },
+  "hillstoneProducts": {
+    "name": "hillstoneProducts",
+    "oid": "1.3.6.1.4.1.28557.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneMibs": {
+    "name": "hillstoneMibs",
+    "oid": "1.3.6.1.4.1.28557.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneTraps": {
+    "name": "hillstoneTraps",
+    "oid": "1.3.6.1.4.1.28557.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneIpsec": {
+    "name": "hillstoneIpsec",
+    "oid": "1.3.6.1.4.1.28557.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSys": {
+    "name": "hillstoneSys",
+    "oid": "1.3.6.1.4.1.28557.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneStatistics": {
+    "name": "hillstoneStatistics",
+    "oid": "1.3.6.1.4.1.28557.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneDNS": {
+    "name": "hillstoneDNS",
+    "oid": "1.3.6.1.4.1.28557.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneDHCP": {
+    "name": "hillstoneDHCP",
+    "oid": "1.3.6.1.4.1.28557.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneInterface": {
+    "name": "hillstoneInterface",
+    "oid": "1.3.6.1.4.1.28557.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneIp": {
+    "name": "hillstoneIp",
+    "oid": "1.3.6.1.4.1.28557.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneNTP": {
+    "name": "hillstoneNTP",
+    "oid": "1.3.6.1.4.1.28557.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneZONE": {
+    "name": "hillstoneZONE",
+    "oid": "1.3.6.1.4.1.28557.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneAV": {
+    "name": "hillstoneAV",
+    "oid": "1.3.6.1.4.1.28557.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneServiceBook": {
+    "name": "hillstoneServiceBook",
+    "oid": "1.3.6.1.4.1.28557.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneServiceBookMember": {
+    "name": "hillstoneServiceBookMember",
+    "oid": "1.3.6.1.4.1.28557.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneServiceGroup": {
+    "name": "hillstoneServiceGroup",
+    "oid": "1.3.6.1.4.1.28557.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneServiceGroupMember": {
+    "name": "hillstoneServiceGroupMember",
+    "oid": "1.3.6.1.4.1.28557.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneAddressBook": {
+    "name": "hillstoneAddressBook",
+    "oid": "1.3.6.1.4.1.28557.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneAddressBookMember": {
+    "name": "hillstoneAddressBookMember",
+    "oid": "1.3.6.1.4.1.28557.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSchedule": {
+    "name": "hillstoneSchedule",
+    "oid": "1.3.6.1.4.1.28557.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSchedulePeriodicMember": {
+    "name": "hillstoneSchedulePeriodicMember",
+    "oid": "1.3.6.1.4.1.28557.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicy": {
+    "name": "hillstonePolicy",
+    "oid": "1.3.6.1.4.1.28557.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicySourceAddress": {
+    "name": "hillstonePolicySourceAddress",
+    "oid": "1.3.6.1.4.1.28557.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicyDestinationAddress": {
+    "name": "hillstonePolicyDestinationAddress",
+    "oid": "1.3.6.1.4.1.28557.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicyService": {
+    "name": "hillstonePolicyService",
+    "oid": "1.3.6.1.4.1.28557.2.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicySchedule": {
+    "name": "hillstonePolicySchedule",
+    "oid": "1.3.6.1.4.1.28557.2.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicyMovement": {
+    "name": "hillstonePolicyMovement",
+    "oid": "1.3.6.1.4.1.28557.2.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneModule": {
+    "name": "hillstoneModule",
+    "oid": "1.3.6.1.4.1.28557.2.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneFan": {
+    "name": "hillstoneFan",
+    "oid": "1.3.6.1.4.1.28557.2.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePower": {
+    "name": "hillstonePower",
+    "oid": "1.3.6.1.4.1.28557.2.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneTemperature": {
+    "name": "hillstoneTemperature",
+    "oid": "1.3.6.1.4.1.28557.2.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneCPUStatus": {
+    "name": "hillstoneCPUStatus",
+    "oid": "1.3.6.1.4.1.28557.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneFANStatus": {
+    "name": "hillstoneFANStatus",
+    "oid": "1.3.6.1.4.1.28557.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneTempStatus": {
+    "name": "hillstoneTempStatus",
+    "oid": "1.3.6.1.4.1.28557.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneMemoryStatus": {
+    "name": "hillstoneMemoryStatus",
+    "oid": "1.3.6.1.4.1.28557.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneHAStatus": {
+    "name": "hillstoneHAStatus",
+    "oid": "1.3.6.1.4.1.28557.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneADType": {
+    "name": "hillstoneADType",
+    "oid": "1.3.6.1.4.1.28557.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneVPNDown": {
+    "name": "hillstoneVPNDown",
+    "oid": "1.3.6.1.4.1.28557.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneVPNUp": {
+    "name": "hillstoneVPNUp",
+    "oid": "1.3.6.1.4.1.28557.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneIfIpChange": {
+    "name": "hillstoneIfIpChange",
+    "oid": "1.3.6.1.4.1.28557.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneDeviceNameChange": {
+    "name": "hillstoneDeviceNameChange",
+    "oid": "1.3.6.1.4.1.28557.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneIPSStatus": {
+    "name": "hillstoneIPSStatus",
+    "oid": "1.3.6.1.4.1.28557.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneAVStatus": {
+    "name": "hillstoneAVStatus",
+    "oid": "1.3.6.1.4.1.28557.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSystemReboot": {
+    "name": "hillstoneSystemReboot",
+    "oid": "1.3.6.1.4.1.28557.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneDiskSpaceStatus": {
+    "name": "hillstoneDiskSpaceStatus",
+    "oid": "1.3.6.1.4.1.28557.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSessionOverThreshold": {
+    "name": "hillstoneSessionOverThreshold",
+    "oid": "1.3.6.1.4.1.28557.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneLogOverThreshold": {
+    "name": "hillstoneLogOverThreshold",
+    "oid": "1.3.6.1.4.1.28557.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneBandwidthOverThreshold": {
+    "name": "hillstoneBandwidthOverThreshold",
+    "oid": "1.3.6.1.4.1.28557.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstonePolicyCountOverThreshold": {
+    "name": "hillstonePolicyCountOverThreshold",
+    "oid": "1.3.6.1.4.1.28557.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneConfigurationChange": {
+    "name": "hillstoneConfigurationChange",
+    "oid": "1.3.6.1.4.1.28557.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSlotUp": {
+    "name": "hillstoneSlotUp",
+    "oid": "1.3.6.1.4.1.28557.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hillstoneSlotDown": {
+    "name": "hillstoneSlotDown",
+    "oid": "1.3.6.1.4.1.28557.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HILLSTONE-SMI",
+      "Source digest sha256:4395118e55739adfbcbb3ac89a14148fc32d4f508d7e8b8d1b3e62975d181b60",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HILLSTONE-SMI"
+  }
+}

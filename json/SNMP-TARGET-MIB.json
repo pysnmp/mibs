@@ -1,0 +1,558 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString",
+      "SnmpMessageProcessingModel",
+      "SnmpSecurityLevel",
+      "SnmpSecurityModel"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "snmpModules"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TAddress",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval"
+    ]
+  },
+  "snmpTargetMIB": {
+    "name": "snmpTargetMIB",
+    "oid": "1.3.6.1.6.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-14 00:00",
+        "description": "Fixed DISPLAY-HINTS for UTF-8 strings, fixed hex value of LF characters, clarified meaning of zero length tag values, improved tag list examples. Published as RFC 3413."
+      },
+      {
+        "revision": "1998-08-04 00:00",
+        "description": "Clarifications, published as RFC 2573."
+      },
+      {
+        "revision": "1997-07-14 00:00",
+        "description": "The initial revision, published as RFC2273."
+      }
+    ]
+  },
+  "snmpTargetObjects": {
+    "name": "snmpTargetObjects",
+    "oid": "1.3.6.1.6.3.12.1",
+    "class": "objectidentity"
+  },
+  "snmpTargetConformance": {
+    "name": "snmpTargetConformance",
+    "oid": "1.3.6.1.6.3.12.3",
+    "class": "objectidentity"
+  },
+  "SnmpTagValue": {
+    "name": "SnmpTagValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255t",
+    "status": "current"
+  },
+  "SnmpTagList": {
+    "name": "SnmpTagList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255t",
+    "status": "current"
+  },
+  "snmpTargetSpinLock": {
+    "name": "snmpTargetSpinLock",
+    "oid": "1.3.6.1.6.3.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTargetAddrTable": {
+    "name": "snmpTargetAddrTable",
+    "oid": "1.3.6.1.6.3.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpTargetAddrEntry": {
+    "name": "snmpTargetAddrEntry",
+    "oid": "1.3.6.1.6.3.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTargetAddrName": {
+    "name": "snmpTargetAddrName",
+    "oid": "1.3.6.1.6.3.12.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpTargetAddrTDomain": {
+    "name": "snmpTargetAddrTDomain",
+    "oid": "1.3.6.1.6.3.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrTAddress": {
+    "name": "snmpTargetAddrTAddress",
+    "oid": "1.3.6.1.6.3.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrTimeout": {
+    "name": "snmpTargetAddrTimeout",
+    "oid": "1.3.6.1.6.3.12.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "value": 1500,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrRetryCount": {
+    "name": "snmpTargetAddrRetryCount",
+    "oid": "1.3.6.1.6.3.12.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrTagList": {
+    "name": "snmpTargetAddrTagList",
+    "oid": "1.3.6.1.6.3.12.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrParams": {
+    "name": "snmpTargetAddrParams",
+    "oid": "1.3.6.1.6.3.12.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrStorageType": {
+    "name": "snmpTargetAddrStorageType",
+    "oid": "1.3.6.1.6.3.12.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetAddrRowStatus": {
+    "name": "snmpTargetAddrRowStatus",
+    "oid": "1.3.6.1.6.3.12.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsTable": {
+    "name": "snmpTargetParamsTable",
+    "oid": "1.3.6.1.6.3.12.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpTargetParamsEntry": {
+    "name": "snmpTargetParamsEntry",
+    "oid": "1.3.6.1.6.3.12.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTargetParamsName": {
+    "name": "snmpTargetParamsName",
+    "oid": "1.3.6.1.6.3.12.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpTargetParamsMPModel": {
+    "name": "snmpTargetParamsMPModel",
+    "oid": "1.3.6.1.6.3.12.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpMessageProcessingModel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsSecurityModel": {
+    "name": "snmpTargetParamsSecurityModel",
+    "oid": "1.3.6.1.6.3.12.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityModel",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsSecurityName": {
+    "name": "snmpTargetParamsSecurityName",
+    "oid": "1.3.6.1.6.3.12.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsSecurityLevel": {
+    "name": "snmpTargetParamsSecurityLevel",
+    "oid": "1.3.6.1.6.3.12.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsStorageType": {
+    "name": "snmpTargetParamsStorageType",
+    "oid": "1.3.6.1.6.3.12.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpTargetParamsRowStatus": {
+    "name": "snmpTargetParamsRowStatus",
+    "oid": "1.3.6.1.6.3.12.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpUnavailableContexts": {
+    "name": "snmpUnavailableContexts",
+    "oid": "1.3.6.1.6.3.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpUnknownContexts": {
+    "name": "snmpUnknownContexts",
+    "oid": "1.3.6.1.6.3.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTargetCompliances": {
+    "name": "snmpTargetCompliances",
+    "oid": "1.3.6.1.6.3.12.3.1",
+    "class": "objectidentity"
+  },
+  "snmpTargetGroups": {
+    "name": "snmpTargetGroups",
+    "oid": "1.3.6.1.6.3.12.3.2",
+    "class": "objectidentity"
+  },
+  "snmpTargetCommandResponderCompliance": {
+    "name": "snmpTargetCommandResponderCompliance",
+    "oid": "1.3.6.1.6.3.12.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpTargetCommandResponderGroup",
+        "module": "SNMP-TARGET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTargetBasicGroup": {
+    "name": "snmpTargetBasicGroup",
+    "oid": "1.3.6.1.6.3.12.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetSpinLock"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrTDomain"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrTAddress"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrTagList"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrParams"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrStorageType"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrRowStatus"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsMPModel"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsSecurityModel"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsSecurityName"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsSecurityLevel"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsStorageType"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetParamsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTargetResponseGroup": {
+    "name": "snmpTargetResponseGroup",
+    "oid": "1.3.6.1.6.3.12.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrTimeout"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTargetCommandResponderGroup": {
+    "name": "snmpTargetCommandResponderGroup",
+    "oid": "1.3.6.1.6.3.12.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpUnavailableContexts"
+      },
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpUnknownContexts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SNMP-TARGET-MIB",
+      "Source digest sha256:39d11d27f1da4e7d6087e0f019e5d82000a28430dba1dc2fa29885c4704af249",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SNMP-TARGET-MIB"
+  }
+}

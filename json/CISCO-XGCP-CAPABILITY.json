@@ -1,0 +1,1539 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "CCallControlProfileIndexOrZero"
+    ],
+    "CISCO-MGC-MIB": [
+      "CMgcGroupIndexOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "CISCO-XGCP-MIB": [
+      "CXgcpRetryMethod"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoXgcpCapability": {
+    "name": "ciscoXgcpCapability",
+    "oid": "1.3.6.1.4.1.9.7.408",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-01 00:00",
+        "description": "Deprecated ciscoXgcpCapabilityV12R03AS5000 and added ciscoXgcpCapabilityV12R04AS5000."
+      },
+      {
+        "revision": "2006-02-14 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R300 for MGX8880 release 5.3.00. Deprecated ciscoXgcpCapabilityV12R03 and added ciscoXgcpCapabilityV12R03AS5000."
+      },
+      {
+        "revision": "2005-06-24 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R100 for MGX8850 release 5.1.00"
+      },
+      {
+        "revision": "2005-01-06 00:00",
+        "description": "Fixed syntax error in cXgcpMediaGwSupportedPackages of ciscoXgcpCapabilityV12R03."
+      },
+      {
+        "revision": "2004-10-04 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R015 for MGX8850 release 5.0.15"
+      },
+      {
+        "revision": "2004-06-16 00:00",
+        "description": "Added ciscoXgcpCapabilityV12R03 for Cisco IOS 12.3."
+      },
+      {
+        "revision": "2002-12-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoXgcpCapabilityV4R010": {
+    "name": "ciscoXgcpCapabilityV4R010",
+    "oid": "1.3.6.1.4.1.9.7.408.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 4.0",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "default": [
+              "packageT"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "default": [
+              "false"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 512,
+                    "max": 60000
+                  }
+                ]
+              }
+            },
+            "default": [
+              60000
+            ]
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV12R03": {
+    "name": "ciscoXgcpCapabilityV12R03",
+    "oid": "1.3.6.1.4.1.9.7.408.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigMgcGrpNum",
+            "syntax": {
+              "type": "CMgcGroupIndexOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMgcConfigGatewayUdpPort",
+            "syntax": {
+              "type": "CiscoPort",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1025,
+                    "max": 65535
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestTimeOut",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "syntax": {
+              "type": "CXgcpRetryMethod",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "resetTimerForEndpoint": 4
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "packageG": 2,
+                  "packageD": 3,
+                  "packageM": 4,
+                  "packageT": 5,
+                  "packageL": 6,
+                  "packageR": 8,
+                  "packageN": 9,
+                  "packageA": 10,
+                  "packageS": 11,
+                  "packageMS": 13,
+                  "packageDT": 14,
+                  "packageMO": 15,
+                  "packageRES": 16,
+                  "packageIT": 18,
+                  "packageMT": 19,
+                  "packageFXR": 23
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "packageT"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwSupportedPackages",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "packageG": 2,
+                "packageD": 3,
+                "packageM": 4,
+                "packageT": 5,
+                "packageL": 6,
+                "packageR": 8,
+                "packageN": 9,
+                "packageA": 10,
+                "packageS": 11,
+                "packageMS": 13,
+                "packageDT": 14,
+                "packageMO": 15,
+                "packageRES": 16,
+                "packageIT": 18,
+                "packageMT": 19,
+                "packageFXR": 23
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwSimpleSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwAckSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwUndottedNotation",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineProcess",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantinePersist",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwPiggybackMsg",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwDtmfRelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsIncompleteMessages",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoXgcpCapabilityV5R015": {
+    "name": "ciscoXgcpCapabilityV5R015",
+    "oid": "1.3.6.1.4.1.9.7.408.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 release 5.0.15",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "default": [
+              "packageIT"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "default": [
+              "false"
+            ]
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            },
+            "default": [
+              4000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 512,
+                    "max": 60000
+                  }
+                ]
+              }
+            },
+            "default": [
+              60000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV5R100": {
+    "name": "ciscoXgcpCapabilityV5R100",
+    "oid": "1.3.6.1.4.1.9.7.408.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 release 5.1.00",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup",
+          "cXgcpMediaGwGroupSup1"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "default": [
+              "false"
+            ]
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            },
+            "default": [
+              4000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 512,
+                    "max": 60000
+                  }
+                ]
+              }
+            },
+            "default": [
+              60000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLongDurTimer",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwProfile",
+            "syntax": {
+              "type": "CCallControlProfileIndexOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwConfiguredPackages",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "packageG": 2,
+                "packageD": 3,
+                "packageM": 4,
+                "packageT": 5,
+                "packageH": 7,
+                "packageR": 8,
+                "packageMO": 15,
+                "packageIT": 18,
+                "packageMT": 19,
+                "packageFXR": 23,
+                "packageBA": 24
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV5R300": {
+    "name": "ciscoXgcpCapabilityV5R300",
+    "oid": "1.3.6.1.4.1.9.7.408.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 release 5.3.00",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup",
+          "cXgcpMediaGwGroupSup2"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "packageG": 2,
+                  "packageD": 3,
+                  "packageT": 5,
+                  "packageMO": 15,
+                  "packageIT": 18,
+                  "packageMT": 19,
+                  "packageFXR": 23,
+                  "packageBA": 24
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "default": [
+              "false"
+            ]
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddress",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 4,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 10000
+                  }
+                ]
+              }
+            },
+            "default": [
+              4000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 512,
+                    "max": 60000
+                  }
+                ]
+              }
+            },
+            "default": [
+              60000
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLongDurTimer",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwProfile",
+            "syntax": {
+              "type": "CCallControlProfileIndexOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 25
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwConfiguredPackages",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "packageG": 2,
+                "packageD": 3,
+                "packageT": 5,
+                "packageMO": 15,
+                "packageIT": 18,
+                "packageMT": 19,
+                "packageFXR": 23,
+                "packageBA": 24
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV12R03AS5000": {
+    "name": "ciscoXgcpCapabilityV12R03AS5000",
+    "oid": "1.3.6.1.4.1.9.7.408.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup",
+          "cXgcpStatsGroup",
+          "cXgcpConnectionGroup"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigMgcGrpNum",
+            "syntax": {
+              "type": "CMgcGroupIndexOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMgcConfigGatewayUdpPort",
+            "syntax": {
+              "type": "CiscoPort",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1025,
+                    "max": 65535
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestTimeOut",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "syntax": {
+              "type": "CXgcpRetryMethod",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "resetTimerForEndpoint": 4
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "packageG": 2,
+                  "packageD": 3,
+                  "packageM": 4,
+                  "packageT": 5,
+                  "packageL": 6,
+                  "packageR": 8,
+                  "packageN": 9,
+                  "packageA": 10,
+                  "packageS": 11,
+                  "packageMS": 13,
+                  "packageDT": 14,
+                  "packageMO": 15,
+                  "packageRES": 16,
+                  "packageIT": 18,
+                  "packageMT": 19,
+                  "packageFXR": 23
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "packageT"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwSupportedPackages",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "packageG": 2,
+                "packageD": 3,
+                "packageM": 4,
+                "packageT": 5,
+                "packageL": 6,
+                "packageR": 8,
+                "packageN": 9,
+                "packageA": 10,
+                "packageS": 11,
+                "packageMS": 13,
+                "packageDT": 14,
+                "packageMO": 15,
+                "packageRES": 16,
+                "packageIT": 18,
+                "packageMT": 19,
+                "packageFXR": 23
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwSimpleSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwAckSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwUndottedNotation",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineProcess",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantinePersist",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwPiggybackMsg",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwDtmfRelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsIncompleteMessages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwCaleaEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwConfiguredPackages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwConnOosRsipBehavior",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLongDurTimer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwProfile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwAnnexabSdpEnabled",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoXgcpCapabilityV12R04AS5000": {
+    "name": "ciscoXgcpCapabilityV12R04AS5000",
+    "oid": "1.3.6.1.4.1.9.7.408.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4",
+    "capabilities": [
+      {
+        "module": "CISCO-XGCP-MIB",
+        "includes": [
+          "cXgcpMgcConfigGroup",
+          "cXgcpMediaGwGroup",
+          "cXgcpMsgStatsGroup",
+          "cXgcpStatsGroup",
+          "cXgcpConnectionGroup"
+        ],
+        "variations": [
+          {
+            "object": "cXgcpMgcConfigMgcGrpNum",
+            "syntax": {
+              "type": "CMgcGroupIndexOrZero",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddrType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMgcConfigProtocolIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMgcConfigGatewayUdpPort",
+            "syntax": {
+              "type": "CiscoPort",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1025,
+                    "max": 65535
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestTimeOut",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetries",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwRequestRetryMethod",
+            "syntax": {
+              "type": "CXgcpRetryMethod",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "resetTimerForEndpoint": 4
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxExpTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartMwd",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwRestartDelay",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwDefaultPackage",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "packageG": 2,
+                  "packageD": 3,
+                  "packageM": 4,
+                  "packageT": 5,
+                  "packageR": 8,
+                  "packageMS": 13,
+                  "packageN": 9,
+                  "packageA": 10,
+                  "packageS": 11,
+                  "packageDT": 14,
+                  "packageMO": 15,
+                  "packageRES": 16,
+                  "packageIT": 18,
+                  "packageFXR": 23,
+                  "packageMD": 25,
+                  "packageNAS": 26
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "packageT"
+            ]
+          },
+          {
+            "object": "cXgcpMediaGwSupportedPackages",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "packageG": 2,
+                "packageD": 3,
+                "packageM": 4,
+                "packageT": 5,
+                "packageR": 8,
+                "packageN": 9,
+                "packageA": 10,
+                "packageS": 11,
+                "packageMS": 13,
+                "packageDT": 14,
+                "packageMO": 15,
+                "packageRES": 16,
+                "packageIT": 18,
+                "packageFXR": 23,
+                "packageMD": 25,
+                "packageNAS": 26
+              }
+            }
+          },
+          {
+            "object": "cXgcpMediaGwSimpleSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwAckSdpEnabled",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwUndottedNotation",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineProcess",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantineLoop",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwQuarantinePersist",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwPiggybackMsg",
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwMaxMsgSize",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddrType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLastFailMgcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwDtmfRelay",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMsgStatsMgcIPAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1,
+                  "dns": 16
+                }
+              }
+            }
+          },
+          {
+            "object": "cXgcpMsgStatsIncompleteMessages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwCaleaEnabled",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwConfiguredPackages",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwConnOosRsipBehavior",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwLongDurTimer",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwProfile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cXgcpMediaGwAnnexabSdpEnabled",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-XGCP-CAPABILITY",
+      "Source digest sha256:66edc4f9bda04a6b8a8cce94b637dafecc79d9ad2c4e89b4f9c5590f4bf3c34e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-XGCP-CAPABILITY"
+  }
+}

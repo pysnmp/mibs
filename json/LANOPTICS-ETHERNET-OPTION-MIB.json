@@ -1,0 +1,138 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lanOptics": {
+    "name": "lanOptics",
+    "oid": "1.3.6.1.4.1.224",
+    "class": "objectidentity"
+  },
+  "lanOpticsDot3Monitor": {
+    "name": "lanOpticsDot3Monitor",
+    "oid": "1.3.6.1.4.1.224.3",
+    "class": "objectidentity"
+  },
+  "etAlertsLevel": {
+    "name": "etAlertsLevel",
+    "oid": "1.3.6.1.4.1.224.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "etAlertsBuffer": {
+    "name": "etAlertsBuffer",
+    "oid": "1.3.6.1.4.1.224.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "etFullStatisticsBuffer": {
+    "name": "etFullStatisticsBuffer",
+    "oid": "1.3.6.1.4.1.224.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "etResetBuffers": {
+    "name": "etResetBuffers",
+    "oid": "1.3.6.1.4.1.224.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "etSlotsTable": {
+    "name": "etSlotsTable",
+    "oid": "1.3.6.1.4.1.224.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1004": {
+    "name": "pysmiFakeCol1004",
+    "oid": "1.3.6.1.4.1.224.3.5.1.1004",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "etSlotsEntry": {
+    "name": "etSlotsEntry",
+    "oid": "1.3.6.1.4.1.224.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-ETHERNET-OPTION-MIB",
+        "object": "pysmiFakeCol1004",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "etSlotPollStruct": {
+    "name": "etSlotPollStruct",
+    "oid": "1.3.6.1.4.1.224.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LANOPTICS-ETHERNET-OPTION-MIB",
+      "Source digest sha256:d0673fad4a54bcce740022f1872f2fa67ca38f7009fe3e772a8b192cad229435",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LANOPTICS-ETHERNET-OPTION-MIB"
+  }
+}

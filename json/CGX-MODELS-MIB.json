@@ -1,0 +1,237 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLOUDGENIX-SMI": [
+      "cgxProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgxModelsMIB": {
+    "name": "cgxModelsMIB",
+    "oid": "1.3.6.1.4.1.50114.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2023-05-11 21:44",
+        "description": "11.5.2023 Add ion1200C5GEXP"
+      },
+      {
+        "revision": "2023-02-24 21:27",
+        "description": "Add new models (ion5200, ion9200)"
+      },
+      {
+        "revision": "2022-02-24 19:35",
+        "description": "24.2.2022 PaloAlto Rebranding and new hardware"
+      }
+    ]
+  },
+  "cgxModelsNotifications": {
+    "name": "cgxModelsNotifications",
+    "oid": "1.3.6.1.4.1.50114.11.1.0",
+    "class": "objectidentity"
+  },
+  "cgxModelsObjects": {
+    "name": "cgxModelsObjects",
+    "oid": "1.3.6.1.4.1.50114.11.1.1",
+    "class": "objectidentity"
+  },
+  "cgxModelsStats": {
+    "name": "cgxModelsStats",
+    "oid": "1.3.6.1.4.1.50114.11.1.1.1",
+    "class": "objectidentity"
+  },
+  "cgxModelsConfig": {
+    "name": "cgxModelsConfig",
+    "oid": "1.3.6.1.4.1.50114.11.1.1.2",
+    "class": "objectidentity"
+  },
+  "cgxModelsConformance": {
+    "name": "cgxModelsConformance",
+    "oid": "1.3.6.1.4.1.50114.11.1.2",
+    "class": "objectidentity"
+  },
+  "cgxModelsCompliances": {
+    "name": "cgxModelsCompliances",
+    "oid": "1.3.6.1.4.1.50114.11.1.2.1",
+    "class": "objectidentity"
+  },
+  "cgxModelsGroups": {
+    "name": "cgxModelsGroups",
+    "oid": "1.3.6.1.4.1.50114.11.1.2.2",
+    "class": "objectidentity"
+  },
+  "cgxModelsHardwareV1": {
+    "name": "cgxModelsHardwareV1",
+    "oid": "1.3.6.1.4.1.50114.11.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1000": {
+    "name": "ion1000",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200": {
+    "name": "ion1200",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200CNA": {
+    "name": "ion1200CNA",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1201",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200CROW": {
+    "name": "ion1200CROW",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1202",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200C5GWW": {
+    "name": "ion1200C5GWW",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1203",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200C5GEXP": {
+    "name": "ion1200C5GEXP",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1204",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200S": {
+    "name": "ion1200S",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1210",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200SCNA": {
+    "name": "ion1200SCNA",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1211",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200SCROW": {
+    "name": "ion1200SCROW",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion1200SC5GWW": {
+    "name": "ion1200SC5GWW",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.1213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion2000": {
+    "name": "ion2000",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.2000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion3000": {
+    "name": "ion3000",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.3000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion3200": {
+    "name": "ion3200",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.3200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion5200": {
+    "name": "ion5200",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.5200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion7000": {
+    "name": "ion7000",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.7000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion9000": {
+    "name": "ion9000",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.9000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion9200": {
+    "name": "ion9200",
+    "oid": "1.3.6.1.4.1.50114.11.1.10.9200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cgxModelsVirtualV1": {
+    "name": "cgxModelsVirtualV1",
+    "oid": "1.3.6.1.4.1.50114.11.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion3102v": {
+    "name": "ion3102v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.3102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion3104v": {
+    "name": "ion3104v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.3104",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion3108v": {
+    "name": "ion3108v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.3108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion7108v": {
+    "name": "ion7108v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.7108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion7116v": {
+    "name": "ion7116v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.7116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ion7132v": {
+    "name": "ion7132v",
+    "oid": "1.3.6.1.4.1.50114.11.1.11.7132",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CGX-MODELS-MIB",
+      "Source digest sha256:76c838eb49bfc7566794aabd47e6bdbe8614ec16020051cf75432d75a7ebae41",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CGX-MODELS-MIB"
+  }
+}

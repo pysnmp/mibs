@@ -1,0 +1,272 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCableWidebandCapability": {
+    "name": "ciscoCableWidebandCapability",
+    "oid": "1.3.6.1.4.1.9.7.520",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-09 00:00",
+        "description": "Add notInService status for ccwbRFChannelRowStatus"
+      },
+      {
+        "revision": "2006-09-07 00:00",
+        "description": "This is the Initial version"
+      }
+    ]
+  },
+  "ciscoCableWidebandCapabilityV12R00": {
+    "name": "ciscoCableWidebandCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.520.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3BC",
+    "capabilities": [
+      {
+        "module": "CISCO-CABLE-WIDEBAND-MIB",
+        "includes": [
+          "ccwbWidebandObjGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccwbRFChannelStorageType",
+            "syntax": {
+              "type": "StorageType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ccwbRFChanQamTos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccwbRFChanQamVlanId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccwbRFChanQamPriorityBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ccwbWBtoNBRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbWBtoNBStorageType",
+            "syntax": {
+              "type": "StorageType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbWBtoRFStorageType",
+            "syntax": {
+              "type": "StorageType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ccwbWBtoRFRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ccwbFiberNodeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeDescrStorageType",
+            "syntax": {
+              "type": "StorageType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeDescrRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeNBIfIndx",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeWBContlrPhyIndx",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeWBRFPort",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeStorageType",
+            "syntax": {
+              "type": "StorageType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "volatile": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbFiberNodeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbRFChannelFrequency",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 55000000,
+                    "max": 858000000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ccwbRFChannelWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "ccwbRFChannelRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ccwbRFChannelAnnex",
+            "access": "read-create"
+          },
+          {
+            "object": "ccwbRFChanQamIPAddressType",
+            "syntax": {
+              "type": "InetAddressType",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ccwbWBCmStatusValue",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCableWidebandCapabilityV122R00": {
+    "name": "ciscoCableWidebandCapabilityV122R00",
+    "oid": "1.3.6.1.4.1.9.7.520.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2S",
+    "capabilities": [
+      {
+        "module": "CISCO-CABLE-WIDEBAND-MIB",
+        "includes": [
+          "ccwbWidebandObjGroup"
+        ],
+        "variations": [
+          {
+            "object": "ccwbRFChannelRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "notInService": 2,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CABLE-WIDEBAND-CAPABILITY",
+      "Source digest sha256:6484c9ac45ad217399c591f1568976494818614ca8db51fe9ed6d8ad9d68529f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CABLE-WIDEBAND-CAPABILITY"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ianaTn3270eTcMib": {
+    "name": "ianaTn3270eTcMib",
+    "oid": "1.3.6.1.2.1.61",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-05-22 00:00",
+        "description": "Updated ICANN contact info."
+      },
+      {
+        "revision": "2000-05-10 00:00",
+        "description": "Fix to import mib-2 instead of experimental."
+      },
+      {
+        "revision": "1999-09-01 10:00",
+        "description": "Initial version transferred from the TN3270E working group to IANA."
+      }
+    ]
+  },
+  "IANATn3270eAddrType": {
+    "name": "IANATn3270eAddrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270eAddress": {
+    "name": "IANATn3270eAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270eClientType": {
+    "name": "IANATn3270eClientType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "ipv4": 3,
+          "ipv6": 4,
+          "domainName": 5,
+          "truncDomainName": 6,
+          "string": 7,
+          "certificate": 8,
+          "userId": 9,
+          "x509dn": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270Functions": {
+    "name": "IANATn3270Functions",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "transmitBinary": 0,
+        "timemark": 1,
+        "endOfRecord": 2,
+        "terminalType": 3,
+        "tn3270Regime": 4,
+        "scsCtlCodes": 5,
+        "dataStreamCtl": 6,
+        "responses": 7,
+        "bindImage": 8,
+        "sysreq": 9
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270ResourceType": {
+    "name": "IANATn3270ResourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "terminal": 2,
+          "printer": 3,
+          "terminalOrPrinter": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270DeviceType": {
+    "name": "IANATn3270DeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ibm3278d2": 1,
+          "ibm3278d2E": 2,
+          "ibm3278d3": 3,
+          "ibm3278d3E": 4,
+          "ibm3278d4": 5,
+          "ibm3278d4E": 6,
+          "ibm3278d5": 7,
+          "ibm3278d5E": 8,
+          "ibmDynamic": 9,
+          "ibm3287d1": 10,
+          "unknown": 100
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANATn3270eLogData": {
+    "name": "IANATn3270eLogData",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IANATn3270eTC-MIB",
+      "Source digest sha256:b6d46da82a0cab1d9ff1ad9905b9b86cd74633d9dbf1861e42aa88b6411d450f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IANATn3270eTC-MIB"
+  }
+}

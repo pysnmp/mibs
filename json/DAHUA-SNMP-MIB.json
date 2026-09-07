@@ -1,0 +1,1417 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Opaque",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "device": {
+    "name": "device",
+    "oid": "1.3.6.1.4.1.1004849.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-28 11:12",
+        "description": "add OID: cpuUsage, lastestEvent, storageInfo, physicalVolume, raidVolume, storageFailureEvent, storageFailureEvent, storageLowSpaceEvent, storageInOutEvent, storageSMARTAbnormityEvent"
+      },
+      {
+        "revision": "2014-02-14 11:12",
+        "description": " add OID : dahuaSnmpTrap, videoMotionEvent, videoBlindEvent, videoLossEvent, localAlarmEvent, action, currentTime"
+      },
+      {
+        "revision": "2014-01-07 14:27",
+        "description": "This file defines the private Dahua SNMP MIB extensions for all the device."
+      }
+    ]
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "dahua": {
+    "name": "dahua",
+    "oid": "1.3.6.1.4.1.1004849",
+    "class": "objectidentity"
+  },
+  "systemInfo": {
+    "name": "systemInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.1",
+    "class": "objectidentity"
+  },
+  "versionInfo": {
+    "name": "versionInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.1.1",
+    "class": "objectidentity"
+  },
+  "productInfo": {
+    "name": "productInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2",
+    "class": "objectidentity"
+  },
+  "networkInfo": {
+    "name": "networkInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.2",
+    "class": "objectidentity"
+  },
+  "networkPort": {
+    "name": "networkPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1",
+    "class": "objectidentity"
+  },
+  "tcpIpInfo": {
+    "name": "tcpIpInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2",
+    "class": "objectidentity"
+  },
+  "configInfo": {
+    "name": "configInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.3",
+    "class": "objectidentity"
+  },
+  "encodeConfig": {
+    "name": "encodeConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1",
+    "class": "objectidentity"
+  },
+  "eventConfig": {
+    "name": "eventConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2",
+    "class": "objectidentity"
+  },
+  "videoDetectConfig": {
+    "name": "videoDetectConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "alarmConfig": {
+    "name": "alarmConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "exceptionConfig": {
+    "name": "exceptionConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.3",
+    "class": "objectidentity"
+  },
+  "recordConfig": {
+    "name": "recordConfig",
+    "oid": "1.3.6.1.4.1.1004849.2.3.3",
+    "class": "objectidentity"
+  },
+  "recordPlanInfo": {
+    "name": "recordPlanInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "storageInfo": {
+    "name": "storageInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.4",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.1004849.2.10",
+    "class": "objectidentity"
+  },
+  "dvr": {
+    "name": "dvr",
+    "oid": "1.3.6.1.4.1.1004849.2.10.1",
+    "class": "objectidentity"
+  },
+  "nvr": {
+    "name": "nvr",
+    "oid": "1.3.6.1.4.1.1004849.2.10.2",
+    "class": "objectidentity"
+  },
+  "ipc": {
+    "name": "ipc",
+    "oid": "1.3.6.1.4.1.1004849.2.10.3",
+    "class": "objectidentity"
+  },
+  "notification": {
+    "name": "notification",
+    "oid": "1.3.6.1.4.1.1004849.2.11",
+    "class": "objectidentity"
+  },
+  "multiMediaEvent": {
+    "name": "multiMediaEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.11",
+    "class": "objectidentity"
+  },
+  "alarmEvent": {
+    "name": "alarmEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.12",
+    "class": "objectidentity"
+  },
+  "storageEvent": {
+    "name": "storageEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.13",
+    "class": "objectidentity"
+  },
+  "recordEvent": {
+    "name": "recordEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.14",
+    "class": "objectidentity"
+  },
+  "dahuaSnmpTrap": {
+    "name": "dahuaSnmpTrap",
+    "oid": "1.3.6.1.4.1.1004849.2.12",
+    "class": "objectidentity"
+  },
+  "softwareRevision": {
+    "name": "softwareRevision",
+    "oid": "1.3.6.1.4.1.1004849.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareRevision": {
+    "name": "hardwareRevision",
+    "oid": "1.3.6.1.4.1.1004849.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "videoChannel": {
+    "name": "videoChannel",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmInput": {
+    "name": "alarmInput",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmOutput": {
+    "name": "alarmOutput",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVersion": {
+    "name": "systemVersion",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceType": {
+    "name": "deviceType",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceClass": {
+    "name": "deviceClass",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceStatus": {
+    "name": "deviceStatus",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bad": 0,
+          "good": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "machineName": {
+    "name": "machineName",
+    "oid": "1.3.6.1.4.1.1004849.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUsage": {
+    "name": "cpuUsage",
+    "oid": "1.3.6.1.4.1.1004849.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastestEvent": {
+    "name": "lastestEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "encodeNo": {
+    "name": "encodeNo",
+    "oid": "1.3.6.1.4.1.1004849.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tcpPort": {
+    "name": "tcpPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "udpPort": {
+    "name": "udpPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpPort": {
+    "name": "httpPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtspPort": {
+    "name": "rtspPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "maxConnectNum": {
+    "name": "maxConnectNum",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpsPort": {
+    "name": "httpsPort",
+    "oid": "1.3.6.1.4.1.1004849.2.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "getIpmode": {
+    "name": "getIpmode",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "DHCP": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macAddr": {
+    "name": "macAddr",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipVersion": {
+    "name": "ipVersion",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "IPv4": 0,
+          "IPv6": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetMast": {
+    "name": "subnetMast",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "defaultGateway": {
+    "name": "defaultGateway",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferredDns": {
+    "name": "preferredDns",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateDns": {
+    "name": "alternateDns",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAddr": {
+    "name": "ipAddr",
+    "oid": "1.3.6.1.4.1.1004849.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainStreamInfo": {
+    "name": "mainStreamInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "extraStreamInfo": {
+    "name": "extraStreamInfo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "regularStreamInfoTable": {
+    "name": "regularStreamInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "regularStreamInfoTableEntry": {
+    "name": "regularStreamInfoTableEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "regularChannelNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "regularChannelNo": {
+    "name": "regularChannelNo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "regularCompression": {
+    "name": "regularCompression",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "regularFPS": {
+    "name": "regularFPS",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "regularResolution": {
+    "name": "regularResolution",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdStreamInfoTable": {
+    "name": "mdStreamInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdStreamInfoTableEntry": {
+    "name": "mdStreamInfoTableEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "mdChannelNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mdChannelNo": {
+    "name": "mdChannelNo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdCompression": {
+    "name": "mdCompression",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdFPS": {
+    "name": "mdFPS",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdResolution": {
+    "name": "mdResolution",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmStreamInfoTable": {
+    "name": "alarmStreamInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmStreamInfoTableEntry": {
+    "name": "alarmStreamInfoTableEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "alarmChannelNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmChannelNo": {
+    "name": "alarmChannelNo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmCompression": {
+    "name": "alarmCompression",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmFPS": {
+    "name": "alarmFPS",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmResolution": {
+    "name": "alarmResolution",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extra1StreamInfoTable": {
+    "name": "extra1StreamInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extra1StreamInfoEntry": {
+    "name": "extra1StreamInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "extra1ChannelNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extra1ChannelNo": {
+    "name": "extra1ChannelNo",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extra1Compression": {
+    "name": "extra1Compression",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extra1FPS": {
+    "name": "extra1FPS",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extra1Resolution": {
+    "name": "extra1Resolution",
+    "oid": "1.3.6.1.4.1.1004849.2.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "videoMotionInfoTable": {
+    "name": "videoMotionInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoMotionInfoEntry": {
+    "name": "videoMotionInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoMotionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "videoMotionIndex": {
+    "name": "videoMotionIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "videoLossInfoTable": {
+    "name": "videoLossInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoLossInfoEntry": {
+    "name": "videoLossInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoLossIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "videoLossIndex": {
+    "name": "videoLossIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "videoBlindInfoTable": {
+    "name": "videoBlindInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoBlindInfoEntry": {
+    "name": "videoBlindInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoBlindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "videoBlindIndex": {
+    "name": "videoBlindIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "localAlarmInfoTable": {
+    "name": "localAlarmInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "localAlarmInfoEntry": {
+    "name": "localAlarmInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "localAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "localAlarmIndex": {
+    "name": "localAlarmIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "networkAlarmInfoTable": {
+    "name": "networkAlarmInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "networkAlarmInfoEntry": {
+    "name": "networkAlarmInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "networkAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "networkAlarmIndex": {
+    "name": "networkAlarmIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "recordMainStreamInfoTable": {
+    "name": "recordMainStreamInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "recordMainStreamInfoEntry": {
+    "name": "recordMainStreamInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "recordMainChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "recordMainChannelIndex": {
+    "name": "recordMainChannelIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "physicalVolumeInfoTable": {
+    "name": "physicalVolumeInfoTable",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "physicalVolumeInfoEntry": {
+    "name": "physicalVolumeInfoEntry",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "physicalVolumeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "physicalVolumeIndex": {
+    "name": "physicalVolumeIndex",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "physicNo": {
+    "name": "physicNo",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "logicNo": {
+    "name": "logicNo",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "physicalVolumeName": {
+    "name": "physicalVolumeName",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "physicalVolumeStatus": {
+    "name": "physicalVolumeStatus",
+    "oid": "1.3.6.1.4.1.1004849.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpStatusEvent": {
+    "name": "snmpStatusEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "snmpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "videoMotionEvent": {
+    "name": "videoMotionEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoMotionIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "videoBlindEvent": {
+    "name": "videoBlindEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoBlindIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "videoLossEvent": {
+    "name": "videoLossEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.11.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "videoLossIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "localAlarmEvent": {
+    "name": "localAlarmEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.12.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "localAlarmIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "storageFailureEvent": {
+    "name": "storageFailureEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.13.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "logicNo"
+      }
+    ],
+    "status": "current"
+  },
+  "storageLowSpaceEvent": {
+    "name": "storageLowSpaceEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.13.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "logicNo"
+      }
+    ],
+    "status": "current"
+  },
+  "storageInOutEvent": {
+    "name": "storageInOutEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.13.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "logicNo"
+      }
+    ],
+    "status": "current"
+  },
+  "storageSMARTAbnormityEvent": {
+    "name": "storageSMARTAbnormityEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.13.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "logicNo"
+      }
+    ],
+    "status": "current"
+  },
+  "recordMainStreamEvent": {
+    "name": "recordMainStreamEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.14.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "recordMainChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "recordExtraStreamEvent": {
+    "name": "recordExtraStreamEvent",
+    "oid": "1.3.6.1.4.1.1004849.2.11.14.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "action"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "currentTime"
+      },
+      {
+        "module": "DAHUA-SNMP-MIB",
+        "object": "recordExtraChannelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "action": {
+    "name": "action",
+    "oid": "1.3.6.1.4.1.1004849.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "currentTime": {
+    "name": "currentTime",
+    "oid": "1.3.6.1.4.1.1004849.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "snmpStatus": {
+    "name": "snmpStatus",
+    "oid": "1.3.6.1.4.1.1004849.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 0,
+          "stop": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "physicalVolumeThreshold": {
+    "name": "physicalVolumeThreshold",
+    "oid": "1.3.6.1.4.1.1004849.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DAHUA-SNMP-MIB",
+      "Source digest sha256:2a51eb0bd3c4ecad1b5da34962874b75f9b73fd57c88062369970028ab2cb1db",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DAHUA-SNMP-MIB"
+  }
+}

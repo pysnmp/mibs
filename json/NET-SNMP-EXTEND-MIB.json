@@ -1,0 +1,442 @@
+{
+  "imports": {
+    "class": "imports",
+    "NET-SNMP-AGENT-MIB": [
+      "nsExtensions"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netSnmpExtendMIB": {
+    "name": "netSnmpExtendMIB",
+    "oid": "1.3.6.1.4.1.8072.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-17 00:00",
+        "description": "Fixed inconsistencies in the definition of nsExtendConfigTable."
+      },
+      {
+        "revision": "2004-05-08 00:00",
+        "description": "First revision."
+      }
+    ]
+  },
+  "nsExtendObjects": {
+    "name": "nsExtendObjects",
+    "oid": "1.3.6.1.4.1.8072.1.3.2",
+    "class": "objectidentity"
+  },
+  "nsExtendGroups": {
+    "name": "nsExtendGroups",
+    "oid": "1.3.6.1.4.1.8072.1.3.3",
+    "class": "objectidentity"
+  },
+  "nsExtendNumEntries": {
+    "name": "nsExtendNumEntries",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendConfigTable": {
+    "name": "nsExtendConfigTable",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsExtendConfigEntry": {
+    "name": "nsExtendConfigEntry",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendToken",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsExtendToken": {
+    "name": "nsExtendToken",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsExtendCommand": {
+    "name": "nsExtendCommand",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendArgs": {
+    "name": "nsExtendArgs",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendInput": {
+    "name": "nsExtendInput",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendCacheTime": {
+    "name": "nsExtendCacheTime",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendExecType": {
+    "name": "nsExtendExecType",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exec": 1,
+          "shell": 2
+        }
+      }
+    },
+    "default": {
+      "value": "exec",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendRunType": {
+    "name": "nsExtendRunType",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "run-on-read": 1,
+          "run-on-set": 2,
+          "run-command": 3
+        }
+      }
+    },
+    "default": {
+      "value": "run-on-read",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendStorage": {
+    "name": "nsExtendStorage",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "volatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendStatus": {
+    "name": "nsExtendStatus",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsExtendOutput1Table": {
+    "name": "nsExtendOutput1Table",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsExtendOutput1Entry": {
+    "name": "nsExtendOutput1Entry",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "nsExtendOutput1Entry",
+      "module": "NET-SNMP-EXTEND-MIB",
+      "object": "nsExtendConfigEntry"
+    },
+    "status": "current"
+  },
+  "nsExtendOutput1Line": {
+    "name": "nsExtendOutput1Line",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendOutputFull": {
+    "name": "nsExtendOutputFull",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendOutNumLines": {
+    "name": "nsExtendOutNumLines",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendResult": {
+    "name": "nsExtendResult",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendOutput2Table": {
+    "name": "nsExtendOutput2Table",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsExtendOutput2Entry": {
+    "name": "nsExtendOutput2Entry",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendToken",
+        "implied": 0
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsExtendLineIndex": {
+    "name": "nsExtendLineIndex",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsExtendOutLine": {
+    "name": "nsExtendOutLine",
+    "oid": "1.3.6.1.4.1.8072.1.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsExtendConfigGroup": {
+    "name": "nsExtendConfigGroup",
+    "oid": "1.3.6.1.4.1.8072.1.3.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendCommand"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendArgs"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendInput"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendCacheTime"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendExecType"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendRunType"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendStorage"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendStatus"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendNumEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "nsExtendOutputGroup": {
+    "name": "nsExtendOutputGroup",
+    "oid": "1.3.6.1.4.1.8072.1.3.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendOutNumLines"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendResult"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendOutLine"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendOutput1Line"
+      },
+      {
+        "module": "NET-SNMP-EXTEND-MIB",
+        "object": "nsExtendOutputFull"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NET-SNMP-EXTEND-MIB",
+      "Source digest sha256:a3cedfdd2fd7973fb62ff62048cef3b92316254de1ce3f6e508fccd6afb421ae",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NET-SNMP-EXTEND-MIB"
+  }
+}

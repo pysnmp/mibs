@@ -1,0 +1,677 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "gbnL2Switch": {
+    "name": "gbnL2Switch",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "gbnL2PortSecurityMib": {
+    "name": "gbnL2PortSecurityMib",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-24 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "portSecurityNotifications": {
+    "name": "portSecurityNotifications",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.0",
+    "class": "objectidentity"
+  },
+  "portSecurityPortTable": {
+    "name": "portSecurityPortTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSecurityPortEntry": {
+    "name": "portSecurityPortEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityPortNum": {
+    "name": "portSecurityPortNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityEnable": {
+    "name": "portSecurityEnable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMaxNum": {
+    "name": "portSecurityMaxNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityCurrentNum": {
+    "name": "portSecurityCurrentNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityViolationMode": {
+    "name": "portSecurityViolationMode",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protect": 0,
+          "restrict": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityAgingStatic": {
+    "name": "portSecurityAgingStatic",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityAgingTime": {
+    "name": "portSecurityAgingTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecuritySticky": {
+    "name": "portSecuritySticky",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityShutdown": {
+    "name": "portSecurityShutdown",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityRecovery": {
+    "name": "portSecurityRecovery",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityRecoveryTime": {
+    "name": "portSecurityRecoveryTime",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3660
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacRuleTable": {
+    "name": "portSecurityMacRuleTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSecurityMacRuleEntry": {
+    "name": "portSecurityMacRuleEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityMacRulePortNum",
+        "implied": 0
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityMacRuleMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityMacRulePortNum": {
+    "name": "portSecurityMacRulePortNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityMacRuleMac": {
+    "name": "portSecurityMacRuleMac",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityMacRuleAction": {
+    "name": "portSecurityMacRuleAction",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 0,
+          "deny": 1,
+          "sticky": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacRuleVid": {
+    "name": "portSecurityMacRuleVid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacRuleIpv4": {
+    "name": "portSecurityMacRuleIpv4",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacRuleType": {
+    "name": "portSecurityMacRuleType",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 0,
+          "macvid": 1,
+          "macip": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portsecurityMacRuleRowStatus": {
+    "name": "portsecurityMacRuleRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityIpRuleTable": {
+    "name": "portSecurityIpRuleTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSecurityIpRuleEntry": {
+    "name": "portSecurityIpRuleEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityIpRulePortNum",
+        "implied": 0
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityIpRuleIpv4Start",
+        "implied": 0
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityIpRuleIpv4End",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityIpRulePortNum": {
+    "name": "portSecurityIpRulePortNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityIpRuleIpv4Start": {
+    "name": "portSecurityIpRuleIpv4Start",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityIpRuleIpv4End": {
+    "name": "portSecurityIpRuleIpv4End",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityIpRuleAction": {
+    "name": "portSecurityIpRuleAction",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 0,
+          "deny": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portsecurityIpRuleRowStatus": {
+    "name": "portsecurityIpRuleRowStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityActiveMacTable": {
+    "name": "portSecurityActiveMacTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSecurityActiveMacEntry": {
+    "name": "portSecurityActiveMacEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacDevice",
+        "implied": 0
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityActiveMacDevice": {
+    "name": "portSecurityActiveMacDevice",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacMacAddr": {
+    "name": "portSecurityActiveMacMacAddr",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacPortNum": {
+    "name": "portSecurityActiveMacPortNum",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacAction": {
+    "name": "portSecurityActiveMacAction",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 0,
+          "deny": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacVid": {
+    "name": "portSecurityActiveMacVid",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacIpv4": {
+    "name": "portSecurityActiveMacIpv4",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityActiveMacType": {
+    "name": "portSecurityActiveMacType",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 0,
+          "macvid": 1,
+          "macip": 2,
+          "ip": 3,
+          "learned": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityMacDenyNotification": {
+    "name": "portSecurityMacDenyNotification",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacPortNum"
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacVid"
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacIpv4"
+      },
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityActiveMacType"
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityMaxDenyNotification": {
+    "name": "portSecurityMaxDenyNotification",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityCurrentNum"
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityShutdownNotification": {
+    "name": "portSecurityShutdownNotification",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.1.8.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBNL2PortSecurity-MIB",
+        "object": "portSecurityShutdown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNL2PortSecurity-MIB",
+      "Source digest sha256:af1dafd7cc4ccb47b9128e08e058992ca90b41570cd3ae0e7c5bb775528b93cd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNL2PortSecurity-MIB"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPrinterCapability": {
+    "name": "ciscoPrinterCapability",
+    "oid": "1.3.6.1.4.1.9.7.548",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPrinterCapabilityV12R04": {
+    "name": "ciscoPrinterCapabilityV12R04",
+    "oid": "1.3.6.1.4.1.9.7.548.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4",
+    "capabilities": [
+      {
+        "module": "Printer-MIB",
+        "includes": [
+          "prtGeneralV2Group"
+        ],
+        "variations": [
+          {
+            "object": "prtGeneralPrinterName",
+            "access": "read-only"
+          },
+          {
+            "object": "prtGeneralSerialNumber",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PRINTER-CAPABILITY",
+      "Source digest sha256:207efe2bb27c14eb56a7aa91e5b51fbfb566a9e39811a5c851a74482e267a0b9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PRINTER-CAPABILITY"
+  }
+}

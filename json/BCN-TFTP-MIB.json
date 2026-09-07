@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "BCN-SMI-MIB": [
+      "bcnServices"
+    ],
+    "BCN-TC-MIB": [
+      "BcnAlarmSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "bcnTftpMIB": {
+    "name": "bcnTftpMIB",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnTftp": {
+    "name": "bcnTftp",
+    "oid": "1.3.6.1.4.1.13315.3.1.3",
+    "class": "objectidentity"
+  },
+  "bcnTftpObjects": {
+    "name": "bcnTftpObjects",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "bcnTftpNotification": {
+    "name": "bcnTftpNotification",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3",
+    "class": "objectidentity"
+  },
+  "bcnTftpConformance": {
+    "name": "bcnTftpConformance",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4",
+    "class": "objectidentity"
+  },
+  "bcnTftpServiceStatus": {
+    "name": "bcnTftpServiceStatus",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnTftpSerOperState": {
+    "name": "bcnTftpSerOperState",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2,
+          "starting": 3,
+          "stopping": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnTftpServiceStatistics": {
+    "name": "bcnTftpServiceStatistics",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnTftpSerDirs": {
+    "name": "bcnTftpSerDirs",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnTftpSerFiles": {
+    "name": "bcnTftpSerFiles",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnTftpSerFilesSize": {
+    "name": "bcnTftpSerFilesSize",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnTftpSerPartialList": {
+    "name": "bcnTftpSerPartialList",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnTftpNotificationEvents": {
+    "name": "bcnTftpNotificationEvents",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3.0",
+    "class": "objectidentity"
+  },
+  "bcnTftpNotificationData": {
+    "name": "bcnTftpNotificationData",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "bcnTftpAlarmSeverity": {
+    "name": "bcnTftpAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BcnAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnTftpAlarmInfo": {
+    "name": "bcnTftpAlarmInfo",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnTftpAlarmNotif": {
+    "name": "bcnTftpAlarmNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerOperState"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpAlarmSeverity"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnTftpServiceCompliances": {
+    "name": "bcnTftpServiceCompliances",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.1",
+    "class": "objectidentity"
+  },
+  "bcnTftpServiceGroups": {
+    "name": "bcnTftpServiceGroups",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.2",
+    "class": "objectidentity"
+  },
+  "bcnTftpServiceStatusGroup": {
+    "name": "bcnTftpServiceStatusGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerOperState"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerDirs"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerFiles"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerFilesSize"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpSerPartialList"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnTftpNotificationEventGroup": {
+    "name": "bcnTftpNotificationEventGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpAlarmNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnTftpNotificationDataGroup": {
+    "name": "bcnTftpNotificationDataGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpAlarmSeverity"
+      },
+      {
+        "module": "BCN-TFTP-MIB",
+        "object": "bcnTftpAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnTftpStatusCompliance": {
+    "name": "bcnTftpStatusCompliance",
+    "oid": "1.3.6.1.4.1.13315.3.1.3.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcnTftpServiceStatusGroup",
+        "module": "BCN-TFTP-MIB"
+      },
+      {
+        "object": "bcnTftpNotificationEventGroup",
+        "module": "BCN-TFTP-MIB"
+      },
+      {
+        "object": "bcnTftpNotificationDataGroup",
+        "module": "BCN-TFTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BCN-TFTP-MIB",
+      "Source digest sha256:d4f772ea9c733e31b87a6bbfa29245ce8910db377e3d866783e4b4fbc95e9ab7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BCN-TFTP-MIB"
+  }
+}

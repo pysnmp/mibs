@@ -1,0 +1,74 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lldpPrivateMIB": {
+    "name": "lldpPrivateMIB",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-27 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "lldpPrivateObjects": {
+    "name": "lldpPrivateObjects",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.5.0",
+    "class": "objectidentity"
+  },
+  "lldpAdminStatus": {
+    "name": "lldpAdminStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.4.5.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LLDPPRIVATE-MIB",
+      "Source digest sha256:f71ecf663b6b603d3f9cbc7bec62cb9e20612de3564493ed748fb2a5d837e75f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LLDPPRIVATE-MIB"
+  }
+}

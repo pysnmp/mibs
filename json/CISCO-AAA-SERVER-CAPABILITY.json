@@ -1,0 +1,240 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAAAServerCapability": {
+    "name": "ciscoAAAServerCapability",
+    "oid": "1.3.6.1.4.1.9.7.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-21 00:00",
+        "description": "Added VARIATION for casKey object in ciscoAAAServerCapabilityACSWV03R000 agent capability. Added Agent capabilities ciscoAAAServerCapc4710aceVA1R70 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-02-21 00:00",
+        "description": "Agent capabilities for Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2003-11-14 00:00",
+        "description": "Agent capabilities for Cisco MDS 1.3."
+      },
+      {
+        "revision": "2000-01-20 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoAAAServerCapabilityV10R00": {
+    "name": "ciscoAAAServerCapabilityV10R00",
+    "oid": "1.3.6.1.4.1.9.7.129.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(4)XJ",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "includes": [
+          "casStatisticsGroup",
+          "casConfigGroup",
+          "casServerNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "casConfigEntry",
+            "creationrequires": [
+              "casAddress"
+            ]
+          },
+          {
+            "object": "casAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "casAuthenPort",
+            "access": "read-only"
+          },
+          {
+            "object": "casAcctPort",
+            "access": "read-only"
+          },
+          {
+            "object": "casKey",
+            "access": "read-only"
+          },
+          {
+            "object": "casConfigRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerCapabilityMDS13R1": {
+    "name": "ciscoAAAServerCapabilityMDS13R1",
+    "oid": "1.3.6.1.4.1.9.7.129.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 1.3(1)",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "includes": [
+          "casConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "casServerStateChangeEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "casAuthenPort",
+            "default": [
+              1812
+            ]
+          },
+          {
+            "object": "casAcctPort",
+            "default": [
+              1813
+            ]
+          },
+          {
+            "object": "casPriority",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerCapabilityACSWV03R000": {
+    "name": "ciscoAAAServerCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.129.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "includes": [
+          "casConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "casServerStateChangeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "casAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "casAuthenPort",
+            "access": "read-only",
+            "default": [
+              1812
+            ]
+          },
+          {
+            "object": "casAcctPort",
+            "access": "read-only",
+            "default": [
+              1813
+            ]
+          },
+          {
+            "object": "casKey",
+            "access": "read-only"
+          },
+          {
+            "object": "casPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "casConfigRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerCapc4710aceVA1R70": {
+    "name": "ciscoAAAServerCapc4710aceVA1R70",
+    "oid": "1.3.6.1.4.1.9.7.129.4",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                         for ACE 4710 Application Control Engine \n                         Appliance.",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "includes": [
+          "casConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "casServerStateChangeEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "casAddress",
+            "access": "read-only"
+          },
+          {
+            "object": "casAuthenPort",
+            "access": "read-only",
+            "default": [
+              1812
+            ]
+          },
+          {
+            "object": "casAcctPort",
+            "access": "read-only",
+            "default": [
+              1813
+            ]
+          },
+          {
+            "object": "casKey",
+            "access": "read-only"
+          },
+          {
+            "object": "casPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "casConfigRowStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-AAA-SERVER-CAPABILITY",
+      "Source digest sha256:073775e695def93dc07936396c16b42fbcc10a6acff114726690319f043dd736",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-AAA-SERVER-CAPABILITY"
+  }
+}

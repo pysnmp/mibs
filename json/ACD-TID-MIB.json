@@ -1,0 +1,258 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "acdTid": {
+    "name": "acdTid",
+    "oid": "1.3.6.1.4.1.22420.2.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-11-11 01:00",
+        "description": "Initial version of MIB module ACD-TID-MIB."
+      }
+    ]
+  },
+  "acdTidNotifications": {
+    "name": "acdTidNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.14.0",
+    "class": "objectidentity"
+  },
+  "acdTidMIBObjects": {
+    "name": "acdTidMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.14.1",
+    "class": "objectidentity"
+  },
+  "acdTidConformance": {
+    "name": "acdTidConformance",
+    "oid": "1.3.6.1.4.1.22420.2.14.2",
+    "class": "objectidentity"
+  },
+  "acdTidGeneral": {
+    "name": "acdTidGeneral",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.1",
+    "class": "objectidentity"
+  },
+  "acdTidInfo": {
+    "name": "acdTidInfo",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2",
+    "class": "objectidentity"
+  },
+  "AcdTidType": {
+    "name": "AcdTidType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configuration": 1,
+          "status": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "acdTidCfgLastChangeTid": {
+    "name": "acdTidCfgLastChangeTid",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidStatusLastChangeTid": {
+    "name": "acdTidStatusLastChangeTid",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidInfoTable": {
+    "name": "acdTidInfoTable",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdTidInfoEntry": {
+    "name": "acdTidInfoEntry",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdTidInfoIndex": {
+    "name": "acdTidInfoIndex",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdTidInfoOID": {
+    "name": "acdTidInfoOID",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidInfoType": {
+    "name": "acdTidInfoType",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcdTidType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidInfoDescr": {
+    "name": "acdTidInfoDescr",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidInfoLastChangeTid": {
+    "name": "acdTidInfoLastChangeTid",
+    "oid": "1.3.6.1.4.1.22420.2.14.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdTidCompliances": {
+    "name": "acdTidCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.14.2.1",
+    "class": "objectidentity"
+  },
+  "acdTidGroups": {
+    "name": "acdTidGroups",
+    "oid": "1.3.6.1.4.1.22420.2.14.2.2",
+    "class": "objectidentity"
+  },
+  "acdTidGeneralGroup": {
+    "name": "acdTidGeneralGroup",
+    "oid": "1.3.6.1.4.1.22420.2.14.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidCfgLastChangeTid"
+      },
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidStatusLastChangeTid"
+      }
+    ],
+    "status": "current"
+  },
+  "acdTidTableGroup": {
+    "name": "acdTidTableGroup",
+    "oid": "1.3.6.1.4.1.22420.2.14.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidInfoOID"
+      },
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidInfoType"
+      },
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidInfoDescr"
+      },
+      {
+        "module": "ACD-TID-MIB",
+        "object": "acdTidInfoLastChangeTid"
+      }
+    ],
+    "status": "current"
+  },
+  "acdTidCompliance": {
+    "name": "acdTidCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.14.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdTidGeneralGroup",
+        "module": "ACD-TID-MIB"
+      },
+      {
+        "object": "acdTidTableGroup",
+        "module": "ACD-TID-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACD-TID-MIB",
+      "Source digest sha256:f98d76607b2925912f9de952b2a9e94fe2494f76a2748bc6ee9b7d90500155ee",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACD-TID-MIB"
+  }
+}

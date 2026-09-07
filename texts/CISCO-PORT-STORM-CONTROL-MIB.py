@@ -1,0 +1,157 @@
+#
+# PySNMP MIB module CISCO-PORT-STORM-CONTROL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-PORT-STORM-CONTROL-MIB
+# Source digest sha256:40bad05ce1d91b41ba9cc04bc3369c7dc9c6ed966478e91bf9d947c4ce1cb34b
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention, TimeStamp, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeStamp", "TruthValue")
+ciscoPortStormControlMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 362))
+ciscoPortStormControlMIB.setRevisions(('2007-10-19 00:00', '2003-07-03 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoPortStormControlMIB.setRevisionsDescriptions(('cpscEvent notification is deprecated and replaced by new\n        notification cpscEventRev1.', 'Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoPortStormControlMIB.setLastUpdated('2007-10-19 00:00')
+if mibBuilder.loadTexts: ciscoPortStormControlMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoPortStormControlMIB.setContactInfo('Cisco Systems\n            Customer Services\n\n            Postal: 170 W Tasman Drive\n            San Jose, CA 95134\n            USA\n\n            Tel: +1 800 553-NETS\n            E-mail: cs-lan-switch-snmp@cisco.com')
+if mibBuilder.loadTexts: ciscoPortStormControlMIB.setDescription('The MIB module for managing Cisco Port Storm Control.')
+ciscoPortStormControlMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 0))
+ciscoPortStormControlMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 1))
+ciscoPortStormControlMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 2))
+cpscConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1))
+cpscStatusObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2))
+class CPortStormControlTrafficType(TextualConvention, Integer32):
+    description = 'The type of traffic that can be configured to be\n        regulated per physical interface.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("broadcast", 1), ("multicast", 2), ("unicast", 3), ("all", 4))
+
+class CPortStormControlActionType(TextualConvention, Integer32):
+    description = 'The type of storm control action that is configured on\n        a port.\n\n        An action of filter indicates that packets should be \n        filtered if a storm event is detected on a port.\n\n        An action of shutdown indicates that the port should be \n        shutdown if a storm event is detected on a port.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("filter", 1), ("shutdown", 2))
+
+class CPortStormControlStatusType(TextualConvention, Integer32):
+    description = 'The current status of storm control on a given\n        interface for a given traffic type.\n\n        inactive - Indicates that storm control is not enabled\n                   for the given traffic type.\n\n        forwarding - Indicates that storm control is monitoring\n                     the traffic type, but no storm event has\n                     been detected.\n\n        trafficTypeFiltered - Indicates that a storm event has\n                              has occurred and the particular\n                              traffic type is being filtered\n\n        allTrafficFiltered - Indicates that a storm event has \n                             occurred and all traffic received\n                             on the interface is being filtered\n\n        shutdown -  Indicates that the interface has been\n                    shutdown in response to a storm event.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("inactive", 1), ("forwarding", 2), ("trafficTypeFiltered", 3), ("allTrafficFiltered", 4), ("shutdown", 5))
+
+cpscThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscThresholdTable.setStatus('current')
+if mibBuilder.loadTexts: cpscThresholdTable.setDescription('A table of storm control threshold configuration entries.')
+cpscThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-STORM-CONTROL-MIB", "cpscTrafficType"))
+if mibBuilder.loadTexts: cpscThresholdEntry.setStatus('current')
+if mibBuilder.loadTexts: cpscThresholdEntry.setDescription('A collection of storm control threshold configuration\n        entries.\n\n        Storm control can be configured for multiple traffic types\n        on a given interface. One entry is created for each\n        interface and the traffic type that can be monitored by\n        the device.')
+cpscTrafficType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 1, 1, 1), CPortStormControlTrafficType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscTrafficType.setStatus('current')
+if mibBuilder.loadTexts: cpscTrafficType.setDescription('This object identifies a particular traffic type\n        for which a management station desires to configure\n        storm control on the given interface (which is identified\n        by its ifIndex).')
+cpscUpperThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('0.01 Percentage').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpscUpperThreshold.setStatus('current')
+if mibBuilder.loadTexts: cpscUpperThreshold.setDescription('This object represents the upper threshold of total\n        amount of a particular traffic type that can be seen\n        on a given interface, after which a storm event is\n        declared and storm control action is taken.\n\n        The value represents the traffic as a percentage of\n        total bandwidth of the interface, in units of 0.01 %.\n\n        For example, if a management station sets the value of\n        cpscUpperThreshold.3.1 as 4000, it means the \n        following:\n            a) storm control is enabled on the interface with \n               ifIndex = 3 for broadcast (1) packets\n            b) if the broadcast traffic received per second\n               on the interface is more than (4000*0.01 = 40%) of\n               the total interface bandwidth, then the system will\n               take storm control actions, as indicated by\n               cpscAction.3 .\n\n        It should be noted that setting the upper threshold value\n        to anything other than 100% results in storm control being\n        automatically enabled on the given interface, for the\n        given traffic type.\n\n        An implementation may not be able to support different\n        threshold values for different traffic types, in which\n        case changing the value for one traffic type will \n        automatically result in the threshold value for other\n        types also modified.\n\n        The default value of this object is implementation-\n        dependent.')
+cpscLowerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('0.01 Percentage').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpscLowerThreshold.setStatus('current')
+if mibBuilder.loadTexts: cpscLowerThreshold.setDescription('This object represents the lower threshold of total\n        amount of a particular traffic type.\n\n        When a filter action (see cpscAction) is\n        in effect on an interface because of a previous storm \n        event, the value of this object determines when the \n        system will stop the filter action. \n\n        The value represents traffic as percent of total bandwidth\n        of the interface, in units of 0.01 %.\n        For example, if a broadcast(1) storm occurred on an \n        interface with ifIndex 3, and the value of \n        cpscLowerThreshold.3.1 is 2500 (25%), then \n        the system will stop filtering broadcast traffic on that\n        interface if it drops below 25% of the total bandwidth.\n\n        This value will be ignored if a shutdown action is \n        configured. The value of this object must be\n        equal to or less than the value of the upper threshold\n        specified by cpscUpperThreshold for the same entry.\n\n        The default value of this object is implementation-\n        dependent.\n\n        On platforms that only support one threshold level for \n        this traffic type and interface,this object is read-only\n        and always has the same value of  the corresponding \n        cpscUpperThreshold for the same entry.')
+cpscActionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscActionTable.setStatus('current')
+if mibBuilder.loadTexts: cpscActionTable.setDescription('A table of storm control action entries.')
+cpscActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cpscActionEntry.setStatus('current')
+if mibBuilder.loadTexts: cpscActionEntry.setDescription('An entry containing the storm control action\n        configuration information. An entry is created for each\n        interface that can support the storm control feature.')
+cpscAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 2, 1, 1), CPortStormControlActionType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpscAction.setStatus('current')
+if mibBuilder.loadTexts: cpscAction.setDescription('This object represents the storm control action\n        taken when the traffic of a particular type exceeds\n        the configured upper threshold values.')
+cpscNotificationControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("stormOccurred", 2), ("stormCleared", 3), ("both", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpscNotificationControl.setStatus('current')
+if mibBuilder.loadTexts: cpscNotificationControl.setDescription('This object controls when a storm control notification\n        will be generated.\n\n        If the object is set to none(1), no notifications will\n        be generated.\n\n        A notification will be generated when a storm event is\n        detected or cleared when the object is set to\n        stormOccurred(2) or stormCleared(3) respectively.\n\n        If the object is set to both(4), a notification will be\n        generated both when a storm event is detected and\n        cleared. \n\n        NOTE:\n            a) The default value of this object is none(1).\n            b) Irrespective of the value of this object, the\n            value of the global object cpscNotificationThreshold\n            controls whether or not a notification will be\n            generated at a given point.')
+cpscNotificationThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setUnits('Notifications per Minute').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpscNotificationThreshold.setStatus('current')
+if mibBuilder.loadTexts: cpscNotificationThreshold.setDescription('The value of object controls the global rate of storm\n        control notifications generated by an entity per minute. \n\n        A value of 0 indicates no limit, and the entity will\n        generate notifications for each storm event as governed by\n        the cpscNotificationControl for a given interface.')
+cpscStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscStatusTable.setStatus('current')
+if mibBuilder.loadTexts: cpscStatusTable.setDescription('A table of storm control status entries.')
+cpscStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-STORM-CONTROL-MIB", "cpscTrafficType"))
+if mibBuilder.loadTexts: cpscStatusEntry.setStatus('current')
+if mibBuilder.loadTexts: cpscStatusEntry.setDescription('A collection of storm control status entries, one per\n        interface and traffic type.\n\n        An entry is created for each storm control capable\n        interface and the traffic type with the storm control\n        status information.')
+cpscStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 1, 1, 1), CPortStormControlStatusType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpscStatus.setStatus('current')
+if mibBuilder.loadTexts: cpscStatus.setDescription('This object identifies the status of storm control\n        on the interface (identified by ifIndex) corresponding\n        to a particular traffic type (identified by    \n        cpscTrafficType).\n\n        A value of inactive indicates that no storm control\n        has been enabled on the interface for the traffic type.')
+cpscCurrentLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('0.01 Percentage').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpscCurrentLevel.setStatus('current')
+if mibBuilder.loadTexts: cpscCurrentLevel.setDescription('This object identifies the current level of traffic of\n        a particular type on a given interface, as a percentage\n        of the total interface bandwidth.\n\n        When storm control is inactive, the value is 10000,\n        indicating the maximum level (100% of the particular\n        traffic type is allowed to be received).')
+cpscSuppressedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpscSuppressedPacket.setStatus('current')
+if mibBuilder.loadTexts: cpscSuppressedPacket.setDescription('This object represents the total number of packets\n        of a particular traffic type that have been suppressed\n        on a given interface by storm control filter action.')
+cpscHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscHistoryTable.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryTable.setDescription('A conceptual table to represent the history\n        of storm events on an interface.\n\n        Management station can use this to get \n        information about the timeline of storm events as\n        to when each event occurred, and when it ended.')
+cpscHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryTrafficType"), (0, "CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryIndex"))
+if mibBuilder.loadTexts: cpscHistoryEntry.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryEntry.setDescription('A collection of storm control history entries\n        per interface and per traffic type. The number of such\n        entries available is implementation-dependent.')
+cpscHistoryTrafficType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2, 1, 1), CPortStormControlTrafficType()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscHistoryTrafficType.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryTrafficType.setDescription('The traffic type corresponding to this storm history\n        entry.')
+cpscHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cpscHistoryIndex.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryIndex.setDescription('A number that uniquely identifies one storm control\n        history entry for a given interface. The index starts\n        at 1 and increases by 1. \n\n        Although this MIB specification stipulates a maximum of \n        1K entries, the actual maximum number of history entries\n        returned per interface is implementation-dependent.\n\n        When the value of this index reaches the actual maximum \n        number of entries supported by an implementation, it will\n        wrap around to 1.')
+cpscHistoryStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpscHistoryStartTime.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryStartTime.setDescription('The value of sysUpTime when the storm event was declared\n        on the interface for the particular traffic type, and \n        storm control measures were taken.')
+cpscHistoryEndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 362, 1, 2, 2, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpscHistoryEndTime.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryEndTime.setDescription('The value of sysUpTime when the storm ceased to exist\n        and the interface was set to its previous normal state.\n\n        If the interface was shutdown due to user configuration,\n        then the value will be equal to the value of sysUpTime \n        when the interface was shutdown.\n\n        If the storm event continues to persist when this object\n        is queried, the value returned will be 0.')
+cpscNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 0, 1))
+cpscEventRev1 = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 362, 0, 2)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatus"))
+if mibBuilder.loadTexts: cpscEventRev1.setStatus('current')
+if mibBuilder.loadTexts: cpscEventRev1.setDescription('This notification is sent by the implementation when\n        a storm event occurs on an interface with respect to\n        a particular traffic type.\n        cpscEventRev1 deprecates cpscEvent to make it RFC 2578\n        compliant. According to section 8.5 of RFC 2578, the next\n        to last sub-identifier in the name of any newly-defined\n        notification must have the value zero.')
+cpscEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 362, 0, 1, 1)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatus"))
+if mibBuilder.loadTexts: cpscEvent.setStatus('deprecated')
+if mibBuilder.loadTexts: cpscEvent.setDescription('This notification is sent by the implementation when\n        a storm event occurs on an interface with respect to\n        a particular traffic type.\n        cpscEvent is deprecated and replaced by cpscEventRev1.')
+ciscoPortStormControlMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 1))
+ciscoPortStormControlMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2))
+ciscoPortStormControlMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 1, 1)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscConfigurationGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotifConfigurationGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotificationGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatusGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatisticsGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPortStormControlMIBCompliance = ciscoPortStormControlMIBCompliance.setStatus('deprecated')
+if mibBuilder.loadTexts: ciscoPortStormControlMIBCompliance.setDescription('The compliance statement for the cisco port storm\n        control MIB.')
+ciscoPortStormControlMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 1, 2)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscConfigurationGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotifConfigurationGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotificationGroupRev1"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatusGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatisticsGroup"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPortStormControlMIBComplianceRev1 = ciscoPortStormControlMIBComplianceRev1.setStatus('current')
+if mibBuilder.loadTexts: ciscoPortStormControlMIBComplianceRev1.setDescription('Please enter description here')
+cpscConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 1)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscUpperThreshold"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscLowerThreshold"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscConfigurationGroup = cpscConfigurationGroup.setStatus('current')
+if mibBuilder.loadTexts: cpscConfigurationGroup.setDescription('A collection of objects to configure the Port Storm\n        Control feature on a given interface.')
+cpscStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 2)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscStatus"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscCurrentLevel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscStatusGroup = cpscStatusGroup.setStatus('current')
+if mibBuilder.loadTexts: cpscStatusGroup.setDescription('A collection of objects to provide storm control\n        status on a given interface.')
+cpscNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 3)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscNotificationGroup = cpscNotificationGroup.setStatus('deprecated')
+if mibBuilder.loadTexts: cpscNotificationGroup.setDescription('A collection of notification objects for user with\n        the cisco port storm control mib.')
+cpscNotifConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 4)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotificationControl"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscNotificationThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscNotifConfigurationGroup = cpscNotifConfigurationGroup.setStatus('current')
+if mibBuilder.loadTexts: cpscNotifConfigurationGroup.setDescription('A collection of objects to configure notification\n        information.')
+cpscStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 5)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscSuppressedPacket"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscStatisticsGroup = cpscStatisticsGroup.setStatus('current')
+if mibBuilder.loadTexts: cpscStatisticsGroup.setDescription('A collection of objects to provide storm control\n        statistics information.')
+cpscHistoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 6)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryStartTime"), ("CISCO-PORT-STORM-CONTROL-MIB", "cpscHistoryEndTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscHistoryGroup = cpscHistoryGroup.setStatus('current')
+if mibBuilder.loadTexts: cpscHistoryGroup.setDescription('A collection of objects to provide storm control\n        history information on a given interface.')
+cpscNotificationGroupRev1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 362, 2, 2, 7)).setObjects(("CISCO-PORT-STORM-CONTROL-MIB", "cpscEventRev1"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpscNotificationGroupRev1 = cpscNotificationGroupRev1.setStatus('current')
+if mibBuilder.loadTexts: cpscNotificationGroupRev1.setDescription('A collection of notification objects for user with\n        the cisco port storm control mib.')
+mibBuilder.exportSymbols("CISCO-PORT-STORM-CONTROL-MIB", CPortStormControlActionType=CPortStormControlActionType, CPortStormControlStatusType=CPortStormControlStatusType, CPortStormControlTrafficType=CPortStormControlTrafficType, PYSNMP_MODULE_ID=ciscoPortStormControlMIB, ciscoPortStormControlMIB=ciscoPortStormControlMIB, ciscoPortStormControlMIBCompliance=ciscoPortStormControlMIBCompliance, ciscoPortStormControlMIBComplianceRev1=ciscoPortStormControlMIBComplianceRev1, ciscoPortStormControlMIBCompliances=ciscoPortStormControlMIBCompliances, ciscoPortStormControlMIBConform=ciscoPortStormControlMIBConform, ciscoPortStormControlMIBGroups=ciscoPortStormControlMIBGroups, ciscoPortStormControlMIBNotifs=ciscoPortStormControlMIBNotifs, ciscoPortStormControlMIBObjects=ciscoPortStormControlMIBObjects, cpscAction=cpscAction, cpscActionEntry=cpscActionEntry, cpscActionTable=cpscActionTable, cpscConfigObjects=cpscConfigObjects, cpscConfigurationGroup=cpscConfigurationGroup, cpscCurrentLevel=cpscCurrentLevel, cpscEvent=cpscEvent, cpscEventRev1=cpscEventRev1, cpscHistoryEndTime=cpscHistoryEndTime, cpscHistoryEntry=cpscHistoryEntry, cpscHistoryGroup=cpscHistoryGroup, cpscHistoryIndex=cpscHistoryIndex, cpscHistoryStartTime=cpscHistoryStartTime, cpscHistoryTable=cpscHistoryTable, cpscHistoryTrafficType=cpscHistoryTrafficType, cpscLowerThreshold=cpscLowerThreshold, cpscNotifConfigurationGroup=cpscNotifConfigurationGroup, cpscNotificationControl=cpscNotificationControl, cpscNotificationGroup=cpscNotificationGroup, cpscNotificationGroupRev1=cpscNotificationGroupRev1, cpscNotificationThreshold=cpscNotificationThreshold, cpscNotificationsPrefix=cpscNotificationsPrefix, cpscStatisticsGroup=cpscStatisticsGroup, cpscStatus=cpscStatus, cpscStatusEntry=cpscStatusEntry, cpscStatusGroup=cpscStatusGroup, cpscStatusObjects=cpscStatusObjects, cpscStatusTable=cpscStatusTable, cpscSuppressedPacket=cpscSuppressedPacket, cpscThresholdEntry=cpscThresholdEntry, cpscThresholdTable=cpscThresholdTable, cpscTrafficType=cpscTrafficType, cpscUpperThreshold=cpscUpperThreshold)

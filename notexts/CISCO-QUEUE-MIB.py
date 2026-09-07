@@ -1,0 +1,70 @@
+#
+# PySNMP MIB module CISCO-QUEUE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-QUEUE-MIB
+# Source digest sha256:2b58051156d9c36c6fe5b25ef8d376c416676e957cc126a8cea87a698c0d9a99
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoQueueMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 37))
+ciscoQueueMIB.setRevisions(('1995-08-21 00:00',))
+if mibBuilder.loadTexts: ciscoQueueMIB.setLastUpdated('1995-05-31 00:00')
+if mibBuilder.loadTexts: ciscoQueueMIB.setOrganization('Cisco Systems, Inc.')
+ciscoQueueObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 37, 1))
+ciscoQueueTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 37, 2))
+ciscoQueueConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 37, 3))
+class CQAlgorithm(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("fifo", 1), ("priority", 2), ("custom", 3), ("weightedFair", 4))
+
+cQIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cQIfTable.setStatus('current')
+cQIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cQIfEntry.setStatus('current')
+cQIfQType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 1, 1, 1), CQAlgorithm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQIfQType.setStatus('current')
+cQIfTxLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQIfTxLimit.setStatus('current')
+cQIfSubqueues = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQIfSubqueues.setStatus('current')
+cQStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cQStatsTable.setStatus('current')
+cQStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-QUEUE-MIB", "cQStatsQNumber"))
+if mibBuilder.loadTexts: cQStatsEntry.setStatus('current')
+cQStatsQNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cQStatsQNumber.setStatus('current')
+cQStatsDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQStatsDepth.setStatus('current')
+cQStatsMaxDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQStatsMaxDepth.setStatus('current')
+cQStatsDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQStatsDiscards.setStatus('current')
+cQRotationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: cQRotationTable.setStatus('current')
+cQRotationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-QUEUE-MIB", "cQStatsQNumber"))
+if mibBuilder.loadTexts: cQRotationEntry.setStatus('current')
+cQRotationOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 37, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cQRotationOctets.setStatus('current')
+cQCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 1))
+cQGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 2))
+cQCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 1, 1)).setObjects(("CISCO-QUEUE-MIB", "cQIfGroup"), ("CISCO-QUEUE-MIB", "cQStatsGroup"), ("CISCO-QUEUE-MIB", "cQRotationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cQCompliance = cQCompliance.setStatus('current')
+cQIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 2, 1)).setObjects(("CISCO-QUEUE-MIB", "cQIfQType"), ("CISCO-QUEUE-MIB", "cQIfTxLimit"), ("CISCO-QUEUE-MIB", "cQIfSubqueues"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cQIfGroup = cQIfGroup.setStatus('current')
+cQStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 2, 2)).setObjects(("CISCO-QUEUE-MIB", "cQStatsDepth"), ("CISCO-QUEUE-MIB", "cQStatsMaxDepth"), ("CISCO-QUEUE-MIB", "cQStatsDiscards"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cQStatsGroup = cQStatsGroup.setStatus('current')
+cQRotationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 37, 3, 2, 3)).setObjects(("CISCO-QUEUE-MIB", "cQRotationOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cQRotationGroup = cQRotationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-QUEUE-MIB", CQAlgorithm=CQAlgorithm, PYSNMP_MODULE_ID=ciscoQueueMIB, cQCompliance=cQCompliance, cQCompliances=cQCompliances, cQGroups=cQGroups, cQIfEntry=cQIfEntry, cQIfGroup=cQIfGroup, cQIfQType=cQIfQType, cQIfSubqueues=cQIfSubqueues, cQIfTable=cQIfTable, cQIfTxLimit=cQIfTxLimit, cQRotationEntry=cQRotationEntry, cQRotationGroup=cQRotationGroup, cQRotationOctets=cQRotationOctets, cQRotationTable=cQRotationTable, cQStatsDepth=cQStatsDepth, cQStatsDiscards=cQStatsDiscards, cQStatsEntry=cQStatsEntry, cQStatsGroup=cQStatsGroup, cQStatsMaxDepth=cQStatsMaxDepth, cQStatsQNumber=cQStatsQNumber, cQStatsTable=cQStatsTable, ciscoQueueConformance=ciscoQueueConformance, ciscoQueueMIB=ciscoQueueMIB, ciscoQueueObjects=ciscoQueueObjects, ciscoQueueTraps=ciscoQueueTraps)

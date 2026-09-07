@@ -1,0 +1,496 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "HP-ICF-TC": [
+      "ConfigStatus"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpVlanLevelOne": {
+    "name": "hpVlanLevelOne",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-03 04:17",
+        "description": "Deprecated all objects in this MIB - replaced by RFC 2674."
+      },
+      {
+        "revision": "1995-10-20 00:00",
+        "description": "Initial revision of this MIB module"
+      }
+    ]
+  },
+  "hpVLAN": {
+    "name": "hpVLAN",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3",
+    "class": "objectidentity"
+  },
+  "hpVlanObjects": {
+    "name": "hpVlanObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "hpVlanTraps": {
+    "name": "hpVlanTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "hpVlanConformance": {
+    "name": "hpVlanConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "VlanID": {
+    "name": "VlanID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "hpVlanNumber": {
+    "name": "hpVlanNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpVlanIdentTable": {
+    "name": "hpVlanIdentTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanIdentEntry": {
+    "name": "hpVlanIdentEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanIdentIndex": {
+    "name": "hpVlanIdentIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanIdentName": {
+    "name": "hpVlanIdentName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpVlanIdentMode": {
+    "name": "hpVlanIdentMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "mac": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpVlanIdentStatus": {
+    "name": "hpVlanIdentStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpVlanDot1QID": {
+    "name": "hpVlanDot1QID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpVlanIdentState": {
+    "name": "hpVlanIdentState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpVlanIdentType": {
+    "name": "hpVlanIdentType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpVlanMemberTable": {
+    "name": "hpVlanMemberTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanMemberEntry": {
+    "name": "hpVlanMemberEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanMemberIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanMemberIfIndex": {
+    "name": "hpVlanMemberIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanMemberIndex": {
+    "name": "hpVlanMemberIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpVlanAddrTable": {
+    "name": "hpVlanAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanAddrEntry": {
+    "name": "hpVlanAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanAddrIndex": {
+    "name": "hpVlanAddrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanAddrPhysAddress": {
+    "name": "hpVlanAddrPhysAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpVlanIdentConfigStatus": {
+    "name": "hpVlanIdentConfigStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpVlanMemberTable2": {
+    "name": "hpVlanMemberTable2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "hpVlanMemberEntry2": {
+    "name": "hpVlanMemberEntry2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanMemberIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanMemberTagged2": {
+    "name": "hpVlanMemberTagged2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2,
+          "no": 3,
+          "auto": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "hpVlanGroups": {
+    "name": "hpVlanGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "hpVlanCompliances": {
+    "name": "hpVlanCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "hpVlanCompliance": {
+    "name": "hpVlanCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpVlanGeneralGroup",
+        "module": "HP-VLAN"
+      },
+      {
+        "object": "hpVlanAddressGroup",
+        "module": "HP-VLAN"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanGeneralGroup": {
+    "name": "hpVlanGeneralGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanNumber"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentMode"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentName"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanAddressGroup": {
+    "name": "hpVlanAddressGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanAddrPhysAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanMemberGroup": {
+    "name": "hpVlanMemberGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanMemberIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpVlanTaggingGroup": {
+    "name": "hpVlanTaggingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.3.1.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanDot1QID"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentState"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentType"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanIdentConfigStatus"
+      },
+      {
+        "module": "HP-VLAN",
+        "object": "hpVlanMemberTagged2"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-VLAN",
+      "Source digest sha256:5447d44a371e01d445ccf7a1ea4ad2057746ad666cf797eaec675832d5a0999a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-VLAN"
+  }
+}

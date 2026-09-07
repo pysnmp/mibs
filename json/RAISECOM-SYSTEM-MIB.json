@@ -1,0 +1,2135 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAISECOM-BASE-MIB": [
+      "raisecomAgent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ],
+    "SWITCH-TC": [
+      "EnableVar"
+    ]
+  },
+  "raisecomSystem": {
+    "name": "raisecomSystem",
+    "oid": "1.3.6.1.4.1.8886.1.1",
+    "class": "moduleidentity"
+  },
+  "ProcessStatus": {
+    "name": "ProcessStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "r-running": 1,
+          "d-interruptible-sleep": 2,
+          "s-uninterruptible-sleep": 3,
+          "t-stopped": 4,
+          "z-zombie": 5,
+          "x-dead": 6,
+          "w-paging": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CPUTimeStamp": {
+    "name": "CPUTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "4d.4d.4d.4d",
+    "status": "current"
+  },
+  "raisecomCpu": {
+    "name": "raisecomCpu",
+    "oid": "1.3.6.1.4.1.8886.1.1.1",
+    "class": "objectidentity"
+  },
+  "raisecomCPUTrapGroup": {
+    "name": "raisecomCPUTrapGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "raisecomCPURisingThreshold": {
+    "name": "raisecomCPURisingThreshold",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomProcessIndex"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomProcessUtilization"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilizationCpuIdx"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomCPURisingThresholdRecover": {
+    "name": "raisecomCPURisingThresholdRecover",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilizationCpuIdx"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomCPUScalarGroup": {
+    "name": "raisecomCPUScalarGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "raisecomCpuTotalProcNum": {
+    "name": "raisecomCpuTotalProcNum",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUHistoryTableSize": {
+    "name": "raisecomCPUHistoryTableSize",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUThresholdTrapEnable": {
+    "name": "raisecomCPUThresholdTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "raisecomCPURisingThresholdValue": {
+    "name": "raisecomCPURisingThresholdValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 99,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomCPURecoverThresholdValue": {
+    "name": "raisecomCPURecoverThresholdValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 98
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 79,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomCPUThresholdInterval": {
+    "name": "raisecomCPUThresholdInterval",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 36000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomCpuNum": {
+    "name": "raisecomCpuNum",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUTableGroup": {
+    "name": "raisecomCPUTableGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "raisecomCPUUtilizationGroup": {
+    "name": "raisecomCPUUtilizationGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "raisecomCPUUtilizationTable": {
+    "name": "raisecomCPUUtilizationTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomCPUUtilizationEntry": {
+    "name": "raisecomCPUUtilizationEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilizationPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUUtilizationCpuIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomCPUUtilizationPeriod": {
+    "name": "raisecomCPUUtilizationPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneSec": 1,
+          "fiveSec": 2,
+          "oneMin": 3,
+          "tenMin": 4,
+          "twoHour": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomCPUUtilizationCpuIdx": {
+    "name": "raisecomCPUUtilizationCpuIdx",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUUtilization": {
+    "name": "raisecomCPUUtilization",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTotalCPUUtilizationTable": {
+    "name": "raisecomTotalCPUUtilizationTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalCPUUtilizationEntry": {
+    "name": "raisecomTotalCPUUtilizationEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomTotalCPUPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomTotalCPUPeriod": {
+    "name": "raisecomTotalCPUPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneSec": 1,
+          "fiveSec": 2,
+          "oneMin": 3,
+          "tenMin": 4,
+          "twoHour": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalCPUUtilization": {
+    "name": "raisecomTotalCPUUtilization",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUHistoryTable": {
+    "name": "raisecomCPUHistoryTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomCPUHistoryEntry": {
+    "name": "raisecomCPUHistoryEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUHistoryPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomCPUHistoryCpuIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomCPUHistoryPeriod": {
+    "name": "raisecomCPUHistoryPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveSec": 1,
+          "oneMin": 2,
+          "tenMin": 3,
+          "twoHour": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomCPUHistoryIndex": {
+    "name": "raisecomCPUHistoryIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomCPUHistoryCpuIdx": {
+    "name": "raisecomCPUHistoryCpuIdx",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUHistoryUtil": {
+    "name": "raisecomCPUHistoryUtil",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTotalCPUHistoryTable": {
+    "name": "raisecomTotalCPUHistoryTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalCPUHistoryEntry": {
+    "name": "raisecomTotalCPUHistoryEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomTotalCPUHistoryPeriod",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomTotalCPUHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomTotalCPUHistoryPeriod": {
+    "name": "raisecomTotalCPUHistoryPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveSec": 1,
+          "oneMin": 2,
+          "tenMin": 3,
+          "twoHour": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalCPUHistoryIndex": {
+    "name": "raisecomTotalCPUHistoryIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalCPUHistoryUtil": {
+    "name": "raisecomTotalCPUHistoryUtil",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomCPUProcessesGroup": {
+    "name": "raisecomCPUProcessesGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "raisecomProcessesTable": {
+    "name": "raisecomProcessesTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomProcessesEntry": {
+    "name": "raisecomProcessesEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomProcessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomProcessIndex": {
+    "name": "raisecomProcessIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessPID": {
+    "name": "raisecomProcessPID",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessName": {
+    "name": "raisecomProcessName",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessRunTimeTotal": {
+    "name": "raisecomProcessRunTimeTotal",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPUTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessInvokedTotal": {
+    "name": "raisecomProcessInvokedTotal",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessTimeCreated": {
+    "name": "raisecomProcessTimeCreated",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessCurrentPriority": {
+    "name": "raisecomProcessCurrentPriority",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessStatus": {
+    "name": "raisecomProcessStatus",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProcessStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessStatisticsTable": {
+    "name": "raisecomProcessStatisticsTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomProcessStatisticsEntry": {
+    "name": "raisecomProcessStatisticsEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomProcessIndex",
+        "implied": 0
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomProcessStatisticsPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomProcessStatisticsPeriod": {
+    "name": "raisecomProcessStatisticsPeriod",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveSec": 1,
+          "oneMin": 2,
+          "tenMin": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomProcessRunTime": {
+    "name": "raisecomProcessRunTime",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPUTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomProcessUtilization": {
+    "name": "raisecomProcessUtilization",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomDeadProcessesTable": {
+    "name": "raisecomDeadProcessesTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomDeadProcessesEntry": {
+    "name": "raisecomDeadProcessesEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomDeadProcessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomDeadProcessIndex": {
+    "name": "raisecomDeadProcessIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomDeadProcessName": {
+    "name": "raisecomDeadProcessName",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomDeadProcessPriority": {
+    "name": "raisecomDeadProcessPriority",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomDeadProcessTimeDelete": {
+    "name": "raisecomDeadProcessTimeDelete",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomDeadProcessDeadTimes": {
+    "name": "raisecomDeadProcessDeadTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomDeadProcessStatus": {
+    "name": "raisecomDeadProcessStatus",
+    "oid": "1.3.6.1.4.1.8886.1.1.1.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProcessStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomEndPool": {
+    "name": "raisecomEndPool",
+    "oid": "1.3.6.1.4.1.8886.1.1.2",
+    "class": "objectidentity"
+  },
+  "raisecomEndPoolTable": {
+    "name": "raisecomEndPoolTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomEndPoolEntry": {
+    "name": "raisecomEndPoolEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomBasePort": {
+    "name": "raisecomBasePort",
+    "oid": "1.3.6.1.4.1.8886.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomTotalEndPool": {
+    "name": "raisecomTotalEndPool",
+    "oid": "1.3.6.1.4.1.8886.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFreeEndPool": {
+    "name": "raisecomFreeEndPool",
+    "oid": "1.3.6.1.4.1.8886.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomMemory": {
+    "name": "raisecomMemory",
+    "oid": "1.3.6.1.4.1.8886.1.1.3",
+    "class": "objectidentity"
+  },
+  "raisecomMemoryTrapGroup": {
+    "name": "raisecomMemoryTrapGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "raisecomMemoryTrap": {
+    "name": "raisecomMemoryTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryTotal"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryUtil"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryThrshd"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomMemoryTrapRecover": {
+    "name": "raisecomMemoryTrapRecover",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryTotal"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryUtil"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomMemoryThrshdRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomMemoryScalarGroup": {
+    "name": "raisecomMemoryScalarGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "raisecomMemoryTotal": {
+    "name": "raisecomMemoryTotal",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomMemoryAvailable": {
+    "name": "raisecomMemoryAvailable",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomMemoryUtil": {
+    "name": "raisecomMemoryUtil",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomMemoryTrapEnable": {
+    "name": "raisecomMemoryTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "raisecomMemoryThrshd": {
+    "name": "raisecomMemoryThrshd",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomMemoryThrshdRecover": {
+    "name": "raisecomMemoryThrshdRecover",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomMemoryMonInterval": {
+    "name": "raisecomMemoryMonInterval",
+    "oid": "1.3.6.1.4.1.8886.1.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomDeviceType": {
+    "name": "raisecomDeviceType",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomInformation": {
+    "name": "raisecomInformation",
+    "oid": "1.3.6.1.4.1.8886.1.1.4",
+    "class": "objectidentity"
+  },
+  "PortAlarmEventList": {
+    "name": "PortAlarmEventList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "raisecomTemperature": {
+    "name": "raisecomTemperature",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "raisecomTemperatureValue": {
+    "name": "raisecomTemperatureValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Celsius ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTemperatureMin": {
+    "name": "raisecomTemperatureMin",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Celsius ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTemperatureMax": {
+    "name": "raisecomTemperatureMax",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Celsius ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTemperatureTrapEnable": {
+    "name": "raisecomTemperatureTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "raisecomTemperatureThresholdLow": {
+    "name": "raisecomTemperatureThresholdLow",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Celsius ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomTemperatureThresholdHigh": {
+    "name": "raisecomTemperatureThresholdHigh",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Celsius ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomTemperatureTrapTimes": {
+    "name": "raisecomTemperatureTrapTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTemperatureHighTimes": {
+    "name": "raisecomTemperatureHighTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomTemperatureLowTimes": {
+    "name": "raisecomTemperatureLowTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVolt": {
+    "name": "raisecomVolt",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3",
+    "class": "objectidentity"
+  },
+  "raisecomVoltTable": {
+    "name": "raisecomVoltTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomVoltEntry": {
+    "name": "raisecomVoltEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomVoltIndex": {
+    "name": "raisecomVoltIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltReference": {
+    "name": "raisecomVoltReference",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltValue": {
+    "name": "raisecomVoltValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltMin": {
+    "name": "raisecomVoltMin",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltMax": {
+    "name": "raisecomVoltMax",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltTrapEnable": {
+    "name": "raisecomVoltTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "raisecomVoltThresholdLow": {
+    "name": "raisecomVoltThresholdLow",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomVoltThresholdHigh": {
+    "name": "raisecomVoltThresholdHigh",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomVoltTrapTimes": {
+    "name": "raisecomVoltTrapTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltHighTimes": {
+    "name": "raisecomVoltHighTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomVoltLowTimes": {
+    "name": "raisecomVoltLowTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomInformationTrap": {
+    "name": "raisecomInformationTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.4",
+    "class": "objectidentity"
+  },
+  "temperatureAbnormalTrap": {
+    "name": "temperatureAbnormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomTemperatureValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "temperatureNormalTrap": {
+    "name": "temperatureNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomTemperatureValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "raisecomVoltAbnormalTrap": {
+    "name": "raisecomVoltAbnormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltIndex"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltReference"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "raisecomVoltNormalTrap": {
+    "name": "raisecomVoltNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltIndex"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltReference"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomVoltValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "raisecomAlarm": {
+    "name": "raisecomAlarm",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmTrap": {
+    "name": "raisecomAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.1",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmInformationTrap": {
+    "name": "raisecomAlarmInformationTrap",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistSource"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistDescr"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistTimestamp"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistType"
+      },
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomAlarmGlobal": {
+    "name": "raisecomAlarmGlobal",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.2",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmTrapEnable": {
+    "name": "raisecomAlarmTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmSyslogEnable": {
+    "name": "raisecomAlarmSyslogEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmClear": {
+    "name": "raisecomAlarmClear",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPower": {
+    "name": "raisecomAlarmPower",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmPowerTrapEnable": {
+    "name": "raisecomAlarmPowerTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPowerRelayEnable": {
+    "name": "raisecomAlarmPowerRelayEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPowerSyslogEnable": {
+    "name": "raisecomAlarmPowerSyslogEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPowerOneTimes": {
+    "name": "raisecomAlarmPowerOneTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmPowerTwoTimes": {
+    "name": "raisecomAlarmPowerTwoTimes",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmPowerStatus": {
+    "name": "raisecomAlarmPowerStatus",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dual-power-on": 1,
+          "dual-power-off": 2,
+          "power1-off": 3,
+          "power2-off": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmTemperature": {
+    "name": "raisecomAlarmTemperature",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.4",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmTemperatureTrapEnable": {
+    "name": "raisecomAlarmTemperatureTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmTemperatureRelayEnable": {
+    "name": "raisecomAlarmTemperatureRelayEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmTemperatureSyslogEnable": {
+    "name": "raisecomAlarmTemperatureSyslogEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmVoltage": {
+    "name": "raisecomAlarmVoltage",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.5",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmVoltTrapEnable": {
+    "name": "raisecomAlarmVoltTrapEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmVoltRelayEnable": {
+    "name": "raisecomAlarmVoltRelayEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmVoltSyslogEnable": {
+    "name": "raisecomAlarmVoltSyslogEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPort": {
+    "name": "raisecomAlarmPort",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmPortTable": {
+    "name": "raisecomAlarmPortTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmPortEntry": {
+    "name": "raisecomAlarmPortEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomAlarmPortIndex": {
+    "name": "raisecomAlarmPortIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmPortSyslogEvList": {
+    "name": "raisecomAlarmPortSyslogEvList",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortAlarmEventList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPortNotifiesEvList": {
+    "name": "raisecomAlarmPortNotifiesEvList",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortAlarmEventList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPortRelayEvList": {
+    "name": "raisecomAlarmPortRelayEvList",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortAlarmEventList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomAlarmPortEvList": {
+    "name": "raisecomAlarmPortEvList",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortAlarmEventList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmHistory": {
+    "name": "raisecomAlarmHistory",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmHistTable": {
+    "name": "raisecomAlarmHistTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmHistEntry": {
+    "name": "raisecomAlarmHistEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomAlarmHistIndex": {
+    "name": "raisecomAlarmHistIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmHistStatus": {
+    "name": "raisecomAlarmHistStatus",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high-volt-cleared": 1,
+          "low-volt-cleared": 2,
+          "high-temperature-cleared": 3,
+          "low-temperature-cleared": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmHistSource": {
+    "name": "raisecomAlarmHistSource",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmHistDescr": {
+    "name": "raisecomAlarmHistDescr",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmHistTimestamp": {
+    "name": "raisecomAlarmHistTimestamp",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmHistType": {
+    "name": "raisecomAlarmHistType",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dev-power-down": 0,
+          "power-abnormal": 1,
+          "high-temperature": 2,
+          "low-temperature": 3,
+          "high-volt": 4,
+          "low-volt": 5,
+          "link-down": 6,
+          "link-falut": 7,
+          "not-forward": 8,
+          "power-normal": 9,
+          "normal-high-temperature": 10,
+          "normal-high-volt": 11,
+          "link-up": 12,
+          "link-ok": 13,
+          "forward": 14,
+          "all-alarm": 15,
+          "offline": 16,
+          "online": 17,
+          "power-on": 18,
+          "normal-low-temperature": 19,
+          "normal-low-volt": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmCurrent": {
+    "name": "raisecomAlarmCurrent",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8",
+    "class": "objectidentity"
+  },
+  "raisecomAlarmCurtTable": {
+    "name": "raisecomAlarmCurtTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmCurtEntry": {
+    "name": "raisecomAlarmCurtEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-SYSTEM-MIB",
+        "object": "raisecomAlarmCurtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomAlarmCurtIndex": {
+    "name": "raisecomAlarmCurtIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomAlarmCurtSource": {
+    "name": "raisecomAlarmCurtSource",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmCurtDescr": {
+    "name": "raisecomAlarmCurtDescr",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmCurtTimestamp": {
+    "name": "raisecomAlarmCurtTimestamp",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomAlarmCurtType": {
+    "name": "raisecomAlarmCurtType",
+    "oid": "1.3.6.1.4.1.8886.1.1.4.7.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dev-power-down": 0,
+          "power-abnormal": 1,
+          "high-temperature": 2,
+          "low-temperature": 3,
+          "high-volt": 4,
+          "low-volt": 5,
+          "link-down": 6,
+          "link-falut": 7,
+          "not-forward": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RAISECOM-SYSTEM-MIB",
+      "Source digest sha256:fe64afda7d3323519acda88918bd3fcd0d64e2db6e1aa7e3b191b7de72fd9545",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RAISECOM-SYSTEM-MIB"
+  }
+}

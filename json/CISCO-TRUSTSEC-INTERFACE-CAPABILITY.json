@@ -1,0 +1,337 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTrustSecInterfaceCapability": {
+    "name": "ciscoTrustSecInterfaceCapability",
+    "oid": "1.3.6.1.4.1.9.7.597",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-04 00:00",
+        "description": "Added capability statement ciscoTrustSecInterfaceCapV15R0101SYPCat6k."
+      },
+      {
+        "revision": "2010-10-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecInterfaceCapV12R0250SYPCat6k": {
+    "name": "ciscoTrustSecInterfaceCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.597.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "includes": [
+          "ciscoTrustSecIfMIBIfConfigGroup",
+          "ciscoTrustSecIfMIBDot1xGroup",
+          "ciscoTrustSecIfMIBManualGroup",
+          "ciscoTrustSecIfMIBL3ForwardGroup",
+          "ciscoTrustSecIfMIBStatusGroup",
+          "ciscoTrustSecIfMIBStatisticGroup",
+          "ciscoTrustSecIfMIBAuthorizationGroup",
+          "ciscoTrustSecIfMIBIfcStatisticGroup",
+          "ciscoTrustSecIfMIBEventStatisticGroup",
+          "ciscoTrustSecIfMIBIfModeStatisticGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsiIfDot1xReauthInterval",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2147482
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfDot1xSapModeList",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfDot1xStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfDot1xRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualDynamicPeerId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 128
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualSapModeList",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfManualRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsiIfL3ForwardStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfL3ForwardRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecInterfaceCapV15R0101SYPCat6k": {
+    "name": "ciscoTrustSecInterfaceCapV15R0101SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.597.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "includes": [
+          "ciscoTrustSecIfMIBIfConfigGroup",
+          "ciscoTrustSecIfMIBDot1xGroup",
+          "ciscoTrustSecIfMIBManualGroup",
+          "ciscoTrustSecIfMIBL3ForwardGroup",
+          "ciscoTrustSecIfMIBStatusGroup",
+          "ciscoTrustSecIfMIBStatisticGroup",
+          "ciscoTrustSecIfMIBAuthorizationGroup",
+          "ciscoTrustSecIfMIBIfcStatisticGroup",
+          "ciscoTrustSecIfMIBEventStatisticGroup",
+          "ciscoTrustSecIfMIBIfModeStatisticGroup",
+          "ciscoTrustSecIfMIBNotifsCtrlGrp",
+          "ciscoTrustSecIfMIBNotifsOnlyInfoGrp",
+          "ciscoTrustSecIfMIBNotifsGrp"
+        ],
+        "variations": [
+          {
+            "object": "ctsiIfDot1xReauthInterval",
+            "syntax": {
+              "type": "Integer32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 2147482
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfDot1xSapModeList",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfDot1xStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfDot1xRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualDynamicPeerId",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 128
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualSapModeList",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsiIfManualStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfManualRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsiIfL3ForwardStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsiIfL3ForwardRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TRUSTSEC-INTERFACE-CAPABILITY",
+      "Source digest sha256:a9bcc938f378960ef28457eb39a97ea4a27b4a7fcbe57b8cbb5876997ddc8bfb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TRUSTSEC-INTERFACE-CAPABILITY"
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bintec": {
+    "name": "bintec",
+    "oid": "1.3.6.1.4.1.272",
+    "class": "objectidentity"
+  },
+  "bibo": {
+    "name": "bibo",
+    "oid": "1.3.6.1.4.1.272.4",
+    "class": "objectidentity"
+  },
+  "isdn": {
+    "name": "isdn",
+    "oid": "1.3.6.1.4.1.272.4.2",
+    "class": "objectidentity"
+  },
+  "biboip": {
+    "name": "biboip",
+    "oid": "1.3.6.1.4.1.272.4.5",
+    "class": "objectidentity"
+  },
+  "atm": {
+    "name": "atm",
+    "oid": "1.3.6.1.4.1.272.4.16",
+    "class": "objectidentity"
+  },
+  "sys": {
+    "name": "sys",
+    "oid": "1.3.6.1.4.1.272.4.17",
+    "class": "objectidentity"
+  },
+  "admin_2": {
+    "name": "admin_2",
+    "oid": "1.3.6.1.4.1.272.4.22",
+    "class": "objectidentity"
+  },
+  "vpn": {
+    "name": "vpn",
+    "oid": "1.3.6.1.4.1.272.4.23",
+    "class": "objectidentity"
+  },
+  "ipsec": {
+    "name": "ipsec",
+    "oid": "1.3.6.1.4.1.272.4.26",
+    "class": "objectidentity"
+  },
+  "qos": {
+    "name": "qos",
+    "oid": "1.3.6.1.4.1.272.4.27",
+    "class": "objectidentity"
+  },
+  "adsl": {
+    "name": "adsl",
+    "oid": "1.3.6.1.4.1.272.4.30",
+    "class": "objectidentity"
+  },
+  "voip": {
+    "name": "voip",
+    "oid": "1.3.6.1.4.1.272.4.33",
+    "class": "objectidentity"
+  },
+  "security": {
+    "name": "security",
+    "oid": "1.3.6.1.4.1.272.4.38",
+    "class": "objectidentity"
+  },
+  "vif": {
+    "name": "vif",
+    "oid": "1.3.6.1.4.1.272.4.39",
+    "class": "objectidentity"
+  },
+  "tty": {
+    "name": "tty",
+    "oid": "1.3.6.1.4.1.272.4.41",
+    "class": "objectidentity"
+  },
+  "ssh": {
+    "name": "ssh",
+    "oid": "1.3.6.1.4.1.272.4.44",
+    "class": "objectidentity"
+  },
+  "phy": {
+    "name": "phy",
+    "oid": "1.3.6.1.4.1.272.4.45",
+    "class": "objectidentity"
+  },
+  "wlan": {
+    "name": "wlan",
+    "oid": "1.3.6.1.4.1.272.4.46",
+    "class": "objectidentity"
+  },
+  "ima": {
+    "name": "ima",
+    "oid": "1.3.6.1.4.1.272.4.54",
+    "class": "objectidentity"
+  },
+  "usb": {
+    "name": "usb",
+    "oid": "1.3.6.1.4.1.272.4.55",
+    "class": "objectidentity"
+  },
+  "resource": {
+    "name": "resource",
+    "oid": "1.3.6.1.4.1.272.4.17.4",
+    "class": "objectidentity"
+  },
+  "gui": {
+    "name": "gui",
+    "oid": "1.3.6.1.4.1.272.4.69",
+    "class": "objectidentity"
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "Timeout": {
+    "name": "Timeout",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "Date": {
+    "name": "Date",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "HexValue": {
+    "name": "HexValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "BitValue": {
+    "name": "BitValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BINTEC-MIB",
+      "Source digest sha256:798a439ac05071350cf730815b54bd2a18eb0d47c3eafab21314a76909efb281",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BINTEC-MIB"
+  }
+}

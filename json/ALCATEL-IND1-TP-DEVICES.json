@@ -1,0 +1,1339 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "hardwareIND1Devices"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1TpDevicesMIB": {
+    "name": "alcatelIND1TpDevicesMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "familyOmniAccess4000": {
+    "name": "familyOmniAccess4000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccess4000": {
+    "name": "chassisOmniAccess4000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4012": {
+    "name": "deviceOmniAccess4012",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4024": {
+    "name": "deviceOmniAccess4024",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4102": {
+    "name": "deviceOmniAccess4102",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOmniAccess4000": {
+    "name": "fansOmniAccess4000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOmniAccess4000": {
+    "name": "powersOmniAccess4000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOmniAccess4000": {
+    "name": "modulesOmniAccess4000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyOmniAccessWireless": {
+    "name": "familyOmniAccessWireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccessWireless": {
+    "name": "chassisOmniAccessWireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccessWirelessSwitch": {
+    "name": "chassisOmniAccessWirelessSwitch",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess5000": {
+    "name": "deviceOmniAccess5000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4324": {
+    "name": "deviceOmniAccess4324",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4308": {
+    "name": "deviceOmniAccess4308",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000": {
+    "name": "deviceOmniAccess6000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4302": {
+    "name": "deviceOmniAccess4302",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4504": {
+    "name": "deviceOmniAccess4504",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4604": {
+    "name": "deviceOmniAccess4604",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4704": {
+    "name": "deviceOmniAccess4704",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4304": {
+    "name": "deviceOmniAccess4304",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4306": {
+    "name": "deviceOmniAccess4306",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4306G": {
+    "name": "deviceOmniAccess4306G",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4306GW": {
+    "name": "deviceOmniAccess4306GW",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4550": {
+    "name": "deviceOmniAccess4550",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4650": {
+    "name": "deviceOmniAccess4650",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4750": {
+    "name": "deviceOmniAccess4750",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4005": {
+    "name": "deviceOmniAccess4005",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4010": {
+    "name": "deviceOmniAccess4010",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4030": {
+    "name": "deviceOmniAccess4030",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessWireless4024": {
+    "name": "deviceOmniAccessWireless4024",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessWireless4450": {
+    "name": "deviceOmniAccessWireless4450",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4750XM": {
+    "name": "deviceOmniAccess4750XM",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4008": {
+    "name": "deviceOmniAccess4008",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4850IS": {
+    "name": "deviceOmniAccess4850IS",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessMMHW1K": {
+    "name": "deviceOmniAccessMMHW1K",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessMMHW5K": {
+    "name": "deviceOmniAccessMMHW5K",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessMMHW10K": {
+    "name": "deviceOmniAccessMMHW10K",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessMMVA": {
+    "name": "deviceOmniAccessMMVA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessMCVARW": {
+    "name": "deviceOmniAccessMCVARW",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess4104": {
+    "name": "deviceOmniAccess4104",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccessWirelessAP": {
+    "name": "chassisOmniAccessWirelessAP",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP60": {
+    "name": "deviceOmniAccessAP60",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP61": {
+    "name": "deviceOmniAccessAP61",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP70": {
+    "name": "deviceOmniAccessAP70",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP80S": {
+    "name": "deviceOmniAccessAP80S",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP80M": {
+    "name": "deviceOmniAccessAP80M",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP65": {
+    "name": "deviceOmniAccessAP65",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP40": {
+    "name": "deviceOmniAccessAP40",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP85": {
+    "name": "deviceOmniAccessAP85",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP41": {
+    "name": "deviceOmniAccessAP41",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP120": {
+    "name": "deviceOmniAccessAP120",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP121": {
+    "name": "deviceOmniAccessAP121",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP124": {
+    "name": "deviceOmniAccessAP124",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP125": {
+    "name": "deviceOmniAccessAP125",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP120ABG": {
+    "name": "deviceOmniAccessAP120ABG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP121ABG": {
+    "name": "deviceOmniAccessAP121ABG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP124ABG": {
+    "name": "deviceOmniAccessAP124ABG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP125ABG": {
+    "name": "deviceOmniAccessAP125ABG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP60P": {
+    "name": "deviceOmniAccessAP60P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP105": {
+    "name": "deviceOmniAccessAP105",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP4306INT": {
+    "name": "deviceOmniAccessAP4306INT",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP2WG": {
+    "name": "deviceOmniAccessRAP2WG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP5WN": {
+    "name": "deviceOmniAccessRAP5WN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP5": {
+    "name": "deviceOmniAccessRAP5",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP92": {
+    "name": "deviceOmniAccessAP92",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP93": {
+    "name": "deviceOmniAccessAP93",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP185": {
+    "name": "deviceOmniAccessAP185",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP175POE": {
+    "name": "deviceOmniAccessAP175POE",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP175AC": {
+    "name": "deviceOmniAccessAP175AC",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP175DC": {
+    "name": "deviceOmniAccessAP175DC",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP68": {
+    "name": "deviceOmniAccessAP68",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP68P": {
+    "name": "deviceOmniAccessAP68P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP93H": {
+    "name": "deviceOmniAccessAP93H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP134": {
+    "name": "deviceOmniAccessAP134",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP135": {
+    "name": "deviceOmniAccessAP135",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessIAP23": {
+    "name": "deviceOmniAccessIAP23",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessIAP23P": {
+    "name": "deviceOmniAccessIAP23P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP104": {
+    "name": "deviceOmniAccessAP104",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP108": {
+    "name": "deviceOmniAccessRAP108",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP109": {
+    "name": "deviceOmniAccessRAP109",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP155": {
+    "name": "deviceOmniAccessRAP155",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessRAP155P": {
+    "name": "deviceOmniAccessRAP155P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP224": {
+    "name": "deviceOmniAccessAP224",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP114": {
+    "name": "deviceOmniAccessAP114",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP225": {
+    "name": "deviceOmniAccessAP225",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP115": {
+    "name": "deviceOmniAccessAP115",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP274": {
+    "name": "deviceOmniAccessAP274",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP275": {
+    "name": "deviceOmniAccessAP275",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP214": {
+    "name": "deviceOmniAccessAP214",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP215": {
+    "name": "deviceOmniAccessAP215",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP204": {
+    "name": "deviceOmniAccessAP204",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP205": {
+    "name": "deviceOmniAccessAP205",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP103": {
+    "name": "deviceOmniAccessAP103",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP103H": {
+    "name": "deviceOmniAccessAP103H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP277": {
+    "name": "deviceOmniAccessAP277",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP228": {
+    "name": "deviceOmniAccessAP228",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP205H": {
+    "name": "deviceOmniAccessAP205H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP324": {
+    "name": "deviceOmniAccessAP324",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP325": {
+    "name": "deviceOmniAccessAP325",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP314": {
+    "name": "deviceOmniAccessAP314",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP315": {
+    "name": "deviceOmniAccessAP315",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP334": {
+    "name": "deviceOmniAccessAP334",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP335": {
+    "name": "deviceOmniAccessAP335",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP304": {
+    "name": "deviceOmniAccessAP304",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP305": {
+    "name": "deviceOmniAccessAP305",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.65",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP207": {
+    "name": "deviceOmniAccessAP207",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.66",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP262": {
+    "name": "deviceOmniAccessAP262",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP365": {
+    "name": "deviceOmniAccessAP365",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP367": {
+    "name": "deviceOmniAccessAP367",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.69",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP203H": {
+    "name": "deviceOmniAccessAP203H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP303H": {
+    "name": "deviceOmniAccessAP303H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP203R": {
+    "name": "deviceOmniAccessAP203R",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP203RP": {
+    "name": "deviceOmniAccessAP203RP",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP318": {
+    "name": "deviceOmniAccessOAWAP318",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP344": {
+    "name": "deviceOmniAccessOAWAP344",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP345": {
+    "name": "deviceOmniAccessOAWAP345",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP374": {
+    "name": "deviceOmniAccessOAWAP374",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP375": {
+    "name": "deviceOmniAccessOAWAP375",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessOAWAP377": {
+    "name": "deviceOmniAccessOAWAP377",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.79",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP303": {
+    "name": "deviceOmniAccessAP303",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.80",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP303P": {
+    "name": "deviceOmniAccessAP303P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.81",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP514": {
+    "name": "deviceOmniAccessAP514",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.82",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP515": {
+    "name": "deviceOmniAccessAP515",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.83",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP534": {
+    "name": "deviceOmniAccessAP534",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.84",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP535": {
+    "name": "deviceOmniAccessAP535",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.85",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP554": {
+    "name": "deviceOmniAccessAP554",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.86",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP555": {
+    "name": "deviceOmniAccessAP555",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.87",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP504": {
+    "name": "deviceOmniAccessAP504",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.88",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP505": {
+    "name": "deviceOmniAccessAP505",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.89",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP503H": {
+    "name": "deviceOmniAccessAP503H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccessAP505H": {
+    "name": "deviceOmniAccessAP505H",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.2.91",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOmniAccessWireless": {
+    "name": "fansOmniAccessWireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOmniAccessWireless": {
+    "name": "powersOmniAccessWireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOmniAccessWireless": {
+    "name": "modulesOmniAccessWireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccess6000Wireless": {
+    "name": "chassisOmniAccess6000Wireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000PS2": {
+    "name": "deviceOmniAccess6000PS2",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOmniAccess6000Wireless": {
+    "name": "fansOmniAccess6000Wireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOmniAccess6000Wireless": {
+    "name": "powersOmniAccess6000Wireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOmniAccess6000Wireless": {
+    "name": "modulesOmniAccess6000Wireless",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000SCI48": {
+    "name": "deviceOmniAccess6000SCI48",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000SCII256": {
+    "name": "deviceOmniAccess6000SCII256",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000LC2G": {
+    "name": "deviceOmniAccess6000LC2G",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000LC2G24F": {
+    "name": "deviceOmniAccess6000LC2G24F",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000LC2G24FP": {
+    "name": "deviceOmniAccess6000LC2G24FP",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess6000S3C20G": {
+    "name": "deviceOmniAccess6000S3C20G",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.4.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyOmniAccessWAN": {
+    "name": "familyOmniAccessWAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOmniAccessWAN": {
+    "name": "chassisOmniAccessWAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess604T1": {
+    "name": "deviceOmniAccess604T1",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess604E1": {
+    "name": "deviceOmniAccess604E1",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess602T1": {
+    "name": "deviceOmniAccess602T1",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess602E1": {
+    "name": "deviceOmniAccess602E1",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess601": {
+    "name": "deviceOmniAccess601",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess601SBU": {
+    "name": "deviceOmniAccess601SBU",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess625": {
+    "name": "deviceOmniAccess625",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess601SBST": {
+    "name": "deviceOmniAccess601SBST",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess601BU": {
+    "name": "deviceOmniAccess601BU",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOmniAccess601BST": {
+    "name": "deviceOmniAccess601BST",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.1.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOmniAccessWAN": {
+    "name": "fansOmniAccessWAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOmniAccessWAN": {
+    "name": "powersOmniAccessWAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOmniAccessWAN": {
+    "name": "modulesOmniAccessWAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "family6200": {
+    "name": "family6200",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassis6200": {
+    "name": "chassis6200",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6224": {
+    "name": "device6224",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6224P": {
+    "name": "device6224P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6248": {
+    "name": "device6248",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6248P": {
+    "name": "device6248P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6224U": {
+    "name": "device6224U",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6212": {
+    "name": "device6212",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "device6212P": {
+    "name": "device6212P",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fans6200": {
+    "name": "fans6200",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powers6200": {
+    "name": "powers6200",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modules6200": {
+    "name": "modules6200",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyOAG": {
+    "name": "familyOAG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOAG": {
+    "name": "chassisOAG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOAG": {
+    "name": "fansOAG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOAG": {
+    "name": "powersOAG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOAG": {
+    "name": "modulesOAG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOAG1000": {
+    "name": "deviceOAG1000",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOAG2400": {
+    "name": "deviceOAG2400",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.5.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyOA7XX": {
+    "name": "familyOA7XX",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOA7XX": {
+    "name": "chassisOA7XX",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOA740": {
+    "name": "deviceOA740",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOA780": {
+    "name": "deviceOA780",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansOA7XX": {
+    "name": "fansOA7XX",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersOA7XX": {
+    "name": "powersOA7XX",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesOA7XX": {
+    "name": "modulesOA7XX",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.6.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyOA855X": {
+    "name": "familyOA855X",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisOA855X": {
+    "name": "chassisOA855X",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "moduleOA855X": {
+    "name": "moduleOA855X",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceOA8550WSG": {
+    "name": "deviceOA8550WSG",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.7.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyWiNGOAW": {
+    "name": "familyWiNGOAW",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyPhoenixOA": {
+    "name": "familyPhoenixOA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisPhoenixOA": {
+    "name": "chassisPhoenixOA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5710V": {
+    "name": "devicePhoenixOA5710V",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5720": {
+    "name": "devicePhoenixOA5720",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5840": {
+    "name": "devicePhoenixOA5840",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5850": {
+    "name": "devicePhoenixOA5850",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5725R61ER": {
+    "name": "devicePhoenixOA5725R61ER",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5725R62ER": {
+    "name": "devicePhoenixOA5725R62ER",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5725A3G": {
+    "name": "devicePhoenixOA5725A3G",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixOA5725ALTE": {
+    "name": "devicePhoenixOA5725ALTE",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "devicePhoenixESRWWANENABLER": {
+    "name": "devicePhoenixESRWWANENABLER",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansPhoenixOA": {
+    "name": "fansPhoenixOA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersPhoenixOA": {
+    "name": "powersPhoenixOA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modulesPhoenixOA": {
+    "name": "modulesPhoenixOA",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.9.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "familyWebSmart": {
+    "name": "familyWebSmart",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "chassisWebSmart": {
+    "name": "chassisWebSmart",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS22208": {
+    "name": "deviceWebSmartOS22208",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS2220P8": {
+    "name": "deviceWebSmartOS2220P8",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS222024": {
+    "name": "deviceWebSmartOS222024",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS2220P24": {
+    "name": "deviceWebSmartOS2220P24",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS222048": {
+    "name": "deviceWebSmartOS222048",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "deviceWebSmartOS2220P48": {
+    "name": "deviceWebSmartOS2220P48",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fansWebSmart": {
+    "name": "fansWebSmart",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "powersWebSmart": {
+    "name": "powersWebSmart",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "moduleWebSmart": {
+    "name": "moduleWebSmart",
+    "oid": "1.3.6.1.4.1.6486.800.1.1.2.2.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-TP-DEVICES",
+      "Source digest sha256:49fd41c828b274d1d08e7bbecc387a583d7f783e318e161fe1af7b08c088f502",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-TP-DEVICES"
+  }
+}

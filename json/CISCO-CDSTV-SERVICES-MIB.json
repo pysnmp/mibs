@@ -1,0 +1,282 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoCdstvServicesMIB": {
+    "name": "ciscoCdstvServicesMIB",
+    "oid": "1.3.6.1.4.1.9.9.729",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCdstvServicesMIBNotifs": {
+    "name": "ciscoCdstvServicesMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.729.0",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvServicesMIBObjects": {
+    "name": "ciscoCdstvServicesMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.729.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvServicesMIBConform": {
+    "name": "ciscoCdstvServicesMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.729.2",
+    "class": "objectidentity"
+  },
+  "cdstvServicesMonitorTable": {
+    "name": "cdstvServicesMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.729.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdstvServicesMonitorTableEntry": {
+    "name": "cdstvServicesMonitorTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.729.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServicesMonitorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdstvServicesMonitorIndex": {
+    "name": "cdstvServicesMonitorIndex",
+    "oid": "1.3.6.1.4.1.9.9.729.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdstvServiceName": {
+    "name": "cdstvServiceName",
+    "oid": "1.3.6.1.4.1.9.9.729.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvServiceStatus": {
+    "name": "cdstvServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.729.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvServiceTrapsEnable": {
+    "name": "cdstvServiceTrapsEnable",
+    "oid": "1.3.6.1.4.1.9.9.729.1.2",
+    "class": "objectidentity"
+  },
+  "cdstvServiceUpNotifEnable": {
+    "name": "cdstvServiceUpNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.729.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvServiceDownNotifEnable": {
+    "name": "cdstvServiceDownNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.729.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvServiceUp": {
+    "name": "cdstvServiceUp",
+    "oid": "1.3.6.1.4.1.9.9.729.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cdstvServiceDown": {
+    "name": "cdstvServiceDown",
+    "oid": "1.3.6.1.4.1.9.9.729.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvServicesMIBCompliances": {
+    "name": "ciscoCdstvServicesMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.729.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvServicesMIBGroups": {
+    "name": "ciscoCdstvServicesMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.729.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvServicesMIBCompliance": {
+    "name": "ciscoCdstvServicesMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.729.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdstvServicesMIBMainObjectGroup",
+        "module": "CISCO-CDSTV-SERVICES-MIB"
+      },
+      {
+        "object": "ciscoCdstvServicesMIBNotificationGroup",
+        "module": "CISCO-CDSTV-SERVICES-MIB"
+      },
+      {
+        "object": "ciscoCdstvServicesMIBNotifEnableObjectGroup",
+        "module": "CISCO-CDSTV-SERVICES-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceUpNotifEnable",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceDownNotifEnable",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvServicesMIBMainObjectGroup": {
+    "name": "ciscoCdstvServicesMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.729.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceName"
+      },
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvServicesMIBNotificationGroup": {
+    "name": "ciscoCdstvServicesMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.729.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceUp"
+      },
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvServicesMIBNotifEnableObjectGroup": {
+    "name": "ciscoCdstvServicesMIBNotifEnableObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.729.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceUpNotifEnable"
+      },
+      {
+        "module": "CISCO-CDSTV-SERVICES-MIB",
+        "object": "cdstvServiceDownNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CDSTV-SERVICES-MIB",
+      "Source digest sha256:5cf7e025ffad10c174f343f1c8bdd98981dce2ee43ef82bfb59d512dd985405a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CDSTV-SERVICES-MIB"
+  }
+}

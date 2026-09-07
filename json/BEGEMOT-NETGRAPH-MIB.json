@@ -1,0 +1,549 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-MIB": [
+      "begemot"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "begemotNg": {
+    "name": "begemotNg",
+    "oid": "1.3.6.1.4.1.12325.1.2",
+    "class": "moduleidentity"
+  },
+  "begemotNgObjects": {
+    "name": "begemotNgObjects",
+    "oid": "1.3.6.1.4.1.12325.1.2.1",
+    "class": "objectidentity"
+  },
+  "NgTypeName": {
+    "name": "NgTypeName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "NgNodeName": {
+    "name": "NgNodeName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "NgNodeNameOrEmpty": {
+    "name": "NgNodeNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "NgHookName": {
+    "name": "NgHookName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "NgNodeId": {
+    "name": "NgNodeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "NgNodeIdOrZero": {
+    "name": "NgNodeIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "begemotNgConfig": {
+    "name": "begemotNgConfig",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "begemotNgControlNodeName": {
+    "name": "begemotNgControlNodeName",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgResBufSiz": {
+    "name": "begemotNgResBufSiz",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 20000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotNgTimeout": {
+    "name": "begemotNgTimeout",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1000,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotNgDebugLevel": {
+    "name": "begemotNgDebugLevel",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotNgStats": {
+    "name": "begemotNgStats",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "begemotNgNoMems": {
+    "name": "begemotNgNoMems",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgMsgReadErrs": {
+    "name": "begemotNgMsgReadErrs",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgTooLargeMsgs": {
+    "name": "begemotNgTooLargeMsgs",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgDataReadErrs": {
+    "name": "begemotNgDataReadErrs",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgTooLargeDatas": {
+    "name": "begemotNgTooLargeDatas",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgTypeTable": {
+    "name": "begemotNgTypeTable",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgTypeEntry": {
+    "name": "begemotNgTypeEntry",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-NETGRAPH-MIB",
+        "object": "begemotNgTypeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotNgTypeName": {
+    "name": "begemotNgTypeName",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgTypeName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgTypeStatus": {
+    "name": "begemotNgTypeStatus",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "unloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotNgNodeTable": {
+    "name": "begemotNgNodeTable",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgNodeEntry": {
+    "name": "begemotNgNodeEntry",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-NETGRAPH-MIB",
+        "object": "begemotNgNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotNgNodeId": {
+    "name": "begemotNgNodeId",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgNodeStatus": {
+    "name": "begemotNgNodeStatus",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgNodeName": {
+    "name": "begemotNgNodeName",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgNodeType": {
+    "name": "begemotNgNodeType",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgTypeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgNodeHooks": {
+    "name": "begemotNgNodeHooks",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgHookTable": {
+    "name": "begemotNgHookTable",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgHookEntry": {
+    "name": "begemotNgHookEntry",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-NETGRAPH-MIB",
+        "object": "begemotNgHookNodeId",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-NETGRAPH-MIB",
+        "object": "begemotNgHookHook",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotNgHookNodeId": {
+    "name": "begemotNgHookNodeId",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotNgHookHook": {
+    "name": "begemotNgHookHook",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgHookName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgHookStatus": {
+    "name": "begemotNgHookStatus",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgHookPeerNodeId": {
+    "name": "begemotNgHookPeerNodeId",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgHookPeerHook": {
+    "name": "begemotNgHookPeerHook",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgHookName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotNgHookPeerType": {
+    "name": "begemotNgHookPeerType",
+    "oid": "1.3.6.1.4.1.12325.1.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgTypeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BEGEMOT-NETGRAPH-MIB",
+      "Source digest sha256:7fc32b63f461fe27a273be13bf56d2d46a34da2514c48321bc922b161f9f9e1b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BEGEMOT-NETGRAPH-MIB"
+  }
+}

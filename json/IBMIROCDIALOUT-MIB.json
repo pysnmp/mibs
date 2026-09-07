@@ -1,0 +1,313 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-SMI-v1": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SNMPv2-TC-v1": [
+      "AutonomousType",
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TestAndIncr",
+      "TruthValue"
+    ]
+  },
+  "ibmIROCroutingDialOut": {
+    "name": "ibmIROCroutingDialOut",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6",
+    "class": "objectidentity"
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibm2210": {
+    "name": "ibm2210",
+    "oid": "1.3.6.1.4.1.2.6.72",
+    "class": "objectidentity"
+  },
+  "ibmIROC": {
+    "name": "ibmIROC",
+    "oid": "1.3.6.1.4.1.2.6.119",
+    "class": "objectidentity"
+  },
+  "ibmIROCrouting": {
+    "name": "ibmIROCrouting",
+    "oid": "1.3.6.1.4.1.2.6.119.4",
+    "class": "objectidentity"
+  },
+  "ibmDialOutTraps": {
+    "name": "ibmDialOutTraps",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.0",
+    "class": "objectidentity"
+  },
+  "ibmDialOutMIB": {
+    "name": "ibmDialOutMIB",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1",
+    "class": "objectidentity"
+  },
+  "ibmDialOutDomains": {
+    "name": "ibmDialOutDomains",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.2",
+    "class": "objectidentity"
+  },
+  "ibmDialOutConformance": {
+    "name": "ibmDialOutConformance",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.3",
+    "class": "objectidentity"
+  },
+  "ibmDialOutGeneral": {
+    "name": "ibmDialOutGeneral",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.1",
+    "class": "objectidentity"
+  },
+  "dialOutCompliances": {
+    "name": "dialOutCompliances",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.3.1",
+    "class": "objectidentity"
+  },
+  "dialOutGroups": {
+    "name": "dialOutGroups",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.3.2",
+    "class": "objectidentity"
+  },
+  "dialOutIfTable": {
+    "name": "dialOutIfTable",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dialOutIfEntry": {
+    "name": "dialOutIfEntry",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dialOutIfUserName": {
+    "name": "dialOutIfUserName",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutIfTimeRemaining": {
+    "name": "dialOutIfTimeRemaining",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutIfInactivityTimer": {
+    "name": "dialOutIfInactivityTimer",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutIfDTRState": {
+    "name": "dialOutIfDTRState",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChange": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutIfProtocol": {
+    "name": "dialOutIfProtocol",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "hose": 2,
+          "telnet": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutEnableComport": {
+    "name": "dialOutEnableComport",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutSendBinary": {
+    "name": "dialOutSendBinary",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutSupressGoAhead": {
+    "name": "dialOutSupressGoAhead",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutDisableEcho": {
+    "name": "dialOutDisableEcho",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dialOutPortName": {
+    "name": "dialOutPortName",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dialOutIfGroup": {
+    "name": "dialOutIfGroup",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.3.2.1",
+    "class": "objectidentity"
+  },
+  "dialOutCoreCompliance": {
+    "name": "dialOutCoreCompliance",
+    "oid": "1.3.6.1.4.1.2.6.119.4.6.3.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IBMIROCDIALOUT-MIB",
+      "Source digest sha256:1b93495ba60d668aed7a3338134ec3560b3b6c4bd748bda29f8931722fe5ed8f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IBMIROCDIALOUT-MIB"
+  }
+}

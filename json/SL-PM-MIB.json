@@ -1,0 +1,488 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfCurrentCount",
+      "PerfIntervalCount",
+      "PerfTotalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SL-XPDR-MIB": [
+      "XpdrServiceType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "transmission"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "slPmMib": {
+    "name": "slPmMib",
+    "oid": "1.3.6.1.4.1.4515.1.3.25",
+    "class": "moduleidentity"
+  },
+  "SlPmType": {
+    "name": "SlPmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "native": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlPmL2Type": {
+    "name": "SlPmL2Type",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxPackets": 1,
+          "txPackets": 2,
+          "rxBytes": 3,
+          "txBytes": 4,
+          "rxCrc": 5,
+          "txCrc": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlPmDirectionType": {
+    "name": "SlPmDirectionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "near": 1,
+          "far": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlPmIntervalType": {
+    "name": "SlPmIntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteen": 1,
+          "day": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "slPmIntervals": {
+    "name": "slPmIntervals",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1",
+    "class": "objectidentity"
+  },
+  "slPmL2Intervals": {
+    "name": "slPmL2Intervals",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2",
+    "class": "objectidentity"
+  },
+  "slPmIntervalTable": {
+    "name": "slPmIntervalTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmIntervalEntry": {
+    "name": "slPmIntervalEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmType",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmDirectionType",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slPmType": {
+    "name": "slPmType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlPmType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmDirectionType": {
+    "name": "slPmDirectionType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlPmDirectionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmIntervalType": {
+    "name": "slPmIntervalType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmIntervalNumber": {
+    "name": "slPmIntervalNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmIntervalCVs": {
+    "name": "slPmIntervalCVs",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalESs": {
+    "name": "slPmIntervalESs",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalSESs": {
+    "name": "slPmIntervalSESs",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalSEFSs": {
+    "name": "slPmIntervalSEFSs",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalUASs": {
+    "name": "slPmIntervalUASs",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalValidData": {
+    "name": "slPmIntervalValidData",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalTcaFlag": {
+    "name": "slPmIntervalTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmIntervalReset": {
+    "name": "slPmIntervalReset",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slPmIntervalStartTime": {
+    "name": "slPmIntervalStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmServiceType": {
+    "name": "slPmServiceType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XpdrServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmL2Table": {
+    "name": "slPmL2Table",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmL2Entry": {
+    "name": "slPmL2Entry",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmL2CounterType",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmL2IntervalType",
+        "implied": 0
+      },
+      {
+        "module": "SL-PM-MIB",
+        "object": "slPmL2IntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slPmL2CounterType": {
+    "name": "slPmL2CounterType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlPmL2Type",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmL2IntervalType": {
+    "name": "slPmL2IntervalType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlPmIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmL2IntervalNumber": {
+    "name": "slPmL2IntervalNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slPmL2Count": {
+    "name": "slPmL2Count",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmL2ValidData": {
+    "name": "slPmL2ValidData",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmL2Reset": {
+    "name": "slPmL2Reset",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slPmL2StartTime": {
+    "name": "slPmL2StartTime",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slPmL2ServiceType": {
+    "name": "slPmL2ServiceType",
+    "oid": "1.3.6.1.4.1.4515.1.3.25.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XpdrServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-PM-MIB",
+      "Source digest sha256:c929b3734548d881e4b8a73383123d8dd42c5f6a73f01117539b7a555cd3687e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-PM-MIB"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityDisplayCapability": {
+    "name": "ciscoEntityDisplayCapability",
+    "oid": "1.3.6.1.4.1.9.7.379",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-09 00:00",
+        "description": "Added the agent capabilities statement cEntDisplayCapV12R0250SYPCat6k."
+      },
+      {
+        "revision": "2007-07-16 00:00",
+        "description": "Added the agent capabilities statement cEntDisplayCapV12R0233SXHPCat6k."
+      },
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cEntDisplayCapCatOSV08R0301Cat6k": {
+    "name": "cEntDisplayCapCatOSV08R0301Cat6k",
+    "oid": "1.3.6.1.4.1.9.7.379.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DISPLAY-MIB",
+        "includes": [
+          "ceDisplayGroup",
+          "ceDisplayLEDGroup",
+          "ceDisplayAlphaNumericGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cEntDisplayCapV12R0233SXHPCat6k": {
+    "name": "cEntDisplayCapV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.379.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DISPLAY-MIB",
+        "includes": [
+          "ceDisplayGroup",
+          "ceDisplayLEDGroup",
+          "ceDisplayAlphaNumericGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cEntDisplayCapV12R0250SYPCat6k": {
+    "name": "cEntDisplayCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.379.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENTITY-DISPLAY-MIB",
+        "includes": [
+          "ceDisplayGroup",
+          "ceDisplayLEDGroup",
+          "ceDisplayAlphaNumericGroup",
+          "ceDisplayBeaconGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENTITY-DISPLAY-CAPABILITY",
+      "Source digest sha256:6b0308e53983806b3182834bb7ea400b7bf2fec6ccdf3bfb7dd85a3a659cbb1b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENTITY-DISPLAY-CAPABILITY"
+  }
+}

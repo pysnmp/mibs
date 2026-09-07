@@ -1,0 +1,637 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "icf": {
+    "name": "icf",
+    "oid": "1.3.6.1.4.1.11.2.14",
+    "class": "objectidentity"
+  },
+  "hpicfObjects": {
+    "name": "hpicfObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11",
+    "class": "objectidentity"
+  },
+  "hpicfSwitch": {
+    "name": "hpicfSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5",
+    "class": "objectidentity"
+  },
+  "hpSwitch": {
+    "name": "hpSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1",
+    "class": "objectidentity"
+  },
+  "hpOpSystem": {
+    "name": "hpOpSystem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.1",
+    "class": "objectidentity"
+  },
+  "hpHwSystem": {
+    "name": "hpHwSystem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2",
+    "class": "objectidentity"
+  },
+  "hpDriverStats": {
+    "name": "hpDriverStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3",
+    "class": "objectidentity"
+  },
+  "hpDriverStatsTable": {
+    "name": "hpDriverStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpDriverStatsEntry": {
+    "name": "hpDriverStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-DRIVERS-MIB",
+        "object": "hpDriverStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpDriverStatsIndex": {
+    "name": "hpDriverStatsIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsType": {
+    "name": "hpDriverStatsType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsOctetsRxOk": {
+    "name": "hpDriverStatsOctetsRxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsFrameRxOk": {
+    "name": "hpDriverStatsFrameRxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsTotalRxError": {
+    "name": "hpDriverStatsTotalRxError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsOctetTxOk": {
+    "name": "hpDriverStatsOctetTxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsFrameTxOk": {
+    "name": "hpDriverStatsFrameTxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsTotalTxError": {
+    "name": "hpDriverStatsTotalTxError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsOctetsRxPerSec": {
+    "name": "hpDriverStatsOctetsRxPerSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsPeakOctetsRx": {
+    "name": "hpDriverStatsPeakOctetsRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsFramesRxPerSec": {
+    "name": "hpDriverStatsFramesRxPerSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsPeakFramesRx": {
+    "name": "hpDriverStatsPeakFramesRx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsOctetsTxPerSec": {
+    "name": "hpDriverStatsOctetsTxPerSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsPeakOctetsTx": {
+    "name": "hpDriverStatsPeakOctetsTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsFramesTxPerSec": {
+    "name": "hpDriverStatsFramesTxPerSec",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpDriverStatsPeakFramesTx": {
+    "name": "hpDriverStatsPeakFramesTx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsTable": {
+    "name": "hpFddiDriverStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsEntry": {
+    "name": "hpFddiDriverStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSWITCH-DRIVERS-MIB",
+        "object": "hpFddiDriverStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsIndex": {
+    "name": "hpFddiDriverStatsIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsSMTOctetsRxOk": {
+    "name": "hpFddiDriverStatsSMTOctetsRxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsSMTFrameRxOk": {
+    "name": "hpFddiDriverStatsSMTFrameRxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsSMTOctetsTxOk": {
+    "name": "hpFddiDriverStatsSMTOctetsTxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsSMTFrameTxOk": {
+    "name": "hpFddiDriverStatsSMTFrameTxOk",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrRxCRC": {
+    "name": "hpFddiDriverStatsErrRxCRC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrRxOverrun": {
+    "name": "hpFddiDriverStatsErrRxOverrun",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrRxParity": {
+    "name": "hpFddiDriverStatsErrRxParity",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrRxMACStatus": {
+    "name": "hpFddiDriverStatsErrRxMACStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrTxAbort": {
+    "name": "hpFddiDriverStatsErrTxAbort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrTxUnderrun": {
+    "name": "hpFddiDriverStatsErrTxUnderrun",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrTxParity": {
+    "name": "hpFddiDriverStatsErrTxParity",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrLlcTxRer": {
+    "name": "hpFddiDriverStatsErrGsrLlcTxRer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrLlcRxRer": {
+    "name": "hpFddiDriverStatsErrGsrLlcRxRer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrSMTTxRer": {
+    "name": "hpFddiDriverStatsErrGsrSMTTxRer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrSMTRxRer": {
+    "name": "hpFddiDriverStatsErrGsrSMTRxRer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrPortOp": {
+    "name": "hpFddiDriverStatsErrGsrPortOp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrLlcRxRov": {
+    "name": "hpFddiDriverStatsErrGsrLlcRxRov",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrSMTRxRov": {
+    "name": "hpFddiDriverStatsErrGsrSMTRxRov",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrInternalOp": {
+    "name": "hpFddiDriverStatsErrGsrInternalOp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsIoeMov": {
+    "name": "hpFddiDriverStatsIoeMov",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsErrGsrHost": {
+    "name": "hpFddiDriverStatsErrGsrHost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsTxCongestion": {
+    "name": "hpFddiDriverStatsTxCongestion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsMissedCmd": {
+    "name": "hpFddiDriverStatsMissedCmd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpFddiDriverStatsMissedCRF": {
+    "name": "hpFddiDriverStatsMissedCRF",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.2.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NETSWITCH-DRIVERS-MIB",
+      "Source digest sha256:f0ccaaca6d94eb07df4b2910ae558db01bcd4d4a43c26b06c07c0b4b9c782877",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NETSWITCH-DRIVERS-MIB"
+  }
+}

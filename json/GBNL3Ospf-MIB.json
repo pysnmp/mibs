@@ -1,0 +1,283 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADMIN-MASTER-MIB": [
+      "gbnL3"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "gbnL3OspfMib": {
+    "name": "gbnL3OspfMib",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1903-08-18 00:01",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "Metric": {
+    "name": "Metric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "gbnL3OspfGroup": {
+    "name": "gbnL3OspfGroup",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1",
+    "class": "objectidentity"
+  },
+  "ospfRedistriDefaultMetric": {
+    "name": "ospfRedistriDefaultMetric",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistriDefaultType": {
+    "name": "ospfRedistriDefaultType",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1": 1,
+          "type2": 2
+        }
+      }
+    },
+    "default": {
+      "value": "type2",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistriDefaultTag": {
+    "name": "ospfRedistriDefaultTag",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistriDefaultInterval": {
+    "name": "ospfRedistriDefaultInterval",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistriDefaultLimit": {
+    "name": "ospfRedistriDefaultLimit",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfMibBinding": {
+    "name": "ospfMibBinding",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistributeTable": {
+    "name": "ospfRedistributeTable",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfRedistributeEntry": {
+    "name": "ospfRedistributeEntry",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBNL3Ospf-MIB",
+        "object": "ospfRedistributeProtocal",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfRedistributeProtocal": {
+    "name": "ospfRedistributeProtocal",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfRedistributeMetric": {
+    "name": "ospfRedistributeMetric",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistributeType": {
+    "name": "ospfRedistributeType",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1": 1,
+          "type2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistributeTag": {
+    "name": "ospfRedistributeTag",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistributeStatus": {
+    "name": "ospfRedistributeStatus",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRedistributeAlways": {
+    "name": "ospfRedistributeAlways",
+    "oid": "1.3.6.1.4.1.13464.1.2.5.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GBNL3Ospf-MIB",
+      "Source digest sha256:3cf43836f69b8a766c2a9a4e4986c53cfbedf1b309246294b32108889a555462",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GBNL3Ospf-MIB"
+  }
+}

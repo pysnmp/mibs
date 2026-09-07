@@ -1,0 +1,84 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPimAgent": {
+    "name": "juniPimAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.29",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-11-15 22:38",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniPimAgentV1": {
+    "name": "juniPimAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.29.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the PIM component of the JUNOSe SNMP agent.  This version\n        of the PIM component is supported in JUNOSe 3.0 and subsequent system\n        releases.",
+    "capabilities": [
+      {
+        "module": "PIM-MIB",
+        "includes": [
+          "pimV2MIBGroup",
+          "pimDenseV2MIBGroup",
+          "pimV2CandidateRPMIBGroup",
+          "pimV1MIBGroup",
+          "pimNextHopGroup",
+          "pimAssertGroup"
+        ]
+      },
+      {
+        "module": "Juniper-PIM-MIB",
+        "includes": [
+          "juniPimGeneralGroup",
+          "juniPimInterfaceGroup",
+          "juniPimMRouteConfGroup",
+          "juniPimMRouteNextHopGroup",
+          "juniPimRPSetGroup",
+          "juniPimStaticRPConfGroup",
+          "juniPimAutoRPConfGroup",
+          "juniPimAutoRPCandGroup",
+          "juniPimComponentGroup",
+          "juniPimUnicastRouteGroup",
+          "juniPimSPTThresholdGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-PIM-CONF",
+      "Source digest sha256:ce6da2e5b3b196c3ab90195240a42b9b7cd870adec32ce07b43d4e942a76c854",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-PIM-CONF"
+  }
+}

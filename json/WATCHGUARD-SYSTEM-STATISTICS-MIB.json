@@ -1,0 +1,205 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WATCHGUARD-SMI": [
+      "watchguard"
+    ]
+  },
+  "wgInfoModule": {
+    "name": "wgInfoModule",
+    "oid": "1.3.6.1.4.1.3097.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-25 12:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "wgSystemStatisticsMIB": {
+    "name": "wgSystemStatisticsMIB",
+    "oid": "1.3.6.1.4.1.3097.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wgSoftwareVersion": {
+    "name": "wgSoftwareVersion",
+    "oid": "1.3.6.1.4.1.3097.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemCpuUtil": {
+    "name": "wgSystemCpuUtil",
+    "oid": "1.3.6.1.4.1.3097.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemTotalSendBytes": {
+    "name": "wgSystemTotalSendBytes",
+    "oid": "1.3.6.1.4.1.3097.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemTotalRecvBytes": {
+    "name": "wgSystemTotalRecvBytes",
+    "oid": "1.3.6.1.4.1.3097.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemTotalSendPackets": {
+    "name": "wgSystemTotalSendPackets",
+    "oid": "1.3.6.1.4.1.3097.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemTotalRecvPackets": {
+    "name": "wgSystemTotalRecvPackets",
+    "oid": "1.3.6.1.4.1.3097.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemStreamReqTotal": {
+    "name": "wgSystemStreamReqTotal",
+    "oid": "1.3.6.1.4.1.3097.6.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemStreamReqDrop": {
+    "name": "wgSystemStreamReqDrop",
+    "oid": "1.3.6.1.4.1.3097.6.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemCpuUtil1": {
+    "name": "wgSystemCpuUtil1",
+    "oid": "1.3.6.1.4.1.3097.6.3.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemCpuUtil5": {
+    "name": "wgSystemCpuUtil5",
+    "oid": "1.3.6.1.4.1.3097.6.3.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemCpuUtil15": {
+    "name": "wgSystemCpuUtil15",
+    "oid": "1.3.6.1.4.1.3097.6.3.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wgSystemCurrActiveConns": {
+    "name": "wgSystemCurrActiveConns",
+    "oid": "1.3.6.1.4.1.3097.6.3.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source WATCHGUARD-SYSTEM-STATISTICS-MIB",
+      "Source digest sha256:ee3ab6c74b8961ae2a08bbea5961c0ee7539fd4d6bfff320dd98aeb558c6945d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "WATCHGUARD-SYSTEM-STATISTICS-MIB"
+  }
+}

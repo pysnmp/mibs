@@ -1,0 +1,1393 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-BUS-MIB": [
+      "CiscoVciInteger",
+      "CiscoVpiInteger"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "LAN-EMULATION-CLIENT-MIB": [
+      "AtmLaneAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "ciscoLesMIB": {
+    "name": "ciscoLesMIB",
+    "oid": "1.3.6.1.4.1.9.9.39",
+    "class": "moduleidentity"
+  },
+  "ciscoLesMIBObjects": {
+    "name": "ciscoLesMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.39.1",
+    "class": "objectidentity"
+  },
+  "les": {
+    "name": "les",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1",
+    "class": "objectidentity"
+  },
+  "leClient": {
+    "name": "leClient",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2",
+    "class": "objectidentity"
+  },
+  "register": {
+    "name": "register",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3",
+    "class": "objectidentity"
+  },
+  "lesTable": {
+    "name": "lesTable",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesEntry": {
+    "name": "lesEntry",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lesElanName": {
+    "name": "lesElanName",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesIndex": {
+    "name": "lesIndex",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesAtmAddrSpec": {
+    "name": "lesAtmAddrSpec",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesAtmAddrMask": {
+    "name": "lesAtmAddrMask",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesAtmAddrActual": {
+    "name": "lesAtmAddrActual",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesIfIndex": {
+    "name": "lesIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesSubIfNum": {
+    "name": "lesSubIfNum",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesColocBusAtmAddrSpec": {
+    "name": "lesColocBusAtmAddrSpec",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesColocBusAtmAddrMask": {
+    "name": "lesColocBusAtmAddrMask",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesColocBusAtmAddrActl": {
+    "name": "lesColocBusAtmAddrActl",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesUpTime": {
+    "name": "lesUpTime",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesLanType": {
+    "name": "lesLanType",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot3": 1,
+          "dot5": 2
+        }
+      }
+    },
+    "default": {
+      "value": "dot3",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesMaxFrm": {
+    "name": "lesMaxFrm",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot3": 1516,
+          "tr4Mb": 4544,
+          "rfc1626": 9234,
+          "tr16Mb": 18190
+        }
+      }
+    },
+    "default": {
+      "value": "dot3",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesJoinTimeout": {
+    "name": "lesJoinTimeout",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 120,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesLecsAtmAddr": {
+    "name": "lesLecsAtmAddr",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesControlDistVpi": {
+    "name": "lesControlDistVpi",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesControlDistVci": {
+    "name": "lesControlDistVci",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesOperStatus": {
+    "name": "lesOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "value": "active",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesAdminStatus": {
+    "name": "lesAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesStatus": {
+    "name": "lesStatus",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesSegmentID": {
+    "name": "lesSegmentID",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lesStatsTable": {
+    "name": "lesStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesStatsEntry": {
+    "name": "lesStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lesInErrors": {
+    "name": "lesInErrors",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInErrorLastLec": {
+    "name": "lesInErrorLastLec",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInFlushReplies": {
+    "name": "lesInFlushReplies",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInJoinReqs": {
+    "name": "lesInJoinReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesOutJoinFails": {
+    "name": "lesOutJoinFails",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesJoinLastFailCause": {
+    "name": "lesJoinLastFailCause",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesJoinLastFailLec": {
+    "name": "lesJoinLastFailLec",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesOutConfigReqs": {
+    "name": "lesOutConfigReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInConfigResps": {
+    "name": "lesInConfigResps",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInConfigFails": {
+    "name": "lesInConfigFails",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInRegisReqs": {
+    "name": "lesInRegisReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesOutRegisFails": {
+    "name": "lesOutRegisFails",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesRegisLastFailCause": {
+    "name": "lesRegisLastFailCause",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesRegisLastFailLec": {
+    "name": "lesRegisLastFailLec",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInUnregReqs": {
+    "name": "lesInUnregReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInLearpUcasts": {
+    "name": "lesInLearpUcasts",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInLearpBroadcasts": {
+    "name": "lesInLearpBroadcasts",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesOutLearpFwd": {
+    "name": "lesOutLearpFwd",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInLearpResps": {
+    "name": "lesInLearpResps",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInNarpReqs": {
+    "name": "lesInNarpReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesInTopolReqs": {
+    "name": "lesInTopolReqs",
+    "oid": "1.3.6.1.4.1.9.9.39.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientTable": {
+    "name": "lesClientTable",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesClientEntry": {
+    "name": "lesClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientLecid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lesClientLecid": {
+    "name": "lesClientLecid",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65279
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesClientAtmAddr": {
+    "name": "lesClientAtmAddr",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientState": {
+    "name": "lesClientState",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "joinRecv": 2,
+          "verify": 3,
+          "addLec": 4,
+          "busConnect": 5,
+          "operational": 6,
+          "terminating": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientIfIndex": {
+    "name": "lesClientIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientControlVpi": {
+    "name": "lesClientControlVpi",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientControlVci": {
+    "name": "lesClientControlVci",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesClientStatus": {
+    "name": "lesClientStatus",
+    "oid": "1.3.6.1.4.1.9.9.39.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lesMacRegTable": {
+    "name": "lesMacRegTable",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesMacRegEntry": {
+    "name": "lesMacRegEntry",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMacRegMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lesMacRegMacAddress": {
+    "name": "lesMacRegMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesMacRegAtmAddr": {
+    "name": "lesMacRegAtmAddr",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesMacRegLecid": {
+    "name": "lesMacRegLecid",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65279
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesRDRegTable": {
+    "name": "lesRDRegTable",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesRDRegEntry": {
+    "name": "lesRDRegEntry",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegSegmentId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegBridgeNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lesRDRegSegmentId": {
+    "name": "lesRDRegSegmentId",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesRDRegBridgeNum": {
+    "name": "lesRDRegBridgeNum",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lesRDRegAtmAddr": {
+    "name": "lesRDRegAtmAddr",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lesRDRegLecid": {
+    "name": "lesRDRegLecid",
+    "oid": "1.3.6.1.4.1.9.9.39.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65279
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLesMIBConformance": {
+    "name": "ciscoLesMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.39.2",
+    "class": "objectidentity"
+  },
+  "ciscoLesMIBGroups": {
+    "name": "ciscoLesMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLesMIBCompliances": {
+    "name": "ciscoLesMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.39.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLesGroup": {
+    "name": "ciscoLesGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrMask"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrActual"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIfIndex"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesUpTime"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesLanType"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMaxFrm"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinTimeout"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVci"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOperStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAdminStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesStatsGroup": {
+    "name": "ciscoLesStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInErrors"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInErrorLastLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInFlushReplies"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInJoinReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutJoinFails"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinLastFailCause"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinLastFailLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInRegisReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutRegisFails"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRegisLastFailCause"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRegisLastFailLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInUnregReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpUcasts"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpBroadcasts"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutLearpFwd"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpResps"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInNarpReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInTopolReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesColocatedGroup": {
+    "name": "ciscoLesColocatedGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrMask"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrActl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesLecsGroup": {
+    "name": "ciscoLesLecsGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesLecsAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutConfigReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInConfigResps"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInConfigFails"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesCntrlDistGroup": {
+    "name": "ciscoLesCntrlDistGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVci"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesSubIfGroup": {
+    "name": "ciscoLesSubIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesSubIfNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesClientGroup": {
+    "name": "ciscoLesClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientState"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientIfIndex"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientControlVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientControlVci"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMacRegAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMacRegLecid"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesTokenRingGroup": {
+    "name": "ciscoLesTokenRingGroup",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesSegmentID"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegLecid"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLesMIBCompliance": {
+    "name": "ciscoLesMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.39.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLesGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesStatsGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesClientGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesSubIfGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesColocatedGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesLecsGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesCntrlDistGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesTokenRingGroup",
+        "module": "CISCO-LES-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesStatus",
+        "kind": "object",
+        "minaccess": "not-accessible"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesSegmentID",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LES-MIB",
+      "Source digest sha256:7c9fcefbca45ae2b378cb0cb825eaafede590d08c34cc97e6dccc93ea471e2e6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LES-MIB"
+  }
+}

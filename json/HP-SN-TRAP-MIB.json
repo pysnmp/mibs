@@ -1,0 +1,834 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-SN-AGENT-MIB": [
+      "snAgGblTrapMessage",
+      "snAgentBrdIndex",
+      "snChasFanDescription",
+      "snChasFanIndex",
+      "snChasPwrSupplyDescription",
+      "snChasPwrSupplyIndex",
+      "snChasPwrSupplyStatus"
+    ],
+    "HP-SN-OSPF-GROUP-MIB": [
+      "snOspfConfigErrorType",
+      "snOspfExtLsdbLimit",
+      "snOspfIfStatusIpAddress",
+      "snOspfIfStatusState",
+      "snOspfLsdbAreaId",
+      "snOspfLsdbLsId",
+      "snOspfLsdbRouterId",
+      "snOspfLsdbType",
+      "snOspfNbrIpAddr",
+      "snOspfNbrRtrId",
+      "snOspfNbrState",
+      "snOspfPacketSrc",
+      "snOspfPacketType",
+      "snOspfRouterId",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfVirtIfStatusState",
+      "snOspfVirtNbrArea",
+      "snOspfVirtNbrRtrId",
+      "snOspfVirtNbrState"
+    ],
+    "HP-SN-ROOT-MIB": [
+      "hp"
+    ],
+    "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
+      "snL4MaxSessionLimit",
+      "snL4TcpSynLimit",
+      "snL4TrapRealServerCurConnections",
+      "snL4TrapRealServerIP",
+      "snL4TrapRealServerName",
+      "snL4TrapRealServerPort"
+    ],
+    "HP-SN-SWITCH-GROUP-MIB": [
+      "snSwViolatorMacAddress",
+      "snSwViolatorPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snTrapChasPwrSupply": {
+    "name": "snTrapChasPwrSupply",
+    "oid": "1.3.6.1.4.1.11.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyStatus"
+      }
+    ]
+  },
+  "snTrapLockedAddressViolation": {
+    "name": "snTrapLockedAddressViolation",
+    "oid": "1.3.6.1.4.1.11.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snSwViolatorPortNumber"
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snSwViolatorMacAddress"
+      }
+    ]
+  },
+  "snTrapOspfIfStateChange": {
+    "name": "snTrapOspfIfStateChange",
+    "oid": "1.3.6.1.4.1.11.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusState"
+      }
+    ]
+  },
+  "snTrapOspfVirtIfStateChange": {
+    "name": "snTrapOspfVirtIfStateChange",
+    "oid": "1.3.6.1.4.1.11.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusState"
+      }
+    ]
+  },
+  "snOspfNbrStateChange": {
+    "name": "snOspfNbrStateChange",
+    "oid": "1.3.6.1.4.1.11.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrIpAddr"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrState"
+      }
+    ]
+  },
+  "snOspfVirtNbrStateChange": {
+    "name": "snOspfVirtNbrStateChange",
+    "oid": "1.3.6.1.4.1.11.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrArea"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrRtrId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtNbrState"
+      }
+    ]
+  },
+  "snOspfIfConfigError": {
+    "name": "snOspfIfConfigError",
+    "oid": "1.3.6.1.4.1.11.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfConfigError": {
+    "name": "snOspfVirtIfConfigError",
+    "oid": "1.3.6.1.4.1.11.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfIfAuthFailure": {
+    "name": "snOspfIfAuthFailure",
+    "oid": "1.3.6.1.4.1.11.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfAuthFailure": {
+    "name": "snOspfVirtIfAuthFailure",
+    "oid": "1.3.6.1.4.1.11.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfConfigErrorType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfIfRxBadPacket": {
+    "name": "snOspfIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.11.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketSrc"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfVirtIfRxBadPacket": {
+    "name": "snOspfVirtIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.11.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      }
+    ]
+  },
+  "snOspfTxRetransmit": {
+    "name": "snOspfTxRetransmit",
+    "oid": "1.3.6.1.4.1.11.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfIfStatusIpAddress"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfNbrRtrId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "ospfVirtIfTxRetransmit": {
+    "name": "ospfVirtIfTxRetransmit",
+    "oid": "1.3.6.1.4.1.11.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusAreaID"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfVirtIfStatusNeighbor"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfPacketType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfOriginateLsa": {
+    "name": "snOspfOriginateLsa",
+    "oid": "1.3.6.1.4.1.11.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfMaxAgeLsa": {
+    "name": "snOspfMaxAgeLsa",
+    "oid": "1.3.6.1.4.1.11.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbAreaId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbType"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbLsId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfLsdbRouterId"
+      }
+    ]
+  },
+  "snOspfLsdbOverflow": {
+    "name": "snOspfLsdbOverflow",
+    "oid": "1.3.6.1.4.1.11.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ]
+  },
+  "snOspfLsdbApproachingOverflow": {
+    "name": "snOspfLsdbApproachingOverflow",
+    "oid": "1.3.6.1.4.1.11.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfRouterId"
+      },
+      {
+        "module": "HP-SN-OSPF-GROUP-MIB",
+        "object": "snOspfExtLsdbLimit"
+      }
+    ]
+  },
+  "snTrapL4MaxSessionLimitReached": {
+    "name": "snTrapL4MaxSessionLimitReached",
+    "oid": "1.3.6.1.4.1.11.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4MaxSessionLimit"
+      }
+    ]
+  },
+  "snTrapL4TcpSynLimitReached": {
+    "name": "snTrapL4TcpSynLimitReached",
+    "oid": "1.3.6.1.4.1.11.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TcpSynLimit"
+      }
+    ]
+  },
+  "snTrapL4RealServerUp": {
+    "name": "snTrapL4RealServerUp",
+    "oid": "1.3.6.1.4.1.11.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      }
+    ]
+  },
+  "snTrapL4RealServerDown": {
+    "name": "snTrapL4RealServerDown",
+    "oid": "1.3.6.1.4.1.11.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      }
+    ]
+  },
+  "snTrapL4RealServerPortUp": {
+    "name": "snTrapL4RealServerPortUp",
+    "oid": "1.3.6.1.4.1.11.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerPort"
+      }
+    ]
+  },
+  "snTrapL4RealServerPortDown": {
+    "name": "snTrapL4RealServerPortDown",
+    "oid": "1.3.6.1.4.1.11.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerPort"
+      }
+    ]
+  },
+  "snTrapL4RealServerMaxConnectionLimitReached": {
+    "name": "snTrapL4RealServerMaxConnectionLimitReached",
+    "oid": "1.3.6.1.4.1.11.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerIP"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerName"
+      },
+      {
+        "module": "HP-SN-SW-L4-SWITCH-GROUP-MIB",
+        "object": "snL4TrapRealServerCurConnections"
+      }
+    ]
+  },
+  "snTrapL4BecomeStandby": {
+    "name": "snTrapL4BecomeStandby",
+    "oid": "1.3.6.1.4.1.11.0.26",
+    "class": "notificationtype"
+  },
+  "snTrapL4BecomeActive": {
+    "name": "snTrapL4BecomeActive",
+    "oid": "1.3.6.1.4.1.11.0.27",
+    "class": "notificationtype"
+  },
+  "snTrapModuleInserted": {
+    "name": "snTrapModuleInserted",
+    "oid": "1.3.6.1.4.1.11.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      }
+    ]
+  },
+  "snTrapModuleRemoved": {
+    "name": "snTrapModuleRemoved",
+    "oid": "1.3.6.1.4.1.11.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgentBrdIndex"
+      }
+    ]
+  },
+  "snTrapChasPwrSupplyFailed": {
+    "name": "snTrapChasPwrSupplyFailed",
+    "oid": "1.3.6.1.4.1.11.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyIndex"
+      },
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snChasPwrSupplyDescription"
+      }
+    ]
+  },
+  "snTrapChasFanFailed": {
+    "name": "snTrapChasFanFailed",
+    "oid": "1.3.6.1.4.1.11.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snChasFanIndex"
+      },
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snChasFanDescription"
+      }
+    ]
+  },
+  "snTrapLockedAddressViolation2": {
+    "name": "snTrapLockedAddressViolation2",
+    "oid": "1.3.6.1.4.1.11.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapFsrpIfStateChange": {
+    "name": "snTrapFsrpIfStateChange",
+    "oid": "1.3.6.1.4.1.11.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapVrrpIfStateChange": {
+    "name": "snTrapVrrpIfStateChange",
+    "oid": "1.3.6.1.4.1.11.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapMgmtModuleRedunStateChange": {
+    "name": "snTrapMgmtModuleRedunStateChange",
+    "oid": "1.3.6.1.4.1.11.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapTemperatureWarning": {
+    "name": "snTrapTemperatureWarning",
+    "oid": "1.3.6.1.4.1.11.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapAccessListDeny": {
+    "name": "snTrapAccessListDeny",
+    "oid": "1.3.6.1.4.1.11.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapMacFilterDeny": {
+    "name": "snTrapMacFilterDeny",
+    "oid": "1.3.6.1.4.1.11.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbRemoteUp": {
+    "name": "snTrapL4GslbRemoteUp",
+    "oid": "1.3.6.1.4.1.11.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbRemoteDown": {
+    "name": "snTrapL4GslbRemoteDown",
+    "oid": "1.3.6.1.4.1.11.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbRemoteControllerUp": {
+    "name": "snTrapL4GslbRemoteControllerUp",
+    "oid": "1.3.6.1.4.1.11.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbRemoteControllerDown": {
+    "name": "snTrapL4GslbRemoteControllerDown",
+    "oid": "1.3.6.1.4.1.11.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbHealthCheckIpUp": {
+    "name": "snTrapL4GslbHealthCheckIpUp",
+    "oid": "1.3.6.1.4.1.11.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbHealthCheckIpDown": {
+    "name": "snTrapL4GslbHealthCheckIpDown",
+    "oid": "1.3.6.1.4.1.11.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbHealthCheckIpPortUp": {
+    "name": "snTrapL4GslbHealthCheckIpPortUp",
+    "oid": "1.3.6.1.4.1.11.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "snTrapL4GslbHealthCheckIpPortDown": {
+    "name": "snTrapL4GslbHealthCheckIpPortDown",
+    "oid": "1.3.6.1.4.1.11.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SN-AGENT-MIB",
+        "object": "snAgGblTrapMessage"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-SN-TRAP-MIB",
+      "Source digest sha256:5e99363baf97e17d135636648510d58a4a51d11f64763c75458fb7eff219a5bc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-SN-TRAP-MIB"
+  }
+}

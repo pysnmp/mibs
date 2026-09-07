@@ -1,0 +1,152 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-OIDS": [
+      "cabletron"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "commsDevice": {
+    "name": "commsDevice",
+    "oid": "1.3.6.1.4.1.52.1",
+    "class": "objectidentity"
+  },
+  "layerMgmt": {
+    "name": "layerMgmt",
+    "oid": "1.3.6.1.4.1.52.2",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.52.1.1",
+    "class": "objectidentity"
+  },
+  "repeater": {
+    "name": "repeater",
+    "oid": "1.3.6.1.4.1.52.1.2",
+    "class": "objectidentity"
+  },
+  "bridge": {
+    "name": "bridge",
+    "oid": "1.3.6.1.4.1.52.1.3",
+    "class": "objectidentity"
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.52.1.4",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.52.1.5",
+    "class": "objectidentity"
+  },
+  "subsystem": {
+    "name": "subsystem",
+    "oid": "1.3.6.1.4.1.52.1.6",
+    "class": "objectidentity"
+  },
+  "commonRev1": {
+    "name": "commonRev1",
+    "oid": "1.3.6.1.4.1.52.1.1.1",
+    "class": "objectidentity"
+  },
+  "sysOIDs": {
+    "name": "sysOIDs",
+    "oid": "1.3.6.1.4.1.52.1.1.2",
+    "class": "objectidentity"
+  },
+  "repeaterRev1": {
+    "name": "repeaterRev1",
+    "oid": "1.3.6.1.4.1.52.1.2.1",
+    "class": "objectidentity"
+  },
+  "repeaterRev2": {
+    "name": "repeaterRev2",
+    "oid": "1.3.6.1.4.1.52.1.2.2",
+    "class": "objectidentity"
+  },
+  "subSysMMAC": {
+    "name": "subSysMMAC",
+    "oid": "1.3.6.1.4.1.52.1.6.1",
+    "class": "objectidentity"
+  },
+  "subSysDevice": {
+    "name": "subSysDevice",
+    "oid": "1.3.6.1.4.1.52.1.6.2",
+    "class": "objectidentity"
+  },
+  "ups": {
+    "name": "ups",
+    "oid": "1.3.6.1.4.1.52.1.6.3",
+    "class": "objectidentity"
+  },
+  "dl": {
+    "name": "dl",
+    "oid": "1.3.6.1.4.1.52.1.6.4",
+    "class": "objectidentity"
+  },
+  "backplaneProtocol": {
+    "name": "backplaneProtocol",
+    "oid": "1.3.6.1.4.1.52.1.6.5",
+    "class": "objectidentity"
+  },
+  "nb30Rev1": {
+    "name": "nb30Rev1",
+    "oid": "1.3.6.1.4.1.52.1.6.12",
+    "class": "objectidentity"
+  },
+  "sysOtherType": {
+    "name": "sysOtherType",
+    "oid": "1.3.6.1.4.1.52.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "sysChassis": {
+    "name": "sysChassis",
+    "oid": "1.3.6.1.4.1.52.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "sysRepeaters": {
+    "name": "sysRepeaters",
+    "oid": "1.3.6.1.4.1.52.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "sysBridges": {
+    "name": "sysBridges",
+    "oid": "1.3.6.1.4.1.52.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "sysRouters": {
+    "name": "sysRouters",
+    "oid": "1.3.6.1.4.1.52.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "sysIntDev": {
+    "name": "sysIntDev",
+    "oid": "1.3.6.1.4.1.52.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IRM-OIDS",
+      "Source digest sha256:afa598a41d45ac77dedb6dc4ebea1b84f581e772e35999e672568250eb807ba5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IRM-OIDS"
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalSec"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCdstvBwmgrMIB": {
+    "name": "ciscoCdstvBwmgrMIB",
+    "oid": "1.3.6.1.4.1.9.9.749",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCdstvBWMgrMIBNotifs": {
+    "name": "ciscoCdstvBWMgrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.749.0",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvBWMgrMIBObjects": {
+    "name": "ciscoCdstvBWMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.749.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvBWMgrMIBConform": {
+    "name": "ciscoCdstvBWMgrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.749.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvBWMgrMIBCompliances": {
+    "name": "ciscoCdstvBWMgrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.749.2.1",
+    "class": "objectidentity"
+  },
+  "cdstvBWMgrAddressType": {
+    "name": "cdstvBWMgrAddressType",
+    "oid": "1.3.6.1.4.1.9.9.749.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrAddress": {
+    "name": "cdstvBWMgrAddress",
+    "oid": "1.3.6.1.4.1.9.9.749.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrPort": {
+    "name": "cdstvBWMgrPort",
+    "oid": "1.3.6.1.4.1.9.9.749.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 7791,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrDatabaseThreadPool": {
+    "name": "cdstvBWMgrDatabaseThreadPool",
+    "oid": "1.3.6.1.4.1.9.9.749.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrServerThreadPool": {
+    "name": "cdstvBWMgrServerThreadPool",
+    "oid": "1.3.6.1.4.1.9.9.749.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrSyncThreadPool": {
+    "name": "cdstvBWMgrSyncThreadPool",
+    "oid": "1.3.6.1.4.1.9.9.749.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdstvBWMgrSyncAlarm": {
+    "name": "cdstvBWMgrSyncAlarm",
+    "oid": "1.3.6.1.4.1.9.9.749.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2400,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 864000,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCdstvBWMgrMIBGroups": {
+    "name": "ciscoCdstvBWMgrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.749.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvBWMgrMIBCompliance": {
+    "name": "ciscoCdstvBWMgrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.749.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdstvBWMgrMIBMainObjectGroup",
+        "module": "CISCO-CDSTV-BWMGR-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrAddressType",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrAddress",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrPort",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrDatabaseThreadPool",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrServerThreadPool",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrSyncThreadPool",
+        "kind": "object",
+        "minaccess": "read-only"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrSyncAlarm",
+        "kind": "object",
+        "minaccess": "read-only"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvBWMgrMIBMainObjectGroup": {
+    "name": "ciscoCdstvBWMgrMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.749.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrAddress"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrPort"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrDatabaseThreadPool"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrServerThreadPool"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrSyncThreadPool"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrSyncAlarm"
+      },
+      {
+        "module": "CISCO-CDSTV-BWMGR-MIB",
+        "object": "cdstvBWMgrAddressType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CDSTV-BWMGR-MIB",
+      "Source digest sha256:a06d67fc287ad8ecc8b6e447e773c4deeec930ddc9696e67f1076d14f7d45f7e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CDSTV-BWMGR-MIB"
+  }
+}

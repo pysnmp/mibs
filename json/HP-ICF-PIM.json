@@ -1,0 +1,1072 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "PIM-MIB": [
+      "pimCandidateRPEntry",
+      "pimComponentEntry",
+      "pimInterfaceEntry",
+      "pimRPSetComponent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfPimMIB": {
+    "name": "hpicfPimMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-04 16:19",
+        "description": "Added PIM-SM objects."
+      },
+      {
+        "revision": "2004-06-30 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpicfPimObjects": {
+    "name": "hpicfPimObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1",
+    "class": "objectidentity"
+  },
+  "hpicfPimTraps": {
+    "name": "hpicfPimTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.0",
+    "class": "objectidentity"
+  },
+  "hpicfPim": {
+    "name": "hpicfPim",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfPimConformance": {
+    "name": "hpicfPimConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2",
+    "class": "objectidentity"
+  },
+  "hpicfPimGroups": {
+    "name": "hpicfPimGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfPimCompliances": {
+    "name": "hpicfPimCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfPimAdminStatus": {
+    "name": "hpicfPimAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPimStateRefreshInterval": {
+    "name": "hpicfPimStateRefreshInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPimSPTThreshold": {
+    "name": "hpicfPimSPTThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPimTrapControl": {
+    "name": "hpicfPimTrapControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "neighborLoss": 0,
+        "hardMrtFull": 1,
+        "softMrtFull": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetTable": {
+    "name": "hpicfPimStaticRPSetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetEntry": {
+    "name": "hpicfPimStaticRPSetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-MIB",
+        "object": "pimRPSetComponent",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStaticRPSetGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStaticRPSetGroupMask",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStaticRPSetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetGroupAddress": {
+    "name": "hpicfPimStaticRPSetGroupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetGroupMask": {
+    "name": "hpicfPimStaticRPSetGroupMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetAddress": {
+    "name": "hpicfPimStaticRPSetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetOverride": {
+    "name": "hpicfPimStaticRPSetOverride",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetRowStatus": {
+    "name": "hpicfPimStaticRPSetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfTable": {
+    "name": "hpicfPimIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimIfEntry": {
+    "name": "hpicfPimIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfPimIfEntry",
+      "module": "HP-ICF-PIM",
+      "object": "pimInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "hpicfPimIfAddress": {
+    "name": "hpicfPimIfAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfTrigHelloInterval": {
+    "name": "hpicfPimIfTrigHelloInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfHelloHoldtime": {
+    "name": "hpicfPimIfHelloHoldtime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 1050
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 105,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfLanPruneDelay": {
+    "name": "hpicfPimIfLanPruneDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfPropagationDelay": {
+    "name": "hpicfPimIfPropagationDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 500,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfOverrideInterval": {
+    "name": "hpicfPimIfOverrideInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2500,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfGenerationID": {
+    "name": "hpicfPimIfGenerationID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfJoinPruneHoldtime": {
+    "name": "hpicfPimIfJoinPruneHoldtime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 210,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfGraftRetryInterval": {
+    "name": "hpicfPimIfGraftRetryInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfMaxGraftRetries": {
+    "name": "hpicfPimIfMaxGraftRetries",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfSRTTLThreshold": {
+    "name": "hpicfPimIfSRTTLThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfLanDelayEnabled": {
+    "name": "hpicfPimIfLanDelayEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimIfSRCapable": {
+    "name": "hpicfPimIfSRCapable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimIfDRPriority": {
+    "name": "hpicfPimIfDRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimIfNBRTimeout": {
+    "name": "hpicfPimIfNBRTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 8000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 180,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentTable": {
+    "name": "hpicfPimComponentTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfPimComponentEntry": {
+    "name": "hpicfPimComponentEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "hpicfPimComponentEntry",
+      "module": "HP-ICF-PIM",
+      "object": "pimComponentEntry"
+    },
+    "status": "current"
+  },
+  "hpicfPimComponentCBSRAdminStatus": {
+    "name": "hpicfPimComponentCBSRAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCBSRAddress": {
+    "name": "hpicfPimComponentCBSRAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCBSRPriority": {
+    "name": "hpicfPimComponentCBSRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCBSRHashMaskLength": {
+    "name": "hpicfPimComponentCBSRHashMaskLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCBSRMessageInterval": {
+    "name": "hpicfPimComponentCBSRMessageInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCRPPriority": {
+    "name": "hpicfPimComponentCRPPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 192,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfPimComponentCRPAdvInterval": {
+    "name": "hpicfPimComponentCRPAdvInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimComponentBSRPriority": {
+    "name": "hpicfPimComponentBSRPriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimComponentBSRHashMaskLength": {
+    "name": "hpicfPimComponentBSRHashMaskLength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimComponentBSRUpTime": {
+    "name": "hpicfPimComponentBSRUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimComponentBSRNextMessage": {
+    "name": "hpicfPimComponentBSRNextMessage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfPimHardMRTFull": {
+    "name": "hpicfPimHardMRTFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfPimSoftMRTFull": {
+    "name": "hpicfPimSoftMRTFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.1.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpicfPimNotificationGroup": {
+    "name": "hpicfPimNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimHardMRTFull"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimSoftMRTFull"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimBaseGroup": {
+    "name": "hpicfPimBaseGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimAdminStatus"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStateRefreshInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimSPTThreshold"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimTrapControl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimStaticRPSetMappingGroup": {
+    "name": "hpicfPimStaticRPSetMappingGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStaticRPSetOverride"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimStaticRPSetRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimSparseIfGroup": {
+    "name": "hpicfPimSparseIfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfAddress"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfTrigHelloInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfHelloHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfLanPruneDelay"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfPropagationDelay"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfOverrideInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfGenerationID"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfJoinPruneHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfLanDelayEnabled"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfDRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfNBRTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimDenseIfGroup": {
+    "name": "hpicfPimDenseIfGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfAddress"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfTrigHelloInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfHelloHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfLanPruneDelay"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfPropagationDelay"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfOverrideInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfGenerationID"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfJoinPruneHoldtime"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfGraftRetryInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfMaxGraftRetries"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfSRTTLThreshold"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfLanDelayEnabled"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfSRCapable"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimIfDRPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimComponentGroup": {
+    "name": "hpicfPimComponentGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCBSRAdminStatus"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCBSRAddress"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCBSRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCBSRHashMaskLength"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCBSRMessageInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCRPPriority"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentCRPAdvInterval"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentBSRPriority"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentBSRHashMaskLength"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentBSRUpTime"
+      },
+      {
+        "module": "HP-ICF-PIM",
+        "object": "hpicfPimComponentBSRNextMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimSparseMIBCompliance": {
+    "name": "hpicfPimSparseMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPimBaseGroup",
+        "module": "HP-ICF-PIM"
+      },
+      {
+        "object": "hpicfPimStaticRPSetMappingGroup",
+        "module": "HP-ICF-PIM"
+      },
+      {
+        "object": "hpicfPimSparseIfGroup",
+        "module": "HP-ICF-PIM"
+      },
+      {
+        "object": "hpicfPimComponentGroup",
+        "module": "HP-ICF-PIM"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfPimDenseMIBCompliance": {
+    "name": "hpicfPimDenseMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.20.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfPimBaseGroup",
+        "module": "HP-ICF-PIM"
+      },
+      {
+        "object": "hpicfPimDenseIfGroup",
+        "module": "HP-ICF-PIM"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-PIM",
+      "Source digest sha256:ae107b3606e0887487dadba4e48923bcfac16c46b04ea597fd3627c58830545d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-PIM"
+  }
+}

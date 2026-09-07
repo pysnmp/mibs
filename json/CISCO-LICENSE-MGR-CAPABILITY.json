@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLicenseMgrCapability": {
+    "name": "ciscoLicenseMgrCapability",
+    "oid": "1.3.6.1.4.1.9.7.495",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-21 00:00",
+        "description": "Added VARIATIONS for MIB objects clmLicenseGracePeriod and clmNotificationsEnable to ciscoLicenseMgrCapabilityACSWV03R000 agent capability. Added capability statement ciscoLicMgrCapc4710aceVA1R700 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-03-08 00:00",
+        "description": "Added capability statement ciscoLicenseMgrCapabilityACSWV03R000 for Application Control Engine (ACE)."
+      }
+    ]
+  },
+  "ciscoLicenseMgrCapabilityACSWV03R000": {
+    "name": "ciscoLicenseMgrCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.495.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "includes": [
+          "clmNoOfInstalledLicensesGroup",
+          "clmLicenseInformationGroup2",
+          "clmNotificationsEnableGroup",
+          "clmNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "clmLicenseGracePeriod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "clmNotificationsEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLicMgrCapc4710aceVA1R700": {
+    "name": "ciscoLicMgrCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.495.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                 for ACE 4710 Application Control Engine \n                 Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "includes": [
+          "clmNoOfInstalledLicensesGroup",
+          "clmLicenseInformationGroup2",
+          "clmNotificationsEnableGroup",
+          "clmNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "clmLicenseGracePeriod",
+            "access": "not-implemented"
+          },
+          {
+            "object": "clmNotificationsEnable",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LICENSE-MGR-CAPABILITY",
+      "Source digest sha256:267bbfefd5866aa0308009b5d013f6628268453826dd6cc98b86d6cca3a53336",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LICENSE-MGR-CAPABILITY"
+  }
+}

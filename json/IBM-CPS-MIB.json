@@ -1,0 +1,71 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC1215": [
+      "TRAP-TYPE"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "cps": {
+    "name": "cps",
+    "oid": "1.3.6.1.4.1.2.6.201",
+    "class": "objectidentity"
+  },
+  "cpsSystemSendTrap": {
+    "name": "cpsSystemSendTrap",
+    "oid": "1.3.6.1.4.1.2.6.201.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "problemTrap": {
+    "name": "problemTrap",
+    "oid": "1.3.6.1.4.1.2.6.201.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-CPS-MIB",
+        "object": "cpsSystemSendTrap"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IBM-CPS-MIB",
+      "Source digest sha256:731fbd49d47a7e55ad8a5b0b2136ad8e255fc26051094573c780581653d04ca9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IBM-CPS-MIB"
+  }
+}

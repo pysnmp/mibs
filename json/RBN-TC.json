@@ -1,0 +1,213 @@
+{
+  "imports": {
+    "class": "imports",
+    "RBN-SMI": [
+      "rbnModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rbnTC": {
+    "name": "rbnTC",
+    "oid": "1.3.6.1.4.1.2352.5.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-19 18:00",
+        "description": "Update CONTACT-INFO & ORGANIZATION. "
+      },
+      {
+        "revision": "2009-10-20 17:00",
+        "description": "Added new textual convention: RbnUnsigned64 for read-write capable 64 bit integer value."
+      },
+      {
+        "revision": "2004-06-19 17:00",
+        "description": "Added new textual convention: RbnPortMediumType. Correct warnings given by smilint."
+      },
+      {
+        "revision": "2003-03-17 17:00",
+        "description": "Added new textual convention: RbnVidOrUntagged."
+      },
+      {
+        "revision": "2002-11-11 00:00",
+        "description": "Moved definitions of RbnSlot and RbnPort from RBN-PVC-MIB. Updated range on RbnSlot and RbnPort."
+      },
+      {
+        "revision": "2002-06-26 00:00",
+        "description": "Updated CONTACT-INFO. Added new textual conventions: RbnKBytes and RbnPercentage."
+      },
+      {
+        "revision": "2000-07-14 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "RbnCircuitHandle": {
+    "name": "RbnCircuitHandle",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1d:1d:2x-2x-2x",
+    "status": "current"
+  },
+  "RbnKBytes": {
+    "name": "RbnKBytes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "RbnPercentage": {
+    "name": "RbnPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d%",
+    "status": "current"
+  },
+  "RbnSlot": {
+    "name": "RbnSlot",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "RbnPort": {
+    "name": "RbnPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "RbnVidOrUntagged": {
+    "name": "RbnVidOrUntagged",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "RbnPortMediumType": {
+    "name": "RbnPortMediumType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "dsl": 11,
+          "cable": 12,
+          "wireless": 13,
+          "satellite": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RbnUnsigned64": {
+    "name": "RbnUnsigned64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8d",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RBN-TC",
+      "Source digest sha256:22044b1c7161ffad6f45acae8f177e7a39bc30f75e956f4598a781b74a382bf2",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RBN-TC"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniNotificationLogAgent": {
+    "name": "juniNotificationLogAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.56",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-03-25 18:22",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniNotificationLogAgentV1": {
+    "name": "juniNotificationLogAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.56.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Notification Log component of the JUNOSe SNMP agent.\n        This version of the Notification Log component is supported in JUNOSe\n        4.1 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "NOTIFICATION-LOG-MIB",
+        "includes": [
+          "notificationLogConfigGroup",
+          "notificationLogStatsGroup",
+          "notificationLogLogGroup",
+          "notificationLogDateGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Notification-Log-CONF",
+      "Source digest sha256:4d65bbd5cfca203c18b5123cf4d3202c561c55274751c7b72d9cecfedae30a99",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Notification-Log-CONF"
+  }
+}

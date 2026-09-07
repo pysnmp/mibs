@@ -1,0 +1,206 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwDdpClientMIB": {
+    "name": "dlinkSwDdpClientMIB",
+    "oid": "1.3.6.1.4.1.171.14.161",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-05 00:00",
+        "description": " This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dDdpClientNotifications": {
+    "name": "dDdpClientNotifications",
+    "oid": "1.3.6.1.4.1.171.14.161.0",
+    "class": "objectidentity"
+  },
+  "dDdpClientObjects": {
+    "name": "dDdpClientObjects",
+    "oid": "1.3.6.1.4.1.171.14.161.1",
+    "class": "objectidentity"
+  },
+  "dDdpClientConformance": {
+    "name": "dDdpClientConformance",
+    "oid": "1.3.6.1.4.1.171.14.161.2",
+    "class": "objectidentity"
+  },
+  "dDdpClientCtrl": {
+    "name": "dDdpClientCtrl",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1",
+    "class": "objectidentity"
+  },
+  "dDdpClientGlobalState": {
+    "name": "dDdpClientGlobalState",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdpClientReportTimer": {
+    "name": "dDdpClientReportTimer",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdpClientTable": {
+    "name": "dDdpClientTable",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDdpClientEntry": {
+    "name": "dDdpClientEntry",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDdpClientPortState": {
+    "name": "dDdpClientPortState",
+    "oid": "1.3.6.1.4.1.171.14.161.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDdpClientCompliances": {
+    "name": "dDdpClientCompliances",
+    "oid": "1.3.6.1.4.1.171.14.161.2.1",
+    "class": "objectidentity"
+  },
+  "dDdpClientGroups": {
+    "name": "dDdpClientGroups",
+    "oid": "1.3.6.1.4.1.171.14.161.2.2",
+    "class": "objectidentity"
+  },
+  "dDdpClientCompliance": {
+    "name": "dDdpClientCompliance",
+    "oid": "1.3.6.1.4.1.171.14.161.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDdpClientControlGroup",
+        "module": "DLINKSW-DDP-CLIENT-MIB"
+      },
+      {
+        "object": "dDdpClientControlGroup",
+        "module": "DLINKSW-DDP-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDdpClientControlGroup": {
+    "name": "dDdpClientControlGroup",
+    "oid": "1.3.6.1.4.1.171.14.161.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DDP-CLIENT-MIB",
+        "object": "dDdpClientGlobalState"
+      },
+      {
+        "module": "DLINKSW-DDP-CLIENT-MIB",
+        "object": "dDdpClientPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-DDP-CLIENT-MIB",
+      "Source digest sha256:8f438449b4f7b61954c70d81228480703d84090a7917f028f1e380270e9df8f6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-DDP-CLIENT-MIB"
+  }
+}

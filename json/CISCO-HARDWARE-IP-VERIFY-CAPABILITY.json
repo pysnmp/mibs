@@ -1,0 +1,65 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoHardwareIpVerifyCapability": {
+    "name": "ciscoHardwareIpVerifyCapability",
+    "oid": "1.3.6.1.4.1.9.7.623",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "chivCapNxOSV06R0104PN7k": {
+    "name": "chivCapNxOSV06R0104PN7k",
+    "oid": "1.3.6.1.4.1.9.7.623.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.1(4) on Nexus \n                        7000 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB",
+        "includes": [
+          "ciscoHardwareIpVerifyMIBStatisticGroup"
+        ],
+        "variations": [
+          {
+            "object": "chivIpVerifyCheckStatus",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-HARDWARE-IP-VERIFY-CAPABILITY",
+      "Source digest sha256:d2691d0756be44afe6a81d1c152f5df21fae33c8f3646865c1703a8e52a1f718",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-HARDWARE-IP-VERIFY-CAPABILITY"
+  }
+}

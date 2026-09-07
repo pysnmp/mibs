@@ -1,0 +1,467 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "cDot11HtPhyCapability": {
+    "name": "cDot11HtPhyCapability",
+    "oid": "1.3.6.1.4.1.9.7.551",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-22 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cDot11HtPhyCapabilityV12R0410BJA": {
+    "name": "cDot11HtPhyCapabilityV12R0410BJA",
+    "oid": "1.3.6.1.4.1.9.7.551.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(10b)JA for the AP1250 802.11 \n                         Access Points",
+    "capabilities": [
+      {
+        "module": "CISCO-DOT11-HT-PHY-MIB",
+        "includes": [
+          "ciscoDot11HtPhyAntennaGroup",
+          "ciscoDot11HtPhyConfigGroup",
+          "ciscoDot11HtPhyMcsGroup",
+          "ciscoDot11HtPhyTxBfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cD11HtPhyOperatingMode",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "legacy": 1,
+                  "mixed": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyOperModeFrequency",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyFortyMHzOperationImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyExtChannelCCAImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyNumberOfSpatialStreamsImplemented",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyNumberOfSpatialStreamsEnabled",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyGreenFieldImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyGreenFieldEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cD11HtPhyShortGIInTwentyImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyShortGIInFortyImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyAdvancedCodingImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyAdvancedCodingEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cD11HtPhyTxSTBCImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyTxSTBCEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cD11HtPhyRxSTBCImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyRxSTBCEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cD11HtPhyBeamFormingImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyBeamFormingEnabled",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cD11HtPhyAntennaSelectionImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyRcvAntennaSelImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "true": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhySupportedMCSTxValue",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhySupportedMCSRxValue",
+            "syntax": {
+              "type": "OCTET STRING",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 2,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyRxStaggerSoundImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyTxStaggerSoundImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyRxZLFImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyTxZLFImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyImplicitTxBFImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyCalibrationImplemented",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "inCapable": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyExplCSITxBFImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyExplUncompSteerMatrixImplemented",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "false": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cD11HtPhyExplBFCSIFdbkImplemented",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyExplUncompSteerMatrixFdbkImplemented",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyExplCompSteerMatrixFdbkImplemented",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyNumberBeamFormingCSISupportAntenna",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyNumberUncompSteerMatrixSupportAntenna",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyNumberCompSteerMatrixSupportAntenna",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyEnhPowerLevel20MHz",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cD11HtPhyEnhPowerLevel40MHz",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DOT11-HT-PHY-CAPABILITY",
+      "Source digest sha256:66c40155a3aad457bb7f9e0bb1f3590c7916ce5eee7ab2e5d9e5ded0320134fc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DOT11-HT-PHY-CAPABILITY"
+  }
+}

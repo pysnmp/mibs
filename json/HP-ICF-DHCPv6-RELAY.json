@@ -1,0 +1,759 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfDhcpv6Relay": {
+    "name": "hpicfDhcpv6Relay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-12 00:00",
+        "description": "Added hpicfDhcpv6RelayOptions scalar group and added the following object, hpicfDhcpv6RelayOption79Status. Added hpicfDhcpRelayConfigGroup1 and hpicfDhcpRelayCompliance2. deprecated hpicfDhcpRelayConfigGroup and hpicfDhcpRelayCompliance1."
+      },
+      {
+        "revision": "2012-04-24 00:00",
+        "description": "Added hpicfDhcpRelayGlobalStatistics scalar group and added the following statistical objects, hpicfDhcpRelayPktsDropped, hpicfDhcpRelayErrorPktsDropped, hpicfDhcpRelayTotalPktsReceived, hpicfDhcpRelaySolicitPktsReceived, hpicfDhcpRelayRequestPktsReceived, hpicfDhcpRelayConfirmPktsReceived, hpicfDhcpRelayRenewPktsReceived, hpicfDhcpRelayRebindPktsReceived, hpicfDhcpRelayReleasePktsReceived, hpicfDhcpRelayDeclinePktsReceived, hpicfDhcpRelayInformationReqPktsReceived, hpicfDhcpRelayRelayForwardPktsReceived, hpicfDhcpRelayRelayReplyPktsReceived, hpicfDhcpRelayTotalPktsSent, hpicfDhcpRelayAdvertisePktsSent, hpicfDhcpRelayReconfigurePktsSent, hpicfDhcpRelayReplyPktsSent, hpicfDhcpRelayRelayForwardPktsSent, hpicfDhcpRelayRelayReplyPktsSent. Added hpicfDhcpRelayStatsGroup1 and hpicfDhcpRelayCompliance1. deprecated hpicfDhcpRelayStatsGroup and hpicfDhcpRelayCompliance."
+      },
+      {
+        "revision": "2008-04-08 06:05",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "hpicfDhcpv6RelayAdminStatus": {
+    "name": "hpicfDhcpv6RelayAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddressTable": {
+    "name": "hpicfDhcpRelayHelperAddressTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddressEntry": {
+    "name": "hpicfDhcpRelayHelperAddressEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddressType": {
+    "name": "hpicfDhcpRelayHelperAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddress": {
+    "name": "hpicfDhcpRelayHelperAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddressEgressInterface": {
+    "name": "hpicfDhcpRelayHelperAddressEgressInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpRelayHelperAddressStatus": {
+    "name": "hpicfDhcpRelayHelperAddressStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceStatsTable": {
+    "name": "hpicfDhcpRelayPerInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceStatsEntry": {
+    "name": "hpicfDhcpRelayPerInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceClientPktsRecd": {
+    "name": "hpicfDhcpRelayPerInterfaceClientPktsRecd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceClientPktsDropped": {
+    "name": "hpicfDhcpRelayPerInterfaceClientPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceClientPktsXmitFail": {
+    "name": "hpicfDhcpRelayPerInterfaceClientPktsXmitFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceServerPktsRecd": {
+    "name": "hpicfDhcpRelayPerInterfaceServerPktsRecd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceServerPktsDropped": {
+    "name": "hpicfDhcpRelayPerInterfaceServerPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayPerInterfaceServerPktsXmitFail": {
+    "name": "hpicfDhcpRelayPerInterfaceServerPktsXmitFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayGlobalStatistics": {
+    "name": "hpicfDhcpRelayGlobalStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpv6RelayOptions": {
+    "name": "hpicfDhcpv6RelayOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.6",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpRelayPktsDropped": {
+    "name": "hpicfDhcpRelayPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayErrorPktsDropped": {
+    "name": "hpicfDhcpRelayErrorPktsDropped",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayTotalPktsReceived": {
+    "name": "hpicfDhcpRelayTotalPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelaySolicitPktsReceived": {
+    "name": "hpicfDhcpRelaySolicitPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRequestPktsReceived": {
+    "name": "hpicfDhcpRelayRequestPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayConfirmPktsReceived": {
+    "name": "hpicfDhcpRelayConfirmPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRenewPktsReceived": {
+    "name": "hpicfDhcpRelayRenewPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRebindPktsReceived": {
+    "name": "hpicfDhcpRelayRebindPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayReleasePktsReceived": {
+    "name": "hpicfDhcpRelayReleasePktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayDeclinePktsReceived": {
+    "name": "hpicfDhcpRelayDeclinePktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayInformationReqPktsReceived": {
+    "name": "hpicfDhcpRelayInformationReqPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRelayForwardPktsReceived": {
+    "name": "hpicfDhcpRelayRelayForwardPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRelayReplyPktsReceived": {
+    "name": "hpicfDhcpRelayRelayReplyPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayTotalPktsSent": {
+    "name": "hpicfDhcpRelayTotalPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayAdvertisePktsSent": {
+    "name": "hpicfDhcpRelayAdvertisePktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayReconfigurePktsSent": {
+    "name": "hpicfDhcpRelayReconfigurePktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayReplyPktsSent": {
+    "name": "hpicfDhcpRelayReplyPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRelayForwardPktsSent": {
+    "name": "hpicfDhcpRelayRelayForwardPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpRelayRelayReplyPktsSent": {
+    "name": "hpicfDhcpRelayRelayReplyPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfDhcpv6RelayOption79Status": {
+    "name": "hpicfDhcpv6RelayOption79Status",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfDhcpRelayConformance": {
+    "name": "hpicfDhcpRelayConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpRelayGroups": {
+    "name": "hpicfDhcpRelayGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.1",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpRelayCompliances": {
+    "name": "hpicfDhcpRelayCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.2",
+    "class": "objectidentity"
+  },
+  "hpicfDhcpRelayConfigGroup": {
+    "name": "hpicfDhcpRelayConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpv6RelayAdminStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddressEgressInterface"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddressStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpRelayConfigGroup1": {
+    "name": "hpicfDhcpRelayConfigGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpv6RelayAdminStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddressEgressInterface"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayHelperAddressStatus"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpv6RelayOption79Status"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpRelayStatsGroup": {
+    "name": "hpicfDhcpRelayStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsRecd"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsXmitFail"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsRecd"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsXmitFail"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpRelayStatsGroup1": {
+    "name": "hpicfDhcpRelayStatsGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsRecd"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceClientPktsXmitFail"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsRecd"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPerInterfaceServerPktsXmitFail"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayErrorPktsDropped"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayTotalPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelaySolicitPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRequestPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayConfirmPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRenewPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRebindPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayReleasePktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayDeclinePktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayInformationReqPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRelayForwardPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRelayReplyPktsReceived"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayTotalPktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayAdvertisePktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayReconfigurePktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayReplyPktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRelayForwardPktsSent"
+      },
+      {
+        "module": "HP-ICF-DHCPv6-RELAY",
+        "object": "hpicfDhcpRelayRelayReplyPktsSent"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfDhcpRelayCompliance": {
+    "name": "hpicfDhcpRelayCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpRelayConfigGroup",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      },
+      {
+        "object": "hpicfDhcpRelayStatsGroup",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpRelayCompliance1": {
+    "name": "hpicfDhcpRelayCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpRelayConfigGroup",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      },
+      {
+        "object": "hpicfDhcpRelayStatsGroup1",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfDhcpRelayCompliance2": {
+    "name": "hpicfDhcpRelayCompliance2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.50.4.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfDhcpRelayConfigGroup1",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      },
+      {
+        "object": "hpicfDhcpRelayStatsGroup1",
+        "module": "HP-ICF-DHCPv6-RELAY"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-DHCPv6-RELAY",
+      "Source digest sha256:72e6a40f611dcb629f53b7f3949852df9b272414117424d9c37734563b57a8e7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-DHCPv6-RELAY"
+  }
+}

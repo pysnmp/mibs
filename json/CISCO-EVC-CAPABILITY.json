@@ -1,0 +1,496 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEvcCapability": {
+    "name": "ciscoEvcCapability",
+    "oid": "1.3.6.1.4.1.9.7.568",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEvcCapabilityV12R02SR": {
+    "name": "ciscoEvcCapabilityV12R02SR",
+    "oid": "1.3.6.1.4.1.9.7.568.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2 SR Release",
+    "capabilities": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "includes": [
+          "cevcSystemGroup",
+          "cevcPortGroup",
+          "cevcEvcGroup",
+          "cevcSIGroup",
+          "cevcSIVlanRewriteGroup",
+          "cevcSICosMatchCriteriaGroup",
+          "cevcSIMatchCriteriaGroupRev1",
+          "cevcSIForwardGroup",
+          "cevcEvcNotificationConfigGroup",
+          "cevcEvcNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cevcPortMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniPortType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniServiceAttributes",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcPortL2ControlProtocolAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcCfgUnis",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSITargetType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSITarget",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIName",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIEvcIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIForwardingType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteEncapsulation",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteVlan1",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteVlan2",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteSymmetric",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIL2ControlProtocolAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchCriteriaType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapValid",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapEncapsulation",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapPrimaryCos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIMatchEncapSecondaryCos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIMatchEncapPayloadTypes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIMatchEncapPriorityCos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIPrimaryVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIPrimaryVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIPrimaryVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcNotifyEnabled",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEvcCapabilityV12R02XO": {
+    "name": "ciscoEvcCapabilityV12R02XO",
+    "oid": "1.3.6.1.4.1.9.7.568.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2 XO Release.",
+    "capabilities": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "includes": [
+          "cevcSystemGroup",
+          "cevcPortGroup",
+          "cevcEvcGroup",
+          "cevcSIGroup",
+          "cevcSIVlanRewriteGroup",
+          "cevcSICosMatchCriteriaGroup",
+          "cevcSIMatchCriteriaGroupRev1",
+          "cevcSIForwardGroup",
+          "cevcEvcNotificationConfigGroup",
+          "cevcEvcNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cevcPortMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniPortType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcUniServiceAttributes",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcPortL2ControlProtocolAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcCfgUnis",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSITargetType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSITarget",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIName",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIEvcIndex",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cevcSIForwardingType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteEncapsulation",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteVlan1",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteVlan2",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIVlanRewriteSymmetric",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIL2ControlProtocolAction",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSICEVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchCriteriaType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapValid",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapEncapsulation",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapPrimaryCos",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapSecondaryCos",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapPayloadTypes",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIMatchEncapPriorityCos",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIPrimaryVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIPrimaryVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIPrimaryVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSISecondaryVlanEndingVlan",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcSIForwardBdNumber",
+            "access": "read-only"
+          },
+          {
+            "object": "cevcEvcNotifyEnabled",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-EVC-CAPABILITY",
+      "Source digest sha256:1265787c6a0442f81207b485a47d29cb831c3c6f8b09717fffa1ba573356decc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-EVC-CAPABILITY"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniFileTransferAgent": {
+    "name": "juniFileTransferAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-28 13:22",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniFileTransferAgentV1": {
+    "name": "juniFileTransferAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.15.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the File Transfer component of the JUNOSe\n        SNMP agent.  This version of the File Transfer component was supported\n        in JUNOSe 1.x system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-FILE-XFER-MIB",
+        "includes": [
+          "juniFileXferGroup1",
+          "juniFileXferTrapGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniFileTransferAgentV2": {
+    "name": "juniFileTransferAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.15.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the File Transfer component of the JUNOSe\n        SNMP agent.  This version of the File Transfer component is supported in\n        JUNOSe 2.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-FILE-XFER-MIB",
+        "includes": [
+          "juniFileXferGroup2",
+          "juniFileXferTrapGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-File-Transfer-CONF",
+      "Source digest sha256:fa59de87ac3324bfbd84fb8859cc485ec31da37c69a17885799015d48f5f508a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-File-Transfer-CONF"
+  }
+}

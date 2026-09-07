@@ -1,0 +1,279 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisPriorityQueue"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "colubrisBandwidthControlMIB": {
+    "name": "colubrisBandwidthControlMIB",
+    "oid": "1.3.6.1.4.1.8744.5.14",
+    "class": "moduleidentity"
+  },
+  "colubrisBandwidthControlMIBObjects": {
+    "name": "colubrisBandwidthControlMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.14.1",
+    "class": "objectidentity"
+  },
+  "coBandwidthControlConfig": {
+    "name": "coBandwidthControlConfig",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1",
+    "class": "objectidentity"
+  },
+  "coBandwidthControlEnable": {
+    "name": "coBandwidthControlEnable",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlMaxTransmitRate": {
+    "name": "coBandwidthControlMaxTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlMaxReceiveRate": {
+    "name": "coBandwidthControlMaxReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlLevelTable": {
+    "name": "coBandwidthControlLevelTable",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coBandwidthControlLevelEntry": {
+    "name": "coBandwidthControlLevelEntry",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coBandwidthControlLevelIndex": {
+    "name": "coBandwidthControlLevelIndex",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisPriorityQueue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coBandwidthControlLevelMinTransmitRate": {
+    "name": "coBandwidthControlLevelMinTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlLevelMaxTransmitRate": {
+    "name": "coBandwidthControlLevelMaxTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlLevelMinReceiveRate": {
+    "name": "coBandwidthControlLevelMinReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coBandwidthControlLevelMaxReceiveRate": {
+    "name": "coBandwidthControlLevelMaxReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.14.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisBandwidthControlMIBConformance": {
+    "name": "colubrisBandwidthControlMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.14.2",
+    "class": "objectidentity"
+  },
+  "colubrisBandwidthControlMIBCompliances": {
+    "name": "colubrisBandwidthControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.14.2.1",
+    "class": "objectidentity"
+  },
+  "colubrisBandwidthControlMIBGroups": {
+    "name": "colubrisBandwidthControlMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.14.2.2",
+    "class": "objectidentity"
+  },
+  "colubrisBandwidthControlMIBCompliance": {
+    "name": "colubrisBandwidthControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.14.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisBandwidthControlMIBGroup",
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB"
+      },
+      {
+        "object": "colubrisBandwidthControlLevelMIBGroup",
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisBandwidthControlMIBGroup": {
+    "name": "colubrisBandwidthControlMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.14.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlEnable"
+      },
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlMaxTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlMaxReceiveRate"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisBandwidthControlLevelMIBGroup": {
+    "name": "colubrisBandwidthControlLevelMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.14.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlLevelMinTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlLevelMaxTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlLevelMinReceiveRate"
+      },
+      {
+        "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB",
+        "object": "coBandwidthControlLevelMaxReceiveRate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source COLUBRIS-BANDWIDTH-CONTROL-MIB",
+      "Source digest sha256:b319480b614b1f790b6c04e8ffca4559be18a73dec7833c6bfc7e4910256e1e6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "COLUBRIS-BANDWIDTH-CONTROL-MIB"
+  }
+}

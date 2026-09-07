@@ -1,0 +1,46 @@
+#
+# PySNMP MIB module SNMP-MPD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source SNMP-MPD-MIB
+# Source digest sha256:9eb9f3324c9c345fe0ee57b1bb0879ae8e52594756f27534d447d20342d60364
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, snmpModules = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "snmpModules")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+snmpMPDMIB = ModuleIdentity((1, 3, 6, 1, 6, 3, 11))
+snmpMPDMIB.setRevisions(('2002-10-14 00:00', '1999-05-04 16:36', '1997-09-30 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: snmpMPDMIB.setRevisionsDescriptions(('Updated addresses, published as RFC 3412.', 'Updated addresses, published as RFC 2572.', 'Original version, published as RFC 2272.',))
+if mibBuilder.loadTexts: snmpMPDMIB.setLastUpdated('2002-10-14 00:00')
+if mibBuilder.loadTexts: snmpMPDMIB.setOrganization('SNMPv3 Working Group')
+if mibBuilder.loadTexts: snmpMPDMIB.setContactInfo('WG-EMail:   snmpv3@lists.tislabs.com\n                     Subscribe:  snmpv3-request@lists.tislabs.com\n\n                     Co-Chair:   Russ Mundy\n                                 Network Associates Laboratories\n                     postal:     15204 Omega Drive, Suite 300\n                                 Rockville, MD 20850-4601\n                                 USA\n                     EMail:      mundy@tislabs.com\n                     phone:      +1 301-947-7107\n\n                     Co-Chair &\n                     Co-editor:  David Harrington\n                                 Enterasys Networks\n                     postal:     35 Industrial Way\n                                 P. O. Box 5005\n                                 Rochester NH 03866-5005\n                                 USA\n                     EMail:      dbh@enterasys.com\n                     phone:      +1 603-337-2614\n\n                     Co-editor:  Jeffrey Case\n                                 SNMP Research, Inc.\n                     postal:     3001 Kimberlin Heights Road\n                                 Knoxville, TN 37920-9716\n                                 USA\n                     EMail:      case@snmp.com\n                     phone:      +1 423-573-1434\n\n                     Co-editor:  Randy Presuhn\n                                 BMC Software, Inc.\n                     postal:     2141 North First Street\n                                 San Jose, CA 95131\n                                 USA\n                     EMail:      randy_presuhn@bmc.com\n                     phone:      +1 408-546-1006\n\n                     Co-editor:  Bert Wijnen\n                                 Lucent Technologies\n                     postal:     Schagen 33\n                                 3461 GL Linschoten\n                                 Netherlands\n                     EMail:      bwijnen@lucent.com\n                     phone:      +31 348-680-485\n                    ')
+if mibBuilder.loadTexts: snmpMPDMIB.setDescription('The MIB for Message Processing and Dispatching\n\n                     Copyright (C) The Internet Society (2002). This\n                     version of this MIB module is part of RFC 3412;\n                     see the RFC itself for full legal notices.\n                    ')
+snmpMPDAdmin = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 1))
+snmpMPDMIBObjects = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 2))
+snmpMPDMIBConformance = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 3))
+snmpMPDStats = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 2, 1))
+snmpUnknownSecurityModels = MibScalar((1, 3, 6, 1, 6, 3, 11, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpUnknownSecurityModels.setStatus('current')
+if mibBuilder.loadTexts: snmpUnknownSecurityModels.setDescription('The total number of packets received by the SNMP\n                    engine which were dropped because they referenced a\n                    securityModel that was not known to or supported by\n                    the SNMP engine.\n                   ')
+snmpInvalidMsgs = MibScalar((1, 3, 6, 1, 6, 3, 11, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpInvalidMsgs.setStatus('current')
+if mibBuilder.loadTexts: snmpInvalidMsgs.setDescription('The total number of packets received by the SNMP\n                    engine which were dropped because there were invalid\n                    or inconsistent components in the SNMP message.\n                   ')
+snmpUnknownPDUHandlers = MibScalar((1, 3, 6, 1, 6, 3, 11, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpUnknownPDUHandlers.setStatus('current')
+if mibBuilder.loadTexts: snmpUnknownPDUHandlers.setDescription('The total number of packets received by the SNMP\n                    engine which were dropped because the PDU contained\n                    in the packet could not be passed to an application\n                    responsible for handling the pduType, e.g. no SNMP\n                    application had registered for the proper\n                    combination of the contextEngineID and the pduType.\n                   ')
+snmpMPDMIBCompliances = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 3, 1))
+snmpMPDMIBGroups = MibIdentifier((1, 3, 6, 1, 6, 3, 11, 3, 2))
+snmpMPDCompliance = ModuleCompliance((1, 3, 6, 1, 6, 3, 11, 3, 1, 1)).setObjects(("SNMP-MPD-MIB", "snmpMPDGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    snmpMPDCompliance = snmpMPDCompliance.setStatus('current')
+if mibBuilder.loadTexts: snmpMPDCompliance.setDescription('The compliance statement for SNMP entities which\n                    implement the SNMP-MPD-MIB.\n                   ')
+snmpMPDGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 11, 3, 2, 1)).setObjects(("SNMP-MPD-MIB", "snmpUnknownSecurityModels"), ("SNMP-MPD-MIB", "snmpInvalidMsgs"), ("SNMP-MPD-MIB", "snmpUnknownPDUHandlers"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    snmpMPDGroup = snmpMPDGroup.setStatus('current')
+if mibBuilder.loadTexts: snmpMPDGroup.setDescription('A collection of objects providing for remote\n                    monitoring of the SNMP Message Processing and\n                    Dispatching process.\n                   ')
+mibBuilder.exportSymbols("SNMP-MPD-MIB", PYSNMP_MODULE_ID=snmpMPDMIB, snmpInvalidMsgs=snmpInvalidMsgs, snmpMPDAdmin=snmpMPDAdmin, snmpMPDCompliance=snmpMPDCompliance, snmpMPDGroup=snmpMPDGroup, snmpMPDMIB=snmpMPDMIB, snmpMPDMIBCompliances=snmpMPDMIBCompliances, snmpMPDMIBConformance=snmpMPDMIBConformance, snmpMPDMIBGroups=snmpMPDMIBGroups, snmpMPDMIBObjects=snmpMPDMIBObjects, snmpMPDStats=snmpMPDStats, snmpUnknownPDUHandlers=snmpUnknownPDUHandlers, snmpUnknownSecurityModels=snmpUnknownSecurityModels)

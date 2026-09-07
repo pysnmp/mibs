@@ -1,0 +1,158 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cUps": {
+    "name": "hh3cUps",
+    "oid": "1.3.6.1.4.1.25506.2.82",
+    "class": "moduleidentity"
+  },
+  "hh3cUpsMibObjects": {
+    "name": "hh3cUpsMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.82.1",
+    "class": "objectidentity"
+  },
+  "Hh3cActionType": {
+    "name": "Hh3cActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "action": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cUpsConfigEnable": {
+    "name": "hh3cUpsConfigEnable",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUpsConfigTable": {
+    "name": "hh3cUpsConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUpsConfigEntry": {
+    "name": "hh3cUpsConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-UPS-MIB",
+        "object": "hh3cUpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUpsIndex": {
+    "name": "hh3cUpsIndex",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUpsType": {
+    "name": "hh3cUpsType",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emersonUart": 1,
+          "mge": 2,
+          "common": 3,
+          "emersonEth": 4,
+          "liebert": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUpsIpAddress": {
+    "name": "hh3cUpsIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUpsIpAddressType": {
+    "name": "hh3cUpsIpAddressType",
+    "oid": "1.3.6.1.4.1.25506.2.82.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-UPS-MIB",
+      "Source digest sha256:fba6bcdd55844307baba6d44f5d7568b5fc74dbcf275e67bf514ecbdf1246f75",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-UPS-MIB"
+  }
+}

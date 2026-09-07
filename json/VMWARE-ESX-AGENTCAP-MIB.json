@@ -1,0 +1,2389 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwareAgentCapabilities"
+    ]
+  },
+  "vmwAgentCapabilityMIB": {
+    "name": "vmwAgentCapabilityMIB",
+    "oid": "1.3.6.1.4.1.6876.70.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-03-27 00:00",
+        "description": "Capabilities for VMware VSphere (Release 7.0) ESXi 2020 added."
+      },
+      {
+        "revision": "2017-10-13 00:00",
+        "description": "Capabilities for VMware VSphere (Release 6.7) ESXi 2017 added."
+      },
+      {
+        "revision": "2016-04-22 00:00",
+        "description": "Capabilities for VMware VSphere ESXi 2016 added."
+      },
+      {
+        "revision": "2015-01-12 00:00",
+        "description": "Renamed mib module to reflect this contains only the VMware ESX agent."
+      },
+      {
+        "revision": "2014-08-02 00:00",
+        "description": "Capabilities for VMware VSphere ESXi 2015 added."
+      },
+      {
+        "revision": "2012-10-03 00:00",
+        "description": "Capabilities for VMware ESX 5.5 agent added."
+      },
+      {
+        "revision": "2012-07-13 00:00",
+        "description": "Capabilities for VMware ESX 5.1 agent added."
+      },
+      {
+        "revision": "2010-10-18 00:00",
+        "description": "Capabilities for VMware ESX 5.0 added."
+      },
+      {
+        "revision": "2008-10-27 00:00",
+        "description": "Capabilities for VMware ESX 4.0 added."
+      }
+    ]
+  },
+  "vmwEsxCapability": {
+    "name": "vmwEsxCapability",
+    "oid": "1.3.6.1.4.1.6876.70.1.1",
+    "class": "objectidentity"
+  },
+  "vmwESX70x": {
+    "name": "vmwESX70x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.17",
+    "class": "agentcapabilities",
+    "productrelease": "7.0.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvCIMToSNMP",
+          "vmwEnvironmentGroup2",
+          "vmwESXEnvNotificationGroup3"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX67x": {
+    "name": "vmwESX67x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.16",
+    "class": "agentcapabilities",
+    "productrelease": "6.7.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvCIMToSNMP",
+          "vmwEnvironmentGroup2",
+          "vmwESXEnvNotificationGroup3"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX65x": {
+    "name": "vmwESX65x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.15",
+    "class": "agentcapabilities",
+    "productrelease": "6.5.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvAlertGroup",
+          "vmwESXEnvNotificationGroup2"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX60x": {
+    "name": "vmwESX60x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.10",
+    "class": "agentcapabilities",
+    "productrelease": "6.0.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvAlertGroup",
+          "vmwESXEnvNotificationGroup2"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX55": {
+    "name": "vmwESX55",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "5.5.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "SNMP-MPD-MIB",
+        "includes": [
+          "snmpMPDGroup"
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvAlertGroup",
+          "vmwESXEnvNotificationGroup2"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX51x": {
+    "name": "vmwESX51x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "5.1.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "IP-MIB",
+        "includes": [
+          "ipSystemStatsGroup",
+          "ipAddressGroup",
+          "ipNetToPhysicalGroup",
+          "ipDefaultRouterGroup",
+          "icmpStatsGroup",
+          "ipSystemStatsHCOctetGroup",
+          "ipSystemStatsHCPacketGroup",
+          "ipv4GeneralGroup",
+          "ipv4IfGroup",
+          "ipv4SystemStatsGroup",
+          "ipv4SystemStatsHCPacketGroup",
+          "ipv6GeneralGroup2",
+          "ipv6IfGroup",
+          "ipAddressPrefixGroup",
+          "ipv6RouterAdvertGroup",
+          "ipLastChangeGroup"
+        ]
+      },
+      {
+        "module": "IP-FORWARD-MIB",
+        "includes": [
+          "inetForwardCidrRouteGroup"
+        ]
+      },
+      {
+        "module": "UDP-MIB",
+        "includes": [
+          "udpBaseGroup",
+          "udpEndpointGroup",
+          "udpHCGroup"
+        ]
+      },
+      {
+        "module": "TCP-MIB",
+        "includes": [
+          "tcpBaseGroup",
+          "tcpConnectionGroup",
+          "tcpListenerGroup"
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysicalGroup",
+          "entityPhysical2Group",
+          "entityPhysical3Group",
+          "entityGeneralGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "includes": [
+          "ieee8021BridgeBaseBridgeGroup",
+          "ieee8021BridgeBasePortGroup",
+          "ieee8021BridgeTpPortGroup"
+        ]
+      },
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "includes": [
+          "ieee8021QBridgeBaseGroup",
+          "ieee8021QBridgeVlanGroup",
+          "ieee8021QBridgeVlanStaticGroup",
+          "ieee8021QBridgePortGroup2",
+          "ieee8021QBridgeFdbUnicastGroup",
+          "ieee8021QBridgeFdbMulticastGroup",
+          "ieee8021QBridgeFdbStaticGroup",
+          "ieee8021QBridgeVlanStatisticsGroup"
+        ]
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "includes": [
+          "dot3adAggGroup",
+          "dot3adAggPortGroup",
+          "dot3adTablesLastChangedGroup",
+          "dot3adAggPortListGroup"
+        ]
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "includes": [
+          "lldpV2ConfigGroup",
+          "lldpV2ConfigTxGroup",
+          "lldpV2StatsTxGroup",
+          "lldpV2LocSysGroup",
+          "lldpV2ConfigRxGroup",
+          "lldpV2StatsRxGroup",
+          "lldpV2RemSysGroup",
+          "lldpV2NotificationsGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvAlertGroup",
+          "vmwESXEnvNotificationGroup2"
+        ]
+      },
+      {
+        "module": "VMWARE-CIMOM-MIB",
+        "includes": [
+          "vmwCimOmNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX50x": {
+    "name": "vmwESX50x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "5.0.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "includes": [
+          "hrSystemGroup",
+          "hrStorageGroup",
+          "hrDeviceGroup",
+          "hrSWRunGroup",
+          "hrSWRunPerfGroup",
+          "hrSWInstalledGroup"
+        ],
+        "variations": [
+          {
+            "object": "hrSystemNumUsers",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunName",
+            "access": "read-only"
+          },
+          {
+            "object": "hrDeviceErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrSWOSIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastFullBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrFSLastPartialBackupDate",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrPrinterDetectedErrorState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "hrSystemDate",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadDevice",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSystemInitialLoadParameters",
+            "access": "read-only"
+          },
+          {
+            "object": "hrStorageSize",
+            "access": "read-only"
+          },
+          {
+            "object": "hrSWRunStatus",
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX41x": {
+    "name": "vmwESX41x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "4.1.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "vmwESX40x": {
+    "name": "vmwESX40x",
+    "oid": "1.3.6.1.4.1.6876.70.1.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "4.0.x",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpSetSerialNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapOID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpTrapEnterprise",
+            "access": "not-implemented"
+          },
+          {
+            "object": "snmpEnableAuthenTraps",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "disabled": 2
+                }
+              }
+            },
+            "access": "read-only"
+          }
+        ]
+      },
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHighSpeed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMtu",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifCounterDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          }
+        ]
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "includes": [
+          "vmwSystemGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-RESOURCES-MIB",
+        "includes": [
+          "vmwResourceGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "includes": [
+          "vmwVmInfoGroup",
+          "vmwVmInfoNotificationGroup"
+        ]
+      },
+      {
+        "module": "VMWARE-ENV-MIB",
+        "includes": [
+          "vmwEnvNotificationGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VMWARE-ESX-AGENTCAP-MIB",
+      "Source digest sha256:a9e8ae5edb1c9bed95a65ca0bb3e7c50f1b73b076abf1b97a778f48babe63f6e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VMWARE-ESX-AGENTCAP-MIB"
+  }
+}

@@ -1,0 +1,693 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lanOptics": {
+    "name": "lanOptics",
+    "oid": "1.3.6.1.4.1.224",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystem": {
+    "name": "lanOpticsSystem",
+    "oid": "1.3.6.1.4.1.224.2",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOS": {
+    "name": "lanOpticsSystemCMOS",
+    "oid": "1.3.6.1.4.1.224.2.3",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSIp": {
+    "name": "lanOpticsSystemCMOSIp",
+    "oid": "1.3.6.1.4.1.224.2.3.1",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSHub": {
+    "name": "lanOpticsSystemCMOSHub",
+    "oid": "1.3.6.1.4.1.224.2.3.2",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSRPL": {
+    "name": "lanOpticsSystemCMOSRPL",
+    "oid": "1.3.6.1.4.1.224.2.3.3",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSSerial": {
+    "name": "lanOpticsSystemCMOSSerial",
+    "oid": "1.3.6.1.4.1.224.2.3.4",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSSRAM": {
+    "name": "lanOpticsSystemCMOSSRAM",
+    "oid": "1.3.6.1.4.1.224.2.3.5",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSSNMP": {
+    "name": "lanOpticsSystemCMOSSNMP",
+    "oid": "1.3.6.1.4.1.224.2.3.6",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSACCESS": {
+    "name": "lanOpticsSystemCMOSACCESS",
+    "oid": "1.3.6.1.4.1.224.2.3.7",
+    "class": "objectidentity"
+  },
+  "lanOpticsSystemCMOSBRDG": {
+    "name": "lanOpticsSystemCMOSBRDG",
+    "oid": "1.3.6.1.4.1.224.2.3.8",
+    "class": "objectidentity"
+  },
+  "snSysDirectory": {
+    "name": "snSysDirectory",
+    "oid": "1.3.6.1.4.1.224.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snAgentVersion": {
+    "name": "snAgentVersion",
+    "oid": "1.3.6.1.4.1.224.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpInterfaceTable": {
+    "name": "snSysCMOSIpInterfaceTable",
+    "oid": "1.3.6.1.4.1.224.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1005": {
+    "name": "pysmiFakeCol1005",
+    "oid": "1.3.6.1.4.1.224.2.3.1.1.1.1005",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snSysCMOSIpInterfaceEntry": {
+    "name": "snSysCMOSIpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.224.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-SYSTEM-MIB",
+        "object": "pysmiFakeCol1005",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSysCMOSIpIpAddr": {
+    "name": "snSysCMOSIpIpAddr",
+    "oid": "1.3.6.1.4.1.224.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpNetMask": {
+    "name": "snSysCMOSIpNetMask",
+    "oid": "1.3.6.1.4.1.224.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpDefGw": {
+    "name": "snSysCMOSIpDefGw",
+    "oid": "1.3.6.1.4.1.224.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpTFTPOp": {
+    "name": "snSysCMOSIpTFTPOp",
+    "oid": "1.3.6.1.4.1.224.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTFTP": 1,
+          "limited": 2,
+          "continuous": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpTFTPAddr": {
+    "name": "snSysCMOSIpTFTPAddr",
+    "oid": "1.3.6.1.4.1.224.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpTFTPFileName": {
+    "name": "snSysCMOSIpTFTPFileName",
+    "oid": "1.3.6.1.4.1.224.2.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSIpTFTPDrive": {
+    "name": "snSysCMOSIpTFTPDrive",
+    "oid": "1.3.6.1.4.1.224.2.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "driveA": 41,
+          "driveB": 42,
+          "driveC": 43,
+          "driveD": 44
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSHubSlotConfigTable": {
+    "name": "snSysCMOSHubSlotConfigTable",
+    "oid": "1.3.6.1.4.1.224.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1006": {
+    "name": "pysmiFakeCol1006",
+    "oid": "1.3.6.1.4.1.224.2.3.2.1.1.1006",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snSysCMOSHubSlotConfigEntry": {
+    "name": "snSysCMOSHubSlotConfigEntry",
+    "oid": "1.3.6.1.4.1.224.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-SYSTEM-MIB",
+        "object": "pysmiFakeCol1006",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSysSlotLastOperations": {
+    "name": "snSysSlotLastOperations",
+    "oid": "1.3.6.1.4.1.224.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysResetSlotQueue": {
+    "name": "snSysResetSlotQueue",
+    "oid": "1.3.6.1.4.1.224.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSHubSaveHubFunctions": {
+    "name": "snSysCMOSHubSaveHubFunctions",
+    "oid": "1.3.6.1.4.1.224.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-saved": 1,
+          "saved": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSRPLMode": {
+    "name": "snSysCMOSRPLMode",
+    "oid": "1.3.6.1.4.1.224.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rpl-off": 1,
+          "rpl-on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSFlashMode": {
+    "name": "snSysCMOSFlashMode",
+    "oid": "1.3.6.1.4.1.224.2.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flash-off": 1,
+          "flash-on": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialMode": {
+    "name": "snSysCMOSSerialMode",
+    "oid": "1.3.6.1.4.1.224.2.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proprietary": 1,
+          "slip": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialComSelect": {
+    "name": "snSysCMOSSerialComSelect",
+    "oid": "1.3.6.1.4.1.224.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sr-COM1": 1,
+          "sr-COM2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialBaudRate": {
+    "name": "snSysCMOSSerialBaudRate",
+    "oid": "1.3.6.1.4.1.224.2.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "baud1200": 1,
+          "baud2400": 2,
+          "baud4800": 3,
+          "baud9600": 4,
+          "baud19200": 5,
+          "baud38300": 6,
+          "baud57600": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialWordLength": {
+    "name": "snSysCMOSSerialWordLength",
+    "oid": "1.3.6.1.4.1.224.2.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bits-7": 1,
+          "bits-8": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialStopBits": {
+    "name": "snSysCMOSSerialStopBits",
+    "oid": "1.3.6.1.4.1.224.2.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bits-1": 1,
+          "bits-15": 2,
+          "bits-2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSerialParityCheck": {
+    "name": "snSysCMOSSerialParityCheck",
+    "oid": "1.3.6.1.4.1.224.2.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "even": 1,
+          "odd": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSRAMKeepAliveSecInterval": {
+    "name": "snSysCMOSSRAMKeepAliveSecInterval",
+    "oid": "1.3.6.1.4.1.224.2.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPCommunitiesNum": {
+    "name": "snSysCMOSSNMPCommunitiesNum",
+    "oid": "1.3.6.1.4.1.224.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPTrapManagersNum": {
+    "name": "snSysCMOSSNMPTrapManagersNum",
+    "oid": "1.3.6.1.4.1.224.2.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPCommunitiesTable": {
+    "name": "snSysCMOSSNMPCommunitiesTable",
+    "oid": "1.3.6.1.4.1.224.2.3.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1007": {
+    "name": "pysmiFakeCol1007",
+    "oid": "1.3.6.1.4.1.224.2.3.6.3.1.1007",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snSysCMOSSNMPCommunitiesEntry": {
+    "name": "snSysCMOSSNMPCommunitiesEntry",
+    "oid": "1.3.6.1.4.1.224.2.3.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-SYSTEM-MIB",
+        "object": "pysmiFakeCol1007",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPCommunityName": {
+    "name": "snSysCMOSSNMPCommunityName",
+    "oid": "1.3.6.1.4.1.224.2.3.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPCommunityPrivs": {
+    "name": "snSysCMOSSNMPCommunityPrivs",
+    "oid": "1.3.6.1.4.1.224.2.3.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-Only": 1,
+          "read-Write": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPTrapCommunitiesTable": {
+    "name": "snSysCMOSSNMPTrapCommunitiesTable",
+    "oid": "1.3.6.1.4.1.224.2.3.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pysmiFakeCol1008": {
+    "name": "pysmiFakeCol1008",
+    "oid": "1.3.6.1.4.1.224.2.3.6.4.1.1008",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "snSysCMOSSNMPTrapCommunitiesEntry": {
+    "name": "snSysCMOSSNMPTrapCommunitiesEntry",
+    "oid": "1.3.6.1.4.1.224.2.3.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LANOPTICS-SYSTEM-MIB",
+        "object": "pysmiFakeCol1008",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSysCMOSSNMPTrapCommunityIpAddr": {
+    "name": "snSysCMOSSNMPTrapCommunityIpAddr",
+    "oid": "1.3.6.1.4.1.224.2.3.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSACCESSOffset": {
+    "name": "snSysCMOSACCESSOffset",
+    "oid": "1.3.6.1.4.1.224.2.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSACCESSLength": {
+    "name": "snSysCMOSACCESSLength",
+    "oid": "1.3.6.1.4.1.224.2.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSACCESSSequence": {
+    "name": "snSysCMOSACCESSSequence",
+    "oid": "1.3.6.1.4.1.224.2.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSBRDGradius": {
+    "name": "snSysCMOSBRDGradius",
+    "oid": "1.3.6.1.4.1.224.2.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSBRDGlinkNumber": {
+    "name": "snSysCMOSBRDGlinkNumber",
+    "oid": "1.3.6.1.4.1.224.2.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSysCMOSBRDGpassword": {
+    "name": "snSysCMOSBRDGpassword",
+    "oid": "1.3.6.1.4.1.224.2.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LANOPTICS-SYSTEM-MIB",
+      "Source digest sha256:1013ff82687fcc10ba9ee69fab7c3c99d85060da72ba4fe20fd8bd1d90226f5d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LANOPTICS-SYSTEM-MIB"
+  }
+}

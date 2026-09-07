@@ -1,0 +1,84 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoModules",
+      "ciscoProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoProductsMIBCorrections": {
+    "name": "ciscoProductsMIBCorrections",
+    "oid": "1.3.6.1.4.1.9.12.65535",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-27 00:00",
+        "description": " Initial version for the netdisco-mibs distribution. Added OIDs for the Catalyst 3650 platform. "
+      }
+    ]
+  },
+  "catalyst365024TS": {
+    "name": "catalyst365024TS",
+    "oid": "1.3.6.1.4.1.9.1.1823",
+    "class": "objectidentity"
+  },
+  "catalyst365048TS": {
+    "name": "catalyst365048TS",
+    "oid": "1.3.6.1.4.1.9.1.1824",
+    "class": "objectidentity"
+  },
+  "catalyst365024PS": {
+    "name": "catalyst365024PS",
+    "oid": "1.3.6.1.4.1.9.1.1825",
+    "class": "objectidentity"
+  },
+  "catalyst365048PS": {
+    "name": "catalyst365048PS",
+    "oid": "1.3.6.1.4.1.9.1.1826",
+    "class": "objectidentity"
+  },
+  "catalyst365024TD": {
+    "name": "catalyst365024TD",
+    "oid": "1.3.6.1.4.1.9.1.1827",
+    "class": "objectidentity"
+  },
+  "catalyst365048TD": {
+    "name": "catalyst365048TD",
+    "oid": "1.3.6.1.4.1.9.1.1828",
+    "class": "objectidentity"
+  },
+  "catalyst365024PD": {
+    "name": "catalyst365024PD",
+    "oid": "1.3.6.1.4.1.9.1.1829",
+    "class": "objectidentity"
+  },
+  "catalyst365048PD": {
+    "name": "catalyst365048PD",
+    "oid": "1.3.6.1.4.1.9.1.1830",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PRODUCTS-MIB-CORRECTIONS",
+      "Source digest sha256:de8881f71ce62327ef55184aa34c2de00fd378273f783c913c5be4fed090cfe3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PRODUCTS-MIB-CORRECTIONS"
+  }
+}

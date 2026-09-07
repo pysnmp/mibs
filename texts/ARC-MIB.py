@@ -1,0 +1,85 @@
+#
+# PySNMP MIB module ARC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source ARC-MIB
+# Source digest sha256:837fbd86a028c3fe74e7f407eeaa892dc8a7e2e78e947f911b6092e6956ee510
+# Produced by pysmi-2.3.0
+#
+ResourceId, = mibBuilder.importSymbols("ALARM-MIB", "ResourceId")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "mib-2")
+DisplayString, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TextualConvention")
+arcMibModule = ModuleIdentity((1, 3, 6, 1, 2, 1, 117))
+arcMibModule.setRevisions(('2004-09-09 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: arcMibModule.setRevisionsDescriptions(('Initial version, published as RFC 3878.',))
+if mibBuilder.loadTexts: arcMibModule.setLastUpdated('2004-09-09 00:00')
+if mibBuilder.loadTexts: arcMibModule.setOrganization('IETF Distributed Management Working Group')
+if mibBuilder.loadTexts: arcMibModule.setContactInfo('WG EMail:  disman@ietf.org\n              Subscribe: disman-request@ietf.org\n              http://www.ietf.org/html.charters/disman-charter.html\n\n        Chair:     Randy Presuhn\n                   E-mail: randy_presuhn@mindspring.com\n\n        Editor:    Hing-Kam Lam\n                   Lucent Technologies, 4C-616\n                   101 Crawfords Corner Road\n                   Holmdel, NJ 07733\n                   USA\n                   Tel: +1 732 949 8338\n                   E-mail: hklam@lucent.com')
+if mibBuilder.loadTexts: arcMibModule.setDescription('The MIB module describes the objects for controlling a resource\n     in reporting alarm conditions that it detects.\n\n     Copyright (C) The Internet Society (2004).  This version\n     of this MIB module is part of RFC 3878;  see the RFC\n     itself for full legal notices.')
+class IANAItuProbableCauseOrZero(TextualConvention, Integer32):
+    reference = 'IANA-ITU-ALARM-TC MIB module as maintained at the IANA web site.\n     The initial module was also published in RFC 3877.'
+    description = 'This TC can take any value of IANAItuProbableCause or 0.\n     IANAItuProbableCause is defined in the IANA-ITU-ALARM-TC\n     module, which is maintained at the IANA web site and\n     published in the Alarm MIB document (see RFC 3877).'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+arcTimeIntervals = MibIdentifier((1, 3, 6, 1, 2, 1, 117, 1))
+arcObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 117, 2))
+arcTITimeInterval = MibScalar((1, 3, 6, 1, 2, 1, 117, 1, 1), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arcTITimeInterval.setStatus('current')
+if mibBuilder.loadTexts: arcTITimeInterval.setDescription('This variable indicates the time interval used for the nalmTI\n     state, in units of second.  It is a pre-defined length of time\n     in which the resource will stay in the nalmTI state before\n     transition into the alm state.\n\n     Instances of this object SHOULD persist across agent restarts.')
+arcCDTimeInterval = MibScalar((1, 3, 6, 1, 2, 1, 117, 1, 2), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arcCDTimeInterval.setStatus('current')
+if mibBuilder.loadTexts: arcCDTimeInterval.setDescription('This variable indicates the time interval used for the nalmQICD\n     state, in units of second.  It is a pre-defined length of time\n     in which the resource will stay in the nalmQICD state before\n     transition into the alm state after it is problem-free.\n\n     Instances of this object SHOULD persist across agent restarts.')
+arcTable = MibTable((1, 3, 6, 1, 2, 1, 117, 2, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arcTable.setReference("ITU Recommendation M.3100 Amendment 3, 'Generic Network\n         Information Model', January 2001.")
+if mibBuilder.loadTexts: arcTable.setStatus('current')
+if mibBuilder.loadTexts: arcTable.setDescription("A table of Alarm Reporting Control (ARC) settings on the system.\n\n     Alarm Reporting Control is a feature that provides an automatic\n     in-service provisioning capability.  Alarm reporting is turned\n     off on a per-resource basis for a selective set of potential\n     alarm conditions to allow sufficient time for customer testing\n     and other maintenance activities in an 'alarm free' state.\n     Once a resource is ready for service, alarm reporting is\n     automatically or manually turned on.\n\n     Functional description and requirements of Alarm Reporting\n     Control are defined in ITU-T Recommendation M.3100 Amendment 3\n     [M.3100 Amd3].")
+arcEntry = MibTableRow((1, 3, 6, 1, 2, 1, 117, 2, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ARC-MIB", "arcIndex"), (0, "ARC-MIB", "arcAlarmType"), (0, "ARC-MIB", "arcNotificationId"))
+if mibBuilder.loadTexts: arcEntry.setStatus('current')
+if mibBuilder.loadTexts: arcEntry.setDescription('A conceptual row that contains information about an ARC setting\n     of a resource in the system.\n\n     Implementation need to be aware that if the total size of\n     arcIndex and arcNotificationId exceeds 114 sub-IDs, then OIDs\n     of column instances in this table will have more than 128\n     sub-IDs and cannot be access using SNMPv1, SNMPv2c, or snmpv3.')
+arcIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 1), ResourceId()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arcIndex.setStatus('current')
+if mibBuilder.loadTexts: arcIndex.setDescription("This object uniquely identifies a resource, which is under the\n     arcState's control for the associated arcAlarmType.\n\n     For example, if the resource is an interface, this object will\n     point to an instance of interface, e.g., ifIndex.1.")
+arcAlarmType = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 2), IANAItuProbableCauseOrZero()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arcAlarmType.setStatus('current')
+if mibBuilder.loadTexts: arcAlarmType.setDescription('This object identifies the alarm condition type controlled by the\n     arcState.  It specifies the value 0 or a value of\n     IANAItuProbableCause that is applicable to the resource.\n     IANAItuProbableCause is defined in the IANA-ITU-ALARM-TC\n     module in the Alarm MIB document.\n     The value of zero (0) implies any probable causes that are\n     applicable to the resource.  Usually, the applicable probable\n     causes of a resource are specified in the resource-specific mib.')
+arcNotificationId = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 3), ObjectIdentifier()).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: arcNotificationId.setStatus('current')
+if mibBuilder.loadTexts: arcNotificationId.setDescription('This object identifies the type of notification to be suppressed.\n     The notification type identified should be the one normally used\n     by the resource for reporting its alarms.  When the value of 0.0 is\n     specified for this object, it implies all applicable notification\n     types.')
+arcState = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("nalm", 1), ("nalmQI", 2), ("nalmTI", 3), ("nalmQICD", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: arcState.setStatus('current')
+if mibBuilder.loadTexts: arcState.setDescription("Defined in M.3100 Amendment 3 [M.3100 Amd3], there are five\n     ARC states: alm, nalm, nalmQI, nalmQICD, and nalmTI.\n\n        alm:        Alarm reporting is turned on (i.e., is allowed).\n        nalm:       Alarm reporting is turned off (i.e., not allowed).\n        nalmQI:     nalm - Qualified Inhibit. Alarm reporting is\n                    turned off until the managed entity is qualified\n                    problem-free for an optional persistence interval.\n                    Problem-free means that the condition corresponding\n                    to the specified alarm type is cleared.\n        nalmQICD:   nalmQI - Count down.  This is a substate of nalmQI\n                    and performs the persistence timing countdown\n                    function after the managed entity is qualified\n                    problem-free.\n        nalmTI:     nalm - Timed Inhibit.  Alarm reporting is turned\n                    off for a specified time interval.\n\n     alm may transition to nalm, nalmQI or nalmTI by management request.\n\n     nalm may transition to alm, nalmQI or nalmTI by management request.\n     nalmQI may transition to nalm or alm by management request.\n\n     nalmQI may transition to alm automatically\n             if qualified problem-free (if nalmQICD is not supported) or\n             if the CD timer expired (if nalmQICD is supported)\n\n     nalmTI may transition to alm or nalm by management request.\n\n     nalmTI may transition to alm automatically if the TI timer expired.\n\n     Further details of ARC state transitions are defined in Figure 3\n     of M.3100 Amd3 [M.3100 Amd3].\n\n     According to the requirements in M.3100 Amd3, a resource\n     supporting the ARC feature shall support the alm state and at\n     least one of the nalm, nalmTI, and nalmQI states. The nalmQICD\n     state is an optional substate of nalmQI.\n\n     The arcState object controls the alarm reporting state of a\n     resource. Note that the state alm (alarm reporting is allowed) is\n     not listed in the enumeration of the value of this object. However,\n     this state is implicitly supported by the mib.\n     Once a resource enters the normal reporting mode (i.e., in the alm\n     state) for the specified alarm type, the corresponding\n     row will be automatically deleted from the arc table.\n     Also the manual setting of arcState to alm can be achieved through\n     setting the RowStatus object to 'destroy'.\n\n     The nalamQICD state is a transitional state from nalmQI to alm. It\n     is optional depending on the resource type and the implementation\n     of the resource.  If it is supported, before the state\n     transitions from nalmQI to alm, a count down period is activated\n     for a duration set by the object arcNalmCDTimeInterval.  When the\n     time is up, the arcState transitions to alm.")
+arcNalmTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: arcNalmTimeRemaining.setStatus('current')
+if mibBuilder.loadTexts: arcNalmTimeRemaining.setDescription('This variable indicates the time remaining in the nalmTI state\n     or the nalmQICD state, in units of second.\n\n     At the moment the resource enters the nalmTI state, this variable\n     will have the initial value equal to the value of\n     arcNalmTITimeInterval and then starts decrementing as time goes by.\n\n     Similarly at the moment the resource enters the nalmQICD state,\n     this variable will have the initial value equal to the value of\n     arcNalmCDTimeInterval and then starts decrementing as time goes by.\n\n     This variable is read-create and thus will allow the manager to\n     write (extend or shorten), as needed, the remaining time when the\n     resource is in the nalmTI or nalmQICD state.\n\n     If this variable is supported and the resource is currently not in\n     the nalmTI nor nalmQICD state, the value of this variable shall\n     equal to zero.')
+arcRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: arcRowStatus.setStatus('current')
+if mibBuilder.loadTexts: arcRowStatus.setDescription('This columnar object is used for creating and deleting a conceptual\n     row of the arcTable.  It is used to create and delete an arc\n     setting.\n\n     Setting RowStatus to createAndGo or createAndWait implies creating\n     a new ARC setting for the specified resource and alarm type.\n     Setting RowStatus to destroy implies removing the ARC setting and\n     thus has the effect of resuming normal reporting behaviour of the\n     resource for the alarm type.\n\n     Only the objects arcState, arcNalmTimeRemaining, and arcRowStatus\n     can be updated when a row is active. All the objects, except\n     arcNalmTimeRemaining, must be set before the row can be activated.')
+arcStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 117, 2, 1, 1, 7), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: arcStorageType.setStatus('current')
+if mibBuilder.loadTexts: arcStorageType.setDescription("The storage type for this conceptual row.\n     Conceptual rows having the value 'permanent' must\n     allow write-access at a minimum to arcState.\n     Note that arcState must allow change by management request.\n     Therefore, no row can be created with 'readOnly'.\n     If a set operation tries to set the value to 'readOnly',\n     then an 'inconsistentValue' error must be returned.")
+arcConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 117, 3))
+arcCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 117, 3, 1))
+arcCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 117, 3, 1, 1)).setObjects(("ARC-MIB", "arcSettingGroup"), ("ARC-MIB", "arcTIGroup"), ("ARC-MIB", "arcQICDGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arcCompliance = arcCompliance.setStatus('current')
+if mibBuilder.loadTexts: arcCompliance.setDescription('The compliance statement for systems supporting\n       the ARC MIB module.')
+arcGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 117, 3, 2))
+arcSettingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 117, 3, 2, 1)).setObjects(("ARC-MIB", "arcState"), ("ARC-MIB", "arcRowStatus"), ("ARC-MIB", "arcStorageType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arcSettingGroup = arcSettingGroup.setStatus('current')
+if mibBuilder.loadTexts: arcSettingGroup.setDescription('A collection of objects applicable to\n      basic ARC setting.')
+arcTIGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 117, 3, 2, 2)).setObjects(("ARC-MIB", "arcTITimeInterval"), ("ARC-MIB", "arcNalmTimeRemaining"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arcTIGroup = arcTIGroup.setStatus('current')
+if mibBuilder.loadTexts: arcTIGroup.setDescription('A collection of objects applicable to\n      ARC setting that support the Time Inhibit (TI)\n      function.')
+arcQICDGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 117, 3, 2, 3)).setObjects(("ARC-MIB", "arcCDTimeInterval"), ("ARC-MIB", "arcNalmTimeRemaining"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arcQICDGroup = arcQICDGroup.setStatus('current')
+if mibBuilder.loadTexts: arcQICDGroup.setDescription('A collection of objects applicable to\n     ARC setting that support the Quality Inhibit (QI)\n     Count Down (CD) function.')
+mibBuilder.exportSymbols("ARC-MIB", IANAItuProbableCauseOrZero=IANAItuProbableCauseOrZero, PYSNMP_MODULE_ID=arcMibModule, arcAlarmType=arcAlarmType, arcCDTimeInterval=arcCDTimeInterval, arcCompliance=arcCompliance, arcCompliances=arcCompliances, arcConformance=arcConformance, arcEntry=arcEntry, arcGroups=arcGroups, arcIndex=arcIndex, arcMibModule=arcMibModule, arcNalmTimeRemaining=arcNalmTimeRemaining, arcNotificationId=arcNotificationId, arcObjects=arcObjects, arcQICDGroup=arcQICDGroup, arcRowStatus=arcRowStatus, arcSettingGroup=arcSettingGroup, arcState=arcState, arcStorageType=arcStorageType, arcTIGroup=arcTIGroup, arcTITimeInterval=arcTITimeInterval, arcTable=arcTable, arcTimeIntervals=arcTimeIntervals)

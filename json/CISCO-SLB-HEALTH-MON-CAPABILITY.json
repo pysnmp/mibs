@@ -1,0 +1,642 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSlbHealthMonCapapbility": {
+    "name": "ciscoSlbHealthMonCapapbility",
+    "oid": "1.3.6.1.4.1.9.7.508",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-03 00:00",
+        "description": "Added ciscoSlbHealthMonCapc4710aceVA3R100 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2008-02-08 00:00",
+        "description": "Added ciscoSlbHealthMonCapc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-06-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSlbHealthMonCapabilityACSWV03R000": {
+    "name": "ciscoSlbHealthMonCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.508.1",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0.",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "includes": [
+          "cslbHealthMonServerProbesGroup",
+          "cslbHealthMonProbeCfgExtGroup",
+          "cslbHealthMonFTPProbesGroup",
+          "cslbHealthMonHTTPProbesCommmonGroup",
+          "cslbHealthMonHTTPSProbesGroup",
+          "cslbHealthMonIMAPProbesGroup",
+          "cslbHealthMonProbeScriptGroup"
+        ],
+        "variations": [
+          {
+            "object": "cslbxProbeType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRetries",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFailedInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeReceiveTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeTcpOpenTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDnsDomainName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxDnsProbeIpRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusMaxValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeProtocolType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRouteMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeUserName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePassCount",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeConnTermination",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeSocketReuse",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendDataType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendData",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestUrl",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderFieldValue",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgPersistence",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashValid",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgCipherSuite",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslTlsVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslSessionReuse",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMailBox",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMethodName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptArguments",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbHealthMonCapc4710aceVA1R700": {
+    "name": "ciscoSlbHealthMonCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.508.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                for ACE 4710 Application Control Engine \n                Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "includes": [
+          "cslbHealthMonServerProbesGroup",
+          "cslbHealthMonProbeCfgExtGroup",
+          "cslbHealthMonFTPProbesGroup",
+          "cslbHealthMonHTTPProbesCommmonGroup",
+          "cslbHealthMonHTTPSProbesGroup",
+          "cslbHealthMonIMAPProbesGroup",
+          "cslbHealthMonProbeScriptGroup"
+        ],
+        "variations": [
+          {
+            "object": "cslbxProbeType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRetries",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFailedInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeReceiveTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeTcpOpenTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDnsDomainName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxDnsProbeIpRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusMaxValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeProtocolType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRouteMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeUserName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePassCount",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeConnTermination",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeSocketReuse",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendDataType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendData",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestUrl",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderFieldValue",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgPersistence",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashValid",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgCipherSuite",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslTlsVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslSessionReuse",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMailBox",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMethodName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptArguments",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbHealthMonCapc4710aceVA3R100": {
+    "name": "ciscoSlbHealthMonCapc4710aceVA3R100",
+    "oid": "1.3.6.1.4.1.9.7.508.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A3(1.0)\n                for ACE 4710 Application Control Engine \n                Appliance",
+    "capabilities": [
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "includes": [
+          "cslbHealthMonProbeCfgExtGroup",
+          "cslbHealthMonFTPProbesGroup",
+          "cslbHealthMonHTTPProbesCommmonGroup",
+          "cslbHealthMonIMAPProbesGroup",
+          "cslbHealthMonProbeScriptGroup",
+          "cslbHealthMonHTTPSProbesGroupRev1",
+          "cslbHealthMonServerProbesGroupRev1",
+          "cshMonSfarmrealserverProbeStatsGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "cslbxProbeType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRetries",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFailedInterval",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeReceiveTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeTcpOpenTimeout",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeAlternateDestAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDnsDomainName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxDnsProbeIpRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusMaxValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeExpectStatusRowStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePort",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeDescription",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeProtocolType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeRouteMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeUserName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbePassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbePassCount",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeConnTermination",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeSocketReuse",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendDataType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cslbxProbeSendData",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeFtpRequestFileType",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestMethod",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHttpRequestUrl",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderFieldValue",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHeaderRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgPersistence",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashValid",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgHashName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgCipherSuite",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslTlsVersion",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeHTTPCfgSslSessionReuse",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMailBox",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeIMAPMethodName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptName",
+            "access": "read-only"
+          },
+          {
+            "object": "cslbxProbeScriptArguments",
+            "access": "read-only"
+          },
+          {
+            "object": "cshMonProbeInheritedPortType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SLB-HEALTH-MON-CAPABILITY",
+      "Source digest sha256:7c3aab51f5c85df7dceb44f1c411dbe67d4f3b535955f90c2a74e775e0107f0d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SLB-HEALTH-MON-CAPABILITY"
+  }
+}

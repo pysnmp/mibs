@@ -1,0 +1,266 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwNtpTrapMib": {
+    "name": "hwNtpTrapMib",
+    "oid": "1.3.6.1.4.1.2011.6.80",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-18 16:00",
+        "description": "V1.01, adding hwNtpSourceVpnName, hwNtpOldSourceVpnName"
+      },
+      {
+        "revision": "2015-08-11 16:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "hwNtpTrapObjects": {
+    "name": "hwNtpTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.80.1",
+    "class": "objectidentity"
+  },
+  "hwNtpState": {
+    "name": "hwNtpState",
+    "oid": "1.3.6.1.4.1.2011.6.80.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNtpSource": {
+    "name": "hwNtpSource",
+    "oid": "1.3.6.1.4.1.2011.6.80.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNtpSourceVpnName": {
+    "name": "hwNtpSourceVpnName",
+    "oid": "1.3.6.1.4.1.2011.6.80.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNtpOldSource": {
+    "name": "hwNtpOldSource",
+    "oid": "1.3.6.1.4.1.2011.6.80.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNtpOldSourceVpnName": {
+    "name": "hwNtpOldSourceVpnName",
+    "oid": "1.3.6.1.4.1.2011.6.80.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNtpTraps": {
+    "name": "hwNtpTraps",
+    "oid": "1.3.6.1.4.1.2011.6.80.2",
+    "class": "objectidentity"
+  },
+  "hwNtpStateChangeTrap": {
+    "name": "hwNtpStateChangeTrap",
+    "oid": "1.3.6.1.4.1.2011.6.80.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpState"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSource"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSourceVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNtpSysPeerChangeTrap": {
+    "name": "hwNtpSysPeerChangeTrap",
+    "oid": "1.3.6.1.4.1.2011.6.80.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpOldSource"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpOldSourceVpnName"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSource"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSourceVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNtpTrapMibConformance": {
+    "name": "hwNtpTrapMibConformance",
+    "oid": "1.3.6.1.4.1.2011.6.80.3",
+    "class": "objectidentity"
+  },
+  "hwNtpTrapMibCompliances": {
+    "name": "hwNtpTrapMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.80.3.1",
+    "class": "objectidentity"
+  },
+  "hwNtpTrapMibCompliance": {
+    "name": "hwNtpTrapMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.80.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwNtpTrapObjectsGroup",
+        "module": "HUAWEI-NTP-TRAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNtpTrapObjectsGroup": {
+    "name": "hwNtpTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.6.80.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpState"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSource"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSourceVpnName"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpOldSource"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpOldSourceVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNtpTrapEventGroup": {
+    "name": "hwNtpTrapEventGroup",
+    "oid": "1.3.6.1.4.1.2011.6.80.3.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpStateChangeTrap"
+      },
+      {
+        "module": "HUAWEI-NTP-TRAP-MIB",
+        "object": "hwNtpSysPeerChangeTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-NTP-TRAP-MIB",
+      "Source digest sha256:2517f70438cf6919ce91c9ed9aba2476751faf1c6294943b1787a2fa8a14ea86",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-NTP-TRAP-MIB"
+  }
+}

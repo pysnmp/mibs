@@ -1,0 +1,4314 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "acs": {
+    "name": "acs",
+    "oid": "1.3.6.1.4.1.10418.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2024-10-01 00:00",
+        "description": "Added traps for port auto discovery."
+      },
+      {
+        "revision": "2024-05-01 00:00",
+        "description": "Added traps for power device inlet changes."
+      },
+      {
+        "revision": "2023-09-06 00:00",
+        "description": "Added traps for modem status, power device inlet alarm."
+      },
+      {
+        "revision": "2021-06-24 00:00",
+        "description": "Updated to support SNMPv2/v3 traps."
+      },
+      {
+        "revision": "2017-08-15 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "avocent": {
+    "name": "avocent",
+    "oid": "1.3.6.1.4.1.10418",
+    "class": "objectidentity"
+  },
+  "acsTrap": {
+    "name": "acsTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0",
+    "class": "objectidentity"
+  },
+  "acsProducts": {
+    "name": "acsProducts",
+    "oid": "1.3.6.1.4.1.10418.26.1",
+    "class": "objectidentity"
+  },
+  "acsManagement": {
+    "name": "acsManagement",
+    "oid": "1.3.6.1.4.1.10418.26.2",
+    "class": "objectidentity"
+  },
+  "acsTrapObject": {
+    "name": "acsTrapObject",
+    "oid": "1.3.6.1.4.1.10418.26.2.6",
+    "class": "objectidentity"
+  },
+  "acsconformance": {
+    "name": "acsconformance",
+    "oid": "1.3.6.1.4.1.10418.26.15",
+    "class": "objectidentity"
+  },
+  "acsObjectGroups": {
+    "name": "acsObjectGroups",
+    "oid": "1.3.6.1.4.1.10418.26.15.1",
+    "class": "objectidentity"
+  },
+  "acsTrapObjectsGroup": {
+    "name": "acsTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.10418.26.15.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDaemonName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectFileName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareVersion"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapNewFirmwareVersion"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareUpgradeResult"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertIndex"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertMessage"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertString"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSessionType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDataBufferSize"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduSocket"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduVendor"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduIdOld"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketOldName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionNumbers"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCertExpirationTime"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCertificateFileName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionReason"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsVendor"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsIdOld"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsBatteryTimeRemaining"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCurrent"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyOldState"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyNewState"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceInfo"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduFuseStatus"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectServiceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectMd5Tag"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectNetworkPrimary"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectNetworkSecondary"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCpuCurrent"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemNetworkConnection"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemRegistrationFailReason"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskResult"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemStatus"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNewElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "acsTrapsGroup": {
+    "name": "acsTrapsGroup",
+    "oid": "1.3.6.1.4.1.10418.26.15.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsRebootStartedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDaemonStarted"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDaemonStopped"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSessionTerminatedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsConfigurationStoredTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsConfigurationRestoredTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsLocalUserAddedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsLocalUserDeletedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsLocalUserModifiedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsFirmwareUpgradeStarted"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsFirmwareUpgradeResultsTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceAlertTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceStartedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceFIPStestFail"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsFIPSmode"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsnoFIPSmode"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsconfigMd5Gen"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsFailOver"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsFailOverRestore"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSessionTimeoutTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsIpsecCertificateExpired"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsIpsecConnectionEstablished"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsIpsecConnectionFailed"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsIpsecConnectionTerminated"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUserLoginTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUserLogoutTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsAuthenticationFailureTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPortAuthenticationFailureTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPortPowerOnDetectTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPortPowerOffDetectTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsModemRegistrationTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsModemRegistrationFailedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsModemConnectionEstablishedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsModemConnectionTerminatedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsModemConnectionFailedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsScheduledTaskStart"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsScheduledTaskComplete"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsScheduledTaskFailed"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSerialSessionStartedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSerialSessionStoppedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPortAlertTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDataBufferNFSFailure"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDataBufferNFSRecovery"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDataBufferFullThresholdLowTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDataBufferFullThresholdMedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDataBufferFullLostDataTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduOnlineTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduOfflineTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduIdChangedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduMaxLoadHighTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduMinLoadLowTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduFirmwareUpgradeStarted"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduFirmwareUpgradeResultsTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduHwOcpTripped"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduHwOcpReset"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduMaxLoadBackTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduWarnLoadTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduLowLoadLowTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduBlownFuseTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduInletAlarmTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPduInletRestoredTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsRtsSourceTransferTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletNameChangedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletCmdOnTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletStatusOnTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletCmdOffTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletStatusOffTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletCmdCycleTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletCycleFinishedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletOnSenseFailTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsOutletOffSenseFailTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOnlineTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOfflineTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsIdChangedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutputOffTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsBatteryDischargingTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsBatteryLowTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsSystemInputPowerProblemTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsReplaceBatteryTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsBatteryTestFailedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsShutdownPendingTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsBatteryUndervoltageTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsBatteryOvervoltageTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsSystemInputPowerRestoredTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutputProblemTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsHardwareFailureTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutputOnBypassTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutputNormalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupCmdOnTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupStatusOnTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupCmdOffTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupStatusOffTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupCmdCycleTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsUpsOutletGroupCycleFinishedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorThresholdNormalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorThresholdHighCriticalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorThresholdHighWarningTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorThresholdLowWarningTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorThresholdLowCriticalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsApplianceSensorDigitalAlarmTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDialInCallAnswered"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDialInCallBlocked"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDialInLineVoltageDroppedTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsDialInLineVoltageRestoredTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsTemperatureExceededMaxTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsTemperatureReachedMaxTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsTemperatureExceededMinTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsTemperatureReachedMinTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPowerSupplyTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPlugDeviceInsertTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsPlugDeviceEjectTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdNormalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdHighCriticalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdHighWarningTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdLowWarningTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdLowCriticalTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsSensorThresholdDigitalSensorAlarmTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsCpuTemperatureExceededMaxTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsCpuTemperatureReachedMaxTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsCpuTemperatureExceededMinTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsCpuTemperatureReachedMinTrap"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "avctAcsTestTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "acsTrapObjectUserName": {
+    "name": "acsTrapObjectUserName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectDaemonName": {
+    "name": "acsTrapObjectDaemonName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTargetUserName": {
+    "name": "acsTrapObjectTargetUserName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectFileName": {
+    "name": "acsTrapObjectFileName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapFirmwareVersion": {
+    "name": "acsTrapFirmwareVersion",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapNewFirmwareVersion": {
+    "name": "acsTrapNewFirmwareVersion",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapFirmwareUpgradeResult": {
+    "name": "acsTrapFirmwareUpgradeResult",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imageUpgradeSuccess": 1,
+          "imageUpgradeInternalError": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectAlertIndex": {
+    "name": "acsTrapObjectAlertIndex",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectAlertMessage": {
+    "name": "acsTrapObjectAlertMessage",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectAlertString": {
+    "name": "acsTrapObjectAlertString",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSessionType": {
+    "name": "acsTrapObjectSessionType",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ssh": 0,
+          "telnet": 1,
+          "console": 2,
+          "login": 3,
+          "http": 4,
+          "https": 5,
+          "dsview": 6,
+          "raw": 7,
+          "modem": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSerialPortName": {
+    "name": "acsTrapObjectSerialPortName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSerialPortNumber": {
+    "name": "acsTrapObjectSerialPortNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSerialSessionType": {
+    "name": "acsTrapObjectSerialSessionType",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cas-ssh": 1,
+          "cas-telnet": 2,
+          "cas-console": 3,
+          "cas-raw": 4,
+          "dial-in": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectDataBufferSize": {
+    "name": "acsTrapObjectDataBufferSize",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduId": {
+    "name": "acsTrapObjectPduId",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduNumber": {
+    "name": "acsTrapObjectPduNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduSocket": {
+    "name": "acsTrapObjectPduSocket",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduVendor": {
+    "name": "acsTrapObjectPduVendor",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cyclades": 1,
+          "spc": 2,
+          "serverTech": 3,
+          "vertiv": 4,
+          "raritan": 5,
+          "apc": 6,
+          "eaton": 7,
+          "servertechpro2": 8,
+          "geist": 9,
+          "net-servertech": 10,
+          "net-vertiv": 11,
+          "net-avocent": 12,
+          "net-eaton": 13,
+          "net-raritan": 14,
+          "net-apc": 15,
+          "net-apc-rpdu": 16,
+          "net-servertech-pro2": 17,
+          "net-geist": 18
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduIdOld": {
+    "name": "acsTrapObjectPduIdOld",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduCurrentValue": {
+    "name": "acsTrapObjectPduCurrentValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSocketNumber": {
+    "name": "acsTrapObjectSocketNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSocketName": {
+    "name": "acsTrapObjectSocketName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSocketOldName": {
+    "name": "acsTrapObjectSocketOldName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectSerialSessionNumbers": {
+    "name": "acsTrapObjectSerialSessionNumbers",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectCertExpirationTime": {
+    "name": "acsTrapObjectCertExpirationTime",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectCertificateFileName": {
+    "name": "acsTrapObjectCertificateFileName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectConnectionName": {
+    "name": "acsTrapObjectConnectionName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectConnectionReason": {
+    "name": "acsTrapObjectConnectionReason",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduElementName": {
+    "name": "acsTrapObjectPduElementName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduElementType": {
+    "name": "acsTrapObjectPduElementType",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsId": {
+    "name": "acsTrapObjectUpsId",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsVendor": {
+    "name": "acsTrapObjectUpsVendor",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "liebert-gxt4": 1,
+          "net-liebert": 2,
+          "liebert-gxt5": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsIdOld": {
+    "name": "acsTrapObjectUpsIdOld",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsBatteryTimeRemaining": {
+    "name": "acsTrapObjectUpsBatteryTimeRemaining",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsOutletGroupNumber": {
+    "name": "acsTrapObjectUpsOutletGroupNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectUpsOutletGroupName": {
+    "name": "acsTrapObjectUpsOutletGroupName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMaximumValue": {
+    "name": "acsTrapObjectTemperatureMaximumValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMaxThreshold": {
+    "name": "acsTrapObjectTemperatureMaxThreshold",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMinimumValue": {
+    "name": "acsTrapObjectTemperatureMinimumValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMinThreshold": {
+    "name": "acsTrapObjectTemperatureMinThreshold",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureCurrent": {
+    "name": "acsTrapObjectTemperatureCurrent",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPowerSupplyNumber": {
+    "name": "acsTrapObjectPowerSupplyNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPowerSupplyOldState": {
+    "name": "acsTrapObjectPowerSupplyOldState",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSupplyOn": 1,
+          "powerSupplyOff": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPowerSupplyNewState": {
+    "name": "acsTrapObjectPowerSupplyNewState",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSupplyOn": 1,
+          "powerSupplyOff": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPlugDeviceName": {
+    "name": "acsTrapObjectPlugDeviceName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPlugDeviceType": {
+    "name": "acsTrapObjectPlugDeviceType",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPlugDeviceInfo": {
+    "name": "acsTrapObjectPlugDeviceInfo",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduFuseStatus": {
+    "name": "acsTrapObjectPduFuseStatus",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.112",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectServiceName": {
+    "name": "acsTrapObjectServiceName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.113",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectMd5Tag": {
+    "name": "acsTrapObjectMd5Tag",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.114",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectNetworkPrimary": {
+    "name": "acsTrapObjectNetworkPrimary",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.115",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectNetworkSecondary": {
+    "name": "acsTrapObjectNetworkSecondary",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.116",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectApplianceSensorType": {
+    "name": "acsTrapObjectApplianceSensorType",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.117",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectApplianceSensorName": {
+    "name": "acsTrapObjectApplianceSensorName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.118",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectApplianceSensorValue": {
+    "name": "acsTrapObjectApplianceSensorValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.119",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMaximumCpuValue": {
+    "name": "acsTrapObjectTemperatureMaximumCpuValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.120",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMaxCpuThreshold": {
+    "name": "acsTrapObjectTemperatureMaxCpuThreshold",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.121",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMinimumCpuValue": {
+    "name": "acsTrapObjectTemperatureMinimumCpuValue",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.122",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureMinCpuThreshold": {
+    "name": "acsTrapObjectTemperatureMinCpuThreshold",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.123",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTemperatureCpuCurrent": {
+    "name": "acsTrapObjectTemperatureCpuCurrent",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.124",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectCallerIdNumber": {
+    "name": "acsTrapObjectCallerIdNumber",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.125",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectCallerIdName": {
+    "name": "acsTrapObjectCallerIdName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.126",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectModemDeviceName": {
+    "name": "acsTrapObjectModemDeviceName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.127",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectModemNetworkConnection": {
+    "name": "acsTrapObjectModemNetworkConnection",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.128",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "registeredHomeNetwork": 1,
+          "registeredRoamingNetwork": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectModemRegistrationFailReason": {
+    "name": "acsTrapObjectModemRegistrationFailReason",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.129",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegistered": 0,
+          "searching": 2,
+          "registrationDenied": 3,
+          "unknown": 4,
+          "waitingForPIN": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTaskName": {
+    "name": "acsTrapObjectTaskName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.130",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectTaskResult": {
+    "name": "acsTrapObjectTaskResult",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.131",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectModemStatus": {
+    "name": "acsTrapObjectModemStatus",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.132",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acsTrapObjectPduNewElementName": {
+    "name": "acsTrapObjectPduNewElementName",
+    "oid": "1.3.6.1.4.1.10418.26.2.6.133",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "avctAcsRebootStartedTrap": {
+    "name": "avctAcsRebootStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDaemonStarted": {
+    "name": "avctAcsDaemonStarted",
+    "oid": "1.3.6.1.4.1.10418.26.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDaemonName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDaemonStopped": {
+    "name": "avctAcsDaemonStopped",
+    "oid": "1.3.6.1.4.1.10418.26.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDaemonName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSessionTerminatedTrap": {
+    "name": "avctAcsSessionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsConfigurationStoredTrap": {
+    "name": "avctAcsConfigurationStoredTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsConfigurationRestoredTrap": {
+    "name": "avctAcsConfigurationRestoredTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsExportFileTrap": {
+    "name": "avctAcsExportFileTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsLocalUserAddedTrap": {
+    "name": "avctAcsLocalUserAddedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsLocalUserDeletedTrap": {
+    "name": "avctAcsLocalUserDeletedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsLocalUserModifiedTrap": {
+    "name": "avctAcsLocalUserModifiedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsFirmwareUpgradeStarted": {
+    "name": "avctAcsFirmwareUpgradeStarted",
+    "oid": "1.3.6.1.4.1.10418.26.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareVersion"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapNewFirmwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsFirmwareUpgradeResultsTrap": {
+    "name": "avctAcsFirmwareUpgradeResultsTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareUpgradeResult"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapNewFirmwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceAlertTrap": {
+    "name": "avctAcsApplianceAlertTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertIndex"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertString"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceStartedTrap": {
+    "name": "avctAcsApplianceStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsApplianceFIPStestFail": {
+    "name": "avctAcsApplianceFIPStestFail",
+    "oid": "1.3.6.1.4.1.10418.26.0.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsFIPSmode": {
+    "name": "avctAcsFIPSmode",
+    "oid": "1.3.6.1.4.1.10418.26.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsnoFIPSmode": {
+    "name": "avctAcsnoFIPSmode",
+    "oid": "1.3.6.1.4.1.10418.26.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsconfigMd5Gen": {
+    "name": "avctAcsconfigMd5Gen",
+    "oid": "1.3.6.1.4.1.10418.26.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectMd5Tag"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsFailOver": {
+    "name": "avctAcsFailOver",
+    "oid": "1.3.6.1.4.1.10418.26.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectNetworkSecondary"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsFailOverRestore": {
+    "name": "avctAcsFailOverRestore",
+    "oid": "1.3.6.1.4.1.10418.26.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectNetworkPrimary"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSessionTimeoutTrap": {
+    "name": "avctAcsSessionTimeoutTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTargetUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsIpsecCertificateExpired": {
+    "name": "avctAcsIpsecCertificateExpired",
+    "oid": "1.3.6.1.4.1.10418.26.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCertificateFileName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCertExpirationTime"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsIpsecConnectionEstablished": {
+    "name": "avctAcsIpsecConnectionEstablished",
+    "oid": "1.3.6.1.4.1.10418.26.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsIpsecConnectionFailed": {
+    "name": "avctAcsIpsecConnectionFailed",
+    "oid": "1.3.6.1.4.1.10418.26.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionReason"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsIpsecConnectionTerminated": {
+    "name": "avctAcsIpsecConnectionTerminated",
+    "oid": "1.3.6.1.4.1.10418.26.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectConnectionName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUserLoginTrap": {
+    "name": "avctAcsUserLoginTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSessionType"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUserLogoutTrap": {
+    "name": "avctAcsUserLogoutTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSessionType"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsAuthenticationFailureTrap": {
+    "name": "avctAcsAuthenticationFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSessionType"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortAuthenticationFailureTrap": {
+    "name": "avctAcsPortAuthenticationFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionType"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortPowerOnDetectTrap": {
+    "name": "avctAcsPortPowerOnDetectTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortPowerOffDetectTrap": {
+    "name": "avctAcsPortPowerOffDetectTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortAutoDiscoverSuccess": {
+    "name": "avctAcsPortAutoDiscoverSuccess",
+    "oid": "1.3.6.1.4.1.10418.26.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortAutoDiscoverFailure": {
+    "name": "avctAcsPortAutoDiscoverFailure",
+    "oid": "1.3.6.1.4.1.10418.26.0.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemRegistrationTrap": {
+    "name": "avctAcsModemRegistrationTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.120",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemNetworkConnection"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemRegistrationFailedTrap": {
+    "name": "avctAcsModemRegistrationFailedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemRegistrationFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemConnectionEstablishedTrap": {
+    "name": "avctAcsModemConnectionEstablishedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemConnectionTerminatedTrap": {
+    "name": "avctAcsModemConnectionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemConnectionFailedTrap": {
+    "name": "avctAcsModemConnectionFailedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsModemStatusTrap": {
+    "name": "avctAcsModemStatusTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectModemStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsScheduledTaskStart": {
+    "name": "avctAcsScheduledTaskStart",
+    "oid": "1.3.6.1.4.1.10418.26.0.140",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsScheduledTaskComplete": {
+    "name": "avctAcsScheduledTaskComplete",
+    "oid": "1.3.6.1.4.1.10418.26.0.141",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskResult"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsScheduledTaskFailed": {
+    "name": "avctAcsScheduledTaskFailed",
+    "oid": "1.3.6.1.4.1.10418.26.0.142",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTaskResult"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSerialSessionStartedTrap": {
+    "name": "avctAcsSerialSessionStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionNumbers"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSerialSessionStoppedTrap": {
+    "name": "avctAcsSerialSessionStoppedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialSessionNumbers"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPortAlertTrap": {
+    "name": "avctAcsPortAlertTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.152",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertIndex"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertString"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectAlertMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDataBufferNFSFailure": {
+    "name": "avctAcsDataBufferNFSFailure",
+    "oid": "1.3.6.1.4.1.10418.26.0.153",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsDataBufferNFSRecovery": {
+    "name": "avctAcsDataBufferNFSRecovery",
+    "oid": "1.3.6.1.4.1.10418.26.0.154",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsDataBufferFullThresholdLowTrap": {
+    "name": "avctAcsDataBufferFullThresholdLowTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDataBufferSize"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDataBufferFullThresholdMedTrap": {
+    "name": "avctAcsDataBufferFullThresholdMedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectDataBufferSize"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDataBufferFullLostDataTrap": {
+    "name": "avctAcsDataBufferFullLostDataTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.202",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsPduOnlineTrap": {
+    "name": "avctAcsPduOnlineTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.300",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduSocket"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduOfflineTrap": {
+    "name": "avctAcsPduOfflineTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduSocket"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduIdChangedTrap": {
+    "name": "avctAcsPduIdChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.302",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduIdOld"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduMaxLoadHighTrap": {
+    "name": "avctAcsPduMaxLoadHighTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.303",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduMinLoadLowTrap": {
+    "name": "avctAcsPduMinLoadLowTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.304",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduFirmwareUpgradeStarted": {
+    "name": "avctAcsPduFirmwareUpgradeStarted",
+    "oid": "1.3.6.1.4.1.10418.26.0.307",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareVersion"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapNewFirmwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduFirmwareUpgradeResultsTrap": {
+    "name": "avctAcsPduFirmwareUpgradeResultsTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.308",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapFirmwareUpgradeResult"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapNewFirmwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduHwOcpTripped": {
+    "name": "avctAcsPduHwOcpTripped",
+    "oid": "1.3.6.1.4.1.10418.26.0.309",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduHwOcpReset": {
+    "name": "avctAcsPduHwOcpReset",
+    "oid": "1.3.6.1.4.1.10418.26.0.310",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduMaxLoadBackTrap": {
+    "name": "avctAcsPduMaxLoadBackTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.311",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduWarnLoadTrap": {
+    "name": "avctAcsPduWarnLoadTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.312",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduLowLoadLowTrap": {
+    "name": "avctAcsPduLowLoadLowTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.313",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduBlownFuseTrap": {
+    "name": "avctAcsPduBlownFuseTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.314",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduFuseStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduInletAlarmTrap": {
+    "name": "avctAcsPduInletAlarmTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.315",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPduInletRestoredTrap": {
+    "name": "avctAcsPduInletRestoredTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.316",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsRtsSourceTransferTrap": {
+    "name": "avctAcsRtsSourceTransferTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.317",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNewElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletNameChangedTrap": {
+    "name": "avctAcsOutletNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.350",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketOldName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletCmdOnTrap": {
+    "name": "avctAcsOutletCmdOnTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.351",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletStatusOnTrap": {
+    "name": "avctAcsOutletStatusOnTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.352",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletCmdOffTrap": {
+    "name": "avctAcsOutletCmdOffTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.353",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletStatusOffTrap": {
+    "name": "avctAcsOutletStatusOffTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.354",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletCmdCycleTrap": {
+    "name": "avctAcsOutletCmdCycleTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.355",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletCycleFinishedTrap": {
+    "name": "avctAcsOutletCycleFinishedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.356",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletOnSenseFailTrap": {
+    "name": "avctAcsOutletOnSenseFailTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.357",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsOutletOffSenseFailTrap": {
+    "name": "avctAcsOutletOffSenseFailTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.358",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSocketName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOnlineTrap": {
+    "name": "avctAcsUpsOnlineTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.370",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOfflineTrap": {
+    "name": "avctAcsUpsOfflineTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.371",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsIdChangedTrap": {
+    "name": "avctAcsUpsIdChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.372",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsIdOld"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsVendor"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutputOffTrap": {
+    "name": "avctAcsUpsOutputOffTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.373",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsBatteryDischargingTrap": {
+    "name": "avctAcsUpsBatteryDischargingTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.374",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsBatteryTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsBatteryLowTrap": {
+    "name": "avctAcsUpsBatteryLowTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.375",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsBatteryTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsSystemInputPowerProblemTrap": {
+    "name": "avctAcsUpsSystemInputPowerProblemTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.376",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsReplaceBatteryTrap": {
+    "name": "avctAcsUpsReplaceBatteryTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.377",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsBatteryTestFailedTrap": {
+    "name": "avctAcsUpsBatteryTestFailedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.378",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsShutdownPendingTrap": {
+    "name": "avctAcsUpsShutdownPendingTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.379",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsBatteryUndervoltageTrap": {
+    "name": "avctAcsUpsBatteryUndervoltageTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.380",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsBatteryOvervoltageTrap": {
+    "name": "avctAcsUpsBatteryOvervoltageTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.381",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsSystemInputPowerRestoredTrap": {
+    "name": "avctAcsUpsSystemInputPowerRestoredTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.382",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutputProblemTrap": {
+    "name": "avctAcsUpsOutputProblemTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.383",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsHardwareFailureTrap": {
+    "name": "avctAcsUpsHardwareFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.384",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutputOnBypassTrap": {
+    "name": "avctAcsUpsOutputOnBypassTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.385",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutputNormalTrap": {
+    "name": "avctAcsUpsOutputNormalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.386",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupCmdOnTrap": {
+    "name": "avctAcsUpsOutletGroupCmdOnTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.387",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupStatusOnTrap": {
+    "name": "avctAcsUpsOutletGroupStatusOnTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.388",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupCmdOffTrap": {
+    "name": "avctAcsUpsOutletGroupCmdOffTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.389",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupStatusOffTrap": {
+    "name": "avctAcsUpsOutletGroupStatusOffTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.390",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupCmdCycleTrap": {
+    "name": "avctAcsUpsOutletGroupCmdCycleTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.391",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUserName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsUpsOutletGroupCycleFinishedTrap": {
+    "name": "avctAcsUpsOutletGroupCycleFinishedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.392",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectUpsOutletGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorThresholdNormalTrap": {
+    "name": "avctAcsApplianceSensorThresholdNormalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.400",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorThresholdHighCriticalTrap": {
+    "name": "avctAcsApplianceSensorThresholdHighCriticalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorThresholdHighWarningTrap": {
+    "name": "avctAcsApplianceSensorThresholdHighWarningTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorThresholdLowWarningTrap": {
+    "name": "avctAcsApplianceSensorThresholdLowWarningTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorThresholdLowCriticalTrap": {
+    "name": "avctAcsApplianceSensorThresholdLowCriticalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsApplianceSensorDigitalAlarmTrap": {
+    "name": "avctAcsApplianceSensorDigitalAlarmTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectApplianceSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDialInCallAnswered": {
+    "name": "avctAcsDialInCallAnswered",
+    "oid": "1.3.6.1.4.1.10418.26.0.450",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDialInCallBlocked": {
+    "name": "avctAcsDialInCallBlocked",
+    "oid": "1.3.6.1.4.1.10418.26.0.451",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectCallerIdName"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsDialInLineVoltageDroppedTrap": {
+    "name": "avctAcsDialInLineVoltageDroppedTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.452",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsDialInLineVoltageRestoredTrap": {
+    "name": "avctAcsDialInLineVoltageRestoredTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.453",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "avctAcsTemperatureExceededMaxTrap": {
+    "name": "avctAcsTemperatureExceededMaxTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.500",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsTemperatureReachedMaxTrap": {
+    "name": "avctAcsTemperatureReachedMaxTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.501",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsTemperatureExceededMinTrap": {
+    "name": "avctAcsTemperatureExceededMinTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.502",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsTemperatureReachedMinTrap": {
+    "name": "avctAcsTemperatureReachedMinTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.503",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPowerSupplyTrap": {
+    "name": "avctAcsPowerSupplyTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.504",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyOldState"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPowerSupplyNewState"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPlugDeviceInsertTrap": {
+    "name": "avctAcsPlugDeviceInsertTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.505",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsPlugDeviceEjectTrap": {
+    "name": "avctAcsPlugDeviceEjectTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.506",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPlugDeviceInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdNormalTrap": {
+    "name": "avctAcsSensorThresholdNormalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.507",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdHighCriticalTrap": {
+    "name": "avctAcsSensorThresholdHighCriticalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.508",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdHighWarningTrap": {
+    "name": "avctAcsSensorThresholdHighWarningTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.509",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdLowWarningTrap": {
+    "name": "avctAcsSensorThresholdLowWarningTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.510",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdLowCriticalTrap": {
+    "name": "avctAcsSensorThresholdLowCriticalTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.511",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsSensorThresholdDigitalSensorAlarmTrap": {
+    "name": "avctAcsSensorThresholdDigitalSensorAlarmTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.512",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectSerialPortNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduNumber"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduId"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementType"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduElementName"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectPduCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsCpuTemperatureExceededMaxTrap": {
+    "name": "avctAcsCpuTemperatureExceededMaxTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.513",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCpuCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsCpuTemperatureReachedMaxTrap": {
+    "name": "avctAcsCpuTemperatureReachedMaxTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.514",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaximumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMaxCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCpuCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsCpuTemperatureExceededMinTrap": {
+    "name": "avctAcsCpuTemperatureExceededMinTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.515",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCpuCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsCpuTemperatureReachedMinTrap": {
+    "name": "avctAcsCpuTemperatureReachedMinTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.516",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinimumCpuValue"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureMinCpuThreshold"
+      },
+      {
+        "module": "ACS-TRAP-MIB",
+        "object": "acsTrapObjectTemperatureCpuCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "avctAcsTestTrap": {
+    "name": "avctAcsTestTrap",
+    "oid": "1.3.6.1.4.1.10418.26.0.517",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACS-TRAP-MIB",
+      "Source digest sha256:c7c04ce01902370d9d6e33fc3b55fe539593fb921451c33f1c6753b606ebd96f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACS-TRAP-MIB"
+  }
+}

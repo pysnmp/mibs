@@ -1,0 +1,1661 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLOUDGENIX-SMI": [
+      "cgxMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cgxEventsMIB": {
+    "name": "cgxEventsMIB",
+    "oid": "1.3.6.1.4.1.50114.10.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-02-24 19:35",
+        "description": "24.2.2022 PaloAlto Rebranding and new hardware"
+      },
+      {
+        "revision": "2017-06-19 18:00",
+        "description": "19.6.2017 Revision (inital)"
+      }
+    ]
+  },
+  "cgxEventsNotifications": {
+    "name": "cgxEventsNotifications",
+    "oid": "1.3.6.1.4.1.50114.10.1.0",
+    "class": "objectidentity"
+  },
+  "cgxVpnLinkUp": {
+    "name": "cgxVpnLinkUp",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnLinkDown": {
+    "name": "cgxVpnLinkDown",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnPeerUnreachableClear": {
+    "name": "cgxVpnPeerUnreachableClear",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnPeerUnreachable": {
+    "name": "cgxVpnPeerUnreachable",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnBfdUp": {
+    "name": "cgxVpnBfdUp",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnBfdDown": {
+    "name": "cgxVpnBfdDown",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxRoutePeerUp": {
+    "name": "cgxRoutePeerUp",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerIp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxRoutePeerDown": {
+    "name": "cgxRoutePeerDown",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerIp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanUnreachableClear": {
+    "name": "cgxPrivateWanUnreachableClear",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanUnreachable": {
+    "name": "cgxPrivateWanUnreachable",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanDegradedClear": {
+    "name": "cgxPrivateWanDegradedClear",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanDegraded": {
+    "name": "cgxPrivateWanDegraded",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPublicWanUp": {
+    "name": "cgxPublicWanUp",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPublicWanDown": {
+    "name": "cgxPublicWanDown",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanUp": {
+    "name": "cgxPrivateWanUp",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxPrivateWanDown": {
+    "name": "cgxPrivateWanDown",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxProcessStopClear": {
+    "name": "cgxProcessStopClear",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxProcessStop": {
+    "name": "cgxProcessStop",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.302",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxProcessRestart": {
+    "name": "cgxProcessRestart",
+    "oid": "1.3.6.1.4.1.50114.10.1.0.303",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxEventsObjects": {
+    "name": "cgxEventsObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1",
+    "class": "objectidentity"
+  },
+  "cgxEventsObjectStats": {
+    "name": "cgxEventsObjectStats",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "cgxVpnObjects": {
+    "name": "cgxVpnObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "cgxVpnLinkId": {
+    "name": "cgxVpnLinkId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxRoutingObjects": {
+    "name": "cgxRoutingObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.3",
+    "class": "objectidentity"
+  },
+  "cgxRoutePeerId": {
+    "name": "cgxRoutePeerId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxRoutePeerName": {
+    "name": "cgxRoutePeerName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxRoutePeerIp": {
+    "name": "cgxRoutePeerIp",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxRoutePeerType": {
+    "name": "cgxRoutePeerType",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteObjects": {
+    "name": "cgxSiteObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4",
+    "class": "objectidentity"
+  },
+  "cgxSiteId": {
+    "name": "cgxSiteId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteName": {
+    "name": "cgxSiteName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteRemoteId": {
+    "name": "cgxSiteRemoteId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteRemoteName": {
+    "name": "cgxSiteRemoteName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteWanInterfaceId": {
+    "name": "cgxSiteWanInterfaceId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxSiteWanInterfaceName": {
+    "name": "cgxSiteWanInterfaceName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxElementObjects": {
+    "name": "cgxElementObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.5",
+    "class": "objectidentity"
+  },
+  "cgxElementId": {
+    "name": "cgxElementId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxElementName": {
+    "name": "cgxElementName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxElementRemoteId": {
+    "name": "cgxElementRemoteId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxElementRemoteName": {
+    "name": "cgxElementRemoteName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanObjects": {
+    "name": "cgxWanObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6",
+    "class": "objectidentity"
+  },
+  "cgxWanNetworkId": {
+    "name": "cgxWanNetworkId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkName": {
+    "name": "cgxWanNetworkName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkType": {
+    "name": "cgxWanNetworkType",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkRemoteId": {
+    "name": "cgxWanNetworkRemoteId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkRemoteName": {
+    "name": "cgxWanNetworkRemoteName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkRemoteType": {
+    "name": "cgxWanNetworkRemoteType",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxWanNetworkPrefix": {
+    "name": "cgxWanNetworkPrefix",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxProcessObjects": {
+    "name": "cgxProcessObjects",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.7",
+    "class": "objectidentity"
+  },
+  "cgxProcessId": {
+    "name": "cgxProcessId",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxProcessName": {
+    "name": "cgxProcessName",
+    "oid": "1.3.6.1.4.1.50114.10.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgxEventsConformance": {
+    "name": "cgxEventsConformance",
+    "oid": "1.3.6.1.4.1.50114.10.1.2",
+    "class": "objectidentity"
+  },
+  "cgxEventsCompliances": {
+    "name": "cgxEventsCompliances",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.1",
+    "class": "objectidentity"
+  },
+  "cgxEventsMIBCompliance": {
+    "name": "cgxEventsMIBCompliance",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cgxElementObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxProcessNotificationGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxProcessObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxRoutingNotificationGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxRoutingObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxSiteObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxVpnNotificationGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxVpnObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxWanNotificationGroup",
+        "module": "CGX-EVENTS-MIB"
+      },
+      {
+        "object": "cgxWanObjectGroup",
+        "module": "CGX-EVENTS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxEventsGroups": {
+    "name": "cgxEventsGroups",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2",
+    "class": "objectidentity"
+  },
+  "cgxVpnObjectGroup": {
+    "name": "cgxVpnObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkId"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxRoutingObjectGroup": {
+    "name": "cgxRoutingObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerIp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxSiteObjectGroup": {
+    "name": "cgxSiteObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxSiteWanInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxElementObjectGroup": {
+    "name": "cgxElementObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxElementRemoteName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxWanObjectGroup": {
+    "name": "cgxWanObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteName"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkRemoteType"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxWanNetworkPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxProcessObjectGroup": {
+    "name": "cgxProcessObjectGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessId"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxVpnNotificationGroup": {
+    "name": "cgxVpnNotificationGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.102",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnBfdDown"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnBfdUp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkDown"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnLinkUp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnPeerUnreachable"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxVpnPeerUnreachableClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxRoutingNotificationGroup": {
+    "name": "cgxRoutingNotificationGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.103",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerDown"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxRoutePeerUp"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxWanNotificationGroup": {
+    "name": "cgxWanNotificationGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.104",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanDegraded"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanDegradedClear"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPublicWanDown"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPublicWanUp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanDown"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanUp"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanUnreachable"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxPrivateWanUnreachableClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cgxProcessNotificationGroup": {
+    "name": "cgxProcessNotificationGroup",
+    "oid": "1.3.6.1.4.1.50114.10.1.2.2.105",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessStop"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessStopClear"
+      },
+      {
+        "module": "CGX-EVENTS-MIB",
+        "object": "cgxProcessRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CGX-EVENTS-MIB",
+      "Source digest sha256:b27b7968f01a8a8d20d6188bf31ebb446dfd188ae5d835a8d1554a0fae40aa71",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CGX-EVENTS-MIB"
+  }
+}

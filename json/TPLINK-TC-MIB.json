@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "TPRowStatus": {
+    "name": "TPRowStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "destroy": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TPMacAddress": {
+    "name": "TPMacAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-1x-1x-1x-1x-1x",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TPLINK-TC-MIB",
+      "Source digest sha256:5dbc357b365b5b28dd4b4f440631d260898d92062c2ebaf1afcd35828b22e1d3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TPLINK-TC-MIB"
+  }
+}

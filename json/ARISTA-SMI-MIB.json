@@ -1,0 +1,73 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arista": {
+    "name": "arista",
+    "oid": "1.3.6.1.4.1.30065",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-15 00:00",
+        "description": "Updated postal and e-mail addresses"
+      },
+      {
+        "revision": "2011-03-31 13:00",
+        "description": "Updated postal address and telephone"
+      },
+      {
+        "revision": "2008-10-27 18:30",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "aristaProducts": {
+    "name": "aristaProducts",
+    "oid": "1.3.6.1.4.1.30065.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aristaModules": {
+    "name": "aristaModules",
+    "oid": "1.3.6.1.4.1.30065.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aristaMibs": {
+    "name": "aristaMibs",
+    "oid": "1.3.6.1.4.1.30065.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aristaExperiment": {
+    "name": "aristaExperiment",
+    "oid": "1.3.6.1.4.1.30065.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARISTA-SMI-MIB",
+      "Source digest sha256:0f909eea68ad7144ebc82c3d140653c0faa31e66f6de439921c3e4a4a11ca4e3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARISTA-SMI-MIB"
+  }
+}

@@ -1,0 +1,1058 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDspMgmtCapability": {
+    "name": "ciscoDspMgmtCapability",
+    "oid": "1.3.6.1.4.1.9.7.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-18 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV15R02."
+      },
+      {
+        "revision": "2006-08-09 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV5R400."
+      },
+      {
+        "revision": "2005-10-16 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV5R300."
+      },
+      {
+        "revision": "2005-06-29 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV12R03 for IOS."
+      },
+      {
+        "revision": "2005-04-21 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV5R100."
+      },
+      {
+        "revision": "2004-08-07 00:00",
+        "description": "Added ciscoDspMgmtCapabilityV5R015"
+      },
+      {
+        "revision": "2003-09-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDspMgmtCapabilityV5R00": {
+    "name": "ciscoDspMgmtCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.121.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroup",
+          "cdspMgmtExtGeneralInfoGroup",
+          "cdspVoiceInfoGroup",
+          "cdspChannelGroup",
+          "cdspChannelExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspCardIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardResourceUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastHiWaterUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspAlarms",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCauseText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspMIBEnableCardStatusNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardMaxChanPerDSP",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspInUseChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspActiveChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "congested": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspNx64Dsp",
+            "access": "read-only"
+          },
+          {
+            "object": "cdspDspSwitchOverThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspTotalDsp",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspFailedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspCongestedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspNormalDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV5R015": {
+    "name": "ciscoDspMgmtCapabilityV5R015",
+    "oid": "1.3.6.1.4.1.9.7.121.2",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.15",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroup",
+          "cdspMgmtExtGeneralInfoGroup",
+          "cdspVoiceInfoGroup",
+          "cdspChannelGroup",
+          "cdspChannelExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspCardIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardResourceUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastHiWaterUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspAlarms",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCauseText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspMIBEnableCardStatusNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardMaxChanPerDSP",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspInUseChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspActiveChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "congested": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspNx64Dsp",
+            "access": "read-only"
+          },
+          {
+            "object": "cdspDspSwitchOverThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspTotalDsp",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspFailedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspCongestedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspNormalDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspRtcpRecvMultiplier",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV5R100": {
+    "name": "ciscoDspMgmtCapabilityV5R100",
+    "oid": "1.3.6.1.4.1.9.7.121.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.1.00",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroup",
+          "cdspMgmtExtGeneralInfoGroupRev1",
+          "cdspVoiceInfoGroupRev1",
+          "cdspChannelGroup",
+          "cdspChannelExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspCardState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardResourceUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastHiWaterUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCodecTemplateSupported",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tgw": 1,
+                  "cable": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspAlarms",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCauseText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspMIBEnableCardStatusNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardMaxChanPerDSP",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspInUseChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspActiveChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "congested": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspNx64Dsp",
+            "access": "read-only"
+          },
+          {
+            "object": "cdspDspSwitchOverThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspTotalDsp",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspFailedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspCongestedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspNormalDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspRtcpRecvMultiplier",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV12R03": {
+    "name": "ciscoDspMgmtCapabilityV12R03",
+    "oid": "1.3.6.1.4.1.9.7.121.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroupRev1",
+          "cdspMgmtNotificationsGroupRev1"
+        ],
+        "variations": [
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "shutdown": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV5R300": {
+    "name": "ciscoDspMgmtCapabilityV5R300",
+    "oid": "1.3.6.1.4.1.9.7.121.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.3.00",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroup",
+          "cdspMgmtExtGeneralInfoGroupRev1",
+          "cdspVoiceInfoGroupRev1",
+          "cdspChannelGroup",
+          "cdspChannelExtGroup",
+          "cdspVQMGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspCardState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardResourceUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastHiWaterUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCodecTemplateSupported",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tgw": 1,
+                  "cable": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspAlarms",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCauseText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspMIBEnableCardStatusNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardMaxChanPerDSP",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspInUseChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspActiveChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "congested": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspNx64Dsp",
+            "access": "read-only"
+          },
+          {
+            "object": "cdspDspSwitchOverThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspTotalDsp",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspFailedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspCongestedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspNormalDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspRtcpRecvMultiplier",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV5R400": {
+    "name": "ciscoDspMgmtCapabilityV5R400",
+    "oid": "1.3.6.1.4.1.9.7.121.6",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 Release 5.4.00",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroup",
+          "cdspMgmtExtGeneralInfoGroupRev1",
+          "cdspVoiceInfoGroupRev1",
+          "cdspChannelGroup",
+          "cdspChannelExtGroup",
+          "cdspVQMGroup",
+          "cdspTransCodingGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspCardState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardResourceUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastHiWaterUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardLastResetTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCodecTemplateSupported",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "tgw": 1,
+                  "cable": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspAlarms",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCause",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmCauseText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspLastAlarmTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspMIBEnableCardStatusNotification",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspCardMaxChanPerDSP",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspInUseChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspActiveChannels",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "congested": 3,
+                  "failed": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspNx64Dsp",
+            "access": "read-only"
+          },
+          {
+            "object": "cdspDspSwitchOverThreshold",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspTotalDsp",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspFailedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspCongestedDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspNormalDsp",
+            "syntax": {
+              "type": "Gauge32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 252
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cdspRtcpRecvMultiplier",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 2,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDspMgmtCapabilityV15R02": {
+    "name": "ciscoDspMgmtCapabilityV15R02",
+    "oid": "1.3.6.1.4.1.9.7.121.7",
+    "class": "agentcapabilities",
+    "productrelease": "OS=IOS\n                     OSVERSION=15.2(1)T\n                     PLATFORM=c29xx,c3925,c3945,c3925E,c3945E\n                     INTERFACE=None",
+    "capabilities": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "includes": [
+          "cdspMgmtGeneralInfoGroupRev1",
+          "cdspMgmtNotificationsGroupRev1",
+          "cdspMgmtVideoNotificationsGroup",
+          "cdspMgmtVideoInfoGroup"
+        ],
+        "variations": [
+          {
+            "object": "cdspOperState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "normal": 1,
+                  "shutdown": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "cdspCardVideoPoolUtilizationThreshold",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-DSP-MGMT-CAPABILITY",
+      "Source digest sha256:8d11030f455e18a7af171c251eef79d3203fd08eaeba8da3114f02cf9330c60d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-DSP-MGMT-CAPABILITY"
+  }
+}

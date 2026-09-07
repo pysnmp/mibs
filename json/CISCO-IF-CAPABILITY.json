@@ -1,0 +1,1926 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoIfCapability": {
+    "name": "ciscoIfCapability",
+    "oid": "1.3.6.1.4.1.9.7.125",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-17 00:00",
+        "description": "Added ciscoIfCapabilityc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine(ACE) Appliance."
+      },
+      {
+        "revision": "2006-11-03 00:00",
+        "description": "Added ciscoIfCapabilityIOSXRV3R4CRS1 agent capability for IOS XR 3.4"
+      },
+      {
+        "revision": "2006-10-30 00:00",
+        "description": "Added capability for Cisco TelePresence System (CTS) and Cisco TelePresence Manager (CTM) platforms."
+      },
+      {
+        "revision": "2006-07-17 00:00",
+        "description": "Added ciscoIfCapabilityACSWV03R000 agent capabilities for Cisco Application Control Software (ACSW) 3.0."
+      },
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Added ciscoIfCapabilityIOSXRV2R0CRS1 agent capabilities for IOS XR release 2.0."
+      },
+      {
+        "revision": "2004-08-09 00:00",
+        "description": "Added ciscoIfCapabilityV5R015 agent capabilities for MGX product series: MPSM Service Module and VXSM (Voice Switch Service Module)."
+      },
+      {
+        "revision": "2004-02-21 00:00",
+        "description": "Added following Agent capabilities for Catalyst 6000/6500 and Cisco 7600 series devices: ciscoIfCapabilityCatOSV08R0101 and ciscoIfCapabilityCatOSV08R0301."
+      },
+      {
+        "revision": "2004-02-20 00:00",
+        "description": "Added ciscoIfCapabilityV5R00 agent capabilities for MGX product series: MPSM Service Module and VXSM (Voice Switch Service Module."
+      },
+      {
+        "revision": "2003-03-14 00:00",
+        "description": "Added following Agent capabilities for MGX product series: - ciscoIfCapabilityV4R00 for AXSM 10 Gig. Module (AXSM-XG) and AXSM Enhanced Module (AXSM-E)."
+      },
+      {
+        "revision": "2002-06-12 00:00",
+        "description": "Added following Agent capabilities for MGX product series: - ciscoIfCapabilityPxmVR200 for PXM(Processor Switch Module) Module - ciscoIfCapabilityAxsmVR200 for AXSM(ATM Switch Service Module) - ciscoIfCapabilityAxsmeV21R60 for AXSM Enhanced Module. - ciscoIfCapabilityFrsm12V3R00 for Frame Relay Service Module(FRSM-12)."
+      },
+      {
+        "revision": "2000-02-09 00:00",
+        "description": "Modification of ifCounterDiscontinuityTime, ifTableLastChange object and LinkUp/Down trap objects."
+      },
+      {
+        "revision": "1998-11-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIfCapabilityV11R03": {
+    "name": "ciscoIfCapabilityV11R03",
+    "oid": "1.3.6.1.4.1.9.7.125.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 11.3",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifRcvAddressGroup",
+          "ifOldObjectsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLastChange",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "read-only"
+          },
+          {
+            "object": "ifSpecific",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCOutUcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-write"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type"
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 64
+                  }
+                ]
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "ifCounterDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifStackStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "other"
+            ]
+          },
+          {
+            "object": "ifTestId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestResult",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityV12R00": {
+    "name": "ciscoIfCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.125.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifRcvAddressGroup",
+          "ifOldObjectsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLastChange",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "read-only"
+          },
+          {
+            "object": "ifSpecific",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCOutUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-write"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type"
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 64
+                  }
+                ]
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "ifCounterDiscontinuityTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifStackStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "other"
+            ]
+          },
+          {
+            "object": "ifTestId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestResult",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityV12R01T": {
+    "name": "ciscoIfCapabilityV12R01T",
+    "oid": "1.3.6.1.4.1.9.7.125.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1T",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifRcvAddressGroup",
+          "ifOldObjectsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "access": "read-write"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "unknown": 4,
+                  "dormant": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLastChange",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutNUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutDiscards",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutErrors",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutQLen",
+            "access": "read-only"
+          },
+          {
+            "object": "ifSpecific",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutOctets",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCOutUcastPkts",
+            "access": "read-only"
+          },
+          {
+            "object": "ifHCOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHCOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-write"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type"
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 64
+                  }
+                ]
+              }
+            },
+            "access": "read-write"
+          },
+          {
+            "object": "ifStackStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1
+                }
+              }
+            },
+            "access": "read-only",
+            "default": [
+              "other"
+            ]
+          },
+          {
+            "object": "ifTestId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestResult",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityPxmVR200": {
+    "name": "ciscoIfCapabilityPxmVR200",
+    "oid": "1.3.6.1.4.1.9.7.125.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.00,BPX SES Release 1.00.",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifPacketGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "read-only",
+            "default": [
+              "false"
+            ]
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityAxsmVR200": {
+    "name": "ciscoIfCapabilityAxsmVR200",
+    "oid": "1.3.6.1.4.1.9.7.125.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.00.",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "notPresent": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityAxsmeV21R60": {
+    "name": "ciscoIfCapabilityAxsmeV21R60",
+    "oid": "1.3.6.1.4.1.9.7.125.6",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.1.60",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityFrsm12V3R00": {
+    "name": "ciscoIfCapabilityFrsm12V3R00",
+    "oid": "1.3.6.1.4.1.9.7.125.7",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.00",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityV4R00": {
+    "name": "ciscoIfCapabilityV4R00",
+    "oid": "1.3.6.1.4.1.9.7.125.8",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8950, MGX8850 Release 4.0.00",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityV5R00": {
+    "name": "ciscoIfCapabilityV5R00",
+    "oid": "1.3.6.1.4.1.9.7.125.9",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityCatOSV08R0101": {
+    "name": "ciscoIfCapabilityCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.125.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifCounterDiscontinuityGroup",
+          "linkUpDownNotificationsGroup",
+          "ifGeneralGroup",
+          "ifStackGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "dormant": 5,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifStackStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestResult",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityCatOSV08R0301": {
+    "name": "ciscoIfCapabilityCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.125.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifStackGroup2",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifOldObjectsGroup",
+          "ifCounterDiscontinuityGroup",
+          "linkUpDownNotificationsGroup",
+          "ifGeneralGroup",
+          "ifStackGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "dormant": 5,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifStackStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifRcvAddressStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifRcvAddressType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestResult",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTestOwner",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityV5R015": {
+    "name": "ciscoIfCapabilityV5R015",
+    "oid": "1.3.6.1.4.1.9.7.125.12",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.15",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2,
+                  "testing": 3,
+                  "notPresent": 6,
+                  "lowerLayerDown": 7
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only",
+            "default": [
+              "disabled"
+            ]
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityIOSXRV2R0CRS1": {
+    "name": "ciscoIfCapabilityIOSXRV2R0CRS1",
+    "oid": "1.3.6.1.4.1.9.7.125.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 2.0 for CRS-1",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralGroup",
+          "ifStackGroup",
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifStackGroup2",
+          "ifCounterDiscontinuityGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityACSWV03R000": {
+    "name": "ciscoIfCapabilityACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.125.14",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0\n                    for Application Control Engine (ACE) \n                    Service Module.",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type"
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityCTSV100": {
+    "name": "ciscoIfCapabilityCTSV100",
+    "oid": "1.3.6.1.4.1.9.7.125.15",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence System (CTS) 1.0.0",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifPacketGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHighSpeed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityCTMV1000": {
+    "name": "ciscoIfCapabilityCTMV1000",
+    "oid": "1.3.6.1.4.1.9.7.125.16",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco TelePresence Manager (CTM) 1.0.0.0",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifPacketGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifConnectorPresent",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifHighSpeed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifName",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifAlias",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifTableLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInUnknownProtos",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifInBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutMulticastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifOutBroadcastPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityIOSXRV3R4CRS1": {
+    "name": "ciscoIfCapabilityIOSXRV3R4CRS1",
+    "oid": "1.3.6.1.4.1.9.7.125.17",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS XR 3.4 for CRS-1",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralGroup",
+          "ifStackGroup",
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "ifVHCPacketGroup",
+          "ifStackGroup2",
+          "ifCounterDiscontinuityGroup",
+          "ifRcvAddressGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifPhysAddress",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfCapabilityc4710aceVA1R700": {
+    "name": "ciscoIfCapabilityc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.125.18",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                     for ACE 4710 Application Control Engine \n                     Appliance",
+    "capabilities": [
+      {
+        "module": "IF-MIB",
+        "includes": [
+          "ifGeneralInformationGroup",
+          "ifFixedLengthGroup",
+          "ifHCFixedLengthGroup",
+          "ifPacketGroup",
+          "ifHCPacketGroup",
+          "linkUpDownNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "ifAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "ifOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "up": 1,
+                  "down": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ifLinkUpDownTrapEnable",
+            "access": "read-only"
+          },
+          {
+            "object": "ifAlias",
+            "access": "read-only"
+          },
+          {
+            "object": "ifPromiscuousMode",
+            "syntax": {
+              "type": "TruthValue",
+              "class": "type"
+            },
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IF-CAPABILITY",
+      "Source digest sha256:9aa1a214c0304ee901eb0b5853505775686e26a9a87dddae369388e014f9473f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IF-CAPABILITY"
+  }
+}

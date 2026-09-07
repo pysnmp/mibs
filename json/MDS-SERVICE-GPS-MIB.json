@@ -1,0 +1,469 @@
+{
+  "imports": {
+    "class": "imports",
+    "MDS-ORBIT-SMI-MIB": [
+      "mdsServices"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mdsGpsMIB": {
+    "name": "mdsGpsMIB",
+    "oid": "1.3.6.1.4.1.4130.10.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-16 00:00",
+        "description": "Updated conformance statments based on smilint."
+      },
+      {
+        "revision": "2016-06-06 00:00",
+        "description": "Add Satellite status table."
+      },
+      {
+        "revision": "2015-01-29 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "mGpsMIBObjects": {
+    "name": "mGpsMIBObjects",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1",
+    "class": "objectidentity"
+  },
+  "mGpsConfig": {
+    "name": "mGpsConfig",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.1",
+    "class": "objectidentity"
+  },
+  "mGpsStatus": {
+    "name": "mGpsStatus",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2",
+    "class": "objectidentity"
+  },
+  "mGpsStatusFixMode": {
+    "name": "mGpsStatusFixMode",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nofix": 0,
+          "a2dfix": 1,
+          "a3dfix": 2
+        }
+      }
+    },
+    "default": {
+      "value": "nofix",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusTime": {
+    "name": "mGpsStatusTime",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusLatitude": {
+    "name": "mGpsStatusLatitude",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusLongitude": {
+    "name": "mGpsStatusLongitude",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusAltitude": {
+    "name": "mGpsStatusAltitude",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusSpeed": {
+    "name": "mGpsStatusSpeed",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusHeading": {
+    "name": "mGpsStatusHeading",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusSatellitesVisible": {
+    "name": "mGpsStatusSatellitesVisible",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsStatusSatellitesUsed": {
+    "name": "mGpsStatusSatellitesUsed",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsSatellitesTable": {
+    "name": "mGpsSatellitesTable",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mGpsSatellitesEntry": {
+    "name": "mGpsSatellitesEntry",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSatellitesPrn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mGpsSatellitesPrn": {
+    "name": "mGpsSatellitesPrn",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mGpsSatellitesUsed": {
+    "name": "mGpsSatellitesUsed",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsSatellitesElevation": {
+    "name": "mGpsSatellitesElevation",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsSatellitesAzimuth": {
+    "name": "mGpsSatellitesAzimuth",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsSatellitesSnr": {
+    "name": "mGpsSatellitesSnr",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mGpsSourcesTable": {
+    "name": "mGpsSourcesTable",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mGpsSourcesEntry": {
+    "name": "mGpsSourcesEntry",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSourceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mGpsSourceName": {
+    "name": "mGpsSourceName",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mGpsSourceDevice": {
+    "name": "mGpsSourceDevice",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdsGpsMIBConformance": {
+    "name": "mdsGpsMIBConformance",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3",
+    "class": "objectidentity"
+  },
+  "mdsGpsMIBCompliances": {
+    "name": "mdsGpsMIBCompliances",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3.1",
+    "class": "objectidentity"
+  },
+  "mdsGpsMIBGroups": {
+    "name": "mdsGpsMIBGroups",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3.2",
+    "class": "objectidentity"
+  },
+  "mGpsCompliance": {
+    "name": "mGpsCompliance",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mGpsStatusGroup",
+        "module": "MDS-SERVICE-GPS-MIB"
+      },
+      {
+        "object": "mGpsSourcesGroup",
+        "module": "MDS-SERVICE-GPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mGpsStatusGroup": {
+    "name": "mGpsStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusFixMode"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusTime"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusLatitude"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusLongitude"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusAltitude"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusSpeed"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusHeading"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusSatellitesVisible"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsStatusSatellitesUsed"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSatellitesUsed"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSatellitesElevation"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSatellitesAzimuth"
+      },
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSatellitesSnr"
+      }
+    ],
+    "status": "current"
+  },
+  "mGpsSourcesGroup": {
+    "name": "mGpsSourcesGroup",
+    "oid": "1.3.6.1.4.1.4130.10.3.12.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-SERVICE-GPS-MIB",
+        "object": "mGpsSourceDevice"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source MDS-SERVICE-GPS-MIB",
+      "Source digest sha256:9bde51a3b5d3f5a063c3a0fc4f2686305941dea7b9e23728633f52d979a32370",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "MDS-SERVICE-GPS-MIB"
+  }
+}

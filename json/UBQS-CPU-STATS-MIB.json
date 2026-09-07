@@ -1,0 +1,119 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ]
+  },
+  "ubiCpuStatsMIB": {
+    "name": "ubiCpuStatsMIB",
+    "oid": "1.3.6.1.4.1.7800.100.36",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-12-23 00:00",
+        "description": "Add system clock table"
+      }
+    ]
+  },
+  "ubiCpuStatsMIBNotificationPrefix": {
+    "name": "ubiCpuStatsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.36.1",
+    "class": "objectidentity"
+  },
+  "ubiCpuStatsMIBObjects": {
+    "name": "ubiCpuStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.36.2",
+    "class": "objectidentity"
+  },
+  "ubiCpuStatsMIBConformance": {
+    "name": "ubiCpuStatsMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.36.3",
+    "class": "objectidentity"
+  },
+  "ubiCpuStatsTable": {
+    "name": "ubiCpuStatsTable",
+    "oid": "1.3.6.1.4.1.7800.100.36.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiCpuStatsEntry": {
+    "name": "ubiCpuStatsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.36.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-CPU-STATS-MIB",
+        "object": "ubiCpuStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiCpuStatsIndex": {
+    "name": "ubiCpuStatsIndex",
+    "oid": "1.3.6.1.4.1.7800.100.36.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiCpuStatsInPkts": {
+    "name": "ubiCpuStatsInPkts",
+    "oid": "1.3.6.1.4.1.7800.100.36.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiCpuStatsDropPkts": {
+    "name": "ubiCpuStatsDropPkts",
+    "oid": "1.3.6.1.4.1.7800.100.36.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-CPU-STATS-MIB",
+      "Source digest sha256:18cb71c00bbc2ad2a7f403f9a1603489cf990c2156dbf7c1b6242bbe3f0f8264",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-CPU-STATS-MIB"
+  }
+}

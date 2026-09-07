@@ -1,0 +1,392 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "colubris802Dot1xMIB": {
+    "name": "colubris802Dot1xMIB",
+    "oid": "1.3.6.1.4.1.8744.5.8",
+    "class": "moduleidentity"
+  },
+  "coPaeMIBObjects": {
+    "name": "coPaeMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.8.1",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeSystem": {
+    "name": "coDot1xPaeSystem",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.1",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeAuthenticator": {
+    "name": "coDot1xPaeAuthenticator",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeSystemModifyKey": {
+    "name": "coDot1xPaeSystemModifyKey",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDot1xPaeSystemModifyKeyInterval": {
+    "name": "coDot1xPaeSystemModifyKeyInterval",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthQuietPeriod": {
+    "name": "coDot1xAuthQuietPeriod",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthTxPeriod": {
+    "name": "coDot1xAuthTxPeriod",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthSuppTimeout": {
+    "name": "coDot1xAuthSuppTimeout",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthServerTimeout": {
+    "name": "coDot1xAuthServerTimeout",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthMaxReq": {
+    "name": "coDot1xAuthMaxReq",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthReAuthPeriod": {
+    "name": "coDot1xAuthReAuthPeriod",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 3600,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthReAuthEnabled": {
+    "name": "coDot1xAuthReAuthEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthKeyTxEnabled": {
+    "name": "coDot1xAuthKeyTxEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xAuthReAuthMax": {
+    "name": "coDot1xAuthReAuthMax",
+    "oid": "1.3.6.1.4.1.8744.5.8.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 8,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDot1xPaeConformance": {
+    "name": "coDot1xPaeConformance",
+    "oid": "1.3.6.1.4.1.8744.5.8.2",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeGroups": {
+    "name": "coDot1xPaeGroups",
+    "oid": "1.3.6.1.4.1.8744.5.8.2.1",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeCompliances": {
+    "name": "coDot1xPaeCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.8.2.2",
+    "class": "objectidentity"
+  },
+  "coDot1xPaeSystemGroup": {
+    "name": "coDot1xPaeSystemGroup",
+    "oid": "1.3.6.1.4.1.8744.5.8.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xPaeSystemModifyKey"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xPaeSystemModifyKeyInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "coDot1xPaeAuthenticatorGroup": {
+    "name": "coDot1xPaeAuthenticatorGroup",
+    "oid": "1.3.6.1.4.1.8744.5.8.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthQuietPeriod"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthTxPeriod"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthSuppTimeout"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthServerTimeout"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthMaxReq"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthReAuthPeriod"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthReAuthEnabled"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthKeyTxEnabled"
+      },
+      {
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB",
+        "object": "coDot1xAuthReAuthMax"
+      }
+    ],
+    "status": "current"
+  },
+  "coDot1xPaeCompliance": {
+    "name": "coDot1xPaeCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.8.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coDot1xPaeSystemGroup",
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB"
+      },
+      {
+        "object": "coDot1xPaeAuthenticatorGroup",
+        "module": "COLUBRIS-802DOT1X-ACCESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source COLUBRIS-802DOT1X-ACCESS-MIB",
+      "Source digest sha256:30de2701b34f0bae64e925a6c820ba9d6b179cdc4fc0df5ce4d97de7e16b0734",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "COLUBRIS-802DOT1X-ACCESS-MIB"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniFractionalT1Agent": {
+    "name": "juniFractionalT1Agent",
+    "oid": "1.3.6.1.4.1.4874.5.2.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-29 22:03",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniFractionalT1AgentV1": {
+    "name": "juniFractionalT1AgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.16.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Fractional T1 component of the JUNOSe SNMP agent.\n        This version of the Fractional T1 component was supported in JUNOSe 1.0\n        system release.",
+    "capabilities": [
+      {
+        "module": "Juniper-FRACTIONAL-T1-MIB",
+        "includes": [
+          "juniFt1Group"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniFractionalT1AgentV2": {
+    "name": "juniFractionalT1AgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.16.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Fractional T1 component of the JUNOSe SNMP agent.\n        This version of the Fractional T1 component is supported in JUNOSe 1.1\n        and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-FRACTIONAL-T1-MIB",
+        "includes": [
+          "juniFt1Group2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Fractional-T1-CONF",
+      "Source digest sha256:e18bb73275e9561e7a938f675c410605eba889721c22abeca7bfdb9b04341145",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Fractional-T1-CONF"
+  }
+}

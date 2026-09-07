@@ -1,0 +1,47 @@
+#
+# PySNMP MIB module GARDEROS-PRODUCT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source GARDEROS-PRODUCT-MIB
+# Source digest sha256:333100f53ff1aa25d86e6c9d92d6b2b6a791448edfc41d52d07a9c4dfe0a4555
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+garderos, = mibBuilder.importSymbols("GARDEROS-SMI-MIB", "garderos")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+product = ModuleIdentity((1, 3, 6, 1, 4, 1, 16108, 1))
+product.setRevisions(('2017-03-06 13:59',))
+if mibBuilder.loadTexts: product.setLastUpdated('2017-03-06 13:59')
+if mibBuilder.loadTexts: product.setOrganization('Garderos GmbH')
+productMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 1))
+if mibBuilder.loadTexts: productMIB.setStatus('current')
+productConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 1, 2))
+if mibBuilder.loadTexts: productConformance.setStatus('current')
+productGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 1, 2, 1))
+if mibBuilder.loadTexts: productGroups.setStatus('current')
+productCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 1, 2, 2))
+if mibBuilder.loadTexts: productCompliances.setStatus('current')
+productModuleCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 16108, 1, 1, 2, 2, 1)).setObjects(("GARDEROS-PRODUCT-MIB", "productInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    productModuleCompliance = productModuleCompliance.setStatus('current')
+productInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 16108, 1, 1, 2, 1, 2)).setObjects(("GARDEROS-PRODUCT-MIB", "productType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    productInformationGroup = productInformationGroup.setStatus('current')
+productCasingType = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17))
+if mibBuilder.loadTexts: productCasingType.setStatus('current')
+productCasing = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33))
+if mibBuilder.loadTexts: productCasing.setStatus('current')
+productMainboard = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33, 31))
+if mibBuilder.loadTexts: productMainboard.setStatus('current')
+productInterfaces = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33, 31, 36))
+if mibBuilder.loadTexts: productInterfaces.setStatus('current')
+productSubType = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33, 31, 36, 255))
+if mibBuilder.loadTexts: productSubType.setStatus('current')
+productGeneral = ObjectIdentity((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33, 31, 36, 255, 1))
+if mibBuilder.loadTexts: productGeneral.setStatus('current')
+productType = MibScalar((1, 3, 6, 1, 4, 1, 16108, 1, 17, 33, 31, 36, 255, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productType.setStatus('current')
+mibBuilder.exportSymbols("GARDEROS-PRODUCT-MIB", PYSNMP_MODULE_ID=product, product=product, productCasing=productCasing, productCasingType=productCasingType, productCompliances=productCompliances, productConformance=productConformance, productGeneral=productGeneral, productGroups=productGroups, productInformationGroup=productInformationGroup, productInterfaces=productInterfaces, productMIB=productMIB, productMainboard=productMainboard, productModuleCompliance=productModuleCompliance, productSubType=productSubType, productType=productType)

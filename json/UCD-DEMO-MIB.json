@@ -1,0 +1,118 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UCD-SNMP-MIB": [
+      "ucdavis"
+    ]
+  },
+  "ucdDemoMIB": {
+    "name": "ucdDemoMIB",
+    "oid": "1.3.6.1.4.1.2021.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-12-09 00:00",
+        "description": "SMIv2 version converted from older MIB definitions."
+      }
+    ]
+  },
+  "ucdDemoMIBObjects": {
+    "name": "ucdDemoMIBObjects",
+    "oid": "1.3.6.1.4.1.2021.14.1",
+    "class": "objectidentity"
+  },
+  "ucdDemoPublic": {
+    "name": "ucdDemoPublic",
+    "oid": "1.3.6.1.4.1.2021.14.1.1",
+    "class": "objectidentity"
+  },
+  "ucdDemoResetKeys": {
+    "name": "ucdDemoResetKeys",
+    "oid": "1.3.6.1.4.1.2021.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ucdDemoPublicString": {
+    "name": "ucdDemoPublicString",
+    "oid": "1.3.6.1.4.1.2021.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ucdDemoUserList": {
+    "name": "ucdDemoUserList",
+    "oid": "1.3.6.1.4.1.2021.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ucdDemoPassphrase": {
+    "name": "ucdDemoPassphrase",
+    "oid": "1.3.6.1.4.1.2021.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UCD-DEMO-MIB",
+      "Source digest sha256:beec022a6249db64b52a075583260a9533bc9410aacc0a10a8ee8d9b8e4010ff",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UCD-DEMO-MIB"
+  }
+}

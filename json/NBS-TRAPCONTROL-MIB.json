@@ -1,0 +1,251 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsTrapControlMib": {
+    "name": "nbsTrapControlMib",
+    "oid": "1.3.6.1.4.1.629.209",
+    "class": "moduleidentity"
+  },
+  "nbsTrapListGrp": {
+    "name": "nbsTrapListGrp",
+    "oid": "1.3.6.1.4.1.629.209.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsTrapIfGrp": {
+    "name": "nbsTrapIfGrp",
+    "oid": "1.3.6.1.4.1.629.209.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsTrapListTableSize": {
+    "name": "nbsTrapListTableSize",
+    "oid": "1.3.6.1.4.1.629.209.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapListTable": {
+    "name": "nbsTrapListTable",
+    "oid": "1.3.6.1.4.1.629.209.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsTrapListEntry": {
+    "name": "nbsTrapListEntry",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-TRAPCONTROL-MIB",
+        "object": "nbsTrapListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsTrapListIndex": {
+    "name": "nbsTrapListIndex",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsTrapListTrapMib": {
+    "name": "nbsTrapListTrapMib",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapListTrapName": {
+    "name": "nbsTrapListTrapName",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapListTrapDescription": {
+    "name": "nbsTrapListTrapDescription",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapListTrapOID": {
+    "name": "nbsTrapListTrapOID",
+    "oid": "1.3.6.1.4.1.629.209.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapIfTableSize": {
+    "name": "nbsTrapIfTableSize",
+    "oid": "1.3.6.1.4.1.629.209.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapIfTable": {
+    "name": "nbsTrapIfTable",
+    "oid": "1.3.6.1.4.1.629.209.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsTrapIfEntry": {
+    "name": "nbsTrapIfEntry",
+    "oid": "1.3.6.1.4.1.629.209.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-TRAPCONTROL-MIB",
+        "object": "nbsTrapIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsTrapIfIndex": {
+    "name": "nbsTrapIfIndex",
+    "oid": "1.3.6.1.4.1.629.209.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsTrapIfTrapsCaps": {
+    "name": "nbsTrapIfTrapsCaps",
+    "oid": "1.3.6.1.4.1.629.209.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsTrapIfTrapsSelect": {
+    "name": "nbsTrapIfTrapsSelect",
+    "oid": "1.3.6.1.4.1.629.209.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NBS-TRAPCONTROL-MIB",
+      "Source digest sha256:6903869608ce4c26dd6c2b5bb1636fde90d7cfad115b2a42e9134d44595411ef",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NBS-TRAPCONTROL-MIB"
+  }
+}

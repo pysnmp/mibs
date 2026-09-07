@@ -1,0 +1,196 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMgx8800IfMappingCapability": {
+    "name": "ciscoMgx8800IfMappingCapability",
+    "oid": "1.3.6.1.4.1.9.7.278",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-08-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cmiMappingCapabilityMgxV3R00": {
+    "name": "cmiMappingCapabilityMgxV3R00",
+    "oid": "1.3.6.1.4.1.9.7.278.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.0.00",
+    "capabilities": [
+      {
+        "module": "CISCO-MGX8800-IF-MAPPING-MIB",
+        "includes": [
+          "cmimPhysToIfMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "atm": 3,
+                  "atmVirtual": 4,
+                  "adjCardApsLine": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "atmIma": 2,
+                  "atm": 3,
+                  "atmVirtual": 4,
+                  "adjCardApsLine": 6,
+                  "imaGrpAtmPhy": 9
+                }
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "atmVirtual": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "adjCardApsLine": 6,
+                  "sonetVT": 8,
+                  "srmBertLine": 10,
+                  "srmBertPort": 11
+                }
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "ds1Inds3": 5,
+                  "srmBertLine": 10,
+                  "srmBertPort": 11
+                }
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "atmVirtual": 4
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "cmiMappingCapabilityRpmxfV12R02": {
+    "name": "cmiMappingCapabilityRpmxfV12R02",
+    "oid": "1.3.6.1.4.1.9.7.278.2",
+    "class": "agentcapabilities",
+    "productrelease": "IOS Release 12.2(8)T2.",
+    "capabilities": [
+      {
+        "module": "CISCO-MGX8800-IF-MAPPING-MIB",
+        "includes": [
+          "cmimPhysToIfMIBGroup"
+        ],
+        "variations": [
+          {
+            "object": "cmimIfNumber",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cmimIfType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "physicalLine": 1,
+                  "atmVirtual": 4,
+                  "propAtm": 7
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MGX8800-IF-MAPPING-CAPABILITY",
+      "Source digest sha256:7ef320f6c99cd72106d31856d21a3ddd8bd7b0d2f37a21e08c027242c49940bf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MGX8800-IF-MAPPING-CAPABILITY"
+  }
+}

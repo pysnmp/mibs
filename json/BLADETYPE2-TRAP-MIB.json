@@ -1,0 +1,910 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLADETYPE2-NETWORK-MIB": [
+      "ipCurCfgGwAddr",
+      "ipCurCfgGwIndex",
+      "vrrpCurCfgIfIndx",
+      "vrrpCurCfgIfPasswd",
+      "vrrpCurCfgVirtRtrAddr",
+      "vrrpCurCfgVirtRtrIndx"
+    ],
+    "BLADETYPE2-PHYSICAL-MIB": [
+      "stgCurCfgIndex"
+    ],
+    "BLADETYPE2-SWITCH-MIB": [
+      "agChassis",
+      "agRackId",
+      "agSlotNumber"
+    ],
+    "HP-SWITCH-PL-MIB": [
+      "hpSwitchBladeType2-Mgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysContact",
+      "sysLocation",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bt2Traps": {
+    "name": "bt2Traps",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7",
+    "class": "objectidentity"
+  },
+  "bt2SwTrapDisplayString": {
+    "name": "bt2SwTrapDisplayString",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bt2SwPrimaryPowerSupplyFailure": {
+    "name": "bt2SwPrimaryPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.1",
+    "class": "notificationtype"
+  },
+  "bt2SwDefGwUp": {
+    "name": "bt2SwDefGwUp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwIndex"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwDefGwDown": {
+    "name": "bt2SwDefGwDown",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwIndex"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwDefGwInService": {
+    "name": "bt2SwDefGwInService",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwIndex"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwDefGwNotInService": {
+    "name": "bt2SwDefGwNotInService",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwIndex"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "ipCurCfgGwAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwVrrpNewMaster": {
+    "name": "bt2SwVrrpNewMaster",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrIndx"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwVrrpNewBackup": {
+    "name": "bt2SwVrrpNewBackup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrIndx"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwVrrpAuthFailure": {
+    "name": "bt2SwVrrpAuthFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgIfIndx"
+      },
+      {
+        "module": "BLADETYPE2-NETWORK-MIB",
+        "object": "vrrpCurCfgIfPasswd"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwLoginFailure": {
+    "name": "bt2SwLoginFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwTempExceedThreshold": {
+    "name": "bt2SwTempExceedThreshold",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwRackLocationChange": {
+    "name": "bt2SwRackLocationChange",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-SWITCH-MIB",
+        "object": "agRackId"
+      },
+      {
+        "module": "BLADETYPE2-SWITCH-MIB",
+        "object": "agChassis"
+      },
+      {
+        "module": "BLADETYPE2-SWITCH-MIB",
+        "object": "agSlotNumber"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwApplyComplete": {
+    "name": "bt2SwApplyComplete",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwSaveComplete": {
+    "name": "bt2SwSaveComplete",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwFwDownloadSucess": {
+    "name": "bt2SwFwDownloadSucess",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwFwDownloadFailure": {
+    "name": "bt2SwFwDownloadFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwTempReturnThreshold": {
+    "name": "bt2SwTempReturnThreshold",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwFanFailure": {
+    "name": "bt2SwFanFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwFanFailureFixed": {
+    "name": "bt2SwFanFailureFixed",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoLtMFailure": {
+    "name": "bt2SwUfdfoLtMFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoLtMUP": {
+    "name": "bt2SwUfdfoLtMUP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoGlobalEna": {
+    "name": "bt2SwUfdfoGlobalEna",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoGlobalDis": {
+    "name": "bt2SwUfdfoGlobalDis",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoLtDAutoEna": {
+    "name": "bt2SwUfdfoLtDAutoEna",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwUfdfoLtDAutoDis": {
+    "name": "bt2SwUfdfoLtDAutoDis",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwCubeInserted": {
+    "name": "bt2SwCubeInserted",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwCubeRemoved": {
+    "name": "bt2SwCubeRemoved",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwStgNewRoot": {
+    "name": "bt2SwStgNewRoot",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "BLADETYPE2-PHYSICAL-MIB",
+        "object": "stgCurCfgIndex"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwCistNewRoot": {
+    "name": "bt2SwCistNewRoot",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwStgTopologyChanged": {
+    "name": "bt2SwStgTopologyChanged",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "BLADETYPE2-PHYSICAL-MIB",
+        "object": "stgCurCfgIndex"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwCistTopologyChanged": {
+    "name": "bt2SwCistTopologyChanged",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwHotlinksMasterUp": {
+    "name": "bt2SwHotlinksMasterUp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwHotlinksMasterDn": {
+    "name": "bt2SwHotlinksMasterDn",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwHotlinksBackupUp": {
+    "name": "bt2SwHotlinksBackupUp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwHotlinksBackupDn": {
+    "name": "bt2SwHotlinksBackupDn",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "bt2SwHotlinksNone": {
+    "name": "bt2SwHotlinksNone",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADETYPE2-TRAP-MIB",
+        "object": "bt2SwTrapDisplayString"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BLADETYPE2-TRAP-MIB",
+      "Source digest sha256:89a12d628bfc42f0f3ffc70c7390c5fc29fd77fb26bf0ad67ebb43d6d76b4eb3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BLADETYPE2-TRAP-MIB"
+  }
+}

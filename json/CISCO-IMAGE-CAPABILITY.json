@@ -1,0 +1,127 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImageMIBCapability": {
+    "name": "ciscoImageMIBCapability",
+    "oid": "1.3.6.1.4.1.9.7.580",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-03-26 00:00",
+        "description": "Added ciscoImageCapabilityGssV03R01 agent capabilities for Global Site Selector(GSS) release 3.1(0)."
+      },
+      {
+        "revision": "2003-09-15 00:00",
+        "description": "-- Add the capabilities of IOS versions 12.1(19E) and 12.2(17SX) for Catalyst 6000/6500 and Cisco 7600 series devices. -- Add the capability of CatOS version 8.1(1)."
+      },
+      {
+        "revision": "1995-01-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImageMIBCapabilityV10R01": {
+    "name": "ciscoImageMIBCapabilityV10R01",
+    "oid": "1.3.6.1.4.1.9.7.580.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "CISCO-IMAGE-MIB",
+        "includes": [
+          "ciscoImageMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCapabilityV12R0119ECat6K": {
+    "name": "ciscoImageCapabilityV12R0119ECat6K",
+    "oid": "1.3.6.1.4.1.9.7.580.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(19E) on Catalyst 6000/6500\n                      and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IMAGE-MIB",
+        "includes": [
+          "ciscoImageMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCapabilityV12R0217SXCat6K": {
+    "name": "ciscoImageCapabilityV12R0217SXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.580.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(17SX) on Catalyst 6000/6500\n                      and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IMAGE-MIB",
+        "includes": [
+          "ciscoImageMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCapabilityCatOSV08R0101": {
+    "name": "ciscoImageCapabilityCatOSV08R0101",
+    "oid": "1.3.6.1.4.1.9.7.580.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1).",
+    "capabilities": [
+      {
+        "module": "CISCO-IMAGE-MIB",
+        "includes": [
+          "ciscoImageMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoImageCapabilityGssV03R01": {
+    "name": "ciscoImageCapabilityGssV03R01",
+    "oid": "1.3.6.1.4.1.9.7.580.5",
+    "class": "agentcapabilities",
+    "productrelease": "Global Site Selector(GSS) 3.1(0)",
+    "capabilities": [
+      {
+        "module": "CISCO-IMAGE-MIB",
+        "includes": [
+          "ciscoImageMIBGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IMAGE-CAPABILITY",
+      "Source digest sha256:9043296d94c36e8ba9584cac5682c9cb2f9271c07e8204255a8e400afa611f29",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IMAGE-CAPABILITY"
+  }
+}

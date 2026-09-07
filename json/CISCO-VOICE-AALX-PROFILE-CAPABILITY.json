@@ -1,0 +1,153 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceAalxProfileCapability": {
+    "name": "ciscoVoiceAalxProfileCapability",
+    "oid": "1.3.6.1.4.1.9.7.352",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cVoiceAalxProfileCapV5R00": {
+    "name": "cVoiceAalxProfileCapV5R00",
+    "oid": "1.3.6.1.4.1.9.7.352.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 5.0.0",
+    "capabilities": [
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "includes": [
+          "cvapCodecConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvapCodecNegotiationOption",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cvapCodecConfigAdaptType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "aal5": 2,
+                  "aal2": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "cvapCodecConfigType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "g729Ar8000": 2,
+                  "g726r32000": 5,
+                  "g711ulawr64000": 6,
+                  "g711Alawr64000": 7,
+                  "g729ABr8000": 13,
+                  "clearChannel": 18
+                }
+              }
+            }
+          },
+          {
+            "object": "cvapCodecConfigVoicePacketPeriod",
+            "default": [
+              "pktPeriod10000us"
+            ]
+          },
+          {
+            "object": "cvapCodecConfigVbdPacketPeriod",
+            "default": [
+              "pktPeriod10000us"
+            ]
+          },
+          {
+            "object": "cvapCodecConfigJitterMaxDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 20,
+                    "max": 135
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvapCodecConfigJitterNomDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 5,
+                    "max": 135
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cvapCodecConfigJitterMinDelay",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 135
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-AALX-PROFILE-CAPABILITY",
+      "Source digest sha256:a6a509180309f8d59d8f4d5ccb8317dcfbd0a222d8fe689232f1e690a098cf20",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-AALX-PROFILE-CAPABILITY"
+  }
+}

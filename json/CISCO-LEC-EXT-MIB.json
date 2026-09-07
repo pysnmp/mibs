@@ -1,0 +1,142 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "LAN-EMULATION-CLIENT-MIB": [
+      "lecConfigEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLecExtMIB": {
+    "name": "ciscoLecExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1997-05-09 12:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLecExtMIBObjects": {
+    "name": "ciscoLecExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.77.1",
+    "class": "objectidentity"
+  },
+  "cLecExtVlan": {
+    "name": "cLecExtVlan",
+    "oid": "1.3.6.1.4.1.9.9.77.1.1",
+    "class": "objectidentity"
+  },
+  "cLecToVlanTable": {
+    "name": "cLecToVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.77.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLecToVlanEntry": {
+    "name": "cLecToVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.77.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "cLecToVlanEntry",
+      "module": "CISCO-LEC-EXT-MIB",
+      "object": "lecConfigEntry"
+    },
+    "status": "current"
+  },
+  "cLecToVlanId": {
+    "name": "cLecToVlanId",
+    "oid": "1.3.6.1.4.1.9.9.77.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLecExtMIBNotificationPrefix": {
+    "name": "ciscoLecExtMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.77.2",
+    "class": "objectidentity"
+  },
+  "ciscoLecExtMIBNotifications": {
+    "name": "ciscoLecExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.77.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoLecExtMIBConformance": {
+    "name": "ciscoLecExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.77.3",
+    "class": "objectidentity"
+  },
+  "ciscoLecExtMIBCompliances": {
+    "name": "ciscoLecExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.77.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoLecExtMIBGroups": {
+    "name": "ciscoLecExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.77.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoLecExtMIBCompliance": {
+    "name": "ciscoLecExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.77.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLecExtVlanMIBGroup",
+        "module": "CISCO-LEC-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLecExtVlanMIBGroup": {
+    "name": "ciscoLecExtVlanMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.77.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LEC-EXT-MIB",
+        "object": "cLecToVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LEC-EXT-MIB",
+      "Source digest sha256:58f72b7a3f1d53447027598aef26e49ff387741303b23e5742f6f258d55182cb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LEC-EXT-MIB"
+  }
+}

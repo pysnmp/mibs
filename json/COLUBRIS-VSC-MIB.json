@@ -1,0 +1,284 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisSSID"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "colubrisVscMIB": {
+    "name": "colubrisVscMIB",
+    "oid": "1.3.6.1.4.1.8744.5.22",
+    "class": "moduleidentity"
+  },
+  "colubrisVscMIBObjects": {
+    "name": "colubrisVscMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.22.1",
+    "class": "objectidentity"
+  },
+  "coVscConfigGroup": {
+    "name": "coVscConfigGroup",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1",
+    "class": "objectidentity"
+  },
+  "coVscConfigTable": {
+    "name": "coVscConfigTable",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coVscConfigEntry": {
+    "name": "coVscConfigEntry",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coVscCfgIndex": {
+    "name": "coVscCfgIndex",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coVscCfgFriendlyVscName": {
+    "name": "coVscCfgFriendlyVscName",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgSSID": {
+    "name": "coVscCfgSSID",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgAccessControlled": {
+    "name": "coVscCfgAccessControlled",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgSecurity": {
+    "name": "coVscCfgSecurity",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "ieee802dot1x": 2,
+          "wpa": 3,
+          "wpa2": 4,
+          "wpaAndWpa2": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgEncryption": {
+    "name": "coVscCfgEncryption",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "tkip": 3,
+          "aes": 4,
+          "tkipAndAes": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfg8021xAuthentication": {
+    "name": "coVscCfg8021xAuthentication",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "radius": 2,
+          "psk": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgMACAuthentication": {
+    "name": "coVscCfgMACAuthentication",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coVscCfgHTMLAuthentication": {
+    "name": "coVscCfgHTMLAuthentication",
+    "oid": "1.3.6.1.4.1.8744.5.22.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisVscMIBConformance": {
+    "name": "colubrisVscMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.22.2",
+    "class": "objectidentity"
+  },
+  "colubrisVscMIBCompliances": {
+    "name": "colubrisVscMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.22.2.1",
+    "class": "objectidentity"
+  },
+  "colubrisVscMIBGroups": {
+    "name": "colubrisVscMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.22.2.2",
+    "class": "objectidentity"
+  },
+  "colubrisVscMIBCompliance": {
+    "name": "colubrisVscMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.22.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisVscMIBGroup",
+        "module": "COLUBRIS-VSC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisVscMIBGroup": {
+    "name": "colubrisVscMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.22.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgFriendlyVscName"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgSSID"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgAccessControlled"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgSecurity"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgEncryption"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfg8021xAuthentication"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgMACAuthentication"
+      },
+      {
+        "module": "COLUBRIS-VSC-MIB",
+        "object": "coVscCfgHTMLAuthentication"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source COLUBRIS-VSC-MIB",
+      "Source digest sha256:ae5da03f2c3c31389715a40f085f61fc0a0f04b9e026114aa4600daebe888975",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "COLUBRIS-VSC-MIB"
+  }
+}

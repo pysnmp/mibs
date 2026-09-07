@@ -1,0 +1,329 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "colubrisUsageInformationMIB": {
+    "name": "colubrisUsageInformationMIB",
+    "oid": "1.3.6.1.4.1.8744.5.21",
+    "class": "moduleidentity"
+  },
+  "colubrisUsageInformationMIBObjects": {
+    "name": "colubrisUsageInformationMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.21.1",
+    "class": "objectidentity"
+  },
+  "coUsageInformationGroup": {
+    "name": "coUsageInformationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1",
+    "class": "objectidentity"
+  },
+  "coUsInfoUpTime": {
+    "name": "coUsInfoUpTime",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoLoadAverage1Min": {
+    "name": "coUsInfoLoadAverage1Min",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoLoadAverage5Min": {
+    "name": "coUsInfoLoadAverage5Min",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoLoadAverage15Min": {
+    "name": "coUsInfoLoadAverage15Min",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoCpuUseNow": {
+    "name": "coUsInfoCpuUseNow",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoCpuUse5Sec": {
+    "name": "coUsInfoCpuUse5Sec",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoCpuUse10Sec": {
+    "name": "coUsInfoCpuUse10Sec",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoCpuUse20Sec": {
+    "name": "coUsInfoCpuUse20Sec",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoRamTotal": {
+    "name": "coUsInfoRamTotal",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoRamFree": {
+    "name": "coUsInfoRamFree",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoRamBuffer": {
+    "name": "coUsInfoRamBuffer",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoRamCached": {
+    "name": "coUsInfoRamCached",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoStorageUsePermanent": {
+    "name": "coUsInfoStorageUsePermanent",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coUsInfoStorageUseTemporary": {
+    "name": "coUsInfoStorageUseTemporary",
+    "oid": "1.3.6.1.4.1.8744.5.21.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisUsageInformationMIBNotificationPrefix": {
+    "name": "colubrisUsageInformationMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.21.2",
+    "class": "objectidentity"
+  },
+  "colubrisUsageInformationMIBNotifications": {
+    "name": "colubrisUsageInformationMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.21.2.0",
+    "class": "objectidentity"
+  },
+  "colubrisUsageInformationMIBConformance": {
+    "name": "colubrisUsageInformationMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.21.3",
+    "class": "objectidentity"
+  },
+  "colubrisUsageInformationMIBCompliances": {
+    "name": "colubrisUsageInformationMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.21.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisUsageInformationMIBGroups": {
+    "name": "colubrisUsageInformationMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.21.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisUsageInformationMIBCompliance": {
+    "name": "colubrisUsageInformationMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.21.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisUsageInformationMIBGroup",
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisUsageInformationMIBGroup": {
+    "name": "colubrisUsageInformationMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.21.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoUpTime"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoLoadAverage1Min"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoLoadAverage5Min"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoLoadAverage15Min"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoCpuUseNow"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoCpuUse5Sec"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoCpuUse10Sec"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoCpuUse20Sec"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoRamTotal"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoRamFree"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoRamBuffer"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoRamCached"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoStorageUsePermanent"
+      },
+      {
+        "module": "COLUBRIS-USAGE-INFORMATION-MIB",
+        "object": "coUsInfoStorageUseTemporary"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source COLUBRIS-USAGE-INFORMATION-MIB",
+      "Source digest sha256:df84b8c4e08e01784c0bd021b02b40d7669d5f10053703c57738257169aedd83",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "COLUBRIS-USAGE-INFORMATION-MIB"
+  }
+}

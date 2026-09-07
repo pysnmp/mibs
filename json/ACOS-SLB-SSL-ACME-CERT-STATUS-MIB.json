@@ -1,0 +1,161 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbSslAcmeCertStatusModule": {
+    "name": "slbSslAcmeCertStatusModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297",
+    "class": "moduleidentity"
+  },
+  "sslAcmeCertStatus": {
+    "name": "sslAcmeCertStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1",
+    "class": "objectidentity"
+  },
+  "sslAcmeCertStatusOperAcmeCertsTable": {
+    "name": "sslAcmeCertStatusOperAcmeCertsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsEntry": {
+    "name": "sslAcmeCertStatusOperAcmeCertsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-SSL-ACME-CERT-STATUS-MIB",
+        "object": "sslAcmeCertStatusOperAcmeCertsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SLB-SSL-ACME-CERT-STATUS-MIB",
+        "object": "sslAcmeCertStatusOperAcmeCertsAcmeCertsListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsSlotId": {
+    "name": "sslAcmeCertStatusOperAcmeCertsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsAcmeCertsListId": {
+    "name": "sslAcmeCertStatusOperAcmeCertsAcmeCertsListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsName": {
+    "name": "sslAcmeCertStatusOperAcmeCertsName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsStatus": {
+    "name": "sslAcmeCertStatusOperAcmeCertsStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsRenew": {
+    "name": "sslAcmeCertStatusOperAcmeCertsRenew",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsRotated": {
+    "name": "sslAcmeCertStatusOperAcmeCertsRotated",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslAcmeCertStatusOperAcmeCertsLastEnrollRenewStatus": {
+    "name": "sslAcmeCertStatusOperAcmeCertsLastEnrollRenewStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.297.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-SSL-ACME-CERT-STATUS-MIB",
+      "Source digest sha256:c0cb6304ec72e11665e0d462ac20a612adbd90711594ab8a967473e8b9939e28",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-SSL-ACME-CERT-STATUS-MIB"
+  }
+}

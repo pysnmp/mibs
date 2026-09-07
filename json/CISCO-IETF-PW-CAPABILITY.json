@@ -1,0 +1,192 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfPwCapability": {
+    "name": "ciscoIetfPwCapability",
+    "oid": "1.3.6.1.4.1.9.7.432",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-09 12:00",
+        "description": "Initial version: ciscoIetfPwCapabilityV12R00. "
+      }
+    ]
+  },
+  "ciscoIetfPwCapabilityV12R00": {
+    "name": "ciscoIetfPwCapabilityV12R00",
+    "oid": "1.3.6.1.4.1.9.7.432.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.0(28)S, Cisco IOS 12.2",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "includes": [
+          "cpwVcGroup",
+          "cpwVcPeformanceGroup",
+          "cpwVcMappingTablesGroup",
+          "cpwVcNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cpwVcType",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcOwner",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcPsnType",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcSetUpPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcHoldingPriority",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcInboundMode",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcPeerAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcPeerAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcID",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcLocalGroupID",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcControlWord",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcLocalIfMtu",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcLocalIfString",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcRemoteControlWord",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcOutboundVcLabel",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcInboundVcLabel",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcName",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcDescr",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcAdminStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcNotifRate",
+            "access": "read-only"
+          },
+          {
+            "object": "cpwVcPerfCurrentInHCPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfCurrentInHCBytes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfCurrentOutHCPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfCurrentOutHCBytes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalValidData",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalInHCPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalInHCBytes",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalOutHCPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cpwVcPerfIntervalOutHCBytes",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-PW-CAPABILITY",
+      "Source digest sha256:28a60133c2b35afb26bc1b06c028aa3c76097c6ed4f0b295256dd8e363fc8360",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-PW-CAPABILITY"
+  }
+}

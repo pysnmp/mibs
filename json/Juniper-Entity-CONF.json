@@ -1,0 +1,94 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniEntityAgent": {
+    "name": "juniEntityAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-04-27 13:16",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniEntityAgentV1": {
+    "name": "juniEntityAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.13.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the logical Entity component of the JUNOSe SNMP agent.\n        This version of the logical Entity component was supported in JUNOSe 2.x\n        system releases.",
+    "capabilities": [
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityLogicalGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEntityAgentV2": {
+    "name": "juniEntityAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.13.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the physical and logical Entity components of the Juniper\n        JUNOSe SNMP agent.  This version of the physical and logical Entity\n        components is supported in JUNOSe 3.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "ENTITY-MIB",
+        "includes": [
+          "entityPhysical2Group",
+          "entityLogical2Group",
+          "entityMappingGroup"
+        ],
+        "variations": [
+          {
+            "object": "entPhysicalSerialNum",
+            "access": "read-only"
+          },
+          {
+            "object": "entLPPhysicalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "entAliasMappingIdentifier",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Entity-CONF",
+      "Source digest sha256:5dec42d94bde62030d1e5956216e90941f03599b80065ffc1941dd59b3ba29c7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Entity-CONF"
+  }
+}

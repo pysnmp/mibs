@@ -1,0 +1,851 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfObjectModules",
+      "icfSecurity"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "icfSecurityMib": {
+    "name": "icfSecurityMib",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-01 09:03",
+        "description": "Deprecated icfAuthIPMgrAddress and icfAuthIPMgrMask."
+      },
+      {
+        "revision": "2003-01-09 01:12",
+        "description": "Deprecated icfCommunityTable and icfAuthMgrTable."
+      },
+      {
+        "revision": "2000-11-03 07:56",
+        "description": "Added icfAuthIPMgrTable. Updated division name."
+      },
+      {
+        "revision": "1996-09-10 02:00",
+        "description": "Updated division name in ORGANIZATION clause."
+      },
+      {
+        "revision": "1996-01-25 03:56",
+        "description": "Split this MIB module from the former monolithic hp-icf MIB. Added the SNMP community group."
+      },
+      {
+        "revision": "1993-07-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "icfSecurPassword": {
+    "name": "icfSecurPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "icfSecurAuthAnyMgr": {
+    "name": "icfSecurAuthAnyMgr",
+    "oid": "1.3.6.1.4.1.11.2.14.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "icfSecurAuthMgrTable": {
+    "name": "icfSecurAuthMgrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "icfSecurAuthMgrEntry": {
+    "name": "icfSecurAuthMgrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfAuthMgrIndex": {
+    "name": "icfAuthMgrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "icfAuthMgrIpAddress": {
+    "name": "icfAuthMgrIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "icfAuthMgrIpxAddress": {
+    "name": "icfAuthMgrIpxAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "icfAuthMgrRcvTraps": {
+    "name": "icfAuthMgrRcvTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "icfSecurIntruder": {
+    "name": "icfSecurIntruder",
+    "oid": "1.3.6.1.4.1.11.2.14.4.4",
+    "class": "objectidentity"
+  },
+  "icfSecurIntruderFlag": {
+    "name": "icfSecurIntruderFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfSecurIntruderIpAddress": {
+    "name": "icfSecurIntruderIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfSecurIntruderIpxAddress": {
+    "name": "icfSecurIntruderIpxAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfSecurIntruderTime": {
+    "name": "icfSecurIntruderTime",
+    "oid": "1.3.6.1.4.1.11.2.14.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfCommunityTable": {
+    "name": "icfCommunityTable",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "icfCommunityEntry": {
+    "name": "icfCommunityEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfCommunityIndex": {
+    "name": "icfCommunityIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "icfCommunityName": {
+    "name": "icfCommunityName",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfCommunityReadView": {
+    "name": "icfCommunityReadView",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "discovery": 2,
+          "restricted": 3,
+          "user": 4,
+          "root": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfCommunityWriteView": {
+    "name": "icfCommunityWriteView",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "discovery": 2,
+          "restricted": 3,
+          "user": 4,
+          "root": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfCommunityStatus": {
+    "name": "icfCommunityStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthMgrTable": {
+    "name": "icfAuthMgrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "icfAuthMgrEntry": {
+    "name": "icfAuthMgrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfAuthMgrSubIndex": {
+    "name": "icfAuthMgrSubIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "icfAuthMgrAddrType": {
+    "name": "icfAuthMgrAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthMgrAddress": {
+    "name": "icfAuthMgrAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthMgrMask": {
+    "name": "icfAuthMgrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthMgrStatus": {
+    "name": "icfAuthMgrStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthIPMgrTable": {
+    "name": "icfAuthIPMgrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfAuthIPMgrEntry": {
+    "name": "icfAuthIPMgrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icfAuthIPMgrIndex": {
+    "name": "icfAuthIPMgrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfAuthIPMgrAddress": {
+    "name": "icfAuthIPMgrAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthIPMgrMask": {
+    "name": "icfAuthIPMgrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "icfAuthIPMgrAccess": {
+    "name": "icfAuthIPMgrAccess",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operator": 1,
+          "manager": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfAuthIPMgrStatus": {
+    "name": "icfAuthIPMgrStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfAuthIPMgrInetAddrType": {
+    "name": "icfAuthIPMgrInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfAuthIPMgrInetAddress": {
+    "name": "icfAuthIPMgrInetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfAuthIPMgrInetAddrMaskType": {
+    "name": "icfAuthIPMgrInetAddrMaskType",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfAuthIPMgrInetAddrMask": {
+    "name": "icfAuthIPMgrInetAddrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.4.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "icfSecurityConformance": {
+    "name": "icfSecurityConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "icfSecurityCompliances": {
+    "name": "icfSecurityCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "icfSecurityGroups": {
+    "name": "icfSecurityGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "icfSecurCompliance": {
+    "name": "icfSecurCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "icfSnmpSecurityGroup",
+        "module": "HP-ICF-SECURITY"
+      },
+      {
+        "object": "icfSecIntruderGroup",
+        "module": "HP-ICF-SECURITY"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icfV1CommunityCompliance": {
+    "name": "icfV1CommunityCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "icfV1CommunityGroup",
+        "module": "HP-ICF-SECURITY"
+      },
+      {
+        "object": "icfSecIntruderGroup",
+        "module": "HP-ICF-SECURITY"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfSnmpSecurityGroup": {
+    "name": "icfSnmpSecurityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurPassword"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurAuthAnyMgr"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrIndex"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrIpAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrIpxAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrRcvTraps"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icfSecIntruderGroup": {
+    "name": "icfSecIntruderGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurIntruderFlag"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurIntruderIpAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurIntruderIpxAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfSecurIntruderTime"
+      }
+    ],
+    "status": "current"
+  },
+  "icfV1CommunityGroup": {
+    "name": "icfV1CommunityGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityName"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityReadView"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityWriteView"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfCommunityStatus"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrAddrType"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrMask"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthMgrStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfAuthIPMgrGroup": {
+    "name": "icfAuthIPMgrGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrMask"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrAccess"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "icfAuthIPMgrInetGroup": {
+    "name": "icfAuthIPMgrInetGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.1.1.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrInetAddrType"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrInetAddress"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrInetAddrMaskType"
+      },
+      {
+        "module": "HP-ICF-SECURITY",
+        "object": "icfAuthIPMgrInetAddrMask"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-SECURITY",
+      "Source digest sha256:0cfecca80765d36e40e6e9c730f850d4cafed7e299e40344ffd4146c50530c0d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-SECURITY"
+  }
+}

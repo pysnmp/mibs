@@ -1,0 +1,2295 @@
+{
+  "imports": {
+    "class": "imports",
+    "CPQHOST-MIB": [
+      "compaq",
+      "cpqHoTrapFlags"
+    ],
+    "CPQSINFO-MIB": [
+      "cpqSiServerSystemId"
+    ],
+    "CPQSTDEQ-MIB": [
+      "cpqSePciSlotBoardName"
+    ],
+    "IP-MIB": [
+      "ipAdEntAddr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cpqNic": {
+    "name": "cpqNic",
+    "oid": "1.3.6.1.4.1.232.18",
+    "class": "objectidentity"
+  },
+  "cpqNicMibRev": {
+    "name": "cpqNicMibRev",
+    "oid": "1.3.6.1.4.1.232.18.1",
+    "class": "objectidentity"
+  },
+  "cpqNicComponent": {
+    "name": "cpqNicComponent",
+    "oid": "1.3.6.1.4.1.232.18.2",
+    "class": "objectidentity"
+  },
+  "cpqNicInterface": {
+    "name": "cpqNicInterface",
+    "oid": "1.3.6.1.4.1.232.18.2.1",
+    "class": "objectidentity"
+  },
+  "cpqNicIfLogMap": {
+    "name": "cpqNicIfLogMap",
+    "oid": "1.3.6.1.4.1.232.18.2.2",
+    "class": "objectidentity"
+  },
+  "cpqNicIfPhysAdapter": {
+    "name": "cpqNicIfPhysAdapter",
+    "oid": "1.3.6.1.4.1.232.18.2.3",
+    "class": "objectidentity"
+  },
+  "cpqNicOsCommon": {
+    "name": "cpqNicOsCommon",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4",
+    "class": "objectidentity"
+  },
+  "cpqNicIfVlanMap": {
+    "name": "cpqNicIfVlanMap",
+    "oid": "1.3.6.1.4.1.232.18.2.4",
+    "class": "objectidentity"
+  },
+  "cpqNicVirusThrottle": {
+    "name": "cpqNicVirusThrottle",
+    "oid": "1.3.6.1.4.1.232.18.2.5",
+    "class": "objectidentity"
+  },
+  "cpqNicMibRevMajor": {
+    "name": "cpqNicMibRevMajor",
+    "oid": "1.3.6.1.4.1.232.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicMibRevMinor": {
+    "name": "cpqNicMibRevMinor",
+    "oid": "1.3.6.1.4.1.232.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicMibCondition": {
+    "name": "cpqNicMibCondition",
+    "oid": "1.3.6.1.4.1.232.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicOsCommonPollFreq": {
+    "name": "cpqNicOsCommonPollFreq",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqNicOsCommonModuleTable": {
+    "name": "cpqNicOsCommonModuleTable",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModuleEntry": {
+    "name": "cpqNicOsCommonModuleEntry",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicOsCommonModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModuleIndex": {
+    "name": "cpqNicOsCommonModuleIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModuleName": {
+    "name": "cpqNicOsCommonModuleName",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModuleVersion": {
+    "name": "cpqNicOsCommonModuleVersion",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModuleDate": {
+    "name": "cpqNicOsCommonModuleDate",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqNicOsCommonModulePurpose": {
+    "name": "cpqNicOsCommonModulePurpose",
+    "oid": "1.3.6.1.4.1.232.18.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqNicIfLogMapTable": {
+    "name": "cpqNicIfLogMapTable",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapEntry": {
+    "name": "cpqNicIfLogMapEntry",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapIndex": {
+    "name": "cpqNicIfLogMapIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapIfNumber": {
+    "name": "cpqNicIfLogMapIfNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapDescription": {
+    "name": "cpqNicIfLogMapDescription",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapGroupType": {
+    "name": "cpqNicIfLogMapGroupType",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "redundantPair": 3,
+          "nft": 4,
+          "alb": 5,
+          "fec": 6,
+          "gec": 7,
+          "ad": 8,
+          "slb": 9,
+          "tlb": 10,
+          "redundancySet": 11,
+          "switchInd": 12,
+          "lacp": 13,
+          "team": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapAdapterCount": {
+    "name": "cpqNicIfLogMapAdapterCount",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapAdapterOKCount": {
+    "name": "cpqNicIfLogMapAdapterOKCount",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapPhysicalAdapters": {
+    "name": "cpqNicIfLogMapPhysicalAdapters",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapMACAddress": {
+    "name": "cpqNicIfLogMapMACAddress",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapSwitchoverMode": {
+    "name": "cpqNicIfLogMapSwitchoverMode",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "manual": 3,
+          "switchOnFail": 4,
+          "preferredPrimary": 5,
+          "auto": 6,
+          "preferenceOrder": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapCondition": {
+    "name": "cpqNicIfLogMapCondition",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapStatus": {
+    "name": "cpqNicIfLogMapStatus",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "primaryFailed": 3,
+          "standbyFailed": 4,
+          "groupFailed": 5,
+          "redundancyReduced": 6,
+          "redundancyLost": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapNumSwitchovers": {
+    "name": "cpqNicIfLogMapNumSwitchovers",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapHwLocation": {
+    "name": "cpqNicIfLogMapHwLocation",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfLogMapSpeed": {
+    "name": "cpqNicIfLogMapSpeed",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapVlanCount": {
+    "name": "cpqNicIfLogMapVlanCount",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapVlans": {
+    "name": "cpqNicIfLogMapVlans",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapLastChange": {
+    "name": "cpqNicIfLogMapLastChange",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapAdvancedTeaming": {
+    "name": "cpqNicIfLogMapAdvancedTeaming",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapSpeedMbps": {
+    "name": "cpqNicIfLogMapSpeedMbps",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfLogMapIPV6Address": {
+    "name": "cpqNicIfLogMapIPV6Address",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfLogMapLACNumber": {
+    "name": "cpqNicIfLogMapLACNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfLogMapDHCP": {
+    "name": "cpqNicIfLogMapDHCP",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfLogMapPciLocation": {
+    "name": "cpqNicIfLogMapPciLocation",
+    "oid": "1.3.6.1.4.1.232.18.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfLogMapOverallCondition": {
+    "name": "cpqNicIfLogMapOverallCondition",
+    "oid": "1.3.6.1.4.1.232.18.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterTable": {
+    "name": "cpqNicIfPhysAdapterTable",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterEntry": {
+    "name": "cpqNicIfPhysAdapterEntry",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterIndex": {
+    "name": "cpqNicIfPhysAdapterIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterIfNumber": {
+    "name": "cpqNicIfPhysAdapterIfNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterRole": {
+    "name": "cpqNicIfPhysAdapterRole",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "primary": 2,
+          "secondary": 3,
+          "member": 4,
+          "txRx": 5,
+          "tx": 6,
+          "standby": 7,
+          "none": 8,
+          "active": 9,
+          "notApplicable": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterMACAddress": {
+    "name": "cpqNicIfPhysAdapterMACAddress",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterSlot": {
+    "name": "cpqNicIfPhysAdapterSlot",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterIoAddr": {
+    "name": "cpqNicIfPhysAdapterIoAddr",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterIrq": {
+    "name": "cpqNicIfPhysAdapterIrq",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterDma": {
+    "name": "cpqNicIfPhysAdapterDma",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterMemAddr": {
+    "name": "cpqNicIfPhysAdapterMemAddr",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterPort": {
+    "name": "cpqNicIfPhysAdapterPort",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterDuplexState": {
+    "name": "cpqNicIfPhysAdapterDuplexState",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "half": 2,
+          "full": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterCondition": {
+    "name": "cpqNicIfPhysAdapterCondition",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterState": {
+    "name": "cpqNicIfPhysAdapterState",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "standby": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterStatus": {
+    "name": "cpqNicIfPhysAdapterStatus",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "generalFailure": 3,
+          "linkFailure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterStatsValid": {
+    "name": "cpqNicIfPhysAdapterStatsValid",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterGoodTransmits": {
+    "name": "cpqNicIfPhysAdapterGoodTransmits",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterGoodReceives": {
+    "name": "cpqNicIfPhysAdapterGoodReceives",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterBadTransmits": {
+    "name": "cpqNicIfPhysAdapterBadTransmits",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterBadReceives": {
+    "name": "cpqNicIfPhysAdapterBadReceives",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterAlignmentErrors": {
+    "name": "cpqNicIfPhysAdapterAlignmentErrors",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterFCSErrors": {
+    "name": "cpqNicIfPhysAdapterFCSErrors",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterSingleCollisionFrames": {
+    "name": "cpqNicIfPhysAdapterSingleCollisionFrames",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterMultipleCollisionFrames": {
+    "name": "cpqNicIfPhysAdapterMultipleCollisionFrames",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterDeferredTransmissions": {
+    "name": "cpqNicIfPhysAdapterDeferredTransmissions",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterLateCollisions": {
+    "name": "cpqNicIfPhysAdapterLateCollisions",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterExcessiveCollisions": {
+    "name": "cpqNicIfPhysAdapterExcessiveCollisions",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterInternalMacTransmitErrors": {
+    "name": "cpqNicIfPhysAdapterInternalMacTransmitErrors",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterCarrierSenseErrors": {
+    "name": "cpqNicIfPhysAdapterCarrierSenseErrors",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterFrameTooLongs": {
+    "name": "cpqNicIfPhysAdapterFrameTooLongs",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterInternalMacReceiveErrors": {
+    "name": "cpqNicIfPhysAdapterInternalMacReceiveErrors",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterHwLocation": {
+    "name": "cpqNicIfPhysAdapterHwLocation",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterPartNumber": {
+    "name": "cpqNicIfPhysAdapterPartNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterSpeed": {
+    "name": "cpqNicIfPhysAdapterSpeed",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterConfSpeedDuplex": {
+    "name": "cpqNicIfPhysAdapterConfSpeedDuplex",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "autoAuto": 2,
+          "ethernetHalf": 3,
+          "ethernetFull": 4,
+          "fastEthernetHalf": 5,
+          "fastEthernetFull": 6,
+          "gigEthernetHalf": 7,
+          "gigEthernetFull": 8,
+          "gig10EthernetFull": 9,
+          "gig20EthernetFull": 10,
+          "gig40EthernetFull": 11,
+          "gig100EthernetFull": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterAggregationGID": {
+    "name": "cpqNicIfPhysAdapterAggregationGID",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfPhysAdapterSpeedMbps": {
+    "name": "cpqNicIfPhysAdapterSpeedMbps",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterInOctets": {
+    "name": "cpqNicIfPhysAdapterInOctets",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterOutOctets": {
+    "name": "cpqNicIfPhysAdapterOutOctets",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterName": {
+    "name": "cpqNicIfPhysAdapterName",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterIoBayNo": {
+    "name": "cpqNicIfPhysAdapterIoBayNo",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterFWVersion": {
+    "name": "cpqNicIfPhysAdapterFWVersion",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterVirtualPortNumber": {
+    "name": "cpqNicIfPhysAdapterVirtualPortNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfPhysAdapterPciLocation": {
+    "name": "cpqNicIfPhysAdapterPciLocation",
+    "oid": "1.3.6.1.4.1.232.18.2.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicPhyAdapBaseMemTable": {
+    "name": "cpqNicPhyAdapBaseMemTable",
+    "oid": "1.3.6.1.4.1.232.18.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqNicPhyAdapBaseMemEntry": {
+    "name": "cpqNicPhyAdapBaseMemEntry",
+    "oid": "1.3.6.1.4.1.232.18.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicPhyAdapBaseMemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqNicPhyAdapBaseMemIndex": {
+    "name": "cpqNicPhyAdapBaseMemIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicPhyAdapBaseMemIfIndex": {
+    "name": "cpqNicPhyAdapBaseMemIfIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicPhyAdapBaseMemAddr": {
+    "name": "cpqNicPhyAdapBaseMemAddr",
+    "oid": "1.3.6.1.4.1.232.18.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicFlexLomPhySlot": {
+    "name": "cpqNicFlexLomPhySlot",
+    "oid": "1.3.6.1.4.1.232.18.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapTable": {
+    "name": "cpqNicIfVlanMapTable",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapEntry": {
+    "name": "cpqNicIfVlanMapEntry",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfVlanMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapIndex": {
+    "name": "cpqNicIfVlanMapIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapLogIndex": {
+    "name": "cpqNicIfVlanMapLogIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapIfIndex": {
+    "name": "cpqNicIfVlanMapIfIndex",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapVlanId": {
+    "name": "cpqNicIfVlanMapVlanId",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapVlanName": {
+    "name": "cpqNicIfVlanMapVlanName",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicIfVlanMapVlanIPV6Address": {
+    "name": "cpqNicIfVlanMapVlanIPV6Address",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicIfVlanMapVlanLACNumber": {
+    "name": "cpqNicIfVlanMapVlanLACNumber",
+    "oid": "1.3.6.1.4.1.232.18.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqNicVtInstalled": {
+    "name": "cpqNicVtInstalled",
+    "oid": "1.3.6.1.4.1.232.18.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicVtLicensed": {
+    "name": "cpqNicVtLicensed",
+    "oid": "1.3.6.1.4.1.232.18.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLicensed": 1,
+          "licensed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicVtVirusActivity": {
+    "name": "cpqNicVtVirusActivity",
+    "oid": "1.3.6.1.4.1.232.18.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDetected": 1,
+          "detected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqNicConnectivityRestored": {
+    "name": "cpqNicConnectivityRestored",
+    "oid": "1.3.6.1.4.1.232.0.18001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      }
+    ]
+  },
+  "cpqNicConnectivityLost": {
+    "name": "cpqNicConnectivityLost",
+    "oid": "1.3.6.1.4.1.232.0.18002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      }
+    ]
+  },
+  "cpqNicRedundancyIncreased": {
+    "name": "cpqNicRedundancyIncreased",
+    "oid": "1.3.6.1.4.1.232.0.18003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNicRedundancyReduced": {
+    "name": "cpqNicRedundancyReduced",
+    "oid": "1.3.6.1.4.1.232.0.18004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNic2ConnectivityRestored": {
+    "name": "cpqNic2ConnectivityRestored",
+    "oid": "1.3.6.1.4.1.232.0.18005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      }
+    ]
+  },
+  "cpqNic2ConnectivityLost": {
+    "name": "cpqNic2ConnectivityLost",
+    "oid": "1.3.6.1.4.1.232.0.18006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      }
+    ]
+  },
+  "cpqNic2RedundancyIncreased": {
+    "name": "cpqNic2RedundancyIncreased",
+    "oid": "1.3.6.1.4.1.232.0.18007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNic2RedundancyReduced": {
+    "name": "cpqNic2RedundancyReduced",
+    "oid": "1.3.6.1.4.1.232.0.18008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNicVirusLikeActivityDetected": {
+    "name": "cpqNicVirusLikeActivityDetected",
+    "oid": "1.3.6.1.4.1.232.0.18009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      }
+    ]
+  },
+  "cpqNicVirusLikeActivityStopped": {
+    "name": "cpqNicVirusLikeActivityStopped",
+    "oid": "1.3.6.1.4.1.232.0.18010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      }
+    ]
+  },
+  "cpqNic3ConnectivityRestored": {
+    "name": "cpqNic3ConnectivityRestored",
+    "oid": "1.3.6.1.4.1.232.0.18011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapIPV6Address"
+      }
+    ]
+  },
+  "cpqNic3ConnectivityLost": {
+    "name": "cpqNic3ConnectivityLost",
+    "oid": "1.3.6.1.4.1.232.0.18012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapIPV6Address"
+      }
+    ]
+  },
+  "cpqNic3RedundancyIncreased": {
+    "name": "cpqNic3RedundancyIncreased",
+    "oid": "1.3.6.1.4.1.232.0.18013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapIPV6Address"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNic3RedundancyReduced": {
+    "name": "cpqNic3RedundancyReduced",
+    "oid": "1.3.6.1.4.1.232.0.18014",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPort"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapIPV6Address"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfLogMapAdapterOKCount"
+      }
+    ]
+  },
+  "cpqNicAllLinksDown": {
+    "name": "cpqNicAllLinksDown",
+    "oid": "1.3.6.1.4.1.232.0.18015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      }
+    ]
+  },
+  "cpqNicAllLinksDownRepaired": {
+    "name": "cpqNicAllLinksDownRepaired",
+    "oid": "1.3.6.1.4.1.232.0.18016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterSlot"
+      },
+      {
+        "module": "CPQSINFO-MIB",
+        "object": "cpqSiServerSystemId"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBoardName"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicIfPhysAdapterPartNumber"
+      }
+    ]
+  },
+  "cpqNicFlexLomTrainingFailed": {
+    "name": "cpqNicFlexLomTrainingFailed",
+    "oid": "1.3.6.1.4.1.232.0.18017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQNIC-MIB",
+        "object": "cpqNicFlexLomPhySlot"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CPQNIC-MIB",
+      "Source digest sha256:68e0eff3c96afab80d89a70aaa43400c1dc01a2fc58781f38f8ef83c011f081a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CPQNIC-MIB"
+  }
+}

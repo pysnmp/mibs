@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniAutoConfAgent": {
+    "name": "juniAutoConfAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.44",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-07-26 19:54",
+        "description": "Added Encapsulation Type Lockout objects."
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-03-27 20:08",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniAutoConfAgentV1": {
+    "name": "juniAutoConfAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.44.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Auto-Configuration component of the JUNOSe SNMP agent.\n        This version of the Auto-Configuration component is supported in JUNOSe\n        3.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-AUTOCONFIGURE-MIB",
+        "includes": [
+          "juniAutoConfGroup"
+        ]
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniAutoConfAgentV2": {
+    "name": "juniAutoConfAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.44.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the Auto-Configuration component of the JUNOSe SNMP agent.\n        This version of the Auto-Configuration component is supported in JUNOSe\n        7.0 and subsequent system releases.",
+    "capabilities": [
+      {
+        "module": "Juniper-AUTOCONFIGURE-MIB",
+        "includes": [
+          "juniAutoConfGroup2"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Juniper-Autoconfigure-CONF",
+      "Source digest sha256:9614ca1dbe10c77cbac0d53c7a16ecc7351852db60fabef527278718fddcf99e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Juniper-Autoconfigure-CONF"
+  }
+}

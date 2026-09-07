@@ -1,0 +1,448 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoTelnetServerMIB": {
+    "name": "ciscoTelnetServerMIB",
+    "oid": "1.3.6.1.4.1.9.9.630",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTelnetServerMIBNotifs": {
+    "name": "ciscoTelnetServerMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.630.0",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerMIBObjects": {
+    "name": "ciscoTelnetServerMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.630.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerMIBConform": {
+    "name": "ciscoTelnetServerMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.630.2",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerMIBCompliances": {
+    "name": "ciscoTelnetServerMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.630.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerConfigObjects": {
+    "name": "ciscoTelnetServerConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerStatusObjects": {
+    "name": "ciscoTelnetServerStatusObjects",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2",
+    "class": "objectidentity"
+  },
+  "ctsTelnetActivation": {
+    "name": "ctsTelnetActivation",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSessionEndedNotifEnable": {
+    "name": "ctsSessionEndedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSessionStartedNotifEnable": {
+    "name": "ctsSessionStartedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSessionDeniedNotifEnable": {
+    "name": "ctsSessionDeniedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSessionFailureNotifEnable": {
+    "name": "ctsSessionFailureNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.630.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionsTable": {
+    "name": "ctsSessionsTable",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsSessionsEntry": {
+    "name": "ctsSessionsEntry",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSessionID": {
+    "name": "ctsSessionID",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsSessionDescription": {
+    "name": "ctsSessionDescription",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionClientAddressType": {
+    "name": "ctsSessionClientAddressType",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionsClientAddress": {
+    "name": "ctsSessionsClientAddress",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionPID": {
+    "name": "ctsSessionPID",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionUserID": {
+    "name": "ctsSessionUserID",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionTcpPort": {
+    "name": "ctsSessionTcpPort",
+    "oid": "1.3.6.1.4.1.9.9.630.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSessionEnded": {
+    "name": "ctsSessionEnded",
+    "oid": "1.3.6.1.4.1.9.9.630.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionClientAddressType"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionsClientAddress"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionUserID"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionTcpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSessionStarted": {
+    "name": "ctsSessionStarted",
+    "oid": "1.3.6.1.4.1.9.9.630.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionClientAddressType"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionsClientAddress"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionUserID"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSessionDenied": {
+    "name": "ctsSessionDenied",
+    "oid": "1.3.6.1.4.1.9.9.630.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionClientAddressType"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionsClientAddress"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionTcpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSessionLoginFailure": {
+    "name": "ctsSessionLoginFailure",
+    "oid": "1.3.6.1.4.1.9.9.630.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionClientAddressType"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionsClientAddress"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionUserID"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionTcpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTelnetServerMIBGroups": {
+    "name": "ciscoTelnetServerMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.630.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTelnetServerMIBCompliance": {
+    "name": "ciscoTelnetServerMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.630.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctsMIBSessionsObjectGroup",
+        "module": "CISCO-TELNET-SERVER-MIB"
+      },
+      {
+        "object": "ctsMIBNotificationGroup",
+        "module": "CISCO-TELNET-SERVER-MIB"
+      },
+      {
+        "object": "ctsSessionNotifsControlGroup",
+        "module": "CISCO-TELNET-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsMIBSessionsObjectGroup": {
+    "name": "ctsMIBSessionsObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.630.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionDescription"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionClientAddressType"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionsClientAddress"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsTelnetActivation"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionPID"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionUserID"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionTcpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsMIBNotificationGroup": {
+    "name": "ctsMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.630.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionEnded"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionStarted"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionDenied"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionLoginFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSessionNotifsControlGroup": {
+    "name": "ctsSessionNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.630.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionEndedNotifEnable"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionStartedNotifEnable"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionDeniedNotifEnable"
+      },
+      {
+        "module": "CISCO-TELNET-SERVER-MIB",
+        "object": "ctsSessionFailureNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TELNET-SERVER-MIB",
+      "Source digest sha256:211eebcecfe9efbafce6342c9273b768e17833af27675232c709ce86e52ab270",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TELNET-SERVER-MIB"
+  }
+}

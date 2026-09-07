@@ -1,0 +1,55 @@
+{
+  "imports": {
+    "class": "imports",
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlDebugCapabilities": {
+    "name": "rlDebugCapabilities",
+    "oid": "1.3.6.1.4.1.3955.1000.201.206",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-05 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlDebugCapabilitiesPassword": {
+    "name": "rlDebugCapabilitiesPassword",
+    "oid": "1.3.6.1.4.1.3955.1000.201.206.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source LINKSYS-DEBUGCAPABILITIES-MIB",
+      "Source digest sha256:2b2f119a022c69a54d8349c448c774c6489be4679afba48867713d266ab61cea",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "LINKSYS-DEBUGCAPABILITIES-MIB"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "sa": {
+    "name": "sa",
+    "oid": "1.3.6.1.4.1.1429",
+    "class": "objectidentity"
+  },
+  "saVoip": {
+    "name": "saVoip",
+    "oid": "1.3.6.1.4.1.1429.78",
+    "class": "objectidentity"
+  },
+  "saMta": {
+    "name": "saMta",
+    "oid": "1.3.6.1.4.1.1429.78.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-10 00:00",
+        "description": "Initial release of reduced-set module for releases based on BFC 5.7.x."
+      }
+    ]
+  },
+  "saMtaDevice": {
+    "name": "saMtaDevice",
+    "oid": "1.3.6.1.4.1.1429.78.3.1",
+    "class": "objectidentity"
+  },
+  "saMtaDevOffHookWarnTOBusy": {
+    "name": "saMtaDevOffHookWarnTOBusy",
+    "oid": "1.3.6.1.4.1.1429.78.3.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saMtaEndPointTable": {
+    "name": "saMtaEndPointTable",
+    "oid": "1.3.6.1.4.1.1429.78.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saMtaEndPointEntry": {
+    "name": "saMtaEndPointEntry",
+    "oid": "1.3.6.1.4.1.1429.78.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saMtaEndPntHookFlashMinTime": {
+    "name": "saMtaEndPntHookFlashMinTime",
+    "oid": "1.3.6.1.4.1.1429.78.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saMtaEndPntHookFlashMaxTime": {
+    "name": "saMtaEndPntHookFlashMaxTime",
+    "oid": "1.3.6.1.4.1.1429.78.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saMtaEndPntStatePhysical": {
+    "name": "saMtaEndPntStatePhysical",
+    "oid": "1.3.6.1.4.1.1429.78.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onHook": 1,
+          "offHook": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saMtaEndPntStateLogical": {
+    "name": "saMtaEndPntStateLogical",
+    "oid": "1.3.6.1.4.1.1429.78.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectedIdle": 1,
+          "disconnected": 2,
+          "inCallVoice": 3,
+          "inCallData": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SA-MTA-MIB",
+      "Source digest sha256:d100dad68eb9285f96b351c26d0091fa4246aa542fa92e7e4efbed2d3249ee33",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SA-MTA-MIB"
+  }
+}

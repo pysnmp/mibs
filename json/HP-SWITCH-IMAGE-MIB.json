@@ -1,0 +1,460 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpSwitchImage": {
+    "name": "hpSwitchImage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-01 00:00",
+        "description": "Added INTEGER named syncing in hpSwitchMgmtModuleStatus."
+      },
+      {
+        "revision": "2008-12-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hpSwitchImageObject": {
+    "name": "hpSwitchImageObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchImageConformance": {
+    "name": "hpSwitchImageConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchDefaultBoot": {
+    "name": "hpSwitchDefaultBoot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchBootRomVersion": {
+    "name": "hpSwitchBootRomVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchFlashImageTable": {
+    "name": "hpSwitchFlashImageTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchFlashImageEntry": {
+    "name": "hpSwitchFlashImageEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchFlashImageType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchFlashImageType": {
+    "name": "hpSwitchFlashImageType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchFlashImageSize": {
+    "name": "hpSwitchFlashImageSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchFlashImageBuildDate": {
+    "name": "hpSwitchFlashImageBuildDate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchFlashImageVersion": {
+    "name": "hpSwitchFlashImageVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchFlashImageBuildNumber": {
+    "name": "hpSwitchFlashImageBuildNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleVersionTable": {
+    "name": "hpSwitchMgmtModuleVersionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleVersionEntry": {
+    "name": "hpSwitchMgmtModuleVersionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleID": {
+    "name": "hpSwitchMgmtModuleID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgmtModule1": 1,
+          "mgmtModule2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleStatus": {
+    "name": "hpSwitchMgmtModuleStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "redundancyDisabled": 3,
+          "standby": 4,
+          "offline": 5,
+          "failed": 6,
+          "syncing": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleDirectory": {
+    "name": "hpSwitchMgmtModuleDirectory",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleDate": {
+    "name": "hpSwitchMgmtModuleDate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleVersion": {
+    "name": "hpSwitchMgmtModuleVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleBuildNumber": {
+    "name": "hpSwitchMgmtModuleBuildNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleBootImage": {
+    "name": "hpSwitchMgmtModuleBootImage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "primary": 2,
+          "secondary": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleBuildOptions": {
+    "name": "hpSwitchMgmtModuleBuildOptions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "qa": 2,
+          "hubmode": 3,
+          "debug": 4,
+          "asicLogging": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleWatchDog": {
+    "name": "hpSwitchMgmtModuleWatchDog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpSwitchImageGroups": {
+    "name": "hpSwitchImageGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.1",
+    "class": "objectidentity"
+  },
+  "hpSwitchImageCompliances": {
+    "name": "hpSwitchImageCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.2",
+    "class": "objectidentity"
+  },
+  "hpSwitchImageCompliance": {
+    "name": "hpSwitchImageCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpSwitchFlashImagesGroup",
+        "module": "HP-SWITCH-IMAGE-MIB"
+      },
+      {
+        "object": "hpSwitchMgmtModuleGroup",
+        "module": "HP-SWITCH-IMAGE-MIB"
+      },
+      {
+        "object": "hpSwitchBuildGroup",
+        "module": "HP-SWITCH-IMAGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchFlashImagesGroup": {
+    "name": "hpSwitchFlashImagesGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchFlashImageSize"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchFlashImageBuildDate"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchFlashImageVersion"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchBootRomVersion"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchDefaultBoot"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchMgmtModuleGroup": {
+    "name": "hpSwitchMgmtModuleGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleStatus"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleDirectory"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleDate"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleVersion"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleBootImage"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSwitchBuildGroup": {
+    "name": "hpSwitchBuildGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.59.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleBuildNumber"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchFlashImageBuildNumber"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleBuildOptions"
+      },
+      {
+        "module": "HP-SWITCH-IMAGE-MIB",
+        "object": "hpSwitchMgmtModuleWatchDog"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-SWITCH-IMAGE-MIB",
+      "Source digest sha256:b822e226ea242f795b45a85da188be722aeae6799f64ef65f646f85bd6bca5b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-SWITCH-IMAGE-MIB"
+  }
+}

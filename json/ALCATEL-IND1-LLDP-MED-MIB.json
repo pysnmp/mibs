@@ -1,0 +1,437 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1LldpMed"
+    ],
+    "LLDP-EXT-MED-MIB": [
+      "Dscp",
+      "PolicyAppType"
+    ],
+    "LLDP-MIB": [
+      "LldpPortNumber",
+      "lldpPortConfigEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "alcatelIND1LLDPMEDMIB": {
+    "name": "alcatelIND1LLDPMEDMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "LLDP MED - ALCATEL-LUCENT Enterprise proprietary MIB. Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1LLDPMEDMIBObjects": {
+    "name": "alcatelIND1LLDPMEDMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1LLDPMEDMIBConformance": {
+    "name": "alcatelIND1LLDPMEDMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2",
+    "class": "objectidentity"
+  },
+  "alaLldpMedLocMediaPolicyAttributes": {
+    "name": "alaLldpMedLocMediaPolicyAttributes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaLldpProprietaryAttributes": {
+    "name": "alaLldpProprietaryAttributes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaLldpPropConfigTable": {
+    "name": "alaLldpPropConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLldpPropConfigEntry": {
+    "name": "alaLldpPropConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "alaLldpPropConfigEntry",
+      "module": "ALCATEL-IND1-LLDP-MED-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "alaLldpPropAPLocation": {
+    "name": "alaLldpPropAPLocation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLldpPropVlan": {
+    "name": "alaLldpPropVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLldpPropLocationDesc": {
+    "name": "alaLldpPropLocationDesc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyTable": {
+    "name": "alaLldpXMedLocMediaPolicyTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyEntry": {
+    "name": "alaLldpXMedLocMediaPolicyEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyId": {
+    "name": "alaLldpXMedLocMediaPolicyId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyAppType": {
+    "name": "alaLldpXMedLocMediaPolicyAppType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyAppType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyVlanType": {
+    "name": "alaLldpXMedLocMediaPolicyVlanType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "priorityTagged": 2,
+          "untagged": 3
+        }
+      }
+    },
+    "default": {
+      "value": "tagged",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyVlanID": {
+    "name": "alaLldpXMedLocMediaPolicyVlanID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyPriority": {
+    "name": "alaLldpXMedLocMediaPolicyPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyDscp": {
+    "name": "alaLldpXMedLocMediaPolicyDscp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyUnknown": {
+    "name": "alaLldpXMedLocMediaPolicyUnknown",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyTagged": {
+    "name": "alaLldpXMedLocMediaPolicyTagged",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyRowStatus": {
+    "name": "alaLldpXMedLocMediaPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyPortTable": {
+    "name": "alaLldpXMedLocMediaPolicyPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyPortEntry": {
+    "name": "alaLldpXMedLocMediaPolicyPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyPortNumber": {
+    "name": "alaLldpXMedLocMediaPolicyPortNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyPortRowStatus": {
+    "name": "alaLldpXMedLocMediaPolicyPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1LLDPMEDMIBCompliances": {
+    "name": "alcatelIND1LLDPMEDMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1LLDPMEDMIBGroups": {
+    "name": "alcatelIND1LLDPMEDMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1LLDPMEDMIBCompliance": {
+    "name": "alcatelIND1LLDPMEDMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaLldpXMedLocMediaPolicyGroup",
+        "module": "ALCATEL-IND1-LLDP-MED-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaLldpXMedLocMediaPolicyGroup": {
+    "name": "alaLldpXMedLocMediaPolicyGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyAppType"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyVlanType"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyVlanID"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyDscp"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyUnknown"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyTagged"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-LLDP-MED-MIB",
+        "object": "alaLldpXMedLocMediaPolicyPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-LLDP-MED-MIB",
+      "Source digest sha256:6295b4d5a32365329771aabffef58a2ad3ff900f5706821192d44499b7a7e9fe",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-LLDP-MED-MIB"
+  }
+}

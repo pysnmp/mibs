@@ -1,0 +1,258 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "VsanIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoPortTrackMIB": {
+    "name": "ciscoPortTrackMIB",
+    "oid": "1.3.6.1.4.1.9.9.437",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortTrackObjects": {
+    "name": "ciscoPortTrackObjects",
+    "oid": "1.3.6.1.4.1.9.9.437.1",
+    "class": "objectidentity"
+  },
+  "cptMIBConformance": {
+    "name": "cptMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.437.2",
+    "class": "objectidentity"
+  },
+  "cptConfig": {
+    "name": "cptConfig",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1",
+    "class": "objectidentity"
+  },
+  "cptPortTrackTable": {
+    "name": "cptPortTrackTable",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cptPortTrackEntry": {
+    "name": "cptPortTrackEntry",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackLinkedPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackTrackedPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cptPortTrackLinkedPort": {
+    "name": "cptPortTrackLinkedPort",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cptPortTrackTrackedPort": {
+    "name": "cptPortTrackTrackedPort",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cptPortTrackVsanType": {
+    "name": "cptPortTrackVsanType",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleVsan": 1,
+          "allVsans": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cptPortTrackVsanIndex": {
+    "name": "cptPortTrackVsanIndex",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cptPortTrackRowStatus": {
+    "name": "cptPortTrackRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cptPortForceShutTable": {
+    "name": "cptPortForceShutTable",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cptPortForceShutEntry": {
+    "name": "cptPortForceShutEntry",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackLinkedPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cptPortForceState": {
+    "name": "cptPortForceState",
+    "oid": "1.3.6.1.4.1.9.9.437.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cptMIBCompliances": {
+    "name": "cptMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.437.2.1",
+    "class": "objectidentity"
+  },
+  "cptMIBGroups": {
+    "name": "cptMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.437.2.2",
+    "class": "objectidentity"
+  },
+  "cptMIBCompliance": {
+    "name": "cptMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.437.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cptTrackGroup",
+        "module": "CISCO-PORT-TRACK-MIB"
+      },
+      {
+        "object": "cptShutGroup",
+        "module": "CISCO-PORT-TRACK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cptTrackGroup": {
+    "name": "cptTrackGroup",
+    "oid": "1.3.6.1.4.1.9.9.437.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackVsanType"
+      },
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackVsanIndex"
+      },
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortTrackRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cptShutGroup": {
+    "name": "cptShutGroup",
+    "oid": "1.3.6.1.4.1.9.9.437.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-TRACK-MIB",
+        "object": "cptPortForceState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-PORT-TRACK-MIB",
+      "Source digest sha256:81aff9adc7ee2a3633872de9917d642fb6d877f59c91b2de798baa8a8ccaaaf6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-PORT-TRACK-MIB"
+  }
+}

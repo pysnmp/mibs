@@ -1,0 +1,648 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slbL7sessionModule": {
+    "name": "slbL7sessionModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329",
+    "class": "moduleidentity"
+  },
+  "l7session": {
+    "name": "l7session",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1",
+    "class": "objectidentity"
+  },
+  "l7sessionStatsTable": {
+    "name": "l7sessionStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "l7sessionStatsEntry": {
+    "name": "l7sessionStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SLB-L7SESSION-MIB",
+        "object": "l7sessionStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l7sessionStatsSlotId": {
+    "name": "l7sessionStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsStartServerConnSucc": {
+    "name": "l7sessionStatsStartServerConnSucc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsConnNotExist": {
+    "name": "l7sessionStatsConnNotExist",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsDataEvent": {
+    "name": "l7sessionStatsDataEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientFin": {
+    "name": "l7sessionStatsClientFin",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerFin": {
+    "name": "l7sessionStatsServerFin",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsWbufEvent": {
+    "name": "l7sessionStatsWbufEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsWbufCbFailed": {
+    "name": "l7sessionStatsWbufCbFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsErrEvent": {
+    "name": "l7sessionStatsErrEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsErrCbFailed": {
+    "name": "l7sessionStatsErrCbFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerConnFailed": {
+    "name": "l7sessionStatsServerConnFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientRst": {
+    "name": "l7sessionStatsClientRst",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerRst": {
+    "name": "l7sessionStatsServerRst",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientRstReq": {
+    "name": "l7sessionStatsClientRstReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientRstConnecting": {
+    "name": "l7sessionStatsClientRstConnecting",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientRstConnected": {
+    "name": "l7sessionStatsClientRstConnected",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientRstRsp": {
+    "name": "l7sessionStatsClientRstRsp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerRstReq": {
+    "name": "l7sessionStatsServerRstReq",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerRstConnecting": {
+    "name": "l7sessionStatsServerRstConnecting",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerRstConnected": {
+    "name": "l7sessionStatsServerRstConnected",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerRstRsp": {
+    "name": "l7sessionStatsServerRstRsp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsProxyV1Connection": {
+    "name": "l7sessionStatsProxyV1Connection",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsProxyV2Connection": {
+    "name": "l7sessionStatsProxyV2Connection",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsCurrProxy": {
+    "name": "l7sessionStatsCurrProxy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsCurrProxyClient": {
+    "name": "l7sessionStatsCurrProxyClient",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsCurrProxyServer": {
+    "name": "l7sessionStatsCurrProxyServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsCurrProxyEs": {
+    "name": "l7sessionStatsCurrProxyEs",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsTotalProxy": {
+    "name": "l7sessionStatsTotalProxy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsTotalProxyClient": {
+    "name": "l7sessionStatsTotalProxyClient",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsTotalProxyServer": {
+    "name": "l7sessionStatsTotalProxyServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsTotalProxyEs": {
+    "name": "l7sessionStatsTotalProxyEs",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerSelectFail": {
+    "name": "l7sessionStatsServerSelectFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsEstEvent": {
+    "name": "l7sessionStatsEstEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsEstCbFailed": {
+    "name": "l7sessionStatsEstCbFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsDataCbFailed": {
+    "name": "l7sessionStatsDataCbFailed",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFail": {
+    "name": "l7sessionStatsHpsFwdreqFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailBuff": {
+    "name": "l7sessionStatsHpsFwdreqFailBuff",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailRport": {
+    "name": "l7sessionStatsHpsFwdreqFailRport",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailRoute": {
+    "name": "l7sessionStatsHpsFwdreqFailRoute",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailPersist": {
+    "name": "l7sessionStatsHpsFwdreqFailPersist",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailServer": {
+    "name": "l7sessionStatsHpsFwdreqFailServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsHpsFwdreqFailTuple": {
+    "name": "l7sessionStatsHpsFwdreqFailTuple",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsUdpDataEvent": {
+    "name": "l7sessionStatsUdpDataEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsTransactionCleaned": {
+    "name": "l7sessionStatsTransactionCleaned",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsOldServerCleaned": {
+    "name": "l7sessionStatsOldServerCleaned",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsServerNotCleaned": {
+    "name": "l7sessionStatsServerNotCleaned",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsClientNotCleaned": {
+    "name": "l7sessionStatsClientNotCleaned",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l7sessionStatsInvalidServer": {
+    "name": "l7sessionStatsInvalidServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.329.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SLB-L7SESSION-MIB",
+      "Source digest sha256:f231f0ba85c819d93f2648d60e426e05b98241e30fc15bdaacf2c708268df211",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SLB-L7SESSION-MIB"
+  }
+}

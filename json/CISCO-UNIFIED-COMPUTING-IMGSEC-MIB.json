@@ -1,0 +1,273 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "Unsigned64"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsImgsecKeyType",
+      "CucsPolicyPolicyOwner"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "cucsImgsecObjects": {
+    "name": "cucsImgsecObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56",
+    "class": "moduleidentity"
+  },
+  "cucsImgsecKeyTable": {
+    "name": "cucsImgsecKeyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsImgsecKeyEntry": {
+    "name": "cucsImgsecKeyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IMGSEC-MIB",
+        "object": "cucsImgsecKeyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsImgsecKeyInstanceId": {
+    "name": "cucsImgsecKeyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsImgsecKeyDn": {
+    "name": "cucsImgsecKeyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecKeyRn": {
+    "name": "cucsImgsecKeyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecKeyType": {
+    "name": "cucsImgsecKeyType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsImgsecKeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecKeyValue": {
+    "name": "cucsImgsecKeyValue",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyTable": {
+    "name": "cucsImgsecPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsImgsecPolicyEntry": {
+    "name": "cucsImgsecPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IMGSEC-MIB",
+        "object": "cucsImgsecPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsImgsecPolicyInstanceId": {
+    "name": "cucsImgsecPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsImgsecPolicyDn": {
+    "name": "cucsImgsecPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyRn": {
+    "name": "cucsImgsecPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyDescr": {
+    "name": "cucsImgsecPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyIntId": {
+    "name": "cucsImgsecPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyName": {
+    "name": "cucsImgsecPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyPolicyLevel": {
+    "name": "cucsImgsecPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsImgsecPolicyPolicyOwner": {
+    "name": "cucsImgsecPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.56.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-UNIFIED-COMPUTING-IMGSEC-MIB",
+      "Source digest sha256:d66fd414316e95ba2b706c4ac84d474685d71ed39ebe30c3203d764b929df4e8",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-IMGSEC-MIB"
+  }
+}

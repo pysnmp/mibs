@@ -1,0 +1,230 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoBbsmMIB": {
+    "name": "ciscoBbsmMIB",
+    "oid": "1.3.6.1.4.1.9.9.358",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-04-03 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "ciscoBbsmNotifications": {
+    "name": "ciscoBbsmNotifications",
+    "oid": "1.3.6.1.4.1.9.9.358.0",
+    "class": "objectidentity"
+  },
+  "ciscoBbsmMIBObjects": {
+    "name": "ciscoBbsmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.358.1",
+    "class": "objectidentity"
+  },
+  "ciscoBbsmEventInfo": {
+    "name": "ciscoBbsmEventInfo",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1",
+    "class": "objectidentity"
+  },
+  "cbbsmEventDescription": {
+    "name": "cbbsmEventDescription",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cbbsmEventSource": {
+    "name": "cbbsmEventSource",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cbbsmEventID": {
+    "name": "cbbsmEventID",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cbbsmEventType": {
+    "name": "cbbsmEventType",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "warning": 2,
+          "information": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cbbsmEventTime": {
+    "name": "cbbsmEventTime",
+    "oid": "1.3.6.1.4.1.9.9.358.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoBbsmEvent": {
+    "name": "ciscoBbsmEvent",
+    "oid": "1.3.6.1.4.1.9.9.358.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventDescription"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventSource"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventID"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventType"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBbsmMIBConformance": {
+    "name": "ciscoBbsmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.358.2",
+    "class": "objectidentity"
+  },
+  "ciscoBbsmMIBCompliances": {
+    "name": "ciscoBbsmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.358.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoBbsmMIBGroups": {
+    "name": "ciscoBbsmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.358.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoBbsmMIBCompliance": {
+    "name": "ciscoBbsmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.358.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBbsmMIBGroup",
+        "module": "CISCO-BBSM-MIB"
+      },
+      {
+        "object": "ciscoBbsmMIBNotificationGroup",
+        "module": "CISCO-BBSM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBbsmMIBGroup": {
+    "name": "ciscoBbsmMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.358.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventDescription"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventSource"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventID"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventType"
+      },
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "cbbsmEventTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBbsmMIBNotificationGroup": {
+    "name": "ciscoBbsmMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.358.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BBSM-MIB",
+        "object": "ciscoBbsmEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-BBSM-MIB",
+      "Source digest sha256:cbd91c5fe5a5b22a3885e7f4c98f0d441c916251aeece94e32dfdbdd6c14c609",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-BBSM-MIB"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLocAAASvr": {
+    "name": "hpnicfLocAAASvr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-06 09:45",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfLocAAASvrControl": {
+    "name": "hpnicfLocAAASvrControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141.1",
+    "class": "objectidentity"
+  },
+  "hpnicfLocAAASvrTables": {
+    "name": "hpnicfLocAAASvrTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141.2",
+    "class": "objectidentity"
+  },
+  "hpnicfLocAAASvrTrap": {
+    "name": "hpnicfLocAAASvrTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141.3",
+    "class": "objectidentity"
+  },
+  "hpnicfLocAAASvrTrapPrex": {
+    "name": "hpnicfLocAAASvrTrapPrex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfLocAAASvrBillExportFailed": {
+    "name": "hpnicfLocAAASvrBillExportFailed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.141.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-LOCAL-AAA-SERVER-MIB",
+      "Source digest sha256:79f0daa1a4259cb0726692a030ba293b9171b3e5adf2c1aff5f2fd1f77cd5fb7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-LOCAL-AAA-SERVER-MIB"
+  }
+}

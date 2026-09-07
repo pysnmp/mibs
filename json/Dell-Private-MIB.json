@@ -1,0 +1,194 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IP-MIB": [
+      "ipAddrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlOperationalMode": {
+    "name": "rlOperationalMode",
+    "oid": "1.3.6.1.4.1.89.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-01 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlOperationalModeState": {
+    "name": "rlOperationalModeState",
+    "oid": "1.3.6.1.4.1.89.121.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "managed": 0,
+          "unmanaged": 1,
+          "secure": 2
+        }
+      }
+    },
+    "default": {
+      "value": "managed",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGlobalIpAddrTable": {
+    "name": "rlGlobalIpAddrTable",
+    "oid": "1.3.6.1.4.1.89.121.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlGlobalIpAddrEntry": {
+    "name": "rlGlobalIpAddrEntry",
+    "oid": "1.3.6.1.4.1.89.121.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-Private-MIB",
+        "object": "rlGlobalIpAdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlGlobalIpAdIndex": {
+    "name": "rlGlobalIpAdIndex",
+    "oid": "1.3.6.1.4.1.89.121.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGlobalIpAdEntAddr": {
+    "name": "rlGlobalIpAdEntAddr",
+    "oid": "1.3.6.1.4.1.89.121.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGlobalIpAdEntNetMask": {
+    "name": "rlGlobalIpAdEntNetMask",
+    "oid": "1.3.6.1.4.1.89.121.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGlobalIpAdDefaultGateway": {
+    "name": "rlGlobalIpAdDefaultGateway",
+    "oid": "1.3.6.1.4.1.89.121.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGlobalIpAdOwner": {
+    "name": "rlGlobalIpAdOwner",
+    "oid": "1.3.6.1.4.1.89.121.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2,
+          "default": 3
+        }
+      }
+    },
+    "default": {
+      "value": "static",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDeleteUsersAfterReset": {
+    "name": "rlDeleteUsersAfterReset",
+    "oid": "1.3.6.1.4.1.89.121.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-Private-MIB",
+      "Source digest sha256:2bd030cee0af20eff0370ee4808755e7652cd37f9e867a7c9ed2c4a3c3c2576f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-Private-MIB"
+  }
+}

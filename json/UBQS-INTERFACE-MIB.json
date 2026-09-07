@@ -1,0 +1,2475 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifAdminStatus",
+      "ifIndex",
+      "ifName",
+      "ifOperStatus",
+      "ifType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ],
+    "UBQS-TC": [
+      "IfOperStatusReason",
+      "UbiBridgeId",
+      "UbiPortList",
+      "Unsigned64"
+    ]
+  },
+  "ubiInterfaceMIB": {
+    "name": "ubiInterfaceMIB",
+    "oid": "1.3.6.1.4.1.7800.100.4",
+    "class": "moduleidentity"
+  },
+  "PortType": {
+    "name": "PortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "e100BaseUnknown": 10,
+          "e10BaseT": 11,
+          "e10BaseF": 12,
+          "e100BaseTX": 13,
+          "e100BaseT4": 14,
+          "e100BaseF": 15,
+          "e100BaseLX": 16,
+          "e100BaseFsm": 17,
+          "e10a100BaseTX": 18,
+          "e100BaseBX10": 19,
+          "e100BaseBX10D": 20,
+          "e100BaseBX10U": 21,
+          "e100BaseSX": 22,
+          "e1000BaseUnknown": 100,
+          "e1000BaseLX": 101,
+          "e1000BaseSX": 102,
+          "e1000BaseCX": 103,
+          "e1000BaseLH": 104,
+          "e1000BaseT": 105,
+          "e10a100a1000BaseT": 106,
+          "e1000BaseZX": 107,
+          "e1000BaseBX": 108,
+          "e1000BaseBX10D": 109,
+          "e1000BaseBX10U": 110,
+          "e1000BasePX": 111,
+          "e1000BaseBT": 112,
+          "e1000BaseSvc": 113,
+          "e1000BasePXPon": 114,
+          "e1000BasePX20": 115,
+          "e1000BasePX30": 116,
+          "e10GBaseUnknown": 1000,
+          "e10GBaseCPX": 1001,
+          "e10GBaseLX4": 1002,
+          "e10GBaseEX4": 1003,
+          "e10GBaseLR": 1004,
+          "e10GBaseSX4": 1005,
+          "e10GBaseER": 1006,
+          "e10GBaseSR": 1007,
+          "e10GBaseCX4": 1008,
+          "e10GBaseSW": 1009,
+          "e10GBaseLW": 1010,
+          "e10GBaseEW": 1011,
+          "e10GBaseSvc": 1012,
+          "e10GBaseZR": 1013,
+          "e100BaseEX": 1014,
+          "e100BaseZX": 1015,
+          "e10GBaseLRM": 1016,
+          "e10GBaseT": 1017,
+          "e10GBaseSfpPlus": 1018,
+          "e10GBaseEPON": 1019,
+          "e40GBaseUnknown": 2000,
+          "e40GBaseCR4": 2001,
+          "e40GBaseSR4": 2002,
+          "e40GBaseLR4": 2003,
+          "e40GXLPPI": 2004
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortGBICTypeList": {
+    "name": "PortGBICTypeList",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "sfp": 2,
+          "xfp": 3,
+          "sfp-plus": 4,
+          "qsfp-plus": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UbiSwitchportType": {
+    "name": "UbiSwitchportType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "customerVlanPort": 0,
+        "providerNetworkPort": 1,
+        "customerNetworkPort": 2,
+        "customerEdgePort": 3,
+        "customerBackbonePort": 4,
+        "virtualInstancePort": 5,
+        "dBridgePort": 6,
+        "access": 7,
+        "trunk": 8,
+        "hybrid": 9
+      }
+    },
+    "status": "current"
+  },
+  "UbiFlowctrlWatermark": {
+    "name": "UbiFlowctrlWatermark",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ubiInterfaceMIBNotificationPrefix": {
+    "name": "ubiInterfaceMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.4.0",
+    "class": "objectidentity"
+  },
+  "ubiInterfaceMIBObjects": {
+    "name": "ubiInterfaceMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.4.1",
+    "class": "objectidentity"
+  },
+  "ubiInterfaceMIBConformance": {
+    "name": "ubiInterfaceMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.4.2",
+    "class": "objectidentity"
+  },
+  "ubiIfNotificationEnables": {
+    "name": "ubiIfNotificationEnables",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1",
+    "class": "objectidentity"
+  },
+  "ubiPortExt": {
+    "name": "ubiPortExt",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3",
+    "class": "objectidentity"
+  },
+  "ubiSwitchPort": {
+    "name": "ubiSwitchPort",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4",
+    "class": "objectidentity"
+  },
+  "ubiPortTrafficControl": {
+    "name": "ubiPortTrafficControl",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5",
+    "class": "objectidentity"
+  },
+  "ubiIfStatistics": {
+    "name": "ubiIfStatistics",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6",
+    "class": "objectidentity"
+  },
+  "ubiPortControl": {
+    "name": "ubiPortControl",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7",
+    "class": "objectidentity"
+  },
+  "ubiIfErps": {
+    "name": "ubiIfErps",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.8",
+    "class": "objectidentity"
+  },
+  "ubiGrp1": {
+    "name": "ubiGrp1",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "ubiGrp2": {
+    "name": "ubiGrp2",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "ubiInterfaceNotifications": {
+    "name": "ubiInterfaceNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.0",
+    "class": "objectidentity"
+  },
+  "ubiTrafficControlNotifications": {
+    "name": "ubiTrafficControlNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.1",
+    "class": "objectidentity"
+  },
+  "ubiPortAutoNegoFault": {
+    "name": "ubiPortAutoNegoFault",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortAutoNegoFaultState"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiLoadMonitorRisingAlarm": {
+    "name": "ubiLoadMonitorRisingAlarm",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorVariable"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorValue"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorAlarmType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorCriticalThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorMajorThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorUnit"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorAlarmZone"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiLoadMonitorFallingAlarm": {
+    "name": "ubiLoadMonitorFallingAlarm",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorVariable"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorValue"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorAlarmType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorCriticalThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorMajorThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorUnit"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorAlarmZone"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiTrafficControlRisingAlarm": {
+    "name": "ubiTrafficControlRisingAlarm",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlBaseType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlDirection"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlStatus"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlHighThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlLowThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlAverageRate"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlOneMinRate"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlAlarmCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiTrafficControlFallingAlarm": {
+    "name": "ubiTrafficControlFallingAlarm",
+    "oid": "1.3.6.1.4.1.7800.100.4.0.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlBaseType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlDirection"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlStatus"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlHighThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlLowThreshold"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlAverageRate"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlOneMinRate"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlAlarmCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiLinkUpDownEnabled": {
+    "name": "ubiLinkUpDownEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortAutoNegoFaultEnabled": {
+    "name": "ubiPortAutoNegoFaultEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiLoadMonitorAlarmEnabled": {
+    "name": "ubiLoadMonitorAlarmEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "input": 0,
+        "crc": 1,
+        "error": 2,
+        "drop": 3,
+        "output": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficControlAlarmEnabled": {
+    "name": "ubiTrafficControlAlarmEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortTable": {
+    "name": "ubiPortTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiPortEntry": {
+    "name": "ubiPortEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiPortName": {
+    "name": "ubiPortName",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortType": {
+    "name": "ubiPortType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortOperStatus": {
+    "name": "ubiPortOperStatus",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortDuplex": {
+    "name": "ubiPortDuplex",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortSpeed": {
+    "name": "ubiPortSpeed",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "speed_10": 10,
+          "speed_100": 100,
+          "speed_1000": 1000,
+          "speed_2500": 2500,
+          "speed_10000": 10000,
+          "speed_40000": 40000
+        }
+      }
+    },
+    "units": "Mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortAdminDuplex": {
+    "name": "ubiPortAdminDuplex",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortAdminSpeed": {
+    "name": "ubiPortAdminSpeed",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "speed_10": 10,
+          "speed_100": 100,
+          "speed_1000": 1000,
+          "speed_2500": 2500,
+          "speed_10000": 10000,
+          "speed_40000": 40000
+        }
+      }
+    },
+    "units": "Mbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortMtu": {
+    "name": "ubiPortMtu",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 10218
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1500,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortL2L3IfState": {
+    "name": "ubiPortL2L3IfState",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routed": 1,
+          "switchport": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortAutoNegoFaultState": {
+    "name": "ubiPortAutoNegoFaultState",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "fail": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ubiPortReset": {
+    "name": "ubiPortReset",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortLocalSwitching": {
+    "name": "ubiPortLocalSwitching",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiPortExtTable": {
+    "name": "ubiPortExtTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiPortExtEntry": {
+    "name": "ubiPortExtEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiPortGBICStatus": {
+    "name": "ubiPortGBICStatus",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortGBICType": {
+    "name": "ubiPortGBICType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortGBICTypeList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiPortGBICSerialNumber": {
+    "name": "ubiPortGBICSerialNumber",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSwitchportTable": {
+    "name": "ubiSwitchportTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSwitchportEntry": {
+    "name": "ubiSwitchportEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSwitchportName": {
+    "name": "ubiSwitchportName",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiSwitchportMode": {
+    "name": "ubiSwitchportMode",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiSwitchportType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchportBridgeId": {
+    "name": "ubiSwitchportBridgeId",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiBridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchportVlanNative": {
+    "name": "ubiSwitchportVlanNative",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchportVlanDefault": {
+    "name": "ubiSwitchportVlanDefault",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchPortVlanControlTable": {
+    "name": "ubiSwitchPortVlanControlTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSwitchPortVlanControlEntry": {
+    "name": "ubiSwitchPortVlanControlEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSwitchportVlanTaggedSet": {
+    "name": "ubiSwitchportVlanTaggedSet",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "add": 1,
+          "delete": 2,
+          "except": 3,
+          "all": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchportVlanUntaggedSet": {
+    "name": "ubiSwitchportVlanUntaggedSet",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "add": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchportVlanEgressTaggedSet": {
+    "name": "ubiSwitchportVlanEgressTaggedSet",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSwitchVlanStackingTable": {
+    "name": "ubiSwitchVlanStackingTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSwitchVlanStackingEntry": {
+    "name": "ubiSwitchVlanStackingEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiVlanStackingMode": {
+    "name": "ubiVlanStackingMode",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "customerEdgePort": 1,
+          "providerPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiVlanStackingEthertype": {
+    "name": "ubiVlanStackingEthertype",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiLoadMonitorTable": {
+    "name": "ubiLoadMonitorTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiLoadMonitorEntry": {
+    "name": "ubiLoadMonitorEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLoadMonitorType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiLoadMonitorType": {
+    "name": "ubiLoadMonitorType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "crc": 2,
+          "error": 3,
+          "drop": 4,
+          "output": 5,
+          "storm-control-discard": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiLoadMonitorInterval": {
+    "name": "ubiLoadMonitorInterval",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiLoadMonitorVariable": {
+    "name": "ubiLoadMonitorVariable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiLoadMonitorValue": {
+    "name": "ubiLoadMonitorValue",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiLoadMonitorCriticalThreshold": {
+    "name": "ubiLoadMonitorCriticalThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiLoadMonitorMajorThreshold": {
+    "name": "ubiLoadMonitorMajorThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiLoadMonitorUnit": {
+    "name": "ubiLoadMonitorUnit",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiLoadMonitorAlarmType": {
+    "name": "ubiLoadMonitorAlarmType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "critical": 1,
+          "major": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ubiLoadMonitorRowStatus": {
+    "name": "ubiLoadMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiLoadMonitorAlarmZone": {
+    "name": "ubiLoadMonitorAlarmZone",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "critical": 1,
+          "major": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ubiTrafficControl": {
+    "name": "ubiTrafficControl",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2",
+    "class": "objectidentity"
+  },
+  "ubiTrafficControlConfig": {
+    "name": "ubiTrafficControlConfig",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "ubiTrafficControlReportInterval": {
+    "name": "ubiTrafficControlReportInterval",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficControlObservingPeriod": {
+    "name": "ubiTrafficControlObservingPeriod",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficControlHighAlarmMode": {
+    "name": "ubiTrafficControlHighAlarmMode",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "repeatable": 0,
+          "once": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficControlLowAlarmMode": {
+    "name": "ubiTrafficControlLowAlarmMode",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "once": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficControlTable": {
+    "name": "ubiTrafficControlTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiTrafficControlEntry": {
+    "name": "ubiTrafficControlEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlIfindex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlBaseType",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlType",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiTrafficControlDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiTrafficControlIfindex": {
+    "name": "ubiTrafficControlIfindex",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlBaseType": {
+    "name": "ubiTrafficControlBaseType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pps": 1,
+          "kbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlType": {
+    "name": "ubiTrafficControlType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "broadcast": 2,
+          "multicast": 3,
+          "unicast": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlDirection": {
+    "name": "ubiTrafficControlDirection",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlHighThreshold": {
+    "name": "ubiTrafficControlHighThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiTrafficControlLowThreshold": {
+    "name": "ubiTrafficControlLowThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiTrafficControlAction": {
+    "name": "ubiTrafficControlAction",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmOnly": 1,
+          "blockMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiTrafficControlStatus": {
+    "name": "ubiTrafficControlStatus",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "alarm": 2,
+          "block": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlAverageRate": {
+    "name": "ubiTrafficControlAverageRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlOneMinRate": {
+    "name": "ubiTrafficControlOneMinRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlAlarmCount": {
+    "name": "ubiTrafficControlAlarmCount",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlLastAlarmTime": {
+    "name": "ubiTrafficControlLastAlarmTime",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiTrafficControlRowStatus": {
+    "name": "ubiTrafficControlRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiClearTrafficControl": {
+    "name": "ubiClearTrafficControl",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3",
+    "class": "objectidentity"
+  },
+  "ubiClearTrafficControlInterface": {
+    "name": "ubiClearTrafficControlInterface",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearTrafficControlBaseType": {
+    "name": "ubiClearTrafficControlBaseType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pps": 1,
+          "kbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearTrafficControlType": {
+    "name": "ubiClearTrafficControlType",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "all": 1,
+          "unicast": 2,
+          "broadcast": 3,
+          "multicast": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearTrafficControlDirection": {
+    "name": "ubiClearTrafficControlDirection",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiClearTrafficControlOperate": {
+    "name": "ubiClearTrafficControlOperate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.5.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "excute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIfEgressQueueStatsTable": {
+    "name": "ubiIfEgressQueueStatsTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIfEgressQueueStatsEntry": {
+    "name": "ubiIfEgressQueueStatsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiIfEqStatsQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIfEqStatsQueueId": {
+    "name": "ubiIfEqStatsQueueId",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIfEqStatsPassOctets": {
+    "name": "ubiIfEqStatsPassOctets",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfEqStatsDropOctets": {
+    "name": "ubiIfEqStatsDropOctets",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfEqStatsPassPkts": {
+    "name": "ubiIfEqStatsPassPkts",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfEqStatsDropPkts": {
+    "name": "ubiIfEqStatsDropPkts",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfEqStatsQueueDescr": {
+    "name": "ubiIfEqStatsQueueDescr",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIfStatsTable": {
+    "name": "ubiIfStatsTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIfStatsEntry": {
+    "name": "ubiIfStatsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIfStatsInPkts": {
+    "name": "ubiIfStatsInPkts",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfStatsOutPkts": {
+    "name": "ubiIfStatsOutPkts",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfStatsInCRCErrors": {
+    "name": "ubiIfStatsInCRCErrors",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfStatsCounterClear": {
+    "name": "ubiIfStatsCounterClear",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIfStatsSnmpClear": {
+    "name": "ubiIfStatsSnmpClear",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiTrafficRateTable": {
+    "name": "ubiTrafficRateTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiTrafficRateEntry": {
+    "name": "ubiTrafficRateEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ifindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIfStatsInTrafficRate": {
+    "name": "ubiIfStatsInTrafficRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfStatsOutTrafficRate": {
+    "name": "ubiIfStatsOutTrafficRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiFlowControlTable": {
+    "name": "ubiFlowControlTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiFlowControlEntry": {
+    "name": "ubiFlowControlEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiFlowctrlReceive": {
+    "name": "ubiFlowctrlReceive",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiFlowctrlSend": {
+    "name": "ubiFlowctrlSend",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiFlowctrlWatermark": {
+    "name": "ubiFlowctrlWatermark",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UbiFlowctrlWatermark",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiRateLimit": {
+    "name": "ubiRateLimit",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2",
+    "class": "objectidentity"
+  },
+  "ubiRateLimitTable": {
+    "name": "ubiRateLimitTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiRateLimitEntry": {
+    "name": "ubiRateLimitEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiEgressTrafficRate": {
+    "name": "ubiEgressTrafficRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiEgressBucketSize": {
+    "name": "ubiEgressBucketSize",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIngressLevel": {
+    "name": "ubiIngressLevel",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiRateLimitQueueEgressTable": {
+    "name": "ubiRateLimitQueueEgressTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiRateLimitQueueEgressEntry": {
+    "name": "ubiRateLimitQueueEgressEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiQueueId": {
+    "name": "ubiQueueId",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiQueueEgressTrafficRate": {
+    "name": "ubiQueueEgressTrafficRate",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiQueueEgressBucketSize": {
+    "name": "ubiQueueEgressBucketSize",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiStormControlTable": {
+    "name": "ubiStormControlTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiStormControlEntry": {
+    "name": "ubiStormControlEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiBroadcastLevel": {
+    "name": "ubiBroadcastLevel",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiMulticastLevel": {
+    "name": "ubiMulticastLevel",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiUnicastLevel": {
+    "name": "ubiUnicastLevel",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiStormDiscardStats": {
+    "name": "ubiStormDiscardStats",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4",
+    "class": "objectidentity"
+  },
+  "ubiStormDiscardStatsClear": {
+    "name": "ubiStormDiscardStatsClear",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiStormDiscardStatsTable": {
+    "name": "ubiStormDiscardStatsTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiStormDiscardStatsEntry": {
+    "name": "ubiStormDiscardStatsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiStormUnicastDiscards": {
+    "name": "ubiStormUnicastDiscards",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiStormMulticastDiscards": {
+    "name": "ubiStormMulticastDiscards",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiStormBroadcastDiscards": {
+    "name": "ubiStormBroadcastDiscards",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiStormTotalDiscards": {
+    "name": "ubiStormTotalDiscards",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.7.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIfErpsTable": {
+    "name": "ubiIfErpsTable",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIfErpsEntry": {
+    "name": "ubiIfErpsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIfErpsAggMinLink": {
+    "name": "ubiIfErpsAggMinLink",
+    "oid": "1.3.6.1.4.1.7800.100.4.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiInterfaceMIBCompliances": {
+    "name": "ubiInterfaceMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.1",
+    "class": "objectidentity"
+  },
+  "ubiInterfaceMIBGroups": {
+    "name": "ubiInterfaceMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.2",
+    "class": "objectidentity"
+  },
+  "ubiInterfaceMIBCompliance": {
+    "name": "ubiInterfaceMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiPortGroup",
+        "module": "UBQS-INTERFACE-MIB"
+      },
+      {
+        "object": "ubiIfStatsGroup",
+        "module": "UBQS-INTERFACE-MIB"
+      },
+      {
+        "object": "ubiSwitchportGroup",
+        "module": "UBQS-INTERFACE-MIB"
+      },
+      {
+        "object": "ubiTrafficMonitoringGroup",
+        "module": "UBQS-INTERFACE-MIB"
+      },
+      {
+        "object": "ubiExtIfStatsGroup",
+        "module": "UBQS-INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiPortGroup": {
+    "name": "ubiPortGroup",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiLinkUpDownEnable"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortMediaDescr"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortGBICState"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortGBICType"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortDuplex"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortMtu"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIfStatsGroup": {
+    "name": "ubiIfStatsGroup",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiIfStatsInPkts"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiIfStatsOutPkts"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiIfStatsInCRCErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSwitchportGroup": {
+    "name": "ubiSwitchportGroup",
+    "oid": "1.3.6.1.4.1.7800.100.4.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiPortL2L3IfState"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportName"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportMode"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportBridgeId"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportVlanNative"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportVlanDefault"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportVlanTaggedSet"
+      },
+      {
+        "module": "UBQS-INTERFACE-MIB",
+        "object": "ubiSwitchportVlanUntaggedSet"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-INTERFACE-MIB",
+      "Source digest sha256:a164a9d7a1ceff8bab001cf1c172268ce6006e6d08adcf7b2ffe8621ea1c6973",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-INTERFACE-MIB"
+  }
+}

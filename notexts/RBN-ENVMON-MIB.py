@@ -1,0 +1,154 @@
+#
+# PySNMP MIB module RBN-ENVMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source RBN-ENVMON-MIB
+# Source digest sha256:0ea2492fd831d596594f0c2ddfa7413c4ceb7e51df30dcee832ee49c38109cf5
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+rbnEnvMonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 4))
+rbnEnvMonMIB.setRevisions(('2012-10-03 00:00', '2011-01-19 18:00', '2010-11-11 00:00', '2006-01-16 00:00', '2002-06-05 00:00', '2001-07-25 00:00', '2000-04-24 00:00', '1999-03-10 00:00',))
+if mibBuilder.loadTexts: rbnEnvMonMIB.setLastUpdated('2012-10-03 00:00')
+if mibBuilder.loadTexts: rbnEnvMonMIB.setOrganization('Ericsson AB.')
+rbnEnvMonMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 4, 0))
+rbnEnvMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1))
+rbnEnvMonMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2))
+class RbnVoltage(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 50000)
+
+class RbnTemperature(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+class RbnFanSpeed(TextualConvention, Unsigned32):
+    status = 'current'
+
+rbnFanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnFanStatusTable.setStatus('current')
+rbnFanStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "RBN-ENVMON-MIB", "rbnFanIndex"))
+if mibBuilder.loadTexts: rbnFanStatusEntry.setStatus('current')
+rbnFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnFanIndex.setStatus('current')
+rbnFanDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFanDescr.setStatus('current')
+rbnFanFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFanFail.setStatus('deprecated')
+rbnFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("failed", 2), ("absent", 3), ("unknown", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFanStatus.setStatus('current')
+rbnPowerStatusTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnPowerStatusTable.setStatus('current')
+rbnPowerStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "RBN-ENVMON-MIB", "rbnPowerIndex"))
+if mibBuilder.loadTexts: rbnPowerStatusEntry.setStatus('current')
+rbnPowerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnPowerIndex.setStatus('current')
+rbnPowerDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnPowerDescr.setStatus('current')
+rbnPowerFail = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnPowerFail.setStatus('deprecated')
+rbnPowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("failed", 2), ("absent", 3), ("unknown", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnPowerStatus.setStatus('current')
+rbnVoltageSensorTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnVoltageSensorTable.setStatus('current')
+rbnVoltageSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "RBN-ENVMON-MIB", "rbnVoltageIndex"))
+if mibBuilder.loadTexts: rbnVoltageSensorEntry.setStatus('current')
+rbnVoltageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnVoltageIndex.setStatus('current')
+rbnVoltageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnVoltageDescr.setStatus('current')
+rbnVoltageDesired = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3, 1, 3), RbnVoltage()).setUnits('millivolts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnVoltageDesired.setStatus('current')
+rbnVoltageCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 3, 1, 4), RbnVoltage()).setUnits('millivolts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnVoltageCurrent.setStatus('current')
+rbnCpuTempSensorTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 4), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnCpuTempSensorTable.setStatus('deprecated')
+rbnCpuTempSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 4, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "RBN-ENVMON-MIB", "rbnCpuTempIndex"))
+if mibBuilder.loadTexts: rbnCpuTempSensorEntry.setStatus('deprecated')
+rbnCpuTempIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnCpuTempIndex.setStatus('deprecated')
+rbnCpuTempDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCpuTempDescr.setStatus('deprecated')
+rbnCpuTempCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 4, 1, 3), RbnTemperature()).setUnits('degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCpuTempCurrent.setStatus('deprecated')
+rbnFanSpeedTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 5), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnFanSpeedTable.setStatus('current')
+rbnFanSpeedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 5, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "RBN-ENVMON-MIB", "rbnFanIndex"), (0, "RBN-ENVMON-MIB", "rbnFanUnitID"))
+if mibBuilder.loadTexts: rbnFanSpeedEntry.setStatus('current')
+rbnFanUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnFanUnitID.setStatus('current')
+rbnFanUnitDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFanUnitDescr.setStatus('current')
+rbnFanSpeedCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 5, 1, 3), RbnFanSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFanSpeedCurrent.setStatus('current')
+rbnEntityTempSensorTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 6), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnEntityTempSensorTable.setStatus('current')
+rbnEntityTempSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 6, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "RBN-ENVMON-MIB", "rbnEntityTempIndex"))
+if mibBuilder.loadTexts: rbnEntityTempSensorEntry.setStatus('current')
+rbnEntityTempIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rbnEntityTempIndex.setStatus('current')
+rbnEntityTempDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 6, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnEntityTempDescr.setStatus('current')
+rbnEntityTempCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 4, 1, 6, 1, 3), RbnTemperature()).setUnits('degrees Celsius').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnEntityTempCurrent.setStatus('current')
+rbnFanFailChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 4, 0, 1)).setObjects(("RBN-ENVMON-MIB", "rbnFanFail"))
+if mibBuilder.loadTexts: rbnFanFailChange.setStatus('deprecated')
+rbnPowerFailChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 4, 0, 2)).setObjects(("RBN-ENVMON-MIB", "rbnPowerFail"))
+if mibBuilder.loadTexts: rbnPowerFailChange.setStatus('deprecated')
+rbnFanStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 4, 0, 3)).setObjects(("RBN-ENVMON-MIB", "rbnFanStatus"))
+if mibBuilder.loadTexts: rbnFanStatusChange.setStatus('current')
+rbnPowerStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 4, 0, 4)).setObjects(("RBN-ENVMON-MIB", "rbnPowerStatus"))
+if mibBuilder.loadTexts: rbnPowerStatusChange.setStatus('current')
+rbnEnvMonMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1))
+rbnEnvMonMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2))
+rbnEnvMonMIBObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 1)).setObjects(("RBN-ENVMON-MIB", "rbnFanDescr"), ("RBN-ENVMON-MIB", "rbnFanFail"), ("RBN-ENVMON-MIB", "rbnPowerDescr"), ("RBN-ENVMON-MIB", "rbnPowerFail"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBObjectGroup = rbnEnvMonMIBObjectGroup.setStatus('deprecated')
+rbnEnvMonMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 2)).setObjects(("RBN-ENVMON-MIB", "rbnFanFailChange"), ("RBN-ENVMON-MIB", "rbnPowerFailChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBNotificationGroup = rbnEnvMonMIBNotificationGroup.setStatus('deprecated')
+rbnEnvMonVoltageObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 3)).setObjects(("RBN-ENVMON-MIB", "rbnVoltageDescr"), ("RBN-ENVMON-MIB", "rbnVoltageDesired"), ("RBN-ENVMON-MIB", "rbnVoltageCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonVoltageObjectGroup = rbnEnvMonVoltageObjectGroup.setStatus('current')
+rbnEnvMonTempObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 4)).setObjects(("RBN-ENVMON-MIB", "rbnCpuTempDescr"), ("RBN-ENVMON-MIB", "rbnCpuTempCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonTempObjectGroup = rbnEnvMonTempObjectGroup.setStatus('deprecated')
+rbnEnvMonMIBObjectGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 5)).setObjects(("RBN-ENVMON-MIB", "rbnFanDescr"), ("RBN-ENVMON-MIB", "rbnFanStatus"), ("RBN-ENVMON-MIB", "rbnPowerDescr"), ("RBN-ENVMON-MIB", "rbnPowerStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBObjectGroupV2 = rbnEnvMonMIBObjectGroupV2.setStatus('current')
+rbnEnvMonMIBNotificationGroupV2 = NotificationGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 6)).setObjects(("RBN-ENVMON-MIB", "rbnFanStatusChange"), ("RBN-ENVMON-MIB", "rbnPowerStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBNotificationGroupV2 = rbnEnvMonMIBNotificationGroupV2.setStatus('current')
+rbnEnvMonFanSpeedObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 7)).setObjects(("RBN-ENVMON-MIB", "rbnFanUnitDescr"), ("RBN-ENVMON-MIB", "rbnFanSpeedCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonFanSpeedObjectGroup = rbnEnvMonFanSpeedObjectGroup.setStatus('current')
+rbnEnvMonEntityObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 1, 8)).setObjects(("RBN-ENVMON-MIB", "rbnEntityTempDescr"), ("RBN-ENVMON-MIB", "rbnEntityTempCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonEntityObjectGroup = rbnEnvMonEntityObjectGroup.setStatus('current')
+rbnEnvMonMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2, 1)).setObjects(("RBN-ENVMON-MIB", "rbnEnvMonMIBObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonMIBNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBCompliance = rbnEnvMonMIBCompliance.setStatus('obsolete')
+rbnEnvMonMIBComplianceV2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2, 2)).setObjects(("RBN-ENVMON-MIB", "rbnEnvMonMIBObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonMIBNotificationGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonVoltageObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonTempObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBComplianceV2 = rbnEnvMonMIBComplianceV2.setStatus('deprecated')
+rbnEnvMonMIBComplianceV3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2, 3)).setObjects(("RBN-ENVMON-MIB", "rbnEnvMonMIBObjectGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonMIBNotificationGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonVoltageObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonTempObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBComplianceV3 = rbnEnvMonMIBComplianceV3.setStatus('deprecated')
+rbnEnvMonMIBComplianceV4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2, 4)).setObjects(("RBN-ENVMON-MIB", "rbnEnvMonMIBObjectGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonMIBNotificationGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonVoltageObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonTempObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonFanSpeedObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBComplianceV4 = rbnEnvMonMIBComplianceV4.setStatus('deprecated')
+rbnEnvMonMIBComplianceV5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 4, 2, 2, 5)).setObjects(("RBN-ENVMON-MIB", "rbnEnvMonMIBObjectGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonMIBNotificationGroupV2"), ("RBN-ENVMON-MIB", "rbnEnvMonVoltageObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonFanSpeedObjectGroup"), ("RBN-ENVMON-MIB", "rbnEnvMonEntityObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnEnvMonMIBComplianceV5 = rbnEnvMonMIBComplianceV5.setStatus('current')
+mibBuilder.exportSymbols("RBN-ENVMON-MIB", PYSNMP_MODULE_ID=rbnEnvMonMIB, RbnFanSpeed=RbnFanSpeed, RbnTemperature=RbnTemperature, RbnVoltage=RbnVoltage, rbnCpuTempCurrent=rbnCpuTempCurrent, rbnCpuTempDescr=rbnCpuTempDescr, rbnCpuTempIndex=rbnCpuTempIndex, rbnCpuTempSensorEntry=rbnCpuTempSensorEntry, rbnCpuTempSensorTable=rbnCpuTempSensorTable, rbnEntityTempCurrent=rbnEntityTempCurrent, rbnEntityTempDescr=rbnEntityTempDescr, rbnEntityTempIndex=rbnEntityTempIndex, rbnEntityTempSensorEntry=rbnEntityTempSensorEntry, rbnEntityTempSensorTable=rbnEntityTempSensorTable, rbnEnvMonEntityObjectGroup=rbnEnvMonEntityObjectGroup, rbnEnvMonFanSpeedObjectGroup=rbnEnvMonFanSpeedObjectGroup, rbnEnvMonMIB=rbnEnvMonMIB, rbnEnvMonMIBCompliance=rbnEnvMonMIBCompliance, rbnEnvMonMIBComplianceV2=rbnEnvMonMIBComplianceV2, rbnEnvMonMIBComplianceV3=rbnEnvMonMIBComplianceV3, rbnEnvMonMIBComplianceV4=rbnEnvMonMIBComplianceV4, rbnEnvMonMIBComplianceV5=rbnEnvMonMIBComplianceV5, rbnEnvMonMIBCompliances=rbnEnvMonMIBCompliances, rbnEnvMonMIBConformance=rbnEnvMonMIBConformance, rbnEnvMonMIBGroups=rbnEnvMonMIBGroups, rbnEnvMonMIBNotificationGroup=rbnEnvMonMIBNotificationGroup, rbnEnvMonMIBNotificationGroupV2=rbnEnvMonMIBNotificationGroupV2, rbnEnvMonMIBNotifications=rbnEnvMonMIBNotifications, rbnEnvMonMIBObjectGroup=rbnEnvMonMIBObjectGroup, rbnEnvMonMIBObjectGroupV2=rbnEnvMonMIBObjectGroupV2, rbnEnvMonMIBObjects=rbnEnvMonMIBObjects, rbnEnvMonTempObjectGroup=rbnEnvMonTempObjectGroup, rbnEnvMonVoltageObjectGroup=rbnEnvMonVoltageObjectGroup, rbnFanDescr=rbnFanDescr, rbnFanFail=rbnFanFail, rbnFanFailChange=rbnFanFailChange, rbnFanIndex=rbnFanIndex, rbnFanSpeedCurrent=rbnFanSpeedCurrent, rbnFanSpeedEntry=rbnFanSpeedEntry, rbnFanSpeedTable=rbnFanSpeedTable, rbnFanStatus=rbnFanStatus, rbnFanStatusChange=rbnFanStatusChange, rbnFanStatusEntry=rbnFanStatusEntry, rbnFanStatusTable=rbnFanStatusTable, rbnFanUnitDescr=rbnFanUnitDescr, rbnFanUnitID=rbnFanUnitID, rbnPowerDescr=rbnPowerDescr, rbnPowerFail=rbnPowerFail, rbnPowerFailChange=rbnPowerFailChange, rbnPowerIndex=rbnPowerIndex, rbnPowerStatus=rbnPowerStatus, rbnPowerStatusChange=rbnPowerStatusChange, rbnPowerStatusEntry=rbnPowerStatusEntry, rbnPowerStatusTable=rbnPowerStatusTable, rbnVoltageCurrent=rbnVoltageCurrent, rbnVoltageDescr=rbnVoltageDescr, rbnVoltageDesired=rbnVoltageDesired, rbnVoltageIndex=rbnVoltageIndex, rbnVoltageSensorEntry=rbnVoltageSensorEntry, rbnVoltageSensorTable=rbnVoltageSensorTable)

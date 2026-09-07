@@ -1,0 +1,1063 @@
+{
+  "imports": {
+    "class": "imports",
+    "IB-SMI-MIB": [
+      "IbNode",
+      "IbString",
+      "ibTrapOne"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibTrapOneModule": {
+    "name": "ibTrapOneModule",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2025-07-18 00:00",
+        "description": "Modified trap numbers to match with previous version."
+      },
+      {
+        "revision": "2025-05-12 00:00",
+        "description": "Added Query Logging Banner trap."
+      },
+      {
+        "revision": "2025-05-26 00:00",
+        "description": "Added separate DoT/DoH disable trap for better monitoring."
+      },
+      {
+        "revision": "2024-07-09 00:00",
+        "description": "Modified IMC gRPC Server trap."
+      },
+      {
+        "revision": "2024-06-18 00:00",
+        "description": "Added fastpath core stuck/working traps."
+      },
+      {
+        "revision": "2024-03-05 00:00",
+        "description": "Added IMC gRPC Server trap."
+      },
+      {
+        "revision": "2023-03-14 00:00",
+        "description": "Added Cloud Sync traps."
+      },
+      {
+        "revision": "2022-11-24 00:00",
+        "description": "Added zvelo update/expiry/clear traps."
+      },
+      {
+        "revision": "2022-09-12 00:00",
+        "description": "Added continuous serial numbers in the states as bloxtools states were removed"
+      },
+      {
+        "revision": "2021-12-16 00:00",
+        "description": "Remove bloxtools states"
+      },
+      {
+        "revision": "2021-05-05 00:00",
+        "description": "Added DOT DOH and IMC DCA BWL traps."
+      },
+      {
+        "revision": "2019-08-20 00:00",
+        "description": "Added DFP Service traps."
+      },
+      {
+        "revision": "2017-12-06 00:00",
+        "description": "Added Disk Predictive Failure warning trap"
+      },
+      {
+        "revision": "2017-11-09 00:00",
+        "description": "Added missing reporting warning trap"
+      },
+      {
+        "revision": "2017-10-26 00:00",
+        "description": "Added ATC forwarding service failure trap"
+      },
+      {
+        "revision": "2017-07-28 00:00",
+        "description": "Added additional IMC Servers traps."
+      },
+      {
+        "revision": "2017-03-27 00:00",
+        "description": "Added IMC Servers Trap support."
+      },
+      {
+        "revision": "2016-06-12 00:00",
+        "description": "Added BFD service trap"
+      },
+      {
+        "revision": "2016-06-07 00:00",
+        "description": "Add Outbound traps"
+      },
+      {
+        "revision": "2016-01-27 00:00",
+        "description": "Added DNS Health Check succeed trap"
+      },
+      {
+        "revision": "2016-01-01 00:00",
+        "description": "Added Threat Analytics Service trap."
+      },
+      {
+        "revision": "2015-12-17 00:00",
+        "description": "Added DNS Health Check trap."
+      },
+      {
+        "revision": "2015-11-17 00:00",
+        "description": "Added Cisco ISE server states."
+      },
+      {
+        "revision": "2015-10-29 00:00",
+        "description": "Add Taxii service status"
+      },
+      {
+        "revision": "2015-10-26 00:00",
+        "description": "Added Analytics Auto Download Failure Trap."
+      },
+      {
+        "revision": "2015-10-09 00:00",
+        "description": "Added Analytics service traps."
+      },
+      {
+        "revision": "2015-10-07 00:00",
+        "description": "Added RPZ Feed Validation traps."
+      },
+      {
+        "revision": "2015-08-11 00:00",
+        "description": "Added Rotated Syslog Files Backup traps."
+      },
+      {
+        "revision": "2015-07-30 00:00",
+        "description": "Added RAID Inoperable trap for RAID monitor."
+      },
+      {
+        "revision": "2015-05-11 00:00",
+        "description": "Added RPZ refresh traps."
+      },
+      {
+        "revision": "2015-02-13 00:00",
+        "description": "Added DNS attack detection trap."
+      },
+      {
+        "revision": "2015-02-11 00:00",
+        "description": "Added IPMI and RAID status availability traps."
+      },
+      {
+        "revision": "2015-01-20 00:00",
+        "description": "Added discovery unmanaged device trap."
+      },
+      {
+        "revision": "2014-12-24 00:00",
+        "description": "Added DTC service failure trap."
+      },
+      {
+        "revision": "2014-11-24 00:00",
+        "description": "Modified Cloud API service failure trap."
+      },
+      {
+        "revision": "2014-11-21 00:00",
+        "description": "Modified Cloud API service trap names."
+      },
+      {
+        "revision": "2014-07-29 00:00",
+        "description": "Added Cloud API service traps."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Added traps for port and device conflicts."
+      },
+      {
+        "revision": "2014-06-09 00:00",
+        "description": "Added DNS Integrity Check severity traps."
+      },
+      {
+        "revision": "2014-06-04 00:00",
+        "description": "Added DNS Integrity Check trap."
+      },
+      {
+        "revision": "2014-05-29 00:00",
+        "description": "Added missing mgm external storage trap."
+      },
+      {
+        "revision": "2014-05-23 00:00",
+        "description": "Added passive HA node ARP connectivity traps."
+      },
+      {
+        "revision": "2014-03-03 00:00",
+        "description": "Added DNSSEC rollover trap."
+      },
+      {
+        "revision": "2013-11-15 00:00",
+        "description": "Added Threat Protection publish failure trap."
+      },
+      {
+        "revision": "2013-07-30 00:00",
+        "description": "Added Threat Protection traps."
+      },
+      {
+        "revision": "2013-05-23 00:00",
+        "description": "Add discovery backup failure trap"
+      },
+      {
+        "revision": "2013-05-07 00:00",
+        "description": "Add discovery service state traps"
+      },
+      {
+        "revision": "2013-04-09 00:00",
+        "description": "Add trap for power supply removed & ipmi error"
+      },
+      {
+        "revision": "2013-01-09 00:00",
+        "description": "Add trap for sgm online/offline state remove entry for vNIOS master candidate"
+      },
+      {
+        "revision": "2012-10-01 00:00",
+        "description": "Add trap for RIR SWIP API failure"
+      },
+      {
+        "revision": "2012-08-14 00:00",
+        "description": "Add LDAP traps."
+      },
+      {
+        "revision": "2012-07-13 00:00",
+        "description": "Add trap for vNIOS master candidate"
+      },
+      {
+        "revision": "2012-07-09 00:00",
+        "description": "Add trap for LB device states"
+      },
+      {
+        "revision": "2012-06-26 00:00",
+        "description": "Add trap for Reporting alert triggered, and captured queries upload failure"
+      },
+      {
+        "revision": "2012-06-21 00:00",
+        "description": "Add OCSP traps."
+      },
+      {
+        "revision": "2012-06-19 00:00",
+        "description": "Add dns cache acceleration traps."
+      },
+      {
+        "revision": "2012-06-05 00:00",
+        "description": "Add Disconnected Grid traps."
+      },
+      {
+        "revision": "2012-03-29 00:00",
+        "description": "Update Copyright"
+      },
+      {
+        "revision": "2012-03-14 00:00",
+        "description": "Add additional RAID traps"
+      },
+      {
+        "revision": "2012-01-12 00:00",
+        "description": "Add Reporting service state changes"
+      },
+      {
+        "revision": "2012-01-06 00:00",
+        "description": "Fix hsm state change traps"
+      },
+      {
+        "revision": "2011-12-16 00:00",
+        "description": "Add missing state change and probablefailures"
+      },
+      {
+        "revision": "2011-09-20 00:00",
+        "description": "Added State change Trap Support for services"
+      },
+      {
+        "revision": "2011-08-17 00:00",
+        "description": "Added SNMP Trap Support for DHCP Protocol & Syslog"
+      },
+      {
+        "revision": "2011-08-11 00:00",
+        "description": "Added SNMP Trap Support for Restart & Zone Transfer"
+      },
+      {
+        "revision": "2011-08-03 00:00",
+        "description": "Added SNMP Trap Support for HA Pair Dual Active state"
+      },
+      {
+        "revision": "2011-03-03 00:00",
+        "description": "Added HSM Group failure traps"
+      },
+      {
+        "revision": "2010-10-10 00:00",
+        "description": "Added IF-MAP and Captive portal software failure traps"
+      },
+      {
+        "revision": "2010-05-21 00:00",
+        "description": "Added NAC Authentication service state changes"
+      },
+      {
+        "revision": "2010-04-16 00:00",
+        "description": "Added MS server and service states."
+      },
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Fixed smilint errors"
+      },
+      {
+        "revision": "2008-02-28 00:00",
+        "description": "Change oid of NOTIFICATION-TYPE definitions"
+      },
+      {
+        "revision": "2008-02-04 00:00",
+        "description": "Added ntp-sync-up (15) and ntp-sync-down (6) states."
+      },
+      {
+        "revision": "2005-04-17 00:00",
+        "description": "Added enet link states and replication states"
+      },
+      {
+        "revision": "2005-01-10 00:00",
+        "description": "Modified comments to the mib, Added copyright, and defined ibProcStartStopTrap for normal software process start/stop. "
+      },
+      {
+        "revision": "2004-05-10 00:00",
+        "description": "Initial creation of the module."
+      }
+    ]
+  },
+  "ibNotificationVarBind": {
+    "name": "ibNotificationVarBind",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "IbState": {
+    "name": "IbState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ha-active": 1,
+          "ha-passive": 2,
+          "ha-initial": 3,
+          "grid-connected": 4,
+          "grid-disconnected": 5,
+          "enet-link-up": 6,
+          "enet-link-down": 7,
+          "replication-online": 8,
+          "replication-offline": 9,
+          "replication-snapshotting": 10,
+          "service-up": 11,
+          "service-down": 12,
+          "ha-replication-online": 13,
+          "ha-replication-offline": 14,
+          "ntp-sync-up": 15,
+          "ntp-sync-down": 16,
+          "ms-server-up": 17,
+          "ms-server-down": 18,
+          "ms-service-up": 19,
+          "ms-service-down": 20,
+          "nac-server-group-down": 21,
+          "nac-server-group-up": 22,
+          "mgm-service-up": 23,
+          "mgm-service-down": 24,
+          "ha-active-active": 25,
+          "ftp-service-working": 26,
+          "ftp-service-failed": 27,
+          "ftp-service-inactive": 28,
+          "tftp-service-working": 29,
+          "tftp-service-failed": 30,
+          "tftp-service-inactive": 31,
+          "dns-service-working": 32,
+          "dns-service-failed": 33,
+          "dns-service-inactive": 34,
+          "ntp-service-working": 35,
+          "ntp-service-failed": 36,
+          "ntp-service-inactive": 37,
+          "http-file-dist-service-working": 38,
+          "http-file-dist-service-failed": 39,
+          "http-file-dist-service-inactive": 40,
+          "dhcp-service-working": 45,
+          "dhcp-service-warning": 46,
+          "dhcp-service-failed": 47,
+          "dhcp-service-inactive": 48,
+          "captive-portal-service-working": 49,
+          "captive-portal-service-failed": 50,
+          "captive-portal-service-inactive": 51,
+          "ifmap-service-working": 52,
+          "ifmap-service-failed": 53,
+          "ifmap-service-inactive": 54,
+          "dns-service-noengine": 55,
+          "hsm-group-down": 56,
+          "hsm-group-up": 57,
+          "dns-service-working-no-hsm": 58,
+          "reporting-service-working": 59,
+          "reporting-service-failed": 60,
+          "reporting-service-inactive": 61,
+          "dns-cache-acceleration-working": 62,
+          "dns-cache-acceleration-failed": 63,
+          "dns-cache-acceleration-inactive": 64,
+          "ocsp-responders-ok": 65,
+          "ocsp-responder-failed": 66,
+          "ocsp-responders-unavailable": 67,
+          "ocsp-service-inactive": 68,
+          "subgrid-attached": 69,
+          "subgrid-detached": 70,
+          "snapshot-disabled": 71,
+          "snapshot-enabled": 72,
+          "lb-device-up": 73,
+          "lb-device-down": 74,
+          "ldap-servers-ok": 76,
+          "ldap-server-failure": 77,
+          "ldap-servers-unavailable": 78,
+          "ldap-service-inactive": 79,
+          "sgm-state-online": 80,
+          "sgm-state-offline": 81,
+          "discovery-consolidator-service-working": 82,
+          "discovery-consolidator-service-warning": 83,
+          "discovery-consolidator-service-failed": 84,
+          "discovery-consolidator-service-inactive": 85,
+          "discovery-collector-service-working": 86,
+          "discovery-collector-service-warning": 87,
+          "discovery-collector-service-failed": 88,
+          "discovery-collector-service-inactive": 89,
+          "threat-protection-service-working": 90,
+          "threat-protection-service-warning": 91,
+          "threat-protection-service-failed": 92,
+          "threat-protection-service-inactive": 93,
+          "mgm-external-storage-disabled": 94,
+          "dns-integrity-check-failed": 95,
+          "dns-integrity-check-working": 96,
+          "dns-integrity-check-severity-indetermined": 97,
+          "dns-integrity-check-severity-normal": 98,
+          "dns-integrity-check-severity-informational": 99,
+          "dns-integrity-check-severity-warning": 100,
+          "dns-integrity-check-severity-severe": 101,
+          "dns-integrity-check-severity-critical": 102,
+          "cloud-api-service-working": 103,
+          "cloud-api-service-failed": 104,
+          "cloud-api-service-inactive": 105,
+          "dns-service-dtc-failed": 106,
+          "raid-status-is-unavailable": 107,
+          "raid-status-is-available": 108,
+          "ipmi-device-warning": 109,
+          "ipmi-device-unavailable": 110,
+          "ipmi-device-available": 111,
+          "rpz-refresh-working": 112,
+          "rpz-refresh-failed": 113,
+          "rpz-refresh-unknown": 114,
+          "dns-attack-active": 115,
+          "dns-attack-inactive": 116,
+          "high-rpz-hit-rate": 117,
+          "normal-rpz-hit-rate": 118,
+          "taxii-working": 119,
+          "taxii-warning": 120,
+          "taxii-failed": 121,
+          "taxii-inactive": 122,
+          "ciscoise-service-up": 123,
+          "ciscoise-service-down": 124,
+          "threat-analytics-service-inactive": 125,
+          "threat-analytics-service-working": 126,
+          "threat-analytics-service-warning": 127,
+          "threat-analytics-service-failed": 128,
+          "reporting-service-warning": 129,
+          "outbound-service-manager-started": 130,
+          "outbound-service-manager-failed": 131,
+          "outbound-service-manager-stopped": 132,
+          "imc-servers-ok": 133,
+          "imc-server-failure": 134,
+          "imc-servers-unavailable": 135,
+          "imc-service-inactive": 136,
+          "imc-zvelo-service-unavailable": 137,
+          "imc-server-initializing": 138,
+          "dns-service-atc-failed": 139,
+          "dfp-working": 140,
+          "dfp-failed": 141,
+          "dfp-inactive": 142,
+          "dfp-stopped": 143,
+          "dfp-init": 144,
+          "dot-doh-reboot-required": 150,
+          "dot-doh-working": 151,
+          "dot-doh-support-inactive": 152,
+          "dot-doh-disable-reboot-required": 153,
+          "imc-bwl-support-inactive": 160,
+          "imc-bwl-reboot-required": 161,
+          "imc-bwl-working": 162,
+          "imc-zvelo-database-update-failed": 163,
+          "imc-zvelo-database-expired": 164,
+          "imc-zvelo-snmp-clear-trap": 165,
+          "cds-working": 166,
+          "cds-failed": 167,
+          "cds-initializing": 168,
+          "cds-inactive": 169,
+          "imc-grpc-server-healthy": 172,
+          "imc-grpc-server-failed": 173,
+          "imc-grpc-server-inactive": 174,
+          "fast-path-core-working": 175,
+          "fast-path-core-stuck": 176,
+          "query-logging-banner-enabled": 177,
+          "query-logging-banner-disabled": 178
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IbProbableCause": {
+    "name": "IbProbableCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ibClear": 0,
+          "ibUnknown": 1,
+          "ibPrimaryDiskFailure": 2,
+          "ibFanFailure-old": 3,
+          "ibPowerSupplyFailure": 4,
+          "ibDBFailure": 5,
+          "ibApacheSoftwareFailure": 6,
+          "ibSerialConsoleFailure": 7,
+          "ibControldSoftwareFailure": 11,
+          "ibUpgradeFailure": 12,
+          "ibSNMPDFailure": 13,
+          "ibSSHDSoftwareFailure": 15,
+          "ibNTPDSoftwareFailure": 16,
+          "ibClusterdSoftwarFailure": 17,
+          "ibLCDSoftwareFailure": 18,
+          "ibDHCPdSoftwareFailure": 19,
+          "ibNamedSoftwareFailure": 20,
+          "ibAuthServerGroupDown": 21,
+          "ibAuthServerGroupUp": 22,
+          "ibNTLMSoftwareFailure": 24,
+          "ibNetBIOSDaemonFailure": 25,
+          "ibWindowBindDaemonFailure": 26,
+          "ibTFTPDSoftwareFailure": 27,
+          "ibUNUSED28": 28,
+          "ibBackupSoftwareFailure": 29,
+          "ibBackupDatabaseSoftwareFailure": 30,
+          "ibBackupModuleSoftwareFailure": 31,
+          "ibBackupSizeSoftwareFailure": 32,
+          "ibBackupLockSoftwareFailure": 33,
+          "ibHTTPFileDistSoftwareFailure": 34,
+          "ibOSPFSoftwareFailure": 35,
+          "ibAuthDHCPNamedSoftwareFailure": 36,
+          "ibFan1Failure": 37,
+          "ibFan2Failure": 38,
+          "ibFan3Failure": 39,
+          "ibFan1OK": 40,
+          "ibFan2OK": 41,
+          "ibFan3OK": 42,
+          "ibFTPDSoftwareFailure": 44,
+          "ibPowerSupplyOK": 46,
+          "ibWebUISoftwareFailure": 47,
+          "ibUNUSED48": 48,
+          "ibADAgentSyncFailure": 49,
+          "ibIFMAPSoftwareFailure": 50,
+          "ibCaptivePortalSoftwareFailure": 51,
+          "ibDuplicateIPAddressFailure": 52,
+          "ibBGPSoftwareFailure": 53,
+          "ibRevokedLicense": 54,
+          "ibGUILoginFailure": 58,
+          "ibSerialConsoleLoginFailure": 59,
+          "ibSystemReboot": 60,
+          "ibSystemRestart": 61,
+          "ibZoneTransferFailure": 62,
+          "ibDHCPLeaseConflict": 63,
+          "ibDHCPAddressConflict": 64,
+          "ibDHCPRangeConflict": 65,
+          "ibDHCPHostConflict": 66,
+          "ibSyslogFailure": 67,
+          "ibPowerSupply1Failure": 68,
+          "ibPowerSupply2Failure": 69,
+          "ibPowerSupply1OK": 70,
+          "ibPowerSupply2OK": 71,
+          "ibReportingTaskSwFailure": 72,
+          "ibReportingDbBackupFailure": 73,
+          "ibFan4Failure": 74,
+          "ibFan5Failure": 75,
+          "ibFan6Failure": 76,
+          "ibFan7Failure": 77,
+          "ibFan8Failure": 78,
+          "ibFan4OK": 79,
+          "ibFan5OK": 80,
+          "ibFan6OK": 81,
+          "ibFan7OK": 82,
+          "ibFan8OK": 83,
+          "ibOSPF6SoftwareFailure": 84,
+          "ibOCSPResponderFailure": 85,
+          "ibReportingAlertTriggered": 86,
+          "ibCapturedQueriesUploadFailure": 87,
+          "ibLDAPServerFailure": 88,
+          "ibRIRSWIPRegistrationFailure": 89,
+          "ibPowerSupply1Removed": 90,
+          "ibPowerSupply2Removed": 91,
+          "ibIPMISensorErrorDetected": 92,
+          "ibDiscoveryConsolidatorTaskSwFailure": 93,
+          "ibDiscoveryCollectorTaskSwFailure": 94,
+          "ibDiscoveryBackupSwFailure": 95,
+          "ibThreatProtectionAutoDownloadFailure": 96,
+          "ibThreatProtectionPublishFailure": 97,
+          "ibPassiveHANodeARPConnectivityFailure": 98,
+          "ibPassiveHANodeARPConnectivitySuccess": 99,
+          "ibDNSIntegrityCheckConnectionFailed": 100,
+          "ibDNSIntegrityCheckPrimaryServersFailed": 101,
+          "ibDNSIntegrityCheckNameserversFailed": 102,
+          "ibCloudApiFailure": 103,
+          "ibRpzRefreshFailure": 104,
+          "ibAnalyticsAutoDownloadFailure": 106,
+          "ibDnsHealthCheckFailed": 107,
+          "ibDnsHealthCheckSucceed": 108,
+          "ibBFDSoftwareFailure": 109,
+          "ibOutboundWorkerFailed": 110,
+          "ibIMCgRPCServerFailure": 111,
+          "ibRAIDIsOptimal": 3001,
+          "ibRAIDIsDegraded": 3002,
+          "ibRAIDIsRebuilding": 3003,
+          "ibRAIDStatusUnknown": 3004,
+          "ibRAIDBatteryIsOK": 3005,
+          "ibRAIDBatteryFailed": 3006,
+          "ibRAIDOptimalMismatch": 3007,
+          "ibRAIDDegradedMismatch": 3008,
+          "ibRAIDRebuildingMismatch": 3009,
+          "ibRAIDBatteryWeak": 3010,
+          "ibRAIDIsDegradedDisk1": 3011,
+          "ibRAIDIsDegradedDisk2": 3012,
+          "ibRAIDIsDegradedDisk3": 3013,
+          "ibRAIDIsDegradedDisk4": 3014,
+          "ibRAIDIsDegradedDisk5": 3015,
+          "ibRAIDIsDegradedDisk6": 3016,
+          "ibRAIDIsDegradedDisk7": 3017,
+          "ibRAIDIsDegradedDisk8": 3018,
+          "ibRAIDIsRebuildingDisk1": 3019,
+          "ibRAIDIsRebuildingDisk2": 3020,
+          "ibRAIDIsRebuildingDisk3": 3021,
+          "ibRAIDIsRebuildingDisk4": 3022,
+          "ibRAIDIsRebuildingDisk5": 3023,
+          "ibRAIDIsRebuildingDisk6": 3024,
+          "ibRAIDIsRebuildingDisk7": 3025,
+          "ibRAIDIsRebuildingDisk8": 3026,
+          "ibRAIDDegradedMismatchDisk1": 3027,
+          "ibRAIDDegradedMismatchDisk2": 3028,
+          "ibRAIDDegradedMismatchDisk3": 3029,
+          "ibRAIDDegradedMismatchDisk4": 3030,
+          "ibRAIDDegradedMismatchDisk5": 3031,
+          "ibRAIDDegradedMismatchDisk6": 3032,
+          "ibRAIDDegradedMismatchDisk7": 3033,
+          "ibRAIDDegradedMismatchDisk8": 3034,
+          "ibRAIDRebuildingMismatchDisk1": 3035,
+          "ibRAIDRebuildingMismatchDisk2": 3036,
+          "ibRAIDRebuildingMismatchDisk3": 3037,
+          "ibRAIDRebuildingMismatchDisk4": 3038,
+          "ibRAIDRebuildingMismatchDisk5": 3039,
+          "ibRAIDRebuildingMismatchDisk6": 3040,
+          "ibRAIDRebuildingMismatchDisk7": 3041,
+          "ibRAIDRebuildingMismatchDisk8": 3042,
+          "ibRAIDIsInoperable": 3043,
+          "ibRAIDPredictedDegraded": 3044,
+          "ibRAIDPredictedDegradedDisk1": 3045,
+          "ibRAIDPredictedDegradedDisk2": 3046,
+          "ibRAIDPredictedDegradedDisk3": 3047,
+          "ibRAIDPredictedDegradedDisk4": 3048,
+          "ibRAIDPredictedDegradedDisk5": 3049,
+          "ibRAIDPredictedDegradedDisk6": 3050,
+          "ibRAIDPredictedDegradedDisk7": 3051,
+          "ibRAIDPredictedDegradedDisk8": 3052,
+          "ibDisconnectedGridAttachFailed": 4001,
+          "ibDisconnectedGridDetachFailed": 4002,
+          "ibDisconnectedGridDetachFailedSubgridOffline": 4003,
+          "ibDisconnectedGridSnapshotFailed": 4004,
+          "ibDnssecAutomaticKSKRolloverApproching": 4005,
+          "ibDnssecManualKSKRolloverDueApproching": 4006,
+          "ibDnssecAutomaticKSKRolloverDone": 4007,
+          "ibDnssecManualKSKRolloverDone": 4008,
+          "ibDnssecKSKRolloverOverdue": 4009,
+          "ibPortDiscoveryConflict": 4010,
+          "ibDeviceDiscoveryConflict": 4011,
+          "ibDeviceUnmanaged": 4012,
+          "ibAnalyticsDnstUpdate": 4013,
+          "ibSyslogBackupDone": 4014,
+          "ibSyslogBackupFailed": 4015
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ibEquipmentFailureTrap": {
+    "name": "ibEquipmentFailureTrap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibObjectName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibProbableCause"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibProcessingFailureTrap": {
+    "name": "ibProcessingFailureTrap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibSubsystemName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibProbableCause"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibThresholdCrossingEvent": {
+    "name": "ibThresholdCrossingEvent",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibObjectName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibCurThresholdValue"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibThresholdHigh"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibThresholdLow"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibStateChangeEvent": {
+    "name": "ibStateChangeEvent",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibObjectName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibPreviousState"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibCurrentState"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibProcStartStopTrap": {
+    "name": "ibProcStartStopTrap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibSubsystemName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibRevokedLicenseTrap": {
+    "name": "ibRevokedLicenseTrap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibSubsystemName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibOperationTrap": {
+    "name": "ibOperationTrap",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibNodeName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapSeverity"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibSubsystemName"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibProbableCause"
+      },
+      {
+        "module": "IB-TRAP-MIB",
+        "object": "ibTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ibNodeName": {
+    "name": "ibNodeName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbNode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibTrapSeverity": {
+    "name": "ibTrapSeverity",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 5,
+          "major": 4,
+          "minor": 3,
+          "info": 2,
+          "indetermined": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibObjectName": {
+    "name": "ibObjectName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibProbableCause": {
+    "name": "ibProbableCause",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibSubsystemName": {
+    "name": "ibSubsystemName",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibCurThresholdValue": {
+    "name": "ibCurThresholdValue",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibThresholdHigh": {
+    "name": "ibThresholdHigh",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibThresholdLow": {
+    "name": "ibThresholdLow",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibPreviousState": {
+    "name": "ibPreviousState",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibCurrentState": {
+    "name": "ibCurrentState",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ibTrapDesc": {
+    "name": "ibTrapDesc",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IB-TRAP-MIB",
+      "Source digest sha256:b655c3037810bf197ebfb5085c60a4a23df82f8eb3497b3c7c0030a6c9ed93a9",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IB-TRAP-MIB"
+  }
+}

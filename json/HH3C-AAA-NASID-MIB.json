@@ -1,0 +1,91 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cAAANasId": {
+    "name": "hh3cAAANasId",
+    "oid": "1.3.6.1.4.1.25506.2.114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-09 09:45",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cAAANasIdObjects": {
+    "name": "hh3cAAANasIdObjects",
+    "oid": "1.3.6.1.4.1.25506.2.114.1",
+    "class": "objectidentity"
+  },
+  "hh3cAAANasIdTable": {
+    "name": "hh3cAAANasIdTable",
+    "oid": "1.3.6.1.4.1.25506.2.114.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cAAANasIdEntry": {
+    "name": "hh3cAAANasIdEntry",
+    "oid": "1.3.6.1.4.1.25506.2.114.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-AAA-NASID-MIB",
+        "object": "hh3cAAANasIdName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAAANasIdName": {
+    "name": "hh3cAAANasIdName",
+    "oid": "1.3.6.1.4.1.25506.2.114.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-AAA-NASID-MIB",
+      "Source digest sha256:43f5b6dd6c732df8a27d81fe38553f3140c171580066350fdd460020f3e921b4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-AAA-NASID-MIB"
+  }
+}

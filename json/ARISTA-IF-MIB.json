@@ -1,0 +1,260 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARISTA-SMI-MIB": [
+      "aristaMibs"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "aristaIfMIB": {
+    "name": "aristaIfMIB",
+    "oid": "1.3.6.1.4.1.30065.3.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-09 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "aristaIf": {
+    "name": "aristaIf",
+    "oid": "1.3.6.1.4.1.30065.3.15.1",
+    "class": "objectidentity"
+  },
+  "aristaIfTable": {
+    "name": "aristaIfTable",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aristaIfEntry": {
+    "name": "aristaIfEntry",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aristaIfCounterLastUpdated": {
+    "name": "aristaIfCounterLastUpdated",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfRateInterval": {
+    "name": "aristaIfRateInterval",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfInPktRate": {
+    "name": "aristaIfInPktRate",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfOutPktRate": {
+    "name": "aristaIfOutPktRate",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfInOctetRate": {
+    "name": "aristaIfInOctetRate",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfOutOctetRate": {
+    "name": "aristaIfOutOctetRate",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfRatesLastUpdated": {
+    "name": "aristaIfRatesLastUpdated",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfOperStatusChanges": {
+    "name": "aristaIfOperStatusChanges",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfInAclDrops": {
+    "name": "aristaIfInAclDrops",
+    "oid": "1.3.6.1.4.1.30065.3.15.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aristaIfConformance": {
+    "name": "aristaIfConformance",
+    "oid": "1.3.6.1.4.1.30065.3.15.2",
+    "class": "objectidentity"
+  },
+  "aristaIfGroups": {
+    "name": "aristaIfGroups",
+    "oid": "1.3.6.1.4.1.30065.3.15.2.1",
+    "class": "objectidentity"
+  },
+  "aristaIfCompliances": {
+    "name": "aristaIfCompliances",
+    "oid": "1.3.6.1.4.1.30065.3.15.2.2",
+    "class": "objectidentity"
+  },
+  "aristaIfCompliance": {
+    "name": "aristaIfCompliance",
+    "oid": "1.3.6.1.4.1.30065.3.15.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aristaIfAdditionalInformationGroup",
+        "module": "ARISTA-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aristaIfAdditionalInformationGroup": {
+    "name": "aristaIfAdditionalInformationGroup",
+    "oid": "1.3.6.1.4.1.30065.3.15.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfCounterLastUpdated"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfRateInterval"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfInPktRate"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfOutPktRate"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfInOctetRate"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfOutOctetRate"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfRatesLastUpdated"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfOperStatusChanges"
+      },
+      {
+        "module": "ARISTA-IF-MIB",
+        "object": "aristaIfInAclDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARISTA-IF-MIB",
+      "Source digest sha256:af1320121e75f5cdf3129c0e3266a5a5d92ee22125ea4903679d390b988236a0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARISTA-IF-MIB"
+  }
+}

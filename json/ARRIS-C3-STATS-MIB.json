@@ -1,0 +1,246 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-MIB": [
+      "cmtsC3"
+    ],
+    "DOCS-IF-MIB": [
+      "docsIfCmtsServiceEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cmtsC3StatsMIB": {
+    "name": "cmtsC3StatsMIB",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1",
+    "class": "moduleidentity"
+  },
+  "dcxUpstreamStatsObjects": {
+    "name": "dcxUpstreamStatsObjects",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1",
+    "class": "objectidentity"
+  },
+  "dcxUpstreamStatsTable": {
+    "name": "dcxUpstreamStatsTable",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxUpstreamStatsEntry": {
+    "name": "dcxUpstreamStatsEntry",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-C3-STATS-MIB",
+        "object": "dcxUsStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dcxUsStatsOther": {
+    "name": "dcxUsStatsOther",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsRanging": {
+    "name": "dcxUsStatsRanging",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsRngAborted": {
+    "name": "dcxUsStatsRngAborted",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsRngComplete": {
+    "name": "dcxUsStatsRngComplete",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsIpComplete": {
+    "name": "dcxUsStatsIpComplete",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsRegComplete": {
+    "name": "dcxUsStatsRegComplete",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsAccessDenied": {
+    "name": "dcxUsStatsAccessDenied",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxUsStatsIfIndex": {
+    "name": "dcxUsStatsIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxCmtsServiceStatsObjects": {
+    "name": "dcxCmtsServiceStatsObjects",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2",
+    "class": "objectidentity"
+  },
+  "dcxCmtsServiceTable": {
+    "name": "dcxCmtsServiceTable",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dcxCmtsServiceEntry": {
+    "name": "dcxCmtsServiceEntry",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmentation": {
+      "name": "dcxCmtsServiceEntry",
+      "module": "ARRIS-C3-STATS-MIB",
+      "object": "docsIfCmtsServiceEntry"
+    },
+    "status": "current"
+  },
+  "dcxCmtsServiceOutOctets": {
+    "name": "dcxCmtsServiceOutOctets",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcxCmtsServiceOutPackets": {
+    "name": "dcxCmtsServiceOutPackets",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsServiceUpBWExcessReqs": {
+    "name": "cdxCmtsServiceUpBWExcessReqs",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsServiceDownBWExcessPkts": {
+    "name": "cdxCmtsServiceDownBWExcessPkts",
+    "oid": "1.3.6.1.4.1.4115.1.4.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ARRIS-C3-STATS-MIB",
+      "Source digest sha256:811d8a4917d01cade31202c17d957ea611dc0ca6734861e227e932d8315f03c0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ARRIS-C3-STATS-MIB"
+  }
+}

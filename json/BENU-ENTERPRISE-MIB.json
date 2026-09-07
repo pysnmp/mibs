@@ -1,0 +1,41 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "benu": {
+    "name": "benu",
+    "oid": "1.3.6.1.4.1.39406",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-18 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BENU-ENTERPRISE-MIB",
+      "Source digest sha256:f71779c446c95f3acd3512658f277509693226c25064feb75333daddd5a9ffab",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BENU-ENTERPRISE-MIB"
+  }
+}

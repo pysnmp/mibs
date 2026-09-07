@@ -1,0 +1,539 @@
+--------------------------------------------------------------------------------
+--ACMEPACKET-NNC-MIB:  Acme Packet NNC MIB file
+--
+--February 2012
+--
+--Copyright (c) by Oracle Communications
+--All rights reserved.
+--------------------------------------------------------------------------------
+--This MIB provides a means to gather information about the
+--Acme Management Interface running at the Net-Net NNC and/or Device
+--
+
+APNNC-MIB DEFINITIONS ::= BEGIN
+
+    IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, Integer32
+        FROM SNMPv2-SMI
+    OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    DisplayString, TruthValue 
+  	FROM SNMPv2-TC
+    acmepacketMgmt
+        FROM ACMEPACKET-SMI
+    apEMSModule
+        FROM APEMS-MIB;
+
+    apNNCModule MODULE-IDENTITY
+        LAST-UPDATED	"201804250000Z"
+        ORGANIZATION 	"Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+        DESCRIPTION     "The Net-Net NNC MIB for Oracle Communications Acme Packet SBCs"
+        REVISION        "201208200000Z"
+        DESCRIPTION     "Added apNNCReportingHdrDetectionFailure trap"
+        REVISION        "201207160000Z"
+        DESCRIPTION     "Updated contact info"
+        REVISION	"201310110000Z"
+        DESCRIPTION	"Added apNNCReportingHdrAggregationFailure and apNNCReportingHdrAggregationFailureClear traps"
+        REVISION	"201310140000Z"
+        DESCRIPTION	"ADJUSTED OBJECTS ADDED ON REVISION 201310110000Z"
+
+	REVISION	"201402270000Z"
+	DESCRIPTION	"Added apNNCReportingHdrAggregationLagFailure and apNNCReportingHdrAggregationLagFailureClear traps"
+	REVISION	"201406260000Z"
+       DESCRIPTION  "Add new traps: apOCSDMServerHeartbeatReachable"
+	REVISION 	"201509150000Z" 			
+        DESCRIPTION
+	        "Updated Organization and Contact info."
+	REVISION	"201702150000Z"
+       DESCRIPTION      "Add traps:apEMPluginFailedInstall,apEMPluginFailedInstallClear,apEMPluginFailedUninstall,apEMPluginFailedUninstallClear and apEMPluginDuplicatedRestPrefixName"
+	REVISION	"201707070000Z"
+	DESCRIPTION	"Added traps apNNCReportingPswdExpiration, apNNCReportingPswdExpirationClear and added objects apNNCReportingUser, apNNCReportingPswdExpiryDate"
+	REVISION	"201804250000Z"
+	DESCRIPTION	"Added fraud detection trap apOCSDMFPLSizeExceedLimit"
+        ::= { apEMSModule 5 }
+
+
+    apNNCMIBObjects OBJECT IDENTIFIER ::= { apNNCModule 1 }
+
+    apNNCNotificationObjects OBJECT IDENTIFIER ::= { apNNCModule 2 }	 
+
+    apNNCServerAddressRemote OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The address of a Net-Net Central server, whose reachability status has changed."
+	::= { apNNCNotificationObjects 1 }
+
+
+    apNNCServerNameRemote OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The name of a Net-Net Central server (if available), whose 
+	reachability status has changed and detected by a peer local NNC server." 
+	::= { apNNCNotificationObjects 2 }
+
+
+    apNNCServerAddressLocal OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The address of the local Net-Net Central server in the cluster." 
+	::= { apNNCNotificationObjects 3 }
+
+
+    apNNCServerNameLocal OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The name (if available) of the local Net-Net Central server in the cluster."
+	::= { apNNCNotificationObjects 4 }
+
+    apNNCFailureReason OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (1..255))
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "The reason for failure."
+        ::= { apNNCNotificationObjects 5 }
+
+    apNNCAggregationTimePercent OBJECT-TYPE
+    	SYNTAX DisplayString
+    	MAX-ACCESS accessible-for-notify
+    	STATUS deprecated
+    	DESCRIPTION     "THIS OBJECT IS BEING DEPRECATED IN FAVOR OF MORE ACCURATE OBJECT apNNCAggregationLagPercent.
+	     The percent of time lag of the local Net-Net Central server, which is lagging behing 
+    	     in the process of aggrgation of HDR data in the cluster."
+	::= { apNNCNotificationObjects 6 }
+
+    apNNCAggregationLagPercent OBJECT-TYPE
+    	SYNTAX 			Integer32
+	UNITS			"%"
+    	MAX-ACCESS 		accessible-for-notify
+    	STATUS 			current
+    	DESCRIPTION     "The percent of time lag of the local Net-Net Central server, which is lagging behing 
+    	     in the process of aggrgation of HDR data in the cluster."
+	::= { apNNCNotificationObjects 7 }
+
+    apOCSDMServerMasterAddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The address (if available) of the master Oracle Communication  Session Delivery Manager server in the cluster."
+	::= { apNNCNotificationObjects 8}
+
+    apOCSDMServerMasterName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The name (if available) of the master Oracle Communication  Session Delivery Manager server in the cluster."
+	::= { apNNCNotificationObjects 9}
+
+   apOCSDMServerTrapInterval OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS accessible-for-notify
+	STATUS current
+	DESCRIPTION     "The interval of generating the trap periodically by master Oracle Communication  Session Delivery Manager server"
+	::= { apNNCNotificationObjects 10}
+
+    apEMPluginNameLocal OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The plugin name"
+    ::= { apNNCNotificationObjects 11 }
+
+    apEMPluginRestPrefixName OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The plugin REST prefix name"
+    ::= { apNNCNotificationObjects 12 }
+
+    apNNCReportingUser OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The name of the reporting user."
+    ::= { apNNCNotificationObjects 13 }
+
+    apNNCReportingPswdExpiryDate OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The password expiry date for the reporting user. The date format is dd-MMM-yy. For example, 14-JUL-17"
+    ::= { apNNCNotificationObjects 14 }
+
+    apNNCFraudProtectionListName OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The name of the fraud protection list managed by the OCSDM"
+    ::= { apNNCNotificationObjects 15 }
+
+    apNNCFraudProtectionListSizeLimit OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION     "The maximum size of the fraud protection list for pushing to the device"
+    ::= { apNNCNotificationObjects 16 }
+
+    apNNCNotifications OBJECT IDENTIFIER ::= { apNNCModule 3 }
+    apNNCServerHealthNotificationsPrefix
+                OBJECT IDENTIFIER ::= { apNNCNotifications 1 }
+    apNNCServerHealthNotifications
+        OBJECT IDENTIFIER ::= { apNNCServerHealthNotificationsPrefix 0 }
+
+
+    apNNCServerUnreachable NOTIFICATION-TYPE
+        OBJECTS {
+	    apNNCServerAddressLocal,
+            apNNCServerNameLocal,
+            apNNCServerAddressRemote,
+            apNNCServerNameRemote
+            }
+	STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever a Net-Net Central Server is
+            determined to be unreachable by another the Net-Net Central server configured in the same cluster. "
+    ::= { apNNCServerHealthNotifications 1 }
+
+
+    apNNCServerUnreachableClear NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apNNCServerNameLocal,
+            apNNCServerAddressRemote,
+            apNNCServerNameRemote
+	    }
+	STATUS current
+	DESCRIPTION
+            "The notification will be generated whenever a previously
+            unreachable Net-Net Central Server is determined to be reachable
+            by another Net-Net Central server configured in the same cluster. "
+    ::= { apNNCServerHealthNotifications 2 }
+
+    apNNCTrapRelayNotAliveNotification NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apNNCServerNameLocal,
+            apNNCFailureReason
+            }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated when the main Net-Net Central Server has determined that the trap relay process is not alive during the Server start up process"
+    ::= { apNNCServerHealthNotifications 3 }
+
+    apNNCTrapRelayAliveNotification NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apNNCServerNameLocal
+            }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated when the main Net-Net Central Server has determined that the trap relay process is alive during Server start up process"
+    ::= { apNNCServerHealthNotifications 4 }
+
+     apOCSDMSeverHeartbeatReachable NOTIFICATION-TYPE
+        OBJECTS {
+            apOCSDMServerMasterAddress,
+            apOCSDMServerMasterName,
+            apOCSDMServerTrapInterval
+            }
+        STATUS current
+        DESCRIPTION
+            "The notification will be periodically generated by Oracle communication session delivery manager master server at configured interval "
+    ::= { apNNCServerHealthNotifications 5 }
+
+    apEMPluginFailedInstall NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apEMPluginNameLocal
+        }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever an EMS-Plugin failed install."
+    ::= { apNNCServerHealthNotifications 6 }
+    
+    apEMPluginFailedInstallClear NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apEMPluginNameLocal
+        }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever an EMS-Plugin failed install status is recovered."
+    ::= { apNNCServerHealthNotifications 7 }
+
+    apEMPluginFailedUninstall NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apEMPluginNameLocal
+        }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever an EMS-Plugin failed uninstall."
+    ::= { apNNCServerHealthNotifications 8 }
+    
+    apEMPluginFailedUninstallClear NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apEMPluginNameLocal
+        }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever an EMS-Plugin failed uninstall status is recovered."
+    ::= { apNNCServerHealthNotifications 9 }
+
+    apEMPluginDuplicatedRestPrefixName NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apEMPluginNameLocal,
+            apEMPluginRestPrefixName            
+        }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated when attempting to install a plugin with exixting REST prefix name in the system."
+    ::= { apNNCServerHealthNotifications 10 }
+
+    apNNCReportingNotificationsPrefix
+                OBJECT IDENTIFIER ::= { apNNCNotifications 2 }
+    
+    apNNCReportingNotifications
+        OBJECT IDENTIFIER ::= { apNNCReportingNotificationsPrefix 0 }
+
+    apNNCReportingHdrDetectionFailure NOTIFICATION-TYPE
+        OBJECTS {
+	    apNNCServerAddressLocal,
+            apNNCServerNameLocal,
+            apNNCFailureReason
+            }
+	STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever a Net-Net Central Reporting HDR detection task failed. "
+    ::= { apNNCReportingNotifications 1 }
+    
+    apNNCReportingHdrAggregationFailure NOTIFICATION-TYPE
+                OBJECTS {
+        	    apNNCServerAddressLocal,
+                    apNNCServerNameLocal,
+                    apNNCFailureReason,
+                    apNNCAggregationTimePercent
+                    }
+        	STATUS deprecated
+                DESCRIPTION
+                    "THIS TRAP IS BEING DEPRECATED IN FAVOR of A NEW TRAP apNNCReportingHdrAggregationLagFailure.
+		    The notification will be generated when a 
+                    Net-Net Central Reporting HDR aggregation task fails
+                    to keep up with incoming HDR data. "
+    ::= { apNNCReportingNotifications 2 }
+    
+    apNNCReportingHdrAggregationFailureClear NOTIFICATION-TYPE
+                    OBJECTS {
+            	    apNNCServerAddressLocal,
+                        apNNCServerNameLocal,
+                        apNNCFailureReason,
+                        apNNCAggregationTimePercent
+                        }
+            	STATUS deprecated
+                    DESCRIPTION
+                        "THIS TRAP IS BEING DEPRECATED IN FAVOR of A NEW TRAP apNNCReportingHdrAggregationLagFailureClear.
+			The notification will be generated when a 
+                        previosly failed Net-Net Central Reporting HDR aggregation task 
+                        is now able to keep up with incoming HDR data. "
+    ::= { apNNCReportingNotifications 3 }
+
+    apNNCReportingHdrAggregationLagFailure NOTIFICATION-TYPE
+                OBJECTS {
+        	    apNNCServerAddressLocal,
+                    apNNCServerNameLocal,
+                    apNNCFailureReason,
+                    apNNCAggregationLagPercent
+                    }
+        	STATUS current
+                DESCRIPTION
+                    "The notification will be generated when a 
+                    Net-Net Central Reporting HDR aggregation task fails
+                    to keep up with incoming HDR data. "
+    ::= { apNNCReportingNotifications 4 }
+
+    apNNCReportingHdrAggregationLagFailureClear NOTIFICATION-TYPE
+                    OBJECTS {
+            	    apNNCServerAddressLocal,
+                        apNNCServerNameLocal,
+                        apNNCFailureReason,
+                        apNNCAggregationLagPercent
+                        }
+            	STATUS current
+                    DESCRIPTION
+                        "The notification will be generated when a 
+                        previosly failed Net-Net Central Reporting HDR aggregation task 
+                        is now able to keep up with incoming HDR data. "
+    ::= { apNNCReportingNotifications 5 }
+
+    apNNCReportingPswdExpiration NOTIFICATION-TYPE
+                OBJECTS {
+        	    apNNCReportingUser,
+		    apNNCReportingPswdExpiryDate,
+		    apNNCServerAddressLocal,
+                    apNNCServerNameLocal,
+                    apNNCFailureReason
+                    }
+        	STATUS current
+                DESCRIPTION
+                    "The notification will be generated when a 
+                    Net-Net Central Reporting user's password is near
+                    to expiry date. "
+    ::= { apNNCReportingNotifications 6 }
+
+    apNNCReportingPswdExpirationClear NOTIFICATION-TYPE
+                    OBJECTS {
+			apNNCReportingUser,
+		        apNNCReportingPswdExpiryDate,
+            	        apNNCServerAddressLocal,
+                        apNNCServerNameLocal,
+                        apNNCFailureReason
+                        }
+            	STATUS current
+                    DESCRIPTION
+                        "The notification will be generated to clear 
+                        previous Net-Net Central Reporting user's password 
+                        expiration trap. "
+    ::= { apNNCReportingNotifications 7 }
+
+    apOCSDMFraudProtectionNotificationsPrefix
+                OBJECT IDENTIFIER ::= { apNNCNotifications 3 }
+
+    apOCSDMFraudProtectionNotifications
+        OBJECT IDENTIFIER ::= { apOCSDMFraudProtectionNotificationsPrefix 0 }
+
+    apOCSDMFPLSizeExceedLimit NOTIFICATION-TYPE
+        OBJECTS {
+	        apNNCFraudProtectionListName,
+	        apNNCFraudProtectionListSizeLimit
+            }
+        STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever a Fraud Protection List is scheduled to push to device(s), and the size of the list exceeds the device limit."
+    ::= { apOCSDMFraudProtectionNotifications 1 }
+
+    apNNCModuleConformance OBJECT IDENTIFIER ::= { apNNCModule 4 }
+
+    apNNCGroups OBJECT IDENTIFIER ::= { apNNCModuleConformance 1 }
+    apNNCNotificationsGroups OBJECT IDENTIFIER ::= { apNNCModuleConformance 2 }
+    apNNCNotificationObjectsGroups OBJECT IDENTIFIER ::= { apNNCModuleConformance 3 }
+
+    apNNCServerHealthObjectsGroup OBJECT-GROUP
+        OBJECTS {
+            apNNCServerAddressLocal,
+            apNNCServerNameLocal,
+            apNNCServerAddressRemote,
+            apNNCServerNameRemote
+           }
+    STATUS current
+    DESCRIPTION "Objects for NNC Server reachability notifications."
+    ::= { apNNCNotificationObjectsGroups 1 }
+
+    apNNCFailureObjectsGroup OBJECT-GROUP
+        OBJECTS {
+		apNNCFailureReason
+       }
+    STATUS current
+    DESCRIPTION "Objects for NNC Server failure notifications."
+    ::= { apNNCNotificationObjectsGroups 2 }
+
+    apNNCTimePercentObjectsGroup OBJECT-GROUP
+        OBJECTS {
+		apNNCAggregationTimePercent
+       }
+    STATUS deprecated
+    DESCRIPTION "THIS OBJECT IS BEING DEPRECATED IN FAVOR OF NEW OBJECT apNNCTimePercentObjGroup
+		Objects for NNC Server failure notifications."
+    ::= { apNNCNotificationObjectsGroups 3 }
+
+    apNNCTimePercentObjGroup OBJECT-GROUP
+        OBJECTS {
+		apNNCAggregationLagPercent
+       }
+    STATUS current
+    DESCRIPTION "Objects for NNC Server failure notifications."
+    ::= { apNNCNotificationObjectsGroups 4 }
+
+    apNNCServerHealthNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+          apNNCServerUnreachable,
+          apNNCServerUnreachableClear,
+          apNNCTrapRelayNotAliveNotification,
+          apNNCTrapRelayAliveNotification
+          }
+    STATUS current
+    DESCRIPTION "NNC Server reachability notifications generated by a peer NNC Server"
+    ::= { apNNCNotificationsGroups 1 }
+
+    apNNCReportingNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+		apNNCReportingHdrDetectionFailure
+        }
+    STATUS current
+    DESCRIPTION "NNC Reporting Server notifications"
+    ::= { apNNCNotificationsGroups 2 }
+
+    apNNCReportingAggrNotifsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+		apNNCReportingHdrAggregationFailure,
+		apNNCReportingHdrAggregationFailureClear
+        }
+    STATUS deprecated
+    DESCRIPTION "THIS GROUP IS BEING DEPRECATED IN FAVOR OF NEW GROUP apNNCReportingAggrNotificationGroup
+		Reporting Server notifications"
+    ::= { apNNCNotificationsGroups 3 }
+
+    apNNCReportingAggregationNotificationGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+		apNNCReportingHdrAggregationLagFailure,
+		apNNCReportingHdrAggregationLagFailureClear
+        }
+    STATUS current
+    DESCRIPTION "Reporting Server notifications"
+    ::= { apNNCNotificationsGroups 4 }
+
+    apNNCServerHealthbeatNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+          apOCSDMSeverHeartbeatReachable
+        }
+    STATUS current
+    DESCRIPTION "OCSDM Server heartbeat reachability notifications generated by a Master OCSDM Server"
+    ::= { apNNCNotificationsGroups 5 }
+
+    apNNCPluginNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+            apEMPluginFailedInstall,
+            apEMPluginFailedInstallClear,        
+            apEMPluginFailedUninstall,
+            apEMPluginFailedUninstallClear,
+            apEMPluginDuplicatedRestPrefixName  
+        }
+        STATUS current
+        DESCRIPTION "OCSDM Server Plugin notifications"
+    ::= { apNNCNotificationsGroups 6 }
+
+    apOCSDMFraudProtectionNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+            apOCSDMFPLSizeExceedLimit
+        }
+        STATUS current
+        DESCRIPTION "OCSDM fraud protection notifications"
+    ::= { apNNCNotificationsGroups 7 }
+
+END
+
+

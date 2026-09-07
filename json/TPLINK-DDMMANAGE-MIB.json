@@ -1,0 +1,116 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TPLINK-MIB": [
+      "tplinkMgmt"
+    ]
+  },
+  "tplinkDdmManageMIB": {
+    "name": "tplinkDdmManageMIB",
+    "oid": "1.3.6.1.4.1.11863.6.96",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "tplinkDdmManageMIBObjects": {
+    "name": "tplinkDdmManageMIBObjects",
+    "oid": "1.3.6.1.4.1.11863.6.96.1",
+    "class": "objectidentity"
+  },
+  "tplinkDdmManageNotifications": {
+    "name": "tplinkDdmManageNotifications",
+    "oid": "1.3.6.1.4.1.11863.6.96.2",
+    "class": "objectidentity"
+  },
+  "tempExceedThreshold": {
+    "name": "tempExceedThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "volExceedThreshold": {
+    "name": "volExceedThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "biasCurExceedThreshold": {
+    "name": "biasCurExceedThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "txPowExceedThreshold": {
+    "name": "txPowExceedThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "rxPowExceedThreshold": {
+    "name": "rxPowExceedThreshold",
+    "oid": "1.3.6.1.4.1.11863.6.96.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source TPLINK-DDMMANAGE-MIB",
+      "Source digest sha256:796946e24385a43f41a8b543332185c6ca14c3c3cfd73f508bc23a88db6eb1ce",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "TPLINK-DDMMANAGE-MIB"
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesSecurityMIB": {
+    "name": "cienaCesSecurityMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.44",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-09-27 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesSecurityMIBObjects": {
+    "name": "cienaCesSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityCertExpiry": {
+    "name": "cienaCesSecurityCertExpiry",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityCertCrl": {
+    "name": "cienaCesSecurityCertCrl",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityMIBNotificationPrefix": {
+    "name": "cienaCesSecurityMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.43",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityMIBNotifications": {
+    "name": "cienaCesSecurityMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityMIBConformance": {
+    "name": "cienaCesSecurityMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityMIBCompliances": {
+    "name": "cienaCesSecurityMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityMIBGroups": {
+    "name": "cienaCesSecurityMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSecurityCertType": {
+    "name": "cienaCesSecurityCertType",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ca": 1,
+          "devCert": 2,
+          "sshClient": 3,
+          "sshServer": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCertName": {
+    "name": "cienaCesSecurityCertName",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCertValidTo": {
+    "name": "cienaCesSecurityCertValidTo",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCaCrlType": {
+    "name": "cienaCesSecurityCaCrlType",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCertCrlOperation": {
+    "name": "cienaCesSecurityCertCrlOperation",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCaCrlInvalidCaReason": {
+    "name": "cienaCesSecurityCaCrlInvalidCaReason",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCertKeyOperation": {
+    "name": "cienaCesSecurityCertKeyOperation",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesSecurityCertExpiryWarningNotification": {
+    "name": "cienaCesSecurityCertExpiryWarningNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertType"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertName"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertValidTo"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityCertExpiryExpiredNotification": {
+    "name": "cienaCesSecurityCertExpiryExpiredNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertType"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertName"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertValidTo"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityCaCrlInstallNotification": {
+    "name": "cienaCesSecurityCaCrlInstallNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCaCrlType"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertName"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertCrlOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityCaCrlInvalidCaNotification": {
+    "name": "cienaCesSecurityCaCrlInvalidCaNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCaCrlInvalidCaReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityDevCertInstallNotification": {
+    "name": "cienaCesSecurityDevCertInstallNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertName"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertCrlOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityDevCertKeyCreateNotification": {
+    "name": "cienaCesSecurityDevCertKeyCreateNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.43.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertName"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertKeyOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityCertExpiryGroup": {
+    "name": "cienaCesSecurityCertExpiryGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertExpiryWarningNotification"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCertExpiryExpiredNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSecurityCertCrlGroup": {
+    "name": "cienaCesSecurityCertCrlGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.44.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCaCrlInstallNotification"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityCaCrlInvalidCaNotification"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityDevCertInstallNotification"
+      },
+      {
+        "module": "CIENA-CES-SECURITY-MIB",
+        "object": "cienaCesSecurityDevCertKeyCreateNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CIENA-CES-SECURITY-MIB",
+      "Source digest sha256:4bd8c3ac9f02ad7bc15a611d02f40bead764e43f940a53537c1d999015449370",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CIENA-CES-SECURITY-MIB"
+  }
+}

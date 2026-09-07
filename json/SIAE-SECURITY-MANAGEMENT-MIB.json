@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "securityManagement": {
+    "name": "securityManagement",
+    "oid": "1.3.6.1.4.1.3373.1103.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-17 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "securityManagementMibVersion": {
+    "name": "securityManagementMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.82.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "servicesTable": {
+    "name": "servicesTable",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceEntry": {
+    "name": "serviceEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SECURITY-MANAGEMENT-MIB",
+        "object": "serviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceIndex": {
+    "name": "serviceIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceName": {
+    "name": "serviceName",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceProtocolVersion": {
+    "name": "serviceProtocolVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceAdminStatus": {
+    "name": "serviceAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "serviceOperStatus": {
+    "name": "serviceOperStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 0,
+          "running": 1,
+          "stopped": 2
+        }
+      }
+    },
+    "default": {
+      "value": "notAvailable",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceRowStatus": {
+    "name": "serviceRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.82.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-SECURITY-MANAGEMENT-MIB",
+      "Source digest sha256:0041a95f7807811de4f26088bd0830d1990a3b408ea1f70f61965be17fe12165",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-SECURITY-MANAGEMENT-MIB"
+  }
+}

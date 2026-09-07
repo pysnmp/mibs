@@ -1,0 +1,352 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dlinkSwNdInspecMIB": {
+    "name": "dlinkSwNdInspecMIB",
+    "oid": "1.3.6.1.4.1.171.14.144",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-18 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dNdInspecNotifications": {
+    "name": "dNdInspecNotifications",
+    "oid": "1.3.6.1.4.1.171.14.144.0",
+    "class": "objectidentity"
+  },
+  "dNdInspecObjects": {
+    "name": "dNdInspecObjects",
+    "oid": "1.3.6.1.4.1.171.14.144.1",
+    "class": "objectidentity"
+  },
+  "dNdInspecConformance": {
+    "name": "dNdInspecConformance",
+    "oid": "1.3.6.1.4.1.171.14.144.2",
+    "class": "objectidentity"
+  },
+  "dNdInspecPolicy": {
+    "name": "dNdInspecPolicy",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1",
+    "class": "objectidentity"
+  },
+  "dNdInspecInterface": {
+    "name": "dNdInspecInterface",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2",
+    "class": "objectidentity"
+  },
+  "dNdInspecPolicyNumber": {
+    "name": "dNdInspecPolicyNumber",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dNdInspecPolicyTable": {
+    "name": "dNdInspecPolicyTable",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNdInspecPolicyEntry": {
+    "name": "dNdInspecPolicyEntry",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecPolicyName": {
+    "name": "dNdInspecPolicyName",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNdInspecPolicyDeviceRole": {
+    "name": "dNdInspecPolicyDeviceRole",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2
+        }
+      }
+    },
+    "default": {
+      "value": "host",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNdInspecPolicyValidateSrcMac": {
+    "name": "dNdInspecPolicyValidateSrcMac",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNdInspecPolicyRowStatus": {
+    "name": "dNdInspecPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.144.1.1.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNdInspecIfConfigTable": {
+    "name": "dNdInspecIfConfigTable",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNdInspecIfConfigEntry": {
+    "name": "dNdInspecIfConfigEntry",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecIfEnabled": {
+    "name": "dNdInspecIfEnabled",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNdInspecIfAttachTable": {
+    "name": "dNdInspecIfAttachTable",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNdInspecIfAttachEntry": {
+    "name": "dNdInspecIfAttachEntry",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecIfAttachPolicy": {
+    "name": "dNdInspecIfAttachPolicy",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNdInspecIfAttachRowStatus": {
+    "name": "dNdInspecIfAttachRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.144.1.2.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNdInspecMIBCompliances": {
+    "name": "dNdInspecMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.144.2.1",
+    "class": "objectidentity"
+  },
+  "dNdInspecMIBGroups": {
+    "name": "dNdInspecMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.144.2.2",
+    "class": "objectidentity"
+  },
+  "dNdInspecMIBCompliance": {
+    "name": "dNdInspecMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.144.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dNdInspecIfConfigGroup",
+        "module": "DLINKSW-ND-INSPECT-MIB"
+      },
+      {
+        "object": "dNdInspecPolicyGroup",
+        "module": "DLINKSW-ND-INSPECT-MIB"
+      },
+      {
+        "object": "dNdInspecIfAttachGroup",
+        "module": "DLINKSW-ND-INSPECT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecIfConfigGroup": {
+    "name": "dNdInspecIfConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.144.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecIfEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecPolicyGroup": {
+    "name": "dNdInspecPolicyGroup",
+    "oid": "1.3.6.1.4.1.171.14.144.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecPolicyNumber"
+      },
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecPolicyDeviceRole"
+      },
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecPolicyValidateSrcMac"
+      },
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dNdInspecIfAttachGroup": {
+    "name": "dNdInspecIfAttachGroup",
+    "oid": "1.3.6.1.4.1.171.14.144.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecIfAttachPolicy"
+      },
+      {
+        "module": "DLINKSW-ND-INSPECT-MIB",
+        "object": "dNdInspecIfAttachRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DLINKSW-ND-INSPECT-MIB",
+      "Source digest sha256:ea6f8d39b50d1bcbf2eae368b55a027cd0f55553772274741a2a58877b86f3c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DLINKSW-ND-INSPECT-MIB"
+  }
+}

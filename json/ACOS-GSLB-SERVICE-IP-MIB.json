@@ -1,0 +1,652 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gslbServiceIpModule": {
+    "name": "gslbServiceIpModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424",
+    "class": "moduleidentity"
+  },
+  "serviceIp": {
+    "name": "serviceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1",
+    "class": "objectidentity"
+  },
+  "serviceIpStatsTable": {
+    "name": "serviceIpStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceIpStatsEntry": {
+    "name": "serviceIpStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "serviceIpStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "serviceIpStatsNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceIpStatsSlotId": {
+    "name": "serviceIpStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpStatsNodeName": {
+    "name": "serviceIpStatsNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpStatsHits": {
+    "name": "serviceIpStatsHits",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpStatsRecent": {
+    "name": "serviceIpStatsRecent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperTable": {
+    "name": "serviceIpOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceIpOperEntry": {
+    "name": "serviceIpOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "serviceIpOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "serviceIpOperNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceIpOperSlotId": {
+    "name": "serviceIpOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperNodeName": {
+    "name": "serviceIpOperNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperServiceIp": {
+    "name": "serviceIpOperServiceIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperIp": {
+    "name": "serviceIpOperIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperState": {
+    "name": "serviceIpOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperPortCount": {
+    "name": "serviceIpOperPortCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperVirtualServer": {
+    "name": "serviceIpOperVirtualServer",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperDisabled": {
+    "name": "serviceIpOperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperGslbProtocol": {
+    "name": "serviceIpOperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperLocalProtocol": {
+    "name": "serviceIpOperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperManuallyHealthCheck": {
+    "name": "serviceIpOperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperUseGslbState": {
+    "name": "serviceIpOperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceIpOperDynamic": {
+    "name": "serviceIpOperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "port": {
+    "name": "port",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3",
+    "class": "objectidentity"
+  },
+  "portStatsTable": {
+    "name": "portStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsEntry": {
+    "name": "portStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portStatsSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portStatsNodeName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portStatsPortNum",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portStatsPortProto",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portStatsService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portStatsSlotId": {
+    "name": "portStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsNodeName": {
+    "name": "portStatsNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsPortNum": {
+    "name": "portStatsPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsPortProto": {
+    "name": "portStatsPortProto",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsService": {
+    "name": "portStatsService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsActive": {
+    "name": "portStatsActive",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsCurrent": {
+    "name": "portStatsCurrent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperTable": {
+    "name": "portOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portOperEntry": {
+    "name": "portOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portOperNodeName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portOperPortNum",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portOperPortProto",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-GSLB-SERVICE-IP-MIB",
+        "object": "portOperService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portOperSlotId": {
+    "name": "portOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperNodeName": {
+    "name": "portOperNodeName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperPortNum": {
+    "name": "portOperPortNum",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperPortProto": {
+    "name": "portOperPortProto",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperService": {
+    "name": "portOperService",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperServicePort": {
+    "name": "portOperServicePort",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperState": {
+    "name": "portOperState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDisabled": {
+    "name": "portOperDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperGslbProtocol": {
+    "name": "portOperGslbProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperLocalProtocol": {
+    "name": "portOperLocalProtocol",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperTcp": {
+    "name": "portOperTcp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperManuallyHealthCheck": {
+    "name": "portOperManuallyHealthCheck",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperUseGslbState": {
+    "name": "portOperUseGslbState",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portOperDynamic": {
+    "name": "portOperDynamic",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.424.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-GSLB-SERVICE-IP-MIB",
+      "Source digest sha256:5e774f948741e038938b016129ad10dbcf207d2653309d5b0a28cbdf64130b73",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-GSLB-SERVICE-IP-MIB"
+  }
+}

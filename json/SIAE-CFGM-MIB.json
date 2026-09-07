@@ -1,0 +1,250 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "alarmTrap"
+    ],
+    "SIAE-EQUIP-MIB": [
+      "equipIpSnmpAgentAddress"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "configManagement": {
+    "name": "configManagement",
+    "oid": "1.3.6.1.4.1.3373.1103.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-25 00:00",
+        "description": "MIB version 01.00.01 Added value configUseAndSwitch(5) to configManagementAction "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of configManagementMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "configManagementMibVersion": {
+    "name": "configManagementMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.30.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configManagementFileName": {
+    "name": "configManagementFileName",
+    "oid": "1.3.6.1.4.1.3373.1103.30.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configManagementServerIpAddress": {
+    "name": "configManagementServerIpAddress",
+    "oid": "1.3.6.1.4.1.3373.1103.30.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configManagementAction": {
+    "name": "configManagementAction",
+    "oid": "1.3.6.1.4.1.3373.1103.30.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configNone": 0,
+          "configSave": 1,
+          "configUse": 2,
+          "configBack": 3,
+          "configAbort": 4,
+          "configUseAndSwitch": 5
+        }
+      }
+    },
+    "default": {
+      "value": "configNone",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configManagementState": {
+    "name": "configManagementState",
+    "oid": "1.3.6.1.4.1.3373.1103.30.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configCompleted": 1,
+          "configInterrupted": 2,
+          "configVerifying": 3,
+          "configSaving": 4,
+          "configDownloading": 5,
+          "configUploading": 6,
+          "configUsing": 7,
+          "configMakingCopy": 8,
+          "configAborting": 9,
+          "configRestarting": 10,
+          "configStarted": 11
+        }
+      }
+    },
+    "default": {
+      "value": "configCompleted",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configManagementFailure": {
+    "name": "configManagementFailure",
+    "oid": "1.3.6.1.4.1.3373.1103.30.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configNoFailure": 0,
+          "configVerifying": 3,
+          "configSaving": 4,
+          "configDownloading": 5,
+          "configUploading": 6,
+          "configUsing": 7,
+          "configMakingCopy": 8,
+          "configAborted": 9
+        }
+      }
+    },
+    "default": {
+      "value": "configNoFailure",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configManagementBackupFileDate": {
+    "name": "configManagementBackupFileDate",
+    "oid": "1.3.6.1.4.1.3373.1103.30.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configManagementTrapNotification": {
+    "name": "configManagementTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.30.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "trapEnable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configManagementFtpStatusTrap": {
+    "name": "configManagementFtpStatusTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.0.3001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-EQUIP-MIB",
+        "object": "equipIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-CFGM-MIB",
+        "object": "configManagementState"
+      },
+      {
+        "module": "SIAE-CFGM-MIB",
+        "object": "configManagementFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SIAE-CFGM-MIB",
+      "Source digest sha256:dc5c03f3f72a6623147e0602e9b946fcf7bb0269b7a64394b980177ff2d3a13c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SIAE-CFGM-MIB"
+  }
+}

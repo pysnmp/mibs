@@ -1,0 +1,59 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "equalLogic": {
+    "name": "equalLogic",
+    "oid": "1.3.6.1.4.1.12740",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-05-20 21:09",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.12740.12740",
+    "class": "objectidentity"
+  },
+  "eqlPSSeries": {
+    "name": "eqlPSSeries",
+    "oid": "1.3.6.1.4.1.12740.12740.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EQUALLOGIC-SMI",
+      "Source digest sha256:26646944ee868956c55618aad92f3aeea4a40272408af37b1e49168812b6949b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EQUALLOGIC-SMI"
+  }
+}

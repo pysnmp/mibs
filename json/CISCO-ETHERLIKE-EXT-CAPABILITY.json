@@ -1,0 +1,97 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEtherlikeExtCapability": {
+    "name": "ciscoEtherlikeExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.587",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-01 00:00",
+        "description": "Add capability statement ceeCapV15R0002SGPCat4K."
+      },
+      {
+        "revision": "2010-10-29 00:00",
+        "description": "Add capability statement ceeCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2010-03-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ceeCapV12R0233SXI4PCat6K": {
+    "name": "ceeCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.587.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ETHERLIKE-EXT-MIB",
+        "includes": [
+          "ciscoEtherExtPauseGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceeCapV12R0250SYPCat6K": {
+    "name": "ceeCapV12R0250SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.587.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                         series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ETHERLIKE-EXT-MIB",
+        "includes": [
+          "ciscoEtherExtPauseGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ceeCapV15R0002SGPCat4K": {
+    "name": "ceeCapV15R0002SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.587.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(2)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-ETHERLIKE-EXT-MIB",
+        "includes": [
+          "ciscoEtherExtPauseGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ETHERLIKE-EXT-CAPABILITY",
+      "Source digest sha256:9f912a5b48532e7d021ad75e10bef610a11fd99a35eaa25b2c98bf213a519052",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ETHERLIKE-EXT-CAPABILITY"
+  }
+}

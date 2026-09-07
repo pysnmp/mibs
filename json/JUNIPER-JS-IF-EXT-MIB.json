@@ -1,0 +1,460 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "JUNIPER-JS-SMI": [
+      "jnxJsIf"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxJsIfMIB": {
+    "name": "jnxJsIfMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-09 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxJsIfExtension": {
+    "name": "jnxJsIfExtension",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsIfMonTable": {
+    "name": "jnxJsIfMonTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxJsIfMonEntry": {
+    "name": "jnxJsIfMonEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsIfMonInIcmp": {
+    "name": "jnxJsIfMonInIcmp",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonInSelf": {
+    "name": "jnxJsIfMonInSelf",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonInVpn": {
+    "name": "jnxJsIfMonInVpn",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonInPolicyPermit": {
+    "name": "jnxJsIfMonInPolicyPermit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonOutPolicyPermit": {
+    "name": "jnxJsIfMonOutPolicyPermit",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonConn": {
+    "name": "jnxJsIfMonConn",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonInMcast": {
+    "name": "jnxJsIfMonInMcast",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonOutMcast": {
+    "name": "jnxJsIfMonOutMcast",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonPolicyDeny": {
+    "name": "jnxJsIfMonPolicyDeny",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoGateParent": {
+    "name": "jnxJsIfMonNoGateParent",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonTcpProxyDrop": {
+    "name": "jnxJsIfMonTcpProxyDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoDip": {
+    "name": "jnxJsIfMonNoDip",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoNspTunnel": {
+    "name": "jnxJsIfMonNoNspTunnel",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoNatCon": {
+    "name": "jnxJsIfMonNoNatCon",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonInvalidZone": {
+    "name": "jnxJsIfMonInvalidZone",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonIpClsFail": {
+    "name": "jnxJsIfMonIpClsFail",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonAuthDrop": {
+    "name": "jnxJsIfMonAuthDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonMultiUserAuthDrop": {
+    "name": "jnxJsIfMonMultiUserAuthDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonLoopMultiDipDrop": {
+    "name": "jnxJsIfMonLoopMultiDipDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonAddrSpoof": {
+    "name": "jnxJsIfMonAddrSpoof",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonLpDrop": {
+    "name": "jnxJsIfMonLpDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNullZone": {
+    "name": "jnxJsIfMonNullZone",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoGate": {
+    "name": "jnxJsIfMonNoGate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoMinorSess": {
+    "name": "jnxJsIfMonNoMinorSess",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNvecErr": {
+    "name": "jnxJsIfMonNvecErr",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonTcpSeq": {
+    "name": "jnxJsIfMonTcpSeq",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonIllegalPak": {
+    "name": "jnxJsIfMonIllegalPak",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoRoute": {
+    "name": "jnxJsIfMonNoRoute",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonAuthFail": {
+    "name": "jnxJsIfMonAuthFail",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonSaInactive": {
+    "name": "jnxJsIfMonSaInactive",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonNoSa": {
+    "name": "jnxJsIfMonNoSa",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxJsIfMonSelfPktDrop": {
+    "name": "jnxJsIfMonSelfPktDrop",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.1.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-JS-IF-EXT-MIB",
+      "Source digest sha256:7e2675c4c0a28edaf5d6dcd8e23abd7ec992f303754a81b210a7d1aea5484094",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-JS-IF-EXT-MIB"
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoAuthorizationStatsMibModule": {
+    "name": "ciscoAuthorizationStatsMibModule",
+    "oid": "1.3.6.1.4.1.9.9.343",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-08 00:00",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "cStatsAuthorization": {
+    "name": "cStatsAuthorization",
+    "oid": "1.3.6.1.4.1.9.9.343.1",
+    "class": "objectidentity"
+  },
+  "cAuthorizationGlobal": {
+    "name": "cAuthorizationGlobal",
+    "oid": "1.3.6.1.4.1.9.9.343.1.1",
+    "class": "objectidentity"
+  },
+  "cAuthorizationStatsTable": {
+    "name": "cAuthorizationStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cAuthorizationStatsEntry": {
+    "name": "cAuthorizationStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cAuthorizServerIndex": {
+    "name": "cAuthorizServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cAuthorizServerAddressType": {
+    "name": "cAuthorizServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizServerAddress": {
+    "name": "cAuthorizServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientServerPortNum": {
+    "name": "cAuthorizClientServerPortNum",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientRoundTripTime": {
+    "name": "cAuthorizClientRoundTripTime",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientAccessRequests": {
+    "name": "cAuthorizClientAccessRequests",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientAccessRetrans": {
+    "name": "cAuthorizClientAccessRetrans",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientAccessAccepts": {
+    "name": "cAuthorizClientAccessAccepts",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientAccessRejects": {
+    "name": "cAuthorizClientAccessRejects",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientAccessChallenges": {
+    "name": "cAuthorizClientAccessChallenges",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientMalAccessResps": {
+    "name": "cAuthorizClientMalAccessResps",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientBadAuthenticates": {
+    "name": "cAuthorizClientBadAuthenticates",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientPendingRequests": {
+    "name": "cAuthorizClientPendingRequests",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientTimeouts": {
+    "name": "cAuthorizClientTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizClientUnknownTypes": {
+    "name": "cAuthorizClientUnknownTypes",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizServerGroupId": {
+    "name": "cAuthorizServerGroupId",
+    "oid": "1.3.6.1.4.1.9.9.343.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAuthorizationMIBConformance": {
+    "name": "cAuthorizationMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.343.2",
+    "class": "objectidentity"
+  },
+  "cAuthorizationMIBCompliances": {
+    "name": "cAuthorizationMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.343.2.1",
+    "class": "objectidentity"
+  },
+  "cAuthorizationGroup": {
+    "name": "cAuthorizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.343.2.2",
+    "class": "objectidentity"
+  },
+  "cAuthorizationMIBCompliance": {
+    "name": "cAuthorizationMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.343.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cAuthorizationClientMIBGroup",
+        "module": "CISCO-AUTHORIZATION-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cAuthorizationClientMIBGroup": {
+    "name": "cAuthorizationClientMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.343.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizServerAddressType"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizServerAddress"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientServerPortNum"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientRoundTripTime"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientAccessRequests"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientAccessRetrans"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientAccessAccepts"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientAccessRejects"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientAccessChallenges"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientMalAccessResps"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientBadAuthenticates"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientPendingRequests"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientTimeouts"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizClientUnknownTypes"
+      },
+      {
+        "module": "CISCO-AUTHORIZATION-STATS-MIB",
+        "object": "cAuthorizServerGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-AUTHORIZATION-STATS-MIB",
+      "Source digest sha256:f3fc458a4f75c08a0835dd072af8e2cf56566deb1b79b36a91c2b155984dc779",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-AUTHORIZATION-STATS-MIB"
+  }
+}

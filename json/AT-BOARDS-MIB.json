@@ -1,0 +1,2394 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "objects"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "boards": {
+    "name": "boards",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-19 00:00",
+        "description": "Rename pprx55018XSPQ to pprx55018XSPQm."
+      },
+      {
+        "revision": "2017-05-11 00:00",
+        "description": "Added support for pprAtXem2CQ1."
+      },
+      {
+        "revision": "2017-04-26 00:00",
+        "description": "Rename AT-FAN05 to AT-FAN08."
+      },
+      {
+        "revision": "2017-03-31 00:00",
+        "description": "Remove '_' in the MIB object names to comply with ASN.1. The object names are slightly changed to make it more readable."
+      },
+      {
+        "revision": "2017-02-01 00:00",
+        "description": "Added board ID for GS970 products."
+      },
+      {
+        "revision": "2017-01-18 00:00",
+        "description": "Added board ID for GS970PS products."
+      },
+      {
+        "revision": "2016-10-03 00:00",
+        "description": "Added board ID for x550 products."
+      },
+      {
+        "revision": "2016-05-06 00:00",
+        "description": "Added board ID for AT-GS900M Next Generatin products."
+      },
+      {
+        "revision": "2016-01-08 00:00",
+        "description": "Added board ID for AT-FS980M products."
+      },
+      {
+        "revision": "2016-01-06 00:00",
+        "description": "Added board IDs for additional SBx8100 power supplies"
+      },
+      {
+        "revision": "2015-12-17 00:00",
+        "description": "Added board ID for SBx81XLEM and expansion modules."
+      },
+      {
+        "revision": "2015-11-10 00:00",
+        "description": "Added new SwitchBlade x908G2/3 products"
+      },
+      {
+        "revision": "2015-08-09 00:00",
+        "description": "Added board ID for AT-x9EM/XT4."
+      },
+      {
+        "revision": "2015-08-05 00:00",
+        "description": "Added board ID for AT-XS900MX products."
+      },
+      {
+        "revision": "2015-07-27 00:00",
+        "description": "Added board ID for SecureHUB products."
+      },
+      {
+        "revision": "2015-07-22 00:00",
+        "description": "Add the Virtual Appliance (VAA, 442) board ID."
+      },
+      {
+        "revision": "2015-06-30 00:00",
+        "description": "Place AT-AR2050V and AT-AR2010V in the right order."
+      },
+      {
+        "revision": "2015-06-19 00:00",
+        "description": "Added board ID for AT-AR2010V."
+      },
+      {
+        "revision": "2015-05-06 00:00",
+        "description": "Added board ID for AT-AR2050V."
+      },
+      {
+        "revision": "2015-04-03 00:00",
+        "description": "Change the product name from x230-10GPT to x350-10GPT."
+      },
+      {
+        "revision": "2015-03-16 00:00",
+        "description": "Correct the board ID for PWR150 and Stack-QS"
+      },
+      {
+        "revision": "2015-03-12 00:00",
+        "description": "Corrected the board IDs for AtGS924MX(443), AtGS924MPX(444), AtGS948MX(445) and AtGS948MPX(446)."
+      },
+      {
+        "revision": "2015-02-19 00:00",
+        "description": "Corrected the board IDs for x51028GTXR(436) and x51052GTXR(437)."
+      },
+      {
+        "revision": "2015-01-14 00:00",
+        "description": "Add board ID for PWR150 power supply for x930."
+      },
+      {
+        "revision": "2014-11-19 00:00",
+        "description": "Add board IDs and chip IDs for IE300 product family."
+      },
+      {
+        "revision": "2014-11-18 00:00",
+        "description": "Added board IDs for AT-AR3050S and AT-AR4050S."
+      },
+      {
+        "revision": "2014-10-22 00:00",
+        "description": "Renaming Ix510 to IE510."
+      },
+      {
+        "revision": "2014-09-23 00:00",
+        "description": "Added board IDs for AT-GS924MX, AT-GS924MPX, AT-GS948MX and AT-GS948MPX."
+      },
+      {
+        "revision": "2014-08-28 00:00",
+        "description": "Added board IDs for x510L Products."
+      },
+      {
+        "revision": "2014-08-20 00:00",
+        "description": "Renaming AT-IE500-Product Family to IE200"
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added board ID for pprx51028GTXR and pprx51052GTXR"
+      },
+      {
+        "revision": "2014-06-09 00:00",
+        "description": "Added board ID for pprx510DP28GTX"
+      },
+      {
+        "revision": "2014-06-03 00:00",
+        "description": "Add board and chip IDs for AT-IE500-Product Family. Added Board IDs for x51028GSXDC and Ix51028GSX."
+      },
+      {
+        "revision": "2014-05-16 00:00",
+        "description": "Added dc2500xs (ID 414)"
+      },
+      {
+        "revision": "2014-03-25 00:00",
+        "description": "Added AT-STACKQS (ID 418) and corrected AT-x930-28GSTX (ID 390) name"
+      },
+      {
+        "revision": "2013-08-01 00:00",
+        "description": "Added x930s (IDs 388-392), x310s (IDs 393-400) and x230s (IDs 401-409)"
+      },
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "Added board ID for pprx510DP52GTX, pprIX528GPX, pprPWR100R and pprPWR250DCR"
+      },
+      {
+        "revision": "2012-06-07 00:00",
+        "description": "Correct a typo for the name from pprXumStk to pprXemStk"
+      },
+      {
+        "revision": "2012-05-21 00:00",
+        "description": "Added pprAtSBx81XZ4 for the SBx8112"
+      },
+      {
+        "revision": "2012-05-15 00:00",
+        "description": "Changed the board name from pprAtSBx81XZ6 to pprAtSBx81XS6 and pprAtSBx81GS24 to pprAtSBx81GS24a"
+      },
+      {
+        "revision": "2012-03-16 00:00",
+        "description": "Added board ID for x510 series."
+      },
+      {
+        "revision": "2011-12-18 05:00",
+        "description": "Added pprSBx81CFC960, pprSBx81GT24a, pprSBx81GP24a, pprSBx81GT40 and pprSBx81XS16boards for the SBx8112"
+      },
+      {
+        "revision": "2011-10-25 00:00",
+        "description": "Added AT-SBx81FAN06"
+      },
+      {
+        "revision": "2011-09-20 00:00",
+        "description": "Added SBx8100 card products."
+      },
+      {
+        "revision": "2011-09-15 00:00",
+        "description": "Added AT-SBx8106 product."
+      },
+      {
+        "revision": "2011-09-14 00:00",
+        "description": "Added AT-SBx8112 product."
+      },
+      {
+        "revision": "2011-09-05 00:00",
+        "description": "Added board ID for x210-9GT, x210-16GT, x210-24GT."
+      },
+      {
+        "revision": "2011-05-10 00:00",
+        "description": "Added board ID for pprXem2XS, pprXem24T, pprXem12Tv2, pprXem12Sv2."
+      },
+      {
+        "revision": "2011-04-28 00:00",
+        "description": "Added pics AR030 AR031"
+      },
+      {
+        "revision": "2011-04-04 00:00",
+        "description": "Added Rapier 48x product"
+      },
+      {
+        "revision": "2011-03-08 00:00",
+        "description": "Corrected syntax problems."
+      },
+      {
+        "revision": "2010-12-01 00:00",
+        "description": "Added board ID for pprPWR250DC."
+      },
+      {
+        "revision": "2010-10-12 00:00",
+        "description": "Added pprx200GE52T and pprx200GE28T"
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-08-19 00:00",
+        "description": "Added board 330 pprAR560"
+      },
+      {
+        "revision": "2010-07-22 00:00",
+        "description": "Renamed boardID pprx60024TSPOE220WPSU to pprx60024TSPOEPLUS"
+      },
+      {
+        "revision": "2010-06-14 04:45",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-05-19 00:00",
+        "description": "x610 product range, added pprx61048TsPOEPlus, pprx61024TsXPOEPlus, pprx61024TsPOEPlus, pprPWR800, pprPWR1200, pprPWR250, pprx61048TsX, pprx61048Ts, pprx61024TsX, pprx61024Ts, and pprx61024SPX"
+      },
+      {
+        "revision": "2009-05-15 00:00",
+        "description": "Added boardID for pprx60024TSPOE and pprx60024TSPOE220WPSU."
+      },
+      {
+        "revision": "2008-12-11 00:00",
+        "description": "Added boardID for pprXum100M, pprAtPWR05AC, pprAtPWR05DC and pprXem2XT."
+      },
+      {
+        "revision": "2008-11-24 00:00",
+        "description": "Added boardID for x60024TS,x60024TSXP,x60048TS and x60048TSXP."
+      },
+      {
+        "revision": "2008-03-03 15:00",
+        "description": "Change Added boards 271,272,282,284-286,288. Added boards 290-297, Added boards 300,304-311."
+      },
+      {
+        "revision": "2007-03-21 00:00",
+        "description": "Added boardID for x900-48FS."
+      },
+      {
+        "revision": "2007-02-07 00:00",
+        "description": "Added boardID for AT-8824R."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "pprIcmAr023": {
+    "name": "pprIcmAr023",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.39",
+    "class": "objectidentity"
+  },
+  "pprIcmAr021s": {
+    "name": "pprIcmAr021s",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.40",
+    "class": "objectidentity"
+  },
+  "pprIcmAr022": {
+    "name": "pprIcmAr022",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.41",
+    "class": "objectidentity"
+  },
+  "pprIcmAr025": {
+    "name": "pprIcmAr025",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.45",
+    "class": "objectidentity"
+  },
+  "pprIcmAr024": {
+    "name": "pprIcmAr024",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.46",
+    "class": "objectidentity"
+  },
+  "pprAr300": {
+    "name": "pprAr300",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.49",
+    "class": "objectidentity"
+  },
+  "pprAr300L": {
+    "name": "pprAr300L",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.52",
+    "class": "objectidentity"
+  },
+  "pprAr310": {
+    "name": "pprAr310",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.53",
+    "class": "objectidentity"
+  },
+  "pprAr120": {
+    "name": "pprAr120",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.54",
+    "class": "objectidentity"
+  },
+  "pprAr300Lu": {
+    "name": "pprAr300Lu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.55",
+    "class": "objectidentity"
+  },
+  "pprAr300u": {
+    "name": "pprAr300u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.56",
+    "class": "objectidentity"
+  },
+  "pprAr310u": {
+    "name": "pprAr310u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.57",
+    "class": "objectidentity"
+  },
+  "pprAr350": {
+    "name": "pprAr350",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.58",
+    "class": "objectidentity"
+  },
+  "pprIcmAr021u": {
+    "name": "pprIcmAr021u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.59",
+    "class": "objectidentity"
+  },
+  "pprAr720": {
+    "name": "pprAr720",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.63",
+    "class": "objectidentity"
+  },
+  "pprAr010": {
+    "name": "pprAr010",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.67",
+    "class": "objectidentity"
+  },
+  "pprAr012": {
+    "name": "pprAr012",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.68",
+    "class": "objectidentity"
+  },
+  "pprAr011": {
+    "name": "pprAr011",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.69",
+    "class": "objectidentity"
+  },
+  "pprAr370": {
+    "name": "pprAr370",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.70",
+    "class": "objectidentity"
+  },
+  "pprAr330": {
+    "name": "pprAr330",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.71",
+    "class": "objectidentity"
+  },
+  "pprAr395": {
+    "name": "pprAr395",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.72",
+    "class": "objectidentity"
+  },
+  "pprAr390": {
+    "name": "pprAr390",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.73",
+    "class": "objectidentity"
+  },
+  "pprAr370u": {
+    "name": "pprAr370u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.75",
+    "class": "objectidentity"
+  },
+  "pprIcmAr020": {
+    "name": "pprIcmAr020",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.76",
+    "class": "objectidentity"
+  },
+  "pprAr740": {
+    "name": "pprAr740",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.79",
+    "class": "objectidentity"
+  },
+  "pprAr140s": {
+    "name": "pprAr140s",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.80",
+    "class": "objectidentity"
+  },
+  "pprAr140u": {
+    "name": "pprAr140u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.81",
+    "class": "objectidentity"
+  },
+  "pprAr160su": {
+    "name": "pprAr160su",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.82",
+    "class": "objectidentity"
+  },
+  "pprAr320": {
+    "name": "pprAr320",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.83",
+    "class": "objectidentity"
+  },
+  "pprAr130s": {
+    "name": "pprAr130s",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.85",
+    "class": "objectidentity"
+  },
+  "pprAr130u": {
+    "name": "pprAr130u",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.86",
+    "class": "objectidentity"
+  },
+  "pprRapier24": {
+    "name": "pprRapier24",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.87",
+    "class": "objectidentity"
+  },
+  "pprNsm0404Pic": {
+    "name": "pprNsm0404Pic",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.88",
+    "class": "objectidentity"
+  },
+  "pprA35SXSC": {
+    "name": "pprA35SXSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.89",
+    "class": "objectidentity"
+  },
+  "pprA35LXSC": {
+    "name": "pprA35LXSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.90",
+    "class": "objectidentity"
+  },
+  "pprA36MTRJ": {
+    "name": "pprA36MTRJ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.91",
+    "class": "objectidentity"
+  },
+  "pprA37VF45": {
+    "name": "pprA37VF45",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.92",
+    "class": "objectidentity"
+  },
+  "pprA38LC": {
+    "name": "pprA38LC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.93",
+    "class": "objectidentity"
+  },
+  "pprA39Tx": {
+    "name": "pprA39Tx",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.94",
+    "class": "objectidentity"
+  },
+  "pprAr740DC": {
+    "name": "pprAr740DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.95",
+    "class": "objectidentity"
+  },
+  "pprNsm0418BRI": {
+    "name": "pprNsm0418BRI",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.96",
+    "class": "objectidentity"
+  },
+  "pprRapier16fSC": {
+    "name": "pprRapier16fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.97",
+    "class": "objectidentity"
+  },
+  "ppr8624xl80": {
+    "name": "ppr8624xl80",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.98",
+    "class": "objectidentity"
+  },
+  "pprRapier16fMT": {
+    "name": "pprRapier16fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.99",
+    "class": "objectidentity"
+  },
+  "pprRapier16fMTi": {
+    "name": "pprRapier16fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.100",
+    "class": "objectidentity"
+  },
+  "pprRapier8t8fSC": {
+    "name": "pprRapier8t8fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.101",
+    "class": "objectidentity"
+  },
+  "pprRapier8t8fSCi": {
+    "name": "pprRapier8t8fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.102",
+    "class": "objectidentity"
+  },
+  "pprRapier8t8fMT": {
+    "name": "pprRapier8t8fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.103",
+    "class": "objectidentity"
+  },
+  "pprRapier8t8fMTi": {
+    "name": "pprRapier8t8fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.104",
+    "class": "objectidentity"
+  },
+  "pprRapier8fSC": {
+    "name": "pprRapier8fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.105",
+    "class": "objectidentity"
+  },
+  "pprRapier8fSCi": {
+    "name": "pprRapier8fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.106",
+    "class": "objectidentity"
+  },
+  "pprRapier8fMT": {
+    "name": "pprRapier8fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.107",
+    "class": "objectidentity"
+  },
+  "pprRapier8fMTi": {
+    "name": "pprRapier8fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.108",
+    "class": "objectidentity"
+  },
+  "pprRapierG6": {
+    "name": "pprRapierG6",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.110",
+    "class": "objectidentity"
+  },
+  "pprRapierG6SX": {
+    "name": "pprRapierG6SX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.111",
+    "class": "objectidentity"
+  },
+  "pprRapierG6LX": {
+    "name": "pprRapierG6LX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.112",
+    "class": "objectidentity"
+  },
+  "pprRapierG6MT": {
+    "name": "pprRapierG6MT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.113",
+    "class": "objectidentity"
+  },
+  "pprRapier16fSCi": {
+    "name": "pprRapier16fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.114",
+    "class": "objectidentity"
+  },
+  "pprRapier24i": {
+    "name": "pprRapier24i",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.115",
+    "class": "objectidentity"
+  },
+  "pprAr824": {
+    "name": "pprAr824",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.116",
+    "class": "objectidentity"
+  },
+  "pprAr816fSC": {
+    "name": "pprAr816fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.117",
+    "class": "objectidentity"
+  },
+  "pprAr816fSCi": {
+    "name": "pprAr816fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.118",
+    "class": "objectidentity"
+  },
+  "pprAr816fMT": {
+    "name": "pprAr816fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.119",
+    "class": "objectidentity"
+  },
+  "pprAr816fMTi": {
+    "name": "pprAr816fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.120",
+    "class": "objectidentity"
+  },
+  "pprAr88t8fSC": {
+    "name": "pprAr88t8fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.121",
+    "class": "objectidentity"
+  },
+  "pprAr88t8fSCi": {
+    "name": "pprAr88t8fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.122",
+    "class": "objectidentity"
+  },
+  "pprAr88t8fMT": {
+    "name": "pprAr88t8fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.123",
+    "class": "objectidentity"
+  },
+  "pprAr88t8fMTi": {
+    "name": "pprAr88t8fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.124",
+    "class": "objectidentity"
+  },
+  "pprAr88fSC": {
+    "name": "pprAr88fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.125",
+    "class": "objectidentity"
+  },
+  "pprAr88fSCi": {
+    "name": "pprAr88fSCi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.126",
+    "class": "objectidentity"
+  },
+  "pprAr88fMT": {
+    "name": "pprAr88fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.127",
+    "class": "objectidentity"
+  },
+  "pprAr88fMTi": {
+    "name": "pprAr88fMTi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.128",
+    "class": "objectidentity"
+  },
+  "pprAr824i": {
+    "name": "pprAr824i",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.129",
+    "class": "objectidentity"
+  },
+  "pprAt8724XL": {
+    "name": "pprAt8724XL",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.130",
+    "class": "objectidentity"
+  },
+  "pprAt8748XL": {
+    "name": "pprAt8748XL",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.131",
+    "class": "objectidentity"
+  },
+  "pprAt8724XLDC": {
+    "name": "pprAt8724XLDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.132",
+    "class": "objectidentity"
+  },
+  "pprAt8748XLDC": {
+    "name": "pprAt8748XLDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.133",
+    "class": "objectidentity"
+  },
+  "pprAt8824": {
+    "name": "pprAt8824",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.134",
+    "class": "objectidentity"
+  },
+  "pprAt8824DC": {
+    "name": "pprAt8824DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.135",
+    "class": "objectidentity"
+  },
+  "ppr8724XLDC": {
+    "name": "ppr8724XLDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.141",
+    "class": "objectidentity"
+  },
+  "ppr8748XLDC": {
+    "name": "ppr8748XLDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.142",
+    "class": "objectidentity"
+  },
+  "pprRapier24iDcNEBS": {
+    "name": "pprRapier24iDcNEBS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.144",
+    "class": "objectidentity"
+  },
+  "pprAt8724XLDcNEBS": {
+    "name": "pprAt8724XLDcNEBS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.146",
+    "class": "objectidentity"
+  },
+  "pprAt8848DC": {
+    "name": "pprAt8848DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.147",
+    "class": "objectidentity"
+  },
+  "pprRapier48": {
+    "name": "pprRapier48",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.148",
+    "class": "objectidentity"
+  },
+  "pprAt8848": {
+    "name": "pprAt8848",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.149",
+    "class": "objectidentity"
+  },
+  "pprRapier48i": {
+    "name": "pprRapier48i",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.150",
+    "class": "objectidentity"
+  },
+  "pprNsm0424BRI": {
+    "name": "pprNsm0424BRI",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.151",
+    "class": "objectidentity"
+  },
+  "pprIcmAR026": {
+    "name": "pprIcmAR026",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.153",
+    "class": "objectidentity"
+  },
+  "ppr9816GF": {
+    "name": "ppr9816GF",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.157",
+    "class": "objectidentity"
+  },
+  "ppr9812TF": {
+    "name": "ppr9812TF",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.158",
+    "class": "objectidentity"
+  },
+  "pprSbChassis4AC": {
+    "name": "pprSbChassis4AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.159",
+    "class": "objectidentity"
+  },
+  "pprSbChassis4DC": {
+    "name": "pprSbChassis4DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.160",
+    "class": "objectidentity"
+  },
+  "pprSbChassis8AC": {
+    "name": "pprSbChassis8AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.161",
+    "class": "objectidentity"
+  },
+  "pprSbChassis8DC": {
+    "name": "pprSbChassis8DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.162",
+    "class": "objectidentity"
+  },
+  "pprSbChassis16AC": {
+    "name": "pprSbChassis16AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.163",
+    "class": "objectidentity"
+  },
+  "pprSbChassis16DC": {
+    "name": "pprSbChassis16DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.164",
+    "class": "objectidentity"
+  },
+  "pprSbControl": {
+    "name": "pprSbControl",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.165",
+    "class": "objectidentity"
+  },
+  "pprSbControlDTM": {
+    "name": "pprSbControlDTM",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.166",
+    "class": "objectidentity"
+  },
+  "pprSb48t": {
+    "name": "pprSb48t",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.167",
+    "class": "objectidentity"
+  },
+  "pprSb96t": {
+    "name": "pprSb96t",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.168",
+    "class": "objectidentity"
+  },
+  "pprSb32fSC": {
+    "name": "pprSb32fSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.169",
+    "class": "objectidentity"
+  },
+  "pprSb32fMT": {
+    "name": "pprSb32fMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.170",
+    "class": "objectidentity"
+  },
+  "pprSb8fRJ": {
+    "name": "pprSb8fRJ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.172",
+    "class": "objectidentity"
+  },
+  "pprSb8fSXSC": {
+    "name": "pprSb8fSXSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.173",
+    "class": "objectidentity"
+  },
+  "pprSb8fSXMT": {
+    "name": "pprSb8fSXMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.174",
+    "class": "objectidentity"
+  },
+  "pprSb8fLXSC": {
+    "name": "pprSb8fLXSC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.175",
+    "class": "objectidentity"
+  },
+  "pprSb8fLXMT": {
+    "name": "pprSb8fLXMT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.176",
+    "class": "objectidentity"
+  },
+  "pprAr410": {
+    "name": "pprAr410",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.177",
+    "class": "objectidentity"
+  },
+  "pprA40SC": {
+    "name": "pprA40SC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.178",
+    "class": "objectidentity"
+  },
+  "pprA40MTRJ": {
+    "name": "pprA40MTRJ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.179",
+    "class": "objectidentity"
+  },
+  "pprA41SC": {
+    "name": "pprA41SC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.180",
+    "class": "objectidentity"
+  },
+  "pprA41MTRJ": {
+    "name": "pprA41MTRJ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.181",
+    "class": "objectidentity"
+  },
+  "pprAr725": {
+    "name": "pprAr725",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.182",
+    "class": "objectidentity"
+  },
+  "pprAr745": {
+    "name": "pprAr745",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.183",
+    "class": "objectidentity"
+  },
+  "pprSb8GBIC": {
+    "name": "pprSb8GBIC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.184",
+    "class": "objectidentity"
+  },
+  "pprA42GBIC": {
+    "name": "pprA42GBIC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.185",
+    "class": "objectidentity"
+  },
+  "ppr9816GB": {
+    "name": "ppr9816GB",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.186",
+    "class": "objectidentity"
+  },
+  "ppr9812T": {
+    "name": "ppr9812T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.187",
+    "class": "objectidentity"
+  },
+  "pprNsm048DS3": {
+    "name": "pprNsm048DS3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.188",
+    "class": "objectidentity"
+  },
+  "pprAr450": {
+    "name": "pprAr450",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.191",
+    "class": "objectidentity"
+  },
+  "pprAr450Dual": {
+    "name": "pprAr450Dual",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.192",
+    "class": "objectidentity"
+  },
+  "pprSbExpander": {
+    "name": "pprSbExpander",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.193",
+    "class": "objectidentity"
+  },
+  "pprAr725DC": {
+    "name": "pprAr725DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.194",
+    "class": "objectidentity"
+  },
+  "pprAr745DC": {
+    "name": "pprAr745DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.195",
+    "class": "objectidentity"
+  },
+  "pprAr410v2": {
+    "name": "pprAr410v2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.196",
+    "class": "objectidentity"
+  },
+  "pprAr410v3": {
+    "name": "pprAr410v3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.197",
+    "class": "objectidentity"
+  },
+  "pprIcmAr027": {
+    "name": "pprIcmAr027",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.198",
+    "class": "objectidentity"
+  },
+  "ppr8948EX": {
+    "name": "ppr8948EX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.202",
+    "class": "objectidentity"
+  },
+  "ppr8948i": {
+    "name": "ppr8948i",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.203",
+    "class": "objectidentity"
+  },
+  "ppr9816GBDC": {
+    "name": "ppr9816GBDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.204",
+    "class": "objectidentity"
+  },
+  "ppr9812TDC": {
+    "name": "ppr9812TDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.205",
+    "class": "objectidentity"
+  },
+  "pprIcmAr021v2s": {
+    "name": "pprIcmAr021v2s",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.206",
+    "class": "objectidentity"
+  },
+  "pprA50": {
+    "name": "pprA50",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.207",
+    "class": "objectidentity"
+  },
+  "pprA51": {
+    "name": "pprA51",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.208",
+    "class": "objectidentity"
+  },
+  "pprA52": {
+    "name": "pprA52",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.209",
+    "class": "objectidentity"
+  },
+  "pprA53": {
+    "name": "pprA53",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.210",
+    "class": "objectidentity"
+  },
+  "pprFanA01": {
+    "name": "pprFanA01",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.212",
+    "class": "objectidentity"
+  },
+  "pprAtPwr01AC": {
+    "name": "pprAtPwr01AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.213",
+    "class": "objectidentity"
+  },
+  "pprAtPwr01DC": {
+    "name": "pprAtPwr01DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.214",
+    "class": "objectidentity"
+  },
+  "pprAtFan01": {
+    "name": "pprAtFan01",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.215",
+    "class": "objectidentity"
+  },
+  "pprSb24RJ": {
+    "name": "pprSb24RJ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.216",
+    "class": "objectidentity"
+  },
+  "pprSb1XFP": {
+    "name": "pprSb1XFP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.217",
+    "class": "objectidentity"
+  },
+  "ppr9924T": {
+    "name": "ppr9924T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.218",
+    "class": "objectidentity"
+  },
+  "ppr9924SP": {
+    "name": "ppr9924SP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.219",
+    "class": "objectidentity"
+  },
+  "ppr9924TEMC": {
+    "name": "ppr9924TEMC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.220",
+    "class": "objectidentity"
+  },
+  "ppr9924T4SP": {
+    "name": "ppr9924T4SP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.221",
+    "class": "objectidentity"
+  },
+  "pprAR440": {
+    "name": "pprAR440",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.227",
+    "class": "objectidentity"
+  },
+  "pprAR441": {
+    "name": "pprAR441",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.228",
+    "class": "objectidentity"
+  },
+  "pprAR442": {
+    "name": "pprAR442",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.229",
+    "class": "objectidentity"
+  },
+  "pprAR443": {
+    "name": "pprAR443",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.230",
+    "class": "objectidentity"
+  },
+  "pprAR444": {
+    "name": "pprAR444",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.231",
+    "class": "objectidentity"
+  },
+  "pprAR420": {
+    "name": "pprAR420",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.232",
+    "class": "objectidentity"
+  },
+  "pprAt8624T2M": {
+    "name": "pprAt8624T2M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.239",
+    "class": "objectidentity"
+  },
+  "pprA46Tx": {
+    "name": "pprA46Tx",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.240",
+    "class": "objectidentity"
+  },
+  "pprAR550": {
+    "name": "pprAR550",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.241",
+    "class": "objectidentity"
+  },
+  "pprAR551": {
+    "name": "pprAR551",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.242",
+    "class": "objectidentity"
+  },
+  "pprAR552": {
+    "name": "pprAR552",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.243",
+    "class": "objectidentity"
+  },
+  "pprC8724MLB": {
+    "name": "pprC8724MLB",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.248",
+    "class": "objectidentity"
+  },
+  "pprAt86482SP": {
+    "name": "pprAt86482SP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.252",
+    "class": "objectidentity"
+  },
+  "pprAt8624POE": {
+    "name": "pprAt8624POE",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.253",
+    "class": "objectidentity"
+  },
+  "pprAtPwr01RAC": {
+    "name": "pprAtPwr01RAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.254",
+    "class": "objectidentity"
+  },
+  "pprAtFan01R": {
+    "name": "pprAtFan01R",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.255",
+    "class": "objectidentity"
+  },
+  "ppr9924Ts": {
+    "name": "ppr9924Ts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.256",
+    "class": "objectidentity"
+  },
+  "pprAR570": {
+    "name": "pprAR570",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.258",
+    "class": "objectidentity"
+  },
+  "pprAtPwr02AC": {
+    "name": "pprAtPwr02AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.264",
+    "class": "objectidentity"
+  },
+  "pprAtPwr02RAC": {
+    "name": "pprAtPwr02RAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.265",
+    "class": "objectidentity"
+  },
+  "pprAtXum10G": {
+    "name": "pprAtXum10G",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.266",
+    "class": "objectidentity"
+  },
+  "pprAtXum12T": {
+    "name": "pprAtXum12T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.267",
+    "class": "objectidentity"
+  },
+  "pprAtXum12SFP": {
+    "name": "pprAtXum12SFP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.268",
+    "class": "objectidentity"
+  },
+  "pprSb24SFP": {
+    "name": "pprSb24SFP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.269",
+    "class": "objectidentity"
+  },
+  "pprAR770": {
+    "name": "pprAR770",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.270",
+    "class": "objectidentity"
+  },
+  "pprx90024XT": {
+    "name": "pprx90024XT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.271",
+    "class": "objectidentity"
+  },
+  "pprx90024XS": {
+    "name": "pprx90024XS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.272",
+    "class": "objectidentity"
+  },
+  "pprAtXum10Gi": {
+    "name": "pprAtXum10Gi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.273",
+    "class": "objectidentity"
+  },
+  "pprAtXum12SFPi": {
+    "name": "pprAtXum12SFPi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.274",
+    "class": "objectidentity"
+  },
+  "pprAtXum12Ti": {
+    "name": "pprAtXum12Ti",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.275",
+    "class": "objectidentity"
+  },
+  "pprAR415S": {
+    "name": "pprAR415S",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.276",
+    "class": "objectidentity"
+  },
+  "pprAR415SDC": {
+    "name": "pprAR415SDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.277",
+    "class": "objectidentity"
+  },
+  "pprAR550SDP": {
+    "name": "pprAR550SDP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.278",
+    "class": "objectidentity"
+  },
+  "ppr8948iN": {
+    "name": "ppr8948iN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.279",
+    "class": "objectidentity"
+  },
+  "pprAtXum12TiN": {
+    "name": "pprAtXum12TiN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.280",
+    "class": "objectidentity"
+  },
+  "pprx90024XTN": {
+    "name": "pprx90024XTN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.281",
+    "class": "objectidentity"
+  },
+  "pprSwitchBladex908": {
+    "name": "pprSwitchBladex908",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.282",
+    "class": "objectidentity"
+  },
+  "pprRapier48w": {
+    "name": "pprRapier48w",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.283",
+    "class": "objectidentity"
+  },
+  "pprAt8316XLCR": {
+    "name": "pprAt8316XLCR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.284",
+    "class": "objectidentity"
+  },
+  "pprAt8324XLCR": {
+    "name": "pprAt8324XLCR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.285",
+    "class": "objectidentity"
+  },
+  "pprXemStk": {
+    "name": "pprXemStk",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.286",
+    "class": "objectidentity"
+  },
+  "pprAt8824R": {
+    "name": "pprAt8824R",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.287",
+    "class": "objectidentity"
+  },
+  "pprx90012XTS": {
+    "name": "pprx90012XTS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.288",
+    "class": "objectidentity"
+  },
+  "pprX90048FS": {
+    "name": "pprX90048FS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.289",
+    "class": "objectidentity"
+  },
+  "pprx60024TS": {
+    "name": "pprx60024TS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.290",
+    "class": "objectidentity"
+  },
+  "pprx60024TSXP": {
+    "name": "pprx60024TSXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.291",
+    "class": "objectidentity"
+  },
+  "pprAt9724TS": {
+    "name": "pprAt9724TS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.292",
+    "class": "objectidentity"
+  },
+  "pprAt9724TSXP": {
+    "name": "pprAt9724TSXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.293",
+    "class": "objectidentity"
+  },
+  "pprx60048TS": {
+    "name": "pprx60048TS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.294",
+    "class": "objectidentity"
+  },
+  "pprx60048TSXP": {
+    "name": "pprx60048TSXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.295",
+    "class": "objectidentity"
+  },
+  "pprAt9748TS": {
+    "name": "pprAt9748TS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.296",
+    "class": "objectidentity"
+  },
+  "pprAt9748TSXP": {
+    "name": "pprAt9748TSXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.297",
+    "class": "objectidentity"
+  },
+  "pprXum100M": {
+    "name": "pprXum100M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.298",
+    "class": "objectidentity"
+  },
+  "pprAtPWR05AC": {
+    "name": "pprAtPWR05AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.299",
+    "class": "objectidentity"
+  },
+  "pprIcmAr021v3s": {
+    "name": "pprIcmAr021v3s",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.300",
+    "class": "objectidentity"
+  },
+  "pprRapier48wb": {
+    "name": "pprRapier48wb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.301",
+    "class": "objectidentity"
+  },
+  "pprRapier48wAC": {
+    "name": "pprRapier48wAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.302",
+    "class": "objectidentity"
+  },
+  "pprRapier48wbAC": {
+    "name": "pprRapier48wbAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.303",
+    "class": "objectidentity"
+  },
+  "pprX30024TS": {
+    "name": "pprX30024TS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.304",
+    "class": "objectidentity"
+  },
+  "pprXemPOE": {
+    "name": "pprXemPOE",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.305",
+    "class": "objectidentity"
+  },
+  "pprXem2XP": {
+    "name": "pprXem2XP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.306",
+    "class": "objectidentity"
+  },
+  "pprATStackXG": {
+    "name": "pprATStackXG",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.307",
+    "class": "objectidentity"
+  },
+  "pprATEMXP": {
+    "name": "pprATEMXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.308",
+    "class": "objectidentity"
+  },
+  "pprATLBM": {
+    "name": "pprATLBM",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.309",
+    "class": "objectidentity"
+  },
+  "pprAt8624TCR": {
+    "name": "pprAt8624TCR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.310",
+    "class": "objectidentity"
+  },
+  "pprAt8624POECR": {
+    "name": "pprAt8624POECR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.311",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8112": {
+    "name": "pprAtSBx8112",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.316",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81CFC400": {
+    "name": "pprAtSBx81CFC400",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.317",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GP24": {
+    "name": "pprAtSBx81GP24",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.318",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XZ4": {
+    "name": "pprAtSBx81XZ4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.319",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8161SYSAC": {
+    "name": "pprAtSBx8161SYSAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.320",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8165POEAC": {
+    "name": "pprAtSBx8165POEAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.321",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81FAN": {
+    "name": "pprAtSBx81FAN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.322",
+    "class": "objectidentity"
+  },
+  "pprAtPWR05DC": {
+    "name": "pprAtPWR05DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.323",
+    "class": "objectidentity"
+  },
+  "pprXem2XT": {
+    "name": "pprXem2XT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.325",
+    "class": "objectidentity"
+  },
+  "pprx60024TSPOE": {
+    "name": "pprx60024TSPOE",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.326",
+    "class": "objectidentity"
+  },
+  "pprx60024TSPOEPLUS": {
+    "name": "pprx60024TSPOEPLUS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.327",
+    "class": "objectidentity"
+  },
+  "pprAR560": {
+    "name": "pprAR560",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.330",
+    "class": "objectidentity"
+  },
+  "pprx61048TsXPOEPlus": {
+    "name": "pprx61048TsXPOEPlus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.331",
+    "class": "objectidentity"
+  },
+  "pprx61048TsPOEPlus": {
+    "name": "pprx61048TsPOEPlus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.332",
+    "class": "objectidentity"
+  },
+  "pprx61024TsXPOEPlus": {
+    "name": "pprx61024TsXPOEPlus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.333",
+    "class": "objectidentity"
+  },
+  "pprx61024TsPOEPlus": {
+    "name": "pprx61024TsPOEPlus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.334",
+    "class": "objectidentity"
+  },
+  "pprPWR800": {
+    "name": "pprPWR800",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.336",
+    "class": "objectidentity"
+  },
+  "pprPWR1200": {
+    "name": "pprPWR1200",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.337",
+    "class": "objectidentity"
+  },
+  "pprPWR250": {
+    "name": "pprPWR250",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.338",
+    "class": "objectidentity"
+  },
+  "pprx61048TsX": {
+    "name": "pprx61048TsX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.339",
+    "class": "objectidentity"
+  },
+  "pprx61048Ts": {
+    "name": "pprx61048Ts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.340",
+    "class": "objectidentity"
+  },
+  "pprx61024TsX": {
+    "name": "pprx61024TsX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.341",
+    "class": "objectidentity"
+  },
+  "pprx61024Ts": {
+    "name": "pprx61024Ts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.342",
+    "class": "objectidentity"
+  },
+  "pprx61024SPX": {
+    "name": "pprx61024SPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.343",
+    "class": "objectidentity"
+  },
+  "pprRapier48xDC": {
+    "name": "pprRapier48xDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.345",
+    "class": "objectidentity"
+  },
+  "pprAR030": {
+    "name": "pprAR030",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.347",
+    "class": "objectidentity"
+  },
+  "pprx200GE52T": {
+    "name": "pprx200GE52T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.348",
+    "class": "objectidentity"
+  },
+  "pprx200GE28T": {
+    "name": "pprx200GE28T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.349",
+    "class": "objectidentity"
+  },
+  "pprXem2XS": {
+    "name": "pprXem2XS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.350",
+    "class": "objectidentity"
+  },
+  "pprPWR250DC": {
+    "name": "pprPWR250DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.351",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GT24": {
+    "name": "pprAtSBx81GT24",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.352",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GS24a": {
+    "name": "pprAtSBx81GS24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.353",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XS6": {
+    "name": "pprAtSBx81XS6",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.354",
+    "class": "objectidentity"
+  },
+  "pprXem24T": {
+    "name": "pprXem24T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.356",
+    "class": "objectidentity"
+  },
+  "pprAR031": {
+    "name": "pprAR031",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.357",
+    "class": "objectidentity"
+  },
+  "pprXem12Tv2": {
+    "name": "pprXem12Tv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.358",
+    "class": "objectidentity"
+  },
+  "pprXem12Sv2": {
+    "name": "pprXem12Sv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.359",
+    "class": "objectidentity"
+  },
+  "pprx2109GT": {
+    "name": "pprx2109GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.367",
+    "class": "objectidentity"
+  },
+  "pprx21016GT": {
+    "name": "pprx21016GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.368",
+    "class": "objectidentity"
+  },
+  "pprx21024GT": {
+    "name": "pprx21024GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.369",
+    "class": "objectidentity"
+  },
+  "pprx51028GTX": {
+    "name": "pprx51028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.370",
+    "class": "objectidentity"
+  },
+  "pprx51028GPX": {
+    "name": "pprx51028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.371",
+    "class": "objectidentity"
+  },
+  "pprx51028GSX": {
+    "name": "pprx51028GSX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.372",
+    "class": "objectidentity"
+  },
+  "pprx51052GTX": {
+    "name": "pprx51052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.373",
+    "class": "objectidentity"
+  },
+  "pprx51052GPX": {
+    "name": "pprx51052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.374",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8106": {
+    "name": "pprAtSBx8106",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.375",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81FAN06": {
+    "name": "pprAtSBx81FAN06",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.376",
+    "class": "objectidentity"
+  },
+  "pprSBx81CFC960": {
+    "name": "pprSBx81CFC960",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.377",
+    "class": "objectidentity"
+  },
+  "pprSBx81GT24a": {
+    "name": "pprSBx81GT24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.378",
+    "class": "objectidentity"
+  },
+  "pprSBx81GP24a": {
+    "name": "pprSBx81GP24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.379",
+    "class": "objectidentity"
+  },
+  "pprSBx81GT40": {
+    "name": "pprSBx81GT40",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.381",
+    "class": "objectidentity"
+  },
+  "pprSBx81XS16": {
+    "name": "pprSBx81XS16",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.382",
+    "class": "objectidentity"
+  },
+  "pprAtSBxPWRSYS1DC": {
+    "name": "pprAtSBxPWRSYS1DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.383",
+    "class": "objectidentity"
+  },
+  "pprPWR100R": {
+    "name": "pprPWR100R",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.384",
+    "class": "objectidentity"
+  },
+  "pprPWR250DCR": {
+    "name": "pprPWR250DCR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.385",
+    "class": "objectidentity"
+  },
+  "pprx510DP52GTX": {
+    "name": "pprx510DP52GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.386",
+    "class": "objectidentity"
+  },
+  "pprIX528GPX": {
+    "name": "pprIX528GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.387",
+    "class": "objectidentity"
+  },
+  "pprx93028GTX": {
+    "name": "pprx93028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.388",
+    "class": "objectidentity"
+  },
+  "pprx93028GPX": {
+    "name": "pprx93028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.389",
+    "class": "objectidentity"
+  },
+  "pprx93028GSTX": {
+    "name": "pprx93028GSTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.390",
+    "class": "objectidentity"
+  },
+  "pprx93052GTX": {
+    "name": "pprx93052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.391",
+    "class": "objectidentity"
+  },
+  "pprx93052GPX": {
+    "name": "pprx93052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.392",
+    "class": "objectidentity"
+  },
+  "pprx31026FT": {
+    "name": "pprx31026FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.393",
+    "class": "objectidentity"
+  },
+  "pprx31050FT": {
+    "name": "pprx31050FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.394",
+    "class": "objectidentity"
+  },
+  "pprx31026FP": {
+    "name": "pprx31026FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.395",
+    "class": "objectidentity"
+  },
+  "pprx31050FP": {
+    "name": "pprx31050FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.396",
+    "class": "objectidentity"
+  },
+  "pprx31026GT": {
+    "name": "pprx31026GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.397",
+    "class": "objectidentity"
+  },
+  "pprx31050GT": {
+    "name": "pprx31050GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.398",
+    "class": "objectidentity"
+  },
+  "pprx31026GP": {
+    "name": "pprx31026GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.399",
+    "class": "objectidentity"
+  },
+  "pprx31050GP": {
+    "name": "pprx31050GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.400",
+    "class": "objectidentity"
+  },
+  "pprx23010GT": {
+    "name": "pprx23010GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.401",
+    "class": "objectidentity"
+  },
+  "pprx23018GT": {
+    "name": "pprx23018GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.402",
+    "class": "objectidentity"
+  },
+  "pprx23028GT": {
+    "name": "pprx23028GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.403",
+    "class": "objectidentity"
+  },
+  "pprx23052GT": {
+    "name": "pprx23052GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.404",
+    "class": "objectidentity"
+  },
+  "pprx23010GP": {
+    "name": "pprx23010GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.405",
+    "class": "objectidentity"
+  },
+  "pprx23018GP": {
+    "name": "pprx23018GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.406",
+    "class": "objectidentity"
+  },
+  "pprx23028GP": {
+    "name": "pprx23028GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.407",
+    "class": "objectidentity"
+  },
+  "pprx23052GP": {
+    "name": "pprx23052GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.408",
+    "class": "objectidentity"
+  },
+  "pprx35010GPT": {
+    "name": "pprx35010GPT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.409",
+    "class": "objectidentity"
+  },
+  "pprIE2006GT": {
+    "name": "pprIE2006GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.410",
+    "class": "objectidentity"
+  },
+  "pprIE2006GP": {
+    "name": "pprIE2006GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.411",
+    "class": "objectidentity"
+  },
+  "pprIE2006GPW": {
+    "name": "pprIE2006GPW",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.412",
+    "class": "objectidentity"
+  },
+  "pprdc2552xs": {
+    "name": "pprdc2552xs",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.414",
+    "class": "objectidentity"
+  },
+  "pprATStackQS": {
+    "name": "pprATStackQS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.419",
+    "class": "objectidentity"
+  },
+  "pprATx9emXT4": {
+    "name": "pprATx9emXT4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.420",
+    "class": "objectidentity"
+  },
+  "pprx51028GSXDC": {
+    "name": "pprx51028GSXDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.421",
+    "class": "objectidentity"
+  },
+  "pprIE51028GSX": {
+    "name": "pprIE51028GSX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.422",
+    "class": "objectidentity"
+  },
+  "pprAR3050S": {
+    "name": "pprAR3050S",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.423",
+    "class": "objectidentity"
+  },
+  "pprAR4050S": {
+    "name": "pprAR4050S",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.426",
+    "class": "objectidentity"
+  },
+  "pprIE2006FT": {
+    "name": "pprIE2006FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.429",
+    "class": "objectidentity"
+  },
+  "pprIE2006FP": {
+    "name": "pprIE2006FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.430",
+    "class": "objectidentity"
+  },
+  "pprx510DP28GTX": {
+    "name": "pprx510DP28GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.431",
+    "class": "objectidentity"
+  },
+  "pprx510L28GT": {
+    "name": "pprx510L28GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.432",
+    "class": "objectidentity"
+  },
+  "pprx510L52GT": {
+    "name": "pprx510L52GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.433",
+    "class": "objectidentity"
+  },
+  "pprx510L28GP": {
+    "name": "pprx510L28GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.434",
+    "class": "objectidentity"
+  },
+  "pprx510L52GP": {
+    "name": "pprx510L52GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.435",
+    "class": "objectidentity"
+  },
+  "pprx51028GTXR": {
+    "name": "pprx51028GTXR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.436",
+    "class": "objectidentity"
+  },
+  "pprx51052GTXR": {
+    "name": "pprx51052GTXR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.437",
+    "class": "objectidentity"
+  },
+  "pprIE30012GT": {
+    "name": "pprIE30012GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.438",
+    "class": "objectidentity"
+  },
+  "pprIE30012GP": {
+    "name": "pprIE30012GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.439",
+    "class": "objectidentity"
+  },
+  "pprIE30012GS": {
+    "name": "pprIE30012GS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.440",
+    "class": "objectidentity"
+  },
+  "pprIE30020GST": {
+    "name": "pprIE30020GST",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.441",
+    "class": "objectidentity"
+  },
+  "pprVAA": {
+    "name": "pprVAA",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.442",
+    "class": "objectidentity"
+  },
+  "pprAtGS924MX": {
+    "name": "pprAtGS924MX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.443",
+    "class": "objectidentity"
+  },
+  "pprAtGS924MPX": {
+    "name": "pprAtGS924MPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.444",
+    "class": "objectidentity"
+  },
+  "pprAtGS948MX": {
+    "name": "pprAtGS948MX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.445",
+    "class": "objectidentity"
+  },
+  "pprAtGS948MPX": {
+    "name": "pprAtGS948MPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.446",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEM": {
+    "name": "pprAtSBx81XLEM",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.447",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemXS8": {
+    "name": "pprAtSBx81XLEMemXS8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.448",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemQ2": {
+    "name": "pprAtSBx81XLEMemQ2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.449",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemXT4": {
+    "name": "pprAtSBx81XLEMemXT4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.450",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemGT8": {
+    "name": "pprAtSBx81XLEMemGT8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.451",
+    "class": "objectidentity"
+  },
+  "pprAtSBxPWRSYS2AC": {
+    "name": "pprAtSBxPWRSYS2AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.452",
+    "class": "objectidentity"
+  },
+  "pprPWR150": {
+    "name": "pprPWR150",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.453",
+    "class": "objectidentity"
+  },
+  "pprAR2050V": {
+    "name": "pprAR2050V",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.454",
+    "class": "objectidentity"
+  },
+  "pprAR2010V": {
+    "name": "pprAR2010V",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.455",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXT": {
+    "name": "pprAtXS916MXT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.456",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXS": {
+    "name": "pprAtXS916MXS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.457",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXP": {
+    "name": "pprAtXS916MXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.458",
+    "class": "objectidentity"
+  },
+  "pprSH51028GTX": {
+    "name": "pprSH51028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.459",
+    "class": "objectidentity"
+  },
+  "pprSH51052GTX": {
+    "name": "pprSH51052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.460",
+    "class": "objectidentity"
+  },
+  "pprSH51028GPX": {
+    "name": "pprSH51028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.461",
+    "class": "objectidentity"
+  },
+  "pprSH51052GPX": {
+    "name": "pprSH51052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.462",
+    "class": "objectidentity"
+  },
+  "pprSH23010GP": {
+    "name": "pprSH23010GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.463",
+    "class": "objectidentity"
+  },
+  "pprSH23018GP": {
+    "name": "pprSH23018GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.464",
+    "class": "objectidentity"
+  },
+  "pprSH23028GP": {
+    "name": "pprSH23028GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.465",
+    "class": "objectidentity"
+  },
+  "pprSH2109GT": {
+    "name": "pprSH2109GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.466",
+    "class": "objectidentity"
+  },
+  "pprSH21016GT": {
+    "name": "pprSH21016GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.467",
+    "class": "objectidentity"
+  },
+  "pprSH21024GT": {
+    "name": "pprSH21024GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.468",
+    "class": "objectidentity"
+  },
+  "pprSH31026FT": {
+    "name": "pprSH31026FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.469",
+    "class": "objectidentity"
+  },
+  "pprSH31050FT": {
+    "name": "pprSH31050FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.470",
+    "class": "objectidentity"
+  },
+  "pprSH31026FP": {
+    "name": "pprSH31026FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.471",
+    "class": "objectidentity"
+  },
+  "pprSH31050FP": {
+    "name": "pprSH31050FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.472",
+    "class": "objectidentity"
+  },
+  "pprSH23010GT": {
+    "name": "pprSH23010GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.473",
+    "class": "objectidentity"
+  },
+  "pprSH23018GT": {
+    "name": "pprSH23018GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.474",
+    "class": "objectidentity"
+  },
+  "pprSH23028GT": {
+    "name": "pprSH23028GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.475",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M9": {
+    "name": "pprAtFS980M9",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.476",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M9PS": {
+    "name": "pprAtFS980M9PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.477",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M18": {
+    "name": "pprAtFS980M18",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.478",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M18PS": {
+    "name": "pprAtFS980M18PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.479",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M28": {
+    "name": "pprAtFS980M28",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.480",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M28PS": {
+    "name": "pprAtFS980M28PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.481",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M52": {
+    "name": "pprAtFS980M52",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.482",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M52PS": {
+    "name": "pprAtFS980M52PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.483",
+    "class": "objectidentity"
+  },
+  "pprSBx908G2": {
+    "name": "pprSBx908G2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.484",
+    "class": "objectidentity"
+  },
+  "pprSBx908G3": {
+    "name": "pprSBx908G3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.485",
+    "class": "objectidentity"
+  },
+  "pprAtFan08": {
+    "name": "pprAtFan08",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.486",
+    "class": "objectidentity"
+  },
+  "pprAtXem2QS4": {
+    "name": "pprAtXem2QS4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.487",
+    "class": "objectidentity"
+  },
+  "pprAtXem2XS12": {
+    "name": "pprAtXem2XS12",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.488",
+    "class": "objectidentity"
+  },
+  "pprAtXem2XT12": {
+    "name": "pprAtXem2XT12",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.489",
+    "class": "objectidentity"
+  },
+  "pprAtXem3QS8": {
+    "name": "pprAtXem3QS8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.490",
+    "class": "objectidentity"
+  },
+  "pprx55018XTQ": {
+    "name": "pprx55018XTQ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.491",
+    "class": "objectidentity"
+  },
+  "pprx55018XSQ": {
+    "name": "pprx55018XSQ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.492",
+    "class": "objectidentity"
+  },
+  "pprx55018XSPQm": {
+    "name": "pprx55018XSPQm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.493",
+    "class": "objectidentity"
+  },
+  "pprAtXem2CQ1": {
+    "name": "pprAtXem2CQ1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.494",
+    "class": "objectidentity"
+  },
+  "pprAtGS910M": {
+    "name": "pprAtGS910M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.496",
+    "class": "objectidentity"
+  },
+  "pprAtGS910MP": {
+    "name": "pprAtGS910MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.497",
+    "class": "objectidentity"
+  },
+  "pprAtGS918M": {
+    "name": "pprAtGS918M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.498",
+    "class": "objectidentity"
+  },
+  "pprAtGS918MP": {
+    "name": "pprAtGS918MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.499",
+    "class": "objectidentity"
+  },
+  "pprAtGS928M": {
+    "name": "pprAtGS928M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.500",
+    "class": "objectidentity"
+  },
+  "pprAtGS928MP": {
+    "name": "pprAtGS928MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.501",
+    "class": "objectidentity"
+  },
+  "pprAtGS952M": {
+    "name": "pprAtGS952M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.502",
+    "class": "objectidentity"
+  },
+  "pprAtGS952MP": {
+    "name": "pprAtGS952MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.503",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M28PS": {
+    "name": "pprAtGS970M28PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.534",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M18PS": {
+    "name": "pprAtGS970M18PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.535",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M10PS": {
+    "name": "pprAtGS970M10PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.536",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M28": {
+    "name": "pprAtGS970M28",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.537",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M18": {
+    "name": "pprAtGS970M18",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.538",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M10": {
+    "name": "pprAtGS970M10",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.539",
+    "class": "objectidentity"
+  },
+  "release": {
+    "name": "release",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.2",
+    "class": "objectidentity"
+  },
+  "iftypes": {
+    "name": "iftypes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3",
+    "class": "objectidentity"
+  },
+  "ifaceEth": {
+    "name": "ifaceEth",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.1",
+    "class": "objectidentity"
+  },
+  "ifaceSyn": {
+    "name": "ifaceSyn",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.2",
+    "class": "objectidentity"
+  },
+  "ifaceAsyn": {
+    "name": "ifaceAsyn",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.3",
+    "class": "objectidentity"
+  },
+  "ifaceBri": {
+    "name": "ifaceBri",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.4",
+    "class": "objectidentity"
+  },
+  "ifacePri": {
+    "name": "ifacePri",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.5",
+    "class": "objectidentity"
+  },
+  "ifacePots": {
+    "name": "ifacePots",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.6",
+    "class": "objectidentity"
+  },
+  "ifaceGBIC": {
+    "name": "ifaceGBIC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.3.7",
+    "class": "objectidentity"
+  },
+  "chips": {
+    "name": "chips",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4",
+    "class": "objectidentity"
+  },
+  "chip68020Cpu": {
+    "name": "chip68020Cpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.1",
+    "class": "objectidentity"
+  },
+  "chip68340Cpu": {
+    "name": "chip68340Cpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.2",
+    "class": "objectidentity"
+  },
+  "chip68302Cpu": {
+    "name": "chip68302Cpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.3",
+    "class": "objectidentity"
+  },
+  "chip68360Cpu": {
+    "name": "chip68360Cpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.4",
+    "class": "objectidentity"
+  },
+  "chip860TCpu": {
+    "name": "chip860TCpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.5",
+    "class": "objectidentity"
+  },
+  "chipMips4kcCpu": {
+    "name": "chipMips4kcCpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.6",
+    "class": "objectidentity"
+  },
+  "chipRtc1": {
+    "name": "chipRtc1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.21",
+    "class": "objectidentity"
+  },
+  "chipRtc2": {
+    "name": "chipRtc2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.22",
+    "class": "objectidentity"
+  },
+  "chipRtc3": {
+    "name": "chipRtc3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.23",
+    "class": "objectidentity"
+  },
+  "chipRtc4": {
+    "name": "chipRtc4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.24",
+    "class": "objectidentity"
+  },
+  "chipRam1mb": {
+    "name": "chipRam1mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.31",
+    "class": "objectidentity"
+  },
+  "chipRam2mb": {
+    "name": "chipRam2mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.32",
+    "class": "objectidentity"
+  },
+  "chipRam3mb": {
+    "name": "chipRam3mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.33",
+    "class": "objectidentity"
+  },
+  "chipRam4mb": {
+    "name": "chipRam4mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.34",
+    "class": "objectidentity"
+  },
+  "chipRam6mb": {
+    "name": "chipRam6mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.36",
+    "class": "objectidentity"
+  },
+  "chipRam8mb": {
+    "name": "chipRam8mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.38",
+    "class": "objectidentity"
+  },
+  "chipRam12mb": {
+    "name": "chipRam12mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.42",
+    "class": "objectidentity"
+  },
+  "chipRam16mb": {
+    "name": "chipRam16mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.46",
+    "class": "objectidentity"
+  },
+  "chipRam20mb": {
+    "name": "chipRam20mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.50",
+    "class": "objectidentity"
+  },
+  "chipRam32mb": {
+    "name": "chipRam32mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.62",
+    "class": "objectidentity"
+  },
+  "chipFlash1mb": {
+    "name": "chipFlash1mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.71",
+    "class": "objectidentity"
+  },
+  "chipFlash2mb": {
+    "name": "chipFlash2mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.72",
+    "class": "objectidentity"
+  },
+  "chipFlash3mb": {
+    "name": "chipFlash3mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.73",
+    "class": "objectidentity"
+  },
+  "chipFlash4mb": {
+    "name": "chipFlash4mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.74",
+    "class": "objectidentity"
+  },
+  "chipFlash6mb": {
+    "name": "chipFlash6mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.76",
+    "class": "objectidentity"
+  },
+  "chipFlash8mb": {
+    "name": "chipFlash8mb",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.78",
+    "class": "objectidentity"
+  },
+  "chipPem": {
+    "name": "chipPem",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.120",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AT-BOARDS-MIB",
+      "Source digest sha256:2867a1f33fe97bc244e0da6d3e2c2c85d63431a7230e6fec8d76e8166ac04009",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AT-BOARDS-MIB"
+  }
+}

@@ -1,0 +1,1079 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "classListModule": {
+    "name": "classListModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137",
+    "class": "moduleidentity"
+  },
+  "classList": {
+    "name": "classList",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1",
+    "class": "objectidentity"
+  },
+  "classListOperTable": {
+    "name": "classListOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperEntry": {
+    "name": "classListOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperSlotId": {
+    "name": "classListOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperName": {
+    "name": "classListOperName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperType": {
+    "name": "classListOperType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperFileOrString": {
+    "name": "classListOperFileOrString",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperUserTag": {
+    "name": "classListOperUserTag",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4TotalSingleIp": {
+    "name": "classListOperIpv4TotalSingleIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4TotalSubnet": {
+    "name": "classListOperIpv4TotalSubnet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6TotalSingleIp": {
+    "name": "classListOperIpv6TotalSingleIp",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6TotalSubnet": {
+    "name": "classListOperIpv6TotalSubnet",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsTotalEntries": {
+    "name": "classListOperDnsTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringTotalEntries": {
+    "name": "classListOperStringTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcTotalEntries": {
+    "name": "classListOperAcTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationTotalEntries": {
+    "name": "classListOperGeoLocationTotalEntries",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesTable": {
+    "name": "classListOperIpv4EntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesEntry": {
+    "name": "classListOperIpv4EntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv4EntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv4EntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv4EntriesIpv4EntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperIpv4EntriesSlotId": {
+    "name": "classListOperIpv4EntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesName": {
+    "name": "classListOperIpv4EntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4EntriesListId": {
+    "name": "classListOperIpv4EntriesIpv4EntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4Addr": {
+    "name": "classListOperIpv4EntriesIpv4Addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4Lid": {
+    "name": "classListOperIpv4EntriesIpv4Lid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4Glid": {
+    "name": "classListOperIpv4EntriesIpv4Glid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4LsnLid": {
+    "name": "classListOperIpv4EntriesIpv4LsnLid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4LsnRadiusProfile": {
+    "name": "classListOperIpv4EntriesIpv4LsnRadiusProfile",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4GtpPolicy": {
+    "name": "classListOperIpv4EntriesIpv4GtpPolicy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4HitCount": {
+    "name": "classListOperIpv4EntriesIpv4HitCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4Age": {
+    "name": "classListOperIpv4EntriesIpv4Age",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv4EntriesIpv4RpzType": {
+    "name": "classListOperIpv4EntriesIpv4RpzType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesTable": {
+    "name": "classListOperIpv6EntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesEntry": {
+    "name": "classListOperIpv6EntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv6EntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv6EntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperIpv6EntriesIpv6EntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperIpv6EntriesSlotId": {
+    "name": "classListOperIpv6EntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesName": {
+    "name": "classListOperIpv6EntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6EntriesListId": {
+    "name": "classListOperIpv6EntriesIpv6EntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6addr": {
+    "name": "classListOperIpv6EntriesIpv6addr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6Lid": {
+    "name": "classListOperIpv6EntriesIpv6Lid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6Glid": {
+    "name": "classListOperIpv6EntriesIpv6Glid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6LsnLid": {
+    "name": "classListOperIpv6EntriesIpv6LsnLid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6LsnRadiusProfile": {
+    "name": "classListOperIpv6EntriesIpv6LsnRadiusProfile",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6GtpPolicy": {
+    "name": "classListOperIpv6EntriesIpv6GtpPolicy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6HitCount": {
+    "name": "classListOperIpv6EntriesIpv6HitCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6Age": {
+    "name": "classListOperIpv6EntriesIpv6Age",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperIpv6EntriesIpv6RpzType": {
+    "name": "classListOperIpv6EntriesIpv6RpzType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesTable": {
+    "name": "classListOperDnsEntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperDnsEntriesEntry": {
+    "name": "classListOperDnsEntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperDnsEntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperDnsEntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperDnsEntriesDnsEntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperDnsEntriesSlotId": {
+    "name": "classListOperDnsEntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesName": {
+    "name": "classListOperDnsEntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsEntriesListId": {
+    "name": "classListOperDnsEntriesDnsEntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsMatchType": {
+    "name": "classListOperDnsEntriesDnsMatchType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsMatchString": {
+    "name": "classListOperDnsEntriesDnsMatchString",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsLid": {
+    "name": "classListOperDnsEntriesDnsLid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsGlid": {
+    "name": "classListOperDnsEntriesDnsGlid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsHitCount": {
+    "name": "classListOperDnsEntriesDnsHitCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperDnsEntriesDnsRpzType": {
+    "name": "classListOperDnsEntriesDnsRpzType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesTable": {
+    "name": "classListOperStringEntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperStringEntriesEntry": {
+    "name": "classListOperStringEntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperStringEntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperStringEntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperStringEntriesStringEntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperStringEntriesSlotId": {
+    "name": "classListOperStringEntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesName": {
+    "name": "classListOperStringEntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringEntriesListId": {
+    "name": "classListOperStringEntriesStringEntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringKey": {
+    "name": "classListOperStringEntriesStringKey",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringValue": {
+    "name": "classListOperStringEntriesStringValue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringLid": {
+    "name": "classListOperStringEntriesStringLid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringGlid": {
+    "name": "classListOperStringEntriesStringGlid",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperStringEntriesStringHitCount": {
+    "name": "classListOperStringEntriesStringHitCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesTable": {
+    "name": "classListOperAcEntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperAcEntriesEntry": {
+    "name": "classListOperAcEntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperAcEntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperAcEntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperAcEntriesAcEntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperAcEntriesSlotId": {
+    "name": "classListOperAcEntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesName": {
+    "name": "classListOperAcEntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcEntriesListId": {
+    "name": "classListOperAcEntriesAcEntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcMatchType": {
+    "name": "classListOperAcEntriesAcMatchType",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcMatchString": {
+    "name": "classListOperAcEntriesAcMatchString",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcMatchValue": {
+    "name": "classListOperAcEntriesAcMatchValue",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcHitCount": {
+    "name": "classListOperAcEntriesAcHitCount",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperAcEntriesAcGtpPolicy": {
+    "name": "classListOperAcEntriesAcGtpPolicy",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesTable": {
+    "name": "classListOperGeoLocationEntriesTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesEntry": {
+    "name": "classListOperGeoLocationEntriesEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperGeoLocationEntriesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperGeoLocationEntriesName",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-CLASS-LIST-MIB",
+        "object": "classListOperGeoLocationEntriesGeoLocationEntriesListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesSlotId": {
+    "name": "classListOperGeoLocationEntriesSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesName": {
+    "name": "classListOperGeoLocationEntriesName",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesGeoLocationEntriesListId": {
+    "name": "classListOperGeoLocationEntriesGeoLocationEntriesListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesGeoLocation": {
+    "name": "classListOperGeoLocationEntriesGeoLocation",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "classListOperGeoLocationEntriesGeoLocationStatus": {
+    "name": "classListOperGeoLocationEntriesGeoLocationStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.137.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-CLASS-LIST-MIB",
+      "Source digest sha256:1d44615055fa7142b1b5231104e6a034d6f11a2f713fdbbae52a9325a3e71554",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-CLASS-LIST-MIB"
+  }
+}

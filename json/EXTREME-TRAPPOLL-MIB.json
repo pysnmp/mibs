@@ -1,0 +1,253 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "RMON2-MIB": [
+      "trapDestIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeTrapPoll": {
+    "name": "extremeTrapPoll",
+    "oid": "1.3.6.1.4.1.1916.1.6",
+    "class": "moduleidentity"
+  },
+  "extremeSmartTrapRulesTable": {
+    "name": "extremeSmartTrapRulesTable",
+    "oid": "1.3.6.1.4.1.1916.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesEntry": {
+    "name": "extremeSmartTrapRulesEntry",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-TRAPPOLL-MIB",
+        "object": "extremeSmartTrapRulesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeSmartTrapRulesIndex": {
+    "name": "extremeSmartTrapRulesIndex",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesRowStatus": {
+    "name": "extremeSmartTrapRulesRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesDesiredOID": {
+    "name": "extremeSmartTrapRulesDesiredOID",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesSupportedOID": {
+    "name": "extremeSmartTrapRulesSupportedOID",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesOperation": {
+    "name": "extremeSmartTrapRulesOperation",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2,
+          "modify": 3,
+          "any": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeSmartTrapRulesTrapDestIndex": {
+    "name": "extremeSmartTrapRulesTrapDestIndex",
+    "oid": "1.3.6.1.4.1.1916.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceTable": {
+    "name": "extremeSmartTrapInstanceTable",
+    "oid": "1.3.6.1.4.1.1916.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceEntry": {
+    "name": "extremeSmartTrapInstanceEntry",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "trapDestIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-TRAPPOLL-MIB",
+        "object": "extremeSmartTrapInstanceSubindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceSubindex": {
+    "name": "extremeSmartTrapInstanceSubindex",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceRule": {
+    "name": "extremeSmartTrapInstanceRule",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceChangedOid": {
+    "name": "extremeSmartTrapInstanceChangedOid",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceActualOperation": {
+    "name": "extremeSmartTrapInstanceActualOperation",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2,
+          "modify": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapInstanceChangeTime": {
+    "name": "extremeSmartTrapInstanceChangeTime",
+    "oid": "1.3.6.1.4.1.1916.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSmartTrapFlushInstanceTableIndex": {
+    "name": "extremeSmartTrapFlushInstanceTableIndex",
+    "oid": "1.3.6.1.4.1.1916.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-TRAPPOLL-MIB"
+  }
+}

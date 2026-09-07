@@ -1,0 +1,954 @@
+{
+  "imports": {
+    "class": "imports",
+    "AE-TC": [
+      "AeAlarmType",
+      "AeBriefText",
+      "AeCondServiceAffecting",
+      "AeCondSeverityLevel",
+      "AeCondStatus",
+      "AeConfigFileMarker",
+      "AeConfigFilename",
+      "AeConfigMIC",
+      "AeConfigMethod",
+      "AeConfigStatus",
+      "AeDeviceClass",
+      "AeDeviceStatus",
+      "AeEquipmentInstance",
+      "AeEquipmentType",
+      "AeFsanSerialNumber",
+      "AeMfgSerialNumber",
+      "AeOntFirmwareVersion",
+      "AeOntModelNum",
+      "AeOntRegistrationPeriod",
+      "AeOntState",
+      "AeRegistrationID",
+      "AeSnmpVersion",
+      "AeText",
+      "AeTime"
+    ],
+    "CALIX-SMI": [
+      "calixModules",
+      "calixNetworks",
+      "calixProducts",
+      "calixRegistrations"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pSeries": {
+    "name": "pSeries",
+    "oid": "1.3.6.1.4.1.6321.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aeModules": {
+    "name": "aeModules",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aeNotificationModule": {
+    "name": "aeNotificationModule",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.1.1",
+    "class": "moduleidentity"
+  },
+  "aeNotification": {
+    "name": "aeNotification",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2",
+    "class": "objectidentity"
+  },
+  "aeNotificationObjects": {
+    "name": "aeNotificationObjects",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "aeNotifications": {
+    "name": "aeNotifications",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "aeAlarms": {
+    "name": "aeAlarms",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3",
+    "class": "objectidentity"
+  },
+  "aeOnt": {
+    "name": "aeOnt",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4",
+    "class": "objectidentity"
+  },
+  "aeOntMIBVersion": {
+    "name": "aeOntMIBVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntModelNum": {
+    "name": "aeOntModelNum",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntModelNum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntFsanSerNum": {
+    "name": "aeOntFsanSerNum",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeFsanSerialNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntFirmwareVersion": {
+    "name": "aeOntFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntFirmwareVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntRegistrationPeriod": {
+    "name": "aeOntRegistrationPeriod",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntRegistrationPeriod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeOntReset": {
+    "name": "aeOntReset",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeOntRegistrationID": {
+    "name": "aeOntRegistrationID",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeRegistrationID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeOntRegisterState": {
+    "name": "aeOntRegisterState",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeOntLabel": {
+    "name": "aeOntLabel",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeBriefText",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aeOntConfigMethod": {
+    "name": "aeOntConfigMethod",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntConfigFilename": {
+    "name": "aeOntConfigFilename",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigFilename",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntConfigFileMarker": {
+    "name": "aeOntConfigFileMarker",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigFileMarker",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntConfigFileMIC": {
+    "name": "aeOntConfigFileMIC",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigMIC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntPrimaryManagementServer": {
+    "name": "aeOntPrimaryManagementServer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntDeviceStatus": {
+    "name": "aeOntDeviceStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeDeviceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntConfigStatus": {
+    "name": "aeOntConfigStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntManagementVlanId": {
+    "name": "aeOntManagementVlanId",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeOntMfgSerNum": {
+    "name": "aeOntMfgSerNum",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeMfgSerialNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeTrapSequenceNo": {
+    "name": "aeTrapSequenceNo",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapEquipmentType": {
+    "name": "aeTrapEquipmentType",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeEquipmentType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapEquipmentInstance": {
+    "name": "aeTrapEquipmentInstance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeEquipmentInstance",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapAlarmType": {
+    "name": "aeTrapAlarmType",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapAlarmStatus": {
+    "name": "aeTrapAlarmStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapAlarmSeverityLevel": {
+    "name": "aeTrapAlarmSeverityLevel",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondSeverityLevel",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapServiceAffecting": {
+    "name": "aeTrapServiceAffecting",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondServiceAffecting",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapText": {
+    "name": "aeTrapText",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeText",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapTimeStamp": {
+    "name": "aeTrapTimeStamp",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeBriefText",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapTime": {
+    "name": "aeTrapTime",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapFsanSerialNumber": {
+    "name": "aeTrapFsanSerialNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeFsanSerialNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapIpAddr": {
+    "name": "aeTrapIpAddr",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapMacAddress": {
+    "name": "aeTrapMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapOntState": {
+    "name": "aeTrapOntState",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapOntLabel": {
+    "name": "aeTrapOntLabel",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeText",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapRegistrationID": {
+    "name": "aeTrapRegistrationID",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeRegistrationID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapDeviceClass": {
+    "name": "aeTrapDeviceClass",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeDeviceClass",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapDeviceModel": {
+    "name": "aeTrapDeviceModel",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntModelNum",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapFirmwareRevision": {
+    "name": "aeTrapFirmwareRevision",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeOntFirmwareVersion",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapConfigMethod": {
+    "name": "aeTrapConfigMethod",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigMethod",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapConfigFilename": {
+    "name": "aeTrapConfigFilename",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigFilename",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapConfigFileMarker": {
+    "name": "aeTrapConfigFileMarker",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigFileMarker",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapConfigFileMIC": {
+    "name": "aeTrapConfigFileMIC",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigMIC",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapPrimaryManagementServer": {
+    "name": "aeTrapPrimaryManagementServer",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapDeviceStatus": {
+    "name": "aeTrapDeviceStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeDeviceStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapConfigStatus": {
+    "name": "aeTrapConfigStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapManagementVlanId": {
+    "name": "aeTrapManagementVlanId",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapMfgSerialNumber": {
+    "name": "aeTrapMfgSerialNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeMfgSerialNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aeTrapRegistration": {
+    "name": "aeTrapRegistration",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapFsanSerialNumber"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapIpAddr"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapMacAddress"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapOntState"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapOntLabel"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapRegistrationID"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapDeviceClass"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapDeviceModel"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapFirmwareRevision"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapConfigMethod"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapConfigFilename"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapConfigFileMarker"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapConfigFileMIC"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapPrimaryManagementServer"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapDeviceStatus"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapConfigStatus"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapManagementVlanId"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapSequenceNo"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapMfgSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "aeTrapAlarm": {
+    "name": "aeTrapAlarm",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapSequenceNo"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapEquipmentType"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapEquipmentInstance"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapAlarmType"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapAlarmStatus"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapAlarmSeverityLevel"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapServiceAffecting"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapText"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapTimeStamp"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapTime"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapFsanSerialNumber"
+      },
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeTrapRegistrationID"
+      }
+    ],
+    "status": "current"
+  },
+  "aeAlarmTable": {
+    "name": "aeAlarmTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aeAlarmEntry": {
+    "name": "aeAlarmEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AE-ALARM-TABLE-MIB",
+        "object": "aeAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aeAlarmIndex": {
+    "name": "aeAlarmIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmSequence": {
+    "name": "aeAlarmSequence",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmEquipmentType": {
+    "name": "aeAlarmEquipmentType",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeEquipmentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmEquipmentInstance": {
+    "name": "aeAlarmEquipmentInstance",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeEquipmentInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmAlarmType": {
+    "name": "aeAlarmAlarmType",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmStatus": {
+    "name": "aeAlarmStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmSeverityLevel": {
+    "name": "aeAlarmSeverityLevel",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondSeverityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmServiceAffecting": {
+    "name": "aeAlarmServiceAffecting",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeCondServiceAffecting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmTimeStamp": {
+    "name": "aeAlarmTimeStamp",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeBriefText",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmTime": {
+    "name": "aeAlarmTime",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aeAlarmText": {
+    "name": "aeAlarmText",
+    "oid": "1.3.6.1.4.1.6321.1.2.5.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AeText",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source AE-ALARM-TABLE-MIB",
+      "Source digest sha256:0e1111690d89e920eb29073ee59b80c9b0b4042fe01726714263e5402f63195c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "AE-ALARM-TABLE-MIB"
+  }
+}

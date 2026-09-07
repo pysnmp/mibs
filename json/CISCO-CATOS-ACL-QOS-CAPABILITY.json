@@ -1,0 +1,2179 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCatOSAclQosCapability": {
+    "name": "ciscoCatOSAclQosCapability",
+    "oid": "1.3.6.1.4.1.9.7.325",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-17 00:00",
+        "description": "Add caqCapabilityV08R0701Cat6KPfc, caqCapabilityV08R0701Cat6KPfc2, caqCapabilityV08R0701Cat6KPfc3, caqCapabilityV08R0701Cat6KPfc3b agent capability statements."
+      },
+      {
+        "revision": "2006-06-29 00:00",
+        "description": "Add caqCapabilityV08R0601Cat6KPfc, caqCapabilityV08R0601Cat6KPfc2, caqCapabilityV08R0601Cat6KPfc3, caqCapabilityV08R0601Cat6KPfc3b agent capability statements."
+      },
+      {
+        "revision": "2005-09-06 00:00",
+        "description": "Add caqCapabilityV08R0501Cat6KPfc, caqCapabilityV08R0501Cat6KPfc2, caqCapabilityV08R0501Cat6KPfc3, caqCapabilityV08R0501Cat6KPfc3b agent capability statements. Add VARIATION clauses for caqIpAceProtocolMatchCriteria object in all existing agent capability statements."
+      },
+      {
+        "revision": "2004-06-24 00:00",
+        "description": "Add caqCapabilityV08R0401Cat6KPfc, caqCapabilityV08R0401Cat6KPfc2, caqCapabilityV08R0401Cat6KPfc3, caqCapabilityV08R0401Cat6KPfc3b agent capability statements."
+      },
+      {
+        "revision": "2004-01-27 00:00",
+        "description": "Add caqCapabilityV08R0301Cat6KPfc, caqCapabilityV08R0301Cat6KPfc2, caqCapabilityV08R0301Cat6KPfc3 agent capability statements."
+      },
+      {
+        "revision": "2003-12-19 00:00",
+        "description": "Correct BITS syntax typo."
+      },
+      {
+        "revision": "2003-08-25 10:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "caqCapabilityV08R0101Cat6KPfc": {
+    "name": "caqCapabilityV08R0101Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0101Cat6KPfc2": {
+    "name": "caqCapabilityV08R0101Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0101Cat6KPfc3": {
+    "name": "caqCapabilityV08R0101Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0101Cat4K": {
+    "name": "caqCapabilityV08R0101Cat4K",
+    "oid": "1.3.6.1.4.1.9.7.325.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000 series\n                         devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqAclCpbGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQueueAssignmentGroup",
+          "caqPolicingGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqIfTrustStateConfig",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "trustCoS": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "caqFlowPolicerType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerNormalRateRequest",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerNormalRateGrant",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerBurstSizeRequest",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerBurstSizeGrant",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerNormalRateAction",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqFlowPolicerStatus",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0301Cat6KPfc": {
+    "name": "caqCapabilityV08R0301Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0301Cat6KPfc2": {
+    "name": "caqCapabilityV08R0301Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0301Cat6KPfc3": {
+    "name": "caqCapabilityV08R0301Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0401Cat6KPfc": {
+    "name": "caqCapabilityV08R0401Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0401Cat6KPfc2": {
+    "name": "caqCapabilityV08R0401Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqAclFeatureCpb",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "vlanAclHitCount": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0401Cat6KPfc3": {
+    "name": "caqCapabilityV08R0401Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0401Cat6KPfc3b": {
+    "name": "caqCapabilityV08R0401Cat6KPfc3b",
+    "oid": "1.3.6.1.4.1.9.7.325.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3B\n                         or PFC3BXL card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqMacAceExtGroup",
+          "caqMacPktClassifyVlanGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0501Cat6KPfc": {
+    "name": "caqCapabilityV08R0501Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0501Cat6KPfc2": {
+    "name": "caqCapabilityV08R0501Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqAclFeatureCpb",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "vlanAclHitCount": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0501Cat6KPfc3": {
+    "name": "caqCapabilityV08R0501Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.14",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0501Cat6KPfc3b": {
+    "name": "caqCapabilityV08R0501Cat6KPfc3b",
+    "oid": "1.3.6.1.4.1.9.7.325.15",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3B\n                         or PFC3BXL card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqMacAceExtGroup",
+          "caqMacPktClassifyVlanGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0601Cat6KPfc": {
+    "name": "caqCapabilityV08R0601Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.16",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerPacketsRateGroup",
+          "caqAggPolicerPacketsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0601Cat6KPfc2": {
+    "name": "caqCapabilityV08R0601Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.17",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerPacketsRateGroup",
+          "caqAggPolicerPacketsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqAclFeatureCpb",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "vlanAclHitCount": 0
+              }
+            }
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3,
+                  "redirectWithAdj": 4,
+                  "denyWithLog": 5,
+                  "denyArpInspection": 6,
+                  "denyArpInspWithLog": 7,
+                  "permitArpInspection": 8
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0601Cat6KPfc3": {
+    "name": "caqCapabilityV08R0601Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.18",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerOctetsRateGroup",
+          "caqAggPolicerOctetsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0601Cat6KPfc3b": {
+    "name": "caqCapabilityV08R0601Cat6KPfc3b",
+    "oid": "1.3.6.1.4.1.9.7.325.19",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3B\n                         or PFC3BXL card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqMacAceExtGroup",
+          "caqMacPktClassifyVlanGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerOctetsRateGroup",
+          "caqAggPolicerOctetsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0701Cat6KPfc": {
+    "name": "caqCapabilityV08R0701Cat6KPfc",
+    "oid": "1.3.6.1.4.1.9.7.325.20",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqIfTrustDeviceGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerPacketsRateGroup",
+          "caqAggPolicerPacketsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup",
+          "caqIpOperClassifierGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqDscpMappingERPolicedDscp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqAggPolicerERExceedPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0701Cat6KPfc2": {
+    "name": "caqCapabilityV08R0701Cat6KPfc2",
+    "oid": "1.3.6.1.4.1.9.7.325.21",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC2\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqIpxAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqQosStatsGroup2",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqIpAceExtGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerPacketsRateGroup",
+          "caqAggPolicerPacketsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup",
+          "caqIpOperClassifierGroup",
+          "caqDownloadClassifierGroup",
+          "caqArpLoggingSourceGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqClassifierMapDirection",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "ingress": 0
+              }
+            }
+          },
+          {
+            "object": "caqAclFeatureCpb",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "vlanAclHitCount": 0
+              }
+            }
+          },
+          {
+            "object": "caqSecurityAction",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "permit": 1,
+                  "deny": 2,
+                  "redirect": 3,
+                  "redirectWithAdj": 4,
+                  "denyWithLog": 5,
+                  "denyArpInspection": 6,
+                  "denyArpInspWithLog": 7,
+                  "permitArpInspection": 8
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0701Cat6KPfc3": {
+    "name": "caqCapabilityV08R0701Cat6KPfc3",
+    "oid": "1.3.6.1.4.1.9.7.325.22",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3\n                         card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerOctetsRateGroup",
+          "caqAggPolicerOctetsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup",
+          "caqDownloadClassifierGroup",
+          "caqIpOperClassifierGroup",
+          "caqSecurityDownloadAclInfoGroup",
+          "caqSecurityDownloadIpAceGroup",
+          "caqIfDownloadAclMapGroup",
+          "caqIfIpPhoneMapGroup",
+          "caqArpLoggingSourceGroup",
+          "caqIpAceTypeGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "caqCapabilityV08R0701Cat6KPfc3b": {
+    "name": "caqCapabilityV08R0701Cat6KPfc3b",
+    "oid": "1.3.6.1.4.1.9.7.325.23",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500\n                         and Cisco 7600 series devices with PFC3B\n                         or PFC3BXL card.",
+    "capabilities": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "includes": [
+          "caqIfConfigGroup",
+          "caqIfAclConfigGroup",
+          "caqAclCpbGroup",
+          "caqIpAceGroup",
+          "caqMacAceGroup",
+          "caqActionGroup",
+          "caqPolicingGroup",
+          "caqQosExcessRateGroup",
+          "caqQosMappingGroup",
+          "caqQueueAssignmentGroup",
+          "caqQueueGroup",
+          "caqQosBridgedFlowPolicerGroup",
+          "caqQosStatsGroup",
+          "caqSecurityGroup",
+          "caqFlowPolicingCpbGroup",
+          "caqSecurityPBFGroup",
+          "caqQosExcessBurstGroup",
+          "caqIfTrustDeviceGroup",
+          "caqLoggingGroup",
+          "caqArpInspGroup",
+          "caqSecurityRateLimitGroup",
+          "caqDscpMutationGroup",
+          "caqQosDefaultActionGroup",
+          "caqIfAclConfigGroup2",
+          "caqDscpRewriteGroup",
+          "caqAggPolicerOctetStatsGroup",
+          "caqIpAceExtGroup",
+          "caqIfSecurityAclConfigGroup",
+          "caqAclHitCountGroup",
+          "caqMacAceExtGroup",
+          "caqMacPktClassifyVlanGroup",
+          "caqAclFeatureGroup",
+          "caqPortAclHitCountGroup",
+          "caqVlanAclHitCountGroup",
+          "caqQosL3StatsRateGroup",
+          "caqQosL3StatsPeakGroup",
+          "caqAggPolicerOctetsRateGroup",
+          "caqAggPolicerOctetsPeakGroup",
+          "caqQosPortRateGroup",
+          "caqQosPortPeakGroup",
+          "caqSecurityActionDnldAceGroup",
+          "caqDownloadClassifierGroup",
+          "caqIpOperClassifierGroup",
+          "caqSecurityDownloadAclInfoGroup",
+          "caqSecurityDownloadIpAceGroup",
+          "caqIfDownloadAclMapGroup",
+          "caqIfIpPhoneMapGroup",
+          "caqArpLoggingSourceGroup",
+          "caqIpAceTypeGroup"
+        ],
+        "variations": [
+          {
+            "object": "caqAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqAceHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIfAclHitCountAclType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipSecurity": 1,
+                  "macSecurity": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "caqIpAceProtocolMatchCriteria",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "matchIgmpType": 2,
+                  "matchIcmpType": 3,
+                  "matchIcmpTypeAndCode": 4,
+                  "matchEstablished": 5,
+                  "matchEapoudp": 7,
+                  "matchUrlRedirect": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-CATOS-ACL-QOS-CAPABILITY",
+      "Source digest sha256:6acc7fbd1ed5e226c408caceec6ce414a72a2444c4e7f3f055ff074341e69f70",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-CATOS-ACL-QOS-CAPABILITY"
+  }
+}

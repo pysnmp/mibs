@@ -1,0 +1,337 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "openView": {
+    "name": "openView",
+    "oid": "1.3.6.1.4.1.11.2.17",
+    "class": "objectidentity"
+  },
+  "hpOpenView": {
+    "name": "hpOpenView",
+    "oid": "1.3.6.1.4.1.11.2.17.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-28 00:00",
+        "description": "Added definition of trap 58916872"
+      },
+      {
+        "revision": "1996-07-08 00:00",
+        "description": "Initial revision published as part of hp-unix MIB. Updated to add support for SNMPv2 Security Proxy. Updated to use the SNMPv2 SMI."
+      }
+    ]
+  },
+  "OVTextString": {
+    "name": "OVTextString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "openViewTrapVars": {
+    "name": "openViewTrapVars",
+    "oid": "1.3.6.1.4.1.11.2.17.2",
+    "class": "objectidentity"
+  },
+  "openViewSourceId": {
+    "name": "openViewSourceId",
+    "oid": "1.3.6.1.4.1.11.2.17.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewSourceName": {
+    "name": "openViewSourceName",
+    "oid": "1.3.6.1.4.1.11.2.17.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OVTextString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewObjectId": {
+    "name": "openViewObjectId",
+    "oid": "1.3.6.1.4.1.11.2.17.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewData": {
+    "name": "openViewData",
+    "oid": "1.3.6.1.4.1.11.2.17.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewSeverity": {
+    "name": "openViewSeverity",
+    "oid": "1.3.6.1.4.1.11.2.17.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OVTextString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCategory": {
+    "name": "openViewCategory",
+    "oid": "1.3.6.1.4.1.11.2.17.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OVTextString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewFilter": {
+    "name": "openViewFilter",
+    "oid": "1.3.6.1.4.1.11.2.17.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewEntity": {
+    "name": "openViewEntity",
+    "oid": "1.3.6.1.4.1.11.2.17.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OVTextString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewAddress": {
+    "name": "openViewAddress",
+    "oid": "1.3.6.1.4.1.11.2.17.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewPid": {
+    "name": "openViewPid",
+    "oid": "1.3.6.1.4.1.11.2.17.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCmipManagedObjectClass": {
+    "name": "openViewCmipManagedObjectClass",
+    "oid": "1.3.6.1.4.1.11.2.17.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCmipEventTime": {
+    "name": "openViewCmipEventTime",
+    "oid": "1.3.6.1.4.1.11.2.17.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCmipEventType": {
+    "name": "openViewCmipEventType",
+    "oid": "1.3.6.1.4.1.11.2.17.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCmipEventInfo": {
+    "name": "openViewCmipEventInfo",
+    "oid": "1.3.6.1.4.1.11.2.17.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewCmipManagedObjectInstanceId": {
+    "name": "openViewCmipManagedObjectInstanceId",
+    "oid": "1.3.6.1.4.1.11.2.17.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewEventUUID": {
+    "name": "openViewEventUUID",
+    "oid": "1.3.6.1.4.1.11.2.17.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewEcsCorrelateEvUUID": {
+    "name": "openViewEcsCorrelateEvUUID",
+    "oid": "1.3.6.1.4.1.11.2.17.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "openViewEcsNodeImportance": {
+    "name": "openViewEcsNodeImportance",
+    "oid": "1.3.6.1.4.1.11.2.17.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpOVNNMTraps": {
+    "name": "hpOVNNMTraps",
+    "oid": "1.3.6.1.4.1.11.2.17.1.0",
+    "class": "objectidentity"
+  },
+  "hpOVMessageTrap": {
+    "name": "hpOVMessageTrap",
+    "oid": "1.3.6.1.4.1.11.2.17.1.0.58916872",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSourceId"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSourceName"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewData"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPOV-NNM-MIB",
+      "Source digest sha256:2fc1f6abc6c16bdd4f32aebf579cdccd085d8a1fb1b5de68a867dcbf0c9be133",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPOV-NNM-MIB"
+  }
+}

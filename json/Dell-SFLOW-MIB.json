@@ -1,0 +1,146 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlsFlowMib": {
+    "name": "rlsFlowMib",
+    "oid": "1.3.6.1.4.1.89.147",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-27 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlsFlowStatisticsTable": {
+    "name": "rlsFlowStatisticsTable",
+    "oid": "1.3.6.1.4.1.89.147.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlsFlowStatisticsEntry": {
+    "name": "rlsFlowStatisticsEntry",
+    "oid": "1.3.6.1.4.1.89.147.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "indices": [
+      {
+        "module": "Dell-SFLOW-MIB",
+        "object": "rlsFlowDataSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlsFlowDataSource": {
+    "name": "rlsFlowDataSource",
+    "oid": "1.3.6.1.4.1.89.147.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlsFlowStatisticsSampledPackets": {
+    "name": "rlsFlowStatisticsSampledPackets",
+    "oid": "1.3.6.1.4.1.89.147.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlsFlowStatisticsDatagramSent": {
+    "name": "rlsFlowStatisticsDatagramSent",
+    "oid": "1.3.6.1.4.1.89.147.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlsFlowStatisticsAction": {
+    "name": "rlsFlowStatisticsAction",
+    "oid": "1.3.6.1.4.1.89.147.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlsFlowStatisticsReset": {
+    "name": "rlsFlowStatisticsReset",
+    "oid": "1.3.6.1.4.1.89.147.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-SFLOW-MIB",
+      "Source digest sha256:ccf60b9177b83fadb45cf6658f7cd8a56624fecf65fe86c2106b3d9be094c34d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-SFLOW-MIB"
+  }
+}

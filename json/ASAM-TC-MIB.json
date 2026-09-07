@@ -1,0 +1,313 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SYSTEM-MIB": [
+      "asam"
+    ]
+  },
+  "AsamProfileIndex": {
+    "name": "AsamProfileIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamProfileIndexOrZero": {
+    "name": "AsamProfileIndexOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamNextProfileIndex": {
+    "name": "AsamNextProfileIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamMaxProfileIndex": {
+    "name": "AsamMaxProfileIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamProfilePointer": {
+    "name": "AsamProfilePointer",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamProfileName": {
+    "name": "AsamProfileName",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    }
+  },
+  "AsamProfileScope": {
+    "name": "AsamProfileScope",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localScope": 1,
+          "networkScope": 2
+        }
+      }
+    }
+  },
+  "AsamProfileRefCount": {
+    "name": "AsamProfileRefCount",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "AsamProfileRefCount32": {
+    "name": "AsamProfileRefCount32",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "LogLastEntry": {
+    "name": "LogLastEntry",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "LogReset": {
+    "name": "LogReset",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetCompleted": 1,
+          "reset": 2
+        }
+      }
+    }
+  },
+  "LogBufferSize": {
+    "name": "LogBufferSize",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "LogFullAction": {
+    "name": "LogFullAction",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wrap": 1,
+          "halt": 2
+        }
+      }
+    }
+  },
+  "LogOverflowed": {
+    "name": "LogOverflowed",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notoverflowed": 1,
+          "overflowed": 2
+        }
+      }
+    }
+  },
+  "LogIndex": {
+    "name": "LogIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "Uint32": {
+    "name": "Uint32",
+    "class": "type",
+    "type": {
+      "type": "Gauge",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "NetworkTimeInSeconds": {
+    "name": "NetworkTimeInSeconds",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "NetworkTimeInMiliSeconds": {
+    "name": "NetworkTimeInMiliSeconds",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ASAM-TC-MIB",
+      "Source digest sha256:cdf613ad984b12f4ae2f9d8692344606ec9938b3a4979f7c3cf01ffe0f3bea2a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ASAM-TC-MIB"
+  }
+}

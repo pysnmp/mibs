@@ -1,0 +1,42 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAPID-CITY": [
+      "rcMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cobra": {
+    "name": "cobra",
+    "oid": "1.3.6.1.4.1.2272.1.201",
+    "class": "objectidentity"
+  },
+  "privateMgmt": {
+    "name": "privateMgmt",
+    "oid": "1.3.6.1.4.1.2272.1.201.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SWPRIMGMT-MIB",
+      "Source digest sha256:7385991a0c633df8cd402cafc73686f8a5aa17cac16bd88c995f391dcee3daa5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SWPRIMGMT-MIB"
+  }
+}

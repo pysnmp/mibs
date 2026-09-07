@@ -1,0 +1,311 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpnicfVoiceVlan": {
+    "name": "hpnicfVoiceVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-15 00:00",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2002-07-01 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hpnicfvoiceVlanOuiTable": {
+    "name": "hpnicfvoiceVlanOuiTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfvoiceVlanOuiEntry": {
+    "name": "hpnicfvoiceVlanOuiEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VOICE-VLAN-MIB",
+        "object": "hpnicfVoiceVlanOuiAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVoiceVlanOuiAddress": {
+    "name": "hpnicfVoiceVlanOuiAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanOuiMask": {
+    "name": "hpnicfVoiceVlanOuiMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanOuiDescription": {
+    "name": "hpnicfVoiceVlanOuiDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanOuiRowStatus": {
+    "name": "hpnicfVoiceVlanOuiRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanEnabledId": {
+    "name": "hpnicfVoiceVlanEnabledId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanPortEnableList": {
+    "name": "hpnicfVoiceVlanPortEnableList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanAgingTime": {
+    "name": "hpnicfVoiceVlanAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1440,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanConfigState": {
+    "name": "hpnicfVoiceVlanConfigState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanSecurityState": {
+    "name": "hpnicfVoiceVlanSecurityState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "security": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfvoiceVlanPortTable": {
+    "name": "hpnicfvoiceVlanPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfvoiceVlanPortEntry": {
+    "name": "hpnicfvoiceVlanPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-VOICE-VLAN-MIB",
+        "object": "hpnicfVoiceVlanPortifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVoiceVlanPortifIndex": {
+    "name": "hpnicfVoiceVlanPortifIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanPortMode": {
+    "name": "hpnicfVoiceVlanPortMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanPortLegacy": {
+    "name": "hpnicfVoiceVlanPortLegacy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVoiceVlanPortQosTrust": {
+    "name": "hpnicfVoiceVlanPortQosTrust",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.9.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-VOICE-VLAN-MIB",
+      "Source digest sha256:0e67e2f6f3a555ea0117b244b5b1749aa845b1ab03270472bcbf231260fa0dbd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-VOICE-VLAN-MIB"
+  }
+}

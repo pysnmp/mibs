@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfFanMIB": {
+    "name": "hpicfFanMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-27 10:30",
+        "description": "Revision 01."
+      }
+    ]
+  },
+  "HpicfDcFanIndex": {
+    "name": "HpicfDcFanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "HpicfDcFanType": {
+    "name": "HpicfDcFanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "mm": 1,
+          "fm": 2,
+          "im": 3,
+          "ps": 4,
+          "rollup": 5,
+          "maxtype": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfDcFanAirflowDirection": {
+    "name": "HpicfDcFanAirflowDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portToPower": 1,
+          "powerToPort": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpicfDcFanState": {
+    "name": "HpicfDcFanState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "removed": 1,
+          "off": 2,
+          "underspeed": 3,
+          "overspeed": 4,
+          "ok": 5,
+          "maxstate": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpicfFanScalars": {
+    "name": "hpicfFanScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.1",
+    "class": "objectidentity"
+  },
+  "hpicfFanUserPrefAirflowDir": {
+    "name": "hpicfFanUserPrefAirflowDir",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portToPower": 1,
+          "powerToPort": 2
+        }
+      }
+    },
+    "default": {
+      "value": "powerToPort",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfEntityFan": {
+    "name": "hpicfEntityFan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2",
+    "class": "objectidentity"
+  },
+  "hpicfFanTable": {
+    "name": "hpicfFanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfFanEntry": {
+    "name": "hpicfFanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfFanIndex": {
+    "name": "hpicfFanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcFanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfFanTray": {
+    "name": "hpicfFanTray",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanType": {
+    "name": "hpicfFanType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcFanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanState": {
+    "name": "hpicfFanState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcFanState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanRecovering": {
+    "name": "hpicfFanRecovering",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanNumFailures": {
+    "name": "hpicfFanNumFailures",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanAirflowDirection": {
+    "name": "hpicfFanAirflowDirection",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpicfDcFanAirflowDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfFanConformance": {
+    "name": "hpicfFanConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3",
+    "class": "objectidentity"
+  },
+  "hpicfFanCompliance": {
+    "name": "hpicfFanCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfFanGroups": {
+    "name": "hpicfFanGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfDcFanCompliance": {
+    "name": "hpicfDcFanCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfFanScalarsGroup",
+        "module": "FAN-MIB"
+      },
+      {
+        "object": "hpicfFanGroup",
+        "module": "FAN-MIB"
+      },
+      {
+        "object": "hpicfFanGroup",
+        "module": "FAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfFanScalarsGroup": {
+    "name": "hpicfFanScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanUserPrefAirflowDir"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfFanGroup": {
+    "name": "hpicfFanGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.54.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanTray"
+      },
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanType"
+      },
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanState"
+      },
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanRecovering"
+      },
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanNumFailures"
+      },
+      {
+        "module": "FAN-MIB",
+        "object": "hpicfFanAirflowDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source FAN-MIB",
+      "Source digest sha256:1c35f10c7280cdefddd1f7d4c9429b0bc77a0ffb1458174b15ca6881f1ed3e7a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "FAN-MIB"
+  }
+}

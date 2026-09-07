@@ -1,0 +1,54 @@
+{
+  "imports": {
+    "class": "imports",
+    "SCHLEIFENBAUER-SMI": [
+      "schleifenbauerModules",
+      "schleifenbauerProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "schleifenbauerProductsMIB": {
+    "name": "schleifenbauerProductsMIB",
+    "oid": "1.3.6.1.4.1.31034.13.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-23 00:00",
+        "description": "The initial revision of this MIB module"
+      }
+    ]
+  },
+  "hpdu": {
+    "name": "hpdu",
+    "oid": "1.3.6.1.4.1.31034.11.1",
+    "class": "objectidentity"
+  },
+  "dpm3": {
+    "name": "dpm3",
+    "oid": "1.3.6.1.4.1.31034.11.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SCHLEIFENBAUER-PRODUCTS-MIB",
+      "Source digest sha256:db432d45a5a170ef974d71fe36c3e876a91a67d7fd5c2afd01a60df701bfa4b0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SCHLEIFENBAUER-PRODUCTS-MIB"
+  }
+}

@@ -1,0 +1,691 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfByodMIB": {
+    "name": "hpicfByodMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-05-19 09:00",
+        "description": "Initial version of BYOD MIB module."
+      }
+    ]
+  },
+  "hpicfByodNotifications": {
+    "name": "hpicfByodNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.0",
+    "class": "objectidentity"
+  },
+  "hpicfByodObjects": {
+    "name": "hpicfByodObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1",
+    "class": "objectidentity"
+  },
+  "hpicfByodConformance": {
+    "name": "hpicfByodConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2",
+    "class": "objectidentity"
+  },
+  "hpicfByodConfigObjects": {
+    "name": "hpicfByodConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfByodStatsObjects": {
+    "name": "hpicfByodStatsObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2",
+    "class": "objectidentity"
+  },
+  "hpicfByodScalarConfig": {
+    "name": "hpicfByodScalarConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfByodPortalTable": {
+    "name": "hpicfByodPortalTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfByodPortalEntry": {
+    "name": "hpicfByodPortalEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfByodPortalName": {
+    "name": "hpicfByodPortalName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfByodPortalVlanId": {
+    "name": "hpicfByodPortalVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodPortalUrl": {
+    "name": "hpicfByodPortalUrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodPortalInetAddrType": {
+    "name": "hpicfByodPortalInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodPortalInetAddr": {
+    "name": "hpicfByodPortalInetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodPortalDnsCacheTime": {
+    "name": "hpicfByodPortalDnsCacheTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 15,
+      "format": "decimal"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodPortalRowStatus": {
+    "name": "hpicfByodPortalRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleTable": {
+    "name": "hpicfByodFreeRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleEntry": {
+    "name": "hpicfByodFreeRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfByodFreeRuleNumber": {
+    "name": "hpicfByodFreeRuleNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourceProtocol": {
+    "name": "hpicfByodFreeRuleSourceProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourcePort": {
+    "name": "hpicfByodFreeRuleSourcePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourceVlanId": {
+    "name": "hpicfByodFreeRuleSourceVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourceInetAddrType": {
+    "name": "hpicfByodFreeRuleSourceInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourceInetAddr": {
+    "name": "hpicfByodFreeRuleSourceInetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleSourceInetAddrMask": {
+    "name": "hpicfByodFreeRuleSourceInetAddrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleDestinationProtocol": {
+    "name": "hpicfByodFreeRuleDestinationProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleDestinationPort": {
+    "name": "hpicfByodFreeRuleDestinationPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleDestinationInetAddrType": {
+    "name": "hpicfByodFreeRuleDestinationInetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleDestinationInetAddr": {
+    "name": "hpicfByodFreeRuleDestinationInetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleDestinationInetAddrMask": {
+    "name": "hpicfByodFreeRuleDestinationInetAddrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodFreeRuleRowStatus": {
+    "name": "hpicfByodFreeRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfByodScalarStats": {
+    "name": "hpicfByodScalarStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfByodTcpStatsTotalOpen": {
+    "name": "hpicfByodTcpStatsTotalOpen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsResetConn": {
+    "name": "hpicfByodTcpStatsResetConn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsCurrentOpen": {
+    "name": "hpicfByodTcpStatsCurrentOpen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsPktsReceived": {
+    "name": "hpicfByodTcpStatsPktsReceived",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsPktsSent": {
+    "name": "hpicfByodTcpStatsPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsHttpPktsSent": {
+    "name": "hpicfByodTcpStatsHttpPktsSent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsStateSynRcvd": {
+    "name": "hpicfByodTcpStatsStateSynRcvd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodTcpStatsStateEstablished": {
+    "name": "hpicfByodTcpStatsStateEstablished",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfByodCompliances": {
+    "name": "hpicfByodCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfByodGroups": {
+    "name": "hpicfByodGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfByodCompliance1": {
+    "name": "hpicfByodCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfByodConfigGroup",
+        "module": "HP-ICF-BYOD-MIB"
+      },
+      {
+        "object": "hpicfByodStatsGroup",
+        "module": "HP-ICF-BYOD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfByodConfigGroup": {
+    "name": "hpicfByodConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalVlanId"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalUrl"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalInetAddrType"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalInetAddr"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalDnsCacheTime"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodPortalRowStatus"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourceProtocol"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourcePort"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourceVlanId"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourceInetAddrType"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourceInetAddr"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleSourceInetAddrMask"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleDestinationProtocol"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleDestinationPort"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleDestinationInetAddrType"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleDestinationInetAddr"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleDestinationInetAddrMask"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodFreeRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfByodStatsGroup": {
+    "name": "hpicfByodStatsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.106.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsTotalOpen"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsResetConn"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsCurrentOpen"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsPktsReceived"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsPktsSent"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsHttpPktsSent"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsStateSynRcvd"
+      },
+      {
+        "module": "HP-ICF-BYOD-MIB",
+        "object": "hpicfByodTcpStatsStateEstablished"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-BYOD-MIB",
+      "Source digest sha256:1df8df53c4cb1447a2998d6f8b1fef3b56687a2407a0ff759333aaf93cb8caf1",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-BYOD-MIB"
+  }
+}

@@ -1,0 +1,704 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Opaque",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniperMIB": {
+    "name": "juniperMIB",
+    "oid": "1.3.6.1.4.1.2636",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-09 00:00",
+        "description": "Added jnxLicenseMibRoot branch."
+      },
+      {
+        "revision": "2009-10-29 00:00",
+        "description": "Added jnxCosNotifications branch."
+      },
+      {
+        "revision": "2010-06-18 00:00",
+        "description": "Added jnxLicenseMibRoot branch."
+      },
+      {
+        "revision": "2003-04-17 01:00",
+        "description": "Added jnxExperiment branch."
+      },
+      {
+        "revision": "2005-08-17 01:00",
+        "description": "Added jnxNsm branch."
+      },
+      {
+        "revision": "2006-12-14 01:00",
+        "description": "Added jnxCA branch."
+      },
+      {
+        "revision": "2007-01-01 00:00",
+        "description": "Added jnxUtilMibRoot branch."
+      },
+      {
+        "revision": "2007-10-09 00:00",
+        "description": "Added jnxAdvancedInsightMgr branch."
+      },
+      {
+        "revision": "2009-12-31 00:00",
+        "description": "Added jnxBxMibRoot branch."
+      },
+      {
+        "revision": "2010-07-14 00:00",
+        "description": "Added jnxSubscriberMibRoot branch."
+      },
+      {
+        "revision": "2011-01-26 00:00",
+        "description": "Added jnxDcfMibRoot branch."
+      },
+      {
+        "revision": "2012-02-10 00:00",
+        "description": "Added jnxMediaFlow branch."
+      },
+      {
+        "revision": "2012-08-01 00:00",
+        "description": "Added jnxSDKApplicationsRoot branch."
+      },
+      {
+        "revision": "2012-11-01 00:00",
+        "description": "Added jnxJVAEMibRoot branch."
+      },
+      {
+        "revision": "2012-12-07 00:00",
+        "description": "Added jnxStrm branch."
+      },
+      {
+        "revision": "2013-01-25 00:00",
+        "description": "Added jnxIfOtnMibRoot branch. Added jnxOpticsMibRoot branch. Added jnxAlarmExtMibRoot branch. Added jnxoptIfMibRoot branch. Added jnxIfOtnNotifications branch. Added jnxOpticsNotifications branch."
+      },
+      {
+        "revision": "2013-11-26 00:00",
+        "description": " Added jnxSnmpSetMibRoot branch"
+      },
+      {
+        "revision": "2014-10-09 00:00",
+        "description": " Added jnxFabricMibRoot branch"
+      },
+      {
+        "revision": "2014-10-29 00:00",
+        "description": " Added jnxAgentCapability branch"
+      },
+      {
+        "revision": "2015-11-19 00:00",
+        "description": " Added jnxIplcNotifications branch"
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Removed duplicate entries"
+      },
+      {
+        "revision": "2017-03-01 00:00",
+        "description": "Add jnxOamMibRoot"
+      },
+      {
+        "revision": "2018-06-01 00:00",
+        "description": "Add jnxWirelessWANStatusMibRoot"
+      },
+      {
+        "revision": "2019-06-01 00:00",
+        "description": "Add jnxWlanWAPStatusMibRoot"
+      },
+      {
+        "revision": "2019-10-23 09:24",
+        "description": "Add jnxjSysmonMibRoot"
+      },
+      {
+        "revision": "2019-12-18 00:00",
+        "description": "Add jnxTLBMIBRoot"
+      },
+      {
+        "revision": "2020-03-25 00:00",
+        "description": "Add jnxTLBNotifications"
+      },
+      {
+        "revision": "2022-02-25 00:00",
+        "description": "Add jnxAsicExtMemTraps"
+      },
+      {
+        "revision": "2022-02-25 00:00",
+        "description": "Add jnxAsicExtMemOKTraps"
+      },
+      {
+        "revision": "2024-04-02 00:00",
+        "description": "Added jnxPoeTraps branch. Added jnxPoeOKTraps branch."
+      }
+    ]
+  },
+  "Integer64": {
+    "name": "Integer64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Opaque",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "jnxProducts": {
+    "name": "jnxProducts",
+    "oid": "1.3.6.1.4.1.2636.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxMediaFlow": {
+    "name": "jnxMediaFlow",
+    "oid": "1.3.6.1.4.1.2636.1.2",
+    "class": "objectidentity"
+  },
+  "jnxJunosSpace": {
+    "name": "jnxJunosSpace",
+    "oid": "1.3.6.1.4.1.2636.1.3",
+    "class": "objectidentity"
+  },
+  "jnxReservedProducts3": {
+    "name": "jnxReservedProducts3",
+    "oid": "1.3.6.1.4.1.2636.1.4",
+    "class": "objectidentity"
+  },
+  "jnxReservedProducts4": {
+    "name": "jnxReservedProducts4",
+    "oid": "1.3.6.1.4.1.2636.1.5",
+    "class": "objectidentity"
+  },
+  "jnxReservedProducts5": {
+    "name": "jnxReservedProducts5",
+    "oid": "1.3.6.1.4.1.2636.1.6",
+    "class": "objectidentity"
+  },
+  "jnxSDKApplicationsRoot": {
+    "name": "jnxSDKApplicationsRoot",
+    "oid": "1.3.6.1.4.1.2636.1.7",
+    "class": "objectidentity"
+  },
+  "jnxJAB": {
+    "name": "jnxJAB",
+    "oid": "1.3.6.1.4.1.2636.1.8",
+    "class": "objectidentity"
+  },
+  "jnxStrm": {
+    "name": "jnxStrm",
+    "oid": "1.3.6.1.4.1.2636.1.9",
+    "class": "objectidentity"
+  },
+  "jnxServices": {
+    "name": "jnxServices",
+    "oid": "1.3.6.1.4.1.2636.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxMibs": {
+    "name": "jnxMibs",
+    "oid": "1.3.6.1.4.1.2636.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxJsMibRoot": {
+    "name": "jnxJsMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.39",
+    "class": "objectidentity"
+  },
+  "jnxExMibRoot": {
+    "name": "jnxExMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.40",
+    "class": "objectidentity"
+  },
+  "jnxWxMibRoot": {
+    "name": "jnxWxMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.41",
+    "class": "objectidentity"
+  },
+  "jnxDcfMibRoot": {
+    "name": "jnxDcfMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.42",
+    "class": "objectidentity"
+  },
+  "jnxReservedMibs5": {
+    "name": "jnxReservedMibs5",
+    "oid": "1.3.6.1.4.1.2636.3.43",
+    "class": "objectidentity"
+  },
+  "jnxPfeMibRoot": {
+    "name": "jnxPfeMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.44",
+    "class": "objectidentity"
+  },
+  "jnxBfdMibRoot": {
+    "name": "jnxBfdMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.45",
+    "class": "objectidentity"
+  },
+  "jnxXstpMibs": {
+    "name": "jnxXstpMibs",
+    "oid": "1.3.6.1.4.1.2636.3.46",
+    "class": "objectidentity"
+  },
+  "jnxUtilMibRoot": {
+    "name": "jnxUtilMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.47",
+    "class": "objectidentity"
+  },
+  "jnxl2aldMibRoot": {
+    "name": "jnxl2aldMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.48",
+    "class": "objectidentity"
+  },
+  "jnxL2tpMibRoot": {
+    "name": "jnxL2tpMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.49",
+    "class": "objectidentity"
+  },
+  "jnxRpmMibRoot": {
+    "name": "jnxRpmMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.50",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAMibRoot": {
+    "name": "jnxUserAAAMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.51",
+    "class": "objectidentity"
+  },
+  "jnxIpSecMibRoot": {
+    "name": "jnxIpSecMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.52",
+    "class": "objectidentity"
+  },
+  "jnxL2cpMibRoot": {
+    "name": "jnxL2cpMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.53",
+    "class": "objectidentity"
+  },
+  "jnxPwTdmMibRoot": {
+    "name": "jnxPwTdmMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.54",
+    "class": "objectidentity"
+  },
+  "jnxPwTCMibRoot": {
+    "name": "jnxPwTCMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.55",
+    "class": "objectidentity"
+  },
+  "jnxOtnMibRoot": {
+    "name": "jnxOtnMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.56",
+    "class": "objectidentity"
+  },
+  "jnxPsuMIBRoot": {
+    "name": "jnxPsuMIBRoot",
+    "oid": "1.3.6.1.4.1.2636.3.58",
+    "class": "objectidentity"
+  },
+  "jnxSvcsMibRoot": {
+    "name": "jnxSvcsMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.59",
+    "class": "objectidentity"
+  },
+  "jnxDomMibRoot": {
+    "name": "jnxDomMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.60",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpMibRoot": {
+    "name": "jnxJdhcpMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.61",
+    "class": "objectidentity"
+  },
+  "jnxJdhcpv6MibRoot": {
+    "name": "jnxJdhcpv6MibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.62",
+    "class": "objectidentity"
+  },
+  "jnxLicenseMibRoot": {
+    "name": "jnxLicenseMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.63",
+    "class": "objectidentity"
+  },
+  "jnxSubscriberMibRoot": {
+    "name": "jnxSubscriberMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.64",
+    "class": "objectidentity"
+  },
+  "jnxMagMibRoot": {
+    "name": "jnxMagMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.65",
+    "class": "objectidentity"
+  },
+  "jnxMobileGatewayMibRoot": {
+    "name": "jnxMobileGatewayMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.66",
+    "class": "objectidentity"
+  },
+  "jnxPppoeMibRoot": {
+    "name": "jnxPppoeMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.67",
+    "class": "objectidentity"
+  },
+  "jnxPppMibRoot": {
+    "name": "jnxPppMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.68",
+    "class": "objectidentity"
+  },
+  "jnxJVAEMibRoot": {
+    "name": "jnxJVAEMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.69",
+    "class": "objectidentity"
+  },
+  "jnxIfOtnMibRoot": {
+    "name": "jnxIfOtnMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.70",
+    "class": "objectidentity"
+  },
+  "jnxOpticsMibRoot": {
+    "name": "jnxOpticsMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.71",
+    "class": "objectidentity"
+  },
+  "jnxAlarmExtMibRoot": {
+    "name": "jnxAlarmExtMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.72",
+    "class": "objectidentity"
+  },
+  "jnxoptIfMibRoot": {
+    "name": "jnxoptIfMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.73",
+    "class": "objectidentity"
+  },
+  "jnxFruMibRoot": {
+    "name": "jnxFruMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.74",
+    "class": "objectidentity"
+  },
+  "jnxTimingNotfnsMIBRoot": {
+    "name": "jnxTimingNotfnsMIBRoot",
+    "oid": "1.3.6.1.4.1.2636.3.75",
+    "class": "objectidentity"
+  },
+  "jnxSnmpSetMibRoot": {
+    "name": "jnxSnmpSetMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.76",
+    "class": "objectidentity"
+  },
+  "jnxTwampMibRoot": {
+    "name": "jnxTwampMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.77",
+    "class": "objectidentity"
+  },
+  "jnxVmonMibRoot": {
+    "name": "jnxVmonMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.79",
+    "class": "objectidentity"
+  },
+  "jnxSGMibRoot": {
+    "name": "jnxSGMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.80",
+    "class": "objectidentity"
+  },
+  "jnxFabricMibRoot": {
+    "name": "jnxFabricMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.81",
+    "class": "objectidentity"
+  },
+  "jnxSRDMibRoot": {
+    "name": "jnxSRDMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.82",
+    "class": "objectidentity"
+  },
+  "jnxOamMibRoot": {
+    "name": "jnxOamMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.83",
+    "class": "objectidentity"
+  },
+  "jnxTunnelStatsMibRoot": {
+    "name": "jnxTunnelStatsMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.84",
+    "class": "objectidentity"
+  },
+  "jnxURLFMibRoot": {
+    "name": "jnxURLFMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.85",
+    "class": "objectidentity"
+  },
+  "jnxCustomMibRoot": {
+    "name": "jnxCustomMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.86",
+    "class": "objectidentity"
+  },
+  "jnxWirelessWANStatusMibRoot": {
+    "name": "jnxWirelessWANStatusMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.87",
+    "class": "objectidentity"
+  },
+  "jnxWlanWAPStatusMibRoot": {
+    "name": "jnxWlanWAPStatusMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.88",
+    "class": "objectidentity"
+  },
+  "jnxUserFirewallsRoot": {
+    "name": "jnxUserFirewallsRoot",
+    "oid": "1.3.6.1.4.1.2636.3.89",
+    "class": "objectidentity"
+  },
+  "jnxjSysmonMibRoot": {
+    "name": "jnxjSysmonMibRoot",
+    "oid": "1.3.6.1.4.1.2636.3.90",
+    "class": "objectidentity"
+  },
+  "jnxTLBMIBRoot": {
+    "name": "jnxTLBMIBRoot",
+    "oid": "1.3.6.1.4.1.2636.3.91",
+    "class": "objectidentity"
+  },
+  "jnxTraps": {
+    "name": "jnxTraps",
+    "oid": "1.3.6.1.4.1.2636.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxChassisTraps": {
+    "name": "jnxChassisTraps",
+    "oid": "1.3.6.1.4.1.2636.4.1",
+    "class": "objectidentity"
+  },
+  "jnxChassisOKTraps": {
+    "name": "jnxChassisOKTraps",
+    "oid": "1.3.6.1.4.1.2636.4.2",
+    "class": "objectidentity"
+  },
+  "jnxRmonTraps": {
+    "name": "jnxRmonTraps",
+    "oid": "1.3.6.1.4.1.2636.4.3",
+    "class": "objectidentity"
+  },
+  "jnxLdpTraps": {
+    "name": "jnxLdpTraps",
+    "oid": "1.3.6.1.4.1.2636.4.4",
+    "class": "objectidentity"
+  },
+  "jnxCmNotifications": {
+    "name": "jnxCmNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.5",
+    "class": "objectidentity"
+  },
+  "jnxSonetNotifications": {
+    "name": "jnxSonetNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.6",
+    "class": "objectidentity"
+  },
+  "jnxPMonNotifications": {
+    "name": "jnxPMonNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.7",
+    "class": "objectidentity"
+  },
+  "jnxCollectorNotifications": {
+    "name": "jnxCollectorNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.8",
+    "class": "objectidentity"
+  },
+  "jnxPingNotifications": {
+    "name": "jnxPingNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.9",
+    "class": "objectidentity"
+  },
+  "jnxSpNotifications": {
+    "name": "jnxSpNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.10",
+    "class": "objectidentity"
+  },
+  "jnxDfcNotifications": {
+    "name": "jnxDfcNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.11",
+    "class": "objectidentity"
+  },
+  "jnxSyslogNotifications": {
+    "name": "jnxSyslogNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.12",
+    "class": "objectidentity"
+  },
+  "jnxEventNotifications": {
+    "name": "jnxEventNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.13",
+    "class": "objectidentity"
+  },
+  "jnxVccpNotifications": {
+    "name": "jnxVccpNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.14",
+    "class": "objectidentity"
+  },
+  "jnxOtnNotifications": {
+    "name": "jnxOtnNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.15",
+    "class": "objectidentity"
+  },
+  "jnxSAIDPNotifications": {
+    "name": "jnxSAIDPNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.16",
+    "class": "objectidentity"
+  },
+  "jnxCosNotifications": {
+    "name": "jnxCosNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.17",
+    "class": "objectidentity"
+  },
+  "jnxDomNotifications": {
+    "name": "jnxDomNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.18",
+    "class": "objectidentity"
+  },
+  "jnxFabricChassisTraps": {
+    "name": "jnxFabricChassisTraps",
+    "oid": "1.3.6.1.4.1.2636.4.19",
+    "class": "objectidentity"
+  },
+  "jnxFabricChassisOKTraps": {
+    "name": "jnxFabricChassisOKTraps",
+    "oid": "1.3.6.1.4.1.2636.4.20",
+    "class": "objectidentity"
+  },
+  "jnxIfOtnNotifications": {
+    "name": "jnxIfOtnNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.21",
+    "class": "objectidentity"
+  },
+  "jnxOpticsNotifications": {
+    "name": "jnxOpticsNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.22",
+    "class": "objectidentity"
+  },
+  "jnxFruTraps": {
+    "name": "jnxFruTraps",
+    "oid": "1.3.6.1.4.1.2636.4.23",
+    "class": "objectidentity"
+  },
+  "jnxSnmpSetTraps": {
+    "name": "jnxSnmpSetTraps",
+    "oid": "1.3.6.1.4.1.2636.4.24",
+    "class": "objectidentity"
+  },
+  "jnxDomLaneNotifications": {
+    "name": "jnxDomLaneNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.25",
+    "class": "objectidentity"
+  },
+  "jnxTwampNotificationPrefix": {
+    "name": "jnxTwampNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.27",
+    "class": "objectidentity"
+  },
+  "jnxIplcNotifications": {
+    "name": "jnxIplcNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.28",
+    "class": "objectidentity"
+  },
+  "jnxIlaNotifications": {
+    "name": "jnxIlaNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.29",
+    "class": "objectidentity"
+  },
+  "jnxCustomSyslogNotifications": {
+    "name": "jnxCustomSyslogNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.30",
+    "class": "objectidentity"
+  },
+  "jnxjSysmonNotifications": {
+    "name": "jnxjSysmonNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.31",
+    "class": "objectidentity"
+  },
+  "jnxTLBNotifications": {
+    "name": "jnxTLBNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.32",
+    "class": "objectidentity"
+  },
+  "jnxAsicExtMemTraps": {
+    "name": "jnxAsicExtMemTraps",
+    "oid": "1.3.6.1.4.1.2636.4.33",
+    "class": "objectidentity"
+  },
+  "jnxAsicExtMemOKTraps": {
+    "name": "jnxAsicExtMemOKTraps",
+    "oid": "1.3.6.1.4.1.2636.4.34",
+    "class": "objectidentity"
+  },
+  "jnxPoeTraps": {
+    "name": "jnxPoeTraps",
+    "oid": "1.3.6.1.4.1.2636.4.35",
+    "class": "objectidentity"
+  },
+  "jnxPoeOKTraps": {
+    "name": "jnxPoeOKTraps",
+    "oid": "1.3.6.1.4.1.2636.4.36",
+    "class": "objectidentity"
+  },
+  "jnxExperiment": {
+    "name": "jnxExperiment",
+    "oid": "1.3.6.1.4.1.2636.5",
+    "class": "objectidentity"
+  },
+  "jnxNsm": {
+    "name": "jnxNsm",
+    "oid": "1.3.6.1.4.1.2636.6",
+    "class": "objectidentity"
+  },
+  "jnxCA": {
+    "name": "jnxCA",
+    "oid": "1.3.6.1.4.1.2636.7",
+    "class": "objectidentity"
+  },
+  "jnxAAA": {
+    "name": "jnxAAA",
+    "oid": "1.3.6.1.4.1.2636.8",
+    "class": "objectidentity"
+  },
+  "jnxAdvancedInsightMgr": {
+    "name": "jnxAdvancedInsightMgr",
+    "oid": "1.3.6.1.4.1.2636.9",
+    "class": "objectidentity"
+  },
+  "jnxBxMibRoot": {
+    "name": "jnxBxMibRoot",
+    "oid": "1.3.6.1.4.1.2636.10",
+    "class": "objectidentity"
+  },
+  "jnxAgentCapability": {
+    "name": "jnxAgentCapability",
+    "oid": "1.3.6.1.4.1.2636.11",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-SMI",
+      "Source digest sha256:be8d2a7ff1a022c40de146f0659fa689b17600f5bb16377387bf21a755e7a14e",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-SMI"
+  }
+}

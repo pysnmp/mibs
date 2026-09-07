@@ -1,0 +1,69 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cLocAAASvr": {
+    "name": "hh3cLocAAASvr",
+    "oid": "1.3.6.1.4.1.25506.2.141",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-06 09:45",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cLocAAASvrControl": {
+    "name": "hh3cLocAAASvrControl",
+    "oid": "1.3.6.1.4.1.25506.2.141.1",
+    "class": "objectidentity"
+  },
+  "hh3cLocAAASvrTables": {
+    "name": "hh3cLocAAASvrTables",
+    "oid": "1.3.6.1.4.1.25506.2.141.2",
+    "class": "objectidentity"
+  },
+  "hh3cLocAAASvrTrap": {
+    "name": "hh3cLocAAASvrTrap",
+    "oid": "1.3.6.1.4.1.25506.2.141.3",
+    "class": "objectidentity"
+  },
+  "hh3cLocAAASvrTrapPrex": {
+    "name": "hh3cLocAAASvrTrapPrex",
+    "oid": "1.3.6.1.4.1.25506.2.141.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cLocAAASvrBillExportFailed": {
+    "name": "hh3cLocAAASvrBillExportFailed",
+    "oid": "1.3.6.1.4.1.25506.2.141.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-LOCAL-AAA-SERVER-MIB",
+      "Source digest sha256:1c396a5d04da5363de2045e0468ab0d8f1e9cb98d70a6d9ed7de49034f2e31cf",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-LOCAL-AAA-SERVER-MIB"
+  }
+}

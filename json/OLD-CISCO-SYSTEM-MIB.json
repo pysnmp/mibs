@@ -1,0 +1,309 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "local"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lsystem": {
+    "name": "lsystem",
+    "oid": "1.3.6.1.4.1.9.2.1",
+    "class": "objectidentity"
+  },
+  "romId": {
+    "name": "romId",
+    "oid": "1.3.6.1.4.1.9.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "whyReload": {
+    "name": "whyReload",
+    "oid": "1.3.6.1.4.1.9.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hostName": {
+    "name": "hostName",
+    "oid": "1.3.6.1.4.1.9.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "domainName": {
+    "name": "domainName",
+    "oid": "1.3.6.1.4.1.9.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "authAddr": {
+    "name": "authAddr",
+    "oid": "1.3.6.1.4.1.9.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bootHost": {
+    "name": "bootHost",
+    "oid": "1.3.6.1.4.1.9.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "netConfigAddr": {
+    "name": "netConfigAddr",
+    "oid": "1.3.6.1.4.1.9.2.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "netConfigName": {
+    "name": "netConfigName",
+    "oid": "1.3.6.1.4.1.9.2.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "netConfigSet": {
+    "name": "netConfigSet",
+    "oid": "1.3.6.1.4.1.9.2.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "hostConfigAddr": {
+    "name": "hostConfigAddr",
+    "oid": "1.3.6.1.4.1.9.2.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hostConfigName": {
+    "name": "hostConfigName",
+    "oid": "1.3.6.1.4.1.9.2.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hostConfigSet": {
+    "name": "hostConfigSet",
+    "oid": "1.3.6.1.4.1.9.2.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "obsolete"
+  },
+  "writeMem": {
+    "name": "writeMem",
+    "oid": "1.3.6.1.4.1.9.2.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "writeNet": {
+    "name": "writeNet",
+    "oid": "1.3.6.1.4.1.9.2.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "ciscoContactInfo": {
+    "name": "ciscoContactInfo",
+    "oid": "1.3.6.1.4.1.9.2.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "netConfigProto": {
+    "name": "netConfigProto",
+    "oid": "1.3.6.1.4.1.9.2.1.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hostConfigProto": {
+    "name": "hostConfigProto",
+    "oid": "1.3.6.1.4.1.9.2.1.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysConfigAddr": {
+    "name": "sysConfigAddr",
+    "oid": "1.3.6.1.4.1.9.2.1.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysConfigName": {
+    "name": "sysConfigName",
+    "oid": "1.3.6.1.4.1.9.2.1.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysConfigProto": {
+    "name": "sysConfigProto",
+    "oid": "1.3.6.1.4.1.9.2.1.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "rom": 2,
+          "flash": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sysClearARP": {
+    "name": "sysClearARP",
+    "oid": "1.3.6.1.4.1.9.2.1.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "sysClearInt": {
+    "name": "sysClearInt",
+    "oid": "1.3.6.1.4.1.9.2.1.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source OLD-CISCO-SYSTEM-MIB",
+      "Source digest sha256:9a2687ba04a92cbc98d33005f1b5e2243e3922932b7d212689c1c090e55431e4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "OLD-CISCO-SYSTEM-MIB"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ubiquoss": {
+    "name": "ubiquoss",
+    "oid": "1.3.6.1.4.1.7800",
+    "class": "moduleidentity"
+  },
+  "ubqsProducts": {
+    "name": "ubqsProducts",
+    "oid": "1.3.6.1.4.1.7800.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiMgmt": {
+    "name": "ubiMgmt",
+    "oid": "1.3.6.1.4.1.7800.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiMgmtv2": {
+    "name": "ubiMgmtv2",
+    "oid": "1.3.6.1.4.1.7800.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lnsKtEmsAgnt": {
+    "name": "lnsKtEmsAgnt",
+    "oid": "1.3.6.1.4.1.7800.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiEponGroupMIB": {
+    "name": "ubiEponGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.2.500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubi10GEponGroupMIB": {
+    "name": "ubi10GEponGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.2.510",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "switchAgent": {
+    "name": "switchAgent",
+    "oid": "1.3.6.1.4.1.7800.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiGponGroupMIB": {
+    "name": "ubiGponGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.100.500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiMplsGroupMIB": {
+    "name": "ubiMplsGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.100.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ubiPonCommonGroupMIB": {
+    "name": "ubiPonCommonGroupMIB",
+    "oid": "1.3.6.1.4.1.7800.100.600",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source UBQS-SMI",
+      "Source digest sha256:1ff9767363a11c240186c181b74154b921ab0db204910f6431ea47331a542c81",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "UBQS-SMI"
+  }
+}

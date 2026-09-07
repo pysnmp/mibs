@@ -1,0 +1,105 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECOAT-MIB": [
+      "blueCoatMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bluecoatSGFailoverMIB": {
+    "name": "bluecoatSGFailoverMIB",
+    "oid": "1.3.6.1.4.1.3417.2.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-20 03:00",
+        "description": "Initial revision of this MIB."
+      }
+    ]
+  },
+  "bluecoatSgFailoverMIBObjects": {
+    "name": "bluecoatSgFailoverMIBObjects",
+    "oid": "1.3.6.1.4.1.3417.2.13.1",
+    "class": "objectidentity"
+  },
+  "bluecoatSgFailoverMIBNotifications": {
+    "name": "bluecoatSgFailoverMIBNotifications",
+    "oid": "1.3.6.1.4.1.3417.2.13.2",
+    "class": "objectidentity"
+  },
+  "bluecoatSgFailoverMIBNotificationsPrefix": {
+    "name": "bluecoatSgFailoverMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.3417.2.13.2.0",
+    "class": "objectidentity"
+  },
+  "FailoverMessageString": {
+    "name": "FailoverMessageString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "bluecoatSgFailoverValues": {
+    "name": "bluecoatSgFailoverValues",
+    "oid": "1.3.6.1.4.1.3417.2.13.1.1",
+    "class": "objectidentity"
+  },
+  "bluecoatSgFailoverMessage": {
+    "name": "bluecoatSgFailoverMessage",
+    "oid": "1.3.6.1.4.1.3417.2.13.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FailoverMessageString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bluecoatSgFailoverTrap": {
+    "name": "bluecoatSgFailoverTrap",
+    "oid": "1.3.6.1.4.1.3417.2.13.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-FAILOVER-MIB",
+        "object": "bluecoatSgFailoverMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BLUECOAT-SG-FAILOVER-MIB",
+      "Source digest sha256:cf2f54985f0e134ac8f0ac116c8aea2a42a49143df45bfe32cf0bcfad3f812d7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BLUECOAT-SG-FAILOVER-MIB"
+  }
+}

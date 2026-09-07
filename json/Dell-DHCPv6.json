@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressIPv6",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlDhcpv6": {
+    "name": "rlDhcpv6",
+    "oid": "1.3.6.1.4.1.89.214",
+    "class": "moduleidentity"
+  },
+  "rlDhcpv6Common": {
+    "name": "rlDhcpv6Common",
+    "oid": "1.3.6.1.4.1.89.214.1",
+    "class": "objectidentity"
+  },
+  "rlDhcpv6Client": {
+    "name": "rlDhcpv6Client",
+    "oid": "1.3.6.1.4.1.89.214.2",
+    "class": "objectidentity"
+  },
+  "rlDhcpv6Relay": {
+    "name": "rlDhcpv6Relay",
+    "oid": "1.3.6.1.4.1.89.214.3",
+    "class": "objectidentity"
+  },
+  "rlDhcpv6DuidEn": {
+    "name": "rlDhcpv6DuidEn",
+    "oid": "1.3.6.1.4.1.89.214.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-DHCPv6",
+      "Source digest sha256:dde111c820dcd9f8655af61a7e26886881fae5b9be94d61b34d0d98da91b14b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-DHCPv6"
+  }
+}

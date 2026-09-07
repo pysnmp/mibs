@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsSecurityGroupTag"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappTrustSecMIB": {
+    "name": "ciscoLwappTrustSecMIB",
+    "oid": "1.3.6.1.4.1.9.9.836",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "clCtsMIBNotifs": {
+    "name": "clCtsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.836.0",
+    "class": "objectidentity"
+  },
+  "clCtsTableMIBObjects": {
+    "name": "clCtsTableMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.836.1",
+    "class": "objectidentity"
+  },
+  "clCtsMIBConform": {
+    "name": "clCtsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.836.2",
+    "class": "objectidentity"
+  },
+  "clCtsGlobalMIBObjects": {
+    "name": "clCtsGlobalMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.836.3",
+    "class": "objectidentity"
+  },
+  "clCtsSecurityGroupTagId": {
+    "name": "clCtsSecurityGroupTagId",
+    "oid": "1.3.6.1.4.1.9.9.836.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCtsDeviceId": {
+    "name": "clCtsDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.836.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": " ",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCtsDevicePassword": {
+    "name": "clCtsDevicePassword",
+    "oid": "1.3.6.1.4.1.9.9.836.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCtsInlineTagEnableStatus": {
+    "name": "clCtsInlineTagEnableStatus",
+    "oid": "1.3.6.1.4.1.9.9.836.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCtsEnableStatus": {
+    "name": "clCtsEnableStatus",
+    "oid": "1.3.6.1.4.1.9.9.836.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCtsApSxpPeerTable": {
+    "name": "clCtsApSxpPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCtsApSxpPeerEntry": {
+    "name": "cLCtsApSxpPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clCtsApSxpPeerIpType": {
+    "name": "clCtsApSxpPeerIpType",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCtsApSxpPeerIp": {
+    "name": "clCtsApSxpPeerIp",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCtsApSxpMode": {
+    "name": "clCtsApSxpMode",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speaker": 1,
+          "listener": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCtsApSxpPeerPassword": {
+    "name": "clCtsApSxpPeerPassword",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRequired": 0,
+          "required": 1,
+          "default": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCtsApSxpPeerRowStatus": {
+    "name": "clCtsApSxpPeerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.836.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCtsMIBCompliances": {
+    "name": "clCtsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.836.2.1",
+    "class": "objectidentity"
+  },
+  "clCtsMIBGroups": {
+    "name": "clCtsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.836.2.2",
+    "class": "objectidentity"
+  },
+  "clCtsMIBCompliance": {
+    "name": "clCtsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.836.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clCtsGroup",
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clCtsGroup": {
+    "name": "clCtsGroup",
+    "oid": "1.3.6.1.4.1.9.9.836.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsSecurityGroupTagId"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsDeviceId"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsDevicePassword"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsInlineTagEnableStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsEnableStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerIpType"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerIp"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpMode"
+      },
+      {
+        "module": "CISCO-LWAPP-TRUSTSEC-MIB",
+        "object": "clCtsApSxpPeerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-TRUSTSEC-MIB",
+      "Source digest sha256:3a89589b63189d9dd73e024d478f777e938961d0e99df324e3be41df3b15a066",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-TRUSTSEC-MIB"
+  }
+}

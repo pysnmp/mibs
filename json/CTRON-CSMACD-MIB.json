@@ -1,0 +1,209 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctCSMACD"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctFnbCSMACD": {
+    "name": "ctFnbCSMACD",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "ctFnbPortConnect": {
+    "name": "ctFnbPortConnect",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "ctFnbCSMACDTable": {
+    "name": "ctFnbCSMACDTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFnbCSMACDEntry": {
+    "name": "ctFnbCSMACDEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-CSMACD-MIB",
+        "object": "ctFnbCSMACDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFnbCSMACDIndex": {
+    "name": "ctFnbCSMACDIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFnbConnect": {
+    "name": "ctFnbConnect",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectB": 1,
+          "connectC": 2,
+          "disconnect": 3,
+          "connectA": 4,
+          "subnetB": 5,
+          "subnetC": 6,
+          "multiChannel": 7,
+          "frontpanel": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFnbPortChanges": {
+    "name": "ctFnbPortChanges",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectTable": {
+    "name": "ctFnbPortConnectTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectEntry": {
+    "name": "ctFnbPortConnectEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-CSMACD-MIB",
+        "object": "ctFnbPortConnectBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-CSMACD-MIB",
+        "object": "ctFnbPortConnectPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectBoardIndex": {
+    "name": "ctFnbPortConnectBoardIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectPortIndex": {
+    "name": "ctFnbPortConnectPortIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectPortAssignment": {
+    "name": "ctFnbPortConnectPortAssignment",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectA": 1,
+          "connectB": 2,
+          "connectC": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFnbPortCompID": {
+    "name": "ctFnbPortCompID",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFnbPortConnectionChanges": {
+    "name": "ctFnbPortConnectionChanges",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CTRON-CSMACD-MIB",
+      "Source digest sha256:7ccdf548b1675936c6647c939ceee4a4e1bde06f751d11e68293af849820bc4a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CTRON-CSMACD-MIB"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "axLogging",
+      "axNotification"
+    ],
+    "A10-AX-NOTIF-OBJ": [
+      "axNotificationMsg",
+      "axNotificationScaleOutDeviceId",
+      "axNotificationScaleOutNumberOfDevice",
+      "axNotificationScaleOutStatus",
+      "axNotificationScaleOutTrafficMapType",
+      "axNotifications"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axScaleoutNotifications": {
+    "name": "axScaleoutNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7",
+    "class": "objectidentity"
+  },
+  "axScaleoutVserverTrafficMap": {
+    "name": "axScaleoutVserverTrafficMap",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axScaleoutLocalNodeDisabled": {
+    "name": "axScaleoutLocalNodeDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axScaleoutServiceMaster": {
+    "name": "axScaleoutServiceMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutDeviceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutStatus"
+      }
+    ]
+  },
+  "axScaleoutSingleNodeStatus": {
+    "name": "axScaleoutSingleNodeStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutStatus"
+      }
+    ]
+  },
+  "axScaleoutElection": {
+    "name": "axScaleoutElection",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutNumberOfDevice"
+      }
+    ]
+  },
+  "axScaleoutMasterNodeCallingReelection": {
+    "name": "axScaleoutMasterNodeCallingReelection",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axScaleoutNodeStatus": {
+    "name": "axScaleoutNodeStatus",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutDeviceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutStatus"
+      }
+    ]
+  },
+  "axScaleoutTrafficMapUpdate": {
+    "name": "axScaleoutTrafficMapUpdate",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationScaleOutTrafficMapType"
+      }
+    ]
+  },
+  "axScaleoutTrafficMapDistribution": {
+    "name": "axScaleoutTrafficMapDistribution",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.7.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-AX-SCALEOUT-TRAPS-V1",
+      "Source digest sha256:1ec18913e5c03b74a06876de006518131914e52545a44b6d0b598368b197084f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-AX-SCALEOUT-TRAPS-V1"
+  }
+}

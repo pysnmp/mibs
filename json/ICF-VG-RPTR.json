@@ -1,0 +1,1469 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpicfObjectModules",
+      "icfVgRepeater"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "icfVgRepeaterMib": {
+    "name": "icfVgRepeaterMib",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-03 22:25",
+        "description": "Updated division name."
+      },
+      {
+        "revision": "1997-03-06 03:47",
+        "description": "Added NOTIFICATION-GROUP information."
+      },
+      {
+        "revision": "1996-09-10 02:03",
+        "description": "Updated division name and STATUS info."
+      },
+      {
+        "revision": "1996-01-25 03:56",
+        "description": "Split this MIB module from the former monolithic hp-icf MIB. Added support for and full 802.12 compliance."
+      },
+      {
+        "revision": "1995-01-18 00:00",
+        "description": "Initial version of this MIB module. Released with the HPJ2414A agent card for the HPJ2410A 100VG repeater."
+      }
+    ]
+  },
+  "icfVgBasic": {
+    "name": "icfVgBasic",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1",
+    "class": "objectidentity"
+  },
+  "icfVgBasicRptr": {
+    "name": "icfVgBasicRptr",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1",
+    "class": "objectidentity"
+  },
+  "icfVgMACAddress": {
+    "name": "icfVgMACAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgCurrentFramingType": {
+    "name": "icfVgCurrentFramingType",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgDesiredFramingType": {
+    "name": "icfVgDesiredFramingType",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgFramingCapability": {
+    "name": "icfVgFramingCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2,
+          "frameTypeEither": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgTrainingVersion": {
+    "name": "icfVgTrainingVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgRepeaterGroupCapacity": {
+    "name": "icfVgRepeaterGroupCapacity",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgRepeaterHealthState": {
+    "name": "icfVgRepeaterHealthState",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "rptrFailure": 3,
+          "groupFailure": 4,
+          "portFailure": 5,
+          "generalFailure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgRepeaterHealthText": {
+    "name": "icfVgRepeaterHealthText",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgRepeaterReset": {
+    "name": "icfVgRepeaterReset",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgRepeaterNonDisruptTest": {
+    "name": "icfVgRepeaterNonDisruptTest",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSelfTest": 1,
+          "selfTest": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgBasicGroup": {
+    "name": "icfVgBasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2",
+    "class": "objectidentity"
+  },
+  "icfVgBasicGroupTable": {
+    "name": "icfVgBasicGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgBasicGroupEntry": {
+    "name": "icfVgBasicGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgGroupIndex": {
+    "name": "icfVgGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgGroupDescr": {
+    "name": "icfVgGroupDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgGroupObjectID": {
+    "name": "icfVgGroupObjectID",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgGroupOperStatus": {
+    "name": "icfVgGroupOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "operational": 2,
+          "malfunctioning": 3,
+          "notPresent": 4,
+          "underTest": 5,
+          "resetInProgress": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgGroupLastOperStatusChange": {
+    "name": "icfVgGroupLastOperStatusChange",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgGroupPortCapacity": {
+    "name": "icfVgGroupPortCapacity",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgGroupCablesBundled": {
+    "name": "icfVgGroupCablesBundled",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "someCablesBundled": 1,
+          "noCablesBundled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgBasicPort": {
+    "name": "icfVgBasicPort",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3",
+    "class": "objectidentity"
+  },
+  "icfVgBasicPortTable": {
+    "name": "icfVgBasicPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgBasicPortEntry": {
+    "name": "icfVgBasicPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgPortGroupIndex": {
+    "name": "icfVgPortGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgPortIndex": {
+    "name": "icfVgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgPortType": {
+    "name": "icfVgPortType",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cascadeExternal": 1,
+          "cascadeInternal": 2,
+          "localExternal": 3,
+          "localInternal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortAdminStatus": {
+    "name": "icfVgPortAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgPortStatus": {
+    "name": "icfVgPortStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "training": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortSupportedPromiscMode": {
+    "name": "icfVgPortSupportedPromiscMode",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleModeOnly": 1,
+          "singleOrPromiscMode": 2,
+          "promiscModeOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortSupportedCascadeMode": {
+    "name": "icfVgPortSupportedCascadeMode",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "endNodesOnly": 1,
+          "endNodesOrRepeaters": 2,
+          "cascadePort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortAllowedTrainType": {
+    "name": "icfVgPortAllowedTrainType",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowEndNodesOnly": 1,
+          "allowPromiscuousEndNodes": 2,
+          "allowEndNodesOrRepeaters": 3,
+          "allowAnything": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgPortLastTrainConfig": {
+    "name": "icfVgPortLastTrainConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortTrainingResult": {
+    "name": "icfVgPortTrainingResult",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortPriorityEnable": {
+    "name": "icfVgPortPriorityEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgPortMediaType": {
+    "name": "icfVgPortMediaType",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "pmdMissing": 3,
+          "utp4": 4,
+          "stp2": 5,
+          "fibre": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgMonitor": {
+    "name": "icfVgMonitor",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2",
+    "class": "objectidentity"
+  },
+  "icfVgMonRptr": {
+    "name": "icfVgMonRptr",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.1",
+    "class": "objectidentity"
+  },
+  "icfVgMonGroup": {
+    "name": "icfVgMonGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.2",
+    "class": "objectidentity"
+  },
+  "icfVgMonPort": {
+    "name": "icfVgMonPort",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3",
+    "class": "objectidentity"
+  },
+  "icfVgMonPortTable": {
+    "name": "icfVgMonPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgMonPortEntry": {
+    "name": "icfVgMonPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgPortReadableFrames": {
+    "name": "icfVgPortReadableFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortReadableOctets": {
+    "name": "icfVgPortReadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortUnreadableOctets": {
+    "name": "icfVgPortUnreadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHighPriorityFrames": {
+    "name": "icfVgPortHighPriorityFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHighPriorityOctets": {
+    "name": "icfVgPortHighPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortBroadcastFrames": {
+    "name": "icfVgPortBroadcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortMulticastFrames": {
+    "name": "icfVgPortMulticastFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortIPMFrames": {
+    "name": "icfVgPortIPMFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortDataErrorFrames": {
+    "name": "icfVgPortDataErrorFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortPriorityPromotions": {
+    "name": "icfVgPortPriorityPromotions",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHCReadableOctets": {
+    "name": "icfVgPortHCReadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHCUnreadableOctets": {
+    "name": "icfVgPortHCUnreadableOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHCHighPriorityOctets": {
+    "name": "icfVgPortHCHighPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortHCNormPriorityOctets": {
+    "name": "icfVgPortHCNormPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortNormPriorityFrames": {
+    "name": "icfVgPortNormPriorityFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortNormPriorityOctets": {
+    "name": "icfVgPortNormPriorityOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortNullAddressedFrames": {
+    "name": "icfVgPortNullAddressedFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortOversizeFrames": {
+    "name": "icfVgPortOversizeFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgPortTransitionToTrainings": {
+    "name": "icfVgPortTransitionToTrainings",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgAddrTrack": {
+    "name": "icfVgAddrTrack",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3",
+    "class": "objectidentity"
+  },
+  "icfVgAddrTrackRptr": {
+    "name": "icfVgAddrTrackRptr",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.1",
+    "class": "objectidentity"
+  },
+  "icfVgAddrTrackGroup": {
+    "name": "icfVgAddrTrackGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.2",
+    "class": "objectidentity"
+  },
+  "icfVgAddrTrackPort": {
+    "name": "icfVgAddrTrackPort",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3",
+    "class": "objectidentity"
+  },
+  "icfVgAddrTrackTable": {
+    "name": "icfVgAddrTrackTable",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icfVgAddrTrackEntry": {
+    "name": "icfVgAddrTrackEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgAddrLastTrainedAddress": {
+    "name": "icfVgAddrLastTrainedAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgAddrTrainedAddrChanges": {
+    "name": "icfVgAddrTrainedAddrChanges",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgRptrDetectedDupAddress": {
+    "name": "icfVgRptrDetectedDupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icfVgMgrDetectedDupAddress": {
+    "name": "icfVgMgrDetectedDupAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icfVgRptrTraps": {
+    "name": "icfVgRptrTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.4",
+    "class": "objectidentity"
+  },
+  "icfVgRptrTrapsPrefix": {
+    "name": "icfVgRptrTrapsPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.4.0",
+    "class": "objectidentity"
+  },
+  "icfVgRptrHealth": {
+    "name": "icfVgRptrHealth",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterHealthState"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRptrResetEvent": {
+    "name": "icfVgRptrResetEvent",
+    "oid": "1.3.6.1.4.1.11.2.14.8.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterHealthState"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRepeaterConformance": {
+    "name": "icfVgRepeaterConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1",
+    "class": "objectidentity"
+  },
+  "icfVgRepeaterCompliances": {
+    "name": "icfVgRepeaterCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.1",
+    "class": "objectidentity"
+  },
+  "icfVgRepeaterGroups": {
+    "name": "icfVgRepeaterGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2",
+    "class": "objectidentity"
+  },
+  "icfVgRptrPreStdCompliance": {
+    "name": "icfVgRptrPreStdCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "icfVgRptrBasicGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrPreStdMonitorGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrPreStdAddrTrackGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrNotificationsGroup",
+        "module": "ICF-VG-RPTR"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icfVgRptrCompliance": {
+    "name": "icfVgRptrCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "icfVgRptrBasicGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrMonitorGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrAddrTrackGroup",
+        "module": "ICF-VG-RPTR"
+      },
+      {
+        "object": "icfVgRptrNotificationsGroup",
+        "module": "ICF-VG-RPTR"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRptrBasicGroup": {
+    "name": "icfVgRptrBasicGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgMACAddress"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgCurrentFramingType"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgDesiredFramingType"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgFramingCapability"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgTrainingVersion"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterGroupCapacity"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterHealthState"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterHealthText"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterReset"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRepeaterNonDisruptTest"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupDescr"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupObjectID"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupOperStatus"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupLastOperStatusChange"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupPortCapacity"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgGroupCablesBundled"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortType"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortAdminStatus"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortStatus"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortSupportedPromiscMode"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortSupportedCascadeMode"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortAllowedTrainType"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortLastTrainConfig"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortTrainingResult"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortPriorityEnable"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortMediaType"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRptrPreStdMonitorGroup": {
+    "name": "icfVgRptrPreStdMonitorGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortReadableFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortReadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortUnreadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHighPriorityFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHighPriorityOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortBroadcastFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortMulticastFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortIPMFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortDataErrorFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortPriorityPromotions"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCReadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCUnreadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCHighPriorityOctets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icfVgRptrPreStdAddrTrackGroup": {
+    "name": "icfVgRptrPreStdAddrTrackGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgAddrLastTrainedAddress"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgAddrTrainedAddrChanges"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icfVgRptrMonitorGroup": {
+    "name": "icfVgRptrMonitorGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortReadableFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortReadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortUnreadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHighPriorityFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHighPriorityOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortBroadcastFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortMulticastFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortIPMFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortDataErrorFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortPriorityPromotions"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCReadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCUnreadableOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCHighPriorityOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortHCNormPriorityOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortNormPriorityFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortNormPriorityOctets"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortNullAddressedFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortOversizeFrames"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgPortTransitionToTrainings"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRptrAddrTrackGroup": {
+    "name": "icfVgRptrAddrTrackGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgAddrLastTrainedAddress"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgAddrTrainedAddrChanges"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRptrDetectedDupAddress"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgMgrDetectedDupAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "icfVgRptrNotificationsGroup": {
+    "name": "icfVgRptrNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.10.2.10.1.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRptrHealth"
+      },
+      {
+        "module": "ICF-VG-RPTR",
+        "object": "icfVgRptrResetEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ICF-VG-RPTR",
+      "Source digest sha256:1aad1de25874391e595dafc5e2cdb6e0a3956e2e1d71a1bfa8a9372112730c02",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ICF-VG-RPTR"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGsp2Capability": {
+    "name": "ciscoGsp2Capability",
+    "oid": "1.3.6.1.4.1.9.7.307",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-25 00:00",
+        "description": "Added support for objects to indicate whether device support non-stop operations feature. Added ciscoGsp2CapabilityV12R023000SW1 agent capability statement."
+      },
+      {
+        "revision": "2003-11-24 00:00",
+        "description": "Added ciscoGsp2Mtp3ErrorsGroup. Added ciscoGsp2CapabilityV12R022004SW agent capability statement. This capability contains groups from ciscoGsp2CapabilityV12R0204MB4 agent capability statement as well as ciscoGsp2Mtp3ErrorsGroup."
+      },
+      {
+        "revision": "2003-07-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGsp2CapabilityV12R0204MB4": {
+    "name": "ciscoGsp2CapabilityV12R0204MB4",
+    "oid": "1.3.6.1.4.1.9.7.307.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB10",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GSP2-MIB",
+        "includes": [
+          "ciscoGsp2EventsGroup",
+          "ciscoGsp2QosGroup",
+          "ciscoGsp2LocalPeerGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgsp2EventAsText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAsTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcTimestamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGsp2CapabilityV12R022004SW": {
+    "name": "ciscoGsp2CapabilityV12R022004SW",
+    "oid": "1.3.6.1.4.1.9.7.307.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(20.4)SW",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GSP2-MIB",
+        "includes": [
+          "ciscoGsp2EventsGroup",
+          "ciscoGsp2QosGroup",
+          "ciscoGsp2LocalPeerGroup",
+          "ciscoGsp2Mtp3ErrorsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgsp2EventAsText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAsTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcTimestamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGsp2CapabilityV12R022300SW1": {
+    "name": "ciscoGsp2CapabilityV12R022300SW1",
+    "oid": "1.3.6.1.4.1.9.7.307.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(23)SW1",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-GSP2-MIB",
+        "includes": [
+          "ciscoGsp2EventsGroup",
+          "ciscoGsp2QosGroup",
+          "ciscoGsp2LocalPeerGroup",
+          "ciscoGsp2Mtp3ErrorsGroup",
+          "ciscoGsp2OperationGroup"
+        ],
+        "variations": [
+          {
+            "object": "cgsp2EventAsText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAsTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventAspTimestamp",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcText",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cgsp2EventPcTimestamp",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-GSP2-CAPABILITY",
+      "Source digest sha256:415875e2507c6633765f6f875ba11f53c5249fc5b641fd65146e643a2907434a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-GSP2-CAPABILITY"
+  }
+}

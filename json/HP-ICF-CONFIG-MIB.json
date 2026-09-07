@@ -1,0 +1,328 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfConfig": {
+    "name": "hpicfConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-07 00:00",
+        "description": "Removed default value field of recovery mode."
+      },
+      {
+        "revision": "2017-04-19 00:00",
+        "description": "Added recovery mode for config restore."
+      },
+      {
+        "revision": "2017-03-08 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfConfigNotifications": {
+    "name": "hpicfConfigNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.0",
+    "class": "objectidentity"
+  },
+  "hpicfConfigScalar": {
+    "name": "hpicfConfigScalar",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.1",
+    "class": "objectidentity"
+  },
+  "hpicfConfigGlobals": {
+    "name": "hpicfConfigGlobals",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.2",
+    "class": "objectidentity"
+  },
+  "hpicfConfigConformance": {
+    "name": "hpicfConfigConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3",
+    "class": "objectidentity"
+  },
+  "hpicfConfigConfig": {
+    "name": "hpicfConfigConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4",
+    "class": "objectidentity"
+  },
+  "hpicfConfigObjects": {
+    "name": "hpicfConfigObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1",
+    "class": "objectidentity"
+  },
+  "hpicfConfigRestoreFileName": {
+    "name": "hpicfConfigRestoreFileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfConfigRunningConfigSHA": {
+    "name": "hpicfConfigRunningConfigSHA",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfConfigStartupConfigSHA": {
+    "name": "hpicfConfigStartupConfigSHA",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfConfigRestoreStatus": {
+    "name": "hpicfConfigRestoreStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notYetRun": 1,
+          "inProgress": 2,
+          "success": 3,
+          "failed": 4
+        }
+      }
+    },
+    "default": {
+      "value": "notYetRun",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfConfigRecoveryMode": {
+    "name": "hpicfConfigRecoveryMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfConfigFilesObjects": {
+    "name": "hpicfConfigFilesObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2",
+    "class": "objectidentity"
+  },
+  "hpicfConfigFilesTable": {
+    "name": "hpicfConfigFilesTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfConfigFilesEntry": {
+    "name": "hpicfConfigFilesEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigFilePos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfConfigFilePos": {
+    "name": "hpicfConfigFilePos",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfConfigFileName": {
+    "name": "hpicfConfigFileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfConfigTimestamp": {
+    "name": "hpicfConfigTimestamp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfConfigGroups": {
+    "name": "hpicfConfigGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3.1",
+    "class": "objectidentity"
+  },
+  "hpicfConfigMIBCompliances": {
+    "name": "hpicfConfigMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3.2",
+    "class": "objectidentity"
+  },
+  "hpicfConfigMIBCompliance": {
+    "name": "hpicfConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfConfigScalarsGroup",
+        "module": "HP-ICF-CONFIG-MIB"
+      },
+      {
+        "object": "hpicfConfigFilesGroup",
+        "module": "HP-ICF-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfConfigScalarsGroup": {
+    "name": "hpicfConfigScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigRestoreFileName"
+      },
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigRunningConfigSHA"
+      },
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigStartupConfigSHA"
+      },
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigRestoreStatus"
+      },
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigRecoveryMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfConfigFilesGroup": {
+    "name": "hpicfConfigFilesGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.136.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigFileName"
+      },
+      {
+        "module": "HP-ICF-CONFIG-MIB",
+        "object": "hpicfConfigTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-CONFIG-MIB",
+      "Source digest sha256:c93ef1091799bf9027f2ee00fc6c700ed9cba53e01109171f0b4ddd5b15282db",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-CONFIG-MIB"
+  }
+}

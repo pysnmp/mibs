@@ -1,0 +1,189 @@
+--  **************************************************************************
+--  File SA_Europe_Root_SMIv2.mib
+--
+--  Copyright (c) 2002 by Scientific-Atlanta Europe nv
+--
+--  This document (SNMP mib file) is the intellectual property of 
+--  Scientific Atlanta Europe nv and contains confidential information. 
+--  All reproduction and communication to third parties is strictly prohibited
+--  without prior consent of Scientific-Atlanta Europe nv.
+--
+--  **************************************************************************
+
+
+SAEUROPE-ROOT-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    enterprises, MODULE-IDENTITY
+        FROM SNMPv2-SMI;
+
+saEuropeRoot MODULE-IDENTITY 
+LAST-UPDATED "202010201100Z"    
+
+ORGANIZATION 
+		"Synamedia"
+CONTACT-INFO 
+		"www.synamedia.com"
+
+DESCRIPTION
+    "This MIB implements the Synamedia root object identifiers"
+
+REVISION "202010201100Z"		-- October 20, 2020 at 11:00 GMT
+DESCRIPTION 
+		"Updated contact info."
+
+REVISION "201511101300Z"		-- November 10, 2015 at 13:00 GMT
+DESCRIPTION 
+		"Updated contact info."
+
+REVISION     "200301170900Z"  
+DESCRIPTION
+    "V01.00.08		
+     switches, switchesMIBGroups, analogDemodulators and 
+     analogDemodulatorsMIBGroups added."
+
+REVISION     "200212021200Z"  
+DESCRIPTION
+    "V01.00.07		
+     Initial version of the SA Europe Root MIB.
+     Changes to MIB name and OID names, small editorial changes.
+     Contents of the MIB are the same as
+     BarcoNet Root SMIv2 MIB V01.00.06."
+
+REVISION     "200207011100Z"  
+DESCRIPTION
+    "V01.00.06		
+     enterprises is now imported from SNMPv2-SMI."
+
+REVISION     "200203201200Z"  
+DESCRIPTION
+    "V01.00.05		
+     Removed trapDestinationMIBGroup, this OID will be included
+     in the trap destination MIB."
+
+REVISION     "200203061600Z"  
+DESCRIPTION
+    "V01.00.04		
+     Changes made to UTC time, to be compliant with older versions,
+     MODULE-IDENTITY imported from SNMPv2-SMI,
+     barcoNet OID placed placed after the MODULE-IDENTITY definition."
+
+REVISION     "200202061600Z"  
+DESCRIPTION
+    "V01.00.03		
+     siProcessors replaced with tsProcessors,
+     siProcessorsMIBGroups replaced with tsProcessorsMIBGroups,
+     transponders OID replaced with hms OID,
+     transpondersMIBGroups replaced with hmsMIBGroups,
+     hms and netSenseHMS OID's deleted from the BarcoNet Root MIB,
+     hmsMIBGroups and netSenseHMSMIBGroups deleted."
+REVISION     "200201161115Z"  
+DESCRIPTION
+    "V01.00.02		
+     Extended with trapDestinationMIBGroup."
+     
+REVISION     "200201161115Z"    
+DESCRIPTION
+    "V01.00.01		
+     Extended with the following categories:
+         digitalCableReceivers, digitalCableReceiversMIBGroups,
+         digitalTerrestrialModulators, 
+         digitalTerrestrialModulatorsMIBGroups,
+         videoOnDemand, videoOnDemandMIBGroups,
+         netSenseHMS and netSenseHMSMIBGroups."
+
+REVISION     "200108291215Z"  
+DESCRIPTION
+    "V01.00.00		
+     Initial version of the BarcoNet Root MIB"
+     
+::= {enterprises 1482 3 }
+
+saEurope                              OBJECT IDENTIFIER ::= {enterprises 1482}
+ 
+mibGroups                             OBJECT IDENTIFIER ::= {saEurope 1}
+
+
+commonMIBGroups                       OBJECT IDENTIFIER ::= {mibGroups 1}
+
+trapControlMIBGroups                  OBJECT IDENTIFIER ::= {commonMIBGroups 1}    
+messagesMIBGroups                     OBJECT IDENTIFIER ::= {commonMIBGroups 2}
+clockMIBGroups                        OBJECT IDENTIFIER ::= {commonMIBGroups 3}
+
+ 
+ 
+devicesMIBGroups                      OBJECT IDENTIFIER ::= {mibGroups 3}
+
+backbonesMIBGroups                    OBJECT IDENTIFIER ::= {devicesMIBGroups 1}	
+
+
+headendsMIBGroups                     OBJECT IDENTIFIER ::= {devicesMIBGroups 2}
+
+scramblersMIBGroups                   OBJECT IDENTIFIER ::= {headendsMIBGroups 1}
+tsProcessorsMIBGroups                 OBJECT IDENTIFIER ::= {headendsMIBGroups 2}
+descramblersMIBGroups                 OBJECT IDENTIFIER ::= {headendsMIBGroups 3}
+digitalSatelliteReceiversMIBGroups    OBJECT IDENTIFIER ::= {headendsMIBGroups 4}
+digitalTerrestrialReceiversMIBGroups  OBJECT IDENTIFIER ::= {headendsMIBGroups 5}
+mpegIIDecodersMIBGroups               OBJECT IDENTIFIER ::= {headendsMIBGroups 6}
+digitalSwitchesMIBGroups              OBJECT IDENTIFIER ::= {headendsMIBGroups 7}
+upconvertersMIBGroups                 OBJECT IDENTIFIER ::= {headendsMIBGroups 8}
+terminalAdaptersMIBGroups             OBJECT IDENTIFIER ::= {headendsMIBGroups 9}
+mpegIIEncodersMIBGroups               OBJECT IDENTIFIER ::= {headendsMIBGroups 10}
+digitalCableReceiversMIBGroups        OBJECT IDENTIFIER ::= {headendsMIBGroups 11}
+digitalTerrestrialModulatorsMIBGroups OBJECT IDENTIFIER ::= {headendsMIBGroups 12}
+videoOnDemandMIBGroups                OBJECT IDENTIFIER ::= {headendsMIBGroups 13}
+switchesMIBGroups                     OBJECT IDENTIFIER ::= {headendsMIBGroups 14}
+analogDemodulatorsMIBGroups           OBJECT IDENTIFIER ::= {headendsMIBGroups 15} 
+
+
+monitoringAndManagementMIBGroups      OBJECT IDENTIFIER ::= {devicesMIBGroups 3}
+
+hmsMIBGroups                          OBJECT IDENTIFIER ::= {devicesMIBGroups 4}
+
+
+ 
+copernicus                            OBJECT IDENTIFIER ::= {saEurope 2}
+
+-- saEuropeRoot                          OBJECT IDENTIFIER ::= {saEurope 3}
+
+equipment                             OBJECT IDENTIFIER ::= {saEurope 20}
+
+
+
+common                                OBJECT IDENTIFIER ::= {equipment 1}
+
+trapControl                           OBJECT IDENTIFIER ::= {common 1}    
+messages                              OBJECT IDENTIFIER ::= {common 2}
+clock                                 OBJECT IDENTIFIER ::= {common 3}
+
+
+
+devices                               OBJECT IDENTIFIER ::= {equipment 3}
+
+backbones                             OBJECT IDENTIFIER ::= {devices 1}	
+
+
+headends                              OBJECT IDENTIFIER ::= {devices 2}
+
+scramblers                            OBJECT IDENTIFIER ::= {headends 1}
+tsProcessors                          OBJECT IDENTIFIER ::= {headends 2}
+descramblers                          OBJECT IDENTIFIER ::= {headends 3}
+digitalSatelliteReceivers             OBJECT IDENTIFIER ::= {headends 4}
+digitalTerrestrialReceivers           OBJECT IDENTIFIER ::= {headends 5}
+mpegIIDecoders                        OBJECT IDENTIFIER ::= {headends 6}
+digitalSwitches                       OBJECT IDENTIFIER ::= {headends 7}
+upconverters                          OBJECT IDENTIFIER ::= {headends 8}
+terminalAdapters                      OBJECT IDENTIFIER ::= {headends 9}
+mpegIIEncoders                        OBJECT IDENTIFIER ::= {headends 10}
+digitalCableReceivers                 OBJECT IDENTIFIER ::= {headends 11}
+digitalTerrestrialModulators          OBJECT IDENTIFIER ::= {headends 12}
+videoOnDemand                         OBJECT IDENTIFIER ::= {headends 13}
+switches                              OBJECT IDENTIFIER ::= {headends 14}
+analogDemodulators                    OBJECT IDENTIFIER ::= {headends 15} 
+
+
+monitoringAndManagement               OBJECT IDENTIFIER ::= {devices 3}
+
+hms                                   OBJECT IDENTIFIER ::= {devices 4}
+
+END 

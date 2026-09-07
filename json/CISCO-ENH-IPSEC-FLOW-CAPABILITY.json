@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCeipSecCapability": {
+    "name": "ciscoCeipSecCapability",
+    "oid": "1.3.6.1.4.1.9.7.485",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoCeipSecCapSanOSV30R1MDS9000": {
+    "name": "ciscoCeipSecCapSanOSV30R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.485.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.0(1) on Cisco MDS 9000\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-ENHANCED-IPSEC-FLOW-MIB",
+        "includes": [
+          "ciscoEnhIPsecFlowActivityGroup",
+          "ciscoEnhIPsecFlowTunnelSaGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ENH-IPSEC-FLOW-CAPABILITY",
+      "Source digest sha256:54130365126bb908a6ef32f14d3cfb311ae223c2d077adbe60865089cc0f8ee6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ENH-IPSEC-FLOW-CAPABILITY"
+  }
+}

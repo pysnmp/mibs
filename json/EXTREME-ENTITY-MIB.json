@@ -1,0 +1,106 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeEntity": {
+    "name": "extremeEntity",
+    "oid": "1.3.6.1.4.1.1916.1.31",
+    "class": "moduleidentity"
+  },
+  "extremeEntityFRUTable": {
+    "name": "extremeEntityFRUTable",
+    "oid": "1.3.6.1.4.1.1916.1.31.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeEntityFRUEntry": {
+    "name": "extremeEntityFRUEntry",
+    "oid": "1.3.6.1.4.1.1916.1.31.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeEntityFRUStartTime": {
+    "name": "extremeEntityFRUStartTime",
+    "oid": "1.3.6.1.4.1.1916.1.31.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeEntityFRUOdometer": {
+    "name": "extremeEntityFRUOdometer",
+    "oid": "1.3.6.1.4.1.1916.1.31.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeEntityFRUOdometerUnit": {
+    "name": "extremeEntityFRUOdometerUnit",
+    "oid": "1.3.6.1.4.1.1916.1.31.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "days": 1,
+          "seconds": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-ENTITY-MIB"
+  }
+}

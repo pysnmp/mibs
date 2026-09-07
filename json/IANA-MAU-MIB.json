@@ -1,0 +1,1985 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ianaMauMIB": {
+    "name": "ianaMauMIB",
+    "oid": "1.3.6.1.2.1.154",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2026-07-15 00:00",
+        "description": "Added coverage for IEEE Std 802.3cs-2022 (Super-PON 10GBASE-SP1 and 10/2.5GBASE-SP1 PHYs), IEEE Std 802.3db-2022 (100GBASE-SR1, 100GBASE-VR1, 200GBASE-SR2, 200GBASE-VR2, 400GBASE-SR4, and 400GBASE-VR4 PHYs), IEEE Std 802.3ck-2022 (100GBASE-CR1/KR1, 200GBASE-CR2/KR2, and 400GBASE-CR4/KR4 PHYs and associated Auto-Negotiation capabilities), IEEE Std 802.3da-2026 (10BASE-T1M PHY), IEEE Std 802.3dk-2026 (100GBASE-BR10, 100GBASE-BR20, and 100GBASE-BR40 PHYs), and IEEE Std 802.3dg-2026 (100BASE-T1L PHY and associated Auto-Negotiation capability)."
+      },
+      {
+        "revision": "2024-04-02 00:00",
+        "description": "Added support for IEEE Std 802.3df-2024 (400GBASE-DR4-2, 800GBASE-CR8, 800GBASE-DR8, 800GBASE-DR8-2, 800GBASE-KR8, 800GBASE-R, 800GBASE-SR8, and 800GBASE-VR8PHYs)."
+      },
+      {
+        "revision": "2023-09-07 00:00",
+        "description": "Added support for IEEE Std 802.3cy-2023 (25GBASE-T1 PHYs)."
+      },
+      {
+        "revision": "2023-06-14 00:00",
+        "description": "Added coverage for IEEE Std 802.3cz-2023 (entries for 2.5GBASE-AU, 5GBASE-AU, 10GBASE-AU, 25GBASE-AU, and 50GBASE-AU)."
+      },
+      {
+        "revision": "2023-02-06 00:00",
+        "description": "Added MAU types specified in the IEEE Std 802.3cm-2020, IEEE Std 802.3ch-2020, IEEE Std 802.3ca-2020, IEEE Std 802.3ct-2021, IEEE Std 802.3cp-2021, and aligned with IEEE Std 802.3-2022."
+      },
+      {
+        "revision": "2022-08-10 00:00",
+        "description": "Added MAU types specified in IEEE Std 802.3cu-2021"
+      },
+      {
+        "revision": "2020-01-30 00:00",
+        "description": "Added MAU types and associated AutoNeg capability bits specified in the IEEE Std 802.3-2018, as well as IEEE Std 802.3cb-2018, IEEE Std 802.3bt-2018, IEEE Std 802.3cd-2018, IEEE Std 802.3cn-2019, and IEEE Std 802.3cg-2019"
+      },
+      {
+        "revision": "2019-07-11 00:00",
+        "description": "Added support for 2.5GBase-T and 5GBase-T media types."
+      },
+      {
+        "revision": "2017-04-10 00:00",
+        "description": "Added new MAU types and associated AutoNeg capability bits specified in the IEEE 802.3 amendments IEEE Std 802.3bk-2013, IEEE Std 802.3bj-2014 and IEEE Std 802.3bm-2015, which are now published in IEEE Std 802.3-2015, as well as IEEE Std 802.3bw-2015, IEEE Std 802.3by-2016, IEEE Std 802.3bq-2016 and IEEE Std 802.3bp-2016."
+      },
+      {
+        "revision": "2014-08-01 00:00",
+        "description": "Added IANAifJackType 16."
+      },
+      {
+        "revision": "2014-05-22 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2011-08-12 00:00",
+        "description": "Added MAU types and associated AutoNeg capability bits specified in amendments to IEEE Std 802.3-2008: IEEE Std 802.3ba-2010 and IEEE Std 802.3bg-2011."
+      },
+      {
+        "revision": "2010-02-23 00:00",
+        "description": "Added assignments that will be included in Clause 14 of IEEE P802.3.1."
+      },
+      {
+        "revision": "2007-04-21 00:00",
+        "description": "Initial version of this MIB as published in RFC 4836."
+      }
+    ]
+  },
+  "IANAifMauTypeListBits": {
+    "name": "IANAifMauTypeListBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bOther": 0,
+        "bAUI": 1,
+        "b10base5": 2,
+        "bFoirl": 3,
+        "b10base2": 4,
+        "b10baseT": 5,
+        "b10baseFP": 6,
+        "b10baseFB": 7,
+        "b10baseFL": 8,
+        "b10broad36": 9,
+        "b10baseTHD": 10,
+        "b10baseTFD": 11,
+        "b10baseFLHD": 12,
+        "b10baseFLFD": 13,
+        "b100baseT4": 14,
+        "b100baseTXHD": 15,
+        "b100baseTXFD": 16,
+        "b100baseFXHD": 17,
+        "b100baseFXFD": 18,
+        "b100baseT2HD": 19,
+        "b100baseT2FD": 20,
+        "b1000baseXHD": 21,
+        "b1000baseXFD": 22,
+        "b1000baseLXHD": 23,
+        "b1000baseLXFD": 24,
+        "b1000baseSXHD": 25,
+        "b1000baseSXFD": 26,
+        "b1000baseCXHD": 27,
+        "b1000baseCXFD": 28,
+        "b1000baseTHD": 29,
+        "b1000baseTFD": 30,
+        "b10GbaseX": 31,
+        "b10GbaseLX4": 32,
+        "b10GbaseR": 33,
+        "b10GbaseER": 34,
+        "b10GbaseLR": 35,
+        "b10GbaseSR": 36,
+        "b10GbaseW": 37,
+        "b10GbaseEW": 38,
+        "b10GbaseLW": 39,
+        "b10GbaseSW": 40,
+        "b10GbaseCX4": 41,
+        "b2BaseTL": 42,
+        "b10PassTS": 43,
+        "b100BaseBX10D": 44,
+        "b100BaseBX10U": 45,
+        "b100BaseLX10": 46,
+        "b1000BaseBX10D": 47,
+        "b1000BaseBX10U": 48,
+        "b1000BaseLX10": 49,
+        "b1000BasePX10D": 50,
+        "b1000BasePX10U": 51,
+        "b1000BasePX20D": 52,
+        "b1000BasePX20U": 53,
+        "b10GbaseT": 54,
+        "b10GbaseLRM": 55,
+        "b1000baseKX": 56,
+        "b10GbaseKX4": 57,
+        "b10GbaseKR": 58,
+        "b10G1GbasePRXD1": 59,
+        "b10G1GbasePRXD2": 60,
+        "b10G1GbasePRXD3": 61,
+        "b10G1GbasePRXU1": 62,
+        "b10G1GbasePRXU2": 63,
+        "b10G1GbasePRXU3": 64,
+        "b10GbasePRD1": 65,
+        "b10GbasePRD2": 66,
+        "b10GbasePRD3": 67,
+        "b10GbasePRU1": 68,
+        "b10GbasePRU3": 69,
+        "b40GbaseKR4": 70,
+        "b40GbaseCR4": 71,
+        "b40GbaseSR4": 72,
+        "b40GbaseFR": 73,
+        "b40GbaseLR4": 74,
+        "b100GbaseCR10": 75,
+        "b100GbaseSR10": 76,
+        "b100GbaseLR4": 77,
+        "b100GbaseER4": 78,
+        "b1000baseT1": 79,
+        "b1000basePX30D": 80,
+        "b1000basePX30U": 81,
+        "b1000basePX40D": 82,
+        "b1000basePX40U": 83,
+        "b10G1GbasePRXD4": 84,
+        "b10G1GbasePRXU4": 85,
+        "b10GbasePRD4": 86,
+        "b10GbasePRU4": 87,
+        "b25GbaseCR": 88,
+        "b25GbaseCRS": 89,
+        "b25GbaseKR": 90,
+        "b25GbaseKRS": 91,
+        "b25GbaseR": 92,
+        "b25GbaseSR": 93,
+        "b25GbaseT": 94,
+        "b40GbaseER4": 95,
+        "b40GbaseR": 96,
+        "b40GbaseT": 97,
+        "b100GbaseCR4": 98,
+        "b100GbaseKR4": 99,
+        "b100GbaseKP4": 100,
+        "b100GbaseR": 101,
+        "b100GbaseSR4": 102,
+        "b2p5GbaseT": 103,
+        "b5GbaseT": 104,
+        "b100baseT1": 105,
+        "b1000baseRHA": 106,
+        "b1000baseRHB": 107,
+        "b1000baseRHC": 108,
+        "b2p5GbaseKX": 109,
+        "b2p5GbaseX": 110,
+        "b5GbaseKR": 111,
+        "b5GbaseR": 112,
+        "b10GpassXR": 113,
+        "b25GbaseLR": 114,
+        "b25GbaseER": 115,
+        "b50GbaseR": 116,
+        "b50GbaseCR": 117,
+        "b50GbaseKR": 118,
+        "b50GbaseSR": 119,
+        "b50GbaseFR": 120,
+        "b50GbaseLR": 121,
+        "b50GbaseER": 122,
+        "b100GbaseCR2": 123,
+        "b100GbaseKR2": 124,
+        "b100GbaseSR2": 125,
+        "b100GbaseDR": 126,
+        "b200GbaseR": 127,
+        "b200GbaseDR4": 128,
+        "b200GbaseFR4": 129,
+        "b200GbaseLR4": 130,
+        "b200GbaseCR4": 131,
+        "b200GbaseKR4": 132,
+        "b200GbaseSR4": 133,
+        "b200GbaseER4": 134,
+        "b400GbaseR": 135,
+        "b400GbaseSR16": 136,
+        "b400GbaseDR4": 137,
+        "b400GbaseFR8": 138,
+        "b400GbaseLR8": 139,
+        "b400GbaseER8": 140,
+        "b10baseT1L": 141,
+        "b10baseT1SHD": 142,
+        "b10baseT1SMD": 143,
+        "b10baseT1SFD": 144,
+        "b100GbaseFR1": 145,
+        "b100GbaseLR1": 146,
+        "b400GbaseFR4": 147,
+        "b400GbaseLR46": 148,
+        "b400GbaseSR8": 149,
+        "b400GbaseSR4p2": 150,
+        "b2p5GbaseT1": 151,
+        "b5GbaseT1": 152,
+        "b10GbaseT1": 153,
+        "b25G10GbasePQGD2": 154,
+        "b25G10GbasePQGD3": 155,
+        "b25G10GbasePQGU2": 156,
+        "b25G10GbasePQGU3": 157,
+        "b25G10GbasePQXD2": 158,
+        "b25G10GbasePQXD3": 159,
+        "b25G10GbasePQXU2": 160,
+        "b25G10GbasePQXU3": 161,
+        "b25GbasePQGD2": 162,
+        "b25GbasePQGD3": 163,
+        "b25GbasePQGU2": 164,
+        "b25GbasePQGU3": 165,
+        "b25GbasePQXD2": 166,
+        "b25GbasePQXD3": 167,
+        "b25GbasePQXU2": 168,
+        "b25GbasePQXU3": 169,
+        "b50G10GbasePQGD2": 170,
+        "b50G10GbasePQGD3": 171,
+        "b50G10GbasePQGU2": 172,
+        "b50G10GbasePQGU3": 173,
+        "b50G10GbasePQXD2": 174,
+        "b50G10GbasePQXD3": 175,
+        "b50G10GbasePQXU2": 176,
+        "b50G10GbasePQXU3": 177,
+        "b50G25GbasePQGD2": 178,
+        "b50G25GbasePQGD3": 179,
+        "b50G25GbasePQGU2": 180,
+        "b50G25GbasePQGU3": 181,
+        "b50G25GbasePQXD2": 182,
+        "b50G25GbasePQXD3": 183,
+        "b50G25GbasePQXU2": 184,
+        "b50G25GbasePQXU3": 185,
+        "b50GbasePQGD2": 186,
+        "b50GbasePQGD3": 187,
+        "b50GbasePQGU2": 188,
+        "b50GbasePQGU3": 189,
+        "b50GbasePQXD2": 190,
+        "b50GbasePQXD3": 191,
+        "b50GbasePQXU2": 192,
+        "b50GbasePQXU3": 193,
+        "b100GbaseZR": 194,
+        "b10GbaseBR10D": 195,
+        "b10GbaseBR10U": 196,
+        "b10GbaseBR20D": 197,
+        "b10GbaseBR20U": 198,
+        "b10GbaseBR40D": 199,
+        "b10GbaseBR40U": 200,
+        "b25GbaseBR10D": 201,
+        "b25GbaseBR10U": 202,
+        "b25GbaseBR20D": 203,
+        "b25GbaseBR20U": 204,
+        "b25GbaseBR40D": 205,
+        "b25GbaseBR40U": 206,
+        "b50GbaseBR10D": 207,
+        "b50GbaseBR10U": 208,
+        "b50GbaseBR20D": 209,
+        "b50GbaseBR20U": 210,
+        "b50GbaseBR40D": 211,
+        "b50GbaseBR40U": 212,
+        "b2p5GbaseAU": 213,
+        "b5GbaseAU": 214,
+        "b10GbaseAU": 215,
+        "b25GbaseAU": 216,
+        "b50GbaseAU": 217,
+        "b25GbaseT1": 218,
+        "b400GbaseDR42": 219,
+        "b800GbaseCR8": 220,
+        "b800GbaseDR8": 221,
+        "b800GbaseDR82": 222,
+        "b800GbaseKR8": 223,
+        "b800GbaseR": 224,
+        "b800GbaseSR8": 225,
+        "b800GbaseVR8": 226,
+        "b10GbaseSP1D": 227,
+        "b10GbaseSP1U": 228,
+        "b10G2p5GbaseSP1D": 229,
+        "b10G2p5GbaseSP1U": 230,
+        "b100GbaseSR1": 231,
+        "b100GbaseVR1": 232,
+        "b200GbaseSR2": 233,
+        "b200GbaseVR2": 234,
+        "b400GbaseSR4": 235,
+        "b400GbaseVR4": 236,
+        "b100GbaseCR1": 237,
+        "b100GbaseKR1": 238,
+        "b200GbaseCR2": 239,
+        "b200GbaseKR2": 240,
+        "b400GbaseCR4": 241,
+        "b400GbaseKR4": 242,
+        "b10baseT1M": 243,
+        "b100GbaseBR10D": 244,
+        "b100GbaseBR10U": 245,
+        "b100GbaseBR20D": 246,
+        "b100GbaseBR20U": 247,
+        "b100GbaseBR40D": 248,
+        "b100GbaseBR40U": 249,
+        "b100baseT1L": 250
+      }
+    },
+    "status": "current"
+  },
+  "IANAifMauMediaAvailable": {
+    "name": "IANAifMauMediaAvailable",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "available": 3,
+          "notAvailable": 4,
+          "remoteFault": 5,
+          "invalidSignal": 6,
+          "remoteJabber": 7,
+          "remoteLinkLoss": 8,
+          "remoteTest": 9,
+          "offline": 10,
+          "autoNegError": 11,
+          "pmdLinkFault": 12,
+          "wisFrameLoss": 13,
+          "wisSignalLoss": 14,
+          "pcsLinkFault": 15,
+          "excessiveBER": 16,
+          "dxsLinkFault": 17,
+          "pxsLinkFault": 18,
+          "availableReduced": 19,
+          "ready": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IANAifMauAutoNegCapBits": {
+    "name": "IANAifMauAutoNegCapBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bOther": 0,
+        "b10baseT": 1,
+        "b10baseTFD": 2,
+        "b100baseT4": 3,
+        "b100baseTX": 4,
+        "b100baseTXFD": 5,
+        "b100baseT2": 6,
+        "b100baseT2FD": 7,
+        "bFdxPause": 8,
+        "bFdxAPause": 9,
+        "bFdxSPause": 10,
+        "bFdxBPause": 11,
+        "b1000baseX": 12,
+        "b1000baseXFD": 13,
+        "b1000baseT": 14,
+        "b1000baseTFD": 15,
+        "b10GbaseT": 16,
+        "b1000baseKX": 17,
+        "b10GbaseKX4": 18,
+        "b10GbaseKR": 19,
+        "b40GbaseKR4": 20,
+        "b40GbaseCR4": 21,
+        "b100GbaseCR10": 22,
+        "b1000baseT1": 23,
+        "b25GbaseRS": 24,
+        "b25GbaseR": 25,
+        "bRSFEC25Greq": 26,
+        "bBaseFEC25Greq": 27,
+        "b25GbaseT": 28,
+        "b40GbaseT": 29,
+        "b100GbaseCR4": 30,
+        "b100GbaseKR4": 31,
+        "b100GbaseKP4": 32,
+        "bForceMS": 33,
+        "b2p5GbaseT": 34,
+        "b5GBaseT": 35,
+        "b2p5GbaseKX": 36,
+        "b5GbaseKR": 37,
+        "b50GbaseR": 38,
+        "b100GbaseR2": 39,
+        "b200GbaseR4": 40,
+        "b10baseT1L": 41,
+        "b10baseT1S": 42,
+        "b2p5GbaseT1": 43,
+        "b5GbaseT1": 44,
+        "b10GbaseT1": 45,
+        "b25GbaseT1": 46,
+        "b800GR8": 47,
+        "b100GbaseR1": 48,
+        "b200GbaseR2": 49,
+        "b400GbaseR4": 50,
+        "b100baseT1L": 51
+      }
+    },
+    "status": "current"
+  },
+  "IANAifJackType": {
+    "name": "IANAifJackType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rj45": 2,
+          "rj45S": 3,
+          "db9": 4,
+          "bnc": 5,
+          "fAUI": 6,
+          "mAUI": 7,
+          "fiberSC": 8,
+          "fiberMIC": 9,
+          "fiberST": 10,
+          "telco": 11,
+          "mtrj": 12,
+          "hssdc": 13,
+          "fiberLC": 14,
+          "cx4": 15,
+          "sfpPlusDA": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dot3MauType": {
+    "name": "dot3MauType",
+    "oid": "1.3.6.1.2.1.26.4",
+    "class": "objectidentity"
+  },
+  "dot3MauTypeAUI": {
+    "name": "dot3MauTypeAUI",
+    "oid": "1.3.6.1.2.1.26.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10Base5": {
+    "name": "dot3MauType10Base5",
+    "oid": "1.3.6.1.2.1.26.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauTypeFoirl": {
+    "name": "dot3MauTypeFoirl",
+    "oid": "1.3.6.1.2.1.26.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10Base2": {
+    "name": "dot3MauType10Base2",
+    "oid": "1.3.6.1.2.1.26.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseT": {
+    "name": "dot3MauType10BaseT",
+    "oid": "1.3.6.1.2.1.26.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseFP": {
+    "name": "dot3MauType10BaseFP",
+    "oid": "1.3.6.1.2.1.26.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseFB": {
+    "name": "dot3MauType10BaseFB",
+    "oid": "1.3.6.1.2.1.26.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseFL": {
+    "name": "dot3MauType10BaseFL",
+    "oid": "1.3.6.1.2.1.26.4.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10Broad36": {
+    "name": "dot3MauType10Broad36",
+    "oid": "1.3.6.1.2.1.26.4.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseTHD": {
+    "name": "dot3MauType10BaseTHD",
+    "oid": "1.3.6.1.2.1.26.4.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseTFD": {
+    "name": "dot3MauType10BaseTFD",
+    "oid": "1.3.6.1.2.1.26.4.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseFLHD": {
+    "name": "dot3MauType10BaseFLHD",
+    "oid": "1.3.6.1.2.1.26.4.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10BaseFLFD": {
+    "name": "dot3MauType10BaseFLFD",
+    "oid": "1.3.6.1.2.1.26.4.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseT4": {
+    "name": "dot3MauType100BaseT4",
+    "oid": "1.3.6.1.2.1.26.4.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseTXHD": {
+    "name": "dot3MauType100BaseTXHD",
+    "oid": "1.3.6.1.2.1.26.4.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseTXFD": {
+    "name": "dot3MauType100BaseTXFD",
+    "oid": "1.3.6.1.2.1.26.4.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseFXHD": {
+    "name": "dot3MauType100BaseFXHD",
+    "oid": "1.3.6.1.2.1.26.4.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseFXFD": {
+    "name": "dot3MauType100BaseFXFD",
+    "oid": "1.3.6.1.2.1.26.4.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseT2HD": {
+    "name": "dot3MauType100BaseT2HD",
+    "oid": "1.3.6.1.2.1.26.4.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseT2FD": {
+    "name": "dot3MauType100BaseT2FD",
+    "oid": "1.3.6.1.2.1.26.4.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseXHD": {
+    "name": "dot3MauType1000BaseXHD",
+    "oid": "1.3.6.1.2.1.26.4.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseXFD": {
+    "name": "dot3MauType1000BaseXFD",
+    "oid": "1.3.6.1.2.1.26.4.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseLXHD": {
+    "name": "dot3MauType1000BaseLXHD",
+    "oid": "1.3.6.1.2.1.26.4.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseLXFD": {
+    "name": "dot3MauType1000BaseLXFD",
+    "oid": "1.3.6.1.2.1.26.4.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseSXHD": {
+    "name": "dot3MauType1000BaseSXHD",
+    "oid": "1.3.6.1.2.1.26.4.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseSXFD": {
+    "name": "dot3MauType1000BaseSXFD",
+    "oid": "1.3.6.1.2.1.26.4.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseCXHD": {
+    "name": "dot3MauType1000BaseCXHD",
+    "oid": "1.3.6.1.2.1.26.4.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseCXFD": {
+    "name": "dot3MauType1000BaseCXFD",
+    "oid": "1.3.6.1.2.1.26.4.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseTHD": {
+    "name": "dot3MauType1000BaseTHD",
+    "oid": "1.3.6.1.2.1.26.4.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseTFD": {
+    "name": "dot3MauType1000BaseTFD",
+    "oid": "1.3.6.1.2.1.26.4.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseX": {
+    "name": "dot3MauType10GigBaseX",
+    "oid": "1.3.6.1.2.1.26.4.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseLX4": {
+    "name": "dot3MauType10GigBaseLX4",
+    "oid": "1.3.6.1.2.1.26.4.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseR": {
+    "name": "dot3MauType10GigBaseR",
+    "oid": "1.3.6.1.2.1.26.4.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseER": {
+    "name": "dot3MauType10GigBaseER",
+    "oid": "1.3.6.1.2.1.26.4.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseLR": {
+    "name": "dot3MauType10GigBaseLR",
+    "oid": "1.3.6.1.2.1.26.4.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseSR": {
+    "name": "dot3MauType10GigBaseSR",
+    "oid": "1.3.6.1.2.1.26.4.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseW": {
+    "name": "dot3MauType10GigBaseW",
+    "oid": "1.3.6.1.2.1.26.4.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseEW": {
+    "name": "dot3MauType10GigBaseEW",
+    "oid": "1.3.6.1.2.1.26.4.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseLW": {
+    "name": "dot3MauType10GigBaseLW",
+    "oid": "1.3.6.1.2.1.26.4.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseSW": {
+    "name": "dot3MauType10GigBaseSW",
+    "oid": "1.3.6.1.2.1.26.4.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GigBaseCX4": {
+    "name": "dot3MauType10GigBaseCX4",
+    "oid": "1.3.6.1.2.1.26.4.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2BaseTL": {
+    "name": "dot3MauType2BaseTL",
+    "oid": "1.3.6.1.2.1.26.4.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10PassTS": {
+    "name": "dot3MauType10PassTS",
+    "oid": "1.3.6.1.2.1.26.4.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseBX10D": {
+    "name": "dot3MauType100BaseBX10D",
+    "oid": "1.3.6.1.2.1.26.4.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseBX10U": {
+    "name": "dot3MauType100BaseBX10U",
+    "oid": "1.3.6.1.2.1.26.4.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100BaseLX10": {
+    "name": "dot3MauType100BaseLX10",
+    "oid": "1.3.6.1.2.1.26.4.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseBX10D": {
+    "name": "dot3MauType1000BaseBX10D",
+    "oid": "1.3.6.1.2.1.26.4.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseBX10U": {
+    "name": "dot3MauType1000BaseBX10U",
+    "oid": "1.3.6.1.2.1.26.4.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BaseLX10": {
+    "name": "dot3MauType1000BaseLX10",
+    "oid": "1.3.6.1.2.1.26.4.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BasePX10D": {
+    "name": "dot3MauType1000BasePX10D",
+    "oid": "1.3.6.1.2.1.26.4.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BasePX10U": {
+    "name": "dot3MauType1000BasePX10U",
+    "oid": "1.3.6.1.2.1.26.4.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BasePX20D": {
+    "name": "dot3MauType1000BasePX20D",
+    "oid": "1.3.6.1.2.1.26.4.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000BasePX20U": {
+    "name": "dot3MauType1000BasePX20U",
+    "oid": "1.3.6.1.2.1.26.4.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseT": {
+    "name": "dot3MauType10GbaseT",
+    "oid": "1.3.6.1.2.1.26.4.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseLRM": {
+    "name": "dot3MauType10GbaseLRM",
+    "oid": "1.3.6.1.2.1.26.4.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000baseKX": {
+    "name": "dot3MauType1000baseKX",
+    "oid": "1.3.6.1.2.1.26.4.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseKX4": {
+    "name": "dot3MauType10GbaseKX4",
+    "oid": "1.3.6.1.2.1.26.4.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseKR": {
+    "name": "dot3MauType10GbaseKR",
+    "oid": "1.3.6.1.2.1.26.4.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXD1": {
+    "name": "dot3MauType10G1GbasePRXD1",
+    "oid": "1.3.6.1.2.1.26.4.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXD2": {
+    "name": "dot3MauType10G1GbasePRXD2",
+    "oid": "1.3.6.1.2.1.26.4.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXD3": {
+    "name": "dot3MauType10G1GbasePRXD3",
+    "oid": "1.3.6.1.2.1.26.4.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXU1": {
+    "name": "dot3MauType10G1GbasePRXU1",
+    "oid": "1.3.6.1.2.1.26.4.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXU2": {
+    "name": "dot3MauType10G1GbasePRXU2",
+    "oid": "1.3.6.1.2.1.26.4.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXU3": {
+    "name": "dot3MauType10G1GbasePRXU3",
+    "oid": "1.3.6.1.2.1.26.4.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRD1": {
+    "name": "dot3MauType10GbasePRD1",
+    "oid": "1.3.6.1.2.1.26.4.65",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRD2": {
+    "name": "dot3MauType10GbasePRD2",
+    "oid": "1.3.6.1.2.1.26.4.66",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRD3": {
+    "name": "dot3MauType10GbasePRD3",
+    "oid": "1.3.6.1.2.1.26.4.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRU1": {
+    "name": "dot3MauType10GbasePRU1",
+    "oid": "1.3.6.1.2.1.26.4.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRU3": {
+    "name": "dot3MauType10GbasePRU3",
+    "oid": "1.3.6.1.2.1.26.4.69",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseKR4": {
+    "name": "dot3MauType40GbaseKR4",
+    "oid": "1.3.6.1.2.1.26.4.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseCR4": {
+    "name": "dot3MauType40GbaseCR4",
+    "oid": "1.3.6.1.2.1.26.4.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseSR4": {
+    "name": "dot3MauType40GbaseSR4",
+    "oid": "1.3.6.1.2.1.26.4.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseFR": {
+    "name": "dot3MauType40GbaseFR",
+    "oid": "1.3.6.1.2.1.26.4.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseLR4": {
+    "name": "dot3MauType40GbaseLR4",
+    "oid": "1.3.6.1.2.1.26.4.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseCR10": {
+    "name": "dot3MauType100GbaseCR10",
+    "oid": "1.3.6.1.2.1.26.4.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseSR10": {
+    "name": "dot3MauType100GbaseSR10",
+    "oid": "1.3.6.1.2.1.26.4.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseLR4": {
+    "name": "dot3MauType100GbaseLR4",
+    "oid": "1.3.6.1.2.1.26.4.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseER4": {
+    "name": "dot3MauType100GbaseER4",
+    "oid": "1.3.6.1.2.1.26.4.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000baseT1": {
+    "name": "dot3MauType1000baseT1",
+    "oid": "1.3.6.1.2.1.26.4.79",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000basePX30D": {
+    "name": "dot3MauType1000basePX30D",
+    "oid": "1.3.6.1.2.1.26.4.80",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000basePX30U": {
+    "name": "dot3MauType1000basePX30U",
+    "oid": "1.3.6.1.2.1.26.4.81",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000basePX40D": {
+    "name": "dot3MauType1000basePX40D",
+    "oid": "1.3.6.1.2.1.26.4.82",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000basePX40U": {
+    "name": "dot3MauType1000basePX40U",
+    "oid": "1.3.6.1.2.1.26.4.83",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXD4": {
+    "name": "dot3MauType10G1GbasePRXD4",
+    "oid": "1.3.6.1.2.1.26.4.84",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G1GbasePRXU4": {
+    "name": "dot3MauType10G1GbasePRXU4",
+    "oid": "1.3.6.1.2.1.26.4.85",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRD4": {
+    "name": "dot3MauType10GbasePRD4",
+    "oid": "1.3.6.1.2.1.26.4.86",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbasePRU4": {
+    "name": "dot3MauType10GbasePRU4",
+    "oid": "1.3.6.1.2.1.26.4.87",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseCR": {
+    "name": "dot3MauType25GbaseCR",
+    "oid": "1.3.6.1.2.1.26.4.88",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseCRS": {
+    "name": "dot3MauType25GbaseCRS",
+    "oid": "1.3.6.1.2.1.26.4.89",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseKR": {
+    "name": "dot3MauType25GbaseKR",
+    "oid": "1.3.6.1.2.1.26.4.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseKRS": {
+    "name": "dot3MauType25GbaseKRS",
+    "oid": "1.3.6.1.2.1.26.4.91",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseR": {
+    "name": "dot3MauType25GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.92",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseSR": {
+    "name": "dot3MauType25GbaseSR",
+    "oid": "1.3.6.1.2.1.26.4.93",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseT": {
+    "name": "dot3MauType25GbaseT",
+    "oid": "1.3.6.1.2.1.26.4.94",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseER4": {
+    "name": "dot3MauType40GbaseER4",
+    "oid": "1.3.6.1.2.1.26.4.95",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseR": {
+    "name": "dot3MauType40GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.96",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseT": {
+    "name": "dot3MauType40GbaseT",
+    "oid": "1.3.6.1.2.1.26.4.97",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseCR4": {
+    "name": "dot3MauType100GbaseCR4",
+    "oid": "1.3.6.1.2.1.26.4.98",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseKR4": {
+    "name": "dot3MauType100GbaseKR4",
+    "oid": "1.3.6.1.2.1.26.4.99",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseKP4": {
+    "name": "dot3MauType100GbaseKP4",
+    "oid": "1.3.6.1.2.1.26.4.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseR": {
+    "name": "dot3MauType100GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseSR4": {
+    "name": "dot3MauType100GbaseSR4",
+    "oid": "1.3.6.1.2.1.26.4.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2p5GigT": {
+    "name": "dot3MauType2p5GigT",
+    "oid": "1.3.6.1.2.1.26.4.103",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType5GigT": {
+    "name": "dot3MauType5GigT",
+    "oid": "1.3.6.1.2.1.26.4.104",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100baseT1": {
+    "name": "dot3MauType100baseT1",
+    "oid": "1.3.6.1.2.1.26.4.105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000baseRHA": {
+    "name": "dot3MauType1000baseRHA",
+    "oid": "1.3.6.1.2.1.26.4.106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000baseRHB": {
+    "name": "dot3MauType1000baseRHB",
+    "oid": "1.3.6.1.2.1.26.4.107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType1000baseRHC": {
+    "name": "dot3MauType1000baseRHC",
+    "oid": "1.3.6.1.2.1.26.4.108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2p5GbaseKX": {
+    "name": "dot3MauType2p5GbaseKX",
+    "oid": "1.3.6.1.2.1.26.4.109",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2p5GbaseX": {
+    "name": "dot3MauType2p5GbaseX",
+    "oid": "1.3.6.1.2.1.26.4.110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType5GbaseKR": {
+    "name": "dot3MauType5GbaseKR",
+    "oid": "1.3.6.1.2.1.26.4.111",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType5GbaseR": {
+    "name": "dot3MauType5GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.112",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GpassXR": {
+    "name": "dot3MauType10GpassXR",
+    "oid": "1.3.6.1.2.1.26.4.113",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseLR": {
+    "name": "dot3MauType25GbaseLR",
+    "oid": "1.3.6.1.2.1.26.4.114",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseER": {
+    "name": "dot3MauType25GbaseER",
+    "oid": "1.3.6.1.2.1.26.4.115",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseR": {
+    "name": "dot3MauType50GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseCR": {
+    "name": "dot3MauType50GbaseCR",
+    "oid": "1.3.6.1.2.1.26.4.117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseKR": {
+    "name": "dot3MauType50GbaseKR",
+    "oid": "1.3.6.1.2.1.26.4.118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseSR": {
+    "name": "dot3MauType50GbaseSR",
+    "oid": "1.3.6.1.2.1.26.4.119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseFR": {
+    "name": "dot3MauType50GbaseFR",
+    "oid": "1.3.6.1.2.1.26.4.120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseLR": {
+    "name": "dot3MauType50GbaseLR",
+    "oid": "1.3.6.1.2.1.26.4.121",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseER": {
+    "name": "dot3MauType50GbaseER",
+    "oid": "1.3.6.1.2.1.26.4.122",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseCR2": {
+    "name": "dot3MauType100GbaseCR2",
+    "oid": "1.3.6.1.2.1.26.4.123",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseKR2": {
+    "name": "dot3MauType100GbaseKR2",
+    "oid": "1.3.6.1.2.1.26.4.124",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseSR2": {
+    "name": "dot3MauType100GbaseSR2",
+    "oid": "1.3.6.1.2.1.26.4.125",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseDR": {
+    "name": "dot3MauType100GbaseDR",
+    "oid": "1.3.6.1.2.1.26.4.126",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseR": {
+    "name": "dot3MauType200GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.127",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseDR4": {
+    "name": "dot3MauType200GbaseDR4",
+    "oid": "1.3.6.1.2.1.26.4.128",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseFR4": {
+    "name": "dot3MauType200GbaseFR4",
+    "oid": "1.3.6.1.2.1.26.4.129",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseLR4": {
+    "name": "dot3MauType200GbaseLR4",
+    "oid": "1.3.6.1.2.1.26.4.130",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseCR4": {
+    "name": "dot3MauType200GbaseCR4",
+    "oid": "1.3.6.1.2.1.26.4.131",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseKR4": {
+    "name": "dot3MauType200GbaseKR4",
+    "oid": "1.3.6.1.2.1.26.4.132",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseSR4": {
+    "name": "dot3MauType200GbaseSR4",
+    "oid": "1.3.6.1.2.1.26.4.133",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseER4": {
+    "name": "dot3MauType200GbaseER4",
+    "oid": "1.3.6.1.2.1.26.4.134",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseR": {
+    "name": "dot3MauType400GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.135",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseSR16": {
+    "name": "dot3MauType400GbaseSR16",
+    "oid": "1.3.6.1.2.1.26.4.136",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseDR4": {
+    "name": "dot3MauType400GbaseDR4",
+    "oid": "1.3.6.1.2.1.26.4.137",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseFR8": {
+    "name": "dot3MauType400GbaseFR8",
+    "oid": "1.3.6.1.2.1.26.4.138",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseLR8": {
+    "name": "dot3MauType400GbaseLR8",
+    "oid": "1.3.6.1.2.1.26.4.139",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseER8": {
+    "name": "dot3MauType400GbaseER8",
+    "oid": "1.3.6.1.2.1.26.4.140",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10baseT1L": {
+    "name": "dot3MauType10baseT1L",
+    "oid": "1.3.6.1.2.1.26.4.141",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10baseT1SHD": {
+    "name": "dot3MauType10baseT1SHD",
+    "oid": "1.3.6.1.2.1.26.4.142",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10baseT1SMD": {
+    "name": "dot3MauType10baseT1SMD",
+    "oid": "1.3.6.1.2.1.26.4.143",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10baseT1SFD": {
+    "name": "dot3MauType10baseT1SFD",
+    "oid": "1.3.6.1.2.1.26.4.144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseFR1": {
+    "name": "dot3MauType100GbaseFR1",
+    "oid": "1.3.6.1.2.1.26.4.145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseLR1": {
+    "name": "dot3MauType100GbaseLR1",
+    "oid": "1.3.6.1.2.1.26.4.146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseFR4": {
+    "name": "dot3MauType400GbaseFR4",
+    "oid": "1.3.6.1.2.1.26.4.147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseLR46": {
+    "name": "dot3MauType400GbaseLR46",
+    "oid": "1.3.6.1.2.1.26.4.148",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseSR8": {
+    "name": "dot3MauType400GbaseSR8",
+    "oid": "1.3.6.1.2.1.26.4.149",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseSR4p2": {
+    "name": "dot3MauType400GbaseSR4p2",
+    "oid": "1.3.6.1.2.1.26.4.150",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2p5GbaseT1": {
+    "name": "dot3MauType2p5GbaseT1",
+    "oid": "1.3.6.1.2.1.26.4.151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType5GbaseT1": {
+    "name": "dot3MauType5GbaseT1",
+    "oid": "1.3.6.1.2.1.26.4.152",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseT1": {
+    "name": "dot3MauType10GbaseT1",
+    "oid": "1.3.6.1.2.1.26.4.153",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQGD2": {
+    "name": "dot3MauType25G10GbasePQGD2",
+    "oid": "1.3.6.1.2.1.26.4.154",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQGD3": {
+    "name": "dot3MauType25G10GbasePQGD3",
+    "oid": "1.3.6.1.2.1.26.4.155",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQGU2": {
+    "name": "dot3MauType25G10GbasePQGU2",
+    "oid": "1.3.6.1.2.1.26.4.156",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQGU3": {
+    "name": "dot3MauType25G10GbasePQGU3",
+    "oid": "1.3.6.1.2.1.26.4.157",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQXD2": {
+    "name": "dot3MauType25G10GbasePQXD2",
+    "oid": "1.3.6.1.2.1.26.4.158",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQXD3": {
+    "name": "dot3MauType25G10GbasePQXD3",
+    "oid": "1.3.6.1.2.1.26.4.159",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQXU2": {
+    "name": "dot3MauType25G10GbasePQXU2",
+    "oid": "1.3.6.1.2.1.26.4.160",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25G10GbasePQXU3": {
+    "name": "dot3MauType25G10GbasePQXU3",
+    "oid": "1.3.6.1.2.1.26.4.161",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQGD2": {
+    "name": "dot3MauType25GbasePQGD2",
+    "oid": "1.3.6.1.2.1.26.4.162",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQGD3": {
+    "name": "dot3MauType25GbasePQGD3",
+    "oid": "1.3.6.1.2.1.26.4.163",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQGU2": {
+    "name": "dot3MauType25GbasePQGU2",
+    "oid": "1.3.6.1.2.1.26.4.164",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQGU3": {
+    "name": "dot3MauType25GbasePQGU3",
+    "oid": "1.3.6.1.2.1.26.4.165",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQXD2": {
+    "name": "dot3MauType25GbasePQXD2",
+    "oid": "1.3.6.1.2.1.26.4.166",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQXD3": {
+    "name": "dot3MauType25GbasePQXD3",
+    "oid": "1.3.6.1.2.1.26.4.167",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQXU2": {
+    "name": "dot3MauType25GbasePQXU2",
+    "oid": "1.3.6.1.2.1.26.4.168",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbasePQXU3": {
+    "name": "dot3MauType25GbasePQXU3",
+    "oid": "1.3.6.1.2.1.26.4.169",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQGD2": {
+    "name": "dot3MauType50G10GbasePQGD2",
+    "oid": "1.3.6.1.2.1.26.4.170",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQGD3": {
+    "name": "dot3MauType50G10GbasePQGD3",
+    "oid": "1.3.6.1.2.1.26.4.171",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQGU2": {
+    "name": "dot3MauType50G10GbasePQGU2",
+    "oid": "1.3.6.1.2.1.26.4.172",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQGU3": {
+    "name": "dot3MauType50G10GbasePQGU3",
+    "oid": "1.3.6.1.2.1.26.4.173",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQXD2": {
+    "name": "dot3MauType50G10GbasePQXD2",
+    "oid": "1.3.6.1.2.1.26.4.174",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQXD3": {
+    "name": "dot3MauType50G10GbasePQXD3",
+    "oid": "1.3.6.1.2.1.26.4.175",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQXU2": {
+    "name": "dot3MauType50G10GbasePQXU2",
+    "oid": "1.3.6.1.2.1.26.4.176",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G10GbasePQXU3": {
+    "name": "dot3MauType50G10GbasePQXU3",
+    "oid": "1.3.6.1.2.1.26.4.177",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQGD2": {
+    "name": "dot3MauType50G25GbasePQGD2",
+    "oid": "1.3.6.1.2.1.26.4.178",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQGD3": {
+    "name": "dot3MauType50G25GbasePQGD3",
+    "oid": "1.3.6.1.2.1.26.4.179",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQGU2": {
+    "name": "dot3MauType50G25GbasePQGU2",
+    "oid": "1.3.6.1.2.1.26.4.180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQGU3": {
+    "name": "dot3MauType50G25GbasePQGU3",
+    "oid": "1.3.6.1.2.1.26.4.181",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQXD2": {
+    "name": "dot3MauType50G25GbasePQXD2",
+    "oid": "1.3.6.1.2.1.26.4.182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQXD3": {
+    "name": "dot3MauType50G25GbasePQXD3",
+    "oid": "1.3.6.1.2.1.26.4.183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQXU2": {
+    "name": "dot3MauType50G25GbasePQXU2",
+    "oid": "1.3.6.1.2.1.26.4.184",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50G25GbasePQXU3": {
+    "name": "dot3MauType50G25GbasePQXU3",
+    "oid": "1.3.6.1.2.1.26.4.185",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQGD2": {
+    "name": "dot3MauType50GbasePQGD2",
+    "oid": "1.3.6.1.2.1.26.4.186",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQGD3": {
+    "name": "dot3MauType50GbasePQGD3",
+    "oid": "1.3.6.1.2.1.26.4.187",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQGU2": {
+    "name": "dot3MauType50GbasePQGU2",
+    "oid": "1.3.6.1.2.1.26.4.188",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQGU3": {
+    "name": "dot3MauType50GbasePQGU3",
+    "oid": "1.3.6.1.2.1.26.4.189",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQXD2": {
+    "name": "dot3MauType50GbasePQXD2",
+    "oid": "1.3.6.1.2.1.26.4.190",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQXD3": {
+    "name": "dot3MauType50GbasePQXD3",
+    "oid": "1.3.6.1.2.1.26.4.191",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQXU2": {
+    "name": "dot3MauType50GbasePQXU2",
+    "oid": "1.3.6.1.2.1.26.4.192",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbasePQXU3": {
+    "name": "dot3MauType50GbasePQXU3",
+    "oid": "1.3.6.1.2.1.26.4.193",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseZR": {
+    "name": "dot3MauType100GbaseZR",
+    "oid": "1.3.6.1.2.1.26.4.194",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR10D": {
+    "name": "dot3MauType10GbaseBR10D",
+    "oid": "1.3.6.1.2.1.26.4.195",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR10U": {
+    "name": "dot3MauType10GbaseBR10U",
+    "oid": "1.3.6.1.2.1.26.4.196",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR20D": {
+    "name": "dot3MauType10GbaseBR20D",
+    "oid": "1.3.6.1.2.1.26.4.197",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR20U": {
+    "name": "dot3MauType10GbaseBR20U",
+    "oid": "1.3.6.1.2.1.26.4.198",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR40D": {
+    "name": "dot3MauType10GbaseBR40D",
+    "oid": "1.3.6.1.2.1.26.4.199",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseBR40U": {
+    "name": "dot3MauType10GbaseBR40U",
+    "oid": "1.3.6.1.2.1.26.4.200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR10D": {
+    "name": "dot3MauType25GbaseBR10D",
+    "oid": "1.3.6.1.2.1.26.4.201",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR10U": {
+    "name": "dot3MauType25GbaseBR10U",
+    "oid": "1.3.6.1.2.1.26.4.202",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR20D": {
+    "name": "dot3MauType25GbaseBR20D",
+    "oid": "1.3.6.1.2.1.26.4.203",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR20U": {
+    "name": "dot3MauType25GbaseBR20U",
+    "oid": "1.3.6.1.2.1.26.4.204",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR40D": {
+    "name": "dot3MauType25GbaseBR40D",
+    "oid": "1.3.6.1.2.1.26.4.205",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseBR40U": {
+    "name": "dot3MauType25GbaseBR40U",
+    "oid": "1.3.6.1.2.1.26.4.206",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR10D": {
+    "name": "dot3MauType50GbaseBR10D",
+    "oid": "1.3.6.1.2.1.26.4.207",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR10U": {
+    "name": "dot3MauType50GbaseBR10U",
+    "oid": "1.3.6.1.2.1.26.4.208",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR20D": {
+    "name": "dot3MauType50GbaseBR20D",
+    "oid": "1.3.6.1.2.1.26.4.209",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR20U": {
+    "name": "dot3MauType50GbaseBR20U",
+    "oid": "1.3.6.1.2.1.26.4.210",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR40D": {
+    "name": "dot3MauType50GbaseBR40D",
+    "oid": "1.3.6.1.2.1.26.4.211",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseBR40U": {
+    "name": "dot3MauType50GbaseBR40U",
+    "oid": "1.3.6.1.2.1.26.4.212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType2p5GbaseAU": {
+    "name": "dot3MauType2p5GbaseAU",
+    "oid": "1.3.6.1.2.1.26.4.213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType5GbaseAU": {
+    "name": "dot3MauType5GbaseAU",
+    "oid": "1.3.6.1.2.1.26.4.214",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseAU": {
+    "name": "dot3MauType10GbaseAU",
+    "oid": "1.3.6.1.2.1.26.4.215",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseAU": {
+    "name": "dot3MauType25GbaseAU",
+    "oid": "1.3.6.1.2.1.26.4.216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType50GbaseAU": {
+    "name": "dot3MauType50GbaseAU",
+    "oid": "1.3.6.1.2.1.26.4.217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType25GbaseT1": {
+    "name": "dot3MauType25GbaseT1",
+    "oid": "1.3.6.1.2.1.26.4.218",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseDR42": {
+    "name": "dot3MauType400GbaseDR42",
+    "oid": "1.3.6.1.2.1.26.4.219",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseCR8": {
+    "name": "dot3MauType800GbaseCR8",
+    "oid": "1.3.6.1.2.1.26.4.220",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseDR8": {
+    "name": "dot3MauType800GbaseDR8",
+    "oid": "1.3.6.1.2.1.26.4.221",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseDR82": {
+    "name": "dot3MauType800GbaseDR82",
+    "oid": "1.3.6.1.2.1.26.4.222",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseKR8": {
+    "name": "dot3MauType800GbaseKR8",
+    "oid": "1.3.6.1.2.1.26.4.223",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseR": {
+    "name": "dot3MauType800GbaseR",
+    "oid": "1.3.6.1.2.1.26.4.224",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseSR8": {
+    "name": "dot3MauType800GbaseSR8",
+    "oid": "1.3.6.1.2.1.26.4.225",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType800GbaseVR8": {
+    "name": "dot3MauType800GbaseVR8",
+    "oid": "1.3.6.1.2.1.26.4.226",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseSP1D": {
+    "name": "dot3MauType10GbaseSP1D",
+    "oid": "1.3.6.1.2.1.26.4.227",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10GbaseSP1U": {
+    "name": "dot3MauType10GbaseSP1U",
+    "oid": "1.3.6.1.2.1.26.4.228",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G2p5GbaseSP1D": {
+    "name": "dot3MauType10G2p5GbaseSP1D",
+    "oid": "1.3.6.1.2.1.26.4.229",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10G2p5GbaseSP1U": {
+    "name": "dot3MauType10G2p5GbaseSP1U",
+    "oid": "1.3.6.1.2.1.26.4.230",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseSR1": {
+    "name": "dot3MauType100GbaseSR1",
+    "oid": "1.3.6.1.2.1.26.4.231",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseVR1": {
+    "name": "dot3MauType100GbaseVR1",
+    "oid": "1.3.6.1.2.1.26.4.232",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseSR2": {
+    "name": "dot3MauType200GbaseSR2",
+    "oid": "1.3.6.1.2.1.26.4.233",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseVR2": {
+    "name": "dot3MauType200GbaseVR2",
+    "oid": "1.3.6.1.2.1.26.4.234",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseSR4": {
+    "name": "dot3MauType400GbaseSR4",
+    "oid": "1.3.6.1.2.1.26.4.235",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseVR4": {
+    "name": "dot3MauType400GbaseVR4",
+    "oid": "1.3.6.1.2.1.26.4.236",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseCR1": {
+    "name": "dot3MauType100GbaseCR1",
+    "oid": "1.3.6.1.2.1.26.4.237",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseKR1": {
+    "name": "dot3MauType100GbaseKR1",
+    "oid": "1.3.6.1.2.1.26.4.238",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseCR2": {
+    "name": "dot3MauType200GbaseCR2",
+    "oid": "1.3.6.1.2.1.26.4.239",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType200GbaseKR2": {
+    "name": "dot3MauType200GbaseKR2",
+    "oid": "1.3.6.1.2.1.26.4.240",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseCR4": {
+    "name": "dot3MauType400GbaseCR4",
+    "oid": "1.3.6.1.2.1.26.4.241",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType400GbaseKR4": {
+    "name": "dot3MauType400GbaseKR4",
+    "oid": "1.3.6.1.2.1.26.4.242",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType10baseT1M": {
+    "name": "dot3MauType10baseT1M",
+    "oid": "1.3.6.1.2.1.26.4.243",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR10D": {
+    "name": "dot3MauType100GbaseBR10D",
+    "oid": "1.3.6.1.2.1.26.4.244",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR10U": {
+    "name": "dot3MauType100GbaseBR10U",
+    "oid": "1.3.6.1.2.1.26.4.245",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR20D": {
+    "name": "dot3MauType100GbaseBR20D",
+    "oid": "1.3.6.1.2.1.26.4.246",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR20U": {
+    "name": "dot3MauType100GbaseBR20U",
+    "oid": "1.3.6.1.2.1.26.4.247",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR40D": {
+    "name": "dot3MauType100GbaseBR40D",
+    "oid": "1.3.6.1.2.1.26.4.248",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseBR40U": {
+    "name": "dot3MauType100GbaseBR40U",
+    "oid": "1.3.6.1.2.1.26.4.249",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100baseT1L": {
+    "name": "dot3MauType100baseT1L",
+    "oid": "1.3.6.1.2.1.26.4.250",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source IANA-MAU-MIB",
+      "Source digest sha256:310758ff69da3ea184fc35f86a9d9f94592f644c0e4aece33ec78bbced971bdc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "IANA-MAU-MIB"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwProductSpecific"
+    ]
+  },
+  "vmwHBMIB": {
+    "name": "vmwHBMIB",
+    "oid": "1.3.6.1.4.1.6876.4.190.66",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-02-10 00:00",
+        "description": "First version."
+      }
+    ]
+  },
+  "vmwHb": {
+    "name": "vmwHb",
+    "oid": "1.3.6.1.4.1.6876.4.190",
+    "class": "objectidentity"
+  },
+  "vmwHbNotifications": {
+    "name": "vmwHbNotifications",
+    "oid": "1.3.6.1.4.1.6876.4.190.0",
+    "class": "objectidentity"
+  },
+  "vmwHbHeartbeat": {
+    "name": "vmwHbHeartbeat",
+    "oid": "1.3.6.1.4.1.6876.4.190.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwHbMIBConformance": {
+    "name": "vmwHbMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.4.190.2",
+    "class": "objectidentity"
+  },
+  "vmwHbMIBCompliances": {
+    "name": "vmwHbMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.4.190.2.1",
+    "class": "objectidentity"
+  },
+  "vmwHbMIBGroups": {
+    "name": "vmwHbMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.4.190.2.2",
+    "class": "objectidentity"
+  },
+  "vmwHbMIBBasicCompliance": {
+    "name": "vmwHbMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.6876.4.190.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwHbNotificationGroup",
+        "module": "VMWARE-HEARTBEAT-MIB"
+      },
+      {
+        "object": "vmwHbNotificationGroup",
+        "module": "VMWARE-HEARTBEAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwHbNotificationGroup": {
+    "name": "vmwHbNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.4.190.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-HEARTBEAT-MIB",
+        "object": "vmwHbHeartbeat"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source VMWARE-HEARTBEAT-MIB",
+      "Source digest sha256:c65f411870a91b417ed24aa2a1b51fff02c7c94434921bc734d4dccfa66f1d52",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "VMWARE-HEARTBEAT-MIB"
+  }
+}

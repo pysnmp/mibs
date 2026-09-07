@@ -1,0 +1,591 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1WebMgt",
+      "switchMgtTraps"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1WebMgtMIB": {
+    "name": "alcatelIND1WebMgtMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1WebMgtMIBObjects": {
+    "name": "alcatelIND1WebMgtMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1WebMgtMIBConformance": {
+    "name": "alcatelIND1WebMgtMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1WebMgtMIBGroups": {
+    "name": "alcatelIND1WebMgtMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1WebMgtMIBCompliances": {
+    "name": "alcatelIND1WebMgtMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaIND1WebMgtAdminStatus": {
+    "name": "alaIND1WebMgtAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtSSL": {
+    "name": "alaIND1WebMgtSSL",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSConfigTable": {
+    "name": "alaIND1WebMgtRFSConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSConfigEntry": {
+    "name": "alaIND1WebMgtRFSConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSAddrType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSAddrType": {
+    "name": "alaIND1WebMgtRFSAddrType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSIPAddr": {
+    "name": "alaIND1WebMgtRFSIPAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSIPServerName": {
+    "name": "alaIND1WebMgtRFSIPServerName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSServerLogin": {
+    "name": "alaIND1WebMgtRFSServerLogin",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSServerPassword": {
+    "name": "alaIND1WebMgtRFSServerPassword",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSPrefServer": {
+    "name": "alaIND1WebMgtRFSPrefServer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preferred": 1
+        }
+      }
+    },
+    "default": {
+      "value": "preferred",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSPath": {
+    "name": "alaIND1WebMgtRFSPath",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSRowStatus": {
+    "name": "alaIND1WebMgtRFSRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIND1WebMgtDigestAuth": {
+    "name": "alaIND1WebMgtDigestAuth",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtHttpPort": {
+    "name": "alaIND1WebMgtHttpPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 80,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtHttpsPort": {
+    "name": "alaIND1WebMgtHttpsPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 443,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtHanIp": {
+    "name": "alaIND1WebMgtHanIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtWlanIpPrecedence": {
+    "name": "alaIND1WebMgtWlanIpPrecedence",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lldp": 1,
+          "configured": 2
+        }
+      }
+    },
+    "default": {
+      "value": "lldp",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtWlanConfiguredIpAddressType": {
+    "name": "alaIND1WebMgtWlanConfiguredIpAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtWlanConfiguredIpAddress": {
+    "name": "alaIND1WebMgtWlanConfiguredIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtWlanLldpIpAddressType": {
+    "name": "alaIND1WebMgtWlanLldpIpAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIND1WebMgtWlanLldpIpAddress": {
+    "name": "alaIND1WebMgtWlanLldpIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webMgtTrapsDesc": {
+    "name": "webMgtTrapsDesc",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.3",
+    "class": "objectidentity"
+  },
+  "webMgtTrapsObj": {
+    "name": "webMgtTrapsObj",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.4",
+    "class": "objectidentity"
+  },
+  "httpServerDoSAttackTrap": {
+    "name": "httpServerDoSAttackTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpConnectionStats"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpsConnectionStats"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpServerDoSAttackSrcIp"
+      }
+    ],
+    "status": "current"
+  },
+  "httpConnectionStats": {
+    "name": "httpConnectionStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpsConnectionStats": {
+    "name": "httpsConnectionStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpServerDoSAttackSrcIp": {
+    "name": "httpServerDoSAttackSrcIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIND1WebMgtConfigMIBGroup": {
+    "name": "alaIND1WebMgtConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtSSL"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtHttpPort"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtHttpsPort"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtDigestAuth"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtWlanIpPrecedence"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtWlanConfiguredIpAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtWlanConfiguredIpAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtWlanLldpIpAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtWlanLldpIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIND1WebMgtRFSMIBGroup": {
+    "name": "alaIND1WebMgtRFSMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSAddrType"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSIPAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSIPServerName"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSServerLogin"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSServerPassword"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSPrefServer"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSPath"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "alaIND1WebMgtRFSRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "webMgtTrapsGroup": {
+    "name": "webMgtTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpConnectionStats"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpsConnectionStats"
+      },
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpServerDoSAttackSrcIp"
+      }
+    ],
+    "status": "current"
+  },
+  "webMgtTrapsDescGroup": {
+    "name": "webMgtTrapsDescGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.17.1.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-WEBMGT-MIB",
+        "object": "httpServerDoSAttackTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-WEBMGT-MIB",
+      "Source digest sha256:7b9d21515c27a4ac86361236e15018928ca19dfa345091f9f9bcab3252db9988",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-WEBMGT-MIB"
+  }
+}

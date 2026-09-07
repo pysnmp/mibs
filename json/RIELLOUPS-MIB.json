@@ -1,0 +1,1887 @@
+{
+  "imports": {
+    "class": "imports",
+    "RIELLO-MIB": [
+      "rielloMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TimeInterval",
+      "TimeStamp"
+    ]
+  },
+  "rupsMIB": {
+    "name": "rupsMIB",
+    "oid": "1.3.6.1.4.1.5491.10",
+    "class": "objectidentity"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NonNegativeInteger": {
+    "name": "NonNegativeInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "rupsObjects": {
+    "name": "rupsObjects",
+    "oid": "1.3.6.1.4.1.5491.10.1",
+    "class": "objectidentity"
+  },
+  "rupsIdent": {
+    "name": "rupsIdent",
+    "oid": "1.3.6.1.4.1.5491.10.1.1",
+    "class": "objectidentity"
+  },
+  "rupsIdentManufacturer": {
+    "name": "rupsIdentManufacturer",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentModel": {
+    "name": "rupsIdentModel",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentUPSSoftwareVersion": {
+    "name": "rupsIdentUPSSoftwareVersion",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentAgentSoftwareVersion": {
+    "name": "rupsIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentName": {
+    "name": "rupsIdentName",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsIdentAttachedDevices": {
+    "name": "rupsIdentAttachedDevices",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsIdentIOConfiguration": {
+    "name": "rupsIdentIOConfiguration",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentUpsType": {
+    "name": "rupsIdentUpsType",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentNominalPowerVA": {
+    "name": "rupsIdentNominalPowerVA",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentNominalPowerW": {
+    "name": "rupsIdentNominalPowerW",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentBatteryVoltage": {
+    "name": "rupsIdentBatteryVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentBatteryCapacity": {
+    "name": "rupsIdentBatteryCapacity",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentOutputVoltage": {
+    "name": "rupsIdentOutputVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIdentOutputFrequency": {
+    "name": "rupsIdentOutputFrequency",
+    "oid": "1.3.6.1.4.1.5491.10.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBattery": {
+    "name": "rupsBattery",
+    "oid": "1.3.6.1.4.1.5491.10.1.2",
+    "class": "objectidentity"
+  },
+  "rupsBatteryStatus": {
+    "name": "rupsBatteryStatus",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "batteryNormal": 2,
+          "batteryLow": 3,
+          "batteryDepleted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsSecondsOnBattery": {
+    "name": "rupsSecondsOnBattery",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsEstimatedMinutesRemaining": {
+    "name": "rupsEstimatedMinutesRemaining",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsEstimatedChargeRemaining": {
+    "name": "rupsEstimatedChargeRemaining",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryVoltage": {
+    "name": "rupsBatteryVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryCurrent": {
+    "name": "rupsBatteryCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryTemperature": {
+    "name": "rupsBatteryTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryPositiveVoltage": {
+    "name": "rupsBatteryPositiveVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryNegativeVoltage": {
+    "name": "rupsBatteryNegativeVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryPositiveCurrent": {
+    "name": "rupsBatteryPositiveCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryNegativeCurrent": {
+    "name": "rupsBatteryNegativeCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsIsCharging": {
+    "name": "rupsIsCharging",
+    "oid": "1.3.6.1.4.1.5491.10.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discharging": 0,
+          "charging": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInput": {
+    "name": "rupsInput",
+    "oid": "1.3.6.1.4.1.5491.10.1.3",
+    "class": "objectidentity"
+  },
+  "rupsInputLineBads": {
+    "name": "rupsInputLineBads",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInputNumLines": {
+    "name": "rupsInputNumLines",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInputTable": {
+    "name": "rupsInputTable",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsInputEntry": {
+    "name": "rupsInputEntry",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsInputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rupsInputLineIndex": {
+    "name": "rupsInputLineIndex",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsInputFrequency": {
+    "name": "rupsInputFrequency",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInputVoltage": {
+    "name": "rupsInputVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInputCurrent": {
+    "name": "rupsInputCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsInputTruePower": {
+    "name": "rupsInputTruePower",
+    "oid": "1.3.6.1.4.1.5491.10.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutput": {
+    "name": "rupsOutput",
+    "oid": "1.3.6.1.4.1.5491.10.1.4",
+    "class": "objectidentity"
+  },
+  "rupsOutputSource": {
+    "name": "rupsOutputSource",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "normal": 3,
+          "bypass": 4,
+          "battery": 5,
+          "booster": 6,
+          "reducer": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputFrequency": {
+    "name": "rupsOutputFrequency",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputNumLines": {
+    "name": "rupsOutputNumLines",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputTable": {
+    "name": "rupsOutputTable",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsOutputEntry": {
+    "name": "rupsOutputEntry",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsOutputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rupsOutputLineIndex": {
+    "name": "rupsOutputLineIndex",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsOutputVoltage": {
+    "name": "rupsOutputVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputCurrent": {
+    "name": "rupsOutputCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputPower": {
+    "name": "rupsOutputPower",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputPercentLoad": {
+    "name": "rupsOutputPercentLoad",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsOutputPeakCurrent": {
+    "name": "rupsOutputPeakCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBypass": {
+    "name": "rupsBypass",
+    "oid": "1.3.6.1.4.1.5491.10.1.5",
+    "class": "objectidentity"
+  },
+  "rupsBypassFrequency": {
+    "name": "rupsBypassFrequency",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBypassNumLines": {
+    "name": "rupsBypassNumLines",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBypassTable": {
+    "name": "rupsBypassTable",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsBypassEntry": {
+    "name": "rupsBypassEntry",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsBypassLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rupsBypassLineIndex": {
+    "name": "rupsBypassLineIndex",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsBypassVoltage": {
+    "name": "rupsBypassVoltage",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBypassCurrent": {
+    "name": "rupsBypassCurrent",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBypassPower": {
+    "name": "rupsBypassPower",
+    "oid": "1.3.6.1.4.1.5491.10.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsAlarm": {
+    "name": "rupsAlarm",
+    "oid": "1.3.6.1.4.1.5491.10.1.6",
+    "class": "objectidentity"
+  },
+  "rupsAlarmsPresent": {
+    "name": "rupsAlarmsPresent",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsAlarmTable": {
+    "name": "rupsAlarmTable",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsAlarmEntry": {
+    "name": "rupsAlarmEntry",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rupsAlarmId": {
+    "name": "rupsAlarmId",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rupsAlarmDescr": {
+    "name": "rupsAlarmDescr",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsAlarmTime": {
+    "name": "rupsAlarmTime",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsWellKnownAlarms": {
+    "name": "rupsWellKnownAlarms",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3",
+    "class": "objectidentity"
+  },
+  "rupsAlarmBatteryBad": {
+    "name": "rupsAlarmBatteryBad",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.1",
+    "class": "objectidentity"
+  },
+  "rupsAlarmOnBattery": {
+    "name": "rupsAlarmOnBattery",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.2",
+    "class": "objectidentity"
+  },
+  "rupsAlarmLowBattery": {
+    "name": "rupsAlarmLowBattery",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.3",
+    "class": "objectidentity"
+  },
+  "rupsAlarmShutdownImminent": {
+    "name": "rupsAlarmShutdownImminent",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.4",
+    "class": "objectidentity"
+  },
+  "rupsAlarmTempBad": {
+    "name": "rupsAlarmTempBad",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.5",
+    "class": "objectidentity"
+  },
+  "rupsAlarmFault": {
+    "name": "rupsAlarmFault",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.6",
+    "class": "objectidentity"
+  },
+  "rupsAlarmInternal": {
+    "name": "rupsAlarmInternal",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.7",
+    "class": "objectidentity"
+  },
+  "rupsAlarmOutputOverload": {
+    "name": "rupsAlarmOutputOverload",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.8",
+    "class": "objectidentity"
+  },
+  "rupsAlarmOnBypass": {
+    "name": "rupsAlarmOnBypass",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.9",
+    "class": "objectidentity"
+  },
+  "rupsAlarmBypassBad": {
+    "name": "rupsAlarmBypassBad",
+    "oid": "1.3.6.1.4.1.5491.10.1.6.3.10",
+    "class": "objectidentity"
+  },
+  "rupsTest": {
+    "name": "rupsTest",
+    "oid": "1.3.6.1.4.1.5491.10.1.7",
+    "class": "objectidentity"
+  },
+  "rupsTestId": {
+    "name": "rupsTestId",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "rupsTestSpinLock": {
+    "name": "rupsTestSpinLock",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "rupsTestResultsSummary": {
+    "name": "rupsTestResultsSummary",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "donePass": 1,
+          "doneWarning": 2,
+          "doneError": 3,
+          "aborted": 4,
+          "inProgress": 5,
+          "noTestsInitiated": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rupsTestResultsDetail": {
+    "name": "rupsTestResultsDetail",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rupsTestStartTime": {
+    "name": "rupsTestStartTime",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rupsTestElapsedTime": {
+    "name": "rupsTestElapsedTime",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rupsWellKnownTests": {
+    "name": "rupsWellKnownTests",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7",
+    "class": "objectidentity"
+  },
+  "rupsTestNoTestsInitiated": {
+    "name": "rupsTestNoTestsInitiated",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7.1",
+    "class": "objectidentity"
+  },
+  "rupsTestAbortTestInProgress": {
+    "name": "rupsTestAbortTestInProgress",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7.2",
+    "class": "objectidentity"
+  },
+  "rupsTestGeneralSystemsTest": {
+    "name": "rupsTestGeneralSystemsTest",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7.3",
+    "class": "objectidentity"
+  },
+  "rupsTestQuickBatteryTest": {
+    "name": "rupsTestQuickBatteryTest",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7.4",
+    "class": "objectidentity"
+  },
+  "rupsTestDeepBatteryCalibration": {
+    "name": "rupsTestDeepBatteryCalibration",
+    "oid": "1.3.6.1.4.1.5491.10.1.7.7.5",
+    "class": "objectidentity"
+  },
+  "rupsControl": {
+    "name": "rupsControl",
+    "oid": "1.3.6.1.4.1.5491.10.1.8",
+    "class": "objectidentity"
+  },
+  "rupsShutdownType": {
+    "name": "rupsShutdownType",
+    "oid": "1.3.6.1.4.1.5491.10.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "output": 1,
+          "system": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsShutdownAfterDelay": {
+    "name": "rupsShutdownAfterDelay",
+    "oid": "1.3.6.1.4.1.5491.10.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsStartupAfterDelay": {
+    "name": "rupsStartupAfterDelay",
+    "oid": "1.3.6.1.4.1.5491.10.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsRebootWithDuration": {
+    "name": "rupsRebootWithDuration",
+    "oid": "1.3.6.1.4.1.5491.10.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsAutoRestart": {
+    "name": "rupsAutoRestart",
+    "oid": "1.3.6.1.4.1.5491.10.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rupsTemperature": {
+    "name": "rupsTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10",
+    "class": "objectidentity"
+  },
+  "rupsSystemTemperature": {
+    "name": "rupsSystemTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsPowerTemperature1": {
+    "name": "rupsPowerTemperature1",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsPowerTemperature2": {
+    "name": "rupsPowerTemperature2",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsPowerTemperature3": {
+    "name": "rupsPowerTemperature3",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsChargerTemperature": {
+    "name": "rupsChargerTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryPositiveTemperature": {
+    "name": "rupsBatteryPositiveTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryNegativeTemperature": {
+    "name": "rupsBatteryNegativeTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsBatteryExternalTemperature": {
+    "name": "rupsBatteryExternalTemperature",
+    "oid": "1.3.6.1.4.1.5491.10.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsMPS": {
+    "name": "rupsMPS",
+    "oid": "1.3.6.1.4.1.5491.10.1.20",
+    "class": "objectidentity"
+  },
+  "mpsAlarmGroupS": {
+    "name": "mpsAlarmGroupS",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupC": {
+    "name": "mpsAlarmGroupC",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupB": {
+    "name": "mpsAlarmGroupB",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupR": {
+    "name": "mpsAlarmGroupR",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupRI": {
+    "name": "mpsAlarmGroupRI",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupI": {
+    "name": "mpsAlarmGroupI",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA0": {
+    "name": "mpsAlarmGroupA0",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA1": {
+    "name": "mpsAlarmGroupA1",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA2": {
+    "name": "mpsAlarmGroupA2",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA3": {
+    "name": "mpsAlarmGroupA3",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA4": {
+    "name": "mpsAlarmGroupA4",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpsAlarmGroupA5": {
+    "name": "mpsAlarmGroupA5",
+    "oid": "1.3.6.1.4.1.5491.10.1.20.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsMST": {
+    "name": "rupsMST",
+    "oid": "1.3.6.1.4.1.5491.10.1.21",
+    "class": "objectidentity"
+  },
+  "mstWarningGroupW0W1": {
+    "name": "mstWarningGroupW0W1",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstAnomalyGroupA0A1": {
+    "name": "mstAnomalyGroupA0A1",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstAnomalyGroupA2A3": {
+    "name": "mstAnomalyGroupA2A3",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstAnomalyGroupA4A5": {
+    "name": "mstAnomalyGroupA4A5",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstFaultGroupF0F1": {
+    "name": "mstFaultGroupF0F1",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstFaultGroupF2F3": {
+    "name": "mstFaultGroupF2F3",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstFaultGroupF4F5": {
+    "name": "mstFaultGroupF4F5",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstLockGroupL0L1": {
+    "name": "mstLockGroupL0L1",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstLockGroupL2L3": {
+    "name": "mstLockGroupL2L3",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstLockGroupL4L5": {
+    "name": "mstLockGroupL4L5",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mstEventGroupE0E1": {
+    "name": "mstEventGroupE0E1",
+    "oid": "1.3.6.1.4.1.5491.10.1.21.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsMPW": {
+    "name": "rupsMPW",
+    "oid": "1.3.6.1.4.1.5491.10.1.22",
+    "class": "objectidentity"
+  },
+  "mpwSystemStatusGroup1": {
+    "name": "mpwSystemStatusGroup1",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwSystemStatusGroup2": {
+    "name": "mpwSystemStatusGroup2",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwSystemStatusGroup3": {
+    "name": "mpwSystemStatusGroup3",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwBypassModuleAlarmGroup": {
+    "name": "mpwBypassModuleAlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule1AlarmGroup": {
+    "name": "mpwPowerModule1AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule2AlarmGroup": {
+    "name": "mpwPowerModule2AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule3AlarmGroup": {
+    "name": "mpwPowerModule3AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule4AlarmGroup": {
+    "name": "mpwPowerModule4AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule5AlarmGroup": {
+    "name": "mpwPowerModule5AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule6AlarmGroup": {
+    "name": "mpwPowerModule6AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule7AlarmGroup": {
+    "name": "mpwPowerModule7AlarmGroup",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwBypassModuleStatus": {
+    "name": "mpwBypassModuleStatus",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule1Status": {
+    "name": "mpwPowerModule1Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule2Status": {
+    "name": "mpwPowerModule2Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule3Status": {
+    "name": "mpwPowerModule3Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule4Status": {
+    "name": "mpwPowerModule4Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule5Status": {
+    "name": "mpwPowerModule5Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule6Status": {
+    "name": "mpwPowerModule6Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwPowerModule7Status": {
+    "name": "mpwPowerModule7Status",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mpwControl": {
+    "name": "mpwControl",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20",
+    "class": "objectidentity"
+  },
+  "mpwCommandCode": {
+    "name": "mpwCommandCode",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mpwShutdownDelay": {
+    "name": "mpwShutdownDelay",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mpwRestoreDelay": {
+    "name": "mpwRestoreDelay",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mpwModuleApplyCommand": {
+    "name": "mpwModuleApplyCommand",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mpwCommandResult": {
+    "name": "mpwCommandResult",
+    "oid": "1.3.6.1.4.1.5491.10.1.22.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rupsTraps": {
+    "name": "rupsTraps",
+    "oid": "1.3.6.1.4.1.5491.10.2",
+    "class": "objectidentity"
+  },
+  "rupsTrapOnBattery": {
+    "name": "rupsTrapOnBattery",
+    "oid": "1.3.6.1.4.1.5491.10.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsEstimatedMinutesRemaining"
+      },
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsSecondsOnBattery"
+      },
+      {
+        "module": "RIELLOUPS-MIB",
+        "object": "rupsConfigLowBattTime"
+      }
+    ]
+  },
+  "rupsTrapTestCompleted": {
+    "name": "rupsTrapTestCompleted",
+    "oid": "1.3.6.1.4.1.5491.10.2.0.2",
+    "class": "notificationtype"
+  },
+  "rupsTrapAlarmEntryAdded": {
+    "name": "rupsTrapAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.5491.10.2.0.3",
+    "class": "notificationtype"
+  },
+  "rupsTrapAlarmEntryRemoved": {
+    "name": "rupsTrapAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.5491.10.2.0.4",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RIELLOUPS-MIB",
+      "Source digest sha256:4a0bb369b210af99f132c204fd097cd3afec7533553570c4792d36f34a0cb25d",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RIELLOUPS-MIB"
+  }
+}

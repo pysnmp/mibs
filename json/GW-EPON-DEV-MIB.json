@@ -1,0 +1,984 @@
+{
+  "imports": {
+    "class": "imports",
+    "GW-EPON-MIB": [
+      "EponDeviceType",
+      "deviceIndex",
+      "gwDevTrapGroup"
+    ],
+    "GWTT-SMI": [
+      "devices"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "eponDevManMIB": {
+    "name": "eponDevManMIB",
+    "oid": "1.3.6.1.4.1.10072.2.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-14 13:21",
+        "description": ""
+      }
+    ]
+  },
+  "eponDevManMIBObjects": {
+    "name": "eponDevManMIBObjects",
+    "oid": "1.3.6.1.4.1.10072.2.15.1",
+    "class": "objectidentity"
+  },
+  "updateONUGroup": {
+    "name": "updateONUGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.1",
+    "class": "objectidentity"
+  },
+  "logEventGroup": {
+    "name": "logEventGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3",
+    "class": "objectidentity"
+  },
+  "fanAlarmInfoGroup": {
+    "name": "fanAlarmInfoGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4",
+    "class": "objectidentity"
+  },
+  "powerInfoGroup": {
+    "name": "powerInfoGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5",
+    "class": "objectidentity"
+  },
+  "temperatureInfoGroup": {
+    "name": "temperatureInfoGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6",
+    "class": "objectidentity"
+  },
+  "onuAlarmMaskGroup": {
+    "name": "onuAlarmMaskGroup",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7",
+    "class": "objectidentity"
+  },
+  "onuUpdateTable": {
+    "name": "onuUpdateTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUpdateEntry": {
+    "name": "onuUpdateEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "updateONUEnable": {
+    "name": "updateONUEnable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "updateCtrlFlag": {
+    "name": "updateCtrlFlag",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "update": 2,
+          "inProcess": 3,
+          "forbidden": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "logEventTable": {
+    "name": "logEventTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "logEventEntry": {
+    "name": "logEventEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "logEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "logEventIndex": {
+    "name": "logEventIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logEventTime": {
+    "name": "logEventTime",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logEventDesc": {
+    "name": "logEventDesc",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynTable": {
+    "name": "alarmSynTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmSynEntry": {
+    "name": "alarmSynEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "alarmSynIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmSynIndex": {
+    "name": "alarmSynIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynTime": {
+    "name": "alarmSynTime",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynData": {
+    "name": "alarmSynData",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynFlag": {
+    "name": "alarmSynFlag",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynClearTime": {
+    "name": "alarmSynClearTime",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSynEnable": {
+    "name": "alarmSynEnable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "logEventEnable": {
+    "name": "logEventEnable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lastLogEventIndex": {
+    "name": "lastLogEventIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanAlarmTable": {
+    "name": "devFanAlarmTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devFanAlarmEntry": {
+    "name": "devFanAlarmEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "devFanDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "devFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devFanDeviceIndex": {
+    "name": "devFanDeviceIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanIndex": {
+    "name": "devFanIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanAlarmStatus": {
+    "name": "devFanAlarmStatus",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ALARM": 1,
+          "CLEAR": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanSpyEnable": {
+    "name": "devFanSpyEnable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "notSupport": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "devFanRev": {
+    "name": "devFanRev",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanNumber": {
+    "name": "devFanNumber",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanAutoTurnOnThresholds": {
+    "name": "devFanAutoTurnOnThresholds",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "devFanAutoTurnOffThresholds": {
+    "name": "devFanAutoTurnOffThresholds",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "devFanRevThresholds": {
+    "name": "devFanRevThresholds",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerInfoTable": {
+    "name": "powerInfoTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerInfoEntry": {
+    "name": "powerInfoEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "powerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerIndex": {
+    "name": "powerIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerRunStatus": {
+    "name": "powerRunStatus",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 1,
+          "powerOff": 2,
+          "powerOn": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerTemperature": {
+    "name": "powerTemperature",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerLastChangeTime": {
+    "name": "powerLastChangeTime",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerTMPRisingThreshold": {
+    "name": "powerTMPRisingThreshold",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerTMPFallingThreshold": {
+    "name": "powerTMPFallingThreshold",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerModuleType": {
+    "name": "powerModuleType",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "AC220V": 1,
+          "DC48V": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerVoltage": {
+    "name": "powerVoltage",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerCurrent": {
+    "name": "powerCurrent",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerVOLTHighThreshold": {
+    "name": "powerVOLTHighThreshold",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerVOLTLowThreshold": {
+    "name": "powerVOLTLowThreshold",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerAlarmInfo": {
+    "name": "powerAlarmInfo",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerAlarmID": {
+    "name": "powerAlarmID",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerClearAlarmID": {
+    "name": "powerClearAlarmID",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devFanAlarm": {
+    "name": "devFanAlarm",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      },
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "devFanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "devFanAlarmClear": {
+    "name": "devFanAlarmClear",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      },
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "devFanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceTemperatureHigh": {
+    "name": "deviceTemperatureHigh",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceTemperatureHighClear": {
+    "name": "deviceTemperatureHighClear",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceTemperatureLow": {
+    "name": "deviceTemperatureLow",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.126",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceTemperatureLowClear": {
+    "name": "deviceTemperatureLowClear",
+    "oid": "1.3.6.1.4.1.10072.2.20.1.1.6.127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GW-EPON-MIB",
+        "object": "deviceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureInfoTable": {
+    "name": "temperatureInfoTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureInfoEntry": {
+    "name": "temperatureInfoEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "temperatureDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureDeviceIndex": {
+    "name": "temperatureDeviceIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devTemperature": {
+    "name": "devTemperature",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devTemperatureHighThresholes": {
+    "name": "devTemperatureHighThresholes",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "devTemperatureLowThresholes": {
+    "name": "devTemperatureLowThresholes",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "devTemperatureSpyEnable": {
+    "name": "devTemperatureSpyEnable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "notSupport": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAlarmMaskTable": {
+    "name": "onuAlarmMaskTable",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAlarmMaskEntry": {
+    "name": "onuAlarmMaskEntry",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GW-EPON-DEV-MIB",
+        "object": "onutypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onutypeIndex": {
+    "name": "onutypeIndex",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onualarmMask": {
+    "name": "onualarmMask",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "power": 0,
+        "fan": 1,
+        "cpu": 2,
+        "temperature": 3,
+        "register": 4,
+        "present": 5,
+        "ethlink": 6,
+        "ethfer": 7,
+        "ethflr": 8,
+        "ethti": 9,
+        "ethloop": 10,
+        "ponber": 11,
+        "ponfer": 12,
+        "ponabnormal": 13,
+        "ponaps": 14,
+        "ponlink": 15,
+        "onuLaserAlwayOn": 16,
+        "onuOpticalPowerLow": 17,
+        "onuOpticalPowerHigh": 18
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onualarmMaskrowstatus": {
+    "name": "onualarmMaskrowstatus",
+    "oid": "1.3.6.1.4.1.10072.2.15.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source GW-EPON-DEV-MIB",
+      "Source digest sha256:f66cd04e252e3e0835e79bc63cad4fbd61befce85dec49ba118f90aefc1b44a0",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "GW-EPON-DEV-MIB"
+  }
+}

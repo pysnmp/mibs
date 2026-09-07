@@ -1,0 +1,921 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TC": [
+      "CiscoVrfName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTrustSecSxpCapability": {
+    "name": "ciscoTrustSecSxpCapability",
+    "oid": "1.3.6.1.4.1.9.7.591",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 00:00",
+        "description": "Added capapbility statement ciscoTrustSecSxpCapV15R0101SYPCat6k."
+      },
+      {
+        "revision": "2012-04-10 00:00",
+        "description": "Added capability statement ciscoTrustSecSxpCapV15R0101SGPCat4k."
+      },
+      {
+        "revision": "2011-09-28 00:00",
+        "description": "Added capability statement ciscoTrustSecSxpCapV15R0001SYPCat6k."
+      },
+      {
+        "revision": "2011-03-23 00:00",
+        "description": "Added capability statement ciscoTrustSecSxpCapV12R0233SXJPCat6k."
+      },
+      {
+        "revision": "2010-11-03 00:00",
+        "description": "Added agent capabilities statement ciscoTrustSecSxpCapV12R0250SYPCat6k."
+      },
+      {
+        "revision": "2010-03-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecSxpCapV12R0233SXI4PCat6k": {
+    "name": "ciscoTrustSecSxpCapV12R0233SXI4PCat6k",
+    "oid": "1.3.6.1.4.1.9.7.591.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnVrfName",
+            "syntax": {
+              "type": "CiscoVrfName",
+              "class": "type"
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpCapV12R0250SYPCat6k": {
+    "name": "ciscoTrustSecSxpCapV12R0250SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.591.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpCapV12R0233SXJPCat6k": {
+    "name": "ciscoTrustSecSxpCapV12R0233SXJPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.591.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXJ on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup",
+          "ctsxSxpVersionGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpCapV15R0001SYPCat6k": {
+    "name": "ciscoTrustSecSxpCapV15R0001SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.591.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup",
+          "ctsxSxpVersionGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpCapV15R0101SGPCat4k": {
+    "name": "ciscoTrustSecSxpCapV15R0101SGPCat4k",
+    "oid": "1.3.6.1.4.1.9.7.591.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SG on Cat4K family switches.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup",
+          "ctsxSxpVersionGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSxpCapV15R0101SYPCat6k": {
+    "name": "ciscoTrustSecSxpCapV15R0101SYPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.591.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "includes": [
+          "ctsxSxpGlobalGroup",
+          "ctsxSxpConnectionGroup",
+          "ctsxIpSgtMappingGroup",
+          "ctsxSxpVersionGroup",
+          "ctsxSxpBindingLogGroup",
+          "ctsxSxpBindingNotifInfoGroup",
+          "ctsxSxpNotifErrMsgGroup",
+          "ctsxSxpNodeIdInfoGroup",
+          "ctsxSxpSgtMapGroup",
+          "ctsxNotifsControlGroup",
+          "ctsxNotifsGroup",
+          "ctsxSxpGlobalHoldTimeGroup",
+          "ctsxSxpConnHoldTimeGroup",
+          "ctsxSxpConnCapbilityGroup",
+          "ctsxSxpVersionSupportGroup",
+          "ctsxSgtMapPeerSeqGroup"
+        ],
+        "variations": [
+          {
+            "object": "ctsxSxpConfigDefaultPassword",
+            "syntax": {
+              "type": "SnmpAdminString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 0,
+                    "max": 162
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpDefaultSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpRetryPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpReconPeriod",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 64000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPeerAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnSourceAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnPasswordUsed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "none": 1,
+                  "default": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpConnStorageType",
+            "access": "read-only"
+          },
+          {
+            "object": "ctsxSxpConnRowStatus",
+            "syntax": {
+              "type": "RowStatus",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "ctsxSgtMapExpansionLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 65535
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ctsxSxpNodeIdIpAddrType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "unknown": 0,
+                  "ipv4": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TRUSTSEC-SXP-CAPABILITY",
+      "Source digest sha256:d545d18a0162f6fb53e6be51c10d76d88f8422d4590fae7fc92cfaaededee9f3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TRUSTSEC-SXP-CAPABILITY"
+  }
+}

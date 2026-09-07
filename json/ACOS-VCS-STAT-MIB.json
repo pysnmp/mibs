@@ -1,0 +1,960 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vcsStatModule": {
+    "name": "vcsStatModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18",
+    "class": "moduleidentity"
+  },
+  "stat": {
+    "name": "stat",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1",
+    "class": "objectidentity"
+  },
+  "statStatsTable": {
+    "name": "statStatsTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "statStatsEntry": {
+    "name": "statStatsEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-VCS-STAT-MIB",
+        "object": "statStatsSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statStatsSlotId": {
+    "name": "statStatsSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectRecvErr": {
+    "name": "statStatsElectRecvErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSendErr": {
+    "name": "statStatsElectSendErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectRecvByte": {
+    "name": "statStatsElectRecvByte",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSendByte": {
+    "name": "statStatsElectSendByte",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterRecv": {
+    "name": "statStatsElectPduMasterRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterCandRecv": {
+    "name": "statStatsElectPduMasterCandRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduSlaveRecv": {
+    "name": "statStatsElectPduSlaveRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterTakeOverRecv": {
+    "name": "statStatsElectPduMasterTakeOverRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduUnknownRecv": {
+    "name": "statStatsElectPduUnknownRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterSent": {
+    "name": "statStatsElectPduMasterSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterCandSent": {
+    "name": "statStatsElectPduMasterCandSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduSlaveSent": {
+    "name": "statStatsElectPduSlaveSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduMasterTakeOverSent": {
+    "name": "statStatsElectPduMasterTakeOverSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduUnknownSent": {
+    "name": "statStatsElectPduUnknownSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduInval": {
+    "name": "statStatsElectPduInval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduHwMismatch": {
+    "name": "statStatsElectPduHwMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduClusterMismatch": {
+    "name": "statStatsElectPduClusterMismatch",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectPduDevIdCollision": {
+    "name": "statStatsElectPduDevIdCollision",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMcDiscardMaster": {
+    "name": "statStatsElectMcDiscardMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMcReplaceMaster": {
+    "name": "statStatsElectMcReplaceMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMcDupMasterr": {
+    "name": "statStatsElectMcDupMasterr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMcResetTimerByMc": {
+    "name": "statStatsElectMcResetTimerByMc",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMcResetTimerByMto": {
+    "name": "statStatsElectMcResetTimerByMto",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveDupMaster": {
+    "name": "statStatsElectSlaveDupMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveDiscardChallenger": {
+    "name": "statStatsElectSlaveDiscardChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveReplaceChallenger": {
+    "name": "statStatsElectSlaveReplaceChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveDupChallenger": {
+    "name": "statStatsElectSlaveDupChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveDiscardNeighbour": {
+    "name": "statStatsElectSlaveDiscardNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveTooManyNeighbour": {
+    "name": "statStatsElectSlaveTooManyNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectSlaveDupNeighbour": {
+    "name": "statStatsElectSlaveDupNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterDiscardChallenger": {
+    "name": "statStatsElectMasterDiscardChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterNewChallenger": {
+    "name": "statStatsElectMasterNewChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterReplaceChallenger": {
+    "name": "statStatsElectMasterReplaceChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterDupChallenger": {
+    "name": "statStatsElectMasterDupChallenger",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterDiscardNeighbour": {
+    "name": "statStatsElectMasterDiscardNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterTooManyNeighbour": {
+    "name": "statStatsElectMasterTooManyNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectMasterDupNeighbour": {
+    "name": "statStatsElectMasterDupNeighbour",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectEnterMasterCandStat": {
+    "name": "statStatsElectEnterMasterCandStat",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectEnterSlave": {
+    "name": "statStatsElectEnterSlave",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectEnterMaster": {
+    "name": "statStatsElectEnterMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectEnterMasterTakeOver": {
+    "name": "statStatsElectEnterMasterTakeOver",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectLeaveMasterCand": {
+    "name": "statStatsElectLeaveMasterCand",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectLeaveSlave": {
+    "name": "statStatsElectLeaveSlave",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectLeaveMaster": {
+    "name": "statStatsElectLeaveMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsElectLeaveMasterTakeOver": {
+    "name": "statStatsElectLeaveMasterTakeOver",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterSlaveStartErr": {
+    "name": "statStatsMasterSlaveStartErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterSlaveStart": {
+    "name": "statStatsMasterSlaveStart",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterSlaveStop": {
+    "name": "statStatsMasterSlaveStop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterCfgUpd": {
+    "name": "statStatsMasterCfgUpd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterCfgUpdLFail": {
+    "name": "statStatsMasterCfgUpdLFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterCfgUpdRFail": {
+    "name": "statStatsMasterCfgUpdRFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterCfgUpdNotifErr": {
+    "name": "statStatsMasterCfgUpdNotifErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsMasterCfgUpdResultErr": {
+    "name": "statStatsMasterCfgUpdResultErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveRecvErr": {
+    "name": "statStatsSlaveRecvErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveSendErr": {
+    "name": "statStatsSlaveSendErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveRecvBytes": {
+    "name": "statStatsSlaveRecvBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveSentBytes": {
+    "name": "statStatsSlaveSentBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveNRecv": {
+    "name": "statStatsSlaveNRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveNSent": {
+    "name": "statStatsSlaveNSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveMsgInval": {
+    "name": "statStatsSlaveMsgInval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveKeepalive": {
+    "name": "statStatsSlaveKeepalive",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveCfgUpd": {
+    "name": "statStatsSlaveCfgUpd",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsSlaveCfgUpdFail": {
+    "name": "statStatsSlaveCfgUpdFail",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonNElecStart": {
+    "name": "statStatsDaemonNElecStart",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonNElecStop": {
+    "name": "statStatsDaemonNElecStop",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonRecvErr": {
+    "name": "statStatsDaemonRecvErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonSendErr": {
+    "name": "statStatsDaemonSendErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonRecvBytes": {
+    "name": "statStatsDaemonRecvBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonSentBytes": {
+    "name": "statStatsDaemonSentBytes",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonNRecv": {
+    "name": "statStatsDaemonNRecv",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonNSent": {
+    "name": "statStatsDaemonNSent",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonMsgInval": {
+    "name": "statStatsDaemonMsgInval",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statStatsDaemonMsgHandleFailure": {
+    "name": "statStatsDaemonMsgHandleFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.18.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-VCS-STAT-MIB",
+      "Source digest sha256:90411d36422c1c952621295a3e212eb0680b0ef9a74f87fca3762b2ef22f5410",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-VCS-STAT-MIB"
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoSsmProvMIB": {
+    "name": "ciscoSsmProvMIB",
+    "oid": "1.3.6.1.4.1.9.9.448",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-15 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoSsmProvMIBObjects": {
+    "name": "ciscoSsmProvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.448.1",
+    "class": "objectidentity"
+  },
+  "ciscoSsmProvMIBConform": {
+    "name": "ciscoSsmProvMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.448.2",
+    "class": "objectidentity"
+  },
+  "ssmProvConfiguration": {
+    "name": "ssmProvConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1",
+    "class": "objectidentity"
+  },
+  "ssmProvFeatureTable": {
+    "name": "ssmProvFeatureTable",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureEntry": {
+    "name": "ssmProvFeatureEntry",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvFeatureName": {
+    "name": "ssmProvFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureNeedsImage": {
+    "name": "ssmProvFeatureNeedsImage",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssmProvFeatureIfTable": {
+    "name": "ssmProvFeatureIfTable",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureIfEntry": {
+    "name": "ssmProvFeatureIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfStartPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfEndPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfFeatureName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvFeatureIfStartPort": {
+    "name": "ssmProvFeatureIfStartPort",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureIfEndPort": {
+    "name": "ssmProvFeatureIfEndPort",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureIfFeatureName": {
+    "name": "ssmProvFeatureIfFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvFeatureIfForceRemove": {
+    "name": "ssmProvFeatureIfForceRemove",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceReset": 1,
+          "noop": 2
+        }
+      }
+    },
+    "default": {
+      "value": "noop",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ssmProvFeatureIfPartnerImageURI": {
+    "name": "ssmProvFeatureIfPartnerImageURI",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ssmProvFeatureIfRowStatus": {
+    "name": "ssmProvFeatureIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ssmProvDppTable": {
+    "name": "ssmProvDppTable",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvDppEntry": {
+    "name": "ssmProvDppEntry",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvDppStartPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvDppStartPort": {
+    "name": "ssmProvDppStartPort",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ssmProvDppEndPort": {
+    "name": "ssmProvDppEndPort",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssmProvDppName": {
+    "name": "ssmProvDppName",
+    "oid": "1.3.6.1.4.1.9.9.448.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssmProvMIBCompliances": {
+    "name": "ssmProvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.448.2.1",
+    "class": "objectidentity"
+  },
+  "ssmProvMIBGroups": {
+    "name": "ssmProvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.448.2.2",
+    "class": "objectidentity"
+  },
+  "ssmProvMIBCompliance": {
+    "name": "ssmProvMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.448.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ssmProvFeatureGroup",
+        "module": "CISCO-SSM-PROV-MIB"
+      },
+      {
+        "object": "ssmProvFeatureIfGroup",
+        "module": "CISCO-SSM-PROV-MIB"
+      },
+      {
+        "object": "ssmProvDppGroup",
+        "module": "CISCO-SSM-PROV-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvFeatureGroup": {
+    "name": "ssmProvFeatureGroup",
+    "oid": "1.3.6.1.4.1.9.9.448.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureNeedsImage"
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvFeatureIfGroup": {
+    "name": "ssmProvFeatureIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.448.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfForceRemove"
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfPartnerImageURI"
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvFeatureIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ssmProvDppGroup": {
+    "name": "ssmProvDppGroup",
+    "oid": "1.3.6.1.4.1.9.9.448.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvDppEndPort"
+      },
+      {
+        "module": "CISCO-SSM-PROV-MIB",
+        "object": "ssmProvDppName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SSM-PROV-MIB",
+      "Source digest sha256:0e1ab5cca839da0322edc0676fb0b9f2b2d8615e6acc1f1a5814d786ba7c4228",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SSM-PROV-MIB"
+  }
+}

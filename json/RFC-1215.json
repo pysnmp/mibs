@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "ObjectName",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RFC-1215",
+      "Source digest sha256:c96ea7bc5b2b05c361f69ce4dd637a7d8d5b97d60b4b7694539998a1a1c2ef57",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RFC-1215"
+  }
+}

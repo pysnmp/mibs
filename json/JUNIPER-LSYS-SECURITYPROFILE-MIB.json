@@ -1,0 +1,132 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-JS-SMI": [
+      "jnxLsysSecurityProfile"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpZone": {
+    "name": "jnxLsysSpZone",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpScheduler": {
+    "name": "jnxLsysSpScheduler",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpPolicy": {
+    "name": "jnxLsysSpPolicy",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.3",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpPolicywcnt": {
+    "name": "jnxLsysSpPolicywcnt",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.4",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpFlowgate": {
+    "name": "jnxLsysSpFlowgate",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpFlowsess": {
+    "name": "jnxLsysSpFlowsess",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.6",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpAuthentry": {
+    "name": "jnxLsysSpAuthentry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.7",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcpool": {
+    "name": "jnxLsysSpNATsrcpool",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.8",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATdstpool": {
+    "name": "jnxLsysSpNATdstpool",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.9",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcpatad": {
+    "name": "jnxLsysSpNATsrcpatad",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcnopatad": {
+    "name": "jnxLsysSpNATsrcnopatad",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.11",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcrule": {
+    "name": "jnxLsysSpNATsrcrule",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.12",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATdstrule": {
+    "name": "jnxLsysSpNATdstrule",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.13",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATstaticrule": {
+    "name": "jnxLsysSpNATstaticrule",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.14",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATconebind": {
+    "name": "jnxLsysSpNATconebind",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.15",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATpoipnum": {
+    "name": "jnxLsysSpNATpoipnum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.16",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATRuleRefPfx": {
+    "name": "jnxLsysSpNATRuleRefPfx",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.17",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpCPU": {
+    "name": "jnxLsysSpCPU",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.18",
+    "class": "objectidentity"
+  },
+  "jnxSp": {
+    "name": "jnxSp",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.19",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpSecurewire": {
+    "name": "jnxLsysSpSecurewire",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.20",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source JUNIPER-LSYS-SECURITYPROFILE-MIB",
+      "Source digest sha256:eb98f9bb21229f791d2c5d51884c6588b6e945c44bfe7a1556bdf5dfe208e071",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "JUNIPER-LSYS-SECURITYPROFILE-MIB"
+  }
+}

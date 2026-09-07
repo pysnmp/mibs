@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dellNet": {
+    "name": "dellNet",
+    "oid": "1.3.6.1.4.1.6027",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-15 12:00",
+        "description": "Added dellNetModules."
+      },
+      {
+        "revision": "1900-10-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dellNetProducts": {
+    "name": "dellNetProducts",
+    "oid": "1.3.6.1.4.1.6027.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellNetCommon": {
+    "name": "dellNetCommon",
+    "oid": "1.3.6.1.4.1.6027.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellNetMgmt": {
+    "name": "dellNetMgmt",
+    "oid": "1.3.6.1.4.1.6027.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellNetModules": {
+    "name": "dellNetModules",
+    "oid": "1.3.6.1.4.1.6027.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellNetExperiment": {
+    "name": "dellNetExperiment",
+    "oid": "1.3.6.1.4.1.6027.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source DELL-NETWORKING-SMI",
+      "Source digest sha256:67d07c9a2c7c56fc6686bb875bde3c993f004999e2169e495f6f6e71a945c1bb",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "DELL-NETWORKING-SMI"
+  }
+}

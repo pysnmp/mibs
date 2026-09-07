@@ -1,0 +1,50 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatel": {
+    "name": "alcatel",
+    "oid": "1.3.6.1.4.1.637",
+    "class": "objectidentity"
+  },
+  "asd": {
+    "name": "asd",
+    "oid": "1.3.6.1.4.1.637.61",
+    "class": "objectidentity"
+  },
+  "asam": {
+    "name": "asam",
+    "oid": "1.3.6.1.4.1.637.61.1",
+    "class": "objectidentity"
+  },
+  "ant": {
+    "name": "ant",
+    "oid": "1.3.6.1.4.1.637.61.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SYSTEM-MIB",
+      "Source digest sha256:c5fc65f4dd2d3098c1406d6e654d6324d6ca93ce71003c2d3503cc56a4cfde31",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SYSTEM-MIB"
+  }
+}

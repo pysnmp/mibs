@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "musa": {
+    "name": "musa",
+    "oid": "1.3.6.1.4.1.2011.2.6",
+    "class": "moduleidentity"
+  },
+  "hwMA5200Mib": {
+    "name": "hwMA5200Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.2",
+    "class": "objectidentity"
+  },
+  "hwMA5200G_16": {
+    "name": "hwMA5200G_16",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.29",
+    "class": "objectidentity"
+  },
+  "hwMA5200G_8": {
+    "name": "hwMA5200G_8",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.30",
+    "class": "objectidentity"
+  },
+  "hwMA5200G_4": {
+    "name": "hwMA5200G_4",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.31",
+    "class": "objectidentity"
+  },
+  "hwMA5200G_2": {
+    "name": "hwMA5200G_2",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.32",
+    "class": "objectidentity"
+  },
+  "hwMA5200Ifcfg": {
+    "name": "hwMA5200Ifcfg",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.100",
+    "class": "objectidentity"
+  },
+  "hwMA5200L2tp": {
+    "name": "hwMA5200L2tp",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.101",
+    "class": "objectidentity"
+  },
+  "hwMA5200PPPoX": {
+    "name": "hwMA5200PPPoX",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.102",
+    "class": "objectidentity"
+  },
+  "hwMA5200Srvcfg": {
+    "name": "hwMA5200Srvcfg",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.103",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HUAWEI-MA5200-MIB",
+      "Source digest sha256:e9abd23489b3746ce887fb493bd45ccca24cfd16c10696e993f8fcbb3c5a300c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HUAWEI-MA5200-MIB"
+  }
+}

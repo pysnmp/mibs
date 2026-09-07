@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hh3cL4Redirect": {
+    "name": "hh3cL4Redirect",
+    "oid": "1.3.6.1.4.1.25506.2.10",
+    "class": "moduleidentity"
+  },
+  "hh3cL4RedirectCacheTable": {
+    "name": "hh3cL4RedirectCacheTable",
+    "oid": "1.3.6.1.4.1.25506.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheEntry": {
+    "name": "hh3cL4RedirectCacheEntry",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L4RDT-MIB",
+        "object": "hh3cL4RedirectCacheIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheIpAddress": {
+    "name": "hh3cL4RedirectCacheIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheRedirectionStatus": {
+    "name": "hh3cL4RedirectCacheRedirectionStatus",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabledNotRedirecting": 1,
+          "enabledNoHealthChecker": 2,
+          "enabledHealthChecking": 3,
+          "enabledHealthCheckOKNotRedirecting": 4,
+          "enabledHealthCheckFailed": 5,
+          "enabledRedirecting": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL4RedirectCachePort": {
+    "name": "hh3cL4RedirectCachePort",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheRowStatus": {
+    "name": "hh3cL4RedirectCacheRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheMacAddress": {
+    "name": "hh3cL4RedirectCacheMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheVlan": {
+    "name": "hh3cL4RedirectCacheVlan",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectCacheTcpPort": {
+    "name": "hh3cL4RedirectCacheTcpPort",
+    "oid": "1.3.6.1.4.1.25506.2.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectIpExclusionTable": {
+    "name": "hh3cL4RedirectIpExclusionTable",
+    "oid": "1.3.6.1.4.1.25506.2.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectIpExclusionEntry": {
+    "name": "hh3cL4RedirectIpExclusionEntry",
+    "oid": "1.3.6.1.4.1.25506.2.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L4RDT-MIB",
+        "object": "hh3cL4RedirectIpExclusionIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL4RedirectIpExclusionIpAddress": {
+    "name": "hh3cL4RedirectIpExclusionIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectIpExclusionMaskLen": {
+    "name": "hh3cL4RedirectIpExclusionMaskLen",
+    "oid": "1.3.6.1.4.1.25506.2.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectIpExclusionRowStatus": {
+    "name": "hh3cL4RedirectIpExclusionRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectVlanTable": {
+    "name": "hh3cL4RedirectVlanTable",
+    "oid": "1.3.6.1.4.1.25506.2.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectVlanEntry": {
+    "name": "hh3cL4RedirectVlanEntry",
+    "oid": "1.3.6.1.4.1.25506.2.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L4RDT-MIB",
+        "object": "hh3cL4RedirectVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cL4RedirectVlanID": {
+    "name": "hh3cL4RedirectVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cL4RedirectVlanRowStatus": {
+    "name": "hh3cL4RedirectVlanRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL4RedirectInformationString": {
+    "name": "hh3cL4RedirectInformationString",
+    "oid": "1.3.6.1.4.1.25506.2.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL4RedirectFreeCacheEntries": {
+    "name": "hh3cL4RedirectFreeCacheEntries",
+    "oid": "1.3.6.1.4.1.25506.2.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL4RedirectFreeIpExclusionEntries": {
+    "name": "hh3cL4RedirectFreeIpExclusionEntries",
+    "oid": "1.3.6.1.4.1.25506.2.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cL4RedirectFreeVlanEntries": {
+    "name": "hh3cL4RedirectFreeVlanEntries",
+    "oid": "1.3.6.1.4.1.25506.2.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HH3C-L4RDT-MIB",
+      "Source digest sha256:67c242e7d5ba4b8b4b65f1759fda9df0471c962a4ce4a9b15c89c08d5446b5af",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HH3C-L4RDT-MIB"
+  }
+}

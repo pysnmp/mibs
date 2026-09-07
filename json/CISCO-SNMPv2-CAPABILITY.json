@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSnmpV2Capability": {
+    "name": "ciscoSnmpV2Capability",
+    "oid": "1.3.6.1.4.1.9.7.113",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-12 00:00",
+        "description": "Added capability statement ciscoSnmpV2Capc4710aceVA1R700 for ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-05-30 00:00",
+        "description": "Added capability statement ciscoSnmpV2CapACSWV03R000 for Application Control Engine (ACE). For ciscoSnmpV2CapabilityV10R02 commented out references to object groups snmpStatsGroup, snmpV1Group, snmpORGroup, snmpTrapGroup because they are defined only in the original RFC 1450, not in the latest RFC 3418."
+      },
+      {
+        "revision": "2006-04-24 00:00",
+        "description": "Added the VARIATION for the notification authenticationFailure in ciscoSnmpV2CapCatOSV08R0301. Added capability statement ciscoSnmpV2CapCatOSV08R0601."
+      },
+      {
+        "revision": "2004-03-18 00:00",
+        "description": "Added ciscoSnmpV2CapCatOSV08R0301."
+      },
+      {
+        "revision": "2002-02-07 00:00",
+        "description": "Added following agent capabilities: - ciscoMgxSnmpV2CapabilityV20 for MGX8850 series - ciscoBpxSesSnmpV2CapabilityV10 for BPX SES."
+      },
+      {
+        "revision": "2002-01-31 00:00",
+        "description": "Added 'ciscoRpmsSnmpV2CapabilityV20' for Cisco Resource Policy Management Server (RPMS) 2.0."
+      },
+      {
+        "revision": "1994-08-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSnmpV2CapabilityV10R02": {
+    "name": "ciscoSnmpV2CapabilityV10R02",
+    "oid": "1.3.6.1.4.1.9.7.113.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 10.2",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpSetGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRpmsSnmpV2CapabilityV20": {
+    "name": "ciscoRpmsSnmpV2CapabilityV20",
+    "oid": "1.3.6.1.4.1.9.7.113.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco Resource Policy Management Server (RPMS) 2.0",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpInBadCommunityUses",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORUpTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORDescr",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMgxSnmpV2CapabilityV20": {
+    "name": "ciscoMgxSnmpV2CapabilityV20",
+    "oid": "1.3.6.1.4.1.9.7.113.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 2.0.00",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "sysName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 32
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "sysORLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORUpTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORDescr",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBpxSesSnmpV2CapabilityV10": {
+    "name": "ciscoBpxSesSnmpV2CapabilityV10",
+    "oid": "1.3.6.1.4.1.9.7.113.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco BPX SES Release 1.0.00",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "sysName",
+            "syntax": {
+              "type": "DisplayString",
+              "class": "type",
+              "constraints": {
+                "size": [
+                  {
+                    "min": 1,
+                    "max": 8
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "sysORLastChange",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORID",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORUpTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysORDescr",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpV2CapCatOSV08R0301": {
+    "name": "ciscoSnmpV2CapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.113.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) for Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpObsoleteGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpV2CapCatOSV08R0601": {
+    "name": "ciscoSnmpV2CapCatOSV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.113.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1) for Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpSetGroup",
+          "systemGroup",
+          "snmpCommunityGroup",
+          "snmpBasicNotificationsGroup",
+          "snmpWarmStartNotificationGroup",
+          "snmpObsoleteGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpV2CapACSWV03R000": {
+    "name": "ciscoSnmpV2CapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.113.7",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0\n                          for Application Control Engine (ACE) \n                          Service Module.",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpEnableAuthenTraps",
+            "access": "read-only"
+          },
+          {
+            "object": "sysContact",
+            "access": "read-only"
+          },
+          {
+            "object": "sysName",
+            "access": "read-only"
+          },
+          {
+            "object": "sysLocation",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpV2Capc4710aceVA1R700": {
+    "name": "ciscoSnmpV2Capc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.113.8",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                    for ACE 4710 Application Control Engine \n                    Appliance.",
+    "capabilities": [
+      {
+        "module": "SNMPv2-MIB",
+        "includes": [
+          "snmpGroup",
+          "snmpCommunityGroup",
+          "systemGroup",
+          "snmpBasicNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "snmpEnableAuthenTraps",
+            "access": "read-only"
+          },
+          {
+            "object": "sysContact",
+            "access": "read-only"
+          },
+          {
+            "object": "sysName",
+            "access": "read-only"
+          },
+          {
+            "object": "sysLocation",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-SNMPv2-CAPABILITY",
+      "Source digest sha256:3f0439ac3834bd768864733fadc587fe2e5a68c5a55583b362f46eb60800b103",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-SNMPv2-CAPABILITY"
+  }
+}

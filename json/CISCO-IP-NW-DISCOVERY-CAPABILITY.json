@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIpNwDiscoveryCapability": {
+    "name": "ciscoIpNwDiscoveryCapability",
+    "oid": "1.3.6.1.4.1.9.7.523",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIpNwDiscoverCapSanOSV30R1MDS9000": {
+    "name": "cIpNwDiscoverCapSanOSV30R1MDS9000",
+    "oid": "1.3.6.1.4.1.9.7.523.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.0 on Cisco MDS 9000                          series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-IP-NW-DISCOVERY-MIB",
+        "includes": [
+          "cIpNetworkDiscoveryInfoGroup",
+          "cIpNetworkDiscoveryCfgGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IP-NW-DISCOVERY-CAPABILITY",
+      "Source digest sha256:5d9aaeaab5539dcb066ffd86eb7684cf8d39a30e6ca420a6cf5f4a3ba62ad7da",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IP-NW-DISCOVERY-CAPABILITY"
+  }
+}

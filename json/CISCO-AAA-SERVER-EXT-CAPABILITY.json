@@ -1,0 +1,696 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalSec"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAAAServerExtCapability": {
+    "name": "ciscoAAAServerExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.372",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-16 00:00",
+        "description": "Agent capabilities for Cisco ACE 4710 Application Control Engine Appliance."
+      },
+      {
+        "revision": "2006-02-21 00:00",
+        "description": "Agent capabilities for Cisco Application Control Engine (ACE)."
+      },
+      {
+        "revision": "2004-08-24 00:00",
+        "description": "Agent capabilities for Cisco MDS 2.0."
+      },
+      {
+        "revision": "2003-11-22 00:00",
+        "description": "Agent capabilities for Cisco MDS 1.3."
+      }
+    ]
+  },
+  "ciscoAAAServerExtCapMDS13R1": {
+    "name": "ciscoAAAServerExtCapMDS13R1",
+    "oid": "1.3.6.1.4.1.9.7.372.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 1.3(1)",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-EXT-MIB",
+        "includes": [
+          "cAAASvrExtGenericConfGroup",
+          "cAAASvrExtSvrTableConfGroup",
+          "cAAASvrExtProtoParamConfigGroup",
+          "cAAASvrExtSvrGroupConfGroup",
+          "cAAASvrExtAppSvrGroupConfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cAAASvrExtLocalAccLogMaxSize",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 35000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerRetransmits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerProtoDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerProtoTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerProtoRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerExtCapMDS20R1": {
+    "name": "ciscoAAAServerExtCapMDS20R1",
+    "oid": "1.3.6.1.4.1.9.7.372.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 2.0(1)",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-EXT-MIB",
+        "includes": [
+          "cAAASvrExtGenericConfGroup",
+          "cAAASvrExtSvrTableConfGroup",
+          "cAAASvrExtProtoParamConfigGroup",
+          "cAAASvrExtSvrGroupConfGroup",
+          "cAAASvrExtAppSvrGroupConfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cAAASvrExtLocalAccLogMaxSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerProtoDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerProtoTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerProtoRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerExtCapACSWV03R000": {
+    "name": "ciscoAAAServerExtCapACSWV03R000",
+    "oid": "1.3.6.1.4.1.9.7.372.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-EXT-MIB",
+        "includes": [
+          "cAAASvrExtSvrTableConfGroup",
+          "cAAASvrExtAppSvrGroupConfGroup",
+          "cAAASvrExtGenericConfGroup1",
+          "cAAASvrExtGenericConfGroup2",
+          "cAAASvrExtSvrGroupConfGroup2",
+          "cAAASvrExtProtoParamConfigGroup1",
+          "cAAASvrExtSvrTableLDAPConfGroup",
+          "cAAASvrExtSvrGroupLDAPConfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cAAAServerAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerKeyEncrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 60
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLocal",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpTrivial",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpList",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrExtAppToSvrGrpMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 8,
+                    "max": 8
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAASvrExtLocalAccLogMaxSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAASvrExtClearAccLog",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAALoginAuthTypeMSCHAP",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpName",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerList",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpConfigRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrExtSvrGrpSvrListMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 12,
+                    "max": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAASvrGrpConfigDeadTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoAuthKey",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoKeyEncrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoDeadTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoSvrTableMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 64,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerProtoDirectedReq",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerRootDN",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPBaseDN",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPFilterUser",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPUserProfile",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAAAServerExtCapc4710aceVA1R700": {
+    "name": "ciscoAAAServerExtCapc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.372.4",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                        for ACE 4710 Application Control Engine \n                        Appliance.",
+    "capabilities": [
+      {
+        "module": "CISCO-AAA-SERVER-EXT-MIB",
+        "includes": [
+          "cAAASvrExtSvrTableConfGroup",
+          "cAAASvrExtAppSvrGroupConfGroup",
+          "cAAASvrExtGenericConfGroup1",
+          "cAAASvrExtGenericConfGroup2",
+          "cAAASvrExtSvrGroupConfGroup2",
+          "cAAASvrExtProtoParamConfigGroup1",
+          "cAAASvrExtSvrTableLDAPConfGroup",
+          "cAAASvrExtSvrGroupLDAPConfGroup"
+        ],
+        "variations": [
+          {
+            "object": "cAAAServerAddrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerAddr",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerKeyEncrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerDeadTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAAServerTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 60
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLocal",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpTrivial",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpList",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrExtAppToSvrGrpMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 8,
+                    "max": 8
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAASvrExtLocalAccLogMaxSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cAAASvrExtClearAccLog",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAALoginAuthTypeMSCHAP",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpName",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpProtocol",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerList",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpConfigRowStatus",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrExtSvrGrpSvrListMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 12,
+                    "max": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAASvrGrpConfigDeadTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoAuthKey",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoKeyEncrType",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoDeadTime",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoTimeOut",
+            "syntax": {
+              "type": "TimeIntervalSec",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 1,
+                    "max": 60
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoRetransmits",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 5
+                  }
+                ]
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerProtoSvrTableMaxEnt",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 64,
+                    "max": 64
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "cAAAServerProtoDirectedReq",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAAServerRootDN",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPBaseDN",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPFilterUser",
+            "access": "read-only"
+          },
+          {
+            "object": "cAAASvrGrpLDAPUserProfile",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-AAA-SERVER-EXT-CAPABILITY",
+      "Source digest sha256:354dcc79242e71cafc4b51b6f281f2cfdd94cad41d910bc6472e97fe55cb1e2a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-AAA-SERVER-EXT-CAPABILITY"
+  }
+}

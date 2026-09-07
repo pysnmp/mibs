@@ -1,0 +1,439 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpicfTR069MIB": {
+    "name": "hpicfTR069MIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-03 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "hpicfTR069Notifications": {
+    "name": "hpicfTR069Notifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.0",
+    "class": "objectidentity"
+  },
+  "hpicfTR069Objects": {
+    "name": "hpicfTR069Objects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1",
+    "class": "objectidentity"
+  },
+  "hpicfTR069Conformance": {
+    "name": "hpicfTR069Conformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.2",
+    "class": "objectidentity"
+  },
+  "hpicfTR069EnableCWMP": {
+    "name": "hpicfTR069EnableCWMP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069CWMPDeviceType": {
+    "name": "hpicfTR069CWMPDeviceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsUrl": {
+    "name": "hpicfTR069AcsUrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsUrlOrigin": {
+    "name": "hpicfTR069AcsUrlOrigin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "config": 2,
+          "dhcp": 3,
+          "acs": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069AcsProxyUrl": {
+    "name": "hpicfTR069AcsProxyUrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsUsername": {
+    "name": "hpicfTR069AcsUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsPassword": {
+    "name": "hpicfTR069AcsPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsPasswordEncrypted": {
+    "name": "hpicfTR069AcsPasswordEncrypted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069AcsConnectRetryInterval": {
+    "name": "hpicfTR069AcsConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069CpeUsername": {
+    "name": "hpicfTR069CpeUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069CpePassword": {
+    "name": "hpicfTR069CpePassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069CpePasswordEncrypted": {
+    "name": "hpicfTR069CpePasswordEncrypted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTR069CpeWaitTimeout": {
+    "name": "hpicfTR069CpeWaitTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069PeriodicInformEnable": {
+    "name": "hpicfTR069PeriodicInformEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069PeriodicInformInterval": {
+    "name": "hpicfTR069PeriodicInformInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069PeriodicInformTime": {
+    "name": "hpicfTR069PeriodicInformTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpicfTR069MIBCompliances": {
+    "name": "hpicfTR069MIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfTR069MIBGroups": {
+    "name": "hpicfTR069MIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfTR069MIBCompliance": {
+    "name": "hpicfTR069MIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfTR069Group",
+        "module": "HPICF-TR069-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTR069Group": {
+    "name": "hpicfTR069Group",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.98.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069EnableCWMP"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069CWMPDeviceType"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsUrl"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsUrlOrigin"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsProxyUrl"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsUsername"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsPassword"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsPasswordEncrypted"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069AcsConnectRetryInterval"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069CpeUsername"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069CpePassword"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069CpePasswordEncrypted"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069CpeWaitTimeout"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069PeriodicInformEnable"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069PeriodicInformInterval"
+      },
+      {
+        "module": "HPICF-TR069-MIB",
+        "object": "hpicfTR069PeriodicInformTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPICF-TR069-MIB",
+      "Source digest sha256:7e69f10847ac7f631ce87ebd5d540b01231438c54c849ba7b18569b1da256d5b",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPICF-TR069-MIB"
+  }
+}

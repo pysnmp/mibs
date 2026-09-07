@@ -1,0 +1,2355 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-TC-MIB": [
+      "CLApIfType"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLAPGroupName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappRFMIB": {
+    "name": "ciscoLwappRFMIB",
+    "oid": "1.3.6.1.4.1.9.9.778",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-10-06 00:00",
+        "description": "Added conformance group ciscoLwappRFConfigGroup8. Added compliance group ciscoLwappRFMIBComplianceRev5"
+      },
+      {
+        "revision": "2020-06-03 00:00",
+        "description": "Added below objects to the cLRFProfileTable - cLRFProfile11axObssPdEnable - cLRFProfile11axNonSrgObssPdMax"
+      },
+      {
+        "revision": "2018-11-15 00:00",
+        "description": "Added below object to the cLRFProfileTable - cLRFProfileAirTimeAllocation - cLRFProfileAirTimeFairnessMode - cLRFProfileAirTimeFairnessOptimization - cLRFProfileUnusedChannelList - cLRFProfileShutdown - cLRFProfileBridgeClientAccess - cLRFProfileRxSopThresholdCustom Modified below object of cLRFProfileTable - cLRFProfileRxSopThreshold Added new table cLRFProfileRemoveChannelTable and cLRFProfileAddChannelTable"
+      },
+      {
+        "revision": "2017-07-07 00:00",
+        "description": "Added new table cLRFProfileChannelListTable."
+      },
+      {
+        "revision": "2012-04-27 00:00",
+        "description": "Add 11n MCS rates support in profile, cLRFProfileMcsDataRateTable is added for this rate setting."
+      },
+      {
+        "revision": "2012-01-27 00:00",
+        "description": "Below new objects have been added to the cLRFProfileTable cLRFProfileHighDensityMaxRadioClients cLRFProfileBandSelectProbeResponse cLRFProfileBandSelectCycleCount cLRFProfileBandSelectCycleThreshold cLRFProfileBandSelectExpireSuppression cLRFProfileBandSelectExpireDualBand cLRFProfileBandSelectClientRSSI cLRFProfileLoadBalancingWindowSize cLRFProfileCHDDataRSSIThreshold cLRFProfileCHDVoiceRSSIThreshold cLRFProfileCHDClientExceptionLevel cLRFProfileCHDCoverageExceptionLevel cLRFProfileMulticastDataRate cLRFProfileBandSelectClientMidRSSI cLRFProfileClientNetworkPreference One new scalar object has been added cLRFProfileOutOfBoxAPConfig cLRFProfileOutOfBoxAPPersistenceConfig"
+      },
+      {
+        "revision": "2011-11-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappRFMIBNotifs": {
+    "name": "ciscoLwappRFMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.778.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFMIBObjects": {
+    "name": "ciscoLwappRFMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.778.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFMIBConform": {
+    "name": "ciscoLwappRFMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.778.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFConfig": {
+    "name": "ciscoLwappRFConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFGlobalObjects": {
+    "name": "ciscoLwappRFGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.778.1.2",
+    "class": "objectidentity"
+  },
+  "CiscoLwappRFApDataRates": {
+    "name": "CiscoLwappRFApDataRates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "supported": 1,
+          "mandatoryRate": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cLAPGroupsRFProfileTable": {
+    "name": "cLAPGroupsRFProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLAPGroupsRFProfileEntry": {
+    "name": "cLAPGroupsRFProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLAPGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLAPGroups802dot11bgRFProfileName": {
+    "name": "cLAPGroups802dot11bgRFProfileName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLAPGroups802dot11aRFProfileName": {
+    "name": "cLAPGroups802dot11aRFProfileName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileTable": {
+    "name": "cLRFProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileEntry": {
+    "name": "cLRFProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRFProfileName": {
+    "name": "cLRFProfileName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileDescr": {
+    "name": "cLRFProfileDescr",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileTransmitPowerMin": {
+    "name": "cLRFProfileTransmitPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -10,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileTransmitPowerMax": {
+    "name": "cLRFProfileTransmitPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 30,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileTransmitPowerThresholdV1": {
+    "name": "cLRFProfileTransmitPowerThresholdV1",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": -50
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -70,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileTransmitPowerThresholdV2": {
+    "name": "cLRFProfileTransmitPowerThresholdV2",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": -50
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -67,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate1Mbps": {
+    "name": "cLRFProfileDataRate1Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "mandatoryRate",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate2Mbps": {
+    "name": "cLRFProfileDataRate2Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "mandatoryRate",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate5AndHalfMbps": {
+    "name": "cLRFProfileDataRate5AndHalfMbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "mandatoryRate",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate11Mbps": {
+    "name": "cLRFProfileDataRate11Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "mandatoryRate",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate6Mbps": {
+    "name": "cLRFProfileDataRate6Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate9Mbps": {
+    "name": "cLRFProfileDataRate9Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate12Mbps": {
+    "name": "cLRFProfileDataRate12Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate18Mbps": {
+    "name": "cLRFProfileDataRate18Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate24Mbps": {
+    "name": "cLRFProfileDataRate24Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate36Mbps": {
+    "name": "cLRFProfileDataRate36Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate48Mbps": {
+    "name": "cLRFProfileDataRate48Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDataRate54Mbps": {
+    "name": "cLRFProfileDataRate54Mbps",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoLwappRFApDataRates",
+      "class": "type"
+    },
+    "default": {
+      "value": "supported",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileRadioType": {
+    "name": "cLRFProfileRadioType",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLApIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileStorageType": {
+    "name": "cLRFProfileStorageType",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileRowStatus": {
+    "name": "cLRFProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileHighDensityMaxRadioClients": {
+    "name": "cLRFProfileHighDensityMaxRadioClients",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 200,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectProbeResponse": {
+    "name": "cLRFProfileBandSelectProbeResponse",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectCycleCount": {
+    "name": "cLRFProfileBandSelectCycleCount",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 2,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectCycleThreshold": {
+    "name": "cLRFProfileBandSelectCycleThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 200,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectExpireSuppression": {
+    "name": "cLRFProfileBandSelectExpireSuppression",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 20,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectExpireDualBand": {
+    "name": "cLRFProfileBandSelectExpireDualBand",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectClientRSSI": {
+    "name": "cLRFProfileBandSelectClientRSSI",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileLoadBalancingWindowSize": {
+    "name": "cLRFProfileLoadBalancingWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileLoadBalancingMaxDenialCount": {
+    "name": "cLRFProfileLoadBalancingMaxDenialCount",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileCHDDataRSSIThreshold": {
+    "name": "cLRFProfileCHDDataRSSIThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileCHDVoiceRSSIThreshold": {
+    "name": "cLRFProfileCHDVoiceRSSIThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileCHDClientExceptionLevel": {
+    "name": "cLRFProfileCHDClientExceptionLevel",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 3,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileCHDCoverageExceptionLevel": {
+    "name": "cLRFProfileCHDCoverageExceptionLevel",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 25,
+      "format": "decimal"
+    },
+    "units": "%",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileMulticastDataRate": {
+    "name": "cLRFProfileMulticastDataRate",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "Mbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfile11nOnly": {
+    "name": "cLRFProfile11nOnly",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileHDClientTrapThreshold": {
+    "name": "cLRFProfileHDClientTrapThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileInterferenceThreshold": {
+    "name": "cLRFProfileInterferenceThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileNoiseThreshold": {
+    "name": "cLRFProfileNoiseThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileUtilizationThreshold": {
+    "name": "cLRFProfileUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDCAForeignContribution": {
+    "name": "cLRFProfileDCAForeignContribution",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDCAChannelWidth": {
+    "name": "cLRFProfileDCAChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twenty": 1,
+          "forty": 2,
+          "eighty": 3,
+          "onesixty": 4,
+          "best": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileDCAChannelList": {
+    "name": "cLRFProfileDCAChannelList",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileRxSopThreshold": {
+    "name": "cLRFProfileRxSopThreshold",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "custom": 4
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileHSRMode": {
+    "name": "cLRFProfileHSRMode",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileHSRNeighborTimeoutFactor": {
+    "name": "cLRFProfileHSRNeighborTimeoutFactor",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileBandSelectClientMidRSSI": {
+    "name": "cLRFProfileBandSelectClientMidRSSI",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": -80,
+      "format": "decimal"
+    },
+    "units": "dbm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileClientNetworkPreference": {
+    "name": "cLRFProfileClientNetworkPreference",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "connectivity": 1,
+          "throughput": 2
+        }
+      }
+    },
+    "default": {
+      "value": "default",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileUnusedChannelList": {
+    "name": "cLRFProfileUnusedChannelList",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLRFProfileShutdown": {
+    "name": "cLRFProfileShutdown",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileAirTimeFairnessMode": {
+    "name": "cLRFProfileAirTimeFairnessMode",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "ssid": 2,
+          "monitor": 3
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileAirTimeFairnessOptimization": {
+    "name": "cLRFProfileAirTimeFairnessOptimization",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileBridgeClientAccess": {
+    "name": "cLRFProfileBridgeClientAccess",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileAirTimeAllocation": {
+    "name": "cLRFProfileAirTimeAllocation",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileRxSopThresholdCustom": {
+    "name": "cLRFProfileRxSopThresholdCustom",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -85,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -85,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfile11axObssPdEnable": {
+    "name": "cLRFProfile11axObssPdEnable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfile11axNonSrgObssPdMax": {
+    "name": "cLRFProfile11axNonSrgObssPdMax",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -82,
+            "max": -62
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -62,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileOutOfBoxAPConfig": {
+    "name": "cLRFProfileOutOfBoxAPConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileOutOfBoxAPPersistenceConfig": {
+    "name": "cLRFProfileOutOfBoxAPPersistenceConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileMcsDataRateTable": {
+    "name": "cLRFProfileMcsDataRateTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileMcsDataRateEntry": {
+    "name": "cLRFProfileMcsDataRateEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileMcsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileMcsRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRFProfileMcsName": {
+    "name": "cLRFProfileMcsName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileMcsRate": {
+    "name": "cLRFProfileMcsRate",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileMcsRateSupport": {
+    "name": "cLRFProfileMcsRateSupport",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRFProfileChannelListTable": {
+    "name": "cLRFProfileChannelListTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileChannelListEntry": {
+    "name": "cLRFProfileChannelListEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileChanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRFProfileChanNumber": {
+    "name": "cLRFProfileChanNumber",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileChanAddRemove": {
+    "name": "cLRFProfileChanAddRemove",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "remove": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileChanRowStatus": {
+    "name": "cLRFProfileChanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileRemoveChannelTable": {
+    "name": "cLRFProfileRemoveChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileRemoveChannelEntry": {
+    "name": "cLRFProfileRemoveChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRemoveChannelName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRemoveChannelNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRFProfileRemoveChannelName": {
+    "name": "cLRFProfileRemoveChannelName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileRemoveChannelNum": {
+    "name": "cLRFProfileRemoveChannelNum",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileRemovedChannelDcaState": {
+    "name": "cLRFProfileRemovedChannelDcaState",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileRemoveChannelRowStatus": {
+    "name": "cLRFProfileRemoveChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileAddChannelTable": {
+    "name": "cLRFProfileAddChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileAddChannelEntry": {
+    "name": "cLRFProfileAddChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAddChannelName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAddChannelNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRFProfileAddChannelName": {
+    "name": "cLRFProfileAddChannelName",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileAddChannelNum": {
+    "name": "cLRFProfileAddChannelNum",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRFProfileAddedChannelDcaState": {
+    "name": "cLRFProfileAddedChannelDcaState",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRFProfileAddChannelRowStatus": {
+    "name": "cLRFProfileAddChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.778.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappRFMIBCompliances": {
+    "name": "ciscoLwappRFMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFMIBGroups": {
+    "name": "ciscoLwappRFMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRFMIBCompliance": {
+    "name": "ciscoLwappRFMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRFMIBComplianceVer1": {
+    "name": "ciscoLwappRFMIBComplianceVer1",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroup1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGlobalConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFMIBComplianceVer2": {
+    "name": "ciscoLwappRFMIBComplianceVer2",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroup1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGlobalConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup3",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFMIBComplianceRev3": {
+    "name": "ciscoLwappRFMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroupVer1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup3",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup4",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupTrapThresholdConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupChannelConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGlobalConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroupExtension1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFMIBComplianceRev4": {
+    "name": "ciscoLwappRFMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroupVer1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup3",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup4",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupTrapThresholdConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupChannelConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGlobalConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroupExtension1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup5",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup6",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup7",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFMIBComplianceRev5": {
+    "name": "ciscoLwappRFMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.778.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRFConfigGroupVer1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup3",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup4",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupTrapThresholdConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGroupChannelConfig",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFGlobalConfigGroup",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroupExtension1",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup5",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup6",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup7",
+        "module": "CISCO-LWAPP-RF-MIB"
+      },
+      {
+        "object": "ciscoLwappRFConfigGroup8",
+        "module": "CISCO-LWAPP-RF-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "INTEGER",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1,
+              "createAndGo": 4,
+              "destroy": 6
+            }
+          }
+        }
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup": {
+    "name": "ciscoLwappRFConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLAPGroups802dot11bgRFProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLAPGroups802dot11aRFProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDescr"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerMin"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerMax"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerThresholdV1"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerThresholdV2"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate1Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate2Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate5AndHalfMbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate11Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate6Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate9Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate12Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate18Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate24Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate36Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate48Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate54Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfile11nOnly"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRFConfigGroupVer1": {
+    "name": "ciscoLwappRFConfigGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLAPGroups802dot11bgRFProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLAPGroups802dot11aRFProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDescr"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerMin"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerMax"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerThresholdV1"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileTransmitPowerThresholdV2"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate1Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate2Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate5AndHalfMbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate11Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate6Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate9Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate12Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate18Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate24Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate36Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate48Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDataRate54Mbps"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfile11nOnly"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileHSRMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileHSRNeighborTimeoutFactor"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileOutOfBoxAPPersistenceConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileMcsRateSupport"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup1": {
+    "name": "ciscoLwappRFConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileHighDensityMaxRadioClients"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectProbeResponse"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectCycleCount"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectCycleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectExpireSuppression"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectExpireDualBand"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectClientRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileLoadBalancingWindowSize"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileLoadBalancingMaxDenialCount"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileCHDDataRSSIThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileCHDVoiceRSSIThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileCHDClientExceptionLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileCHDCoverageExceptionLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileMulticastDataRate"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBandSelectClientMidRSSI"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileClientNetworkPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFGlobalConfigGroup": {
+    "name": "ciscoLwappRFGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileOutOfBoxAPConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFGroupTrapThresholdConfig": {
+    "name": "ciscoLwappRFGroupTrapThresholdConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileHDClientTrapThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileInterferenceThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileNoiseThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileUtilizationThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup3": {
+    "name": "ciscoLwappRFConfigGroup3",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDCAForeignContribution"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDCAChannelWidth"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDCAChannelList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup4": {
+    "name": "ciscoLwappRFConfigGroup4",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRxSopThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRxSopThresholdCustom"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFGroupDCAChannelConfig": {
+    "name": "ciscoLwappRFGroupDCAChannelConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileDCAChannelList"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRFGroupChannelConfig": {
+    "name": "ciscoLwappRFGroupChannelConfig",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileChanRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileChanAddRemove"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroupExtension1": {
+    "name": "ciscoLwappRFConfigGroupExtension1",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileClientNetworkPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup5": {
+    "name": "ciscoLwappRFConfigGroup5",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileUnusedChannelList"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileShutdown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup6": {
+    "name": "ciscoLwappRFConfigGroup6",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAirTimeFairnessMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAirTimeFairnessOptimization"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileBridgeClientAccess"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAirTimeAllocation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup7": {
+    "name": "ciscoLwappRFConfigGroup7",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRemovedChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileRemoveChannelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAddedChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfileAddChannelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRFConfigGroup8": {
+    "name": "ciscoLwappRFConfigGroup8",
+    "oid": "1.3.6.1.4.1.9.9.778.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfile11axObssPdEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RF-MIB",
+        "object": "cLRFProfile11axNonSrgObssPdMax"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-RF-MIB",
+      "Source digest sha256:58b7f3cd14dfc829a8f13d49c57f12b17506baf8e31c79a7db5a6e228bd8a9c3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-RF-MIB"
+  }
+}

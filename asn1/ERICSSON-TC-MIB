@@ -1,0 +1,97 @@
+--
+-- The Ericsson top-level Textual Conventions MIB
+--
+-- Copyright (c) 2021 by Ericsson AB.
+-- All rights reserved.
+--
+
+ERICSSON-TC-MIB DEFINITIONS ::= BEGIN
+ 
+-- Add further imports as needed
+IMPORTS
+        MODULE-IDENTITY
+                FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION
+                FROM SNMPv2-TC
+        ericssonModules
+                FROM ERICSSON-TOP-MIB;
+ 
+
+ericssonTCMIB MODULE-IDENTITY
+        LAST-UPDATED "202102040000Z"
+        ORGANIZATION "Ericsson AB"
+        CONTACT-INFO
+                "IMF"
+        DESCRIPTION
+                "This MIB document includes textual conventions
+                that can be used by all of the Ericsson group.
+                The intention is to have shared definitions such
+                that integration and SNMP development are made
+                easier."
+
+        REVISION "202102040000Z"
+        DESCRIPTION
+                "Removed employee Id from CONTACT-INFO.
+                                Document number: 2/196 03-CXC 172 7549, Rev E." 
+
+                REVISION "201708110000Z"
+        DESCRIPTION
+                "Updated description for EriPath;
+                                Added more detail to DESCRIPTION for each REVISION
+                                Removed author's name.
+                                Document number: 2/196 03-CXC 172 7549, Rev D."
+                REVISION "201704130000Z"
+        DESCRIPTION
+                "Updated REFERENCE clause for EriPath:
+                                        - Added YANG module ericsson-yang-types;
+                                        - Updated YANG RFC reference to YANG 1.1 RFC.
+                                Document number: 2/196 03-CXC 172 7549, Rev C."
+                REVISION      "201606240000Z"
+        DESCRIPTION
+                "Updated version of this MIB module. Included XPath
+                                instance identifier.
+                                Document number: 2/196 03-CXC 172 7549, Rev B."
+                REVISION      "200810170000Z"
+        DESCRIPTION
+                "Initial version of this MIB module."
+       
+        ::= { ericssonModules 1 }
+
+--=======================
+--==Textual conventions==
+--=======================
+
+EriMO ::= TEXTUAL-CONVENTION
+        DISPLAY-HINT "1a"
+        STATUS current
+        DESCRIPTION
+                "The 3GPP naming convention shall be used as the
+                format for the managed object parameter.  Note
+                that the granularity MUST be sufficient to
+                guarantee unique alarm states and relevant
+                resource identification to the operator.  
+                                NOTE: The DN should be *relative* to the Managed 
+                                Element's *own* root."
+        REFERENCE
+                "3GPP TS 32.300 V7.2, Name convention for
+                Managed Objects"
+        SYNTAX OCTET STRING(SIZE(4..150))   
+
+EriPath ::= TEXTUAL-CONVENTION
+        DISPLAY-HINT "1a"
+        STATUS current
+        DESCRIPTION
+                                "An abridged instance-identifier in YANG that references a 
+                                resource within the Managed Element. 
+                                For example: 
+                                /ex:system/server[ip='192.0.2.1'][port='80']
+                                See: YANG module ericsson-yang-types.
+                                See also: RFC 7950 Section 9.13.
+                                NOTE: The granularity must be good enough to guarantee 
+                                unique alarm states and relevant resource identification 
+                                to the operator."
+        REFERENCE
+                "YANG module ericsson-yang-types;
+                                RFC 7950 , The YANG 1.1 Data Modeling Language"
+        SYNTAX OCTET STRING(SIZE(4..150))               
+END

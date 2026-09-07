@@ -1,0 +1,185 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlStack": {
+    "name": "rlStack",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-14 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlStackActiveUnitIdTable": {
+    "name": "rlStackActiveUnitIdTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlStackActiveUnitIdEntry": {
+    "name": "rlStackActiveUnitIdEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-STACK-MIB",
+        "object": "rlStackCurrentUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlStackCurrentUnitId": {
+    "name": "rlStackCurrentUnitId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlStackActiveUnitIdAfterReset": {
+    "name": "rlStackActiveUnitIdAfterReset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlStackUnitModeAfterReset": {
+    "name": "rlStackUnitModeAfterReset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 1,
+          "stack": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlStackUnitMode": {
+    "name": "rlStackUnitMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 1,
+          "stack": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlStackUnitMacAddressAfterReset": {
+    "name": "rlStackUnitMacAddressAfterReset",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlStackTopology": {
+    "name": "rlStackTopology",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "topology-chain": 1,
+          "topology-ring": 2,
+          "topology-star": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlStackMode": {
+    "name": "rlStackMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.107.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "native": 1,
+          "hybrid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCOSB-STACK-MIB",
+      "Source digest sha256:82eea97dfd5567da3386cfabcfdc6efb03b5a80f3a856c7ba7d8596ebbe4352a",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCOSB-STACK-MIB"
+  }
+}

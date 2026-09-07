@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSctpCapability": {
+    "name": "ciscoSctpCapability",
+    "oid": "1.3.6.1.4.1.9.7.215",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-10-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSctpCapabilityV12R024MB1": {
+    "name": "ciscoSctpCapabilityV12R024MB1",
+    "oid": "1.3.6.1.4.1.9.7.215.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-IETF-SCTP-MIB",
+        "includes": [
+          "cSctpGeneralVariablesGroup",
+          "cSctpAssocTablesVariablesGroup",
+          "cSctpStateStatGroup",
+          "cSctpOtherStatGroup",
+          "cSctpAssocStatGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-IETF-SCTP-CAPABILITY",
+      "Source digest sha256:eb0882cc1b94a34e10ad1939b99d4e905db02bcaa11e40b670029f7317fed4a5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-IETF-SCTP-CAPABILITY"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "imports": {
+    "class": "imports",
+    "RADLAN-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SNMPv2-TC-v1": [
+      "DisplayString"
+    ]
+  },
+  "rlEnv": {
+    "name": "rlEnv",
+    "oid": "1.3.6.1.4.1.89.83",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-21 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "RlEnvMonState": {
+    "name": "RlEnvMonState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3,
+          "shutdown": 4,
+          "notPresent": 5,
+          "notFunctioning": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlEnvPhysicalDescription": {
+    "name": "rlEnvPhysicalDescription",
+    "oid": "1.3.6.1.4.1.89.83.1",
+    "class": "objectidentity"
+  },
+  "rlEnvMonFanStatusTable": {
+    "name": "rlEnvMonFanStatusTable",
+    "oid": "1.3.6.1.4.1.89.83.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEnvMonFanStatusEntry": {
+    "name": "rlEnvMonFanStatusEntry",
+    "oid": "1.3.6.1.4.1.89.83.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-HWENVIROMENT",
+        "object": "rlEnvMonFanStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEnvMonFanStatusIndex": {
+    "name": "rlEnvMonFanStatusIndex",
+    "oid": "1.3.6.1.4.1.89.83.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEnvMonFanStatusDescr": {
+    "name": "rlEnvMonFanStatusDescr",
+    "oid": "1.3.6.1.4.1.89.83.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEnvMonFanState": {
+    "name": "rlEnvMonFanState",
+    "oid": "1.3.6.1.4.1.89.83.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlEnvMonState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEnvMonSupplyStatusTable": {
+    "name": "rlEnvMonSupplyStatusTable",
+    "oid": "1.3.6.1.4.1.89.83.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEnvMonSupplyStatusEntry": {
+    "name": "rlEnvMonSupplyStatusEntry",
+    "oid": "1.3.6.1.4.1.89.83.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-HWENVIROMENT",
+        "object": "rlEnvMonSupplyStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEnvMonSupplyStatusIndex": {
+    "name": "rlEnvMonSupplyStatusIndex",
+    "oid": "1.3.6.1.4.1.89.83.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEnvMonSupplyStatusDescr": {
+    "name": "rlEnvMonSupplyStatusDescr",
+    "oid": "1.3.6.1.4.1.89.83.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEnvMonSupplyState": {
+    "name": "rlEnvMonSupplyState",
+    "oid": "1.3.6.1.4.1.89.83.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlEnvMonState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEnvMonSupplySource": {
+    "name": "rlEnvMonSupplySource",
+    "oid": "1.3.6.1.4.1.89.83.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ac": 2,
+          "dc": 3,
+          "externalPowerSupply": 4,
+          "internalRedundant": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RADLAN-HWENVIROMENT",
+      "Source digest sha256:de9341d3c13c90137c2bdb05c92ff63e73f9d1ad50e67bb8ca1309f4d6b758e3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RADLAN-HWENVIROMENT"
+  }
+}

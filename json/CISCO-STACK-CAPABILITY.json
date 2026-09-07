@@ -1,0 +1,1321 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoStackCapability": {
+    "name": "ciscoStackCapability",
+    "oid": "1.3.6.1.4.1.9.7.378",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-19 00:00",
+        "description": "Added ciscoStackCapCatOSV08R0701PCat6k for Cisco CatOS 8.7(1)."
+      },
+      {
+        "revision": "2006-03-15 00:00",
+        "description": "Add VARIATIONs for notifications chassisAlarmOff, chassisAlarmOn, moduleDown and moduleUp, in ciscoStackCapCatOSV08R0101Cat6k."
+      },
+      {
+        "revision": "2005-01-19 00:00",
+        "description": "Added ciscoStackCapV12R0112cE01PCat6k for Cisco IOS 12.1(12c)E1."
+      },
+      {
+        "revision": "2003-12-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoStackCapCatOSV08R0101Cat6k": {
+    "name": "ciscoStackCapCatOSV08R0101Cat6k",
+    "oid": "1.3.6.1.4.1.9.7.378.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STACK-MIB",
+        "includes": [
+          "systemMiscGroup",
+          "systemTrapGroup",
+          "chassisGroup",
+          "chassisGroup1",
+          "optionalChassisGroup",
+          "moduleGroup",
+          "moduleGroup1",
+          "moduleGroup2",
+          "optionalModuleGroup",
+          "portGroup",
+          "portGroup1",
+          "portGroup2",
+          "portGroup3",
+          "optionalPortGroup",
+          "optionalSystemMiscGroup",
+          "optionalSystemMiscGroup1",
+          "optionalSystemMiscGroup2",
+          "optionalSystemMiscGroup3",
+          "optionalSystemMiscGroup4",
+          "optionalSystemMiscGroup5",
+          "optionalSystemTrapGroup",
+          "systemTrafficGroup",
+          "systemRmonGroup",
+          "systemRmonGroup2",
+          "authenticationGroup",
+          "authenticationGroup1",
+          "tftpGroup",
+          "filterGroup",
+          "filterGroup1",
+          "filterGroup2",
+          "filterGroup3",
+          "monitorGroup",
+          "vlanGroup",
+          "vmpsGroup",
+          "tokenRingGroup",
+          "mcastGroup",
+          "mcastGroup1",
+          "portCpbGroup2",
+          "portCpbGroup3",
+          "portCpbGroup4",
+          "portCpbGroup5",
+          "dnsGroup",
+          "syslogGroup",
+          "syslogGroup2",
+          "ntpGroup",
+          "ipPermitGroup",
+          "ipPermitGroup1",
+          "mdgGatewayGroup",
+          "traceRouteGroup",
+          "ntpAuthenticationGroup",
+          "tokenRingSoftErrorMonitorGroup",
+          "portCpbGroup1",
+          "portSecurityGroup1",
+          "fileCopyGroup",
+          "fileCopyGroup2",
+          "voiceGroup",
+          "vlanGroup1",
+          "vlanTrunkMappingGroup",
+          "portJumboFrameGroup",
+          "systemStatusGroup",
+          "configurationGroup"
+        ],
+        "variations": [
+          {
+            "object": "chassisComponentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentSerialNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentHwVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentModel",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeter",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterPeak",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterPeakTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysExtendedRmonNetflowPassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysExtendedRmonNetflowEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestOffset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestMask",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoStackCapV12R0111bEXCat6k": {
+    "name": "ciscoStackCapV12R0111bEXCat6k",
+    "oid": "1.3.6.1.4.1.9.7.378.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11b)EX on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STACK-MIB",
+        "includes": [
+          "systemTrapGroup",
+          "chassisGroup",
+          "optionalChassisGroup",
+          "moduleGroup",
+          "moduleGroup1",
+          "optionalModuleGroup",
+          "portGroup",
+          "portGroup1",
+          "optionalPortGroup",
+          "optionalSystemMiscGroup1",
+          "systemTrafficGroup",
+          "filterGroup",
+          "filterGroup1",
+          "vlanGroup",
+          "vlanGroup1",
+          "portCpbGroup1",
+          "portCpbGroup2",
+          "portCpbGroup3",
+          "portCpbGroup4",
+          "portCpbGroup5",
+          "systemStatusGroup"
+        ],
+        "variations": [
+          {
+            "object": "sysTrapReceiverAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrapReceiverType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrapReceiverComm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysEnableBridgeTraps",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysEnableRepeaterTraps",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentSerialNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentHwVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentModel",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisSerialNumberString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "moduleSlotNum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portCrossGroupIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portAdditionalStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portAdminSpeed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "autoDetect": 1,
+                  "s10G": 10,
+                  "s10000000": 10000000,
+                  "s100000000": 100000000,
+                  "s1000000000": 1000000000
+                }
+              }
+            }
+          },
+          {
+            "object": "portSpantreeFastStart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portMacControlUnknownProtocolFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portLinkFaultStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "noFault": 1,
+                  "nearEndFault": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "portSecurityModuleIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityLastSrcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecuritySecureSrcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelModuleIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelPorts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelNeighbourDeviceId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelNeighbourPortId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelProtInPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelProtOutPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNControlIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNDuration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNTimeRemaining",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNRequestedSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNGrantedSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNModuleNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNPortNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOBroadcast",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOMulticast",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNBufferOverFlow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStartupConfigSource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStartupConfigSourceFile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysConfigSupervisorModuleNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStandbyPortEnable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "filterMacModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestOffset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vlanSpantreeEnable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 1,
+                  "disabled": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortSwitchLevel",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "notApplicable": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortIslPriorityVlans",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vlanPortAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "static": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "inactive": 1,
+                  "active": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortAuxiliaryVlan",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "lerAlarmOn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "lerAlarmOff",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipPermitDeniedTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysConfigChangeTrap",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoStackCapV12R0112cE01PCat6k": {
+    "name": "ciscoStackCapV12R0112cE01PCat6k",
+    "oid": "1.3.6.1.4.1.9.7.378.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(12c)E1 on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STACK-MIB",
+        "includes": [
+          "systemTrapGroup",
+          "chassisGroup",
+          "optionalChassisGroup",
+          "moduleGroup",
+          "moduleGroup1",
+          "optionalModuleGroup",
+          "portGroup",
+          "portGroup1",
+          "optionalPortGroup",
+          "optionalSystemMiscGroup1",
+          "systemTrafficGroup",
+          "filterGroup",
+          "filterGroup1",
+          "vlanGroup",
+          "vlanGroup1",
+          "portCpbGroup1",
+          "portCpbGroup2",
+          "portCpbGroup3",
+          "portCpbGroup4",
+          "portCpbGroup5",
+          "systemStatusGroup",
+          "filterGroup2"
+        ],
+        "variations": [
+          {
+            "object": "sysTrapReceiverAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrapReceiverType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrapReceiverComm",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysEnableBridgeTraps",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysEnableRepeaterTraps",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentSerialNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentHwVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentModel",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisSerialNumberString",
+            "access": "not-implemented"
+          },
+          {
+            "object": "moduleSlotNum",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portCrossGroupIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portAdditionalStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portAdminSpeed",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "autoDetect": 1,
+                  "s10G": 10,
+                  "s10000000": 10000000,
+                  "s100000000": 100000000,
+                  "s1000000000": 1000000000
+                }
+              }
+            }
+          },
+          {
+            "object": "portSpantreeFastStart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portMacControlUnknownProtocolFrames",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portLinkFaultStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "noFault": 1,
+                  "nearEndFault": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "portSecurityModuleIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecurityLastSrcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portSecuritySecureSrcAddr",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelModuleIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelPortIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelPorts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelAdminStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelOperStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelNeighbourDeviceId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelNeighbourPortId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelProtInPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelProtOutPackets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portChannelIfIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNControlIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNDuration",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNTimeRemaining",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNStartTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNRequestedSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNGrantedSize",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNOwner",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNModuleNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNPortNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNUtilization",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOOctets",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOPkts",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOBroadcast",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNIOMulticast",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNInErrors",
+            "access": "not-implemented"
+          },
+          {
+            "object": "portTopNBufferOverFlow",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStartupConfigSource",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStartupConfigSourceFile",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysConfigSupervisorModuleNo",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysStandbyPortEnable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "filterMacModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacAddress",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterMacType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterProtocolType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestOffset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vlanSpantreeEnable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "enabled": 1,
+                  "disabled": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortSwitchLevel",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "notApplicable": 3
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortIslPriorityVlans",
+            "access": "not-implemented"
+          },
+          {
+            "object": "vlanPortAdminStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "static": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortOperStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "inactive": 1,
+                  "active": 2
+                }
+              }
+            }
+          },
+          {
+            "object": "vlanPortAuxiliaryVlan",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "lerAlarmOn",
+            "access": "not-implemented"
+          },
+          {
+            "object": "lerAlarmOff",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipPermitDeniedTrap",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysConfigChangeTrap",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoStackCapCatOSV08R0701PCat6k": {
+    "name": "ciscoStackCapCatOSV08R0701PCat6k",
+    "oid": "1.3.6.1.4.1.9.7.378.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1) on Catalyst 6000/6500\n                          and Cisco 7600 series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-STACK-MIB",
+        "includes": [
+          "systemMiscGroup",
+          "systemTrapGroup",
+          "chassisGroup",
+          "chassisGroup1",
+          "optionalChassisGroup",
+          "moduleGroup",
+          "moduleGroup1",
+          "moduleGroup2",
+          "optionalModuleGroup",
+          "portGroup",
+          "portGroup1",
+          "portGroup2",
+          "portGroup3",
+          "optionalPortGroup",
+          "optionalSystemMiscGroup",
+          "optionalSystemMiscGroup1",
+          "optionalSystemMiscGroup2",
+          "optionalSystemMiscGroup3",
+          "optionalSystemMiscGroup4",
+          "optionalSystemMiscGroup5",
+          "optionalSystemTrapGroup",
+          "systemTrafficGroup",
+          "systemRmonGroup",
+          "systemRmonGroup2",
+          "authenticationGroup",
+          "authenticationGroup1",
+          "tftpGroup",
+          "filterGroup",
+          "filterGroup1",
+          "filterGroup2",
+          "filterGroup3",
+          "monitorGroup",
+          "vlanGroup",
+          "vmpsGroup",
+          "tokenRingGroup",
+          "mcastGroup",
+          "mcastGroup1",
+          "portCpbGroup2",
+          "portCpbGroup3",
+          "portCpbGroup4",
+          "portCpbGroup5",
+          "dnsGroup",
+          "syslogGroup",
+          "syslogGroup2",
+          "ntpGroup",
+          "ipPermitGroup",
+          "ipPermitGroup1",
+          "mdgGatewayGroup",
+          "traceRouteGroup",
+          "ntpAuthenticationGroup",
+          "tokenRingSoftErrorMonitorGroup",
+          "portCpbGroup1",
+          "portSecurityGroup1",
+          "fileCopyGroup",
+          "fileCopyGroup2",
+          "voiceGroup",
+          "vlanGroup1",
+          "vlanTrunkMappingGroup",
+          "portJumboFrameGroup",
+          "systemStatusGroup",
+          "configurationGroup",
+          "ipPermitGroup3"
+        ],
+        "variations": [
+          {
+            "object": "chassisComponentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentSerialNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentHwVersion",
+            "access": "not-implemented"
+          },
+          {
+            "object": "chassisComponentModel",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeter",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterPeak",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysTrafficMeterPeakTime",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysExtendedRmonNetflowPassword",
+            "access": "not-implemented"
+          },
+          {
+            "object": "sysExtendedRmonNetflowEnable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorId",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterVendorType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestModule",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestPort",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestType",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestOffset",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestValue",
+            "access": "not-implemented"
+          },
+          {
+            "object": "filterTestMask",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ipPermitTelnetConnectLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 13
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "object": "ipPermitSshConnectLimit",
+            "syntax": {
+              "type": "Unsigned32",
+              "class": "type",
+              "constraints": {
+                "range": [
+                  {
+                    "min": 0,
+                    "max": 13
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-STACK-CAPABILITY",
+      "Source digest sha256:6fe54912e4181194d59d959ac6c886927110a5cd7c146647c99dc0f7fc94c2d7",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-STACK-CAPABILITY"
+  }
+}

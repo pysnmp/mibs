@@ -1,0 +1,386 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAISECOM-SYSTEM-MIB": [
+      "raisecomSystem"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "raisecomFanMonitor": {
+    "name": "raisecomFanMonitor",
+    "oid": "1.3.6.1.4.1.8886.1.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-12-30 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "raisecomFanMonitorNotification": {
+    "name": "raisecomFanMonitorNotification",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "raisecomFanMonitorMibObjects": {
+    "name": "raisecomFanMonitorMibObjects",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "raisecomFanSpeedNormal": {
+    "name": "raisecomFanSpeedNormal",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanIndex"
+      },
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanSpeedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanSpeedAbnormal": {
+    "name": "raisecomFanSpeedAbnormal",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanIndex"
+      },
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanSpeedValue"
+      },
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanSpeedDueValue"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanCardUp": {
+    "name": "raisecomFanCardUp",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanCardState"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanCardDown": {
+    "name": "raisecomFanCardDown",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanCardState"
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanMonitorGlobalGroup": {
+    "name": "raisecomFanMonitorGlobalGroup",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "raisecomFanMonitorMode": {
+    "name": "raisecomFanMonitorMode",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enforce": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomFanMonitorSpdLevel": {
+    "name": "raisecomFanMonitorSpdLevel",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomFanMonitorNumber": {
+    "name": "raisecomFanMonitorNumber",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanMonitorLevlNumber": {
+    "name": "raisecomFanMonitorLevlNumber",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanCardState": {
+    "name": "raisecomFanCardState",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all-down": 1,
+          "all-up": 2,
+          "card1-up": 3,
+          "card2-up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanCardSerialNumber": {
+    "name": "raisecomFanCardSerialNumber",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanMonitorTrapSendEnable": {
+    "name": "raisecomFanMonitorTrapSendEnable",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "raisecomFanMonitorStateTable": {
+    "name": "raisecomFanMonitorStateTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomFanMonitorStateEntry": {
+    "name": "raisecomFanMonitorStateEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanIndex": {
+    "name": "raisecomFanIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomFanSpeedValue": {
+    "name": "raisecomFanSpeedValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanWorkState": {
+    "name": "raisecomFanWorkState",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "abnormal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanSpeedCurrentLevel": {
+    "name": "raisecomFanSpeedCurrentLevel",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanSpeedLevelTable": {
+    "name": "raisecomFanSpeedLevelTable",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomFanSpeedLevelEntry": {
+    "name": "raisecomFanSpeedLevelEntry",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAISECOM-FANMONITOR-MIB",
+        "object": "raisecomFanSpeedLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raisecomFanSpeedLevelIndex": {
+    "name": "raisecomFanSpeedLevelIndex",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raisecomFanSpeedDueValue": {
+    "name": "raisecomFanSpeedDueValue",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raisecomFanSpeedTemperatureScale": {
+    "name": "raisecomFanSpeedTemperatureScale",
+    "oid": "1.3.6.1.4.1.8886.1.1.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 45,
+            "max": 75
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source RAISECOM-FANMONITOR-MIB",
+      "Source digest sha256:8018493457a125628523069b032b526ba3527aa5679ae26ca02ffe46844deebc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "RAISECOM-FANMONITOR-MIB"
+  }
+}

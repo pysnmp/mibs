@@ -1,0 +1,544 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-ICF-OID": [
+      "hpSwitch"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hpicfTunneledNode": {
+    "name": "hpicfTunneledNode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-06 00:00",
+        "description": "Added hpicfTunneledNodeMode object to the hpicfTunneledNodeTable."
+      },
+      {
+        "revision": "2016-08-05 00:00",
+        "description": "Added MIB for Papi Security Key."
+      },
+      {
+        "revision": "2016-02-11 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpicfTunneledNodeObjects": {
+    "name": "hpicfTunneledNodeObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1",
+    "class": "objectidentity"
+  },
+  "hpicfTunneledNodeConformance": {
+    "name": "hpicfTunneledNodeConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2",
+    "class": "objectidentity"
+  },
+  "hpicfTunneledNodeConfig": {
+    "name": "hpicfTunneledNodeConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1",
+    "class": "objectidentity"
+  },
+  "hpicfTunneledNodeTable": {
+    "name": "hpicfTunneledNodeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfTunneledNodeEntry": {
+    "name": "hpicfTunneledNodeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodeIndex": {
+    "name": "hpicfTunneledNodeIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfTunneledNodeEnable": {
+    "name": "hpicfTunneledNodeEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodePrimaryAddrType": {
+    "name": "hpicfTunneledNodePrimaryAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodePrimaryAddr": {
+    "name": "hpicfTunneledNodePrimaryAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeBackupAddrType": {
+    "name": "hpicfTunneledNodeBackupAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeBackupAddr": {
+    "name": "hpicfTunneledNodeBackupAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeTimeout": {
+    "name": "hpicfTunneledNodeTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 8,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeRowStatus": {
+    "name": "hpicfTunneledNodeRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeMode": {
+    "name": "hpicfTunneledNodeMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portbased": 1,
+          "rolebased": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodePortConfigTable": {
+    "name": "hpicfTunneledNodePortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfTunneledNodePortConfigEntry": {
+    "name": "hpicfTunneledNodePortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodePortRowStatus": {
+    "name": "hpicfTunneledNodePortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeFallbackLclSw": {
+    "name": "hpicfTunneledNodeFallbackLclSw",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeClearStats": {
+    "name": "hpicfTunneledNodeClearStats",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "false",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiTable": {
+    "name": "hpicfTunneledNodePapiTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiEntry": {
+    "name": "hpicfTunneledNodePapiEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePapiAuthMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiAuthMode": {
+    "name": "hpicfTunneledNodePapiAuthMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiKeyValue": {
+    "name": "hpicfTunneledNodePapiKeyValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiKeyEncr": {
+    "name": "hpicfTunneledNodePapiKeyEncr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiRowStatus": {
+    "name": "hpicfTunneledNodePapiRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpicfTunneledNodeCompliances": {
+    "name": "hpicfTunneledNodeCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.1",
+    "class": "objectidentity"
+  },
+  "hpicfTunneledNodeGroups": {
+    "name": "hpicfTunneledNodeGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.2",
+    "class": "objectidentity"
+  },
+  "hpicfTunneledNodeCompliance": {
+    "name": "hpicfTunneledNodeCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfTunneledNodeGroup",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      },
+      {
+        "object": "hpicfTunneledNodePortGroup",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      },
+      {
+        "object": "hpicfTunneledNodePapiGroup",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfTunneledNodeCompliance1": {
+    "name": "hpicfTunneledNodeCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpicfTunneledNodeGroup1",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      },
+      {
+        "object": "hpicfTunneledNodePortGroup",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      },
+      {
+        "object": "hpicfTunneledNodePapiGroup",
+        "module": "HP-ICF-TUNNELED-NODE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodeGroup": {
+    "name": "hpicfTunneledNodeGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeEnable"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePrimaryAddrType"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePrimaryAddr"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeBackupAddrType"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeBackupAddr"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeTimeout"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeRowStatus"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeClearStats"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "hpicfTunneledNodePortGroup": {
+    "name": "hpicfTunneledNodePortGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePortRowStatus"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeFallbackLclSw"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodePapiGroup": {
+    "name": "hpicfTunneledNodePapiGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePapiKeyValue"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePapiKeyEncr"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePapiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpicfTunneledNodeGroup1": {
+    "name": "hpicfTunneledNodeGroup1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.5.1.128.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeEnable"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePrimaryAddrType"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodePrimaryAddr"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeBackupAddrType"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeBackupAddr"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeTimeout"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeRowStatus"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeClearStats"
+      },
+      {
+        "module": "HP-ICF-TUNNELED-NODE-MIB",
+        "object": "hpicfTunneledNodeMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HP-ICF-TUNNELED-NODE-MIB",
+      "Source digest sha256:a86b056e446f31db73146925bfe13eb5d1def421d26d959c2fabd3abcaf61ee4",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HP-ICF-TUNNELED-NODE-MIB"
+  }
+}

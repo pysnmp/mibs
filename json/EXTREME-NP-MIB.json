@@ -1,0 +1,941 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeNPMib": {
+    "name": "extremeNPMib",
+    "oid": "1.3.6.1.4.1.1916.1.21",
+    "class": "moduleidentity"
+  },
+  "extremeNPModule": {
+    "name": "extremeNPModule",
+    "oid": "1.3.6.1.4.1.1916.1.21.1",
+    "class": "objectidentity"
+  },
+  "extremeNPModuleTable": {
+    "name": "extremeNPModuleTable",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeNPModuleEntry": {
+    "name": "extremeNPModuleEntry",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeNPModuleSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeNPModuleSlotNumber": {
+    "name": "extremeNPModuleSlotNumber",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModuleDescription": {
+    "name": "extremeNPModuleDescription",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModuleCurrentSoftware": {
+    "name": "extremeNPModuleCurrentSoftware",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModulePrimarySoftware": {
+    "name": "extremeNPModulePrimarySoftware",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModuleSecondarySoftware": {
+    "name": "extremeNPModuleSecondarySoftware",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModuleBootromVersion": {
+    "name": "extremeNPModuleBootromVersion",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeNPModuleProcessorState": {
+    "name": "extremeNPModuleProcessorState",
+    "oid": "1.3.6.1.4.1.1916.1.21.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAModule": {
+    "name": "extremeSMAModule",
+    "oid": "1.3.6.1.4.1.1916.1.21.2",
+    "class": "objectidentity"
+  },
+  "extremeSMATable": {
+    "name": "extremeSMATable",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeSMAEntry": {
+    "name": "extremeSMAEntry",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeSMASlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeSMASlotNumber": {
+    "name": "extremeSMASlotNumber",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAProtocolVersion": {
+    "name": "extremeSMAProtocolVersion",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAServiceVersion": {
+    "name": "extremeSMAServiceVersion",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAUpTime": {
+    "name": "extremeSMAUpTime",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMACpuUtilization": {
+    "name": "extremeSMACpuUtilization",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAMemUtilization": {
+    "name": "extremeSMAMemUtilization",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMAQosBroadcaster": {
+    "name": "extremeSMAQosBroadcaster",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMANumFromBroadcaster": {
+    "name": "extremeSMANumFromBroadcaster",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMANumToListener": {
+    "name": "extremeSMANumToListener",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMABytesBroadcaster": {
+    "name": "extremeSMABytesBroadcaster",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeSMABytesListener": {
+    "name": "extremeSMABytesListener",
+    "oid": "1.3.6.1.4.1.1916.1.21.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMModule": {
+    "name": "extremeATMModule",
+    "oid": "1.3.6.1.4.1.1916.1.21.3",
+    "class": "objectidentity"
+  },
+  "extremeATMCellPduTable": {
+    "name": "extremeATMCellPduTable",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeATMCellPduEntry": {
+    "name": "extremeATMCellPduEntry",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeATMPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeATMPortNumber": {
+    "name": "extremeATMPortNumber",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMRxCell": {
+    "name": "extremeATMRxCell",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMTxCell": {
+    "name": "extremeATMTxCell",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMRxCellHecError": {
+    "name": "extremeATMRxCellHecError",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMRxCellError": {
+    "name": "extremeATMRxCellError",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMRxAAL5Pdu": {
+    "name": "extremeATMRxAAL5Pdu",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMTxAAL5Pdu": {
+    "name": "extremeATMTxAAL5Pdu",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMRxAAL5Bytes": {
+    "name": "extremeATMRxAAL5Bytes",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMTxAAL5Bytes": {
+    "name": "extremeATMTxAAL5Bytes",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMPortStatus": {
+    "name": "extremeATMPortStatus",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMVpiVciTable": {
+    "name": "extremeATMVpiVciTable",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeATMVpiVciEntry": {
+    "name": "extremeATMVpiVciEntry",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeATMPortNum",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeATMPvc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeATMPortNum": {
+    "name": "extremeATMPortNum",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMPvc": {
+    "name": "extremeATMPvc",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMVpi": {
+    "name": "extremeATMVpi",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeATMVci": {
+    "name": "extremeATMVci",
+    "oid": "1.3.6.1.4.1.1916.1.21.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsModule": {
+    "name": "extremeMplsModule",
+    "oid": "1.3.6.1.4.1.1916.1.21.4",
+    "class": "objectidentity"
+  },
+  "extremeMplsTlsTable": {
+    "name": "extremeMplsTlsTable",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeMplsTlsEntry": {
+    "name": "extremeMplsTlsEntry",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-NP-MIB",
+        "object": "extremeMplsTlsNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeMplsTlsNum": {
+    "name": "extremeMplsTlsNum",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsName": {
+    "name": "extremeMplsTlsName",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsLocalIpAddr": {
+    "name": "extremeMplsTlsLocalIpAddr",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsPeerIpAddr": {
+    "name": "extremeMplsTlsPeerIpAddr",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsLocalVlanID": {
+    "name": "extremeMplsTlsLocalVlanID",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsLocalVlanName": {
+    "name": "extremeMplsTlsLocalVlanName",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsDynamic": {
+    "name": "extremeMplsTlsDynamic",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsType": {
+    "name": "extremeMplsTlsType",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsVcID": {
+    "name": "extremeMplsTlsVcID",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsLocalGroupID": {
+    "name": "extremeMplsTlsLocalGroupID",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsRemoteGroupID": {
+    "name": "extremeMplsTlsRemoteGroupID",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsIngressVcLabel": {
+    "name": "extremeMplsTlsIngressVcLabel",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsEgressVcLabel": {
+    "name": "extremeMplsTlsEgressVcLabel",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsVcState": {
+    "name": "extremeMplsTlsVcState",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsPacketTx": {
+    "name": "extremeMplsTlsPacketTx",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsPacketRx": {
+    "name": "extremeMplsTlsPacketRx",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsOctetTx": {
+    "name": "extremeMplsTlsOctetTx",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeMplsTlsOctetRx": {
+    "name": "extremeMplsTlsOctetRx",
+    "oid": "1.3.6.1.4.1.1916.1.21.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-NP-MIB"
+  }
+}

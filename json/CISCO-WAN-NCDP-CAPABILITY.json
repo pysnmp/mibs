@@ -1,0 +1,86 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanNcdpCapability": {
+    "name": "ciscoWanNcdpCapability",
+    "oid": "1.3.6.1.4.1.9.7.9999",
+    "class": "moduleidentity"
+  },
+  "ciscoWanNcdpCapabilityV3R00": {
+    "name": "ciscoWanNcdpCapabilityV3R00",
+    "oid": "1.3.6.1.4.1.9.7.9999.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 3.00",
+    "capabilities": [
+      {
+        "module": "CISCO-WAN-NCDP-MIB",
+        "includes": [
+          "ciscoWanNcdpGlobalGroup",
+          "ciscoWanNcdpClockSourceGroup",
+          "ciscoWanNcdpManualGroup",
+          "ciscoWanNcdpAtmGroup"
+        ],
+        "variations": [
+          {
+            "object": "cwnManualRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          },
+          {
+            "object": "cwnAtmSourceRowStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "active": 1,
+                  "createAndGo": 4,
+                  "destroy": 6
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-WAN-NCDP-CAPABILITY",
+      "Source digest sha256:28f7924c64f580f531858236d7d897a668f9c8b60d258e92c6f9334856f2a114",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-WAN-NCDP-CAPABILITY"
+  }
+}

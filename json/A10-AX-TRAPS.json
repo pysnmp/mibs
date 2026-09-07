@@ -1,0 +1,2640 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "axLogging",
+      "axNotification"
+    ],
+    "A10-AX-NOTIF-OBJ": [
+      "axNotificationCertificateName",
+      "axNotificationConfiguredThreshold",
+      "axNotificationConnLimit",
+      "axNotificationConnectionTypeName",
+      "axNotificationCurrentUpPorts",
+      "axNotificationCurrentUsage",
+      "axNotificationDateTime",
+      "axNotificationDroppedPackets",
+      "axNotificationFanName",
+      "axNotificationGslbGroupEntity",
+      "axNotificationGslbGroupName",
+      "axNotificationGslbServiceIpAddr",
+      "axNotificationGslbServiceIpName",
+      "axNotificationGslbServiceIpPortType",
+      "axNotificationGslbSiteName",
+      "axNotificationGslbSiteSlbDeviceName",
+      "axNotificationGslbZoneName",
+      "axNotificationGslbZoneServiceName",
+      "axNotificationGslbZoneServiceProto",
+      "axNotificationHAGroup",
+      "axNotificationIpAddressType",
+      "axNotificationLicenseCapacity",
+      "axNotificationLicenseDisableDuration",
+      "axNotificationLicensedModuleName",
+      "axNotificationMsg",
+      "axNotificationNewVcsState",
+      "axNotificationOldVcsState",
+      "axNotificationPartitionName",
+      "axNotificationPartitionResourceName",
+      "axNotificationPartitionResourceUsageLevel",
+      "axNotificationPercentage",
+      "axNotificationPortThreshold",
+      "axNotificationPowerSupplyName",
+      "axNotificationSLBCurConns",
+      "axNotificationSLBPort",
+      "axNotificationSLBServer",
+      "axNotificationSLBServerPortType",
+      "axNotificationSLBServiceGroupName",
+      "axNotificationServerSelectionFailureReason",
+      "axNotificationSeverity",
+      "axNotificationShutdownReason",
+      "axNotificationSlbObjectChange",
+      "axNotificationSlbThresholdResourceId",
+      "axNotificationSslServerCertificateErrCounter",
+      "axNotificationTacacsServerHost",
+      "axNotificationThresholdLevel",
+      "axNotificationTrueFalse",
+      "axNotificationTrunkID",
+      "axNotificationUpDown",
+      "axNotificationVirtualServer",
+      "axNotificationVirtualServerPort",
+      "axNotificationVirtualServerPortType",
+      "axNotificationVrid"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "axNotifications": {
+    "name": "axNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2",
+    "class": "objectidentity"
+  },
+  "axSystemNotifications": {
+    "name": "axSystemNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1",
+    "class": "objectidentity"
+  },
+  "axAppNotifications": {
+    "name": "axAppNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2",
+    "class": "objectidentity"
+  },
+  "axNetworkNotifications": {
+    "name": "axNetworkNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.3",
+    "class": "objectidentity"
+  },
+  "axGslbNotifications": {
+    "name": "axGslbNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5",
+    "class": "objectidentity"
+  },
+  "axSlbNotifications": {
+    "name": "axSlbNotifications",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6",
+    "class": "objectidentity"
+  },
+  "axSystemStart": {
+    "name": "axSystemStart",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.1",
+    "class": "notificationtype"
+  },
+  "axSystemShutdown": {
+    "name": "axSystemShutdown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.2",
+    "class": "notificationtype"
+  },
+  "axSystemTempHigh": {
+    "name": "axSystemTempHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axSystemTempLow": {
+    "name": "axSystemTempLow",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axPrimaryHardDiskFailure": {
+    "name": "axPrimaryHardDiskFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.11",
+    "class": "notificationtype"
+  },
+  "axSecondaryHardDiskFailure": {
+    "name": "axSecondaryHardDiskFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.12",
+    "class": "notificationtype"
+  },
+  "axHardDiskUsageHigh": {
+    "name": "axHardDiskUsageHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.13",
+    "class": "notificationtype"
+  },
+  "axMemoryUsageHigh": {
+    "name": "axMemoryUsageHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.14",
+    "class": "notificationtype"
+  },
+  "axSystemRestart": {
+    "name": "axSystemRestart",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.15",
+    "class": "notificationtype"
+  },
+  "axSystemDropPacketEvent": {
+    "name": "axSystemDropPacketEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationDroppedPackets"
+      }
+    ]
+  },
+  "axSystemRelieveDropPacketEvent": {
+    "name": "axSystemRelieveDropPacketEvent",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationDroppedPackets"
+      }
+    ]
+  },
+  "axSystemControlCpuHigh": {
+    "name": "axSystemControlCpuHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemDataCpuHigh": {
+    "name": "axSystemDataCpuHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemFanFailure": {
+    "name": "axSystemFanFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationFanName"
+      }
+    ]
+  },
+  "axSystemPowerSupplyFailure": {
+    "name": "axSystemPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPowerSupplyName"
+      }
+    ]
+  },
+  "axSystemLicenseRequired": {
+    "name": "axSystemLicenseRequired",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicensedModuleName"
+      }
+    ]
+  },
+  "axSystemLicenseLoadSuccessful": {
+    "name": "axSystemLicenseLoadSuccessful",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicensedModuleName"
+      }
+    ]
+  },
+  "axSystemLicenseExpired": {
+    "name": "axSystemLicenseExpired",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicensedModuleName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationDateTime"
+      }
+    ]
+  },
+  "axSystemShutdownForReason": {
+    "name": "axSystemShutdownForReason",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationShutdownReason"
+      }
+    ]
+  },
+  "axFileSystemBecomeReadOnly": {
+    "name": "axFileSystemBecomeReadOnly",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.26",
+    "class": "notificationtype"
+  },
+  "axSystemLicensedModuleDisabledForDuration": {
+    "name": "axSystemLicensedModuleDisabledForDuration",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicensedModuleName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicenseDisableDuration"
+      }
+    ]
+  },
+  "axSystemControlCpuBecomeNormal": {
+    "name": "axSystemControlCpuBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemDataCpuBecomeNormal": {
+    "name": "axSystemDataCpuBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemTempBecomeNormal": {
+    "name": "axSystemTempBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axHardDiskUsageBecomeNormal": {
+    "name": "axHardDiskUsageBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.31",
+    "class": "notificationtype"
+  },
+  "axMemoryUsageBecomeNormal": {
+    "name": "axMemoryUsageBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.32",
+    "class": "notificationtype"
+  },
+  "axSystemFanRecover": {
+    "name": "axSystemFanRecover",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationFanName"
+      }
+    ]
+  },
+  "axSystemPowerSupplyRecover": {
+    "name": "axSystemPowerSupplyRecover",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPowerSupplyName"
+      }
+    ]
+  },
+  "axSystemConnectionResourceHigh": {
+    "name": "axSystemConnectionResourceHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnectionTypeName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemConnectionResourceBecomeNormal": {
+    "name": "axSystemConnectionResourceBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnectionTypeName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemSmpResourceHigh": {
+    "name": "axSystemSmpResourceHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnectionTypeName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemSmpResourceBecomeNormal": {
+    "name": "axSystemSmpResourceBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnectionTypeName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axTacacsMonitorServerUpDown": {
+    "name": "axTacacsMonitorServerUpDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationTacacsServerHost"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationUpDown"
+      }
+    ]
+  },
+  "axHighPrioritySyslog": {
+    "name": "axHighPrioritySyslog",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      }
+    ]
+  },
+  "axSystemLicenseModuleDisabled": {
+    "name": "axSystemLicenseModuleDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicensedModuleName"
+      }
+    ]
+  },
+  "axAppsGlobalSessionsThreshold": {
+    "name": "axAppsGlobalSessionsThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationThresholdLevel"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axAppsGlobalCpsThreshold": {
+    "name": "axAppsGlobalCpsThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationThresholdLevel"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSystemBandwidthThresholdAlert": {
+    "name": "axSystemBandwidthThresholdAlert",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.1.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSeverity"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPercentage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationLicenseCapacity"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axHAStandby": {
+    "name": "axHAStandby",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationHAGroup"
+      }
+    ]
+  },
+  "axHAActive": {
+    "name": "axHAActive",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationHAGroup"
+      }
+    ]
+  },
+  "axServiceDown": {
+    "name": "axServiceDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceUp": {
+    "name": "axServiceUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerDown": {
+    "name": "axServerDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerUp": {
+    "name": "axServerUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerConnLimit": {
+    "name": "axServerConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerConnResume": {
+    "name": "axServerConnResume",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceConnLimit": {
+    "name": "axServiceConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceConnResume": {
+    "name": "axServiceConnResume",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerPortDown": {
+    "name": "axVirtualServerPortDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerPortUp": {
+    "name": "axVirtualServerPortUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axApplicationBufferReachLimit": {
+    "name": "axApplicationBufferReachLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axVirtualServerPortReachConnLimit": {
+    "name": "axVirtualServerPortReachConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnLimit"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerPortReachConnRateLimit": {
+    "name": "axVirtualServerPortReachConnRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnLimit"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerReachConnLimit": {
+    "name": "axVirtualServerReachConnLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnLimit"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerReachConnRateLimit": {
+    "name": "axVirtualServerReachConnRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConnLimit"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerConnRateLimit": {
+    "name": "axServerConnRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceConnRateLimit": {
+    "name": "axServiceConnRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupMemberEnabledForNewConn": {
+    "name": "axServiceGroupMemberEnabledForNewConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupMemberDisabledForNewConn": {
+    "name": "axServiceGroupMemberDisabledForNewConn",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVrrpActive": {
+    "name": "axVrrpActive",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVrid"
+      }
+    ]
+  },
+  "axVrrpStandby": {
+    "name": "axVrrpStandby",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVrid"
+      }
+    ]
+  },
+  "axSslServerCertificateErr": {
+    "name": "axSslServerCertificateErr",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSslServerCertificateErrCounter"
+      }
+    ]
+  },
+  "axServerSelectionFailure": {
+    "name": "axServerSelectionFailure",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationServerSelectionFailureReason"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerUp": {
+    "name": "axVirtualServerUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVirtualServerDown": {
+    "name": "axVirtualServerDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerDisabled": {
+    "name": "axServerDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationTrueFalse"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupUp": {
+    "name": "axServiceGroupUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupDown": {
+    "name": "axServiceGroupDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupMemberUp": {
+    "name": "axServiceGroupMemberUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceGroupMemberDown": {
+    "name": "axServiceGroupMemberDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServiceGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axVcsStateChange": {
+    "name": "axVcsStateChange",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationOldVcsState"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationNewVcsState"
+      }
+    ]
+  },
+  "axGatewayUp": {
+    "name": "axGatewayUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGatewayDown": {
+    "name": "axGatewayDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerBwRateLimit": {
+    "name": "axServerBwRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServerBwRateResume": {
+    "name": "axServerBwRateResume",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServiceBwRateLimit": {
+    "name": "axServiceBwRateLimit",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axServicBwRateResume": {
+    "name": "axServicBwRateResume",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.2.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBCurConns"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axNetworkTrunkPortsThreshold": {
+    "name": "axNetworkTrunkPortsThreshold",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationTrunkID"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPortThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUpPorts"
+      }
+    ]
+  },
+  "axSyslogTrapPrefix": {
+    "name": "axSyslogTrapPrefix",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "axSyslogTrap": {
+    "name": "axSyslogTrap",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.100.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-TRAPS",
+        "object": "axSyslogModuleName"
+      },
+      {
+        "module": "A10-AX-TRAPS",
+        "object": "axSyslogPriority"
+      },
+      {
+        "module": "A10-AX-TRAPS",
+        "object": "axSyslogMsg"
+      }
+    ]
+  },
+  "axSyslogTrapObjects": {
+    "name": "axSyslogTrapObjects",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "axSyslogModuleName": {
+    "name": "axSyslogModuleName",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "axSyslogPriority": {
+    "name": "axSyslogPriority",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.101.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "axSyslogMsg": {
+    "name": "axSyslogMsg",
+    "oid": "1.3.6.1.4.1.22610.2.4.2.101.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "axGslbSiteAdminEnabled": {
+    "name": "axGslbSiteAdminEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbSiteAdminDisabled": {
+    "name": "axGslbSiteAdminDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbSiteOperationalStateUp": {
+    "name": "axGslbSiteOperationalStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbSiteOperationalStateDown": {
+    "name": "axGslbSiteOperationalStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbSiteSlbDeviceStateUp": {
+    "name": "axGslbSiteSlbDeviceStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteSlbDeviceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbSiteSlbDeviceStateDown": {
+    "name": "axGslbSiteSlbDeviceStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbSiteSlbDeviceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpAdminEnabled": {
+    "name": "axGslbServiceIpAdminEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpAdminDisabled": {
+    "name": "axGslbServiceIpAdminDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpOperationalStateUp": {
+    "name": "axGslbServiceIpOperationalStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpOperationalStateDown": {
+    "name": "axGslbServiceIpOperationalStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpPortStateUp": {
+    "name": "axGslbServiceIpPortStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbServiceIpPortStateDown": {
+    "name": "axGslbServiceIpPortStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpAddr"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbServiceIpPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneAdminEnabled": {
+    "name": "axGslbZoneAdminEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneAdminDisabled": {
+    "name": "axGslbZoneAdminDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneOperationalStateUp": {
+    "name": "axGslbZoneOperationalStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneOperationalStateDown": {
+    "name": "axGslbZoneOperationalStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneServiceAdminEnabled": {
+    "name": "axGslbZoneServiceAdminEnabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceProto"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneServiceAdminDisabled": {
+    "name": "axGslbZoneServiceAdminDisabled",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceProto"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneServiceOperationalStateUp": {
+    "name": "axGslbZoneServiceOperationalStateUp",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceProto"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbZoneServiceOperationalStateDown": {
+    "name": "axGslbZoneServiceOperationalStateDown",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceProto"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbZoneServiceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axGslbGroupBecomeMaster": {
+    "name": "axGslbGroupBecomeMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupEntity"
+      }
+    ]
+  },
+  "axGslbGroupRemovedMaster": {
+    "name": "axGslbGroupRemovedMaster",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupEntity"
+      }
+    ]
+  },
+  "axGslbGroupMemberJoinMasterGroup": {
+    "name": "axGslbGroupMemberJoinMasterGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupEntity"
+      }
+    ]
+  },
+  "axGslbGroupMemberLeaveMasterGroup": {
+    "name": "axGslbGroupMemberLeaveMasterGroup",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.5.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationGslbGroupEntity"
+      }
+    ]
+  },
+  "axVirtualServerCreateDelete": {
+    "name": "axVirtualServerCreateDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbObjectChange"
+      }
+    ]
+  },
+  "axVirtualServerPortCreateDelete": {
+    "name": "axVirtualServerPortCreateDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbObjectChange"
+      }
+    ]
+  },
+  "axServerCreateDelete": {
+    "name": "axServerCreateDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbObjectChange"
+      }
+    ]
+  },
+  "axServerPortCreateDelete": {
+    "name": "axServerPortCreateDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSLBServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbObjectChange"
+      }
+    ]
+  },
+  "axSslCertificateCreateDelete": {
+    "name": "axSslCertificateCreateDelete",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCertificateName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationIpAddressType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbObjectChange"
+      }
+    ]
+  },
+  "axSslCertificateExpiring": {
+    "name": "axSslCertificateExpiring",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCertificateName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationDateTime"
+      }
+    ]
+  },
+  "axPartitionResourceUsageWarning": {
+    "name": "axPartitionResourceUsageWarning",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionResourceName"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionResourceUsageLevel"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axSlbSystemThresholdHigh": {
+    "name": "axSlbSystemThresholdHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbThresholdResourceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSlbSystemThresholdHighBecomeNormal": {
+    "name": "axSlbSystemThresholdHighBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbThresholdResourceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSlbSystemThresholdLow": {
+    "name": "axSlbSystemThresholdLow",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbThresholdResourceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSlbSystemThresholdLowBecomeNormal": {
+    "name": "axSlbSystemThresholdLowBecomeNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationSlbThresholdResourceId"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      }
+    ]
+  },
+  "axSlbQpsHigh": {
+    "name": "axSlbQpsHigh",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axSlbQpsHighToNormal": {
+    "name": "axSlbQpsHighToNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axSlbQpsLow": {
+    "name": "axSlbQpsLow",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "axSlbQpsLowToNormal": {
+    "name": "axSlbQpsLowToNormal",
+    "oid": "1.3.6.1.4.1.22610.2.4.3.12.2.6.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationMsg"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServer"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPort"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationVirtualServerPortType"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationConfiguredThreshold"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationCurrentUsage"
+      },
+      {
+        "module": "A10-AX-NOTIF-OBJ",
+        "object": "axNotificationPartitionName"
+      }
+    ]
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source A10-AX-TRAPS",
+      "Source digest sha256:e1ca50a9f00ebf4c44f96990defb1e3ab4281e14de4146864819aaece48772bd",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "A10-AX-TRAPS"
+  }
+}

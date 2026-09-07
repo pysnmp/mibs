@@ -1,0 +1,102 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "EXTREME-VLAN-MIB": [
+      "extremeVlanIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "extremeOspf": {
+    "name": "extremeOspf",
+    "oid": "1.3.6.1.4.1.1916.1.15",
+    "class": "moduleidentity"
+  },
+  "extremeOspfInterfaceTable": {
+    "name": "extremeOspfInterfaceTable",
+    "oid": "1.3.6.1.4.1.1916.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeOspfInterfaceEntry": {
+    "name": "extremeOspfInterfaceEntry",
+    "oid": "1.3.6.1.4.1.1916.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeOspfAreaId": {
+    "name": "extremeOspfAreaId",
+    "oid": "1.3.6.1.4.1.1916.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeOspfInterfacePassive": {
+    "name": "extremeOspfInterfacePassive",
+    "oid": "1.3.6.1.4.1.1916.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeOspfInterfaceStatus": {
+    "name": "extremeOspfInterfaceStatus",
+    "oid": "1.3.6.1.4.1.1916.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-OSPF-MIB"
+  }
+}

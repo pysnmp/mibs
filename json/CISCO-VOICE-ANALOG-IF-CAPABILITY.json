@@ -1,0 +1,202 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceAnalogIfCapability": {
+    "name": "ciscoVoiceAnalogIfCapability",
+    "oid": "1.3.6.1.4.1.9.7.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-04-28 00:00",
+        "description": "cvaIfEMCfgLmrMCap & cvaIfEMCfgLmrECap are readonly"
+      },
+      {
+        "revision": "1997-06-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVoiceAnalogIfCapabilityV11R03": {
+    "name": "ciscoVoiceAnalogIfCapabilityV11R03",
+    "oid": "1.3.6.1.4.1.9.7.82.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 11.3",
+    "capabilities": [
+      {
+        "module": "CISCO-VOICE-ANALOG-IF-MIB",
+        "includes": [
+          "cvaIfGeneralGroup",
+          "cvaIfEMGroup",
+          "cvaIfFXOGroup",
+          "cvaIfFXSGroup"
+        ],
+        "variations": [
+          {
+            "object": "cvaIfCfgImpedance",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgOperation",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgDialType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgLmrMCap",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMCfgLmrECap",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingInterDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingPulseRate",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingPulseInterDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingClearWaitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingMaxWinkWaitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingMaxWinkDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingDelayStart",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingMaxDelayDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingMinDelayPulseWidth",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimingVoiceHangover",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfEMTimeoutLmrTeardown",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOCfgSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOCfgNumberRings",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOCfgSupDisconnect",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOCfgDialType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOTimingDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOTimingInterDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOTimingPulseRate",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXOTimingPulseInterDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXSCfgSignalType",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXSRingFrequency",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "ringFrequency25": 1,
+                  "ringFrequency50": 2
+                }
+              }
+            },
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXSTimingDigitDuration",
+            "access": "read-only"
+          },
+          {
+            "object": "cvaIfFXSTimingInterDigitDuration",
+            "access": "read-only"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-VOICE-ANALOG-IF-CAPABILITY",
+      "Source digest sha256:4eb4d1ed776583cb64ad269338d55b1f10c331f2c962019ef21654b51a3d18b6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-VOICE-ANALOG-IF-CAPABILITY"
+  }
+}

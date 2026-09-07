@@ -1,0 +1,235 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfCurrentCount",
+      "PerfIntervalCount",
+      "PerfTotalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "slL2Topology": {
+    "name": "slL2Topology",
+    "oid": "1.3.6.1.4.1.4515.1.3.10",
+    "class": "moduleidentity"
+  },
+  "topologyL2Links": {
+    "name": "topologyL2Links",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1",
+    "class": "objectidentity"
+  },
+  "topologyL2Traps": {
+    "name": "topologyL2Traps",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.2",
+    "class": "objectidentity"
+  },
+  "topologyL2LinkTable": {
+    "name": "topologyL2LinkTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "topologyL2LinkEntry": {
+    "name": "topologyL2LinkEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-L2TOPOLOGY-MIB",
+        "object": "topologyL2LinkLocalIp",
+        "implied": 0
+      },
+      {
+        "module": "SL-L2TOPOLOGY-MIB",
+        "object": "topologyL2LinkLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "topologyL2LinkLocalIp": {
+    "name": "topologyL2LinkLocalIp",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkLocalPort": {
+    "name": "topologyL2LinkLocalPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkLocalMac": {
+    "name": "topologyL2LinkLocalMac",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkLocalTid": {
+    "name": "topologyL2LinkLocalTid",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkRemoteIp": {
+    "name": "topologyL2LinkRemoteIp",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkRemotePort": {
+    "name": "topologyL2LinkRemotePort",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkRemoteMac": {
+    "name": "topologyL2LinkRemoteMac",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LinkRemoteTid": {
+    "name": "topologyL2LinkRemoteTid",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2LastChange": {
+    "name": "topologyL2LastChange",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "topologyL2ChangeTrapEnable": {
+    "name": "topologyL2ChangeTrapEnable",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "value": "true",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "topologyL2LinkChange": {
+    "name": "topologyL2LinkChange",
+    "oid": "1.3.6.1.4.1.4515.1.3.10.2.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source SL-L2TOPOLOGY-MIB",
+      "Source digest sha256:9b74b8b6a5d62a14a654306b29cb978db280cb13a22dfd3e236b66643f15b703",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "SL-L2TOPOLOGY-MIB"
+  }
+}

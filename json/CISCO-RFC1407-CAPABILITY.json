@@ -1,0 +1,302 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRFC1407Capability": {
+    "name": "ciscoRFC1407Capability",
+    "oid": "1.3.6.1.4.1.9.7.102",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-08-17 00:00",
+        "description": "Support SET operation for dsx3LoopbackConfig object."
+      },
+      {
+        "revision": "1996-06-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRFC1407CapabilityV11R02": {
+    "name": "ciscoRFC1407CapabilityV11R02",
+    "oid": "1.3.6.1.4.1.9.7.102.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 11.2",
+    "capabilities": [
+      {
+        "module": "RFC1407-MIB",
+        "includes": [
+          "ds3Group"
+        ],
+        "variations": [
+          {
+            "object": "dsx3LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3LoopbackConfig",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3FarEndLineIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndEquipCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndLocationIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndFrameIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndUnitCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndFacilityIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalUASs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRFC1407CapabilityV122R12": {
+    "name": "ciscoRFC1407CapabilityV122R12",
+    "oid": "1.3.6.1.4.1.9.7.102.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(12)T",
+    "capabilities": [
+      {
+        "module": "RFC1407-MIB",
+        "includes": [
+          "ds3Group"
+        ],
+        "variations": [
+          {
+            "object": "dsx3LineCoding",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3SendCode",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3CircuitIdentifier",
+            "access": "read-only"
+          },
+          {
+            "object": "dsx3FarEndLineIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndEquipCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndLocationIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndFrameIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndUnitCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndFacilityIDCode",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTimeElapsed",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndValidIntervals",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndCurrentUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalNumber",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndIntervalUASs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalIndex",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCSESs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalCCVs",
+            "access": "not-implemented"
+          },
+          {
+            "object": "dsx3FarEndTotalUASs",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-RFC1407-CAPABILITY",
+      "Source digest sha256:0f08794b329bc5c6de52e0a0cfcae73b8bc16ef7a149797a6ae4a9cc019b1fa3",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-RFC1407-CAPABILITY"
+  }
+}

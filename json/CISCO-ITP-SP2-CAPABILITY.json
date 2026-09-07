@@ -1,0 +1,60 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpSp2Capability": {
+    "name": "ciscoItpSp2Capability",
+    "oid": "1.3.6.1.4.1.9.7.272",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpSp2CapabilityV12R0204MB4": {
+    "name": "ciscoItpSp2CapabilityV12R0204MB4",
+    "oid": "1.3.6.1.4.1.9.7.272.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB4",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-SP2-MIB",
+        "includes": [
+          "ciscoItpSp2EventsGroup",
+          "ciscoItpSp2QosGroup"
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-SP2-CAPABILITY",
+      "Source digest sha256:783a439f97ab435057d88d375ee657d9b3f51d4810e2b2f95c458c6061c1e2ba",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-SP2-CAPABILITY"
+  }
+}

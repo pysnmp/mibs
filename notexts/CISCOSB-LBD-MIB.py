@@ -1,0 +1,33 @@
+#
+# PySNMP MIB module CISCOSB-LBD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCOSB-LBD-MIB
+# Source digest sha256:ebbc5ab8e191ccb9cbc87776162c6bbb6497733edbaacf026a1d77ba6bd43cc0
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+rlLbd = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127))
+rlLbd.setRevisions(('2007-11-07 00:00',))
+if mibBuilder.loadTexts: rlLbd.setLastUpdated('2007-11-07 00:00')
+if mibBuilder.loadTexts: rlLbd.setOrganization('Cisco Systems, Inc.')
+rlLbdEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlLbdEnable.setStatus('current')
+rlLbdDetectionInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 60))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlLbdDetectionInterval.setStatus('current')
+rlLbdMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("source-mac-addr", 1), ("base-mac-addr", 2), ("broadcast-mac-addr", 3), ("predefined-multicast-mac-addr", 4), ("user-defined-mac-addr", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlLbdMode.setStatus('current')
+rlLbdPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 4), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: rlLbdPortTable.setStatus('current')
+rlLbdPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 4, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlLbdPortEntry.setStatus('current')
+rlLbdPortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlLbdPortAdminStatus.setStatus('current')
+rlLbdPortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 127, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2), ("loopDetected", 3))).clone('inactive')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLbdPortOperStatus.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-LBD-MIB", PYSNMP_MODULE_ID=rlLbd, rlLbd=rlLbd, rlLbdDetectionInterval=rlLbdDetectionInterval, rlLbdEnable=rlLbdEnable, rlLbdMode=rlLbdMode, rlLbdPortAdminStatus=rlLbdPortAdminStatus, rlLbdPortEntry=rlLbdPortEntry, rlLbdPortOperStatus=rlLbdPortOperStatus, rlLbdPortTable=rlLbdPortTable)

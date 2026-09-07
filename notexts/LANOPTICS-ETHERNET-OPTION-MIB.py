@@ -1,0 +1,30 @@
+#
+# PySNMP MIB module LANOPTICS-ETHERNET-OPTION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source LANOPTICS-ETHERNET-OPTION-MIB
+# Source digest sha256:d0673fad4a54bcce740022f1872f2fa67ca38f7009fe3e772a8b192cad229435
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+lanOptics = MibIdentifier((1, 3, 6, 1, 4, 1, 224))
+lanOpticsDot3Monitor = MibIdentifier((1, 3, 6, 1, 4, 1, 224, 3))
+etAlertsLevel = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 1), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etAlertsLevel.setStatus('mandatory')
+etAlertsBuffer = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etAlertsBuffer.setStatus('mandatory')
+etFullStatisticsBuffer = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etFullStatisticsBuffer.setStatus('mandatory')
+etResetBuffers = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etResetBuffers.setStatus('mandatory')
+etSlotsTable = MibTable((1, 3, 6, 1, 4, 1, 224, 3, 5), ).setMaxAccess("notaccessible")
+if mibBuilder.loadTexts: etSlotsTable.setStatus('mandatory')
+pysmiFakeCol1004 = MibTableColumn((1, 3, 6, 1, 4, 1, 224, 3, 5, 1) + (1004, ), Integer32())
+etSlotsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 224, 3, 5, 1), ).setMaxAccess("notaccessible").setIndexNames((0, "LANOPTICS-ETHERNET-OPTION-MIB", "pysmiFakeCol1004"))
+if mibBuilder.loadTexts: etSlotsEntry.setStatus('mandatory')
+etSlotPollStruct = MibTableColumn((1, 3, 6, 1, 4, 1, 224, 3, 5, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etSlotPollStruct.setStatus('mandatory')
+mibBuilder.exportSymbols("LANOPTICS-ETHERNET-OPTION-MIB", etAlertsBuffer=etAlertsBuffer, etAlertsLevel=etAlertsLevel, etFullStatisticsBuffer=etFullStatisticsBuffer, etResetBuffers=etResetBuffers, etSlotPollStruct=etSlotPollStruct, etSlotsEntry=etSlotsEntry, etSlotsTable=etSlotsTable, lanOptics=lanOptics, lanOpticsDot3Monitor=lanOpticsDot3Monitor, pysmiFakeCol1004=pysmiFakeCol1004)

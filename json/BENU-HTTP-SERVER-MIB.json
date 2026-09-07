@@ -1,0 +1,338 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-WAG-MIB": [
+      "benuWAG"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "benuHttpServerMIB": {
+    "name": "benuHttpServerMIB",
+    "oid": "1.3.6.1.4.1.39406.2.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-21 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "bHttpServerObjects": {
+    "name": "bHttpServerObjects",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bHttpServerLatencyTable": {
+    "name": "bHttpServerLatencyTable",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bHttpServerLatencyEntry": {
+    "name": "bHttpServerLatencyEntry",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-HTTP-SERVER-MIB",
+        "object": "bHttpServLatencyStatsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bHttpServLatencyStatsInterval": {
+    "name": "bHttpServLatencyStatsInterval",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bHttpServLatencyStatsIntervalDuration": {
+    "name": "bHttpServLatencyStatsIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyTotalPktCount": {
+    "name": "bHttpServLatencyTotalPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyMaxProcessingTime": {
+    "name": "bHttpServLatencyMaxProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyMinProcessingTime": {
+    "name": "bHttpServLatencyMinProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyAvgProcessingTime": {
+    "name": "bHttpServLatencyAvgProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyProcessTimeMorethan1MSPktCount": {
+    "name": "bHttpServLatencyProcessTimeMorethan1MSPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyGetTotalPktCount": {
+    "name": "bHttpServLatencyGetTotalPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyGetMaxProcessingTime": {
+    "name": "bHttpServLatencyGetMaxProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyGetMinProcessingTime": {
+    "name": "bHttpServLatencyGetMinProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyGetAvgProcessingTime": {
+    "name": "bHttpServLatencyGetAvgProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyGetProcessTimeMorethan1MSPktCount": {
+    "name": "bHttpServLatencyGetProcessTimeMorethan1MSPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyPostTotalPktCount": {
+    "name": "bHttpServLatencyPostTotalPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyPostMaxProcessingTime": {
+    "name": "bHttpServLatencyPostMaxProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyPostMinProcessingTime": {
+    "name": "bHttpServLatencyPostMinProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyPostAvgProcessingTime": {
+    "name": "bHttpServLatencyPostAvgProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyPostProcessTimeMorethan1MSPktCount": {
+    "name": "bHttpServLatencyPostProcessTimeMorethan1MSPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyDeleteTotalPktCount": {
+    "name": "bHttpServLatencyDeleteTotalPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyDeleteMaxProcessingTime": {
+    "name": "bHttpServLatencyDeleteMaxProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyDeleteMinProcessingTime": {
+    "name": "bHttpServLatencyDeleteMinProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyDeleteAvgProcessingTime": {
+    "name": "bHttpServLatencyDeleteAvgProcessingTime",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount": {
+    "name": "bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount",
+    "oid": "1.3.6.1.4.1.39406.2.1.10.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source BENU-HTTP-SERVER-MIB",
+      "Source digest sha256:a5555f9ab5485d9f5052a5de33a2123f55238338aa71353523aa82be90d59633",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "BENU-HTTP-SERVER-MIB"
+  }
+}

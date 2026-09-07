@@ -1,0 +1,232 @@
+{
+  "imports": {
+    "class": "imports",
+    "A10-AX-MIB": [
+      "acosSchema"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "systemCpuCtrlCpuModule": {
+    "name": "systemCpuCtrlCpuModule",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112",
+    "class": "moduleidentity"
+  },
+  "ctrlCpu": {
+    "name": "ctrlCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1",
+    "class": "objectidentity"
+  },
+  "ctrlCpuOperTable": {
+    "name": "ctrlCpuOperTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctrlCpuOperEntry": {
+    "name": "ctrlCpuOperEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SYSTEMCPU-CTRL-CPU-MIB",
+        "object": "ctrlCpuOperSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctrlCpuOperSlotId": {
+    "name": "ctrlCpuOperSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCurrentTime": {
+    "name": "ctrlCpuOperCurrentTime",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperNumberOfCpu": {
+    "name": "ctrlCpuOperNumberOfCpu",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsageTable": {
+    "name": "ctrlCpuOperCpuUsageTable",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsageEntry": {
+    "name": "ctrlCpuOperCpuUsageEntry",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACOS-SYSTEMCPU-CTRL-CPU-MIB",
+        "object": "ctrlCpuOperCpuUsageSlotId",
+        "implied": 0
+      },
+      {
+        "module": "ACOS-SYSTEMCPU-CTRL-CPU-MIB",
+        "object": "ctrlCpuOperCpuUsageCpuUsageListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsageSlotId": {
+    "name": "ctrlCpuOperCpuUsageSlotId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsageCpuUsageListId": {
+    "name": "ctrlCpuOperCpuUsageCpuUsageListId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsageCpuId": {
+    "name": "ctrlCpuOperCpuUsageCpuId",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsage1Sec": {
+    "name": "ctrlCpuOperCpuUsage1Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsage5Sec": {
+    "name": "ctrlCpuOperCpuUsage5Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsage10Sec": {
+    "name": "ctrlCpuOperCpuUsage10Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsage30Sec": {
+    "name": "ctrlCpuOperCpuUsage30Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctrlCpuOperCpuUsage60Sec": {
+    "name": "ctrlCpuOperCpuUsage60Sec",
+    "oid": "1.3.6.1.4.1.22610.2.4.8.112.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ACOS-SYSTEMCPU-CTRL-CPU-MIB",
+      "Source digest sha256:3bb9ac8519a4903f1d146a1ef1fc3ee8c04508a948aac750b83d40ab82b78fc6",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ACOS-SYSTEMCPU-CTRL-CPU-MIB"
+  }
+}

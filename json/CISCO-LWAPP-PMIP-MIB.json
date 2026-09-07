@@ -1,0 +1,1116 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "ciscoLwappPmipMIB": {
+    "name": "ciscoLwappPmipMIB",
+    "oid": "1.3.6.1.4.1.9.9.845",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-04-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappPmipMIBNotifs": {
+    "name": "ciscoLwappPmipMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.845.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipMIBObjects": {
+    "name": "ciscoLwappPmipMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.845.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipMIBConform": {
+    "name": "ciscoLwappPmipMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.845.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipGlobal": {
+    "name": "ciscoLwappPmipGlobal",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipConfig": {
+    "name": "ciscoLwappPmipConfig",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipStatistics": {
+    "name": "ciscoLwappPmipStatistics",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3",
+    "class": "objectidentity"
+  },
+  "cLPmipDomainName": {
+    "name": "cLPmipDomainName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipMAGInterface": {
+    "name": "cLPmipMAGInterface",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "management",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipMaxBindings": {
+    "name": "cLPmipMaxBindings",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 7000,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBindingLifeTime": {
+    "name": "cLPmipBindingLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 3600,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBindingRefreshTime": {
+    "name": "cLPmipBindingRefreshTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBindingInitRetxTime": {
+    "name": "cLPmipBindingInitRetxTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 1000,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBindingMaxRetxTime": {
+    "name": "cLPmipBindingMaxRetxTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 32000,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipReplayProtectionTimestamp": {
+    "name": "cLPmipReplayProtectionTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "default": {
+      "value": 7,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBriMinDelayTime": {
+    "name": "cLPmipBriMinDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 1000,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBriMaxDelayTime": {
+    "name": "cLPmipBriMaxDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "value": 2000,
+      "format": "decimal"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipBriRetries": {
+    "name": "cLPmipBriRetries",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "value": 1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipMagApnName": {
+    "name": "cLPmipMagApnName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "value": "",
+      "format": "string"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipLmaTable": {
+    "name": "cLPmipLmaTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipLmaEntry": {
+    "name": "cLPmipLmaEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipLmaName": {
+    "name": "cLPmipLmaName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipLmaIPAddrType": {
+    "name": "cLPmipLmaIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipLmaIPAddr": {
+    "name": "cLPmipLmaIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipLmaRowStatus": {
+    "name": "cLPmipLmaRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipLmaStatsTable": {
+    "name": "cLPmipLmaStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipLmaStatsEntry": {
+    "name": "cLPmipLmaStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipLmaTotalBindings": {
+    "name": "cLPmipLmaTotalBindings",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbuSent": {
+    "name": "cLPmipLmaPbuSent",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbaReceived": {
+    "name": "cLPmipLmaPbaReceived",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbriSent": {
+    "name": "cLPmipLmaPbriSent",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbriReceived": {
+    "name": "cLPmipLmaPbriReceived",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbraSent": {
+    "name": "cLPmipLmaPbraSent",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbraReceived": {
+    "name": "cLPmipLmaPbraReceived",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaNoOfHandoff": {
+    "name": "cLPmipLmaNoOfHandoff",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipLmaPbuDropped": {
+    "name": "cLPmipLmaPbuDropped",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipProfileTable": {
+    "name": "cLPmipProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipProfileEntry": {
+    "name": "cLPmipProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipProfileName": {
+    "name": "cLPmipProfileName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipProfileNaiTable": {
+    "name": "cLPmipProfileNaiTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipProfileNaiEntry": {
+    "name": "cLPmipProfileNaiEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileNai",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipProfileNai": {
+    "name": "cLPmipProfileNai",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipProfileApn": {
+    "name": "cLPmipProfileApn",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipProfileLmaName": {
+    "name": "cLPmipProfileLmaName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipProfileNaiRowStatus": {
+    "name": "cLPmipProfileNaiRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPmipWlanTable": {
+    "name": "cLPmipWlanTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipWlanEntry": {
+    "name": "cLPmipWlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipWlanProfileName": {
+    "name": "cLPmipWlanProfileName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipWlanMobilityType": {
+    "name": "cLPmipWlanMobilityType",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pmipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipWlanDefaultRealm": {
+    "name": "cLPmipWlanDefaultRealm",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipWlanNaiType": {
+    "name": "cLPmipWlanNaiType",
+    "oid": "1.3.6.1.4.1.9.9.845.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hexadecimal": 1,
+          "decimal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPmipClientInfoTable": {
+    "name": "cLPmipClientInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPmipClientInfoEntry": {
+    "name": "cLPmipClientInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPmipClientNai": {
+    "name": "cLPmipClientNai",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientState": {
+    "name": "cLPmipClientState",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientInterface": {
+    "name": "cLPmipClientInterface",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientHomeAddressType": {
+    "name": "cLPmipClientHomeAddressType",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientHomeAddress": {
+    "name": "cLPmipClientHomeAddress",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientAtt": {
+    "name": "cLPmipClientAtt",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 0,
+          "logicalNetworkInterface": 1,
+          "pointToPointInterface": 2,
+          "ethernet": 3,
+          "wirelessLan": 4,
+          "wimax": 5,
+          "threeGPPGERAN": 6,
+          "threeGPPUTRAN": 7,
+          "threeGPPETRAN": 8,
+          "threeGPP2eHRPD": 9,
+          "threeGPP2HRPD": 10,
+          "threeGPP21xRTT": 11,
+          "threeGPP2UMB": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientLocalLinkId": {
+    "name": "cLPmipClientLocalLinkId",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientLmaName": {
+    "name": "cLPmipClientLmaName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientLifeTime": {
+    "name": "cLPmipClientLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientDomainName": {
+    "name": "cLPmipClientDomainName",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientUpKey": {
+    "name": "cLPmipClientUpKey",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLPmipClientDownKey": {
+    "name": "cLPmipClientDownKey",
+    "oid": "1.3.6.1.4.1.9.9.845.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappPmipMIBCompliances": {
+    "name": "ciscoLwappPmipMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.845.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipMIBGroups": {
+    "name": "ciscoLwappPmipMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.845.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPmipMIBCompliance": {
+    "name": "ciscoLwappPmipMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.845.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappPmipMIBConfigGroup",
+        "module": "CISCO-LWAPP-PMIP-MIB"
+      },
+      {
+        "object": "ciscoLwappPmipMIBStatusGroup",
+        "module": "CISCO-LWAPP-PMIP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappPmipMIBConfigGroup": {
+    "name": "ciscoLwappPmipMIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.845.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipMAGInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipMaxBindings"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBindingLifeTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBindingRefreshTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBindingInitRetxTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBindingMaxRetxTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipReplayProtectionTimestamp"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBriMinDelayTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBriMaxDelayTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipBriRetries"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipMagApnName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaIPAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaIPAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileNai"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileApn"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileLmaName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipProfileNaiRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipWlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipWlanMobilityType"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipWlanDefaultRealm"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipWlanNaiType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappPmipMIBStatusGroup": {
+    "name": "ciscoLwappPmipMIBStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.845.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientNai"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientState"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientHomeAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientHomeAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientAtt"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientLocalLinkId"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientLmaName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientLifeTime"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientUpKey"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipClientDownKey"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaTotalBindings"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbuSent"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbaReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbriSent"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbriReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbraSent"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbraReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaNoOfHandoff"
+      },
+      {
+        "module": "CISCO-LWAPP-PMIP-MIB",
+        "object": "cLPmipLmaPbuDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-LWAPP-PMIP-MIB",
+      "Source digest sha256:676e3320c20f5f4510dfd3a3623171ce0261f9cb71892cd6e4430ecea081d585",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-LWAPP-PMIP-MIB"
+  }
+}

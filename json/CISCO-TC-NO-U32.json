@@ -1,0 +1,235 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoModules",
+      "ciscoProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTextualConventions": {
+    "name": "ciscoTextualConventions",
+    "oid": "1.3.6.1.4.1.9.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1997-03-13 00:00",
+        "description": "Added CountryCode textual convention."
+      },
+      {
+        "revision": "1997-03-13 00:00",
+        "description": "Added SAPType textual convention."
+      },
+      {
+        "revision": "1996-08-14 00:00",
+        "description": "Added InterfaceIndexOrZero textual convention."
+      },
+      {
+        "revision": "1996-07-08 00:00",
+        "description": "Added new CiscoNetworkProtocol enumerations."
+      },
+      {
+        "revision": "1995-06-07 00:00",
+        "description": "Miscellaneous updates/corrections, including making CiscoNetworkProtocol enumerations contiguous."
+      },
+      {
+        "revision": "1998-10-28 00:00",
+        "description": "Added Port and IpProtocol textual conventions."
+      }
+    ]
+  },
+  "CiscoNetworkProtocol": {
+    "name": "CiscoNetworkProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "decnet": 2,
+          "pup": 3,
+          "chaos": 4,
+          "xns": 5,
+          "x121": 6,
+          "appletalk": 7,
+          "clns": 8,
+          "lat": 9,
+          "vines": 10,
+          "cons": 11,
+          "apollo": 12,
+          "stun": 13,
+          "novell": 14,
+          "qllc": 15,
+          "snapshot": 16,
+          "atmIlmi": 17,
+          "bstun": 18,
+          "x25pvc": 19,
+          "unknown": 65535
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetworkAddress": {
+    "name": "CiscoNetworkAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "InterfaceIndexOrZero": {
+    "name": "InterfaceIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SAPType": {
+    "name": "SAPType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "CountryCode": {
+    "name": "CountryCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "2a",
+    "status": "current"
+  },
+  "EntPhysicalIndexOrZero": {
+    "name": "EntPhysicalIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoRowOperStatus": {
+    "name": "CiscoRowOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "activeDependencies": 2,
+          "inactiveDependency": 3,
+          "missingDependency": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoPort": {
+    "name": "CiscoPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoIpProtocol": {
+    "name": "CiscoIpProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-TC-NO-U32",
+      "Source digest sha256:8eb3f67fae3032bebaaddd3141b1440cb6347f06db0c9dae2b1e6d753d415c92",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-TC-NO-U32"
+  }
+}

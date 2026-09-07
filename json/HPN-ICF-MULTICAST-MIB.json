@@ -1,0 +1,79 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMulticast": {
+    "name": "hpnicfMulticast",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-29 00:00",
+        "description": "The initial version of this MIB file."
+      }
+    ]
+  },
+  "EnabledStatus": {
+    "name": "EnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfMulticastObject": {
+    "name": "hpnicfMulticastObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.50.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMulticastEnable": {
+    "name": "hpnicfMulticastEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.50.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "value": "disabled",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source HPN-ICF-MULTICAST-MIB",
+      "Source digest sha256:82fc87b1eb3c0c62ab579fa4a2ee76898a359c8220dff9d6bfa3d37047227512",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "HPN-ICF-MULTICAST-MIB"
+  }
+}

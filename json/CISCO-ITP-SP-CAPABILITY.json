@@ -1,0 +1,197 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpSpCapability": {
+    "name": "ciscoItpSpCapability",
+    "oid": "1.3.6.1.4.1.9.7.217",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-01-21 00:00",
+        "description": "Updated capabilities MIB as required for new group. cItpSpStatsGroup"
+      },
+      {
+        "revision": "2001-10-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpSpCapabilityV12R024MB1": {
+    "name": "ciscoItpSpCapabilityV12R024MB1",
+    "oid": "1.3.6.1.4.1.9.7.217.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB1",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "includes": [
+          "cItpSpScalarsGroup",
+          "cItpSpPointCodeGroup",
+          "cItpSpLinksetGroup",
+          "cItpSpLinkGroup",
+          "cItpSpNotificationsEnableGroup",
+          "cItpSpNotificationsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpSpLinkQ752T1E3",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E4",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E5",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E8",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E11",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E7",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E9",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E15",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinksetActPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinksetType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpSpCapabilityV12R0204MB3": {
+    "name": "ciscoItpSpCapabilityV12R0204MB3",
+    "oid": "1.3.6.1.4.1.9.7.217.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB3",
+    "capabilities": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "includes": [
+          "cItpSpScalarsGroup",
+          "cItpSpPointCodeGroup",
+          "cItpSpLinksetGroup",
+          "cItpSpLinkGroup",
+          "cItpSpNotificationsEnableGroup",
+          "cItpSpNotificationsGroup",
+          "cItpSpStatsGroup"
+        ],
+        "variations": [
+          {
+            "object": "cItpSpLinkQ752T1E3",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E4",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E5",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E6",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E8",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T1E11",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E7",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E9",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E10",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinkQ752T2E15",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinksetActPriority",
+            "access": "not-implemented"
+          },
+          {
+            "object": "cItpSpLinksetType",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-ITP-SP-CAPABILITY",
+      "Source digest sha256:84f8ac72ed8d280c58d236de75e27727650dd476cddb42e0b2c43c61027cecf5",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-ITP-SP-CAPABILITY"
+  }
+}

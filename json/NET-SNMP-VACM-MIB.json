@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "NET-SNMP-MIB": [
+      "netSnmpGroups",
+      "netSnmpObjects"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-VIEW-BASED-ACM-MIB": [
+      "vacmAccessContextPrefix",
+      "vacmAccessSecurityLevel",
+      "vacmAccessSecurityModel",
+      "vacmGroupName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netSnmpVacmMIB": {
+    "name": "netSnmpVacmMIB",
+    "oid": "1.3.6.1.4.1.8072.1.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-27 00:00",
+        "description": "First draft"
+      }
+    ]
+  },
+  "nsVacmAccessTable": {
+    "name": "nsVacmAccessTable",
+    "oid": "1.3.6.1.4.1.8072.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVacmAccessEntry": {
+    "name": "nsVacmAccessEntry",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmGroupName",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessContextPrefix",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessSecurityModel",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-VIEW-BASED-ACM-MIB",
+        "object": "vacmAccessSecurityLevel",
+        "implied": 0
+      },
+      {
+        "module": "NET-SNMP-VACM-MIB",
+        "object": "nsVacmAuthType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVacmAuthType": {
+    "name": "nsVacmAuthType",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVacmContextMatch": {
+    "name": "nsVacmContextMatch",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exact": 1,
+          "prefix": 2
+        }
+      }
+    },
+    "default": {
+      "value": "exact",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVacmViewName": {
+    "name": "nsVacmViewName",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": "",
+      "format": "hex"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVacmStorageType": {
+    "name": "nsVacmStorageType",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVacmStatus": {
+    "name": "nsVacmStatus",
+    "oid": "1.3.6.1.4.1.8072.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NET-SNMP-VACM-MIB",
+      "Source digest sha256:cc2bcbf42d8a9eabdb5092592dbb3c65db3f93c69516d81ba83d7db6df3a895f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NET-SNMP-VACM-MIB"
+  }
+}

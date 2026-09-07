@@ -1,0 +1,125 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoTopNExtCapability": {
+    "name": "ciscoTopNExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.543",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-07 01:00",
+        "description": "Added capability statement ciscoTopNExtCapV15R0001SY1PCat6K. Added VARIATION citneInterfaceTopNInterfaceType in ciscoTopNExtCapV12R0233SXHPCat6k."
+      },
+      {
+        "revision": "2007-07-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTopNExtCapV12R0233SXHPCat6k": {
+    "name": "ciscoTopNExtCapV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.543.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-INTERFACETOPN-EXT-MIB",
+        "includes": [
+          "ciscoIfTopNExtCapsGroup",
+          "ciscoIfTopNExtControlGroup",
+          "ciscoIfTopNExtCtrlVlanGroup"
+        ],
+        "variations": [
+          {
+            "object": "citneInterfaceTopNInterfaceType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "all": 1,
+                  "ethernet": 2,
+                  "fastEthernet": 3,
+                  "gigaEthernet": 4,
+                  "tenGigaEthernet": 5,
+                  "portChannel": 6,
+                  "layer2": 7,
+                  "layer3": 8
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTopNExtCapV15R0001SY1PCat6K": {
+    "name": "ciscoTopNExtCapV15R0001SY1PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.543.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY1 on Catalyst 6000/6500\n                    series devices.",
+    "capabilities": [
+      {
+        "module": "CISCO-INTERFACETOPN-EXT-MIB",
+        "includes": [
+          "ciscoIfTopNExtCapsGroup",
+          "ciscoIfTopNExtControlGroup",
+          "ciscoIfTopNExtCtrlVlanGroup"
+        ],
+        "variations": [
+          {
+            "object": "citneInterfaceTopNInterfaceType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "all": 1,
+                  "ethernet": 2,
+                  "fastEthernet": 3,
+                  "gigaEthernet": 4,
+                  "tenGigaEthernet": 5,
+                  "portChannel": 6,
+                  "layer2": 7,
+                  "layer3": 8,
+                  "fortyGigaEthernet": 9
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-INTERFACETOPN-EXT-CAPABILITY",
+      "Source digest sha256:7d85b35c82152435fd21a785bbbfb71e867a76ad4fbb29e04cb5cd61afcbba0f",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-INTERFACETOPN-EXT-CAPABILITY"
+  }
+}

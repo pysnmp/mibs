@@ -1,0 +1,31 @@
+#
+# PySNMP MIB module SIAE-EQUIPTYPE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source SIAE-EQUIPTYPE-MIB
+# Source digest sha256:4a6343e3de2233bf4344ef559c0d20a387f4aa3b3f0af9492ee768525a7e9864
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+equipTypeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 501))
+equipTypeMib.setRevisions(('2015-04-23 00:00', '2014-10-29 00:00', '2014-06-23 00:00', '2013-04-16 00:00',))
+if mibBuilder.loadTexts: equipTypeMib.setLastUpdated('2015-04-23 00:00')
+if mibBuilder.loadTexts: equipTypeMib.setOrganization('SIAE MICROELETTRONICA spa')
+equipTypeList = MibIdentifier((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5))
+equipTypeUnknown = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 1))
+if mibBuilder.loadTexts: equipTypeUnknown.setStatus('current')
+equipTypeALFO80HD = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 74))
+if mibBuilder.loadTexts: equipTypeALFO80HD.setStatus('current')
+equipTypeALFO80HDsm = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 75))
+if mibBuilder.loadTexts: equipTypeALFO80HDsm.setStatus('current')
+equipTypeAGS20 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 76))
+if mibBuilder.loadTexts: equipTypeAGS20.setStatus('current')
+equipTypeALFOplus2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 77))
+if mibBuilder.loadTexts: equipTypeALFOplus2.setStatus('current')
+equipTypeEasyCellGateway = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 78))
+if mibBuilder.loadTexts: equipTypeEasyCellGateway.setStatus('current')
+mibBuilder.exportSymbols("SIAE-EQUIPTYPE-MIB", PYSNMP_MODULE_ID=equipTypeMib, equipTypeAGS20=equipTypeAGS20, equipTypeALFO80HD=equipTypeALFO80HD, equipTypeALFO80HDsm=equipTypeALFO80HDsm, equipTypeALFOplus2=equipTypeALFOplus2, equipTypeEasyCellGateway=equipTypeEasyCellGateway, equipTypeList=equipTypeList, equipTypeMib=equipTypeMib, equipTypeUnknown=equipTypeUnknown)

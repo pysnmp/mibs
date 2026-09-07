@@ -1,0 +1,6048 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "cmmEsmDrvTraps",
+      "softentIND1Port"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifInErrors",
+      "ifIndex",
+      "ifOutErrors"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "alcatelIND1PortMIB": {
+    "name": "alcatelIND1PortMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-07 00:00",
+        "description": "Added esmSlotInfoTable."
+      },
+      {
+        "revision": "2019-10-07 00:00",
+        "description": "Updated the latest contact and Copyright information for ALE USA Inc."
+      }
+    ]
+  },
+  "alcatelIND1PortNotifications": {
+    "name": "alcatelIND1PortNotifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0",
+    "class": "objectidentity"
+  },
+  "alcatelIND1PortMIBObjects": {
+    "name": "alcatelIND1PortMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1PortMIBConformance": {
+    "name": "alcatelIND1PortMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "esmConfTrap": {
+    "name": "esmConfTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "physicalPort": {
+    "name": "physicalPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "ddmConfiguration": {
+    "name": "ddmConfiguration",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.4",
+    "class": "objectidentity"
+  },
+  "esmViolationRecovery": {
+    "name": "esmViolationRecovery",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5",
+    "class": "objectidentity"
+  },
+  "esmDBChangeRebootReqdMIBObjects": {
+    "name": "esmDBChangeRebootReqdMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.6",
+    "class": "objectidentity"
+  },
+  "esmStormThresholdViolation": {
+    "name": "esmStormThresholdViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaDBChangeMIBObjects": {
+    "name": "alaDBChangeMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.8",
+    "class": "objectidentity"
+  },
+  "ptpConfiguration": {
+    "name": "ptpConfiguration",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.9",
+    "class": "objectidentity"
+  },
+  "ddmNotifications": {
+    "name": "ddmNotifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1",
+    "class": "objectidentity"
+  },
+  "esmViolationNotifications": {
+    "name": "esmViolationNotifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.2",
+    "class": "objectidentity"
+  },
+  "AlaDBType": {
+    "name": "AlaDBType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "kf2SfpPlusDB": 1,
+          "kf2HDMIStackingDB": 2,
+          "kf2RJ45DB": 3,
+          "kf2SfpDB": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EsmDBType": {
+    "name": "EsmDBType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sfpPlusDaughterModule": 1,
+          "cx4StackingModule": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "esmDrvTrapDrops": {
+    "name": "esmDrvTrapDrops",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDyingGaspSlot": {
+    "name": "alaDyingGaspSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDyingGaspPowerSupplyType": {
+    "name": "alaDyingGaspPowerSupplyType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDyingGaspTime": {
+    "name": "alaDyingGaspTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmPortViolationValue": {
+    "name": "esmPortViolationValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bEniSecurityBlockPortNone": 0,
+          "bEniSecurityBlockPortENI": 1,
+          "bEniSecurityBlockPortSTP": 2,
+          "bEniSecurityBlockPortLPSS": 3,
+          "bEniSecurityBlockPortQoS": 4,
+          "bEniSecurityBlockPortUDLD": 5,
+          "bEniSecurityBlockPortETHBLK": 6,
+          "bEniSecurityBlockPortLFP": 11
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmStormViolationThresholdNotificationType": {
+    "name": "esmStormViolationThresholdNotificationType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearViolation": 1,
+          "hiAlarm": 2,
+          "lowAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmStormViolationThresholdTrafficType": {
+    "name": "esmStormViolationThresholdTrafficType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "uunicast": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmConfTable": {
+    "name": "esmConfTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmConfEntry": {
+    "name": "esmConfEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmPortSlot": {
+    "name": "esmPortSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortIF": {
+    "name": "esmPortIF",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortAutoSpeed": {
+    "name": "esmPortAutoSpeed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed100": 1,
+          "speed10": 2,
+          "speedAuto": 3,
+          "unknown": 4,
+          "speed1000": 5,
+          "speed10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortAutoDuplexMode": {
+    "name": "esmPortAutoDuplexMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autoDuplex": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortCfgSpeed": {
+    "name": "esmPortCfgSpeed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed100": 1,
+          "speed10": 2,
+          "speedAuto": 3,
+          "speed1000": 5,
+          "speed10000": 6,
+          "speedMax100": 8,
+          "speedMax1000": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgDuplexMode": {
+    "name": "esmPortCfgDuplexMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autoDuplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgIFG": {
+    "name": "esmPortCfgIFG",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 12,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortPauseSlotTime": {
+    "name": "esmPortPauseSlotTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxFloodRate": {
+    "name": "esmPortMaxFloodRate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mbps": 1,
+          "percentage": 2,
+          "pps": 3,
+          "default": 4
+        }
+      }
+    },
+    "default": {
+      "value": "mbps",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortFloodMcastEnable": {
+    "name": "esmPortFloodMcastEnable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableFlood": 0,
+          "enableMulticastFlood": 1,
+          "disableMulticastFlood": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disableMulticastFlood",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgMaxFrameSize": {
+    "name": "esmPortCfgMaxFrameSize",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgLongEnable": {
+    "name": "esmPortCfgLongEnable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgRuntEnable": {
+    "name": "esmPortCfgRuntEnable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgRuntSize": {
+    "name": "esmPortCfgRuntSize",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "value": 64,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgAutoNegotiation": {
+    "name": "esmPortCfgAutoNegotiation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgCrossover": {
+    "name": "esmPortCfgCrossover",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 1,
+          "mdix": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgFlow": {
+    "name": "esmPortCfgFlow",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgHybridActiveType": {
+    "name": "esmPortCfgHybridActiveType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "fiber": 1,
+          "copper": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortCfgHybridMode": {
+    "name": "esmPortCfgHybridMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "preferredCopper": 1,
+          "forcedCopper": 2,
+          "preferredFiber": 3,
+          "forcedFiber": 4
+        }
+      }
+    },
+    "default": {
+      "value": "preferredFiber",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortOperationalHybridType": {
+    "name": "esmPortOperationalHybridType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "fiber": 1,
+          "copper": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortCfgMMULowWaterMarkCellSetLimit": {
+    "name": "esmPortCfgMMULowWaterMarkCellSetLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 256,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgMMUDynamicCellSetLimit": {
+    "name": "esmPortCfgMMUDynamicCellSetLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 1024,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortViolationBitMap": {
+    "name": "esmPortViolationBitMap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bEniSecurityBlockPortNONE": 0,
+        "bEniSecurityBlockPortSTP": 1,
+        "bEniSecurityBlockPortLPS-S": 2,
+        "bEniSecurityBlockPortQos": 3,
+        "bEniSecurityBlockPortUDLD": 4,
+        "bEniSecurityBlockPortETHBLK": 5,
+        "bEniSecurityBlockPortNISUP": 6,
+        "bEniSecurityBlockPortLLDP": 7,
+        "bEniSecurityBlockPortRFP": 8,
+        "bEniSecurityBlockPortLinkMon": 9,
+        "bEniSecurityBlockPortLFP": 10,
+        "bEniSecurityBlockPortLPSD": 11,
+        "bEniSecurityBlockPortSTROM": 12,
+        "bEniSecurityBlockPortLBD": 13,
+        "bEniSecurityBlockPortSTP-S": 14
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortViolationClearAll": {
+    "name": "esmPortViolationClearAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortFloodBcastEnable": {
+    "name": "esmPortFloodBcastEnable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableBcastFlood": 2,
+          "enableBcastFlood": 1
+        }
+      }
+    },
+    "default": {
+      "value": "enableBcastFlood",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortFloodUnknownUcastEnable": {
+    "name": "esmPortFloodUnknownUcastEnable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableUnknownUcastFlood": 2,
+          "enableUnknownUcastFlood": 1
+        }
+      }
+    },
+    "default": {
+      "value": "enableUnknownUcastFlood",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxUnknownUcastFloodRate": {
+    "name": "esmPortMaxUnknownUcastFloodRate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mbps": 1,
+          "percentage": 2,
+          "pps": 3,
+          "default": 4
+        }
+      }
+    },
+    "default": {
+      "value": "mbps",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxMcastFloodRate": {
+    "name": "esmPortMaxMcastFloodRate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mbps": 1,
+          "percentage": 2,
+          "pps": 3,
+          "default": 4
+        }
+      }
+    },
+    "default": {
+      "value": "mbps",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxFloodRateLimit": {
+    "name": "esmPortMaxFloodRateLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxUnknownUcastFloodRateLimit": {
+    "name": "esmPortMaxUnknownUcastFloodRateLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMaxMcastFloodRateLimit": {
+    "name": "esmPortMaxMcastFloodRateLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgSFPType": {
+    "name": "esmPortCfgSFPType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortWaitToRestoreTimer": {
+    "name": "esmPortWaitToRestoreTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMinFloodRateLimit": {
+    "name": "esmPortMinFloodRateLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMinMcastFloodRateLimit": {
+    "name": "esmPortMinMcastFloodRateLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortFloodThresholdAction": {
+    "name": "esmPortFloodThresholdAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "trap": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortMcastThresholdAction": {
+    "name": "esmPortMcastThresholdAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "trap": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortFlood": {
+    "name": "esmPortFlood",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "storm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortMCastStorm": {
+    "name": "esmPortMCastStorm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "storm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortCfgEeeStatus": {
+    "name": "esmPortCfgEeeStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "na": 3
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPortCfgEeeAutoNegState": {
+    "name": "esmPortCfgEeeAutoNegState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "speed10": 1,
+          "speed100": 2,
+          "unknown": 3,
+          "speed1000": 4,
+          "na": 5
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortCfgEeeCapability": {
+    "name": "esmPortCfgEeeCapability",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "speed10": 1,
+          "speed100": 2,
+          "speed100Speed1000": 3,
+          "speed1000": 4,
+          "na": 5
+        }
+      }
+    },
+    "default": {
+      "value": "none",
+      "format": "enum"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortModeTable": {
+    "name": "esmPortModeTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmPortModeEntry": {
+    "name": "esmPortModeEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmPortModeIndex": {
+    "name": "esmPortModeIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1001,
+            "max": 8128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmPortRunningMode": {
+    "name": "esmPortRunningMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uplink": 1,
+          "stackable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPortSavedMode": {
+    "name": "esmPortSavedMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uplink": 1,
+          "stackable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcetherStatsTable": {
+    "name": "alcetherStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcetherStatsEntry": {
+    "name": "alcetherStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcetherClearStats": {
+    "name": "alcetherClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcetherLastClearStats": {
+    "name": "alcetherLastClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsCRCAlignErrors": {
+    "name": "alcetherStatsCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxUndersizePkts": {
+    "name": "alcetherStatsRxUndersizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxUndersizePkts": {
+    "name": "alcetherStatsTxUndersizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxOversizePkts": {
+    "name": "alcetherStatsTxOversizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxJabbers": {
+    "name": "alcetherStatsRxJabbers",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxCollisions": {
+    "name": "alcetherStatsRxCollisions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxCollisions": {
+    "name": "alcetherStatsTxCollisions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts64Octets": {
+    "name": "alcetherStatsPkts64Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts65to127Octets": {
+    "name": "alcetherStatsPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts128to255Octets": {
+    "name": "alcetherStatsPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts256to511Octets": {
+    "name": "alcetherStatsPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts512to1023Octets": {
+    "name": "alcetherStatsPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts1024to1518Octets": {
+    "name": "alcetherStatsPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gigaEtherStatsPkts1519to4095Octets": {
+    "name": "gigaEtherStatsPkts1519to4095Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gigaEtherStatsPkts4096to9215Octets": {
+    "name": "gigaEtherStatsPkts4096to9215Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts1519to2047Octets": {
+    "name": "alcetherStatsPkts1519to2047Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts2048to4095Octets": {
+    "name": "alcetherStatsPkts2048to4095Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsPkts4096Octets": {
+    "name": "alcetherStatsPkts4096Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxGiantPkts": {
+    "name": "alcetherStatsRxGiantPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxDribbleNibblePkts": {
+    "name": "alcetherStatsRxDribbleNibblePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxLongEventPkts": {
+    "name": "alcetherStatsRxLongEventPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxVlanTagPkts": {
+    "name": "alcetherStatsRxVlanTagPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxControlPkts": {
+    "name": "alcetherStatsRxControlPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxLenChkErrPkts": {
+    "name": "alcetherStatsRxLenChkErrPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxCodeErrPkts": {
+    "name": "alcetherStatsRxCodeErrPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxDvEventPkts": {
+    "name": "alcetherStatsRxDvEventPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsRxPrevPktDropped": {
+    "name": "alcetherStatsRxPrevPktDropped",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx64Octets": {
+    "name": "alcetherStatsTx64Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx65to127Octets": {
+    "name": "alcetherStatsTx65to127Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx128to255Octets": {
+    "name": "alcetherStatsTx128to255Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx256to511Octets": {
+    "name": "alcetherStatsTx256to511Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx512to1023Octets": {
+    "name": "alcetherStatsTx512to1023Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx1024to1518Octets": {
+    "name": "alcetherStatsTx1024to1518Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx1519to2047Octets": {
+    "name": "alcetherStatsTx1519to2047Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx2048to4095Octets": {
+    "name": "alcetherStatsTx2048to4095Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTx4096Octets": {
+    "name": "alcetherStatsTx4096Octets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxRetryCount": {
+    "name": "alcetherStatsTxRetryCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxVlanTagPkts": {
+    "name": "alcetherStatsTxVlanTagPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxControlPkts": {
+    "name": "alcetherStatsTxControlPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxLatePkts": {
+    "name": "alcetherStatsTxLatePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxTotalBytesOnWire": {
+    "name": "alcetherStatsTxTotalBytesOnWire",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxLenChkErrPkts": {
+    "name": "alcetherStatsTxLenChkErrPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcetherStatsTxExcDeferPkts": {
+    "name": "alcetherStatsTxExcDeferPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcether10GigTable": {
+    "name": "alcether10GigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcether10GigEntry": {
+    "name": "alcether10GigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcether10GigPrimary": {
+    "name": "alcether10GigPrimary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phyAprimary": 1,
+          "phyBprimary": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmTdrPortTable": {
+    "name": "esmTdrPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmTdrPortEntry": {
+    "name": "esmTdrPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmTdrPortCableState": {
+    "name": "esmTdrPortCableState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "open": 1,
+          "short": 2,
+          "openShort": 3,
+          "crossTalk": 4,
+          "unknown": 5,
+          "impedanceMismatch": 6,
+          "shortWithPair1": 7,
+          "shortWithPair2": 8,
+          "shortWithPair3": 9,
+          "shortWithPair4": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortValidPairs": {
+    "name": "esmTdrPortValidPairs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair1State": {
+    "name": "esmTdrPortPair1State",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "open": 1,
+          "short": 2,
+          "openShort": 3,
+          "crossTalk": 4,
+          "unknown": 5,
+          "impedanceMismatch": 6,
+          "shortWithPair1": 7,
+          "shortWithPair2": 8,
+          "shortWithPair3": 9,
+          "shortWithPair4": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair1Length": {
+    "name": "esmTdrPortPair1Length",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair2State": {
+    "name": "esmTdrPortPair2State",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "open": 1,
+          "short": 2,
+          "openShort": 3,
+          "crossTalk": 4,
+          "unknown": 5,
+          "impedanceMismatch": 6,
+          "shortWithPair1": 7,
+          "shortWithPair2": 8,
+          "shortWithPair3": 9,
+          "shortWithPair4": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair2Length": {
+    "name": "esmTdrPortPair2Length",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair3State": {
+    "name": "esmTdrPortPair3State",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "open": 1,
+          "short": 2,
+          "openShort": 3,
+          "crossTalk": 4,
+          "unknown": 5,
+          "impedanceMismatch": 6,
+          "shortWithPair1": 7,
+          "shortWithPair2": 8,
+          "shortWithPair3": 9,
+          "shortWithPair4": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair3Length": {
+    "name": "esmTdrPortPair3Length",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair4State": {
+    "name": "esmTdrPortPair4State",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "open": 1,
+          "short": 2,
+          "openShort": 3,
+          "crossTalk": 4,
+          "unknown": 5,
+          "impedanceMismatch": 6,
+          "shortWithPair1": 7,
+          "shortWithPair2": 8,
+          "shortWithPair3": 9,
+          "shortWithPair4": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortPair4Length": {
+    "name": "esmTdrPortPair4Length",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortFuzzLength": {
+    "name": "esmTdrPortFuzzLength",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortTest": {
+    "name": "esmTdrPortTest",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "extendedOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmTdrClearStats": {
+    "name": "esmTdrClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1,
+          "extendedReset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmTdrResult": {
+    "name": "esmTdrResult",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "fail": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSwapTypeChannel1": {
+    "name": "esmTdrPortExtSwapTypeChannel1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "straightcable": 0,
+          "crossovercable": 1,
+          "swapnotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSwapTypeChannel2": {
+    "name": "esmTdrPortExtSwapTypeChannel2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "straightcable": 0,
+          "crossovercable": 1,
+          "swapnotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtPolaritySwapPair1": {
+    "name": "esmTdrPortExtPolaritySwapPair1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positivepolarity": 0,
+          "negativepolarity": 1,
+          "polaritynotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtPolaritySwapPair2": {
+    "name": "esmTdrPortExtPolaritySwapPair2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positivepolarity": 0,
+          "negativepolarity": 1,
+          "polaritynotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtPolaritySwapPair3": {
+    "name": "esmTdrPortExtPolaritySwapPair3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positivepolarity": 0,
+          "negativepolarity": 1,
+          "polaritynotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtPolaritySwapPair4": {
+    "name": "esmTdrPortExtPolaritySwapPair4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positivepolarity": 0,
+          "negativepolarity": 1,
+          "polaritynotapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSkewPair1": {
+    "name": "esmTdrPortExtSkewPair1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSkewPair2": {
+    "name": "esmTdrPortExtSkewPair2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSkewPair3": {
+    "name": "esmTdrPortExtSkewPair3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtSkewPair4": {
+    "name": "esmTdrPortExtSkewPair4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtAccurateCableLenPair1": {
+    "name": "esmTdrPortExtAccurateCableLenPair1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtAccurateCableLenPair2": {
+    "name": "esmTdrPortExtAccurateCableLenPair2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtAccurateCableLenPair3": {
+    "name": "esmTdrPortExtAccurateCableLenPair3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtAccurateCableLenPair4": {
+    "name": "esmTdrPortExtAccurateCableLenPair4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPortExtDownshiftStatus": {
+    "name": "esmTdrPortExtDownshiftStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodownshift": 0,
+          "downshiftoccurs": 1,
+          "notapplicable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrExtResult": {
+    "name": "esmTdrExtResult",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "fail": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrCableLen": {
+    "name": "esmTdrCableLen",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmTdrPhyType": {
+    "name": "esmTdrPhyType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmHybridConfTable": {
+    "name": "esmHybridConfTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmHybridConfEntry": {
+    "name": "esmHybridConfEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmHybridPortCfgSpeed": {
+    "name": "esmHybridPortCfgSpeed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed100": 1,
+          "speed10": 2,
+          "speedAuto": 3,
+          "speed1000": 5,
+          "speed10000": 6,
+          "speedMax100": 8,
+          "speedMax1000": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmHybridPortCfgDuplexMode": {
+    "name": "esmHybridPortCfgDuplexMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autoDuplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmHybridPortCfgAutoNegotiation": {
+    "name": "esmHybridPortCfgAutoNegotiation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmHybridPortCfgCrossover": {
+    "name": "esmHybridPortCfgCrossover",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 1,
+          "mdix": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "value": "auto",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmHybridPortCfgFlow": {
+    "name": "esmHybridPortCfgFlow",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enabledXmit": 2,
+          "enabledRcv": 3,
+          "enabledXmitAndRcv": 4
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmHybridPortCfgInactiveType": {
+    "name": "esmHybridPortCfgInactiveType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiber": 1,
+          "copper": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmHybridPortCfgSFPType": {
+    "name": "esmHybridPortCfgSFPType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmConfig": {
+    "name": "ddmConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmTrapConfig": {
+    "name": "ddmTrapConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmNotificationType": {
+    "name": "ddmNotificationType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearViolation": 1,
+          "highAlarm": 2,
+          "highWarning": 3,
+          "lowWarning": 4,
+          "lowAlarm": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmSlotInfoTable": {
+    "name": "esmSlotInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmSlotInfoEntry": {
+    "name": "esmSlotInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmSlotNumber": {
+    "name": "esmSlotNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmNumberOfUserPorts": {
+    "name": "esmNumberOfUserPorts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmViolationRecoveryTrap": {
+    "name": "esmViolationRecoveryTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmViolationRecoveryTime": {
+    "name": "esmViolationRecoveryTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmViolationRecoveryNotificationType": {
+    "name": "esmViolationRecoveryNotificationType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearViolation": 1,
+          "recoveryTimer": 2,
+          "adminRecovery": 3,
+          "lfpRecovery": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmViolationRecoveryMaximum": {
+    "name": "esmViolationRecoveryMaximum",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 10,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPortViolationRecoveryTable": {
+    "name": "alaPortViolationRecoveryTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPortViolationRecoveryEntry": {
+    "name": "alaPortViolationRecoveryEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaPortViolationRecoveryTime": {
+    "name": "alaPortViolationRecoveryTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPortViolationRecoveryMaximum": {
+    "name": "alaPortViolationRecoveryMaximum",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": -1,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ddmInfoTable": {
+    "name": "ddmInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ddmInfoEntry": {
+    "name": "ddmInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTemperature": {
+    "name": "ddmTemperature",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -150000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a degree celcius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTempLowWarning": {
+    "name": "ddmTempLowWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -150000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a degree celcius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTempLowAlarm": {
+    "name": "ddmTempLowAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -150000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a degree celcius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTempHiWarning": {
+    "name": "ddmTempHiWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -150000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a degree celcius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTempHiAlarm": {
+    "name": "ddmTempHiAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -150000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a degree celcius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmSupplyVoltage": {
+    "name": "ddmSupplyVoltage",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmSupplyVoltageLowWarning": {
+    "name": "ddmSupplyVoltageLowWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmSupplyVoltageLowAlarm": {
+    "name": "ddmSupplyVoltageLowAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmSupplyVoltageHiWarning": {
+    "name": "ddmSupplyVoltageHiWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmSupplyVoltageHiAlarm": {
+    "name": "ddmSupplyVoltageHiAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxBiasCurrent": {
+    "name": "ddmTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a milli-Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxBiasCurrentLowWarning": {
+    "name": "ddmTxBiasCurrentLowWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a milli-Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxBiasCurrentLowAlarm": {
+    "name": "ddmTxBiasCurrentLowAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a milli-Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxBiasCurrentHiWarning": {
+    "name": "ddmTxBiasCurrentHiWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a milli-Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxBiasCurrentHiAlarm": {
+    "name": "ddmTxBiasCurrentHiAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a milli-Ampere",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxOutputPower": {
+    "name": "ddmTxOutputPower",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxOutputPowerLowWarning": {
+    "name": "ddmTxOutputPowerLowWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxOutputPowerLowAlarm": {
+    "name": "ddmTxOutputPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxOutputPowerHiWarning": {
+    "name": "ddmTxOutputPowerHiWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmTxOutputPowerHiAlarm": {
+    "name": "ddmTxOutputPowerHiAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmRxOpticalPower": {
+    "name": "ddmRxOpticalPower",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmRxOpticalPowerLowWarning": {
+    "name": "ddmRxOpticalPowerLowWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmRxOpticalPowerLowAlarm": {
+    "name": "ddmRxOpticalPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmRxOpticalPowerHiWarning": {
+    "name": "ddmRxOpticalPowerHiWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ddmRxOpticalPowerHiAlarm": {
+    "name": "ddmRxOpticalPowerHiAlarm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200000,
+            "max": -200000
+          },
+          {
+            "min": -40000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "thousandth of a dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaEsmOldDb": {
+    "name": "alaEsmOldDb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EsmDBType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaEsmNewDb": {
+    "name": "alaEsmNewDb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EsmDBType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaEsmModuleChangeString": {
+    "name": "alaEsmModuleChangeString",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaOldDb": {
+    "name": "alaOldDb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaDBType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaNewDb": {
+    "name": "alaNewDb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaDBType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaModuleChangeString": {
+    "name": "alaModuleChangeString",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "esmDrvTrapDropsLink": {
+    "name": "esmDrvTrapDropsLink",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortIF"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmDrvTrapDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDyingGaspTrap": {
+    "name": "alaDyingGaspTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspPowerSupplyType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspTime"
+      }
+    ],
+    "status": "current"
+  },
+  "esmStormThresholdViolationStatus": {
+    "name": "esmStormThresholdViolationStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStormViolationThresholdNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStormViolationThresholdTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTemperatureThresholdViolated": {
+    "name": "ddmTemperatureThresholdViolated",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmVoltageThresholdViolated": {
+    "name": "ddmVoltageThresholdViolated",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmCurrentThresholdViolated": {
+    "name": "ddmCurrentThresholdViolated",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTxPowerThresholdViolated": {
+    "name": "ddmTxPowerThresholdViolated",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmRxPowerThresholdViolated": {
+    "name": "ddmRxPowerThresholdViolated",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPower"
+      }
+    ],
+    "status": "current"
+  },
+  "esmViolationRecoveryTimeout": {
+    "name": "esmViolationRecoveryTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryNotificationType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaEsmKite2eDBChange": {
+    "name": "alaEsmKite2eDBChange",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmOldDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmNewDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmModuleChangeString"
+      }
+    ],
+    "status": "current"
+  },
+  "esmPortViolation": {
+    "name": "esmPortViolation",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortViolationValue"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDBChange": {
+    "name": "alaDBChange",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaOldDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaNewDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaModuleChangeString"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1PortMIBCompliances": {
+    "name": "alcatelIND1PortMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1PortMIBGroups": {
+    "name": "alcatelIND1PortMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaLinkMonConfigTable": {
+    "name": "alaLinkMonConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLinkMonConfigEntry": {
+    "name": "alaLinkMonConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLinkMonStatus": {
+    "name": "alaLinkMonStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLinkMonTimeWindow": {
+    "name": "alaLinkMonTimeWindow",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLinkMonLinkFlapThreshold": {
+    "name": "alaLinkMonLinkFlapThreshold",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLinkMonLinkErrorThreshold": {
+    "name": "alaLinkMonLinkErrorThreshold",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 5,
+      "format": "decimal"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLinkMonStatsTable": {
+    "name": "alaLinkMonStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLinkMonStatsEntry": {
+    "name": "alaLinkMonStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLinkMonStatsClearStats": {
+    "name": "alaLinkMonStatsClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "value": "default",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaLinkMonStatsPortState": {
+    "name": "alaLinkMonStatsPortState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentLinkFlaps": {
+    "name": "alaLinkMonStatsCurrentLinkFlaps",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentErrorFrames": {
+    "name": "alaLinkMonStatsCurrentErrorFrames",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentCRCErrors": {
+    "name": "alaLinkMonStatsCurrentCRCErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentLostFrames": {
+    "name": "alaLinkMonStatsCurrentLostFrames",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentAlignErrors": {
+    "name": "alaLinkMonStatsCurrentAlignErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsCurrentLinkErrors": {
+    "name": "alaLinkMonStatsCurrentLinkErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsTotalLinkFlaps": {
+    "name": "alaLinkMonStatsTotalLinkFlaps",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLinkMonStatsTotalLinkErrors": {
+    "name": "alaLinkMonStatsTotalLinkErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLFPGroupTable": {
+    "name": "alaLFPGroupTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLFPGroupEntry": {
+    "name": "alaLFPGroupEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLFPGroupId": {
+    "name": "alaLFPGroupId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaLFPGroupAdminStatus": {
+    "name": "alaLFPGroupAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLFPGroupOperStatus": {
+    "name": "alaLFPGroupOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLFPGroupWaitToShutdown": {
+    "name": "alaLFPGroupWaitToShutdown",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLFPGroupRowStatus": {
+    "name": "alaLFPGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLFPConfigTable": {
+    "name": "alaLFPConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLFPConfigEntry": {
+    "name": "alaLFPConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPConfigPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLFPConfigPort": {
+    "name": "alaLFPConfigPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaLFPConfigPortType": {
+    "name": "alaLFPConfigPortType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "destination": 1,
+          "source": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaLFPConfigRowStatus": {
+    "name": "alaLFPConfigRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ptpConfig": {
+    "name": "ptpConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmPtpStatsTable": {
+    "name": "esmPtpStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmPtpStatsEntry": {
+    "name": "esmPtpStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmPtpStatsIngPtpv2": {
+    "name": "esmPtpStatsIngPtpv2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsIngPtpv1": {
+    "name": "esmPtpStatsIngPtpv1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsIngPtpDrop": {
+    "name": "esmPtpStatsIngPtpDrop",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsIngPtpPigBag": {
+    "name": "esmPtpStatsIngPtpPigBag",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsEgrPtpv2": {
+    "name": "esmPtpStatsEgrPtpv2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsEgrPtpv1": {
+    "name": "esmPtpStatsEgrPtpv1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsEgrPtpDrop": {
+    "name": "esmPtpStatsEgrPtpDrop",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmPtpStatsEgrPtpUpdateRes": {
+    "name": "esmPtpStatsEgrPtpUpdateRes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortTable": {
+    "name": "esmStackPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmStackPortConfEntry": {
+    "name": "esmStackPortConfEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmStackPortIfIndex": {
+    "name": "esmStackPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortSlotNum": {
+    "name": "esmStackPortSlotNum",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInOctets": {
+    "name": "esmStackPortInOctets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutOctets": {
+    "name": "esmStackPortOutOctets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInUcastPkts": {
+    "name": "esmStackPortInUcastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutUcastPkts": {
+    "name": "esmStackPortOutUcastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInMulticastPkts": {
+    "name": "esmStackPortInMulticastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutMulticastPkts": {
+    "name": "esmStackPortOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInBroadcastPkts": {
+    "name": "esmStackPortInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutBroadcastPkts": {
+    "name": "esmStackPortOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInPauseFrames": {
+    "name": "esmStackPortInPauseFrames",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutPauseFrames": {
+    "name": "esmStackPortOutPauseFrames",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortStatsAlignmentErrors": {
+    "name": "esmStackPortStatsAlignmentErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortStatsFCSErrors": {
+    "name": "esmStackPortStatsFCSErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInErrors": {
+    "name": "esmStackPortInErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutErrors": {
+    "name": "esmStackPortOutErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortInDiscards": {
+    "name": "esmStackPortInDiscards",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortOutDiscards": {
+    "name": "esmStackPortOutDiscards",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortTxCollisions": {
+    "name": "esmStackPortTxCollisions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortRxUndersizePkts": {
+    "name": "esmStackPortRxUndersizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortTxUndersizePkts": {
+    "name": "esmStackPortTxUndersizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortRxOversizePkts": {
+    "name": "esmStackPortRxOversizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortTxOversizePkts": {
+    "name": "esmStackPortTxOversizePkts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortAutoSpeed": {
+    "name": "esmStackPortAutoSpeed",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed100": 1,
+          "speed10": 2,
+          "speedAuto": 3,
+          "unknown": 4,
+          "speed1000": 5,
+          "speed10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmStackPortClearStats": {
+    "name": "esmStackPortClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.1.2.14.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "esmConfPortCompliance": {
+    "name": "esmConfPortCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "esmConfMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmDetectedConfMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmPortModeMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "ddmInfoGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "ddmConfigGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "ddmNotificationsGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "violationRecoveryGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "violationNotificationsGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaDyingGaspNotificationGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmDrvDyingGaspNotificationGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaPortViolationRecoveryMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmConfTrapGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmTdrGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaEsmDBObjGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alsEsmDBChangeNotificationGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaLinkMonConfigMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaLFPGroupMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaLFPConfigMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alcether10GigGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmHybridConfGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmStormThresholdViolationGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "ptpConfigGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "esmStackPortConfMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alcEtherStatsCompliance": {
+    "name": "alcEtherStatsCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alcEtherStatsMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      },
+      {
+        "object": "alaLinkMonStatsMIBGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "esmSlotInfoCompliance": {
+    "name": "esmSlotInfoCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "esmSlotInfoGroup",
+        "module": "ALCATEL-IND1-PORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "esmConfMIBGroup": {
+    "name": "esmConfMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortIF"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgSpeed"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgDuplexMode"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgIFG"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortPauseSlotTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxFloodRate"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortFloodMcastEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgMaxFrameSize"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgAutoNegotiation"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgCrossover"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgFlow"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortOperationalHybridType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortFloodUnknownUcastEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxUnknownUcastFloodRate"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxMcastFloodRate"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortViolationClearAll"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortFloodBcastEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxFloodRateLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxUnknownUcastFloodRateLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMaxMcastFloodRateLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMinMcastFloodRateLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortFloodThresholdAction"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMcastThresholdAction"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortFlood"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortMCastStorm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortViolationClearAll"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgSFPType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortWaitToRestoreTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgEeeStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgEeeAutoNegState"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgEeeCapability"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgLongEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgMMUDynamicCellSetLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgMMULowWaterMarkCellSetLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "esmDetectedConfMIBGroup": {
+    "name": "esmDetectedConfMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortAutoSpeed"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortAutoDuplexMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alcEtherStatsMIBGroup": {
+    "name": "alcEtherStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherLastClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsCRCAlignErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxUndersizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxUndersizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxOversizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxJabbers"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxCollisions"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxCollisions"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts64Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts65to127Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts128to255Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts256to511Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts512to1023Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts1024to1518Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "gigaEtherStatsPkts1519to4095Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "gigaEtherStatsPkts4096to9215Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts1519to2047Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts2048to4095Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsPkts4096Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxGiantPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxDribbleNibblePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxLongEventPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxVlanTagPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxControlPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxLenChkErrPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxCodeErrPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxDvEventPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsRxPrevPktDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx64Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx65to127Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx128to255Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx256to511Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx512to1023Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx1024to1518Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx1519to2047Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx2048to4095Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTx4096Octets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxRetryCount"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxVlanTagPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxControlPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxLatePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxTotalBytesOnWire"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxLenChkErrPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcetherStatsTxExcDeferPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "alcPortNotificationGroup": {
+    "name": "alcPortNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmDrvTrapDropsLink"
+      }
+    ],
+    "status": "current"
+  },
+  "esmPortModeMIBGroup": {
+    "name": "esmPortModeMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortRunningMode"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortSavedMode"
+      }
+    ],
+    "status": "current"
+  },
+  "esmDrvDyingGaspNotificationGroup": {
+    "name": "esmDrvDyingGaspNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.25",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmInfoGroup": {
+    "name": "ddmInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTemperature"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTempLowWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTempLowAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTempHiWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTempHiAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltage"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltageLowWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltageLowAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltageHiWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmSupplyVoltageHiAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrent"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrentLowWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrentLowAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrentHiWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxBiasCurrentHiAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPower"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPowerLowWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPowerLowAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPowerHiWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxOutputPowerHiAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPower"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPowerLowWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPowerLowAlarm"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPowerHiWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxOpticalPowerHiAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmConfigGroup": {
+    "name": "ddmConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTrapConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmNotificationType"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmNotificationsGroup": {
+    "name": "ddmNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTemperatureThresholdViolated"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmVoltageThresholdViolated"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmCurrentThresholdViolated"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmTxPowerThresholdViolated"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ddmRxPowerThresholdViolated"
+      }
+    ],
+    "status": "current"
+  },
+  "violationRecoveryGroup": {
+    "name": "violationRecoveryGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryMaximum"
+      }
+    ],
+    "status": "current"
+  },
+  "violationNotificationsGroup": {
+    "name": "violationNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmViolationRecoveryTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDyingGaspNotificationGroup": {
+    "name": "alaDyingGaspNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "esmTdrGroup": {
+    "name": "esmTdrGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortCableState"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortValidPairs"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair1State"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair1Length"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair2State"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair2Length"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair3State"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair3Length"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair4State"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortPair4Length"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortFuzzLength"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortTest"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrResult"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSwapTypeChannel1"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSwapTypeChannel2"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtPolaritySwapPair1"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtPolaritySwapPair2"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtPolaritySwapPair3"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtPolaritySwapPair4"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSkewPair1"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSkewPair2"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSkewPair3"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtSkewPair4"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtAccurateCableLenPair1"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtAccurateCableLenPair2"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtAccurateCableLenPair3"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtAccurateCableLenPair4"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPortExtDownshiftStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrExtResult"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrCableLen"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmTdrPhyType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaEsmDBObjGroup": {
+    "name": "alaEsmDBObjGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmOldDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmNewDb"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmModuleChangeString"
+      }
+    ],
+    "status": "current"
+  },
+  "alsEsmDBChangeNotificationGroup": {
+    "name": "alsEsmDBChangeNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaEsmKite2eDBChange"
+      }
+    ],
+    "status": "current"
+  },
+  "alaLinkMonConfigMIBGroup": {
+    "name": "alaLinkMonConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonTimeWindow"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonLinkFlapThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonLinkErrorThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "alaLinkMonStatsMIBGroup": {
+    "name": "alaLinkMonStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsPortState"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentLinkFlaps"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentErrorFrames"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentCRCErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentLostFrames"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentAlignErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsCurrentLinkErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsTotalLinkFlaps"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLinkMonStatsTotalLinkErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "alaLFPGroupMIBGroup": {
+    "name": "alaLFPGroupMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupId"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupWaitToShutdown"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaLFPConfigMIBGroup": {
+    "name": "alaLFPConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPConfigPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPConfigPortType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaLFPConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPortViolationRecoveryMIBGroup": {
+    "name": "alaPortViolationRecoveryMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaPortViolationRecoveryTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaPortViolationRecoveryMaximum"
+      }
+    ],
+    "status": "current"
+  },
+  "esmSlotInfoGroup": {
+    "name": "esmSlotInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmSlotNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmNumberOfUserPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "esmConfTrapGroup": {
+    "name": "esmConfTrapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmDrvTrapDrops"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspPowerSupplyType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alaDyingGaspTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortViolationValue"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStormViolationThresholdNotificationType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStormViolationThresholdTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "alcether10GigGroup": {
+    "name": "alcether10GigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "alcether10GigPrimary"
+      }
+    ],
+    "status": "current"
+  },
+  "esmHybridConfGroup": {
+    "name": "esmHybridConfGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgCrossover"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgDuplexMode"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgFlow"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgInactiveType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgSFPType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgRuntEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgRuntSize"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgSpeed"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgHybridActiveType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortCfgHybridMode"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmHybridPortCfgAutoNegotiation"
+      }
+    ],
+    "status": "current"
+  },
+  "esmPortViolationNotificationGroup": {
+    "name": "esmPortViolationNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.24",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmPortViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "esmStormThresholdViolationGroup": {
+    "name": "esmStormThresholdViolationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.26",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStormThresholdViolationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpConfigGroup": {
+    "name": "ptpConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "ptpConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "esmStackPortConfMIBGroup": {
+    "name": "esmStackPortConfMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.5.1.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortSlotNum"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInUcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutUcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInMulticastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutMulticastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInBroadcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutBroadcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInPauseFrames"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutPauseFrames"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortStatsAlignmentErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortStatsFCSErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortInDiscards"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortOutDiscards"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortTxCollisions"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortRxUndersizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortTxUndersizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortRxOversizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortTxOversizePkts"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortAutoSpeed"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIB",
+        "object": "esmStackPortClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ALCATEL-IND1-PORT-MIB",
+      "Source digest sha256:513d4be806c9def2cbc36b81c4252f1a665eb045b680ff6a04b1255f17b247ac",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ALCATEL-IND1-PORT-MIB"
+  }
+}

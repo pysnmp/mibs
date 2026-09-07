@@ -1,0 +1,139 @@
+#
+# PySNMP MIB module IB-SMI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source IB-SMI-MIB
+# Source digest sha256:87cc359679d1e06500ff5327c24bc0862aac114b4e384ea9c5e34f1ce90d238b
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Opaque, TimeTicks, Unsigned32, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Opaque", "TimeTicks", "Unsigned32", "enterprises", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+infoblox = ModuleIdentity((1, 3, 6, 1, 4, 1, 7779))
+infoblox.setRevisions(('2017-01-24 00:00', '2015-05-19 00:00', '2013-10-03 00:00', '2013-08-12 00:00', '2012-03-27 00:00', '2008-01-14 00:00', '2005-01-10 00:00', '2004-05-21 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: infoblox.setRevisionsDescriptions(('Added oid for IB-FLEX and copyright update', 'Added definitions for Opaque Float', 'Added definitions for OM-license models, updated street-address and copyright update', 'Added new products and copyright update', 'Updated REVISION for new product update and copyright update', 'Updated copyright and CONTACT_INFO', 'Added copyright', 'Creation of the MIB file',))
+if mibBuilder.loadTexts: infoblox.setLastUpdated('2017-01-24 00:00')
+if mibBuilder.loadTexts: infoblox.setOrganization('Infoblox')
+if mibBuilder.loadTexts: infoblox.setContactInfo('Infoblox\n                        3111 Coronado Drive\n                        Santa Clara, CA 95054\n                        1-888-463-6259\n\t                support@infoblox.com')
+if mibBuilder.loadTexts: infoblox.setDescription('This is the MIB module for object type definitions\n\t    that are used throughout the infoblox enterprise MIBs.')
+infobloxProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1))
+ibDefault = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1000))
+ibRsp2 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1001))
+ibCisco = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1002))
+ibVm = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1003))
+ibVnios = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1004))
+ib1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1101))
+ib1200 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1102))
+ib500 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1103))
+ib550 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1201))
+ib1050 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1202))
+ib1550 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1203))
+ib1552 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1204))
+ib2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1205))
+ib250 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1206))
+ib1220 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1207))
+ib550a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1301))
+ib1050a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1302))
+ib1550a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1303))
+ib1552a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1304))
+ib1852a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1305))
+ib250a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1306))
+ib2000a = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1307))
+ib810 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1401))
+ib820 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1402))
+ib1410 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1403))
+ib1420 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1404))
+ib1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1405))
+ib800 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1406))
+pt1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1407))
+ib2200 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1411))
+ib2210 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1412))
+ib2220 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1413))
+pt2200 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1414))
+ib4010 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1421))
+ib4030 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1422))
+ib4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1423))
+pt4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1424))
+ib4020 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1425))
+ib100 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1431))
+nd800 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1441))
+nd1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1442))
+nd2200 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1443))
+nd4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1444))
+ib815 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1501))
+ib825 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1502))
+ib1415 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1503))
+ib1425 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1504))
+ib1405 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1505))
+ib805 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1506))
+pt1405 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1507))
+ib2205 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1511))
+ib2215 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1512))
+ib2225 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1513))
+pt2205 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1514))
+ib4015 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1521))
+ib4035 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1522))
+ib4005 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1523))
+pt4005 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1524))
+ib4025 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1525))
+nd805 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1541))
+nd1405 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1542))
+nd2205 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1543))
+nd4005 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1544))
+ibflex = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1551))
+ib906 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1601))
+ib1506 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1602))
+ib1606 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1603))
+ib2306 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1604))
+ib4106 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1605))
+ib_926 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1606)).setLabel("ib-926")
+nd_906 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1607)).setLabel("nd-906")
+ib_1516 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1608)).setLabel("ib-1516")
+ib_1526 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1609)).setLabel("ib-1526")
+nd_1606 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1610)).setLabel("nd-1606")
+ib_2326 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1611)).setLabel("ib-2326")
+nd_2306 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1612)).setLabel("nd-2306")
+ib_4126 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1613)).setLabel("ib-4126")
+nd_4106 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1614)).setLabel("nd-4106")
+tr_5005 = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 1, 1615)).setLabel("tr-5005")
+ibSNMP = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3))
+ibProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1))
+ibOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1))
+ibTrapOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 1))
+ibPlatformOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 2))
+ibDNSOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 3))
+ibDHCPOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 4))
+ibDataplaneOne = MibIdentifier((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 5))
+ibDNSServ = MibIdentifier((1, 3, 6, 1, 4, 1, 32))
+ibDHCPServ = MibIdentifier((1, 3, 6, 1, 4, 1, 9999))
+class IbString(TextualConvention, OctetString):
+    description = 'A text string with 300 octets'
+    status = 'current'
+    displayHint = '300a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 300)
+
+class IbNode(TextualConvention, OctetString):
+    description = 'A node name string'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
+
+class IbIpAddr(TextualConvention, OctetString):
+    description = 'An Ip address in xxx.xxx.xxx.xxx notation'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 16)
+
+class IbIpv6Addr(TextualConvention, OctetString):
+    description = 'An Ipv6 address in semicolon notation'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 46)
+
+class IbFloat(TextualConvention, Opaque):
+    description = 'A float value'
+    status = 'current'
+    subtypeSpec = Opaque.subtypeSpec + ValueSizeConstraint(7, 7)
+    fixedLength = 7
+
+mibBuilder.exportSymbols("IB-SMI-MIB", IbFloat=IbFloat, IbIpAddr=IbIpAddr, IbIpv6Addr=IbIpv6Addr, IbNode=IbNode, IbString=IbString, PYSNMP_MODULE_ID=infoblox, ib1000=ib1000, ib100=ib100, ib1050=ib1050, ib1050a=ib1050a, ib1200=ib1200, ib1220=ib1220, ib1400=ib1400, ib1405=ib1405, ib1410=ib1410, ib1415=ib1415, ib1420=ib1420, ib1425=ib1425, ib1506=ib1506, ib1550=ib1550, ib1550a=ib1550a, ib1552=ib1552, ib1552a=ib1552a, ib1606=ib1606, ib1852a=ib1852a, ib2000=ib2000, ib2000a=ib2000a, ib2200=ib2200, ib2205=ib2205, ib2210=ib2210, ib2215=ib2215, ib2220=ib2220, ib2225=ib2225, ib2306=ib2306, ib250=ib250, ib250a=ib250a, ib4000=ib4000, ib4005=ib4005, ib4010=ib4010, ib4015=ib4015, ib4020=ib4020, ib4025=ib4025, ib4030=ib4030, ib4035=ib4035, ib4106=ib4106, ib500=ib500, ib550=ib550, ib550a=ib550a, ib800=ib800, ib805=ib805, ib810=ib810, ib815=ib815, ib820=ib820, ib825=ib825, ib906=ib906, ibCisco=ibCisco, ibDHCPOne=ibDHCPOne, ibDHCPServ=ibDHCPServ, ibDNSOne=ibDNSOne, ibDNSServ=ibDNSServ, ibDataplaneOne=ibDataplaneOne, ibDefault=ibDefault, ibOne=ibOne, ibPlatformOne=ibPlatformOne, ibProduct=ibProduct, ibRsp2=ibRsp2, ibSNMP=ibSNMP, ibTrapOne=ibTrapOne, ibVm=ibVm, ibVnios=ibVnios, ib_1516=ib_1516, ib_1526=ib_1526, ib_2326=ib_2326, ib_4126=ib_4126, ib_926=ib_926, ibflex=ibflex, infoblox=infoblox, infobloxProducts=infobloxProducts, nd1400=nd1400, nd1405=nd1405, nd2200=nd2200, nd2205=nd2205, nd4000=nd4000, nd4005=nd4005, nd800=nd800, nd805=nd805, nd_1606=nd_1606, nd_2306=nd_2306, nd_4106=nd_4106, nd_906=nd_906, pt1400=pt1400, pt1405=pt1405, pt2200=pt2200, pt2205=pt2205, pt4000=pt4000, pt4005=pt4005, tr_5005=tr_5005)

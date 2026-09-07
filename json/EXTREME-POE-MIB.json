@@ -1,0 +1,576 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent",
+      "extremeV2Traps"
+    ],
+    "POWER-ETHERNET-MIB": [
+      "pethMainPseGroupIndex",
+      "pethPsePortGroupIndex",
+      "pethPsePortIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "extremePoE": {
+    "name": "extremePoE",
+    "oid": "1.3.6.1.4.1.1916.1.27",
+    "class": "moduleidentity"
+  },
+  "extremePethMain": {
+    "name": "extremePethMain",
+    "oid": "1.3.6.1.4.1.1916.1.27.1",
+    "class": "objectidentity"
+  },
+  "extremePethPort": {
+    "name": "extremePethPort",
+    "oid": "1.3.6.1.4.1.1916.1.27.2",
+    "class": "objectidentity"
+  },
+  "extremePethSystem": {
+    "name": "extremePethSystem",
+    "oid": "1.3.6.1.4.1.1916.1.27.4",
+    "class": "objectidentity"
+  },
+  "extremePethSystemAdminEnable": {
+    "name": "extremePethSystemAdminEnable",
+    "oid": "1.3.6.1.4.1.1916.1.27.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSystemDisconnectPrecedence": {
+    "name": "extremePethSystemDisconnectPrecedence",
+    "oid": "1.3.6.1.4.1.1916.1.27.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowestPriority": 1,
+          "denyPort": 2
+        }
+      }
+    },
+    "default": {
+      "value": "denyPort",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSystemUsageThreshold": {
+    "name": "extremePethSystemUsageThreshold",
+    "oid": "1.3.6.1.4.1.1916.1.27.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSystemPowerSupplyMode": {
+    "name": "extremePethSystemPowerSupplyMode",
+    "oid": "1.3.6.1.4.1.1916.1.27.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundant": 1,
+          "loadSharing": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSystemLegacyEnable": {
+    "name": "extremePethSystemLegacyEnable",
+    "oid": "1.3.6.1.4.1.1916.1.27.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "disable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPseSlotTable": {
+    "name": "extremePethPseSlotTable",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremePethPseSlotEntry": {
+    "name": "extremePethPseSlotEntry",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-POE-MIB",
+        "object": "extremePethSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremePethSlotNumber": {
+    "name": "extremePethSlotNumber",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremePethSlotPowerLimit": {
+    "name": "extremePethSlotPowerLimit",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSlotConsumptionPower": {
+    "name": "extremePethSlotConsumptionPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotClearConnectHistory": {
+    "name": "extremePethSlotClearConnectHistory",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSlotReservedConsumptionPower": {
+    "name": "extremePethSlotReservedConsumptionPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotCommonConsumptionPower": {
+    "name": "extremePethSlotCommonConsumptionPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotAdminEnable": {
+    "name": "extremePethSlotAdminEnable",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "value": "enable",
+      "format": "enum"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSlotPoeStatus": {
+    "name": "extremePethSlotPoeStatus",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "operational": 2,
+          "downloadFail": 3,
+          "calibrationRequired": 4,
+          "invalidFirmware": 5,
+          "mismatchVersion": 6,
+          "updating": 7,
+          "invalidDevice": 8,
+          "notOperational": 9,
+          "other": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotPoeResetSystem": {
+    "name": "extremePethSlotPoeResetSystem",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSlotMaxAvailPower": {
+    "name": "extremePethSlotMaxAvailPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotMaxCapacity": {
+    "name": "extremePethSlotMaxCapacity",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotBackupPSU": {
+    "name": "extremePethSlotBackupPSU",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "internal": 2,
+          "external": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethSlotPSUActive": {
+    "name": "extremePethSlotPSUActive",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotMeasuredPower": {
+    "name": "extremePethSlotMeasuredPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethSlotMainPseIndex": {
+    "name": "extremePethSlotMainPseIndex",
+    "oid": "1.3.6.1.4.1.1916.1.27.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremePethPsePortTable": {
+    "name": "extremePethPsePortTable",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremePethPsePortEntry": {
+    "name": "extremePethPsePortEntry",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremePethPortOperatorLimit": {
+    "name": "extremePethPortOperatorLimit",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3000,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 15400,
+      "format": "decimal"
+    },
+    "units": "Milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPortReservedBudget": {
+    "name": "extremePethPortReservedBudget",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "Milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPortViolationPrecedence": {
+    "name": "extremePethPortViolationPrecedence",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertisedClass": 1,
+          "operatorLimit": 2,
+          "maxAdvertisedOperator": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPortClearFault": {
+    "name": "extremePethPortClearFault",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPortResetPower": {
+    "name": "extremePethPortResetPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePethPortMeasuredPower": {
+    "name": "extremePethPortMeasuredPower",
+    "oid": "1.3.6.1.4.1.1916.1.27.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source EXTREME-BASE-MIB",
+      "Source digest sha256:920ec3f1c764d83d84c3c0ad6a4d3ca2aa2e105baf75bb47bf910c2a7454dbfc",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "EXTREME-POE-MIB"
+  }
+}

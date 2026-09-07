@@ -1,0 +1,915 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMauCapability": {
+    "name": "ciscoMauCapability",
+    "oid": "1.3.6.1.4.1.9.7.411",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added capability statement ciscoMauCapV05R0003U0401PN3K."
+      },
+      {
+        "revision": "2011-09-28 00:00",
+        "description": "Added capability statement ciscoMauCapV12R0233SXJPCat6K and ciscoMauCapV15R0001SYPCat6K."
+      },
+      {
+        "revision": "2008-10-28 00:00",
+        "description": "Added capability statement ciscoMauCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2007-07-13 00:00",
+        "description": "Added capability statement ciscoMauCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2004-10-22 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMauCapCatOSV08R0401": {
+    "name": "ciscoMauCapCatOSV08R0401",
+    "oid": "1.3.6.1.4.1.9.7.411.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.4(1).",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpJack",
+          "mauIfGrpAutoNeg2"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "unknown": 2,
+                  "operational": 3,
+                  "standby": 4,
+                  "shutdown": 5
+                }
+              }
+            }
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "unknown": 2,
+                  "available": 3,
+                  "notAvailable": 4
+                }
+              }
+            }
+          },
+          {
+            "object": "ifMauJabberState",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1
+                }
+              }
+            }
+          },
+          {
+            "object": "ifJackType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "rj45S": 3,
+                  "fiberSC": 8,
+                  "telco": 11,
+                  "mtrj": 12
+                }
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapAdvertisedBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseT4": 3,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "b100baseT2": 6,
+                "b100baseT2FD": 7,
+                "bFdxPause": 8,
+                "bFdxAPause": 9,
+                "bFdxSPause": 10,
+                "bFdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15
+              }
+            }
+          },
+          {
+            "object": "ifMauTypeListBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseTHD": 10,
+                "b10baseTFD": 11,
+                "b10baseFLHD": 12,
+                "b10baseFLFD": 13,
+                "b100baseT4": 14,
+                "b100baseTXHD": 15,
+                "b100baseTXFD": 16,
+                "b100baseFXHD": 17,
+                "b100baseFXFD": 18,
+                "b1000baseXHD": 21,
+                "b1000baseXFD": 22,
+                "b1000baseLXHD": 23,
+                "b1000baseLXFD": 24,
+                "b1000baseSXHD": 25,
+                "b1000baseSXFD": 26,
+                "b1000baseCXHD": 27,
+                "b1000baseCXFD": 28,
+                "b1000baseTHD": 29,
+                "b1000baseTFD": 30,
+                "b10GbaseLX4": 32,
+                "b10GbaseER": 34,
+                "b10GbaseLR": 35,
+                "b10GbaseSR": 36,
+                "b10GbaseEW": 38,
+                "b10GbaseLW": 39,
+                "b10GbaseSW": 40
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegRemoteFaultAdvertised",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRemoteFaultReceived",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauCapV12R0233SXHPCat6K": {
+    "name": "ciscoMauCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.411.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpAutoNeg2"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailableStateExits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberingStateEnters",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauFalseCarriers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauTypeListBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseTHD": 10,
+                "b10baseTFD": 11,
+                "b100baseTXHD": 15,
+                "b100baseTXFD": 16,
+                "b100baseFXHD": 17,
+                "b100baseFXFD": 18,
+                "b1000baseXHD": 21,
+                "b1000baseXFD": 22,
+                "b1000baseLXHD": 23,
+                "b1000baseLXFD": 24,
+                "b1000baseSXHD": 25,
+                "b1000baseSXFD": 26,
+                "b1000baseCXHD": 27,
+                "b1000baseCXFD": 28,
+                "b1000baseTHD": 29,
+                "b1000baseTFD": 30,
+                "b10GbaseX": 31,
+                "b10GbaseLX4": 32,
+                "b10GbaseR": 33,
+                "b10GbaseER": 34,
+                "b10GbaseLR": 35,
+                "b10GbaseSR": 36,
+                "b10GbaseW": 37,
+                "b10GbaseEW": 38,
+                "b10GbaseLW": 39,
+                "b10GbaseSW": 40
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegRemoteSignaling",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapabilityBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapAdvertisedBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauCapV12R0233SXIPCat6K": {
+    "name": "ciscoMauCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.411.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpAutoNeg2",
+          "mauIfGrpJack"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailableStateExits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberingStateEnters",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauFalseCarriers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauTypeListBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseTHD": 10,
+                "b10baseTFD": 11,
+                "b100baseTXHD": 15,
+                "b100baseTXFD": 16,
+                "b100baseFXHD": 17,
+                "b100baseFXFD": 18,
+                "b1000baseXHD": 21,
+                "b1000baseXFD": 22,
+                "b1000baseLXHD": 23,
+                "b1000baseLXFD": 24,
+                "b1000baseSXHD": 25,
+                "b1000baseSXFD": 26,
+                "b1000baseCXHD": 27,
+                "b1000baseCXFD": 28,
+                "b1000baseTHD": 29,
+                "b1000baseTFD": 30,
+                "b10GbaseX": 31,
+                "b10GbaseLX4": 32,
+                "b10GbaseR": 33,
+                "b10GbaseER": 34,
+                "b10GbaseLR": 35,
+                "b10GbaseSR": 36,
+                "b10GbaseW": 37,
+                "b10GbaseEW": 38,
+                "b10GbaseLW": 39,
+                "b10GbaseSW": 40
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegRemoteSignaling",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapabilityBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapAdvertisedBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifJackType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "rj45S": 3,
+                  "fiberSC": 8,
+                  "fiberMIC": 9,
+                  "fiberST": 10,
+                  "telco": 11,
+                  "mtrj": 12,
+                  "fiberLC": 14
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauCapV12R0233SXJPCat6K": {
+    "name": "ciscoMauCapV12R0233SXJPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.411.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXJ on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpAutoNeg2",
+          "mauIfGrpJack"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailableStateExits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberingStateEnters",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauFalseCarriers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauTypeListBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseTHD": 10,
+                "b10baseTFD": 11,
+                "b100baseTXHD": 15,
+                "b100baseTXFD": 16,
+                "b100baseFXHD": 17,
+                "b100baseFXFD": 18,
+                "b1000baseXHD": 21,
+                "b1000baseXFD": 22,
+                "b1000baseLXHD": 23,
+                "b1000baseLXFD": 24,
+                "b1000baseSXHD": 25,
+                "b1000baseSXFD": 26,
+                "b1000baseCXHD": 27,
+                "b1000baseCXFD": 28,
+                "b1000baseTHD": 29,
+                "b1000baseTFD": 30,
+                "b10GbaseX": 31,
+                "b10GbaseLX4": 32,
+                "b10GbaseR": 33,
+                "b10GbaseER": 34,
+                "b10GbaseLR": 35,
+                "b10GbaseSR": 36,
+                "b10GbaseW": 37,
+                "b10GbaseEW": 38,
+                "b10GbaseLW": 39,
+                "b10GbaseSW": 40,
+                "b10GbaseCX4": 41,
+                "b100BaseBX10D": 44,
+                "b100BaseBX10U": 45,
+                "b1000BaseBX10D": 47,
+                "b1000BaseBX10U": 48,
+                "b10GbaseT": 54,
+                "b10GbaseLRM": 55
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegRemoteSignaling",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapabilityBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15,
+                "b10GbaseT": 16
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapAdvertisedBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15,
+                "b10GbaseT": 16
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifJackType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "rj45S": 3,
+                  "fiberSC": 8,
+                  "fiberMIC": 9,
+                  "fiberST": 10,
+                  "telco": 11,
+                  "mtrj": 12,
+                  "fiberLC": 14,
+                  "cx4": 15
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauCapV15R0001SYPCat6K": {
+    "name": "ciscoMauCapV15R0001SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.411.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                     series devices.",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpAutoNeg2",
+          "mauIfGrpJack"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailableStateExits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberingStateEnters",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauFalseCarriers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauTypeListBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseTHD": 10,
+                "b10baseTFD": 11,
+                "b100baseTXHD": 15,
+                "b100baseTXFD": 16,
+                "b100baseFXHD": 17,
+                "b100baseFXFD": 18,
+                "b1000baseXHD": 21,
+                "b1000baseXFD": 22,
+                "b1000baseLXHD": 23,
+                "b1000baseLXFD": 24,
+                "b1000baseSXHD": 25,
+                "b1000baseSXFD": 26,
+                "b1000baseCXHD": 27,
+                "b1000baseCXFD": 28,
+                "b1000baseTHD": 29,
+                "b1000baseTFD": 30,
+                "b10GbaseX": 31,
+                "b10GbaseLX4": 32,
+                "b10GbaseR": 33,
+                "b10GbaseER": 34,
+                "b10GbaseLR": 35,
+                "b10GbaseSR": 36,
+                "b10GbaseW": 37,
+                "b10GbaseEW": 38,
+                "b10GbaseLW": 39,
+                "b10GbaseSW": 40,
+                "b10GbaseCX4": 41,
+                "b100BaseBX10D": 44,
+                "b100BaseBX10U": 45,
+                "b1000BaseBX10D": 47,
+                "b1000BaseBX10U": 48,
+                "b10GbaseT": 54,
+                "b10GbaseLRM": 55
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegRemoteSignaling",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapabilityBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15,
+                "b10GbaseT": 16
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapAdvertisedBits",
+            "syntax": {
+              "type": "Bits",
+              "class": "type",
+              "bits": {
+                "bOther": 0,
+                "b10baseT": 1,
+                "baseTFD": 2,
+                "b100baseTX": 4,
+                "b100baseTXFD": 5,
+                "bFdxPause": 8,
+                "bfdxAPause": 9,
+                "bfdxSPause": 10,
+                "bfdxBPause": 11,
+                "b1000baseX": 12,
+                "b1000baseXFD": 13,
+                "b1000baseT": 14,
+                "b1000baseTFD": 15,
+                "b10GbaseT": 16
+              }
+            }
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifJackType",
+            "syntax": {
+              "type": "INTEGER",
+              "class": "type",
+              "constraints": {
+                "enumeration": {
+                  "other": 1,
+                  "rj45S": 3,
+                  "fiberSC": 8,
+                  "fiberMIC": 9,
+                  "fiberST": 10,
+                  "telco": 11,
+                  "mtrj": 12,
+                  "fiberLC": 14,
+                  "cx4": 15
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMauCapV05R0003U0401PN3K": {
+    "name": "ciscoMauCapV05R0003U0401PN3K",
+    "oid": "1.3.6.1.4.1.9.7.411.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 5.0(3)U4(1) on Nexus 3000 series\n                     devices.",
+    "capabilities": [
+      {
+        "module": "MAU-MIB",
+        "includes": [
+          "mauIfGrpBasic",
+          "mauIfGrpHighCapacity",
+          "mauIfGrpAutoNeg2"
+        ],
+        "variations": [
+          {
+            "object": "ifMauStatus",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailable",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauMediaAvailableStateExits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberState",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauJabberingStateEnters",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauFalseCarriers",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRemoteSignaling",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegConfig",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegCapReceivedBits",
+            "access": "not-implemented"
+          },
+          {
+            "object": "ifMauAutoNegRestart",
+            "access": "not-implemented"
+          }
+        ]
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source CISCO-MAU-CAPABILITY",
+      "Source digest sha256:bd850aea2ed0dfe089d878f547652393f6b93eb0b13419ced945f542be565558",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "CISCO-MAU-CAPABILITY"
+  }
+}

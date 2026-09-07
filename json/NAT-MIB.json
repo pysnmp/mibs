@@ -1,0 +1,2829 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifCounterDiscontinuityGroup",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "natMIB": {
+    "name": "natMIB",
+    "oid": "1.3.6.1.2.1.123",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-02 00:00",
+        "description": "Deprecation of all objects, published as RFC 7658. See NATV2-MIB in RFC 7659 for recommended replacement."
+      },
+      {
+        "revision": "2005-03-21 00:00",
+        "description": "Initial version, published as RFC 4008."
+      }
+    ]
+  },
+  "natMIBObjects": {
+    "name": "natMIBObjects",
+    "oid": "1.3.6.1.2.1.123.1",
+    "class": "objectidentity"
+  },
+  "NatProtocolType": {
+    "name": "NatProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "icmp": 3,
+          "udp": 4,
+          "tcp": 5
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "NatProtocolMap": {
+    "name": "NatProtocolMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "icmp": 1,
+        "udp": 2,
+        "tcp": 3
+      }
+    },
+    "status": "deprecated"
+  },
+  "NatAddrMapId": {
+    "name": "NatAddrMapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "NatBindIdOrZero": {
+    "name": "NatBindIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "NatBindId": {
+    "name": "NatBindId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "NatSessionId": {
+    "name": "NatSessionId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "NatBindMode": {
+    "name": "NatBindMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addressBind": 1,
+          "addressPortBind": 2
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "NatAssociationType": {
+    "name": "NatAssociationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "NatTranslationEntity": {
+    "name": "NatTranslationEntity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inboundSrcEndPoint": 0,
+        "outboundDstEndPoint": 1,
+        "inboundDstEndPoint": 2,
+        "outboundSrcEndPoint": 3
+      }
+    },
+    "status": "deprecated"
+  },
+  "natDefTimeouts": {
+    "name": "natDefTimeouts",
+    "oid": "1.3.6.1.2.1.123.1.1",
+    "class": "objectidentity"
+  },
+  "natNotifCtrl": {
+    "name": "natNotifCtrl",
+    "oid": "1.3.6.1.2.1.123.1.2",
+    "class": "objectidentity"
+  },
+  "natBindDefIdleTimeout": {
+    "name": "natBindDefIdleTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natUdpDefIdleTimeout": {
+    "name": "natUdpDefIdleTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natIcmpDefIdleTimeout": {
+    "name": "natIcmpDefIdleTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 300,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natOtherDefIdleTimeout": {
+    "name": "natOtherDefIdleTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natTcpDefIdleTimeout": {
+    "name": "natTcpDefIdleTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 86400,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natTcpDefNegTimeout": {
+    "name": "natTcpDefNegTimeout",
+    "oid": "1.3.6.1.2.1.123.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 60,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natNotifThrottlingInterval": {
+    "name": "natNotifThrottlingInterval",
+    "oid": "1.3.6.1.2.1.123.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "natInterfaceTable": {
+    "name": "natInterfaceTable",
+    "oid": "1.3.6.1.2.1.123.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natInterfaceEntry": {
+    "name": "natInterfaceEntry",
+    "oid": "1.3.6.1.2.1.123.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natInterfaceRealm": {
+    "name": "natInterfaceRealm",
+    "oid": "1.3.6.1.2.1.123.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "private": 1,
+          "public": 2
+        }
+      }
+    },
+    "default": {
+      "value": "public",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natInterfaceServiceType": {
+    "name": "natInterfaceServiceType",
+    "oid": "1.3.6.1.2.1.123.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "basicNat": 0,
+        "napt": 1,
+        "bidirectionalNat": 2,
+        "twiceNat": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natInterfaceInTranslates": {
+    "name": "natInterfaceInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natInterfaceOutTranslates": {
+    "name": "natInterfaceOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natInterfaceDiscards": {
+    "name": "natInterfaceDiscards",
+    "oid": "1.3.6.1.2.1.123.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natInterfaceStorageType": {
+    "name": "natInterfaceStorageType",
+    "oid": "1.3.6.1.2.1.123.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natInterfaceRowStatus": {
+    "name": "natInterfaceRowStatus",
+    "oid": "1.3.6.1.2.1.123.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapTable": {
+    "name": "natAddrMapTable",
+    "oid": "1.3.6.1.2.1.123.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrMapEntry": {
+    "name": "natAddrMapEntry",
+    "oid": "1.3.6.1.2.1.123.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natAddrMapIndex": {
+    "name": "natAddrMapIndex",
+    "oid": "1.3.6.1.2.1.123.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAddrMapId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrMapName": {
+    "name": "natAddrMapName",
+    "oid": "1.3.6.1.2.1.123.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapEntryType": {
+    "name": "natAddrMapEntryType",
+    "oid": "1.3.6.1.2.1.123.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAssociationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapTranslationEntity": {
+    "name": "natAddrMapTranslationEntity",
+    "oid": "1.3.6.1.2.1.123.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatTranslationEntity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapLocalAddrType": {
+    "name": "natAddrMapLocalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapLocalAddrFrom": {
+    "name": "natAddrMapLocalAddrFrom",
+    "oid": "1.3.6.1.2.1.123.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapLocalAddrTo": {
+    "name": "natAddrMapLocalAddrTo",
+    "oid": "1.3.6.1.2.1.123.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapLocalPortFrom": {
+    "name": "natAddrMapLocalPortFrom",
+    "oid": "1.3.6.1.2.1.123.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapLocalPortTo": {
+    "name": "natAddrMapLocalPortTo",
+    "oid": "1.3.6.1.2.1.123.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapGlobalAddrType": {
+    "name": "natAddrMapGlobalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapGlobalAddrFrom": {
+    "name": "natAddrMapGlobalAddrFrom",
+    "oid": "1.3.6.1.2.1.123.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapGlobalAddrTo": {
+    "name": "natAddrMapGlobalAddrTo",
+    "oid": "1.3.6.1.2.1.123.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapGlobalPortFrom": {
+    "name": "natAddrMapGlobalPortFrom",
+    "oid": "1.3.6.1.2.1.123.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapGlobalPortTo": {
+    "name": "natAddrMapGlobalPortTo",
+    "oid": "1.3.6.1.2.1.123.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "value": 0,
+      "format": "decimal"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapProtocol": {
+    "name": "natAddrMapProtocol",
+    "oid": "1.3.6.1.2.1.123.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatProtocolMap",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapInTranslates": {
+    "name": "natAddrMapInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrMapOutTranslates": {
+    "name": "natAddrMapOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrMapDiscards": {
+    "name": "natAddrMapDiscards",
+    "oid": "1.3.6.1.2.1.123.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrMapAddrUsed": {
+    "name": "natAddrMapAddrUsed",
+    "oid": "1.3.6.1.2.1.123.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrMapStorageType": {
+    "name": "natAddrMapStorageType",
+    "oid": "1.3.6.1.2.1.123.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "value": "nonVolatile",
+      "format": "enum"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrMapRowStatus": {
+    "name": "natAddrMapRowStatus",
+    "oid": "1.3.6.1.2.1.123.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "natAddrBindNumberOfEntries": {
+    "name": "natAddrBindNumberOfEntries",
+    "oid": "1.3.6.1.2.1.123.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindTable": {
+    "name": "natAddrBindTable",
+    "oid": "1.3.6.1.2.1.123.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrBindEntry": {
+    "name": "natAddrBindEntry",
+    "oid": "1.3.6.1.2.1.123.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindLocalAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natAddrBindLocalAddrType": {
+    "name": "natAddrBindLocalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrBindLocalAddr": {
+    "name": "natAddrBindLocalAddr",
+    "oid": "1.3.6.1.2.1.123.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrBindGlobalAddrType": {
+    "name": "natAddrBindGlobalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindGlobalAddr": {
+    "name": "natAddrBindGlobalAddr",
+    "oid": "1.3.6.1.2.1.123.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindId": {
+    "name": "natAddrBindId",
+    "oid": "1.3.6.1.2.1.123.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindTranslationEntity": {
+    "name": "natAddrBindTranslationEntity",
+    "oid": "1.3.6.1.2.1.123.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatTranslationEntity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindType": {
+    "name": "natAddrBindType",
+    "oid": "1.3.6.1.2.1.123.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAssociationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindMapIndex": {
+    "name": "natAddrBindMapIndex",
+    "oid": "1.3.6.1.2.1.123.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAddrMapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindSessions": {
+    "name": "natAddrBindSessions",
+    "oid": "1.3.6.1.2.1.123.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindMaxIdleTime": {
+    "name": "natAddrBindMaxIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindCurrentIdleTime": {
+    "name": "natAddrBindCurrentIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindInTranslates": {
+    "name": "natAddrBindInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrBindOutTranslates": {
+    "name": "natAddrBindOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindNumberOfEntries": {
+    "name": "natAddrPortBindNumberOfEntries",
+    "oid": "1.3.6.1.2.1.123.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindTable": {
+    "name": "natAddrPortBindTable",
+    "oid": "1.3.6.1.2.1.123.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrPortBindEntry": {
+    "name": "natAddrPortBindEntry",
+    "oid": "1.3.6.1.2.1.123.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindLocalAddr",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natAddrPortBindLocalAddrType": {
+    "name": "natAddrPortBindLocalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrPortBindLocalAddr": {
+    "name": "natAddrPortBindLocalAddr",
+    "oid": "1.3.6.1.2.1.123.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrPortBindLocalPort": {
+    "name": "natAddrPortBindLocalPort",
+    "oid": "1.3.6.1.2.1.123.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrPortBindProtocol": {
+    "name": "natAddrPortBindProtocol",
+    "oid": "1.3.6.1.2.1.123.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natAddrPortBindGlobalAddrType": {
+    "name": "natAddrPortBindGlobalAddrType",
+    "oid": "1.3.6.1.2.1.123.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindGlobalAddr": {
+    "name": "natAddrPortBindGlobalAddr",
+    "oid": "1.3.6.1.2.1.123.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindGlobalPort": {
+    "name": "natAddrPortBindGlobalPort",
+    "oid": "1.3.6.1.2.1.123.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindId": {
+    "name": "natAddrPortBindId",
+    "oid": "1.3.6.1.2.1.123.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindTranslationEntity": {
+    "name": "natAddrPortBindTranslationEntity",
+    "oid": "1.3.6.1.2.1.123.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatTranslationEntity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindType": {
+    "name": "natAddrPortBindType",
+    "oid": "1.3.6.1.2.1.123.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAssociationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindMapIndex": {
+    "name": "natAddrPortBindMapIndex",
+    "oid": "1.3.6.1.2.1.123.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAddrMapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindSessions": {
+    "name": "natAddrPortBindSessions",
+    "oid": "1.3.6.1.2.1.123.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindMaxIdleTime": {
+    "name": "natAddrPortBindMaxIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindCurrentIdleTime": {
+    "name": "natAddrPortBindCurrentIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindInTranslates": {
+    "name": "natAddrPortBindInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natAddrPortBindOutTranslates": {
+    "name": "natAddrPortBindOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionTable": {
+    "name": "natSessionTable",
+    "oid": "1.3.6.1.2.1.123.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natSessionEntry": {
+    "name": "natSessionEntry",
+    "oid": "1.3.6.1.2.1.123.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natSessionIndex": {
+    "name": "natSessionIndex",
+    "oid": "1.3.6.1.2.1.123.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatSessionId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natSessionPrivateSrcEPBindId": {
+    "name": "natSessionPrivateSrcEPBindId",
+    "oid": "1.3.6.1.2.1.123.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateSrcEPBindMode": {
+    "name": "natSessionPrivateSrcEPBindMode",
+    "oid": "1.3.6.1.2.1.123.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateDstEPBindId": {
+    "name": "natSessionPrivateDstEPBindId",
+    "oid": "1.3.6.1.2.1.123.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateDstEPBindMode": {
+    "name": "natSessionPrivateDstEPBindMode",
+    "oid": "1.3.6.1.2.1.123.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBindMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionDirection": {
+    "name": "natSessionDirection",
+    "oid": "1.3.6.1.2.1.123.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionUpTime": {
+    "name": "natSessionUpTime",
+    "oid": "1.3.6.1.2.1.123.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionAddrMapIndex": {
+    "name": "natSessionAddrMapIndex",
+    "oid": "1.3.6.1.2.1.123.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatAddrMapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionProtocolType": {
+    "name": "natSessionProtocolType",
+    "oid": "1.3.6.1.2.1.123.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateAddrType": {
+    "name": "natSessionPrivateAddrType",
+    "oid": "1.3.6.1.2.1.123.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateSrcAddr": {
+    "name": "natSessionPrivateSrcAddr",
+    "oid": "1.3.6.1.2.1.123.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateSrcPort": {
+    "name": "natSessionPrivateSrcPort",
+    "oid": "1.3.6.1.2.1.123.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateDstAddr": {
+    "name": "natSessionPrivateDstAddr",
+    "oid": "1.3.6.1.2.1.123.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPrivateDstPort": {
+    "name": "natSessionPrivateDstPort",
+    "oid": "1.3.6.1.2.1.123.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPublicAddrType": {
+    "name": "natSessionPublicAddrType",
+    "oid": "1.3.6.1.2.1.123.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPublicSrcAddr": {
+    "name": "natSessionPublicSrcAddr",
+    "oid": "1.3.6.1.2.1.123.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPublicSrcPort": {
+    "name": "natSessionPublicSrcPort",
+    "oid": "1.3.6.1.2.1.123.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPublicDstAddr": {
+    "name": "natSessionPublicDstAddr",
+    "oid": "1.3.6.1.2.1.123.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionPublicDstPort": {
+    "name": "natSessionPublicDstPort",
+    "oid": "1.3.6.1.2.1.123.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionMaxIdleTime": {
+    "name": "natSessionMaxIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionCurrentIdleTime": {
+    "name": "natSessionCurrentIdleTime",
+    "oid": "1.3.6.1.2.1.123.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionInTranslates": {
+    "name": "natSessionInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natSessionOutTranslates": {
+    "name": "natSessionOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natProtocolTable": {
+    "name": "natProtocolTable",
+    "oid": "1.3.6.1.2.1.123.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natProtocolEntry": {
+    "name": "natProtocolEntry",
+    "oid": "1.3.6.1.2.1.123.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NAT-MIB",
+        "object": "natProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natProtocol": {
+    "name": "natProtocol",
+    "oid": "1.3.6.1.2.1.123.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "natProtocolInTranslates": {
+    "name": "natProtocolInTranslates",
+    "oid": "1.3.6.1.2.1.123.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natProtocolOutTranslates": {
+    "name": "natProtocolOutTranslates",
+    "oid": "1.3.6.1.2.1.123.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natProtocolDiscards": {
+    "name": "natProtocolDiscards",
+    "oid": "1.3.6.1.2.1.123.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "natMIBNotifications": {
+    "name": "natMIBNotifications",
+    "oid": "1.3.6.1.2.1.123.0",
+    "class": "objectidentity"
+  },
+  "natPacketDiscard": {
+    "name": "natPacketDiscard",
+    "oid": "1.3.6.1.2.1.123.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natMIBConformance": {
+    "name": "natMIBConformance",
+    "oid": "1.3.6.1.2.1.123.2",
+    "class": "objectidentity"
+  },
+  "natMIBGroups": {
+    "name": "natMIBGroups",
+    "oid": "1.3.6.1.2.1.123.2.1",
+    "class": "objectidentity"
+  },
+  "natMIBCompliances": {
+    "name": "natMIBCompliances",
+    "oid": "1.3.6.1.2.1.123.2.2",
+    "class": "objectidentity"
+  },
+  "natConfigGroup": {
+    "name": "natConfigGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceRealm"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceServiceType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceStorageType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceRowStatus"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapName"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapEntryType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapTranslationEntity"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrFrom"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrTo"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalPortFrom"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalPortTo"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrFrom"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrTo"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalPortFrom"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalPortTo"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapProtocol"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapStorageType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapRowStatus"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natBindDefIdleTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natUdpDefIdleTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natIcmpDefIdleTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natOtherDefIdleTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natTcpDefIdleTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natTcpDefNegTimeout"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natNotifThrottlingInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natTranslationGroup": {
+    "name": "natTranslationGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindNumberOfEntries"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindId"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindTranslationEntity"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindMapIndex"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindSessions"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindMaxIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindCurrentIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindOutTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindNumberOfEntries"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalPort"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindId"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindTranslationEntity"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindMapIndex"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindSessions"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindMaxIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindCurrentIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindOutTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcEPBindId"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcEPBindMode"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstEPBindId"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstEPBindMode"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionDirection"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionUpTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionAddrMapIndex"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionProtocolType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcPort"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstPort"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicAddrType"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicSrcAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicSrcPort"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicDstAddr"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicDstPort"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionMaxIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionCurrentIdleTime"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionOutTranslates"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natStatsInterfaceGroup": {
+    "name": "natStatsInterfaceGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceOutTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceDiscards"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natStatsProtocolGroup": {
+    "name": "natStatsProtocolGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natProtocolInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natProtocolOutTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natProtocolDiscards"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natStatsAddrMapGroup": {
+    "name": "natStatsAddrMapGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapInTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapOutTranslates"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapDiscards"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapAddrUsed"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natMIBNotificationGroup": {
+    "name": "natMIBNotificationGroup",
+    "oid": "1.3.6.1.2.1.123.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "NAT-MIB",
+        "object": "natPacketDiscard"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natMIBFullCompliance": {
+    "name": "natMIBFullCompliance",
+    "oid": "1.3.6.1.2.1.123.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "natConfigGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natTranslationGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsInterfaceGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsProtocolGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsAddrMapGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natMIBNotificationGroup",
+        "module": "NAT-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrFrom",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrTo",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrFrom",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrTo",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicSrcAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicDstAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "status": "deprecated"
+  },
+  "natMIBReadOnlyCompliance": {
+    "name": "natMIBReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.123.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "natConfigGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natTranslationGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsInterfaceGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsProtocolGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natStatsAddrMapGroup",
+        "module": "NAT-MIB"
+      },
+      {
+        "object": "natMIBNotificationGroup",
+        "module": "NAT-MIB"
+      }
+    ],
+    "refinements": [
+      {
+        "module": "NAT-MIB",
+        "object": "natInterfaceRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "RowStatus",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrFrom",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapLocalAddrTo",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrFrom",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapGlobalAddrTo",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrMapRowStatus",
+        "kind": "object",
+        "syntax": {
+          "type": "RowStatus",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "active": 1
+            }
+          }
+        },
+        "minaccess": "read-only"
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrBindGlobalAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natAddrPortBindGlobalAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateSrcAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPrivateDstAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicAddrType",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddressType",
+          "class": "type",
+          "constraints": {
+            "enumeration": {
+              "ipv4": 1,
+              "ipv6": 2
+            }
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicSrcAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      },
+      {
+        "module": "NAT-MIB",
+        "object": "natSessionPublicDstAddr",
+        "kind": "object",
+        "syntax": {
+          "type": "InetAddress",
+          "class": "type",
+          "constraints": {
+            "size": [
+              {
+                "min": 4,
+                "max": 4
+              },
+              {
+                "min": 16,
+                "max": 16
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source NAT-MIB",
+      "Source digest sha256:b79f3b809d3a42e77bff18ec41fc0e903f229188f6032024206008bca4374483",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "NAT-MIB"
+  }
+}

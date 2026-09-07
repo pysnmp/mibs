@@ -1,0 +1,41 @@
+#
+# PySNMP MIB module CISCO-IPSLA-TC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source CISCO-IPSLA-TC-MIB
+# Source digest sha256:c3a29c19afe1d04fcfc74acca77c07a04b2b1f685f9bec815253a42d97ee7dbd
+# Produced by pysmi-2.3.0
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Counter64, Gauge32, Integer32, IpAddress, ModuleIdentity, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoIpSlaTCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 624))
+ciscoIpSlaTCMIB.setRevisions(('2007-03-23 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ciscoIpSlaTCMIB.setRevisionsDescriptions(('Initial version of this MIB module.',))
+if mibBuilder.loadTexts: ciscoIpSlaTCMIB.setLastUpdated('2007-03-23 00:00')
+if mibBuilder.loadTexts: ciscoIpSlaTCMIB.setOrganization('Cisco Systems, Inc.')
+if mibBuilder.loadTexts: ciscoIpSlaTCMIB.setContactInfo('Cisco Systems, Inc.\n            Customer Service \n\n            Postal: 170 W Tasman Drive\n            San Jose, CA 95134\n\n            Tel: +1 800 553 NETS\n            Email: cs-ipsla@cisco.com')
+if mibBuilder.loadTexts: ciscoIpSlaTCMIB.setDescription('This MIB contains textual conventions used by\n             CISCO IPSLA MIBs.\n\n            Acronyms:\n              FEC: Forward Equivalence Class\n              LPD: Label Path Discovery\n              LSP: Label Switched Path\n              MPLS: Multi Protocol Label Switching\n              RTT: Round Trip Time\n              SAA: Service Assurance Agent\n              SLA: Service Level Agreement\n              VPN: Virtual Private Network\n              ICPIF: Calculated Planning Impairment Factor')
+class IpSlaOperType(TextualConvention, Integer32):
+    description = "Specifies the type of IP SLA operation to be performed.\n\n            icmpEcho(1)   -  The value 'icmpEcho' will cause the\n                             IP SLA application to  perform a timed \n                             ICMP echo request/response operation.\n\n           \n            udpEcho(2)    -  The value 'udpEcho' will cause the IP SLA \n                             application to perform a timed udp packet \n                             send/receive operation. \n\n            tcpConnect(3) -  The value 'tcpConnect' will cause the IP \n                             SLA application to perform a timed TCP \n                             connect operation. \n\n            udpJitter(4)  -  The value 'udpjitter' will cause the IP\n                             SLA application to perform delay variance\n                             analysis using UDP timestamp packets. \n            \n            icmpjitter(5) -  The value 'icmpjitter' will cause the IP \n                             SLA application to perform delay variance \n                             analysis using ICMP timestamp packets."
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("icmpEcho", 1), ("udpEcho", 2), ("tcpConnect", 3), ("udpJitter", 4), ("icmpJitter", 5))
+
+class IpSlaCodecType(TextualConvention, Integer32):
+    description = 'Specifies the IP SLA codec type to be used with the UDP \n            jitter operation. The following codec types are defined:\n\n            notApplicable(0)     - no CodecType is defined\n\n            g711ulaw(1)          - uses G.711 U Law 64000 bps\n\n            g711alaw(2)          - uses G.711 A Law 64000 bps\n\n            g729a(3)             - uses G.729 8000 bps'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("notApplicable", 0), ("g711ulaw", 1), ("g711alaw", 2), ("g729a", 3))
+
+class IpSlaReactVar(TextualConvention, Integer32):
+    description = 'The following are specific reaction variables for an\n            IP SLA operation to react upon:\n\n             rtt(1)            - Round Trip Time\n\n             jitterSDAvg(2)    - Jitter average from source to\n                                 destination  \n\n             jitterDSAvg(3)    - Jitter average from destination \n                                 to source  \n\n             packetLossSD(4)   - Packet loss from source to \n                                 destination \n \n             packetLossDS(5)   - Packet loss from destination \n                                 to source \n \n             mos(6)            - Mean Opinion Score  \n\n             timeout(7)        - Timeout of the operation\n\n             connectionLoss(8) - Connection failed to the destination\n\n             verifyError(9)    - Data corruption occurs\n\n             jitterAvg(10)     - Jitter average in both directions\n\n             icpif(11)         - Calculated Planning Impairment Factor\n\n             packetMIA(12)     - Missed packets in operation\n\n             packetLateArrival(13)   - Packets arriving late\n\n             packetOutOfSequence(14) - Packets arriving out of sequence\n\n             maxOfPositiveSD(15)     - Maximum positive jitter from\n                                       source to destination\n\n             maxOfNegativeSD(16)     - Maximum negative jitter from\n                                       source to destination\n\n             maxOfPositiveDS(17)     - Maximum positive jitter from\n                                       destination to source\n\n             maxOfNegativeDS(18)     - Maximum negative jitter from\n                                       destination to source.\n\n             successivePacketLoss(19)- Successive packet dropped \n \n             maxOfLatencyDS(20)      - Maximum Latency from\n                                       Destination to Source\n\n             maxOfLatencySD(21)      - Maximum Latency from Source \n                                       to Destination\n\n             latencyDSAvg(22)        - Latency average from Destination \n                                       to Source\n\n             latencySDAvg(23)        - Latency average from Source \n                                       to Destination\n\n             packetLoss(24)          - Packets loss in both directions'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24))
+    namedValues = NamedValues(("rtt", 1), ("jitterSDAvg", 2), ("jitterDSAvg", 3), ("packetLossSD", 4), ("packetLossDS", 5), ("mos", 6), ("timeout", 7), ("connectionLoss", 8), ("verifyError", 9), ("jitterAvg", 10), ("icpif", 11), ("packetMIA", 12), ("packetLateArrival", 13), ("packetOutOfSequence", 14), ("maxOfPositiveSD", 15), ("maxOfNegativeSD", 16), ("maxOfPositiveDS", 17), ("maxOfNegativeDS", 18), ("successivePacketLoss", 19), ("maxOfLatencyDS", 20), ("maxOfLatencySD", 21), ("latencyDSAvg", 22), ("latencySDAvg", 23), ("packetLoss", 24))
+
+mibBuilder.exportSymbols("CISCO-IPSLA-TC-MIB", IpSlaCodecType=IpSlaCodecType, IpSlaOperType=IpSlaOperType, IpSlaReactVar=IpSlaReactVar, PYSNMP_MODULE_ID=ciscoIpSlaTCMIB, ciscoIpSlaTCMIB=ciscoIpSlaTCMIB)

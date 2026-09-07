@@ -1,0 +1,55 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-VRTX-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rndEndOfMibGroup": {
+    "name": "rndEndOfMibGroup",
+    "oid": "1.3.6.1.4.1.89.1000",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rndEndOfMib": {
+    "name": "rndEndOfMib",
+    "oid": "1.3.6.1.4.1.89.1000.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source Dell-VRTX-ENDOFMIB-MIB",
+      "Source digest sha256:0ba9e7f1c5c2582f48e602da81e129531ebba3b1931bc02419faef8ed89d946c",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "Dell-VRTX-ENDOFMIB-MIB"
+  }
+}

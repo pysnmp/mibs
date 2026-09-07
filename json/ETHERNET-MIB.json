@@ -1,0 +1,401 @@
+{
+  "imports": {
+    "class": "imports",
+    "ExaltComProducts": [
+      "interface",
+      "locEthAlarms",
+      "remEthAlarms"
+    ],
+    "ExaltComm": [
+      "AlarmLevelT",
+      "EnableStatusT",
+      "EthernetMgmtTypeT"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "EthernetFunctionT": {
+    "name": "EthernetFunctionT",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "traffic": 0,
+          "mgmt": 1,
+          "trafficmgmt": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EthernetModeT": {
+    "name": "EthernetModeT",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full1000": 0,
+          "half1000": 1,
+          "full100": 2,
+          "half100": 3,
+          "full10": 4,
+          "half10": 5,
+          "auto": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EthRateLimitTypeT": {
+    "name": "EthRateLimitTypeT",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kbps": 0,
+          "mbps": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EthRateLimitValueT": {
+    "name": "EthRateLimitValueT",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ethernetNumChannels": {
+    "name": "ethernetNumChannels",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethernetInterfaces": {
+    "name": "ethernetInterfaces",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethernetInterface": {
+    "name": "ethernetInterface",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ETHERNET-MIB",
+        "object": "function",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "mode",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "alarm",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "mute",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "dhcp",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "rateConfig",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "rateType",
+        "implied": 0
+      },
+      {
+        "module": "ETHERNET-MIB",
+        "object": "rateLimit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "function": {
+    "name": "function",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthernetFunctionT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mode": {
+    "name": "mode",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthernetModeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mute": {
+    "name": "mute",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateConfig": {
+    "name": "rateConfig",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateType": {
+    "name": "rateType",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthRateLimitTypeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimit": {
+    "name": "rateLimit",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthRateLimitValueT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcp": {
+    "name": "dhcp",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethernetLearning": {
+    "name": "ethernetLearning",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethernetMgmt": {
+    "name": "ethernetMgmt",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EthernetMgmtTypeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethernetFlowControl": {
+    "name": "ethernetFlowControl",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitEthernetSettings": {
+    "name": "commitEthernetSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.1.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locETHAlarms": {
+    "name": "locETHAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "locEthAlarmsEntry": {
+    "name": "locEthAlarmsEntry",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ETHERNET-MIB",
+        "object": "locEthAlarm",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "locEthAlarm": {
+    "name": "locEthAlarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remETHAlarms": {
+    "name": "remETHAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "remEthAlarmsEntry": {
+    "name": "remEthAlarmsEntry",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ETHERNET-MIB",
+        "object": "remEthAlarm",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "remEthAlarm": {
+    "name": "remEthAlarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "schema": 1,
+    "comments": [
+      "ASN.1 source ETHERNET-MIB",
+      "Source digest sha256:c9c543d15d5ff7f0f5f61daa6e71c6c1d98b893c7de5f09d8069e682fb0a4d87",
+      "Produced by pysmi-2.3.0"
+    ],
+    "module": "ETHERNET-MIB"
+  }
+}
